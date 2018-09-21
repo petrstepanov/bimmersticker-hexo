@@ -1,0 +1,37 @@
+<section class="section-intro">
+  <div class="section-intro-mobile-bg">
+    <%- partial('partial/navbar') %>
+    <div class="jumbotron jumbotron-fluid jumbotron-blueberry">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1 class="display-4"><%- theme.slogan ? theme.slogan : "" %></h1>
+            <p class="lead"><%- theme.lead ? theme.lead : "" %></p>
+            <!-- <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
+          </div>
+        </div>
+      </div>
+      <img class="w-100 d-lg-none" src="<%- partial('data-uri/wave-xs') %>" alt="bottom bakground image"/>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-10 col-xl-9">
+        <div class="row">
+          <div class="col-12 col-sm-6">
+            <div class="icon-l mb-2 mb-lg-3"><%- partial('icons/icon-roll.svg') %></div>
+            <p>Made from the award-winning ORACAL® 651 and Cricut® adhesive outdoor vinyl.</p>
+            <p class="mb-4 mb-lg-0"><strong>Stickers’ durability period tops at 6 years.</strong></p>
+          </div>
+          <div class="col-12 col-sm-6">
+            <div class="icon-l mb-2 mb-lg-3"><%- partial('icons/icon-ship.svg') %></div>
+            <p><strong>Free shipping across US</strong> with one day handling time and three to five days delivery time.</p>
+            <p class="mb-4 mb-lg-0">International shipping prices start at $0.65</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

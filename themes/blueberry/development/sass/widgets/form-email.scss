@@ -1,0 +1,14 @@
+.widget-form-email {
+  @extend %my-card;
+  @include border-radius($card-border-radius);
+  padding: $card-padding;
+  margin-bottom: 3rem;
+
+  @include media-breakpoint-up(md){
+    margin-bottom: 4rem;
+  }
+
+  @include media-breakpoint-up(lg){
+    margin-bottom: 5rem;
+  }
+}

@@ -1,0 +1,80 @@
+var gulp = require('gulp'),
+    uglify = require('gulp-uglify'),
+    rename = require('gulp-rename'),
+    sass = require('gulp-sass'),
+    concat = require('gulp-concat'),
+    plumber = require('gulp-plumber'),
+    sourcemaps = require('gulp-sourcemaps'),
+    autoprefixer = require('gulp-autoprefixer'),
+    version = require('gulp-version-number');
+
+var paths = {
+  styles: {
+    src: './development/sass/blueberry.scss',
+    srcWatch: './development/sass/**/*.scss',
+    dest: './source/css'
+  },
+  scripts: {
+    src: ['./node_modules/jquery/dist/jquery.js',
+          './node_modules/bootstrap/dist/js/bootstrap.bundle.js',
+          './node_modules/shufflejs/dist/shuffle.js',
+          './development/js/modules/navbar-fixer.js',
+          './development/js/app.js'],
+    srcWatch: './development/js/**/*.js',
+    dest: './source/js'
+  }
+};
+
+// Scripts Task
+
+gulp.task('scripts', function() {
+  return gulp
+    .src(paths.scripts.src)
+    .pipe(sourcemaps.init())
+    .pipe(concat('blueberry.js'))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(paths.scripts.dest));
+});
+
+gulp.task('scripts-prod', function() {
+  return gulp
+    .src(paths.scripts.src)
+    .pipe(concat('blueberry.js'))
+    .pipe(uglify()).on('error', function(err) {
+      console.log(err.toString());
+    })
+    .pipe(gulp.dest(paths.scripts.dest));
+});
+
+// Styles Task
+
+gulp.task('styles', function () {
+  return gulp.src(paths.styles.src)
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write())
+    .pipe(autoprefixer())
+    .pipe(gulp.dest(paths.styles.dest));
+});
+
+gulp.task('styles-prod', function () {
+  return gulp.src(paths.styles.src)
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(autoprefixer())
+    .pipe(gulp.dest(paths.styles.dest));
+});
+
+// gulp.task('suffix', function(){
+//   gulp.src(['file.txt'])
+//     .pipe(replace('bar', 'foo'))
+//     .pipe(gulp.dest('build/'));
+// });
+
+gulp.task('watch', function() {
+    gulp.watch('./development/js/*.js', ['scripts']);
+    gulp.watch('./development/sass/**/*.scss', ['styles']);
+});
+
+gulp.task('production', ['scripts-prod', 'styles-prod']);
+gulp.task('development', ['scripts', 'styles']);
+gulp.task('default', ['development', 'watch']);

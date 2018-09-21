@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="30" cy="30" r="30"></circle>
+        <linearGradient x1="37.279239%" y1="33.1768202%" x2="82.2997021%" y2="86.8666651%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" stop-opacity="0.0838994565" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.384227808" offset="84.7588512%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.219769022" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="logo">
+            <g id="Group">
+                <g>
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="bace" fill="#008AC9" xlink:href="#path-1"></use>
+                    <circle id="transfer-tape" stroke-opacity="0.499150815" stroke="#FFFFFF" fill="url(#linearGradient-3)" mask="url(#mask-2)" cx="19" cy="19" r="38.5"></circle>
+                    <text id="bmr" mask="url(#mask-2)" font-family="SFProDisplay-BoldItalic, SF Pro Display" font-size="20" font-style="italic" font-weight="bold" fill="#FFFFFF">
+                        <tspan x="11" y="36">bmr</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

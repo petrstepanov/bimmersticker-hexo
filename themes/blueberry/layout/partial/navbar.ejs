@@ -1,0 +1,41 @@
+<nav class="navbar navbar-bluebery navbar-expand-lg navbar-light js--init-navbar-fixer" data-max-fixed-width="992">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <% if (theme.logo){ %>
+        <img src="<%- theme.logo %>" class="logo-image" alt="Bimmer Sticker Store logo">
+      <% } %>
+      <% if (theme.site_name){ %>
+        <span class="d-none"><%- theme.site_name %></span>
+      <% } %>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#featured">Featured stickers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#models">Stickers for models</a>
+        </li>
+        <li class="nav-item nav-separator">
+          <a class="nav-link" href="#series-generations">Series and generations</a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="#contact">Contact us</a>
+        </li>
+        <% if (theme.facebook_url){ %>
+          <li class="nav-item d-lg-none">
+            <a class="nav-link" href="<%- theme.facebook_url %>">Like Us on Facebook</a>
+          </li>
+        <% } %>
+        <% if (theme.instagram_url){ %>
+          <li class="nav-item d-lg-none">
+            <a class="nav-link" href="<%- theme.instagram_url %>">Follow us on Instagram</a>
+          </li>
+        <% } %>
+    </div>
+  </div>
+</nav>

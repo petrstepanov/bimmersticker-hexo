@@ -1,0 +1,87 @@
+// General
+body {
+  // -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Font faces
+@font-face {
+    font-family: 'aristotelicasmallcaps-bold';
+    src: url('/fonts/aristotelicasmallcaps-bold-webfont.woff2') format('woff2'),
+         url('/fonts/aristotelicasmallcaps-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sf_pro_textregular';
+    src: url('/fonts/sf-pro-text-regular-webfont.woff2') format('woff2'),
+         url('/fonts/sf-pro-text-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sf_pro_textbold';
+    src: url('/fonts/sf-pro-text-bold-webfont.woff2') format('woff2'),
+         url('/fonts/sf-pro-text-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'letrista_script';
+    src: url('/fonts/letristascript-webfont.woff2') format('woff2'),
+         url('/fonts/letristascript-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$font-handwrtten: "letrista_script", Helvetica, sans-serif;
+$font-display:    "aristotelicasmallcaps-bold", Helvetica, sans-serif;
+$font-regular:    "sf_pro_textregular", Helvetica, sans-serif;
+$font-bold:       "sf_pro_textbold", Helvetica, sans-serif;
+
+b, strong {
+  font-family: 'sf_pro_textbold';
+  font-weight: normal;
+}
+
+// Font Sizes
+$font-size-9: 0.5625rem;
+$font-size-12: 0.75rem;
+$font-size-16: 1rem;
+$font-size-21: 1.3125rem;
+$font-size-28: 1.75rem;
+$font-size-37: 2.3125rem;
+$font-size-50: 3.125rem;
+$font-size-67: 4.1875rem;
+$font-size-89: 5.5625rem;
+
+.font-size-9 {
+    font-size: $font-size-9;
+}
+.font-size-12 {
+    font-size: $font-size-12;
+}
+.font-size-16 {
+    font-size: $font-size-16;
+}
+.font-size-21 {
+    font-size: $font-size-21;
+}
+.font-size-28 {
+    font-size: $font-size-28;
+}
+.font-size-37 {
+    font-size: $font-size-37;
+}
+.font-size-50 {
+    font-size: $font-size-50;
+}
+.font-size-67 {
+    font-size: $font-size-67;
+}
+.font-size-89 {
+    font-size: $font-size-89;
+}

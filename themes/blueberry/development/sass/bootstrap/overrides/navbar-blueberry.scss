@@ -1,0 +1,93 @@
+$nb-logo-size:          2.8rem;
+$nb-logo-size-bigger:   3.1rem;
+$nb-logo-size-biggest:  3.75rem;
+
+.navbar-bluebery {
+  box-shadow: 0 0.125rem 2rem 0 rgba(0,0,0,0.1);
+  background-color: white;
+
+  @include media-breakpoint-up(lg){
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  .navbar-brand {
+    .logo-image {
+      height: $nb-logo-size;
+
+      @include media-breakpoint-up(sm) {
+        height: $nb-logo-size-bigger;
+      }
+      @include media-breakpoint-up(md) {
+        height: $nb-logo-size-biggest;
+      }
+    }
+
+    .logo-text {
+      // font-family: $font-bold;
+      // font-style: italic;
+      display: none;
+    }
+  }
+
+  .navbar-toggler {
+    border-width: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .navbar-nav {
+    @include media-breakpoint-down(xs) {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    //
+    // @include media-breakpoint-up(md) {
+    //    align-items: center;
+    // }
+
+    .nav-item {
+      &.nav-separator {
+        border-bottom: 1px solid $gray-200;
+        padding-bottom: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+
+      @include media-breakpoint-up(lg) {
+
+        &:last-child {
+          .nav-link {
+            padding-right: 0;
+          }
+        }
+
+        &.nav-separator {
+          border-bottom: 0;
+          padding-bottom: 0;
+          margin-bottom: 0;
+        }
+      }
+
+      .nav-link {
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+        padding-left: $nb-logo-size + 0.5rem;
+
+        @include media-breakpoint-up(sm) {
+          padding-left: $nb-logo-size-bigger + 0.6rem;
+        }
+
+        @include media-breakpoint-up(md) {
+          padding-left: $nb-logo-size-biggest + 0.7rem;
+        }
+
+        @include media-breakpoint-up(lg) {
+          color: white;
+          font-family: $font-bold;
+          padding-left: 3rem;
+          font-size: 0.85rem;
+        }
+      }
+    }
+  }
+}
