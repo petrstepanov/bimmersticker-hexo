@@ -26,14 +26,14 @@
         <li class="nav-item d-lg-none">
           <a class="nav-link" href="#contact">Contact us</a>
         </li>
-        <% if (theme.facebook_url){ %>
-          <li class="nav-item d-lg-none">
-            <a class="nav-link" href="<%- theme.facebook_url %>">Like Us on Facebook</a>
-          </li>
-        <% } %>
         <% if (theme.instagram_url){ %>
           <li class="nav-item d-lg-none">
-            <a class="nav-link" href="<%- theme.instagram_url %>">Follow us on Instagram</a>
+            <a class="nav-link" href="<%- theme.instagram_url %>" rel="me">Follow us on Instagram</a>
+          </li>
+        <% } %>
+        <% if (theme.facebook_url){ %>
+          <li class="nav-item d-lg-none">
+            <a class="nav-link" href="<%- theme.facebook_url %>" rel="me">Like Us on Facebook</a>
           </li>
         <% } %>
     </div>
