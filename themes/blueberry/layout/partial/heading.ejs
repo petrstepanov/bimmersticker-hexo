@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row justify-content-center bar">
+    <% if (title) { %>
+      <h2 class="col-12 col-md-10 text-center">
+        <%- name ? '<a name="' + name + '">' : '' %>
+          <%- title %>
+        <%- name ? '</a>' : '' %>
+      </h2>
+    <% } %>
+    <% if (subtitle) { %>
+      <p class="col-12 col-md-10 text-muted text-center">
+        <%- subtitle %>
+      </p>
+    <% } %>
+  </div>
+</div>

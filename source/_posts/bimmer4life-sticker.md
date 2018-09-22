@@ -9,7 +9,8 @@ categories:
 - Featured
 date: 2018-09-14 15:38:35
 tags: [windshield, banner]
-
+featured_image_url: sticker-bimmer4life.jpg
+featured_image_alt: BMW bimmer4life window windshield banner vinyl sticker stance drift decal
 ---
 
 This is the first BMW windshield sticker we ever made. The wording pretty much speaks for itself. Made by bimmer drivers. Made for bimmer drivers.

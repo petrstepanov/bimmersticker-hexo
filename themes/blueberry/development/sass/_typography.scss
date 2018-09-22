@@ -47,6 +47,20 @@ b, strong {
   font-weight: normal;
 }
 
+.bar {
+  position: relative;
+
+  &:after {
+    content: '';
+    width: 5rem;
+    height: 0.1875rem;
+    background: $blue;
+    position: absolute;
+    left: 50%;
+    margin-left: -2.5rem;
+    bottom: -1rem;
+  }
+}
 // Font Sizes
 $font-size-9: 0.5625rem;
 $font-size-12: 0.75rem;

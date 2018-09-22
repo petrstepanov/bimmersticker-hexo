@@ -1,0 +1,64 @@
+.card-blueberry {
+  // @extend %my-card;
+  margin-bottom: 2rem;
+
+  .card-body {
+    padding: $card-padding;
+  }
+
+  .card-title {
+    font-family: $font-bold;
+    font-weight: normal;
+    font-size: $font-size-16;
+
+    .pricetag {
+      font-size: $font-size-21;
+      float: right;
+      bottom: 0.3rem;
+      position: relative;
+
+      sup {
+        font-size: 60%;
+        margin-left: 0.2rem;
+        border-bottom: 0.15rem solid #333333;
+      }
+    }
+  }
+
+  p {
+    color: $gray-600;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    // font-size: $font-size-16;
+  }
+
+  .card-text, .card-description {
+    color: $gray-600;
+    margin-top: 1rem;
+    margin-bottom: 1.2rem;
+    font-size: $font-size-12;
+
+    dd {
+      margin-bottom: 0rem;
+    }
+    dt {
+      font-family: $font-bold;
+    }
+  }
+
+  .card-description {
+    display: flex;
+    flex-wrap: wrap;
+
+    dd {
+      flex-grow: 1;
+      text-align: right;
+    }
+
+    hr {
+      width: 100%;
+      margin: 0;
+      border-top: 0;
+    }
+  }
+}
