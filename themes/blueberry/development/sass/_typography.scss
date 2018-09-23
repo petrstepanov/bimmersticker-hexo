@@ -42,13 +42,31 @@ $font-display:    "aristotelicasmallcaps-bold", Helvetica, sans-serif;
 $font-regular:    "sf_pro_textregular", Helvetica, sans-serif;
 $font-bold:       "sf_pro_textbold", Helvetica, sans-serif;
 
-b, strong {
+b, strong, .strong {
   font-family: 'sf_pro_textbold';
   font-weight: normal;
 }
 
+a {
+  transition: color .15s ease-in-out;
+
+  svg {
+    transition: fill .15s ease-in-out;
+    fill: $link-color;
+  }
+
+  &:hover {
+    text-decoration: none;
+
+    svg {
+      fill: $link-hover-color;
+    }
+  }
+}
+
 .bar {
   position: relative;
+  padding-bottom: 1rem;
 
   &:after {
     content: '';
@@ -58,9 +76,10 @@ b, strong {
     position: absolute;
     left: 50%;
     margin-left: -2.5rem;
-    bottom: -1rem;
+    bottom: 0;
   }
 }
+
 // Font Sizes
 $font-size-9: 0.5625rem;
 $font-size-12: 0.75rem;

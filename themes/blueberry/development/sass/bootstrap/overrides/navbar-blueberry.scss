@@ -3,26 +3,31 @@ $nb-logo-size-bigger:   3.1rem;
 $nb-logo-size-biggest:  3.75rem;
 
 .navbar-bluebery {
-  box-shadow: 0 0.125rem 2rem 0 rgba(0,0,0,0.1);
-  background-color: white;
+  @extend %navbar-extend;
 
-  @include media-breakpoint-up(lg){
-    box-shadow: none;
-    background-color: transparent;
+  .logo-image, .back-link {
+    height: $nb-logo-size;
+
+    @include media-breakpoint-up(sm) {
+      height: $nb-logo-size-bigger;
+    }
+    @include media-breakpoint-up(md) {
+      height: $nb-logo-size-biggest;
+    }
+  }
+
+  .back-link {
+    display: flex;
+    align-items: center;
+    font-family: $font-bold;
+    font-size: 0.875rem;
+  }
+
+  .navbar-buy-button {
+    display: none;
   }
 
   .navbar-brand {
-    .logo-image {
-      height: $nb-logo-size;
-
-      @include media-breakpoint-up(sm) {
-        height: $nb-logo-size-bigger;
-      }
-      @include media-breakpoint-up(md) {
-        height: $nb-logo-size-biggest;
-      }
-    }
-
     .logo-text {
       // font-family: $font-bold;
       // font-style: italic;

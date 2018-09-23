@@ -17,8 +17,13 @@ var paths = {
   scripts: {
     src: ['./node_modules/jquery/dist/jquery.js',
           './node_modules/bootstrap/dist/js/bootstrap.bundle.js',
-          './node_modules/shufflejs/dist/shuffle.js',
+          // './node_modules/shufflejs/dist/shuffle.js',
+          './development/js/modules/events.js',
+          './development/js/modules/helpers.js',
           './development/js/modules/navbar-fixer.js',
+          './development/js/modules/swatches.js',
+          './development/js/modules/navbar-buy-button.js',
+          './development/js/modules/content-buy-button.js',
           './development/js/app.js'],
     srcWatch: './development/js/**/*.js',
     dest: './source/js'
@@ -71,8 +76,8 @@ gulp.task('styles-prod', function () {
 // });
 
 gulp.task('watch', function() {
-    gulp.watch('./development/js/*.js', ['scripts']);
-    gulp.watch('./development/sass/**/*.scss', ['styles']);
+    gulp.watch(paths.scripts.srcWatch, ['scripts']);
+    gulp.watch(paths.styles.srcWatch, ['styles']);
 });
 
 gulp.task('production', ['scripts-prod', 'styles-prod']);

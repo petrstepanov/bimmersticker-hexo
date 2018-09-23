@@ -6,7 +6,7 @@
 // Coolors pallette
 // https://coolors.co/export/pdf/008ac9-2b115a-f11a22-44af69-f7e756
 $blue:    #008ac9; // from M logo
-$indigo:  #6610f2;
+$indigo:  #E5F3F9; // for aside post section
 $purple:  #2b115a; // from M logo
 $pink:    #e83e8c;
 $red:     #f11a22; // from M logo
@@ -41,6 +41,8 @@ $btn-padding-y:               0.5rem;
 $btn-padding-x:               1.1rem;
 $btn-padding-y-sm:            0.25rem;
 $btn-padding-x-sm:            0.75rem;
+$btn-border-radius-sm:        2rem;
+$btn-border-radius:           3rem;
 
 // Modals
 $modal-inner-padding:         1.5rem;
@@ -51,7 +53,11 @@ $input-padding-y:             0.6rem;
 $input-padding-x:             0.6rem;
 
 // Spacing
-$spacer: 1.85rem !default;
+$spacer: 1.65rem !default;
 
 // Navbar
 $navbar-padding-x: 1rem;
+
+// Cards
+$card-spacer-x: 1.75rem;
+$card-spacer-y: 1rem;

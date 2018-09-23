@@ -1,29 +1,29 @@
-<figure class="card">
-  <% if (post.featured_image_url){ %>
-    <a href="<%- post.path %>">
-      <img class="card-img-top" src="<%- post.featured_img_url %>" alt="<%- post.featured_img_alt ? post.featured_img_alt : '' %>">
-    </a>
-  <% } %>
-  <div class="card-body">
-    <h3 class="card-title">
-      <%- post.title %>
-      <span class="pricetag">
-        $<%- post.price %><sup></sup>
-      </span>
-    </h3>
-    <% if (post.excerpt){ %>
-      <p><%- post.excerpt %></p>
+<div class="col col-md-6 <%- post.col_class ? post.col_class : '' %>">
+  <figure class="card card-blueberry">
+    <% if (first_photo_url(post)){ %>
+      <a href="<%- post.path %>">
+        <img class="card-img-top" src="<%- first_photo_url(post) %>" alt="<%- post.featured_image_alt ? post.featured_image_alt : '' %>">
+      </a>
     <% } %>
-    <div class="d-flex align0items-center justify-content-between">
-      <% if (post.ebay_url && post.etsy_url){ %>
-        <div class="btn-group" role="group">
-          <a href="<%- post.ebay_url %>" class="btn btn-primary" role="button">Buy on eBay</a>
-          <a href="<%- post.etsy_url %>" class="btn btn-outline-primary" role="button">on Etsy</a>
-        </div>
-      <% } else if (post.ebay_url){ %>
-        <a href="<%- post.ebay_url %>" class="btn btn-primary" role="button">Buy on eBay</a>
+    <div class="card-body">
+      <h3 class="card-title font-size-21 d-flex justify-content-between">
+        <span><%- post.title %></span>
+        <span>$<%- format_price(post.price) %></span>
+      </h3>
+      <% if (post.excerpt){ %>
+        <p class="mb-3"><%- strip_html(post.excerpt) %></p>
       <% } %>
-      <a href="<%- post.path %>" target="_blank" rel="external" role="button" class="btn btn-primary"><span class="icon-external"></span> View on eBay</a>
+      <div class="d-flex align-items-center justify-content-between">
+        <% if (post.ebay_url && post.etsy_url){ %>
+          <div class="btn-group" role="group">
+            <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">Buy on eBay</a>
+            <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-outline-primary" role="button">on Etsy</a>
+          </div>
+        <% } else if (post.ebay_url){ %>
+          <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">Buy on eBay</a>
+        <% } %>
+        <a href="<%- post.path %>">More info</a>
+      </div>
     </div>
-  </div>
-</figure>
+  </figure>
+</div>

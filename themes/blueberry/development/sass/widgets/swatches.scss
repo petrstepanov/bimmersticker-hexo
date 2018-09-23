@@ -1,0 +1,49 @@
+$swatch-size: 0.875rem;
+
+.swatch {
+  display: inline-block;
+  width: $swatch-size;
+  height: $swatch-size;
+  border-radius: $swatch-size*2/3;
+  margin-left: $swatch-size*2/3;
+
+  &.white {
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
+  }
+  &.lilac {
+    background-color: #b195c6;
+  }
+  &.yellow {
+    background-color: #ffdb00;
+  }
+  &.red {
+    background-color: #e44145;
+  }
+  &.blue {
+    background-color: #39b7ea;
+  }
+  &.mint {
+    background-color: #5ec4b7;
+  }
+  &.black {
+    background-color: #363433;
+  }
+  &.orange {
+    background-color: #ff8a47;
+  }
+  &.pink {
+    background-color: #f6a6bf;
+  }
+
+  &.holographic {
+    width: $swatch-size*2;
+
+    &.opal {
+      background: linear-gradient(to right, wheat, thistle);
+    }
+    &.blue {
+      background: linear-gradient(to right, lightpink, lightblue);
+    }
+  }
+}
