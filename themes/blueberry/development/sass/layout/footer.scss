@@ -1,0 +1,62 @@
+.spacer-footer {
+  @include media-breakpoint-up(lg){
+    padding-bottom: 7em;
+  }
+
+  @include media-breakpoint-up(xl){
+    padding-bottom: 9em;
+  }
+}
+
+footer {
+  position: relative;
+
+  @include media-breakpoint-up(lg){
+    margin-top: -7em;
+  }
+
+  @include media-breakpoint-up(xl){
+    margin-top: -9em;
+  }
+
+  .section-blue {
+    background-color: $blue;
+  }
+
+  .logo-circ, .logo-text {
+    height: $nb-logo-size;
+
+    @include media-breakpoint-up(sm) {
+      height: $nb-logo-size-bigger;
+    }
+    @include media-breakpoint-up(md) {
+      height: $nb-logo-size-biggest;
+    }
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    @include media-breakpoint-up(lg){
+      justify-content: space-between;
+    }
+
+    a {
+      font-family: $font-bold;
+      font-size: $font-size-12;
+      color: white;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+
+      @include media-breakpoint-up(sm){
+        font-size:  ($font-size-12+$font-size-16)/2;
+      }
+
+      @include media-breakpoint-up(md){
+        font-size: $font-size-16;
+      }
+    }
+  }
+}

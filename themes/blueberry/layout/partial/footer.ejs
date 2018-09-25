@@ -1,21 +1,24 @@
 <footer>
   <img class="w-100" src="<%- partial('../data-uri/wave-footer') %>" />
-  <div class="container">
-    <div class="row row-eq-height">
-      <div class="col-12 col-lg-5 text-center text-lg-left mt-2 mt-lg-3 mb-2 mb-md-3 mb-lg-4">
-        <img class="logo-circ d-inline-block d-lg-none" src="/img/bimmer-sticker-store-logo-inverse-circ.svg" />
-        <img class="logo-text d-none d-lg-inline-block" src="/img/bimmer-sticker-store-logo-inverse.svg" />
+  <div class="section-blue">
+    <div class="container">
+      <div class="row row-eq-height">
+        <div class="col-12 col-lg-5 text-center text-lg-left mt-2 mt-lg-3 mb-2 mb-md-3 mb-lg-4">
+          <img class="logo-circ d-inline-block d-lg-none" src="/img/bimmer-sticker-store-logo-inverse-circ.svg" />
+          <img class="logo-text d-none d-lg-inline-block" src="/img/bimmer-sticker-store-logo-inverse.svg" />
+        </div>
+        <nav class="col-12 col-lg-7 mt-1 mb-4 mt-lg-3 mb-lg-4">
+          <a href="/about">About</a>
+          <a href="/about">How to apply</a>
+          <a href="#">Image attributions</a>
+          <% if (theme.instagram_url){ %>
+            <a href="<%- theme.instagram_url %>" rel="me">Instagram</a>
+          <% } %>
+          <% if (theme.facebook_url){ %>
+            <a href="<%- theme.facebook_url %>" rel="me">Facebook</a>
+          <% } %>
+        </nav>
       </div>
-      <nav class="col-12 col-lg-7 mt-1 mb-3 mb-md-4 mt-lg-3 mb-lg-4">
-        <a href="/about">About</a>
-        <a href="#">Image attributions</a>
-        <% if (theme.instagram_url){ %>
-          <a href="<%- theme.instagram_url %>" rel="me">Instagram</a>
-        <% } %>
-        <% if (theme.facebook_url){ %>
-          <a href="<%- theme.facebook_url %>" rel="me">Facebook</a>
-        <% } %>
-      </nav>
     </div>
   </div>
 </footer>

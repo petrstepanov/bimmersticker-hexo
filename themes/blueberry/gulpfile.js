@@ -17,10 +17,13 @@ var paths = {
   scripts: {
     src: ['./node_modules/jquery/dist/jquery.js',
           './node_modules/bootstrap/dist/js/bootstrap.bundle.js',
+          './node_modules/sticky-kit/dist/sticky-kit.js',
           // './node_modules/shufflejs/dist/shuffle.js',
           './development/js/modules/events.js',
           './development/js/modules/helpers.js',
+
           './development/js/modules/navbar-fixer.js',
+          './development/js/modules/sticky-container.js',
           './development/js/modules/swatches.js',
           './development/js/modules/navbar-buy-button.js',
           './development/js/modules/content-buy-button.js',

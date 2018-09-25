@@ -4,6 +4,11 @@ $(document).ready(function(){
     nf.init(this);
   });
 
+  $('.js--init-sticky-container').each(function(){
+    var sc = StickyContainer();
+    sc.init(this);
+  });
+
   $('.js--init-navbar-buy-button').each(function(){
     var nbb = NavbarBuyButton();
     nbb.init(this);

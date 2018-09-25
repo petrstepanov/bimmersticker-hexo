@@ -5,8 +5,28 @@ hexo.extend.helper.register('format_price', function(price){
   return integer + '<sup>' + decimal + '</sup>';
 });
 
-hexo.extend.helper.register('first_photo_url', function(page){
-  var myRegexp = /img src="(.*)"/gm;
-  var match = myRegexp.exec(page.content);
-  return match.length > 1 ? match[1] : null;
+hexo.extend.helper.register('first_image', function(page){
+  var image = {};
+  var regexp = /<img .*?>/gm;
+  var match = regexp.exec(page.content);
+  if (!match) return null;
+
+  var imgElement = match[0];
+
+  // match src regexp: https://regexr.com/38vdq
+  regexp = /src="(.*?)"/gm;
+  match = regexp.exec(imgElement);
+  if (match && match[1]) image.src = match[1];
+
+  // match title regexp: ? for first occurance of end bracket
+  regexp = /title="(.*?)"/gm;
+  match = regexp.exec(imgElement);
+  if (match && match[1]) image.title = match[1];
+
+  // match title regexp: ? for first occurance of end bracket
+  regexp = /alt="(.*?)"/gm;
+  match = regexp.exec(imgElement);
+  if (match && match[1]) image.alt = match[1];
+
+	return image;
 });

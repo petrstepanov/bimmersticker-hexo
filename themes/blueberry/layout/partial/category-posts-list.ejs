@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <% site.categories.findOne({name: categoryName}).posts.sort('date', -1).each(function(post, i){ %>
+    <% site.categories.findOne({name: categoryName}).posts.sort('date', 1).each(function(post, i){ %>
       <%- partial('partial/card', { post: post }) %>
     <% }) %>
   </div>

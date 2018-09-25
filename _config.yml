@@ -81,4 +81,4 @@ deploy:
   type:
 
 # Comments
-comments: true
+comments: false

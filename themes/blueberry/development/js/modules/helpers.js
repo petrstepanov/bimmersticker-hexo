@@ -1,6 +1,6 @@
 var Helpers = (function(){
 
-  isInViewport = function($el) {
+  function isInViewport($el){
     var elementTop = $el.offset().top;
     var elementBottom = elementTop + $el.outerHeight();
     var viewportTop = $(window).scrollTop();
@@ -10,9 +10,17 @@ var Helpers = (function(){
     }
     var viewportBottom = viewportTop + $(window).height();
     return elementBottom > viewportTop && elementTop < viewportBottom;
-  };
+  }
+
+  function getViewportSize(){
+    return {
+      width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
+      height: Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+    };
+  }
 
   return {
-    isInViewport: isInViewport
+    isInViewport: isInViewport,
+    getViewportSize: getViewportSize
   };
 })();

@@ -14,7 +14,7 @@
 #post-aside {
   background-color: $indigo;
 
-  .sticker-featured-image {
+  .featured-image {
     // Calc in SASS https://stackoverflow.com/questions/17982111/sass-variable-in-css-calc-function
     width: calc(100% + #{$grid-gutter-width});
     margin: -($grid-gutter-width / 2) 0 -($grid-gutter-width / 2) 1.75rem;
@@ -49,28 +49,38 @@
   @include media-breakpoint-up(lg){
     box-shadow: inset -1px 0 0 0 darken($indigo, 5%);
     width: 40%;
-    padding-left: 2.775rem;
-    padding-right: 2.775rem;
+    padding-left: 2.75rem;
+    padding-right: 2.75rem;
   }
 
   @include media-breakpoint-up(xl){
-    padding-left: 5.55rem;
-    padding-right: 5.55rem;
+    padding-left: 5.5rem;
+    padding-right: 5.5rem;
   }
 }
 
 #post-content {
-  padding-top: 2rem;
+  padding-top: 2em;
 
-  #content {
-    > img {
-      width: 100%;
-      border-radius: $border-radius;
-      margin: 1rem 0 1.75rem 0;
+  @include media-breakpoint-up(lg){
+    width: 60%;
+    font-size: $font-size-21;
+    padding-left: 2.75em;
+    padding-right: 2.75em;
+    padding-top: 3.75em;
+  }
 
-    }
+  @include media-breakpoint-up(xl){
+    padding-left: 5.55em;
+    padding-right: 5.55em;
+  }
 
-    > img:first-of-type {
+  .content-image {
+    width: 100%;
+    border-radius: $border-radius;
+    margin: 1em 0 1.75em 0;
+
+    &:first-of-type {
       display: none;
 
       @include media-breakpoint-up(lg){
@@ -80,32 +90,27 @@
   }
 
   h2 {
-    margin-top: 2rem;
+    margin-top: 2em;
+  }
+
+  p {
+    margin-bottom: 1em;
   }
 
   blockquote {
     font-size: $font-size-12;
-    margin-top: -2rem;
+    margin-top: -3em;
     background-color: $indigo;
-    padding: 1rem 0.75rem 0.2rem 0.75rem;
+    padding: 1.5em 1em 1em 1em;
     border-bottom-left-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
+
+    p {
+      margin-bottom: 0;
+    }
 
     br {
       display: none;
     }
-  }
-
-  @include media-breakpoint-up(lg){
-    width: 60%;
-    font-size: $font-size-21;
-    padding-left: 2.775rem;
-    padding-right: 2.775rem;
-    padding-top: 5.55rem;
-  }
-
-  @include media-breakpoint-up(xl){
-    padding-left: 5.55rem;
-    padding-right: 5.55rem;
   }
 }

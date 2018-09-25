@@ -1,3 +1,5 @@
+// Fixes Navbar for vieport width less than a set threshold
+
 var NavbarFixer = function(){
   var DOM = {};
   var options = {};
@@ -8,28 +10,28 @@ var NavbarFixer = function(){
 
   function _bindEvents(element) {
     $(window).resize(function(){
-      _calcNavbarHeight();
       _fixReleaseNavbar();
     });
   }
 
-  function _calcNavbarHeight(){
-    options.navbarHeight = DOM.$navbar.outerHeight();
-  }
-
   function _fixReleaseNavbar(){
-    if (window.outerWidth < options.maxFixedWidth){
+    if (_checkNeedsFixed()){
       DOM.$navbar.addClass('fixed-top');
-      $('body').css('margin-top', options.navbarHeight + 'px');
-    }
-    else {
+      $('body').css('margin-top', DOM.$navbar.outerHeight() + 'px');
+    } else {
       DOM.$navbar.removeClass('fixed-top');
       $('body').css('margin-top', 0);
     }
   }
 
+  function _checkNeedsFixed(){
+    if (Helpers.getViewportSize().width < options.maxFixedWidth){
+      return true;
+    }
+    return false;
+  }
+
   function _render(){
-    _calcNavbarHeight();
     _fixReleaseNavbar();
   }
 

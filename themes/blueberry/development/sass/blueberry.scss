@@ -14,8 +14,9 @@
 @import "bootstrap/overrides/card-blueberry";
 @import "bootstrap/overrides/btn-blueberry";
 
-@import "layout";
-@import "layout-post";
+@import "layout/frontpage";
+@import "layout/post";
+@import "layout/footer";
 
 @import "icons";
 @import "utilities";
