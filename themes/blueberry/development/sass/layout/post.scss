@@ -51,6 +51,9 @@
     width: 40%;
     padding-left: 2.75rem;
     padding-right: 2.75rem;
+    position: relative;
+    // padding-top: 1px;
+    top: -1px;
   }
 
   @include media-breakpoint-up(xl){

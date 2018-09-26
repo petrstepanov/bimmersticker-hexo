@@ -17,9 +17,18 @@ var StickyContainer = function(){
 
   function _stickReleaseContainer(){
     if (_checkNeedsSticky()){
-      DOM.$el.stick_in_parent();
+      if (!isStuck){
+        DOM.$el.stick_in_parent({
+          // offset_top: 1
+        });
+        isStuck = true;
+      }
+      $(document.body).trigger("sticky_kit:recalc");
     } else {
-      // DOM.$el.trigger("sticky_kit:detach");
+      if (isStuck){
+        DOM.$el.trigger("sticky_kit:detach");
+        isStuck = false;
+      }
     }
   }
 
