@@ -1,6 +1,7 @@
 .card-blueberry {
   box-shadow: $box-shadow-blueberry;
   border: 0;
+  margin-bottom: 1.75rem;
 
   & > a{
     background-color: white;
@@ -32,6 +33,8 @@
   }
 
   h3 {
+    line-height: 1;
+
     sup {
       font-size: 60%;
       margin-left: 0.15rem;

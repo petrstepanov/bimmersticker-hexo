@@ -1,10 +1,10 @@
-$swatch-size: 0.875rem;
+$swatch-size: 0.75rem;
 
 .swatch {
   display: inline-block;
   width: $swatch-size;
   height: $swatch-size;
-  border-radius: $swatch-size*2/3;
+  border-radius: $swatch-size/2;
   margin-left: $swatch-size*2/3;
 
   &.white {

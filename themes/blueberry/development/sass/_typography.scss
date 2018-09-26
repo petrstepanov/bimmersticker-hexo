@@ -50,7 +50,7 @@ b, strong, .strong {
 a {
   transition: color .15s ease-in-out;
 
-  svg {
+  svg, svg * {
     transition: fill .15s ease-in-out;
     fill: $link-color;
   }
@@ -58,7 +58,7 @@ a {
   &:hover {
     text-decoration: none;
 
-    svg {
+    svg, svg * {
       fill: $link-hover-color;
     }
   }
