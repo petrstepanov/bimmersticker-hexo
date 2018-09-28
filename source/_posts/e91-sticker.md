@@ -12,3 +12,10 @@ categories:
 ebay_url: https://www.ebay.com/itm/192491778154
 col_class: col-lg-4
 ---
+
+A wagon with excellent performance and stylish design.
+
+<!-- more -->
+{% asset_img content-image bmw-e91-touring-vinyl-sticker.jpg 'BMW e91 vinyl wagon touring sticker"BMW e91 vinyl wagon touring sticker"' %}
+
+Please message us the specific color you want on the eBay Checkout page. We ship 'White' by default. Sticker comes with the transfer tape for easy application.

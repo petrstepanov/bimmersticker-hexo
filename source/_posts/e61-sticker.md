@@ -13,7 +13,7 @@ ebay_url: https://www.ebay.com/itm/192491854370
 col_class: col-lg-4
 ---
 
-Very rare and nice wagon.
+Very rare nice and comfortable BMW wagon.
 
 <!-- more -->
 {% asset_img content-image bmw-e61-window-vinyl-sticker.jpg 'BMW e61 vinyl sport drift stance sticker"BMW e61 vinyl sport drift stance sticker"' %}

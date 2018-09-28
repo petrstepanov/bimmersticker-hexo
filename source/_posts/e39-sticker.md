@@ -13,7 +13,7 @@ ebay_url: https://www.ebay.com/itm/192431727173
 col_class: col-lg-4
 ---
 
-Legendary sharky first generation of three series BMW's.
+Fourth generation of BMW 5 Series.
 
 <!-- more -->
 {% asset_img content-image e39-bmw-window-vinyl-sticker.jpg 'BMW e39 vinyl sticker"BMW e39 vinyl sticker"' %}

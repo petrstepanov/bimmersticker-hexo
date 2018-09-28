@@ -12,3 +12,10 @@ categories:
 ebay_url: https://www.ebay.com/itm/192489119432
 col_class: col-lg-4
 ---
+
+Beautiful coupe designed in the best sporty BMW traditions.
+
+<!-- more -->
+{% asset_img content-image e92-bmw-sticker-window.jpg 'BMW e92 vinyl sport drift stance sticker"BMW e92 vinyl sport drift stance sticker"' %}
+
+Please message us the specific color you want on the eBay Checkout page. We ship 'White' by default. Sticker comes with the transfer tape for easy application.

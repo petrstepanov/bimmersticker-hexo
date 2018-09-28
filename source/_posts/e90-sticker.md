@@ -12,3 +12,10 @@ categories:
 ebay_url: https://www.ebay.com/itm/192500392494
 col_class: col-lg-4
 ---
+
+Classic bimmer, one of the most common on the roads today.
+
+<!-- more -->
+{% asset_img content-image bmw-e90-window-sport-sticker.jpg 'BMW e90 vinyl sport drift stance sticker"BMW e90 vinyl sport drift stance sticker"' %}
+
+Please message us the specific color you want on the eBay Checkout page. We ship 'White' by default. Sticker comes with the transfer tape for easy application.
