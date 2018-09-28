@@ -8,7 +8,7 @@ size: 6¼ × 3½ in (16 × 9 cm)
 material: ORACAL 651 vinyl
 colors: [lilac, yellow, red, blue, mint, black, orange, pink]
 categories:
-- Featured
+- Model
 ebay_url: https://www.ebay.com/itm/192494164236
 col_class: col-lg-4
 ---

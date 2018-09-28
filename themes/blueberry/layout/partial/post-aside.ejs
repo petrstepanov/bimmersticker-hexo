@@ -9,11 +9,11 @@
             <% if (image){ %>
               <img class="featured-image" src="<%- image.src ? image.src : '' %>" title="<%- image.title ? image.title : '' %>" alt="<%- image.alt ? image.alt : '' %>">
             <% } %>
-            <h1 class="mb-0 font-size-28"><%- page.title %></h1>
+            <h1 class="mb-1 font-size-28"><%- page.title %></h1>
             <% if (page.excerpt){ %>
-              <p class="mb-3 text-muted"><%- strip_html(page.excerpt) %></p>
+              <p class="text-muted"><%- strip_html(page.excerpt) %></p>
             <% } %>
-            <div class="js--init-content-buy-button">
+            <div class="mt-3 js--init-content-buy-button">
               <% if (page.ebay_url && page.etsy_url){ %>
                 <a href="<%- page.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">$<%- page.price %> on eBay</a>
                 <a href="<%- page.etsy_url %>" target="_blank" class="btn btn-blueberry btn-link" role="button">Also on Etsy</a>

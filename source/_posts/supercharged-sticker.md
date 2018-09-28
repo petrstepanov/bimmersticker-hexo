@@ -10,7 +10,7 @@ colors: [red]
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/192639584367
-col_class: col-lg-4
+col_class: col-lg-6
 ---
 
 Wait a minute, it's Supercharged, not Supreme!

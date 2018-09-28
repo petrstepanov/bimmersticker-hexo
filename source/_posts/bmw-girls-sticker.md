@@ -9,8 +9,8 @@ material: ORACAL 651 vinyl
 colors: [lilac, yellow, red, blue, mint, orange, pink]
 categories:
 - Featured
-ebay_url: https://www.ebay.com/itm/-/192671124978
-col_class: col-lg-4
+ebay_url: https://www.ebay.com/itm/192671124978
+col_class: col-lg-6
 ---
 
 Special sticker for ladies! With love from our crew.

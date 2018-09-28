@@ -2,13 +2,22 @@
   box-shadow: $box-shadow-blueberry;
   border: 0;
   margin-bottom: 1.75rem;
+  overflow: hidden;
 
-  & > a{
-    background-color: white;
-    transition: background-color .15s ease-in-out;
+  & > a {
+    // background-color: white;
+
+    display: block;
+    overflow: hidden;
+
+    img {
+      // transition: all .5s ease-in-out;
+    }
 
     &:hover {
-      background-color: lighten($blue, 50%);
+      img {
+        // transform: scale(1.05);
+      }
     }
   }
 
