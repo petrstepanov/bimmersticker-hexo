@@ -44,6 +44,17 @@ function shuffle(array) {
   return array;
 }
 
+function getImageThumb(post, thumbClass){
+  const first_image = hexo.extend.helper.get('first_image').bind(this);
+  var image = first_image(post);
+
+  const image_version = hexo.extend.helper.get('image_version').bind(this);
+  console.log(image_version(image.src, {prefix: 'small'}));
+
+
+  return '<span class="' + thumbClass + '" style="background-image: url(' + image.src + ')"></span>';
+}
+
 function listRelatedPosts(options) {
   if (!options) {
     options = {};
@@ -91,22 +102,17 @@ function listRelatedPosts(options) {
   var root = this.config.root;
   var count = Math.min(options.maxCount, postList.length);
 
-  const first_image = hexo.extend.helper.get('first_image').bind(this);
-  var img = '<span class="' + options.thumbClass + '" style="background-image: url(' + first_image.src + ')">';
-
-  // console.log(first_image(postList[0]));
-
   if(count === 0){
     result += '<p class="' + options.pClass + '">No related post.</p>';
   }else{
     result += '<ul class="' + options.ulClass + '">';
     if (options.generateAbstract) {
       for (var i = 0; i < count; i++) {
-        result += '<li class="' + options.liClass + '">' + '<a class="' + options.aClass + '" href="' + root + postList[i].path + '">' + img + postList[i].title + '</a><div class="' + options.abstractClass + '">' + striptags(postList[i].content).substring(0, options.abstractLength) + '</div></li>';
+        result += '<li class="' + options.liClass + '">' + '<a class="' + options.aClass + '" href="' + root + postList[i].path + '">' + getImageThumb(postList[i], options.thumbClass) + postList[i].title + '</a><div class="' + options.abstractClass + '">' + striptags(postList[i].content).substring(0, options.abstractLength) + '</div></li>';
       }
     } else {
       for (var i = 0; i < count; i++) {
-        result += '<li class="' + options.liClass + '">' + '<a class="' + options.aClass + '" href="' + root + postList[i].path + '">' + img + postList[i].title + '</a></li>';
+        result += '<li class="' + options.liClass + '">' + '<a class="' + options.aClass + '" href="' + root + postList[i].path + '">' + getImageThumb(postList[i], options.thumbClass) + postList[i].title + '</a></li>';
       }
     }
     result += '</ul>';

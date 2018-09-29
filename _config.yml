@@ -83,10 +83,17 @@ deploy:
   type:
 
 # Comments
-comments: false
+comments: true
 
 # Sitemap
 sitemap:
   path: sitemap.xml
   tag: false
   category: false
+
+# Configuration for hexo-image-sizes https://github.com/hexojs/hexo-filter-responsive-images
+responsive_images:
+  pattern: '**/*.+(png|jpg|jpeg)'
+  sizes:
+    small:
+      width: 128

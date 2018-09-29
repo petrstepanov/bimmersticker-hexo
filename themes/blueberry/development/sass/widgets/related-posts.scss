@@ -1,8 +1,18 @@
 $related-posts-thumb-size: 4rem;
 
 .related-posts {
+  margin-top: 2rem;
   list-style: none;
   padding-left: 0;
+}
+
+.related-posts-item {
+  margin-bottom: 1rem;
+}
+
+.related-posts-link {
+  display: flex;
+  align-items: center;
 }
 
 .related-posts-thumb {
@@ -10,6 +20,6 @@ $related-posts-thumb-size: 4rem;
     height: $related-posts-thumb-size;
     background-size: cover;
     display: inline-block;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
     border-radius: $related-posts-thumb-size/2;
 }
