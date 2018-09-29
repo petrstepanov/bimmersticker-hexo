@@ -3,7 +3,7 @@ var SmoothScroll = (function(){
   var options = {};
 
   function _cacheDom(element) {
-    DOM.$links = $("body").find('a[href*="#"]').not('[href="#"]');
+    DOM.$links = $("body").find('a[href^="#"]').not('[href="#"]');
   }
 
   function _bindEvents(element) {

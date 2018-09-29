@@ -14,6 +14,10 @@
 @import "bootstrap/overrides/card-blueberry";
 @import "bootstrap/overrides/btn-blueberry";
 
+@import "./../../node_modules/noty/lib/noty";
+@import "./../../node_modules/noty/lib/themes/nest";
+
+
 @import "layout/frontpage";
 @import "layout/post";
 @import "layout/footer";

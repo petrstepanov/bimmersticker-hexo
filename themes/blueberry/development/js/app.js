@@ -27,4 +27,10 @@ $(document).ready(function(){
     var pf = PostsFilter();
     pf.init(this);
   });
+
+  // Form ajax submit (for New/Edit Job and New/Edit Campaign pages)
+  $('.js--init-ajax-submit').each(function(){
+    var fas = FormAjaxSubmit();
+    fas.init(this);
+  });
 });

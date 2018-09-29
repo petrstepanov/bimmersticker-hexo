@@ -9,6 +9,7 @@ var NavbarFixer = (function(){
   function _cacheDom(element) {
     DOM.$navbar = $(element);
     DOM.$navbarToggler = DOM.$navbar.find('.navbar-toggler');
+    DOM.$navbarCollapse = DOM.$navbar.find('.navbar-collapse');
   }
 
   function _bindEvents(element) {
@@ -35,13 +36,13 @@ var NavbarFixer = (function(){
 
   function _checkNavbarHeight(){
     _collapseNavbar();
-    if (DOM.$navbarToggler.hasClass('collapsed')){
+    if (!DOM.$navbarCollapse.hasClass('show')){
       height = DOM.$navbar.outerHeight();
     }
   }
 
   function _collapseNavbar(){
-    if (!DOM.$navbarToggler.hasClass('collapsed')){
+    if (DOM.$navbarCollapse.hasClass('show')){
       DOM.$navbarToggler.click();
     }
   }

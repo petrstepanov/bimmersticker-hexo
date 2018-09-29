@@ -10,7 +10,9 @@ var gulp = require('gulp'),
 
 var paths = {
   styles: {
-    src: './development/sass/blueberry.scss',
+    src: ['./development/sass/blueberry.scss',
+          './node_modules/noty/lib/noty.css',
+          './node_modules/noty/lib/themes/nest.css'],
     srcWatch: './development/sass/**/*.scss',
     dest: './source/css'
   },
@@ -19,8 +21,13 @@ var paths = {
           './node_modules/bootstrap/dist/js/bootstrap.bundle.js',
           './node_modules/sticky-kit/dist/sticky-kit.js',
           './node_modules/shufflejs/dist/shuffle.js',
+          './node_modules/in-view/dist/in-view.min.js',
+          './node_modules/noty/lib/noty.js',
+
           './development/js/modules/events.js',
           './development/js/modules/helpers.js',
+
+          './development/js/modules/notification-center.js',
           './development/js/modules/navbar-fixer.js',
           './development/js/modules/sticky-container.js',
           './development/js/modules/swatches.js',
@@ -28,6 +35,7 @@ var paths = {
           './development/js/modules/content-buy-button.js',
           './development/js/modules/posts-filter.js',
           './development/js/modules/smooth-scroll.js',
+          './development/js/modules/form-ajax-submit.js',
           './development/js/app.js'],
     srcWatch: './development/js/**/*.js',
     dest: './source/js'
