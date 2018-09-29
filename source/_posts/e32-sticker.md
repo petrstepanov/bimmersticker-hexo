@@ -11,6 +11,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192491586587
 col_class: col-lg-4
+data_groups: 7er
 ---
 
 Another VIP 7 series. But with a shady mafia stuff.

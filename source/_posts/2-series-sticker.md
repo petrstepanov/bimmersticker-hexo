@@ -11,6 +11,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192489131318
 col_class: col-lg-4
+data_groups: 2er
 ---
 
 For compact coupés and newer MPV body styles.

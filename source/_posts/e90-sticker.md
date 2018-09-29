@@ -11,6 +11,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192500392494
 col_class: col-lg-4
+data_groups: 3er
 ---
 
 Classic bimmer, one of the most common on the roads today.

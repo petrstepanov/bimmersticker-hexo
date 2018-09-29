@@ -11,6 +11,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192491807481
 col_class: col-lg-4
+data_groups: 7er
 ---
 
 Extremely safe and luxury bimmer. With satellite navgation.

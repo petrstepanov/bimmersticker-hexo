@@ -11,6 +11,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192491778154
 col_class: col-lg-4
+data_groups: 3er
 ---
 
 A wagon with excellent performance and stylish design.

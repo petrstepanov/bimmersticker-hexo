@@ -11,6 +11,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192491854370
 col_class: col-lg-4
+data_groups: 5er
 ---
 
 Very rare nice and comfortable BMW wagon.

@@ -64,6 +64,10 @@ a {
   }
 }
 
+.btn-link:hover, .btn-link:focus, .btn-link.focus {
+  text-decoration: none;
+}
+
 .bar {
   position: relative;
   padding-bottom: 1rem;

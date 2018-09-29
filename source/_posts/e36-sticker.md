@@ -11,9 +11,10 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192418376937
 col_class: col-lg-4
+data_groups: 3er
 ---
 
-Motorsport icon. Number one in drift, drag, track and stance car meets.
+Motorsport icon. Number one in drift, drag, track and car meets.
 
 <!-- more -->
 {% asset_img content-image bmw-e36-sticker-vinyl.jpg 'BMW e36 drift stance sport vinyl sticker"BMW e36 drift stance sport vinyl sticker"' %}

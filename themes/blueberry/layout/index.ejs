@@ -44,9 +44,28 @@
   <%- partial('partial/category-posts-list', {categoryName: 'Model'}) %>
 
 </section>
-<section class="pb-4">
+<section class="pb-4 js--init-posts-filter">
   <!-- Series and generations -->
   <%- partial('partial/heading', {title: 'Series and generations', subtitle: 'If you cannot find a sticker for your BMW model please request one in the Contact Form below. We will make it ASAP.', name: 'series-generations'}) %>
+
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-sm-12 js--posts-filter-buttons">
+        <button type="button" class="btn btn-blueberry btn-sm btn-primary active strong mr-sm-1" data-query="all">All</button>
+        <%
+          var filterQueries = [];
+          site.categories.findOne({name: 'Series and Generations'}).posts.each(function(post, i){
+            if (post.data_groups && filterQueries.indexOf(post.data_groups) == -1){
+              filterQueries.push(post.data_groups);
+            }
+          });
+          filterQueries.forEach(function(query, index){ %>
+            <button type="button" class="btn btn-blueberry btn-sm btn-link strong mr-sm-1" data-query="<%- query %>"><%- query %></button>
+          <% });
+        %>
+      </div>
+    </div>
+  </div>
   <%- partial('partial/category-posts-list', {categoryName: 'Series and Generations'}) %>
 
 </section>

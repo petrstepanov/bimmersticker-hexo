@@ -1,3 +1,7 @@
 .btn-blueberry {
   font-family: $font-bold;
+
+  &.btn-sm {
+    padding: 0.25rem 0.7rem;
+  }
 }

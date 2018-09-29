@@ -11,6 +11,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192491650590
 col_class: col-lg-4
+data_groups: 5er
 ---
 
 First five series car ever built. A Real oldtimer now.

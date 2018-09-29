@@ -11,6 +11,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192488974223
 col_class: col-lg-4
+data_groups: 3er
 ---
 
 The most iconic sporty BMW cars for drift and track.

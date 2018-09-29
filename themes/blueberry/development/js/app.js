@@ -23,4 +23,9 @@ $(document).ready(function(){
     var s = Swatches();
     s.init(this);
   });
+
+  $('.js--init-posts-filter').each(function(){
+    var pf = PostsFilter();
+    pf.init(this);
+  });
 });

@@ -11,9 +11,10 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192491664353
 col_class: col-lg-4
+data_groups: 7er
 ---
 
-First generation of the BMW luxury cars.
+First generation of the BMW luxury sedans.
 
 <!-- more -->
 {% asset_img content-image bmw-e23-vinyl-sticker.jpg 'BMW e23 vinyl sticker"BMW e23 vinyl sticker"' %}

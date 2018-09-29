@@ -11,6 +11,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192489132139
 col_class: col-lg-4
+data_groups: 4er
 ---
 
 Newer series that offers us a greatest coupe of all times.

@@ -11,6 +11,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192489246637
 col_class: col-lg-4
+data_groups: 5er
 ---
 
 Incredibly comfortable as well as safe and sporty.

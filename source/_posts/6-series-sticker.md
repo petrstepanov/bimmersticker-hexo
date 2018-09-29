@@ -11,6 +11,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192492348777
 col_class: col-lg-4
+data_groups: 6er
 ---
 
 Most individualistic and memorable series across others.

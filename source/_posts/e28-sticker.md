@@ -11,6 +11,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192490056915
 col_class: col-lg-4
+data_groups: 5er
 ---
 
 Iconic five series shark looks even better with a sticker.

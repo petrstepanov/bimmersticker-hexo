@@ -11,9 +11,10 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192489211685
 col_class: col-lg-4
+data_groups: 3er
 ---
 
-Legendary sharky first generation of three series BMW's.
+Legendary shark. first generation of BMW's 3 series.
 
 <!-- more -->
 {% asset_img content-image bmw-e21-vinyl-sticker.jpg 'BMW e21 vinyl sticker"BMW e21 vinyl sticker"' %}

@@ -11,6 +11,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192548126257
 col_class: col-lg-4
+data_groups: 5er
 ---
 
 Most electronically advanced 5 series BMW car.

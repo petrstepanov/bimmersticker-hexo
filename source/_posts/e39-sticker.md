@@ -11,9 +11,10 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192431727173
 col_class: col-lg-4
+data_groups: 5er
 ---
 
-Fourth generation of BMW 5 Series.
+Fourth generation of BMW 5 Series. Fast, reliable and cheap.
 
 <!-- more -->
 {% asset_img content-image e39-bmw-window-vinyl-sticker.jpg 'BMW e39 vinyl sticker"BMW e39 vinyl sticker"' %}
