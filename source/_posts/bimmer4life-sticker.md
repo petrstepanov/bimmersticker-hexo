@@ -1,5 +1,5 @@
 ---
-title: '#bimmer4life Sticker'
+title: '#bimmer4life sticker'
 date: 2018-09-14 15:38:35
 tags:
 - bmw

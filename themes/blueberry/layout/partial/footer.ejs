@@ -12,10 +12,13 @@
           <a href="/how-to-apply">How to apply</a>
           <a href="#">Image attributions</a> -->
           <% if (theme.instagram_url){ %>
-            <a href="<%- theme.instagram_url %>" rel="me">Instagram</a>
+            <a href="<%- theme.instagram_url %>" rel="me" target="_blank">Instagram</a>
           <% } %>
           <% if (theme.facebook_url){ %>
-            <a href="<%- theme.facebook_url %>" rel="me">Facebook</a>
+            <a href="<%- theme.twitter_url %>" rel="me" target="_blank">Twitter</a>
+          <% } %>
+          <% if (theme.facebook_url){ %>
+            <a href="<%- theme.facebook_url %>" rel="me" target="_blank">Facebook</a>
           <% } %>
         </nav>
       </div>

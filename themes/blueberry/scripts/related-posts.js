@@ -49,7 +49,7 @@ function getImageThumb(post, thumbClass){
   var image = first_image(post);
 
   const image_version = hexo.extend.helper.get('image_version').bind(this);
-  console.log(image_version(image.src, {prefix: 'small'}));
+  image.src = image_version(image.src, {prefix: 'small'});
 
 
   return '<span class="' + thumbClass + '" style="background-image: url(' + image.src + ')"></span>';

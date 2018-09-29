@@ -83,7 +83,7 @@ deploy:
   type:
 
 # Comments
-comments: true
+comments: false
 
 # Sitemap
 sitemap:
@@ -97,3 +97,4 @@ responsive_images:
   sizes:
     small:
       width: 128
+      height: 128
