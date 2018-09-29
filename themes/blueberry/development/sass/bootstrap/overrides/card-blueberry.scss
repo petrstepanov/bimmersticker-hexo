@@ -11,19 +11,19 @@
     overflow: hidden;
 
     img {
-      // transition: all .5s ease-in-out;
+      transition: all .3s ease-in-out;
     }
 
     &:hover {
       img {
-        // transform: scale(1.05);
+        transform: scale(1.05);
       }
     }
   }
 
   .card-img-top {
     width: 100%;
-    mix-blend-mode: multiply;
+    // mix-blend-mode: multiply;
     // height: 8rem;
     // object-fit: cover;
     //

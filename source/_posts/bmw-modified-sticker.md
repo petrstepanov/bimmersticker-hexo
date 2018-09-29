@@ -9,7 +9,7 @@ material: ORACAL 651 vinyl
 colors: [white, holographic opal, holographic blue]
 categories:
 - Model
-ebay_url: https://www.ebay.com/itm/192661747178
+ebay_url: https://www.ebay.com/itm/192621877644
 col_class: col-lg-4
 ---
 
