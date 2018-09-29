@@ -1,7 +1,10 @@
 ---
 title: Instagram popup sticker
 date: 2018-09-26 15:13:37
-tags: [bmw, sticker, model, instagram, like]
+tags:
+- bmw
+- instagram
+- sticker
 description: Buy instagram-like inspired BMW window vinyl sticker. Custom model text - 325i, 525i, 740i. For any BMW model.
 price: 8.99
 size: 5½ × 2½ in (14 × 6.5 cm)

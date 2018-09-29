@@ -1,7 +1,11 @@
 ---
 title: bimmer not <s>beamer</s> sticker
 date: 2018-09-25 22:50:50
-tags: [bmw, bimmer, holographic, window, sticker]
+tags:
+- bmw
+- bimmer
+- holographic
+- sticker
 description: Buy 'bimmer not bimmer' bmw window sticker. Made of ORACAL 651 and Cricut holographic vinyl.
 price: 6.99
 size: 8¼ × 2¼ in (21 × 6 cm)

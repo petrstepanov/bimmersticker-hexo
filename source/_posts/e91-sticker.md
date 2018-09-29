@@ -1,7 +1,11 @@
 ---
 title: e91 sticker
 date: 2018-09-27 15:04:14
-tags: [bmw, e91, vinyl, window, windshield, sticker]
+tags:
+- bmw
+- e91
+- 3series
+- sticker
 description: Buy BMW e91 vinyl sticker. Made of ORACAL 651 vinyl. Available in different colors.
 price: 4.99
 size: 6¼ × 3½ in (16 × 9 cm)

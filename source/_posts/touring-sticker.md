@@ -1,7 +1,12 @@
 ---
 title: BMW Touring sticker
 date: 2018-09-25 18:24:51
-tags: [bmw, touring, sticker, window]
+tags:
+- bmw
+- touring
+- wagon
+- sticker
+- window
 description: Buy 'touring' bmw window sticker. Made of ORACAL 651 vinyl.
 price: 7.99
 size: 6¼ × 3½ in (16 × 9 cm)

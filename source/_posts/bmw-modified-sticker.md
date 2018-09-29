@@ -1,7 +1,11 @@
 ---
 title: BMW Modified sticker
 date: 2018-09-26 16:34:11
-tags: [bmw, m1, m3, m5, modified, sticker, holographic]
+tags:
+- bmw
+- modified
+- motorsport
+- sticker
 description: Buy BMW M1 M3 M5 Modified
 price: 8.99
 size: 11½ × 1½ in (29 × 4 cm)

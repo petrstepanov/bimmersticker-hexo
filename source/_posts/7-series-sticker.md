@@ -1,7 +1,10 @@
 ---
 title: 7 series sticker
 date: 2018-09-27 14:44:23
-tags: [bmw, 7series, 7er, vinyl, window, windshield, sticker]
+tags:
+- bmw
+- 7series
+- sticker
 description: Buy BMW 7 series vinyl sticker. Made of ORACAL 651 vinyl. Available in different colors.
 price: 6.99
 size: 8½ × 3 in (22 × 7.5 cm)

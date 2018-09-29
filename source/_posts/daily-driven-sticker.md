@@ -1,7 +1,11 @@
 ---
 title: Daily driven sticker
 date: 2018-09-25 17:12:56
-tags: [bmw, sticker, windshield, window, banner, decal]
+tags:
+- car
+- daily
+- sticker
+- window
 description: Buy 'daily driven' car window sticker. Sticker made of ORACAL vinyl.
 price: 8.99
 size: 8¾ × 6¾ in (22 × 17 cm)

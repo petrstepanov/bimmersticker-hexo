@@ -3,7 +3,7 @@
     <!-- Featured image -->
     <% var image = first_image(post); %>
     <% if (image){ %>
-      <a href="<%- post.path %>">
+      <a href="/<%- post.path %>">
         <img class="card-img-top" src="<%- image.src ? image.src : '' %>" title="<%- image.title ? image.title : '' %>" alt="<%- image.alt ? image.alt : '' %>">
       </a>
     <% } %>

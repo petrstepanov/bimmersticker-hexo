@@ -1,7 +1,11 @@
 ---
 title: Supercharged sticker
 date: 2018-09-26 03:44:47
-tags: [car, sticker, supercharged, supreme, window]
+tags:
+- car
+- supreme
+- window
+- sticker
 description: Buy 'Supercharged' car window sticker (Supreme style). Made of ORACAL 651 vinyl.
 price: 7.99
 size: 8½ × 2 in (22 × 5 cm)

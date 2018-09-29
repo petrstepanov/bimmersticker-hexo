@@ -1,7 +1,10 @@
 ---
 title: Lower than ground sticker
 date: 2018-09-24 14:31:00
-tags: [car, sticker, windshield, window, banner, decal, stance]
+tags:
+- car
+- windshield
+- sticker
 description: Buy lower than ground car windshield banner. Sticker made of ORACAL vinyl.
 price: 19.99
 size: 36 × 8½ in (92 × 22 cm)

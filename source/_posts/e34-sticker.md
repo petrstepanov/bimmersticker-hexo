@@ -1,7 +1,11 @@
 ---
 title: e34 sticker
 date: 2018-09-27 15:03:28
-tags: [bmw, e34, vinyl, window, windshield, sticker]
+tags:
+- bmw
+- e34
+- 5series
+- sticker
 description: Buy BMW e34 vinyl sticker. Made of ORACAL 651 vinyl. Available in different colors.
 price: 4.99
 size: 6¼ × 3½ in (16 × 9 cm)

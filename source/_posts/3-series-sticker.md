@@ -1,7 +1,10 @@
 ---
 title: 3 series sticker
 date: 2018-09-27 00:12:37
-tags: [bmw, 3series, 3er, vinyl, window, windshield, sticker]
+tags:
+- bmw
+- 3series
+- sticker
 description: Buy BMW 3 series vinyl sticker. Made of ORACAL 651 vinyl. Available in different colors.
 price: 6.99
 size: 8½ × 3 in (22 × 7.5 cm)

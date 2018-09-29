@@ -1,0 +1,15 @@
+$related-posts-thumb-size: 4rem;
+
+.related-posts {
+  list-style: none;
+  padding-left: 0;
+}
+
+.related-posts-thumb {
+    width: $related-posts-thumb-size;
+    height: $related-posts-thumb-size;
+    background-size: cover;
+    display: inline-block;
+    margin-right: 0.5rem;
+    border-radius: $related-posts-thumb-size/2;
+}

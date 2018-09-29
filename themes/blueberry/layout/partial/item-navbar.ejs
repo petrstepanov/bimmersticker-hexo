@@ -4,8 +4,8 @@
       <span class="icon-s mr-1"><%- partial('icons/icon-back.svg') %></span> Browse all stickers
     </a>
     <div class="form-inline d-lg-none navbar-buy-button js--init-navbar-buy-button">
-      <% if (page.ebay_url){ %>
-        <a href="<%- page.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary btn-sm" role="button">$<%- page.price %> on eBay</a>
+      <% if (post.ebay_url){ %>
+        <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary btn-sm" role="button">$<%- post.price %> on eBay</a>
       <% } %>
     </div>
   </div>

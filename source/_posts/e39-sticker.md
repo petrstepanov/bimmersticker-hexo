@@ -1,7 +1,11 @@
 ---
 title: e39 sticker
 date: 2018-09-27 15:03:45
-tags: [bmw, e39, vinyl, window, windshield, sticker]
+tags:
+- bmw
+- e39
+- 5series
+- sticker
 description: Buy BMW e39 vinyl sticker. Made of ORACAL 651 vinyl. Available in different colors.
 price: 4.99
 size: 6¼ × 3½ in (16 × 9 cm)

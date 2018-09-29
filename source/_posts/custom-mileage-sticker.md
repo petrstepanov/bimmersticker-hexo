@@ -1,7 +1,11 @@
 ---
 title: Custom mileage sticker
 date: 2018-09-25 23:24:47
-tags: [car, mileage, sticker, window]
+tags:
+- car
+- mileage
+- sticker
+- window
 description: Buy a sticker that shows custom mileage for your car.
 price: 8.99
 size: 8½ × 2¾ in (22 × 7 cm)

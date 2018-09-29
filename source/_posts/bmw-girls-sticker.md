@@ -1,7 +1,10 @@
 ---
 title: BMW Girls sticker
 date: 2018-09-26 04:19:56
-tags: [bmw, girls, sticker, windshield, window, heart, girl]
+tags:
+- bmw
+- girls
+- sticker
 description: Buy 'BMW girls make it better' vinyl sticker for ladies who make it better.
 price: 6.99
 size: 4 × 3½ in (10 × 8.5 cm)

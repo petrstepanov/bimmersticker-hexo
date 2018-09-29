@@ -1,7 +1,11 @@
 ---
 title: f30 sticker
 date: 2018-09-27 15:04:35
-tags: [bmw, f30, vinyl, window, windshield, sticker]
+tags:
+- bmw
+- f30
+- 3series
+- sticker
 description: Buy BMW f30 vinyl sticker. Made of ORACAL 651 vinyl. Available in different colors.
 price: 4.99
 size: 6¼ × 3½ in (16 × 9 cm)

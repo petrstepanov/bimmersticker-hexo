@@ -9,6 +9,9 @@ var gulp = require('gulp'),
     version = require('gulp-version-number');
 
 var paths = {
+  // images: {
+  //   src:
+  // },
   styles: {
     src: ['./development/sass/blueberry.scss',
           './node_modules/noty/lib/noty.css',

@@ -1,7 +1,10 @@
 ---
 title: 4 series sticker
 date: 2018-09-27 10:41:27
-tags: [bmw, 4series, 4er, vinyl, window, windshield, sticker]
+tags:
+- bmw
+- 4series
+- sticker
 description: Buy BMW 4 series vinyl sticker. Made of ORACAL 651 vinyl. Available in different colors.
 price: 6.99
 size: 8½ × 3 in (22 × 7.5 cm)
