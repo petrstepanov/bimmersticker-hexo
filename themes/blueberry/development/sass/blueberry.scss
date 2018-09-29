@@ -15,8 +15,8 @@
 @import "bootstrap/overrides/btn-blueberry";
 
 @import "./../../node_modules/noty/lib/noty";
-@import "./../../node_modules/noty/lib/themes/nest";
-
+@import "noty";
+@import "./../../node_modules/animate.css/animate";
 
 @import "layout/frontpage";
 @import "layout/post";

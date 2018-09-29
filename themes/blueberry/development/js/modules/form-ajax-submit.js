@@ -20,6 +20,7 @@ var FormAjaxSubmit = function(){
         url:      DOM.$form.attr('action'),
         type:     DOM.$form.attr('method'),
         data    : DOM.$form.serialize(),
+        dataType: "json",
         success : _onSuccess,
         error   : _onError
       });
@@ -27,29 +28,21 @@ var FormAjaxSubmit = function(){
   }
 
   function _onSuccess(data){
-    if (options.successRedirectUrl && options.successRedirectUrl != ""){
-      // If redirect show notification after page reload
-      if (options.successNotification){
-        NotificationCenter.doNotifyAfterPageReload('success', options.successNotification);
-      }
-      window.location.href = options.successRedirectUrl;
-    } else {
-      // If no redirect just show notification
-      if (options.successNotification){
-        NotificationCenter.doNotify('success', options.successNotification);
-      }
-      // Run callback
-      if (options.successEvent){
-        Events.emit(options.successEvent, data);
-      }
-      // Enable submit button
-      DOM.$submitButton.prop("disabled", false);
-      DOM.$submitButton.removeClass("loading");
+    // If no redirect just show notification
+    if (options.successNotification){
+      NotificationCenter.notify('success', options.successNotification);
     }
+    // Run callback
+    if (options.successEvent){
+      Events.emit(options.successEvent, data);
+    }
+    // Enable submit button
+    DOM.$submitButton.prop("disabled", false);
+    DOM.$submitButton.removeClass("loading");
   }
 
   function _onError(xhr, error) {
-     NotificationCenter.doNotify('error', error.toString());
+     NotificationCenter.notify('error', error.toString());
      // Enable submit button
      DOM.$submitButton.prop("disabled", false);
      DOM.$submitButton.removeClass("loading");
