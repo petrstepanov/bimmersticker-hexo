@@ -1,4 +1,10 @@
 .spacer-footer {
+  padding-bottom: 3em;
+
+  @include media-breakpoint-up(sm){
+    padding-bottom: 6em;
+  }
+
   @include media-breakpoint-up(lg){
     padding-bottom: 7em;
   }
@@ -10,6 +16,11 @@
 
 footer {
   position: relative;
+  margin-top: -3em;
+
+  @include media-breakpoint-up(sm){
+    margin-top: -6em;
+  }
 
   @include media-breakpoint-up(lg){
     margin-top: -7em;

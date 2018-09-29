@@ -1,8 +1,7 @@
 $(document).ready(function(){
-  $('.js--init-navbar-fixer').each(function(){
-    var nf = NavbarFixer();
-    nf.init(this);
-  });
+
+  NavbarFixer.init(document.querySelector('.js--init-navbar-fixer'));
+  SmoothScroll.init();
 
   $('.js--init-sticky-container').each(function(){
     var sc = StickyContainer();

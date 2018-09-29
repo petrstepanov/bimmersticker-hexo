@@ -27,6 +27,7 @@ var paths = {
           './development/js/modules/navbar-buy-button.js',
           './development/js/modules/content-buy-button.js',
           './development/js/modules/posts-filter.js',
+          './development/js/modules/smooth-scroll.js',
           './development/js/app.js'],
     srcWatch: './development/js/**/*.js',
     dest: './source/js'

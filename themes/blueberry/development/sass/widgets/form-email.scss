@@ -1,14 +1,6 @@
-.widget-form-email {
+.widget-contact-form {
   box-shadow: $box-shadow-blueberry;
   border-radius: $card-border-radius;
   padding: $card-spacer-x;
-  margin-bottom: 3rem;
-
-  @include media-breakpoint-up(md){
-    margin-bottom: 4rem;
-  }
-
-  @include media-breakpoint-up(lg){
-    margin-bottom: 5rem;
-  }
+  background-color: white;
 }

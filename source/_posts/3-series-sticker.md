@@ -10,6 +10,7 @@ colors: [white, lilac, yellow, red, blue, black, mint, orange, pink]
 categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192488974223
+etsy_url: https://www.etsy.com/listing/603514491/bmw-3-series-window-windshield-sticker
 col_class: col-lg-4
 data_groups: 3er
 ---

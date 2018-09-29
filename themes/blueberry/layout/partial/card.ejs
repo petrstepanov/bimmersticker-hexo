@@ -18,14 +18,16 @@
       <% } %>
       <div class="d-flex align-items-center justify-content-between">
         <% if (post.ebay_url && post.etsy_url){ %>
-          <div class="btn-group" role="group">
-            <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">Buy on eBay</a>
-            <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-outline-primary" role="button">on Etsy</a>
-          </div>
+          <!-- <div class="btn-group" role="group"> -->
+            <span>
+              <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">Buy on eBay</a>
+              <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-link pl-2">or Etsy</a>
+            </span>
+          <!-- </div> -->
         <% } else if (post.ebay_url){ %>
           <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">Buy on eBay</a>
         <% } %>
-        <a href="<%- post.path %>">More info</a>
+        <a href="<%- post.path %>" class="strong">More info</a>
       </div>
     </div>
   </figure>
