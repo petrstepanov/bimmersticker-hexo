@@ -1,8 +1,20 @@
-<h2>Customize it!</h2>
+<h2 id="contact">Customize it!</h2>
 
-<p>Want custom stuff? Maybe a car squad logo for friends or a window sticker for your significant other’s car?</p>
-<p>We accept orders for matte, holographic, gold and silver stickers too. Note that it might take us some extra time to order a specific roll of vinyl.</p>
+<p>Want custom stuff? Your car squad logo for friends or a window sticker for your significant other’s car?</p>
 
-<% if (theme.email && theme.instagram_url){ %>
-  <p>To place a custom order please <a href="mailto:<%- theme.email %>?subject=<%- post.title %>">shoot us an email</a> or direct message on <a href="<%- theme.instagram_url %>" rel="me">Instagram</a>.</p>
-<% } %>
+<form class="js--init-ajax-submit" action="<%- theme.formcarry_url %>" method="POST" accept-charset="UTF-8" data-success-notification="Success! We'll get back to you soon!">
+  <input type="hidden" name="title" value="<%- post.title %>" id="input-page" />
+  <div class="form-group">
+    <label for="input-email" class="d-none">A good email to reach you out</label>
+    <input type="email" name="email" class="form-control" id="input-email" placeholder="A good email to reach you out">
+  </div>
+  <div class="form-group mt-2">
+    <label for="input-message" class="d-none">Let us know what's up</label>
+    <textarea name="message" class="form-control js--init-autosize" rows="2" id="input-message" placeholder="Let us know what's up"></textarea>
+    <p class="form-text text-muted mt-2">
+      <small>We accept orders for matte, holographic, gold and silver stickers. It might take us some extra time to order a specific roll of vinyl.</small>
+    </p>
+  </div>
+  <button type="submit" class="btn btn-blueberry btn-outline-primary">Send message</button>
+  <% if (theme.instagram_url){ %><a href="<%- theme.instagram_url %>" class="btn btn-link d-inline d-sm-none" rel="me">or text us on Instagram</a><% } %>
+</form>

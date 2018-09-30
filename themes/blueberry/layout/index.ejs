@@ -60,7 +60,7 @@
             }
           });
           filterQueries.forEach(function(query, index){ %>
-            <button type="button" class="btn btn-blueberry btn-sm btn-link strong mr-sm-1" data-query="<%- query %>"><%- query %></button>
+            <button type="button" class="btn btn-blueberry btn-sm btn-link strong px-1 px-sm-2 mr-sm-1" data-query="<%- query %>"><%- query %></button>
           <% });
         %>
       </div>
@@ -82,10 +82,10 @@
           </div>
           <div class="form-group">
             <label for="input-message">Your Message</label>
-            <textarea name="message" class="form-control" rows="5" id="input-message"></textarea>
+            <textarea name="message" class="form-control js--init-autosize" rows="4" id="input-message"></textarea>
           </div>
           <div class="text-center">
-            <button type="submit" class="btn btn-blueberry btn-primary ml-auto mr-auto">Send message</button>
+            <button type="submit" class="btn btn-blueberry btn-primary mt-2 ml-auto mr-auto">Send message</button>
           </div>
         </form>
       </div>

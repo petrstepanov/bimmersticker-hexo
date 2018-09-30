@@ -33,4 +33,6 @@ $(document).ready(function(){
     var fas = FormAjaxSubmit();
     fas.init(this);
   });
+
+  autosize(document.querySelectorAll('.js--init-autosize'));  
 });

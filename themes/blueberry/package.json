@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "animate.css": "^3.7.0",
+    "autosize": "^4.0.2",
     "bootstrap": "^4.1.3",
     "filterizr": "^1.3.5",
     "gulp": "^3.9.1",

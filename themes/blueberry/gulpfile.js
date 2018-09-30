@@ -26,6 +26,7 @@ var paths = {
           './node_modules/shufflejs/dist/shuffle.js',
           './node_modules/in-view/dist/in-view.min.js',
           './node_modules/noty/lib/noty.js',
+          './node_modules/autosize/dist/autosize.js',
 
           './development/js/modules/events.js',
           './development/js/modules/helpers.js',
