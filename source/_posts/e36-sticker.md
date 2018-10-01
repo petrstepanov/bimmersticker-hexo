@@ -23,4 +23,12 @@ Motorsport icon. Number one in drift, drag, track and car meets.
 <!-- more -->
 {% asset_img content-image bmw-e36-sticker-vinyl.jpg 'BMW e36 drift stance sport vinyl sticker"BMW e36 drift stance sport vinyl sticker"' %}
 
+The whole business started from this BMW e36 sticker. It was the first one ever made for our project car.
+
 Please message us the specific color you want on the eBay Checkout page. We ship 'White' by default. Sticker comes with the transfer tape for easy application.
+
+{% asset_img content-image our-customers-bmw-with-e36-sticker.jpg 'BMW e36 drift stance sport vinyl sticker"BMW e36 drift stance sport vinyl sticker"' %}
+{% blockquote %}
+{% link @jjophoto https://www.instagram.com/jjophoto/ @jjophoto profile %} &nbsp;
+Hey! Just wanted to say thanks for the e36 sticker, it looks great!
+{% endblockquote %}
