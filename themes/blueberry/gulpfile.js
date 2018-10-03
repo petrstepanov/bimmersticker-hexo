@@ -28,6 +28,7 @@ var paths = {
           './node_modules/noty/lib/noty.js',
           './node_modules/autosize/dist/autosize.js',
 
+          // './development/js/modules/image-preloader.js',
           './development/js/modules/events.js',
           './development/js/modules/helpers.js',
 
