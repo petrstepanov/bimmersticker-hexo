@@ -6,6 +6,7 @@ tags:
 - bimmer
 - windshield
 - sticker
+- banner
 description: Buy bimmer4life windshield banner designed for BMW cars. Sticker made of ORACAL vinyl.
 price: 19.99
 size: 36 × 8½ in (92 × 22 cm)

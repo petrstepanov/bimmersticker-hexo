@@ -5,6 +5,7 @@ tags:
 - car
 - windshield
 - sticker
+- banner
 description: Buy lower than ground car windshield banner. Sticker made of ORACAL vinyl.
 price: 19.99
 size: 36 × 8½ in (92 × 22 cm)
