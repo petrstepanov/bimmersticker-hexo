@@ -1,5 +1,5 @@
 ---
-title: '#bimmer4life sticker'
+title: '#bimmer4life windshield sticker'
 date: 2018-09-14 15:38:35
 tags:
 - bmw
@@ -23,7 +23,7 @@ The first BMW windshield sticker we ever made.
 <!-- more -->
 {% asset_img content-image sticker-bimmer4life.jpg 'BMW bimmer4life window windshield banner vinyl sticker"BMW vinyl windshield banner sticker"' %}
 
-A sticker that speaks for itself. Made by bimmer drivers. Made for bimmer drivers.
+A sticker that speaks for itself. Made by bimmer drivers. Made for bimmer drivers. Works best on the front windshield.
 
 We truly beleive that BMW cars - especially the older ones were build tough. This is our duty to maintain them right and on time. If you do so the car will pay you back and will run for life.
 
