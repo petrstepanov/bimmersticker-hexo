@@ -13,7 +13,7 @@ colors: [lilac, yellow, red, blue, mint, orange, pink]
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/192671124978
-col_class: col-lg-6
+col_class: col-lg-4
 ---
 
 Special sticker for ladies! With love from our crew.
