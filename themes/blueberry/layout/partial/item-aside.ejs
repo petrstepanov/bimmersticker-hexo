@@ -19,6 +19,8 @@
                 <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-link" role="button">Also on Etsy</a>
               <% } else if (post.ebay_url){ %>
                 <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">$<%- post.price %> on eBay</a>
+              <% } else if (post.etsy_url){ %>
+                <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">$<%- post.price %> on Etsy</a>
               <% } %>
             </div>
             <dl class="mt-3 mt-lg-5  sticker-properties clearfix">

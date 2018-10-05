@@ -9,7 +9,7 @@ tags:
 description: Buy Sharknose Legend windshield banner for classic BMW cars. Available in holographic finish.
 price: 19.99
 size: 32 × 9 in (81 × 23 cm)
-material: ORACAL 651 vinyl
+material: ORACAL 651 or Cricut vinyl
 colors: [white, mint, pink, holographic opal]
 categories:
 - Featured
