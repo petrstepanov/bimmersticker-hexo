@@ -13,7 +13,7 @@ material: ORACAL 651 or Cricut vinyl
 colors: [white, holographic opal]
 categories:
 - Featured
-ebay_url: https://www.etsy.com/listing/634953846/two-custom-instagram-name-handle-vinyl
+etsy_url: https://www.etsy.com/listing/634953846/two-custom-instagram-name-handle-vinyl
 col_class: col-lg-4
 ---
 
