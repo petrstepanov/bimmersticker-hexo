@@ -1,5 +1,5 @@
 ---
-title: Instagram name sticker
+title: Instagram name stickers
 date: 2018-10-05 01:01:09
 tags:
 - car
@@ -17,7 +17,7 @@ etsy_url: https://www.etsy.com/listing/634953846/two-custom-instagram-name-handl
 col_class: col-lg-4
 ---
 
-With original instagram logo and font face.
+A set of two. Original instagram logo and font face.
 
 <!-- more -->
 {% asset_img content-image car-custom-instagram-username-stickers.jpg 'Custom instagram username stickers for a car"Custom instagram username stickers for a car"' %}
