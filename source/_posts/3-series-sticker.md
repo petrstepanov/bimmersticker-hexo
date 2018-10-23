@@ -1,5 +1,5 @@
 ---
-title: 3 series sticker
+title: BMW 3 series sticker
 date: 2018-09-27 00:12:37
 tags:
 - bmw

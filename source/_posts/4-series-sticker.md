@@ -1,5 +1,5 @@
 ---
-title: 4 series sticker
+title: BMW 4 series sticker
 date: 2018-09-27 10:41:27
 tags:
 - bmw

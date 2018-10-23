@@ -1,5 +1,5 @@
 ---
-title: 5 series sticker
+title: BMW 5 series sticker
 date: 2018-09-27 11:39:07
 tags:
 - bmw

@@ -1,5 +1,5 @@
 ---
-title: 2 series sticker
+title: BMW 2 series sticker
 date: 2018-09-26 19:31:46
 tags:
 - bmw

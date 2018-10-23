@@ -1,5 +1,5 @@
 ---
-title: 1 series sticker
+title: BMW 1 series sticker
 date: 2018-09-26 18:00:09
 tags:
 - bmw

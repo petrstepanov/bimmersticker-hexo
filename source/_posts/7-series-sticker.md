@@ -1,5 +1,5 @@
 ---
-title: 7 series sticker
+title: BMW 7 series sticker
 date: 2018-09-27 14:44:23
 tags:
 - bmw
