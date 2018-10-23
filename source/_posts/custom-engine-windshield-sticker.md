@@ -18,7 +18,7 @@ ebay_url: https://www.ebay.com/itm/192698406384
 col_class: col-lg-4
 ---
 
-Text us your custom engine model.
+Window sticker that resembles original BMW engine cover design.
 
 <!-- more -->
 {% asset_img content-image bmw-custom-engine-windshield-sticker.jpg 'BMW Powered windshield sticker with custom engine"BMW Powered windshield sticker with custom engine"' %}

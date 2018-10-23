@@ -3,30 +3,30 @@
     <%- partial('partial/item-navbar') %>
     <div class="container">
       <div class="row">
-        <div class="col">
+        <div class="col" itemscope itemtype="http://schema.org/Product">
             <!-- Featured image -->
             <% var image = first_image(page); %>
             <% if (image){ %>
-              <img class="featured-image" src="<%- image.src ? image.src : '' %>" title="<%- image.title ? image.title : '' %>" alt="<%- image.alt ? image.alt : '' %>">
+              <img itemprop="image" class="featured-image" src="<%- image.src ? image.src : '' %>" title="<%- image.title ? image.title : '' %>" alt="<%- image.alt ? image.alt : '' %>">
             <% } %>
-            <h1 class="mb-1 font-size-28"><%- post.title %></h1>
+            <h1 class="mb-1 font-size-28" itemprop="name"><%- post.title %></h1>
             <% if (post.excerpt){ %>
-              <p class="text-muted"><%- strip_html(post.excerpt) %></p>
+              <p class="text-muted" itemprop="description"><%- strip_html(post.excerpt) %></p>
             <% } %>
-            <div class="mt-3 js--init-content-buy-button">
+            <div class="mt-3 js--init-content-buy-button" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
               <% if (post.ebay_url && post.etsy_url){ %>
-                <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">$<%- post.price %> on eBay</a>
+                <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button"><span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="<%- post.price %>"><%- post.price %></span> on eBay</a>
                 <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-link" role="button">Also on Etsy</a>
               <% } else if (post.ebay_url){ %>
-                <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">$<%- post.price %> on eBay</a>
+                <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button"><span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="<%- post.price %>"><%- post.price %></span> on eBay</a>
               <% } else if (post.etsy_url){ %>
-                <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">$<%- post.price %> on Etsy</a>
+                <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button"><span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="<%- post.price %>"><%- post.price %></span> on Etsy</a>
               <% } %>
             </div>
             <dl class="mt-3 mt-lg-5  sticker-properties clearfix">
               <% if (post.material){ %>
                 <dt>Material</dt>
-                <dd><%- post.material %></dd>
+                <dd itemprop="material"><%- post.material %></dd>
               <% } %>
               <% if (post.size){ %>
                 <dt>Size</dt>
