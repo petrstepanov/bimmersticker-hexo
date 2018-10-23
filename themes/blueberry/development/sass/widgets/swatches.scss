@@ -36,6 +36,12 @@ $swatch-size: 0.75rem;
     background-color: #f6a6bf;
   }
 
+  &.silver {
+    width: $swatch-size*2;
+    background: linear-gradient(to right, white, #ececec);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
+  }
+
   &.holographic {
     width: $swatch-size*2;
 
