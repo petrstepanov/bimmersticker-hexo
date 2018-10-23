@@ -1,20 +1,20 @@
 <div class="col-xs-12 col-md-6 <%- post.col_class ? post.col_class : '' %>  js--posts-filter-item" data-groups='["<%- post.data_groups ? post.data_groups : '' %>"]'>
-  <figure class="card card-blueberry">
+  <figure class="card card-blueberry" itemscope itemtype="http://schema.org/Product">
     <!-- Featured image -->
     <% var image = first_image(post); %>
     <% if (image){ %>
-      <a href="/<%- post.path %>">
-        <img class="card-img-top" src="<%- image.src ? image.src : '' %>" title="<%- image.title ? image.title : '' %>" alt="<%- image.alt ? image.alt : '' %>">
+      <a itemprop="url" href="/<%- post.path %>">
+        <img itemprop="image" class="card-img-top" src="<%- image.src ? image.src : '' %>" title="<%- image.title ? image.title : '' %>" alt="<%- image.alt ? image.alt : '' %>">
       </a>
     <% } %>
     <!-- Card body -->
     <div class="card-body">
       <h3 class="card-title font-size-21 d-flex justify-content-between">
-        <span><%- post.title %></span>
-        <span>$<%- format_price(post.price) %></span>
+        <span itemprop="name"><%- post.title %></span>
+        <span><span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="<%- post.price %>"><%- format_price(post.price) %></span></span>
       </h3>
       <% if (post.excerpt){ %>
-        <p class="mb-2 pb-1"><%- strip_html(post.excerpt) %></p>
+        <p class="mb-2 pb-1" itemprop="description"><%- strip_html(post.excerpt) %></p>
       <% } %>
       <div class="d-flex align-items-center justify-content-between">
         <% if (post.ebay_url && post.etsy_url){ %>
