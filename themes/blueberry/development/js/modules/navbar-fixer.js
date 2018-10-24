@@ -25,11 +25,11 @@ var NavbarFixer = (function(){
   function _fixReleaseNavbar(){
     if (_checkNeedsFixed()){
       DOM.$navbar.addClass('fixed-top');
-      $('body').css('margin-top', getNavbarHeight() + 'px');
+      $('body').css('padding-top', getNavbarHeight() + 'px');
       fixed = true;
     } else {
       DOM.$navbar.removeClass('fixed-top');
-      $('body').css('margin-top', 0);
+      $('body').css('padding-top', 0);
       fixed = false;
     }
   }

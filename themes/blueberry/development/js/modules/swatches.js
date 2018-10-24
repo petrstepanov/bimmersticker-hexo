@@ -17,10 +17,11 @@ var Swatches = function(){
       DOM.$el.append($s);
       $s.popover({
         animation: false,
+        container: 'body',
         placement: 'top',
         trigger: 'hover',
         content: color.charAt(0).toUpperCase() + color.slice(1),
-        offset: '0, 6px'
+        offset: "0, 6"
       });
     });
   }
