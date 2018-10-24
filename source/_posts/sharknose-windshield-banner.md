@@ -17,7 +17,7 @@ ebay_url: https://www.ebay.com/itm/192679348906
 col_class: col-lg-6
 ---
 
-A beautiful banner for legendary cars.
+A beautiful banner for legendary BMW cars.
 
 <!-- more -->
 {% asset_img content-image bmw-shark-sharknose-windshield-banner-holographic.jpg 'Sharknose Legend classic BMW window banner with crown"Sharknose Legend classic BMW window banner with crown"' %}
