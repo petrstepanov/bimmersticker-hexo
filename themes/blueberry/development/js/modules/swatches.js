@@ -11,11 +11,18 @@ var Swatches = function(){
 
   function _render(){
     var swatches = DOM.$el.text().split(", ");
-    var html = "&nbsp;";
-    swatches.forEach(function(swatch){
-      html += '<span class="swatch ' + swatch + '">' + '</span>';
+    DOM.$el.html('');
+    swatches.forEach(function(color){
+      var $s = $('<span class="swatch ' + color + '">' + '</span>');
+      DOM.$el.append($s);
+      $s.popover({
+        animation: false,
+        placement: 'top',
+        trigger: 'hover',
+        content: color.charAt(0).toUpperCase() + color.slice(1),
+        offset: '0, 6px'
+      });
     });
-    DOM.$el.html(html);
   }
 
   function init(element) {
