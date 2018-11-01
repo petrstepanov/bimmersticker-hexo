@@ -1,15 +1,15 @@
-<div class="orientation-container">
-  <%- partial('partial/item-aside') %>
-  <section id="post-content" class="spacer-footer">
+<main class="orientation-container">
+  <%- partial('partial/item-sidebar') %>
+  <div id="post-content" class="spacer-footer">
     <div class="container">
       <div class="row">
         <div class="col">
-          <%- page.more %>
+          <section><%- page.more %></section>
           <%- partial('partial/item-customize') %>
           <%- partial('partial/item-similar') %>
           <%- partial('partial/item-comments') %>
         </div>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</main>
