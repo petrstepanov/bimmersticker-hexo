@@ -41,7 +41,7 @@
 <section class="pb-4">
   <!-- Model stickers -->
   <%- partial('partial/heading', {title: 'Stickers for models', subtitle: 'BMW has a lot of different models. Pick a sticker that fits yours. Have a cool idea for a custom sticker? <a href="#contact">Contact us</a> and we will get back to you the same day.', name: 'models'}) %>
-  <%- partial('partial/category-posts-list', {categoryName: 'Model'}) %>
+  <%- partial('partial/category-posts-list', {categoryName: 'Model', sortBy: 'date'}) %>
 
 </section>
 <section class="pb-4 js--init-posts-filter">
@@ -66,7 +66,7 @@
       </div>
     </div>
   </div>
-  <%- partial('partial/category-posts-list', {categoryName: 'Series and Generations'}) %>
+  <%- partial('partial/category-posts-list', {categoryName: 'Series and Generations', sortBy: 'title'}) %>
 </section>
 
 <section class="pt-4 section-whitesmoke spacer-footer">

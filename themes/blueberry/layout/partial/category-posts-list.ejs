@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row justify-content-center js--posts-filter-container">
-    <% site.categories.findOne({name: categoryName}).posts.sort('date', 1).each(function(post, i){ %>
+    <% var sort = (typeof sortBy !== 'undefined') ? sortBy : 'date'; %>
+    <% site.categories.findOne({name: categoryName}).posts.sort(sort, 1).each(function(post, i){ %>
       <%- partial('partial/card', { post: post }) %>
     <% }) %>
   </div>

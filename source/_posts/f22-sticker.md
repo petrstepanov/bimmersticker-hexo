@@ -4,7 +4,7 @@ date: 2018-10-02 17:52:53
 tags:
 - bmw
 - f22
-- 3series
+- 2series
 - sticker
 description: Buy vinyl sticker for BMW f22 cars. Made of ORACAL 651 vinyl. Available in different colors.
 price: 4.99
