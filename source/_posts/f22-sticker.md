@@ -15,7 +15,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192677415252
 col_class: col-lg-4
-data_groups: 3er
+data_groups: 2er
 ---
 
 Exciting dynamics and a design. Nice little bimmer.

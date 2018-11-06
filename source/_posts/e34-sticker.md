@@ -23,4 +23,15 @@ One of the most reliable 5 series cars ever built.
 <!-- more -->
 {% asset_img content-image bmw-e34-vinyl-sticker.jpg 'BMW e34 sport vinyl sticker"BMW e34 sport vinyl sticker"' %}
 
-Please message us the specific color you want on the eBay Checkout page. We ship 'White' by default. Sticker comes with the transfer tape for easy application.
+A vinyl sticker for the most iconic 5 series BMW car e34. Please message us the specific color you want on the eBay Checkout page. We ship 'White' by default. Sticker comes with the transfer tape for easy application.
+
+{% attribution_img
+  'e34-car-rear-window-sticker.jpg'
+  'Sport window sticker for BMW e34 cars'
+  'pic 254'
+  'https://www.flickr.com/photos/dongkwan/240171637/'
+  'Ernesto Andrade'
+  'https://www.flickr.com/photos/dongkwan/'
+  'CC BY-ND 2.0'
+  'https://creativecommons.org/licenses/by-nd/2.0/'
+%}

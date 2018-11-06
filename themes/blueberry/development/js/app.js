@@ -34,5 +34,8 @@ $(document).ready(function(){
     fas.init(this);
   });
 
-  autosize(document.querySelectorAll('.js--init-autosize'));  
+  autosize(document.querySelectorAll('.js--init-autosize'));
+
+  // Bootstrap's popovers
+  $('[data-toggle="popover"]').popover();
 });

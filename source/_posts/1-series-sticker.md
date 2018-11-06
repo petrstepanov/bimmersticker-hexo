@@ -37,3 +37,6 @@ Sticker is cut off a sheet of ORACAL® 651 adhesive glossy vinyl. Can be applied
 Vinyl sticker is available in nine different colors in stock. Please message us the color you want on the eBay checkout page. Sticker comes with the transfer tape for easy application.
 
 Be careful when taking the sticker off the car paint. Please heat up the vinyl with a heat gun before taking the sticker off. Also use GOO OFF or alternative to wipe the rest of the sticker's adhesive off the car's clear coat.
+
+Photo attributions:
+- "{% link BMW 1 Series E87 https://www.flickr.com/photos/dave_see/15132684184/ BMW 1 Series E87 %}" by Flickr user {% link Dave See https://www.flickr.com/photos/dave_see/ Dave See %}, used under {% link CC BY https://creativecommons.org/licenses/by/2.0/ CC BY %}.
