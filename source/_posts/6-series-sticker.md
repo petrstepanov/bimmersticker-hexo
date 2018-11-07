@@ -17,16 +17,16 @@ col_class: col-lg-4
 data_groups: 6er
 ---
 
-Most individualistic and memorable series across others.
+A sticker for the most individualistic and memorable BMW car series.
 
 <!-- more -->
 {% asset_img content-image bmw-6-series-sticker.jpg 'BMW 6 series 6er vinyl sticker"BMW 6 series 6er vinyl sticker"' %}
 
-A nicely designed and handcrafted '5 series' sticker. Six series of BMW cars have three generations: oldschool e24, then e63 coupe and e64 cabrio. Later they introduced the 4-door coupe f06, and 2-door convertible and coupe (f12, f13). In 2017 the g32 Gran Tourismo came out.
+A nicely designed and handcrafted '6 series' sticker. Six series of BMW cars have three generations: oldschool e24, then e63 coupe and e64 cabrio. Later they introduced the 4-door coupe f06, and 2-door convertible and coupe (f12, f13). In 2017 the g32 Gran Tourismo came out.
 
 {% asset_img content-image 4-series-sticker-on-a-bmw-window.jpg 'Vinyl sticker for BMW 4 series in different colors"Sticker for BMW 4 series available in different colors"' %}
 
-Sticker is cut off a sheet of ORACAL® 651 adhesive glossy vinyl. Can be applied on a window, windshield and body paint as well.
+Sticker is cut off a sheet of ORACAL® 651 adhesive glossy vinyl. Can be applied on a window, windshield and body as well.
 
 {% asset_img content-image 4-series-bmw-sticker.jpg '4 series sticker on a bmw window"4 series sticker on a bmw window"' %}
 
