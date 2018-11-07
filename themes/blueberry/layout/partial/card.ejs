@@ -29,7 +29,7 @@
         <% } else if (post.etsy_url){ %>
           <a onclick="ga('send', 'event', 'buy', 'click-main', '<%- post.title %>');" href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">Buy on Etsy</a>
         <% } %>
-        <!-- <a href="<%- post.path %>" class="strong">More info</a> -->
+        <a href="<%- post.path %>" class="strong">More info</a>
       </div>
     </div>
   </figure>

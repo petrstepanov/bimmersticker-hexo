@@ -41,6 +41,14 @@
     // }
   }
 
+  .card-body {
+    padding: $card-spacer-x*3/4;
+
+    @include media-breakpoint-up(sm){
+      padding: $card-spacer-x;
+    }
+  }
+
   h3 {
     line-height: 1;
 
