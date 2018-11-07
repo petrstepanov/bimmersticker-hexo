@@ -18,8 +18,6 @@ hexo.extend.tag.register('attribution_img', function (args) {
 
   var templatePath = pathFn.join(hexo.source_dir, 'attributionImg.html');
 
-  // return "<strong>"+data.toString()+"</strong>";
-
   return new Promise(function(resolve, reject) {
     nunjucks.render(templatePath, data, function(err, res) {
       if (err) {

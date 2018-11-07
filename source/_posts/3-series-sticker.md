@@ -29,7 +29,16 @@ A nicely designed and handcrafted '3 series' sticker. Sticker is designed to be 
 
 Sticker is cut off a sheet of ORACAL® 651 adhesive glossy vinyl. Can be applied on a window, windshield and body paint as well.
 
-{% asset_img content-image 3-series-e30-windshield.jpg '3 series sticker on a e30 bmw windshield"3 series sticker on a e30 bmw windshield"' %}
+{% attribution_img
+  '3-series-e30-windshield.jpg'
+  '3 series sticker on a e30 bmw windshield'
+  'Sweetshop Automotive - The Gathering'
+  'https://www.flickr.com/photos/bedworth/15646556472/'
+  'Mathew Bedworth'
+  'https://www.flickr.com/photos/bedworth/'
+  'CC BY 2.0'
+  'https://creativecommons.org/licenses/by/2.0/'
+%}
 
 Vinyl sticker is available in nine different colors in stock. Please message us the color you want on the eBay checkout page. Sticker comes with the transfer tape for easy application.
 

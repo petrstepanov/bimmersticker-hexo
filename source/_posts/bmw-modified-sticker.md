@@ -17,7 +17,7 @@ ebay_url: https://www.ebay.com/itm/192621877644
 col_class: col-lg-4
 ---
 
-Not Motorsport but Modified! Built not Bought lol.
+BMW M Sticker for modified cars.
 
 <!-- more -->
 {% asset_img content-image bmw-m1-m3-m5-modified-sticker.jpg 'Modified sticker for bmw cars"Vinyl Modified sticker for your bmw"' %}
@@ -26,7 +26,16 @@ Originally BMW "M" division was originated to carry out the BMW's racing program
 
 Everyone can buy an ///M car. Not everyone though knows how to work in it, take care and modify it the right way. That's why for us M really stands for Modified, not motorprort.
 
-{% asset_img content-image bmw-modified-sticker.jpg 'Vinyl Modified sticker for BMW"Window Modified sticker for bmw"' %}
+{% attribution_img
+  'bmw-modified-sticker.jpg'
+  'Vinyl sticker for BMW M Modified cars'
+  'Prior Design BMW X5 E70...'
+  'https://www.flickr.com/photos/priordesignna/14492358465/'
+  'PRIOR DESIGN'
+  'https://www.flickr.com/photos/priordesignna/'
+  'CC BY 2.0'
+  'https://creativecommons.org/licenses/by/2.0/'
+%}
 
 We encourage people to use the sticker on non-M cars too. Because Modified, not Motorsport.
 

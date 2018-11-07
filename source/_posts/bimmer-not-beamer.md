@@ -32,6 +32,15 @@ The goal of this sticker is to let people know how to pronounce and spell it rig
 
 Made of two ORACAL® 651 adhesive glossy vinyl layers. Top "bimmer" layer is white, bottom "not beamer" is made of glossy red vinyl.
 
-{% asset_img content-image bmw-bimmer-not-beamer-sticker.jpg 'Spell the word bimmer right"Vinyl sticker bimmer not beamer for BMW"' %}
+{% attribution_img
+  'bmw-bimmer-not-beamer-sticker.jpg'
+  'Bimmer not beamer BMW window vinyl sticker'
+  'M Coupe Turbo 4'
+  'https://www.flickr.com/photos/kmeisch/5934523112/in/photolist-a3pYY1'
+  'Ken Meisch'
+  'https://www.flickr.com/photos/kmeisch/'
+  'CC BY-ND 2.0'
+  'https://creativecommons.org/licenses/by-nd/2.0/'
+%}
 
 Sticker comes with the transfer tape for easy application. Durability period of the sticker tops at 6 years.

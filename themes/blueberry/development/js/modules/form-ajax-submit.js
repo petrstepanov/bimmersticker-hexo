@@ -39,6 +39,8 @@ var FormAjaxSubmit = function(){
     // Enable submit button
     DOM.$submitButton.prop("disabled", false);
     DOM.$submitButton.removeClass("loading");
+    // Reset form fields
+    DOM.$form.trigger('reset');
   }
 
   function _onError(xhr, error) {

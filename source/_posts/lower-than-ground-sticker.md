@@ -24,7 +24,16 @@ Because lowered BMW's are the coolest.
 
 The thing is that our project bimmer often goes by "lower than ground thing" when entering any garage or alignment rack. We thought we can make a thing of it.
 
-{% asset_img content-image lower-than-ground-car-window-sticker.jpg 'Lowered car window vinyl banner "Stanced car windshield banner"' %}
+{% attribution_img
+  'lower-than-ground-car-window-sticker.jpg'
+  'Lower than ground car windshield banner sticker'
+  'BMW'
+  'https://www.flickr.com/photos/philip-rosie/14534224005/'
+  'Phil Guest'
+  'https://www.flickr.com/photos/philip-rosie/'
+  'CC BY-SA 2.0'
+  'https://creativecommons.org/licenses/by-sa/2.0/'
+%}
 
 Realistically this vinyl sticker can be used on any type of the car, not necessarily a BMW.
 
