@@ -5,9 +5,9 @@
     </a>
     <div class="form-inline d-lg-none navbar-buy-button js--init-navbar-buy-button">
       <% if (post.ebay_url){ %>
-        <a onclick="ga('send', 'event', 'buy', 'click', '<%- post.title %>'); gtag_report_conversion();" href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary btn-sm" role="button">$<%- post.price %> on eBay</a>
+        <a onclick="ga('send', 'event', 'buy', 'click', '<%- post.title %>'); return gtag_report_conversion('<%- post.ebay_url %>');" href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary btn-sm" role="button">$<%- post.price %> on eBay</a>
       <% } else if (post.etsy_url){ %>
-        <a onclick="ga('send', 'event', 'buy', 'click', '<%- post.title %>'); gtag_report_conversion();" href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-primary btn-sm" role="button">$<%- post.price %> on Etsy</a>
+        <a onclick="ga('send', 'event', 'buy', 'click', '<%- post.title %>'); return gtag_report_conversion('<%- post.etsy_url %>');" href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-primary btn-sm" role="button">$<%- post.price %> on Etsy</a>
       <% } %>
     </div>
   </div>
