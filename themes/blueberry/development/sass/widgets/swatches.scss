@@ -42,6 +42,12 @@ $swatch-size: 0.75rem;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
   }
 
+  &.gold {
+    width: $swatch-size*2;
+    background: linear-gradient(to right, #f9efc9, #dec67a);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
+  }
+
   &.holographic {
     width: $swatch-size*2;
 
