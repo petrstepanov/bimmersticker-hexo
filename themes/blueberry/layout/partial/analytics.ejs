@@ -1,0 +1,28 @@
+<script>
+  window.addEventListener('load',function(){
+    jQuery('.card-body .btn-blueberry:contains("Buy on eBay")').click(function(){
+      gtag('event', 'Click', {
+        'event_category' : 'Buy on eBay Button',
+        'event_label' : jQuery(this).parents('.card-body').find('.card-title').text().split('$')[0].trim()
+      });
+    })
+    jQuery('.card-body a:contains("More info")').click(function(){
+      gtag('event', 'Click', {
+        'event_category' : 'More Info Button',
+        'event_label' : jQuery(this).parents('.card-body').find('.card-title').text().split('$')[0].trim()
+      });
+    })
+    jQuery('.card-body a:contains("or Etsy")').click(function(){
+      gtag('event', 'Click', {
+        'event_category' : 'Etsy Button',
+        'event_label' : jQuery(this).parents('.card-body').find('.card-title').text().split('$')[0].trim()
+      });
+    })
+    jQuery('.js--init-content-buy-button:contains(" on eBay")').click(function(){
+      gtag('event', 'Click', {
+        'event_category' : 'More Info - Buy eBay Button',
+        'event_label' : jQuery(this).parents().find('[itemprop="name"]').text()
+      });
+    })
+  })
+</script>

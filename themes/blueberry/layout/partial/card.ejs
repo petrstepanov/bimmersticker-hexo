@@ -20,14 +20,14 @@
         <% if (post.ebay_url && post.etsy_url){ %>
           <!-- <div class="btn-group" role="group"> -->
             <span>
-              <a onclick="ga('send', 'event', 'buy', 'click-main', '<%- post.title %>'); return gtag_report_conversion('<%- post.ebay_url %>');" href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">Buy on eBay</a>
-              <a onclick="ga('send', 'event', 'buy', 'click-main', '<%- post.title %>'); return gtag_report_conversion('<%- post.etsy_url %>');" href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-link pl-2">or Etsy</a>
+              <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">Buy on eBay</a>
+              <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-link pl-2">or Etsy</a>
             </span>
           <!-- </div> -->
         <% } else if (post.ebay_url){ %>
-          <a onclick="ga('send', 'event', 'buy', 'click-main', '<%- post.title %>'); return gtag_report_conversion('<%- post.ebay_url %>');" href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">Buy on eBay</a>
+          <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">Buy on eBay</a>
         <% } else if (post.etsy_url){ %>
-          <a onclick="ga('send', 'event', 'buy', 'click-main', '<%- post.title %>'); return gtag_report_conversion('<%- post.etsy_url %>');" href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">Buy on Etsy</a>
+          <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">Buy on Etsy</a>
         <% } %>
         <a href="<%- post.path %>" class="strong">More info</a>
       </div>
