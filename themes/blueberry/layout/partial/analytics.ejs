@@ -1,4 +1,5 @@
 <script>
+
   window.addEventListener('load',function(){
     jQuery('.card-body .btn-blueberry:contains("Buy on eBay")').click(function(){
       gtag('event', 'Click', {
@@ -22,6 +23,12 @@
       gtag('event', 'Click', {
         'event_category' : 'More Info - Buy eBay Button',
         'event_label' : jQuery(this).parents().find('[itemprop="name"]').text()
+      });
+    })
+    jQuery('.navbar-bluebery .btn-blueberry:contains("on eBay")').click(function(){
+      gtag('event', 'Click', {
+        'event_category' : 'NavBar eBay Button',
+        'event_label' : window.location.pathname.replace(/\//g,'')
       });
     })
   })
