@@ -1,12 +1,12 @@
 ---
-title: Send Nudes Banner
+title: Send Nudes banner
 date: 2018-09-24 14:29:01
 tags:
 - car
 - windshield
 - sticker
 - banner
-description: Buy "Send Nudes" bid windshield banner. Sticker comes in glossy white, silver and gold colors. Looks perfect on stanced, modified, drift and race cars!
+description: Buy "Send Nudes" car windshield banner. Sticker comes in glossy white, silver and gold colors. Looks perfect on stanced, modified, drift and race cars!
 price: 16.99
 size: 30 × 5½ in (76 × 14 cm)
 material: ORACAL 651 vinyl or Cricut adhesive foil
