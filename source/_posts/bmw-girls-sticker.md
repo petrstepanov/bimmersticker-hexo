@@ -13,6 +13,7 @@ colors: [black, pink]
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/192671124978
+etsy_url: https://www.etsy.com/listing/688312333/bmw-girls-make-it-better-vinyl-car
 col_class: col-lg-4
 ---
 

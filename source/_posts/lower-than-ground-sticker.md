@@ -1,5 +1,5 @@
 ---
-title: Lower than ground sticker
+title: Lower than ground banner
 date: 2018-09-24 14:31:00
 tags:
 - car
