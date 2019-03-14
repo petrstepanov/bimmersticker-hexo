@@ -14,7 +14,7 @@ colors: [white, mint, pink]
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/192489357995
-col_class: col-lg-4
+col_class: col-lg-6
 ---
 
 Because lowered BMW's are the coolest.
