@@ -12,7 +12,7 @@ size: 34 × 5 in (86 × 13 cm)
 material: ORACAL 651 vinyl or Cricut adhesive foil
 colors: [white, silver, gold]
 categories:
-- Featured
+- Banners
 ebay_url: https://www.ebay.com/itm/192785163047
 etsy_url: https://www.etsy.com/listing/687741173/street-fighter-windshield-banner
 col_class: col-lg-6

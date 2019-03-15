@@ -11,7 +11,7 @@ size: 5½ × 2½ in (14 × 6.5 cm)
 material: ORACAL 651 vinyl
 colors: [red, orange]
 categories:
-- Model
+- Bmw Special
 ebay_url: https://www.ebay.com/itm/192568855873
 col_class: col-lg-4
 ---

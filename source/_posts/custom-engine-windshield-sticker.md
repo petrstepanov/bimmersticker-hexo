@@ -13,7 +13,7 @@ size: Size is 24 × 3¼ in (91 × 8 cm)
 material: ORACAL 651 or Cricut vinyl
 colors: [white, silver]
 categories:
-- Featured
+- Bmw Special
 ebay_url: https://www.ebay.com/itm/192698406384
 col_class: col-lg-4
 ---

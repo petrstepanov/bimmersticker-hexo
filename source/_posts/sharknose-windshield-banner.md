@@ -12,7 +12,7 @@ size: 32 × 9 in (81 × 23 cm)
 material: ORACAL 651 or Cricut vinyl
 colors: [white, mint, pink, holographic opal]
 categories:
-- Featured
+- Banners
 ebay_url: https://www.ebay.com/itm/192679348906
 col_class: col-lg-6
 ---

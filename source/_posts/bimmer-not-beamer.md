@@ -12,7 +12,7 @@ size: 8¼ × 2¼ in (21 × 6 cm)
 material: ORACAL 651, Cricut vinyl
 colors: [white, holographic opal, holographic blue]
 categories:
-- Featured
+- Bmw Special
 ebay_url: https://www.ebay.com/itm/192568856505
 col_class: col-lg-4
 ---

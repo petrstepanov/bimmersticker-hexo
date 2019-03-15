@@ -12,7 +12,7 @@ size: 30 × 5½ in (76 × 14 cm)
 material: ORACAL 651 vinyl or Cricut adhesive foil
 colors: [white, silver, gold]
 categories:
-- Featured
+- Banners
 ebay_url: https://www.ebay.com/itm/192716432781
 etsy_url: https://www.etsy.com/listing/659654626/send-nudes-windshield-banner
 col_class: col-lg-6

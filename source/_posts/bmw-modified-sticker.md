@@ -12,7 +12,7 @@ size: 11½ × 1½ in (29 × 4 cm)
 material: ORACAL 651 vinyl
 colors: [white, holographic opal, holographic blue]
 categories:
-- Model
+- Bmw Special
 ebay_url: https://www.ebay.com/itm/192621877644
 col_class: col-lg-4
 ---

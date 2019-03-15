@@ -12,7 +12,7 @@ size: 34 × 5 in (86 × 13 cm)
 material: ORACAL 651 vinyl or Cricut adhesive foil
 colors: [white, silver]
 categories:
-- Featured
+- Banners
 ebay_url: https://www.ebay.com/itm/192856662344
 etsy_url: https://www.etsy.com/listing/676550790/knight-rider-windshield-banner
 col_class: col-lg-6

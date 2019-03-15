@@ -13,7 +13,7 @@ size: 36 × 8½ in (92 × 22 cm)
 material: ORACAL 651 vinyl
 colors: [white, mint, pink]
 categories:
-- Featured
+- Banners
 ebay_url: https://www.ebay.com/itm/192488242165
 col_class: col-lg-6
 ---

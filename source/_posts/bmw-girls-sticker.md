@@ -11,7 +11,7 @@ size: 4 × 3½ in (10 × 8.5 cm)
 material: ORACAL 651 vinyl
 colors: [black, pink]
 categories:
-- Featured
+- Bmw Special
 ebay_url: https://www.ebay.com/itm/192671124978
 etsy_url: https://www.etsy.com/listing/688312333/bmw-girls-make-it-better-vinyl-car
 col_class: col-lg-4

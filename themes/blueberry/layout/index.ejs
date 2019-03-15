@@ -33,20 +33,23 @@
   </div>
 </section>
 <section class="pt-2 pt-mb-4 pt-lg-5 pb-4">
+  <!-- Windshield banners -->
+  <%- partial('partial/heading', {title: 'Windshield banners', subtitle: 'A collection of front windshield banners for show cars, stanced vehicles, jdm cars. Whatever you drive. <a href="#contact">Contact us</a> for custom designs.', name: 'banners'}) %>
+  <%- partial('partial/category-posts-list', {categoryName: 'Banners'}) %>
+</section>
+<section class="pb-4">
   <!-- Featured stickers -->
   <%- partial('partial/heading', {title: 'Featured stickers', subtitle: 'Stickers come in a variety of colors. New designs are often in progress! Check our Stories on <a rel="me" target="_blank" href="https://www.instagram.com/bimmersticker.store/">Instagram</a> and subscribe for updates.', name: 'featured'}) %>
   <%- partial('partial/category-posts-list', {categoryName: 'Featured'}) %>
-
 </section>
 <section class="pb-4">
-  <!-- Model stickers -->
-  <%- partial('partial/heading', {title: 'Stickers for models', subtitle: 'BMW has a lot of different models. Pick a sticker that fits yours. Have a cool idea for a custom sticker? <a href="#contact">Contact us</a> and we will get back to you the same day.', name: 'models'}) %>
-  <%- partial('partial/category-posts-list', {categoryName: 'Model'}) %>
-
+  <!-- Bimmers only -->
+  <%- partial('partial/heading', {title: 'Bimmers only', subtitle: 'Stickers designed exclusively for BMW cars. Have a cool idea for a custom sticker? <a href="#contact">Contact us</a> and we will get back to you the same day.', name: 'bmw-special'}) %>
+  <%- partial('partial/category-posts-list', {categoryName: 'Bmw Special'}) %>
 </section>
 <section class="pb-4 js--init-posts-filter">
   <!-- Series and generations -->
-  <%- partial('partial/heading', {title: 'Series and generations', subtitle: 'If you cannot find a sticker for your BMW model please request one in the <a href="#contact">Contact Form</a> below. We will make it ASAP.', name: 'series-generations'}) %>
+  <%- partial('partial/heading', {title: 'Stickers for BMW series and generations', subtitle: 'If you cannot find a sticker for your BMW model please request one in the <a href="#contact">Contact Form</a> below. We will make it ASAP.', name: 'series-generations'}) %>
 
   <div class="container">
     <div class="row mb-4">
