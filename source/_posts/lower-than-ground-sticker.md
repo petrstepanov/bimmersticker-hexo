@@ -20,7 +20,7 @@ col_class: col-lg-6
 Because lowered BMW's are the coolest.
 
 <!-- more -->
-{% asset_img content-image sticker-lower-than-ground.jpg 'Lower than ground stanced lowered car windshield sticker "lower than ground car windshield banner"' %}
+{% asset_img content-image windshield-banner-lower-than-ground.jpg 'Lower than ground lowered car windshield banner "lLower than ground lowered car windshield banner"' %}
 
 The thing is that our project bimmer often goes by "lower than ground thing" when entering any garage or alignment rack. We thought we can make a thing of it.
 
@@ -36,5 +36,7 @@ The thing is that our project bimmer often goes by "lower than ground thing" whe
 %}
 
 Realistically this vinyl sticker can be used on any type of the car, not necessarily a BMW.
+
+{% asset_img content-image sticker-lower-than-ground.jpg 'Lower than ground stanced lowered car windshield sticker "lower than ground car windshield banner"' %}
 
 Sticker is made of a 2.5 mil thick ORACAL 651 outdoor vinyl. Durability period tops at 6 years. Sticker comes with the transfer tape for easy application.
