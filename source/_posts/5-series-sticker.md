@@ -6,7 +6,7 @@ tags:
 - 5series
 - sticker
 description: Buy BMW 5 series vinyl sticker. Made of ORACAL 651 vinyl. Available in different colors.
-price: 6.99
+price: 2.99
 size: 8½ × 3 in (22 × 7.5 cm)
 material: ORACAL 651 vinyl
 colors: [white, lilac, yellow, red, blue, black, mint, orange, pink]
