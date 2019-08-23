@@ -1,6 +1,6 @@
 ---
 title: Knight Rider windshield banner
-date: 2018-09-14 15:38:32
+date: 2018-09-23 14:31:00
 tags:
 - car
 - windshield
