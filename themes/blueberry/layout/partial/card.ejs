@@ -8,10 +8,19 @@
       </a>
     <% } %>
     <!-- Card body -->
+    <div itemprop="brand" itemtype="http://schema.org/Thing" itemscope>
+      <meta itemprop="name" content="Bimmer Sticker Store" />
+    </div>
+
     <div class="card-body">
       <h3 class="card-title font-size-21 d-flex justify-content-between">
         <span itemprop="name"><%- post.title %></span>
-        <span><span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="<%- post.price %>"><%- format_price(post.price) %></span></span>
+        <span itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
+          <link itemprop="url" href="/<%- post.path %>" />
+          <meta itemprop="availability" content="https://schema.org/InStock" />
+          <span itemprop="priceCurrency" content="USD">$</span>
+          <span itemprop="price" content="<%- post.price %>"><%- format_price(post.price) %></span>
+        </span>
       </h3>
       <% if (post.excerpt){ %>
         <p class="mb-2 pb-1" itemprop="description"><%- strip_html(post.excerpt) %></p>
