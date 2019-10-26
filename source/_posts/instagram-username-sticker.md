@@ -2,17 +2,16 @@
 title: Instagram name stickers
 date: 2018-09-23 17:12:56
 tags:
-- car
 - custom
 - instagram
 - window
-description: Buy custom instagram name handle stickers for a car window. Sticker made of glossy ORACAL or holographic Cricut vinyls.
+description: Buy custom instagram name handle stickers for a car window. Stickers made of glossy ORACAL or holographic vinyls.
 price: 9.99
-size: 8½ × 1½ in (22 × 4 cm)
+size: 7½ × 1½ in (19 × 4 cm)
 material: ORACAL 651 or Cricut vinyl
 colors: [white, holographic opal]
 categories:
-- Featured
+- Social
 etsy_url: https://www.etsy.com/listing/634953846/two-custom-instagram-name-handle-vinyl
 col_class: col-lg-4
 ---
