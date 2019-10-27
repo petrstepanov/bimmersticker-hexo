@@ -13,7 +13,7 @@ colors: [white, black, red]
 categories:
 - Social
 etsy_url: https://www.etsy.com/listing/684011876/two-custom-youtube-channel-name-vinyl
-col_class: col-lg-4
+col_class: col-sm-6 col-md-4 col-xl-3
 ---
 
 Promote your YouTube! Available in white and black.

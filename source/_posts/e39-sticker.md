@@ -14,7 +14,7 @@ colors: [white, lilac, yellow, red, blue, black, mint, orange, pink]
 categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192431727173
-col_class: col-lg-4
+col_class: col-sm-6 col-lg-4 col-xl-3
 data_groups: 5er
 ---
 

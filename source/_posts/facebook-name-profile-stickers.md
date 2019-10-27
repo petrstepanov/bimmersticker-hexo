@@ -13,7 +13,7 @@ colors: [white, black, blue]
 categories:
 - Social
 etsy_url: https://www.etsy.com/listing/698265088/two-custom-facebook-name-vinyl-stickers
-col_class: col-lg-4
+col_class: col-sm-6 col-md-4 col-xl-3
 ---
 
 Facebook is still a thing. Get a pair of custom stickers.

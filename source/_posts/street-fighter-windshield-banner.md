@@ -15,7 +15,7 @@ categories:
 - Banners
 ebay_url: https://www.ebay.com/itm/192785163047
 etsy_url: https://www.etsy.com/listing/687741173/street-fighter-windshield-banner
-col_class: col-lg-6
+col_class: col-md-6 col-lg-6 col-xl-4
 ---
 
 Do you remember that Nintendo game?

@@ -15,7 +15,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192500392494
 etsy_url: https://www.etsy.com/listing/589800896/bmw-e90-window-windshield-sticker-stance
-col_class: col-lg-4
+col_class: col-sm-6 col-lg-4 col-xl-3
 data_groups: 3er
 ---
 

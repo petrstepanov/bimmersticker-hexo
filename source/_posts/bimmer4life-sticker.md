@@ -15,7 +15,7 @@ colors: [white, mint, pink]
 categories:
 - Banners
 ebay_url: https://www.ebay.com/itm/192488242165
-col_class: col-lg-6
+col_class: col-md-6 col-lg-6 col-xl-4
 ---
 
 The first BMW windshield sticker we ever made.

@@ -13,7 +13,7 @@ colors: [white, holographic opal]
 categories:
 - Social
 etsy_url: https://www.etsy.com/listing/634953846/two-custom-instagram-name-handle-vinyl
-col_class: col-lg-4
+col_class: col-sm-6 col-md-4 col-xl-3
 ---
 
 A set of two. Original instagram logo and font face.

@@ -2,6 +2,7 @@
 body {
   // -webkit-font-smoothing: subpixel-antialiased;
   -webkit-font-smoothing: antialiased;
+  font-size: 0.9rem;
 }
 
 // Font faces
@@ -121,4 +122,8 @@ $font-size-89: 5.5625em;
 }
 .font-size-89 {
     font-size: $font-size-89;
+}
+
+.no-wrap {
+  white-space: nowrap;
 }

@@ -13,7 +13,7 @@ colors: [white, black, yellow]
 categories:
 - Social
 etsy_url: https://www.etsy.com/listing/733478738/two-custom-snapchat-name-vinyl-stickers
-col_class: col-lg-4
+col_class: col-sm-6 col-md-4 col-xl-3
 ---
 
 Sure thing we do have snapchat stickers for sale too.

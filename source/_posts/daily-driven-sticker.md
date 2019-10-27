@@ -14,7 +14,7 @@ colors: [white, lilac, yellow, red, blue, black, mint, orange, pink]
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/192715376996
-col_class: col-lg-4
+col_class: col-sm-6 col-md-4
 ---
 
 Let them know your project car hits the roads on a daily basis.

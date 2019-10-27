@@ -13,7 +13,7 @@ colors: [red, orange]
 categories:
 - Bmw Special
 ebay_url: https://www.ebay.com/itm/192568855873
-col_class: col-lg-4
+col_class: col-sm-6 col-md-4 col-xl-3
 ---
 
 With custom popup text for any BMW model.
