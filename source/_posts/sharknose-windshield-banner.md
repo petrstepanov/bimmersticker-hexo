@@ -14,7 +14,7 @@ colors: [white, mint, pink, holographic opal]
 categories:
 - Banners
 ebay_url: https://www.ebay.com/itm/192679348906
-col_class: col-lg-6
+col_class: col-md-6 col-lg-6 col-xl-4
 ---
 
 A beautiful banner for legendary BMW cars.

@@ -15,7 +15,7 @@ colors: [lilac, yellow, red, blue, mint, black, orange, pink]
 categories:
 - Bmw Special
 ebay_url: https://www.ebay.com/itm/192494164236
-col_class: col-lg-4
+col_class: col-sm-6 col-md-4 col-xl-3
 ---
 
 Tourings deserve a special attention. We love wagons!

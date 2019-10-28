@@ -14,7 +14,7 @@ colors: [white, holographic opal, holographic blue]
 categories:
 - Bmw Special
 ebay_url: https://www.ebay.com/itm/192621877644
-col_class: col-lg-4
+col_class: col-sm-6 col-md-4 col-xl-3
 ---
 
 BMW M Sticker for modified cars.

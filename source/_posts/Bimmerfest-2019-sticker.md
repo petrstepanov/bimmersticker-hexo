@@ -16,7 +16,7 @@ colors: [white, silver, gold, oilslick]
 categories:
 - Bmw Special
 ebay_url: https://www.ebay.com/itm/192896300464
-col_class: col-lg-4
+col_class: col-sm-6 col-md-4 col-xl-3
 ---
 
 Bimmerfest event will always take a special place in our heart.

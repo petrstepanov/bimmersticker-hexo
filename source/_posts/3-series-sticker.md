@@ -14,7 +14,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192488974223
 etsy_url: https://www.etsy.com/listing/603514491/bmw-3-series-window-windshield-sticker
-col_class: col-lg-4
+col_class: col-sm-6 col-lg-4 col-xl-3
 data_groups: 3er
 ---
 

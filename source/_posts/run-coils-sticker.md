@@ -12,7 +12,7 @@ colors: [white, red]
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/192856957703
-col_class: col-lg-4
+col_class: col-sm-6 col-md-4
 ---
 
 Sticker designed for cars that do run on the old good rock solid coilovers!

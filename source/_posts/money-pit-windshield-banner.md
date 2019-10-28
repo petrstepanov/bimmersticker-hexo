@@ -14,7 +14,7 @@ colors: [black, white, silver, gold]
 categories:
 - Banners
 ebay_url: https://www.ebay.com/itm/192985300443
-col_class: col-lg-6
+col_class: col-md-6 col-lg-6 col-xl-4
 ---
 
 Sometimes your project turns into a Money Pit!

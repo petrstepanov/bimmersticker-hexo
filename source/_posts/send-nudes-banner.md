@@ -15,7 +15,7 @@ categories:
 - Banners
 ebay_url: https://www.ebay.com/itm/192716432781
 etsy_url: https://www.etsy.com/listing/659654626/send-nudes-windshield-banner
-col_class: col-lg-6
+col_class: col-md-6 col-lg-6 col-xl-4
 ---
 
 Awesome finishing touch for your car.

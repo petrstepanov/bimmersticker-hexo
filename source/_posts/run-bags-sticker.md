@@ -12,7 +12,7 @@ colors: [white, red]
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/192856965237
-col_class: col-lg-4
+col_class: col-sm-6 col-md-4
 ---
 
 A sticker for cars with air suspension.
