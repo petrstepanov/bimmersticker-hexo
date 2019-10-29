@@ -108,8 +108,8 @@ function scriptsDev() {
 // Watch Task
 
 function watch() {
-	gulp.watch(paths.scripts.srcWatch, ['scriptsDev']);
-	gulp.watch(paths.styles.srcWatch, ['stylesDev']);
+	gulp.watch(paths.scripts.srcWatch, scriptsDev);
+	gulp.watch(paths.styles.srcWatch, stylesDev);
 }
 
 
