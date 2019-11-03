@@ -7,7 +7,7 @@ tags:
 - sticker
 - banner
 description: Buy "Street Fighter" car windshield banner. Sticker comes in glossy white, silver and gold colors. Looks perfect on stanced, modified, drift, race and sport cars!
-price: 17.99
+price: 18.99
 size: 34 × 5 in (86 × 13 cm)
 material: ORACAL 651 vinyl or Cricut adhesive foil
 colors: [white, silver, gold]
