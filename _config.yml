@@ -83,7 +83,7 @@ deploy:
   type:
 
 # Comments
-comments: true
+comments: false
 
 # Sitemap
 sitemap:
