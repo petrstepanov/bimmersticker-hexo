@@ -2,6 +2,7 @@ $(document).ready(function(){
 
   NavbarFixer.init(document.querySelector('.js--init-navbar-fixer'));
   SmoothScroll.init();
+  WindshieldForm.init(document.querySelector('.js--init-windshield-form'));
 
   $('.js--init-sticky-container').each(function(){
     var sc = StickyContainer();

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>swatch-oilslick</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="99.3364301%" x2="77.8873382%" y2="0.259261338%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#EB9AB0" offset="22.9175465%"></stop>
+            <stop stop-color="#F8ED69" offset="48.0891047%"></stop>
+            <stop stop-color="#5FE0F6" offset="72.2471495%"></stop>
+            <stop stop-color="#BCBEC2" offset="99.9709671%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="swatch-oilslick" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="64" height="64"></rect>
+        <g id="glare" transform="translate(32.000000, 7.000000)" fill="#FFFFFF">
+            <path d="M1.64512793,0.265911128 C10.6451279,3.26591113 17.6451279,8.76591113 20.6451279,14.7659111 C23.6451279,20.7659111 -7.35487207,-2.73408887 1.64512793,0.265911128 Z"></path>
+        </g>
+    </g>
+</svg>

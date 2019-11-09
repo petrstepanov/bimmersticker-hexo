@@ -1,8 +1,6 @@
 // General
 body {
-  // -webkit-font-smoothing: subpixel-antialiased;
   -webkit-font-smoothing: antialiased;
-  font-size: 0.9rem;
 }
 
 // Font faces
@@ -42,6 +40,10 @@ $font-handwrtten: "letrista_script", Helvetica, sans-serif;
 $font-display:    "aristotelicasmallcaps-bold", Helvetica, sans-serif;
 $font-regular:    "sf_pro_textregular", Helvetica, sans-serif;
 $font-bold:       "sf_pro_textbold", Helvetica, sans-serif;
+
+.font-handwritten {
+  font-family: $font-handwrtten;
+}
 
 b, strong, .strong {
   font-family: 'sf_pro_textbold';

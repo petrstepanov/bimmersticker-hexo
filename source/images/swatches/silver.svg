@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>swatch-silver</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="78.8516018%" y1="0%" x2="0%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#D0D0D0" offset="0%"></stop>
+            <stop stop-color="#A5A6A8" offset="21.2969806%"></stop>
+            <stop stop-color="#CCCCCE" offset="48.9521748%"></stop>
+            <stop stop-color="#FDFDFD" offset="49.2108319%"></stop>
+            <stop stop-color="#A2A3A7" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="swatch-silver" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="shape" fill="#5EC4B7" cx="32" cy="32" r="32"></circle>
+        <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="64" height="64"></rect>
+        <g id="glare" transform="translate(32.000000, 7.000000)" fill="#FFFFFF">
+            <path d="M1.64512793,0.265911128 C10.6451279,3.26591113 17.6451279,8.76591113 20.6451279,14.7659111 C23.6451279,20.7659111 -7.35487207,-2.73408887 1.64512793,0.265911128 Z"></path>
+        </g>
+    </g>
+</svg>

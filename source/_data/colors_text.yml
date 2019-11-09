@@ -1,0 +1,40 @@
+matte_black:
+  hex: "#2D2D2D"
+  name: "Matte black"
+black:
+  hex: "#000000"
+  image: /images/swatches/glare.svg
+  name: "Glossy black"
+mint:
+  hex: "#5EC4B7"
+  image: /images/swatches/glare.svg
+  name: "Glossy mint"
+orange:
+  hex: "#DA6831"
+  image: /images/swatches/glare.svg
+  name: "Glossy orange"  
+white:
+  hex: "#EFEFEF"
+  image: /images/swatches/glare.svg
+  name: "Glossy white"
+pink:
+  hex: "#F6A6BF"
+  image: /images/swatches/glare.svg
+  name: "Glossy pink"
+red:
+  hex: "#DA3731"
+  image: /images/swatches/glare.svg
+  name: "Glossy red"
+silver:
+  image: /images/swatches/silver.svg
+  name: "Silver <strong>+$8</strong>"
+gold:
+  image: /images/swatches/gold.svg
+  name: "Gold <strong>+$8</strong>"
+oilslick:
+  image: /images/swatches/oilslick.svg
+  name: "Oil slick <strong>+$8</strong>"
+
+
+
+  

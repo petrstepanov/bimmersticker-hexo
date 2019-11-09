@@ -1,0 +1,20 @@
+banner:
+  image: product-type-banner.jpg
+  title: "Windshield Banner"
+  price: 25.99
+  description: "Place it on top or bottom"
+sunstrip:
+  image: product-type-sunstrip.jpg
+  title: "Plain Sun Strip"
+  price: 19.99
+  description: "Cut it to shape the windshield"
+cutsunstrip:
+  image: product-type-cut-sunstrip.jpg
+  title: "Cutout Sun Strip"
+  price: 29.99
+  description: "Text is cut out of the base layer"
+textsunstrip:
+  image: product-type-text-sunstrip.jpg
+  title: "Text Sun Strip"
+  price: 29.99
+  description: "Text layer on top of the base strip"

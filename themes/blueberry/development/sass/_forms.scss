@@ -1,0 +1,106 @@
+$selected-color: $blue;
+
+label {
+    cursor: pointer;
+    
+    .input-image {
+        display: inline-block;
+        overflow: hidden;
+        box-shadow: none;
+        transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+        border: 0;
+        border-radius: 50%;
+
+        img {
+            transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    }
+
+    .input-radio {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: $gray-200;
+        border: 1px solid $gray-500;
+        position: relative;
+
+        transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 12px;
+            height: 12px;
+            margin-top: -6px;
+            margin-left: -6px;
+            transform: scale(0);
+            transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: white;
+            border-radius: 50%;
+        }
+    }
+
+    &:hover {
+        .input-image {
+            img {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    input:checked+.input-image {
+        // border: 6px solid $selected-color;
+        box-shadow: 0 0 0 2px white, 0 0 0 6px $selected-color;
+
+        img {
+            transform: scale(1.05);
+        }
+    }
+
+    input:checked+.input-radio {
+        background-color: $selected-color;
+        border-color: $selected-color;
+
+        &:after {
+            transform: scale(1);
+        }
+    }
+
+    .color-swatch {
+        width: 64px;
+        height: 64px;
+        background-position: center center;
+        background-size: cover;
+    }
+}
+
+.frame {
+    border-radius: 0.75em;
+    border: 2px solid $gray-400;
+    position: relative;
+    padding-top: 1.85em;
+    padding-bottom: 1em;
+    margin-top: 2em;
+
+    .frame-name-container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -0.85em;
+        text-align: center;
+
+        .frame-name {
+            background-color: white;
+            padding-left: 1em;
+            padding-right: 1em;
+            color: $text-muted;
+        }
+    }
+}
+
+.font-image {
+    max-width: 75%;
+}

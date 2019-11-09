@@ -1,65 +1,74 @@
 <section class="section-intro">
-  <div class="section-intro-mobile-bg">
-    <%- partial('partial/navbar') %>
-    <div class="jumbotron jumbotron-fluid jumbotron-blueberry">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <h1 class="display-4"><%- theme.slogan ? theme.slogan : "" %></h1>
-            <p class="lead"><%- theme.lead ? theme.lead : "" %></p>
-          </div>
-        </div>
-      </div>
-      <img class="w-100 d-lg-none" alt="jumbotron section shape" src="<%- partial('data-uri/wave-header') %>" />
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-lg-10 col-xl-9">
-        <div class="row">
-          <div class="col-12 col-sm-6">
-            <div class="icon-l mt-sm-1 mb-2 mb-lg-3"><%- partial('icons/icon-roll.svg') %></div>
-            <p>We make stickers from the award-winning ORACAL® 651 and Cricut® adhesive outdoor vinyls. Contour cut vinyl stickers never fade out. <strong>Durability period is more than five years</strong>.</p>
-          </div>
-          <div class="col-12 col-sm-6">
-            <div class="icon-l mt-sm-1 mb-2 mb-lg-3"><%- partial('icons/icon-ship.svg') %></div>
-            <p><strong>Free shipping across US</strong> with one day handling time and three to five days delivery time.</p>
-            <p class="mb-4 mb-lg-0">International shipping prices start at $0.65</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="section-intro-mobile-bg">
+		<%- partial('partial/navbar', {className: 'transparent'}) %>
+		<div class="jumbotron jumbotron-fluid jumbotron-blueberry fix">
+			<div class="container">
+				<div class="row">
+					<div class="col-8 col-md-5 col-lg-4">
+						<h1 class="display-4"><%- theme.slogan ? theme.slogan : "" %></h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col col-md-8 col-lg-6 col-xl-5">
+						<p class="lead mt-4"><%- theme.lead1 ? theme.lead1 : "" %></p>
+						<p class="lead mb-4 mb-md-5"><%- theme.lead2 ? theme.lead2 : "" %></p>
+					</div>
+				</div>
+			</div>
+			<img class="w-100 d-lg-none" alt="jumbotron section shape" src="<%- partial('data-uri/wave-header') %>" />
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-lg-10 col-lg-12 col-xl-10">
+				<div class="row">
+					<div class="col-12 col-sm-6 col-xl-5 col-xl-5">
+						<div class="icon-l mt-sm-1 mb-2 mb-lg-3"><%- partial('icons/icon-roll.svg') %></div>
+						<p class="mb-4">We make stickers from the award-winning ORACAL® 651 and Cricut® adhesive outdoor vinyls. Contour cut vinyl stickers never fade out. <strong>Durability period is more than five years</strong>.</p>
+					</div>
+					<div class="col-12 col-sm-6 col-xl-5 offset-xl-1">
+						<div class="icon-l mt-sm-1 mb-2 mb-lg-3"><%- partial('icons/icon-ship.svg') %></div>
+						<p>
+							<strong>Free shipping across US</strong> with one day handling time and three to five days
+							delivery time.
+						</p>
+						<p class="mb-4 mb-lg-0">International shipping prices start at $0.65</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 <section class="pt-2 pt-mb-4 pt-lg-5 pb-4">
-  <!-- Bimmers only -->
-  <%- partial('partial/heading', {title: 'Bimmers only', subtitle: 'Stickers designed exclusively for BMW cars. Have a cool idea for a custom sticker? <a href="#contact">Contact us</a> and we will get back to you the same day.', name: 'bmw-special'}) %>
-  <%- partial('partial/category-posts-list', {categoryName: 'Bmw Special'}) %>
+	<!-- Bimmers only -->
+	<%- partial('partial/heading', {title: 'For bimmers only', subtitle: 'Stickers designed exclusively for BMW cars. Have a cool idea for a custom sticker? <a href="#contact">Contact us</a> and we will get back to you the same day.', name: 'bmw-special'}) %>
+	<%- partial('partial/category-posts-list', {categoryName: 'Bmw Special'}) %>
 </section>
 <section class="pb-4">
-  <!-- Featured stickers -->
-  <%- partial('partial/heading', {title: 'For every other car make', subtitle: 'Stickers come in a variety of colors. New designs are often in progress! Check our Stories on <a rel="me" target="_blank" href="https://www.instagram.com/bimmersticker.store/">Instagram</a> and subscribe for updates.', name: 'featured'}) %>
-  <%- partial('partial/category-posts-list', {categoryName: 'Featured'}) %>
+	<!-- Featured stickers -->
+	<%- partial('partial/heading', {title: 'For other car makes', subtitle: 'Stickers come in a variety of colors. New designs are often in progress! Check our Stories on <a rel="me" target="_blank" href="https://www.instagram.com/bimmersticker.store/">Instagram</a> and subscribe for updates.', name: 'featured'}) %>
+	<%- partial('partial/category-posts-list', {categoryName: 'Featured'}) %>
 </section>
 <section class="pb-4">
-  <!-- Social stickers -->
-  <%- partial('partial/heading', {title: 'Custom social name stickers', subtitle: 'Variety of stickers that boost your social profile.', name: 'social'}) %>
-  <%- partial('partial/category-posts-list', {categoryName: 'Social'}) %>
+	<!-- Social stickers -->
+	<%- partial('partial/heading', {title: 'Custom social name stickers', subtitle: 'Variety of stickers that boost your social profile.', name: 'social'}) %>
+	<%- partial('partial/category-posts-list', {categoryName: 'Social'}) %>
 </section>
 <section class="pb-4">
-  <!-- Windshield banners -->
-  <%- partial('partial/heading', {title: 'Windshield banners', subtitle: 'A collection of front windshield banners for show cars, stanced vehicles, jdm cars. Whatever you drive. <a href="#contact">Contact us</a> for custom designs.', name: 'banners'}) %>
-  <%- partial('partial/category-posts-list', {categoryName: 'Banners'}) %>
+	<!-- Windshield banners -->
+	<%- partial('partial/heading', {title: 'Windshield banners', subtitle: 'A collection of windshield banners for project and show cars, stanced vehicles, jdm cars. Looking for a sun strip or a banner with custom text and design? Check out our <a href="/custom-windshield-banner-sun-strip/">request form here</a>.', name: 'banners'}) %>
+	<%- partial('partial/category-posts-list', {categoryName: 'Banners'}) %>
 </section>
 <section class="pb-4 js--init-posts-filter">
-  <!-- Series and generations -->
-  <%- partial('partial/heading', {title: 'Stickers for BMW series and generations', subtitle: 'If you cannot find a sticker for your BMW model please request one in the <a href="#contact">Contact Form</a> below. We will make it ASAP.', name: 'series-generations'}) %>
+	<!-- Series and generations -->
+	<%- partial('partial/heading', {title: 'Stickers for BMW series and generations', subtitle: 'If you cannot find a sticker for your BMW model please request one in the <a href="#contact">Contact Form</a> below. We will make it ASAP.', name: 'series-generations'}) %>
 
-  <div class="container">
-    <div class="row mb-4">
-      <div class="col-sm-12 js--posts-filter-buttons">
-        <button type="button" class="btn btn-blueberry btn-sm btn-primary active strong mr-sm-1" data-query="all">All</button>
-        <%
+	<div class="container">
+		<div class="row mb-4">
+			<div class="col-sm-12 js--posts-filter-buttons">
+				<button type="button" class="btn btn-blueberry btn-sm btn-primary active strong mr-sm-1"
+					data-query="all">All</button>
+				<%
           var filterQueries = [];
           site.categories.findOne({name: 'Series and Generations'}).posts.each(function(post, i){
             if (post.data_groups && filterQueries.indexOf(post.data_groups) == -1){
@@ -67,35 +76,40 @@
             }
           });
           filterQueries.forEach(function(query, index){ %>
-            <button type="button" class="btn btn-blueberry btn-sm btn-link strong px-1 px-sm-2 mr-sm-1" data-query="<%- query %>"><%- query %></button>
-          <% });
+				<button type="button" class="btn btn-blueberry btn-sm btn-link strong px-1 px-sm-2 mr-sm-1"
+					data-query="<%- query %>"><%- query %></button>
+				<% });
         %>
-      </div>
-    </div>
-  </div>
-  <%- partial('partial/category-posts-list', {categoryName: 'Series and Generations', sortBy: 'title'}) %>
+			</div>
+		</div>
+	</div>
+	<%- partial('partial/category-posts-list', {categoryName: 'Series and Generations', sortBy: 'title'}) %>
 </section>
 
 <section class="pt-4 section-whitesmoke spacer-footer">
-  <%- partial('partial/heading', {title: 'Contact us', subtitle: 'Got sticker ideas or any questions? Use form below to contact us. We will get back to you as soon as possible!', name: 'contact'}) %>
+	<%- partial('partial/heading', {title: 'Contact us', subtitle: 'Got sticker ideas or any questions? Use form below to contact us. We will get back to you as soon as possible!', name: 'contact'}) %>
 
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-8">
-        <form class="widget-contact-form js--init-ajax-submit" action="<%- theme.formcarry_url %>" method="POST" accept-charset="UTF-8" data-success-notification="Thanks for reaching out! We'll get back to you soon.">
-          <div class="form-group">
-            <label for="input-email">Your email</label>
-            <input type="email" name="email" class="form-control" id="input-email">
-          </div>
-          <div class="form-group">
-            <label for="input-message">Your Message</label>
-            <textarea name="message" class="form-control js--init-autosize" rows="4" id="input-message"></textarea>
-          </div>
-          <div class="text-center">
-            <button type="submit" class="btn btn-blueberry btn-primary mt-2 ml-auto mr-auto">Send message</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 col-md-8">
+				<form class="widget-contact-form js--init-ajax-submit" action="<%- theme.formcarry_url %>" method="POST"
+					accept-charset="UTF-8"
+					data-success-notification="Thanks for reaching out! We'll get back to you soon.">
+					<div class="form-group">
+						<label for="input-email">Your email</label>
+						<input type="email" name="email" class="form-control" id="input-email">
+					</div>
+					<div class="form-group">
+						<label for="input-message">Your Message</label>
+						<textarea name="message" class="form-control js--init-autosize" rows="4"
+							id="input-message"></textarea>
+					</div>
+					<div class="text-center">
+						<button type="submit" class="btn btn-blueberry btn-primary mt-2 ml-auto mr-auto">Send
+							message</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </section>
