@@ -1,53 +1,43 @@
 .jumbotron-blueberry {
   background-color: transparent;
+  padding-top: 3rem;
+
   padding-bottom: 0;
   margin-bottom: 0;
 
   h1 {
     font-family: $font-handwrtten;
     color: white;
-    text-shadow: 0px 4px 0px rgba(0,0,0,0.2);
-    // font-size: $font-size-37;
-    // width: 85%;
+    text-shadow: 0px 4px 0px rgba(0, 0, 0, 0.2);
 
-    @include media-breakpoint-up(sm){
-      // font-size: $font-size-50;
-    }
-    @include media-breakpoint-up(md){
-      // font-size: $font-size-67;
-//      width: 65%;
-    }
-    @include media-breakpoint-up(lg){
+    @include media-breakpoint-up(lg) {
       color: $body-color;
       font-size: 3.5rem;
-      // width: 35%;
       text-shadow: none;
     }
-    @include media-breakpoint-up(xl){
+    @include media-breakpoint-up(xl) {
       color: $body-color;
-      // font-size: $font-size-67;
     }
   }
 
-  .lead {
-    // margin-top: 1.5rem;
-    // margin-bottom: 5rem;
-    // width: 75%;
+  .front-paragraph {
     font-family: $font-bold;
-    // font-size: $font-size-16;
     color: white;
-    text-shadow: 0px 2px 0px rgba(0,0,0,0.2);
+    text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.2);
 
-    @include media-breakpoint-up(lg){
+    @include media-breakpoint-up(sm) {
+		font-size: $lead-font-size;
+    }
+
+    @include media-breakpoint-up(lg) {
       color: $text-muted;
       font-family: $font-regular;
-      // width: 35%;
       text-shadow: none;
     }
   }
 
   &.fix a {
-    @include media-breakpoint-between(xs, md){
+    @include media-breakpoint-between(xs, md) {
       color: white;
       text-decoration: underline !important;
     }
