@@ -5,11 +5,19 @@ label {
     
     .input-image {
         display: inline-block;
-        overflow: hidden;
+        overflow: hidden;        
         box-shadow: none;
         transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
         border: 0;
         border-radius: 50%;
+
+        // safari border-radius when transform with overflow hidden issue
+        // https://gist.github.com/ayamflow/b602ab436ac9f05660d9c15190f4fd7b
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+
 
         img {
             transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
