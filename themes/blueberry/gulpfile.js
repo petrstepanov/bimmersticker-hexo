@@ -80,8 +80,8 @@ function stylesDev() {
 	return gulp.src(paths.styles.src)
 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
-		.pipe(sourcemaps.write())
 		.pipe(autoprefixer())
+		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(paths.styles.dest));
 }
 
