@@ -30,3 +30,35 @@ hexo.extend.helper.register('first_image', function(page){
 
 	return image;
 });
+
+hexo.extend.helper.register('has_variations', function(product){
+  var hasVariations = false;
+  _.values(product).array.forEach(value => {
+    if (value.includes('|')){
+      hasVariations = true;
+      return false;
+    }
+  });
+  return hasVariations;
+});
+
+hexo.extend.helper.register('get_variations', function(product){
+  var variations = {};
+  _.forOwn(product, function(value, key) {
+    if (value.includes('|')){
+      variations[key] = value.split('|');
+    }
+  });
+  return variations;
+});
+
+
+hexo.extend.helper.register('is_custom', function(product){
+  var isCustom = product.description.includes('Custom') || product.description.includes('custom');
+  return isCustom;
+});
+
+
+hexo.extend.helper.register('capitalize', function(string){
+  return string.charAt(0).toUpperCase() + string.slice(1);
+});

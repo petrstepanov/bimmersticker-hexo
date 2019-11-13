@@ -1,11 +1,11 @@
 .section-intro {
   .section-intro-mobile-bg {
-    background-color: transparentize($blue, 0.2);
+    // background-color: $blue; //transparentize($blue, 0.2);
     // background-image: url(/img/bmw-window-vinyl-sticker-decal-xs.jpg);
     background-image: url(/img/bimmer-sticker-xs.jpg);
     background-size: cover;
     background-position: center 69%;
-    background-blend-mode: lighten;
+    // background-blend-mode: soft-light;
 
     @include media-breakpoint-up(md){
       background-image: url(/img/bimmer-sticker-md.jpg);

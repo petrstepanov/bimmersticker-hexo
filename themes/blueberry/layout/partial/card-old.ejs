@@ -1,0 +1,45 @@
+<div class="col-xs-12 <%- post.col_class ? post.col_class : '' %>  js--posts-filter-item" data-groups='["<%- post.data_groups ? post.data_groups : '' %>"]'>
+  <figure class="card card-blueberry" itemscope itemtype="http://schema.org/Product">
+    <!-- Featured image -->
+    <% var image = first_image(post); %>
+    <% if (image){ %>
+      <a itemprop="url" href="/<%- post.path %>">
+        <img itemprop="image" class="card-img-top" src="<%- image.src ? image.src : '' %>" title="<%- image.title ? image.title : '' %>" alt="<%- image.alt ? image.alt : '' %>">
+      </a>
+    <% } %>
+    <!-- Card body -->
+    <div itemprop="brand" itemtype="http://schema.org/Thing" itemscope>
+      <meta itemprop="name" content="Bimmer Sticker Store" />
+    </div>
+
+    <div class="card-body">
+      <h3 class="card-title font-size-21 d-flex justify-content-between">
+        <span itemprop="name"><%- post.title %></span>
+        <span class="card-title-price" itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
+          <link itemprop="url" href="/<%- post.path %>" />
+          <meta itemprop="availability" content="https://schema.org/InStock" />
+          <span itemprop="priceCurrency" content="USD">$</span>
+          <span itemprop="price" content="<%- post.price %>"><%- format_price(post.price) %></span>
+        </span>
+      </h3>
+      <% if (post.excerpt){ %>
+        <p class="mb-2 pb-1" itemprop="description"><%- strip_html(post.excerpt) %> <a href="<%- post.path %>" class="no-wrap">More info...</a></p>
+      <% } %>
+      <div class="d-flex align-items-center justify-content-between">
+        <% if (post.ebay_url && post.etsy_url){ %>
+          <!-- <div class="btn-group" role="group"> -->
+            <span>
+              <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-sm btn-primary" role="button">Buy on eBay</a>
+              <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-sm btn-link px-0 ml-2">or Etsy</a>
+            </span>
+          <!-- </div> -->
+        <% } else if (post.ebay_url){ %>
+          <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-sm btn-primary" role="button">Buy on eBay</a>
+        <% } else if (post.etsy_url){ %>
+          <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-sm btn-primary" role="button">Buy on Etsy</a>
+        <% } %>
+        <!-- <a href="<%- post.path %>" class="btn btn-link btn-sm px-0 strong">More info</a> -->
+      </div>
+    </div>
+  </figure>
+</div>

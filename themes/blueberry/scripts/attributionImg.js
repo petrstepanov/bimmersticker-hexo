@@ -4,7 +4,7 @@ var Promise = require('bluebird');
 var nunjucks = require('nunjucks');
 
 hexo.extend.tag.register('attribution_img', function (args) {
-  //get the text name we want to use
+  // get the text name we want to use
   var data = {
     myImgUrl: args[0],
     myImgTitle: args[1],
@@ -16,9 +16,10 @@ hexo.extend.tag.register('attribution_img', function (args) {
     licenseUrl: args[7]
   };
 
-  var templatePath = pathFn.join(hexo.source_dir, 'templates/attributionImg.html');
+  var templatePath = pathFn.join(hexo.theme_dir, 'templates/attributionImg.njk');
 
   return new Promise(function (resolve, reject) {
+    var template = 
     nunjucks.render(templatePath, data, function (err, res) {
       if (err) {
         return reject(err);

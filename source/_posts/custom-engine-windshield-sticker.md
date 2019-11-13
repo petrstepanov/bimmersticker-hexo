@@ -1,5 +1,5 @@
 ---
-title: Custom engine windshield sticker
+title: Custom BMW Powered windshield sticker
 date: 2018-09-24 14:31:05
 tags:
 - bmw
@@ -10,8 +10,8 @@ tags:
 description: Custom BMW engine sticker with wording "Powered" and stripes. Designed for the windshield. We can make it for any engine model - M30, M50, M52, S52, N54, N55, S38, s52 etc. Text us your engine model. Free US Shipping.
 price: 12.99
 size: Size is 24 × 3¼ in (91 × 8 cm)
-material: ORACAL 651 or Cricut vinyl
-colors: [white, silver]
+product_id:	ST_BMW_ENGINE
+material: ORACAL 651 or Cricut vinyls
 categories:
 - Bmw Special
 ebay_url: https://www.ebay.com/itm/192698406384

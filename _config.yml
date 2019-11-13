@@ -98,3 +98,8 @@ responsive_images:
     small:
       width: 128
       height: 128
+
+# Data file export
+google_feed_path:
+  src: source/_data/product_list.yml
+  dest: product_list.txt

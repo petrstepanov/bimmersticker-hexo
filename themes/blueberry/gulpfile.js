@@ -48,6 +48,10 @@ var paths = {
 	fonts: {
 		src: [''],
 		dest: './fonts'
+	},
+	icons: {
+		src: ['./node_modules/ionicons/dist/ionicons/svg/*.svg'],
+		dest: './layout/ionicons'
 	}
 };
 
@@ -55,17 +59,23 @@ var paths = {
 // Clean Task
 
 function clean() {
-	return del([paths.styles.dest, paths.scripts.dest, paths.fonts.dest]);
+	return del([paths.styles.dest, paths.scripts.dest, paths.fonts.dest, paths.icons.dest]);
 }
 
 
 // Copy resources
 
-function copy() {
-	return gulp.src(paths.fonts.src)
-		.pipe(gulp.dest(paths.fonts.dest));
+// function copyFonts() {
+// 	return gulp.src(paths.fonts.src)
+// 		.pipe(gulp.dest(paths.fonts.dest));
+// }
+
+function copyIcons() {
+	return gulp.src(paths.icons.src)
+		.pipe(gulp.dest(paths.icons.dest));
 }
 
+// var copy = gulp.series(copyFonts, copyIcons);
 
 // Styles Task
 
@@ -116,8 +126,8 @@ function watch() {
 
 // Build
 
-var development = gulp.series(clean /*, copy*/, gulp.parallel(stylesDev, scriptsDev), watch);
-var production = gulp.series(clean/*, copy*/, gulp.parallel(styles, scripts));
+var development = gulp.series(clean, copyIcons, gulp.parallel(stylesDev, scriptsDev), watch);
+var production = gulp.series(clean, copyIcons, gulp.parallel(styles, scripts));
 
 
 // Exports

@@ -79,6 +79,10 @@ $nb-logo-size-biggest:  3.75rem;
       }
     }
 
+    &:hover {
+      color: $link-color;
+    }
+
     @include media-breakpoint-up(sm) {
       padding-left: $nb-logo-size-bigger + 0.6rem;
     }
@@ -104,6 +108,7 @@ $nb-logo-size-biggest:  3.75rem;
     .nav-link {
       @include media-breakpoint-up(lg) {
         color: white;
+        // text-decoration: underline;
       }
     }
   }

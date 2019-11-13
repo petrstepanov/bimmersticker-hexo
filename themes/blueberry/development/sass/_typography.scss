@@ -1,3 +1,16 @@
+// Responsive typography
+html {
+  font-size: 14px;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 15px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    font-size: 16px;
+  }
+}
+
 // General
 body {
   -webkit-font-smoothing: antialiased;
@@ -10,6 +23,14 @@ body {
          url('/fonts/aristotelicasmallcaps-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+
+@font-face {
+  font-family: 'config_condensedbold';
+  src: url('/fonts/configcondensed-bold-webfont.woff2') format('woff2'),
+       url('/fonts/configcondensed-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
@@ -37,7 +58,7 @@ body {
 }
 
 $font-handwrtten: "letrista_script", Helvetica, sans-serif;
-$font-display:    "aristotelicasmallcaps-bold", Helvetica, sans-serif;
+$font-display:    "config_condensedbold", Helvetica, sans-serif;
 $font-regular:    "sf_pro_textregular", Helvetica, sans-serif;
 $font-bold:       "sf_pro_textbold", Helvetica, sans-serif;
 
