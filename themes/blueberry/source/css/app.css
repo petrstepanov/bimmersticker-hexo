@@ -7702,6 +7702,27 @@ a {
   .btn-blueberry.btn-sm, .btn-group-sm > .btn-blueberry.btn {
     padding: 0.25rem 0.7rem; }
 
+label {
+  font-size: 0.75em;
+  font-family: "sf_pro_textbold", Helvetica, sans-serif;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 2px; }
+
+.select-blueberry {
+  border: 0;
+  box-shadow: 0 2px 4px 0 rgba(0, 138, 201, 0.2);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding-left: 1.1rem;
+  padding-right: 1.1rem;
+  background: url(/img/md-arrow-dropdown.svg);
+  background-position: right 1em top 50%;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-size: 1.5em; }
+
 .noty_layout_mixin, #noty_layout__top, #noty_layout__topLeft, #noty_layout__topCenter, #noty_layout__topRight, #noty_layout__bottom, #noty_layout__bottomLeft, #noty_layout__bottomCenter, #noty_layout__bottomRight, #noty_layout__center, #noty_layout__centerLeft, #noty_layout__centerRight {
   position: fixed;
   margin: 0;
@@ -10817,6 +10838,9 @@ label {
 
 .text-transparent {
   color: transparent; }
+
+.line-height-1 {
+  line-height: 1; }
 
 body {
   position: relative; }

@@ -12,7 +12,7 @@
 # GTIN: Global Trade Item Number
 - id:	ST_BMW_ENGINE
   title: "Custom BMW Powered windshield sticker"
-  description: "Custom BMW windshield sticker with wording 'Powered' and stripes. We make it for any engine model, you call it. Sticker is contour cut out of premium outdoor vinyls. Available in various colors."
+  description: "Custom BMW windshield sticker with wording 'Powered' and stripes. We make it for any engine model, you call it. Sticker is contour cut out of premium outdoor vinyls."
   google_product_category: Care & Decor > Vehicle Decor > Bumper Stickers
   product_type: Stickers > BMW
   link: https://bimmersticker.store/custom-engine-windshield-sticker/
@@ -22,7 +22,7 @@
   price: "12.99 USD"
   mpn: STBMENG
   brand: "Bimmer Sticker Store"
-  size: "24x4 in"
+  size: "24x4 in|6x1 in"
   shipping: "US::Standard:0 USD"
   weight: "0.2 lbs"
   color: "Glossy White|Matte Black|Oil Slick"

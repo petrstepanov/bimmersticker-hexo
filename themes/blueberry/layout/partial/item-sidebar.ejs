@@ -1,38 +1,39 @@
 <div id="post-aside">
   <div class="js--init-sticky-container" data-viewport-threshold="992">
+      <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
+      <% if(productIndex >= 0){ %>
+        <% var product = site.data.product_list[productIndex]; %>
+
     <%- partial('partial/item-navbar') %>
-    <div class="container">
+    <div class="container spacer-footer">
       <div class="row">
         <section class="col" itemscope itemtype="http://schema.org/Product">
-          <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
-          <% if(productIndex >= 0){ %>
-            <% var product = site.data.product_list[productIndex]; %>
           <!-- Featured image -->
             <% var image = first_image(page); %>
             <% if (image){ %>
               <img itemprop="image" class="featured-image" src="<%- image.src ? image.src : '' %>" title="<%- image.title ? image.title : '' %>" alt="<%- image.alt ? image.alt : '' %>">
             <% } %>
-            <h1 class="mb-4 font-size-38" itemprop="name"><%- post.title %></h1>
+            <h1 class="mb-3 font-size-38 line-height-1" itemprop="name"><%- post.title %></h1>
             <% if (product.description){ %>
-              <p itemprop="description"><%- product.description %></p>
+              <p class="mb-3" itemprop="description"><%- product.description %></p>
             <% } %>
-            <% if(has_variations(product)){ %>
+            <% if (has_variations(product)){ %>
               <% var variations = get_variations(product); %>
-              <% _.forOwn(variation, function(values, key) { %>
-                <div class="form-group">
+              <% _.forOwn(variations, function(values, key) { %>
+               <div class="form-group">
                     <label for="<%- key %>"><%- capitalize(key) %></label>
-                    <select class="form-control" id="<%- key %>">
-                      <% values.array.forEach(value => { %>
-                        <option value="<%- value %>"><%- capitalize(value) %></option>  
+                    <select class="select-blueberry form-control" id="<%- key %>">
+                      <% values.forEach(value => { %>
+                        <option value="<%- value %>"><%- capitalize(value) %></option>
                       <% });%>
                     </select>
-                </div>                  
-              <% }); %>          
+                </div>
+               <% }); %>
             <% } %>
             <div class="mt-3 js--init-content-buy-button" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
               <a href="" target="_blank" class="btn btn-blueberry btn-primary" role="button">Add to cart · <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="<%- parseFloat(product.price) %>"><%- parseFloat(product.price) %></span></a>
             </div>
-            <dl class="mt-3 mt-lg-5  sticker-properties clearfix">
+            <dl class="mt-4  sticker-properties clearfix">
               <% if (post.material){ %>
                 <dt>Material</dt>
                 <dd itemprop="material"><%- post.material %></dd>
@@ -49,10 +50,10 @@
             <% if (theme.email){ %>
               <p class="mt-2 mt-lg-3 mb-2"><a href="#contact">Contact us for custom colors, sizes and designs.</a></p>
             <% } %>
-          <% } %>   
         </section>
       </div>
     </div>
     <img class="w-100 mt-2 d-lg-none" alt="aside section shape" src="<%- partial('data-uri/wave-aside') %>" />
+    <% } %>
   </div>
 </div>

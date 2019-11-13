@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 hexo.extend.helper.register('format_price', function(price){
   // var number = Number(price.replace(/[^0-9\.]+/g,""));
   var integer = Math.floor(price);
@@ -33,7 +35,7 @@ hexo.extend.helper.register('first_image', function(page){
 
 hexo.extend.helper.register('has_variations', function(product){
   var hasVariations = false;
-  _.values(product).array.forEach(value => {
+  _.values(product).forEach(value => {
     if (value.includes('|')){
       hasVariations = true;
       return false;
