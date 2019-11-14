@@ -1,0 +1,28 @@
+// .snipcart-modal__container {
+//     z-index: 200;
+// }
+
+.snipcart-checkout {
+    position: relative;
+
+    svg {
+        fill: $blue;
+    }
+
+    .snipcart-items-count {
+        position: absolute;
+        top: -0.0625rem;
+        right: -0.0625rem;
+        background-color: #212B36;
+        color: white;
+        font-family: $font-bold;
+        font-size: $font-size-12;
+        padding: 0 0.125rem;
+        border-radius: 2rem;
+        box-shadow: 0 0 0 0.125rem white;
+        height: 1.2rem;
+        line-height: 1.2rem;
+        min-width: 1.2rem;
+        text-align: center
+    }
+}

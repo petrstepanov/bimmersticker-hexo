@@ -1,18 +1,13 @@
-label {
-    font-size: $font-size-12;
-    font-family: $font-bold;
-    color: $text-muted;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+.form-control {
+    color: $body-color;
+    box-shadow: 0 2px 4px 0 rgba($blue,0.20);
+    border: 0;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
 }
 
 .select-blueberry {
-    border: 0;
-    box-shadow: 0 2px 4px 0 rgba($blue,0.20);
     appearance: none;
-    padding-left: 1.1rem;
-    padding-right: 1.1rem;
-
     background: url(/img/md-arrow-dropdown.svg);
     background-position: right 1em top 50%;
     background-repeat: no-repeat;

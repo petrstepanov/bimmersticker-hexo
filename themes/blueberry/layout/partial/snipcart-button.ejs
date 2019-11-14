@@ -1,0 +1,20 @@
+<button class="snipcart-add-item btn btn-blueberry btn-primary"
+  data-item-id="<%- product.id %>"
+  data-item-price="<%- parseFloat(product.price) %>"
+  data-item-url="<%- post.path %>"
+  data-item-description="<%- product.description %>"
+  data-item-image="<%- product.image_link %>"
+  data-item-name="<%- product.title %>"
+
+  <% var i=1; %>
+  <% _.forOwn(product, function(value, key) { %>
+    <% if (value.includes('|')){ %>
+        data-item-custom<%- i %>-name="<%- capitalize(key) %>" 
+        data-item-custom<%- i++ %>-options="<%- value %>" 
+    <% } %>
+  <% }); %>
+
+  <% if (is_custom(product)){ %>
+    data-item-custom<%- i %>-name="<%- product.customization_name %>"
+  <% } %>
+><%- caption %></button>

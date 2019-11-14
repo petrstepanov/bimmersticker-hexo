@@ -4,7 +4,11 @@
       <%- partial('ionicons/md-arrow-back.svg') %> <span class="ml-1">Browse all stickers
     </a>
     <div class="form-inline d-lg-none navbar-buy-button js--init-navbar-buy-button">        
-      <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary btn-sm" role="button">Add to cart · $<%- product.price %></a>
+      <%- partial('partial/snipcart-button', {caption: product.price}) %>
     </div>
+    <button class="btn ml-2 px-0 py-0 snipcart-checkout icon-lg">
+      <%- partial('ionicons/ios-cart.svg') %>
+      <span class="snipcart-items-count"></span>
+    </button>
   </div>
 </nav>

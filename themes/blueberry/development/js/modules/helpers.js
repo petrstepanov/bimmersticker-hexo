@@ -9,7 +9,8 @@ var Helpers = (function(){
       viewportTop += $('.js--navbar-blueberry.fixed-top').outerHeight();
     }
     var viewportBottom = viewportTop + $(window).height();
-    return elementBottom > viewportTop && elementTop < viewportBottom;
+    // return elementBottom > viewportTop && elementTop < viewportBottom;
+    return elementBottom > viewportTop;
   }
 
   function getViewportSize(){

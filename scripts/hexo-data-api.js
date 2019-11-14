@@ -77,6 +77,15 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
         feedArray = jsYaml.load(feedFileData);
     } // else if add JSON too ?
 
+    // Remove all customization fields
+    feedArray.forEach(element => {
+        _.forOwn(element, function(value, key) {
+            if (!key.includes('customization')){
+                delete element.key;
+            }
+        });
+    });
+
     // Write feed header from 1st item keys
     var feedTxt = _.keys(feedArray[0]).join('\t');
 

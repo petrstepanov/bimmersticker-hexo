@@ -1,6 +1,7 @@
 # Google Merchant Instructions:
 # We parse properties containing "|", for instance "size" or "color" and iterate over them.
 # For each, we append '-#' to "id". And remain "item_group_id" equal to original "id"
+# Exclude "customization_.." keys from Google export. They are only for the frontend and Snipcart
 #
 # Snipcart instructions:
 # In .ejs detect attributes with "|". 
@@ -16,16 +17,18 @@
   google_product_category: Care & Decor > Vehicle Decor > Bumper Stickers
   product_type: Stickers > BMW
   link: https://bimmersticker.store/custom-engine-windshield-sticker/
-  image_link: https://bimmersticker.store/bimmer-not-beamer/bimmer-not-beamer-sticker.jpg
+  image_link: https://bimmersticker.store/custom-engine-windshield-sticker/bmw-custom-engine-windshield-sticker-square.jpg
   condition: new
   availability: "in stock"
   price: "12.99 USD"
   mpn: STBMENG
   brand: "Bimmer Sticker Store"
-  size: "24x4 in|6x1 in"
+  size: "24x4 in"
   shipping: "US::Standard:0 USD"
   weight: "0.2 lbs"
   color: "Glossy White|Matte Black|Oil Slick"
+  customization_name: "Your engine model"
+  customization_placeholder: M54
 - id:	ST_BMW_BNB
   title: "Bimmer Not Beamer sticker"
   description: "Sticker is designed to tell them how to spell it right. Made of premium outdoor vinyl. Comes with easy installation instructions. Durability is about 5 years."

@@ -25,6 +25,8 @@ $nb-logo-size-biggest:  3.75rem;
 
   .navbar-buy-button {
     display: none;
+    flex-grow: 1;
+    text-align: right;
   }
 
   .navbar-brand {
@@ -112,4 +114,8 @@ $nb-logo-size-biggest:  3.75rem;
       }
     }
   }
+}
+
+.fixed-top {
+  z-index: 9;
 }

@@ -7577,7 +7577,10 @@ a {
   font-size: 0.875rem; }
 
 .navbar-blueberry .navbar-buy-button {
-  display: none; }
+  display: none;
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+  text-align: right; }
 
 .navbar-blueberry .navbar-brand .logo-text {
   display: none; }
@@ -7631,6 +7634,9 @@ a {
 @media (min-width: 992px) {
   .navbar-blueberry.transparent .nav-link {
     color: white; } }
+
+.fixed-top {
+  z-index: 9; }
 
 .jumbotron-blueberry {
   background-color: transparent;
@@ -7702,21 +7708,17 @@ a {
   .btn-blueberry.btn-sm, .btn-group-sm > .btn-blueberry.btn {
     padding: 0.25rem 0.7rem; }
 
-label {
-  font-size: 0.75em;
-  font-family: "sf_pro_textbold", Helvetica, sans-serif;
-  color: #6c757d;
-  text-transform: uppercase;
-  letter-spacing: 2px; }
+.form-control {
+  color: #212B36;
+  box-shadow: 0 2px 4px 0 rgba(0, 138, 201, 0.2);
+  border: 0;
+  padding-left: 1.1rem;
+  padding-right: 1.1rem; }
 
 .select-blueberry {
-  border: 0;
-  box-shadow: 0 2px 4px 0 rgba(0, 138, 201, 0.2);
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  padding-left: 1.1rem;
-  padding-right: 1.1rem;
   background: url(/img/md-arrow-dropdown.svg);
   background-position: right 1em top 50%;
   background-repeat: no-repeat;
@@ -10613,7 +10615,9 @@ label {
   background-color: #E5F3F9; }
   #post-aside .featured-image {
     width: calc(100% + 30px);
-    margin: -15px -15px 1.75rem; }
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: 1.75em; }
     @media (min-width: 576px) {
       #post-aside .featured-image {
         margin: 1.75rem 0;
@@ -10748,9 +10752,16 @@ footer {
 .icon-xl svg {
   height: 3rem; }
 
-label {
+.label-blueberry {
+  font-size: 0.75em;
+  font-family: "sf_pro_textbold", Helvetica, sans-serif;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 2px; }
+
+.label-custom {
   cursor: pointer; }
-  label .input-image {
+  .label-custom .input-image {
     display: inline-block;
     overflow: hidden;
     box-shadow: none;
@@ -10762,12 +10773,12 @@ label {
     -moz-backface-visibility: hidden;
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0); }
-    label .input-image img {
+    .label-custom .input-image img {
       -webkit-transition: -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
       transition: -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
       transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
       transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1); }
-  label .input-radio {
+  .label-custom .input-radio {
     display: inline-block;
     width: 30px;
     height: 30px;
@@ -10777,7 +10788,7 @@ label {
     position: relative;
     -webkit-transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
     transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1); }
-    label .input-radio:after {
+    .label-custom .input-radio:after {
       content: "";
       position: absolute;
       left: 50%;
@@ -10794,21 +10805,21 @@ label {
       transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
       background-color: white;
       border-radius: 50%; }
-  label:hover .input-image img {
+  .label-custom:hover .input-image img {
     -webkit-transform: scale(1.05);
             transform: scale(1.05); }
-  label input:checked + .input-image {
+  .label-custom input:checked + .input-image {
     box-shadow: 0 0 0 2px white, 0 0 0 6px #008ac9; }
-    label input:checked + .input-image img {
+    .label-custom input:checked + .input-image img {
       -webkit-transform: scale(1.05);
               transform: scale(1.05); }
-  label input:checked + .input-radio {
+  .label-custom input:checked + .input-radio {
     background-color: #008ac9;
     border-color: #008ac9; }
-    label input:checked + .input-radio:after {
+    .label-custom input:checked + .input-radio:after {
       -webkit-transform: scale(1);
               transform: scale(1); }
-  label .color-swatch {
+  .label-custom .color-swatch {
     width: 64px;
     height: 64px;
     background-position: center center;
@@ -10927,5 +10938,79 @@ body {
     left: 0;
     right: 0;
     height: 46px; }
+
+.snipcart-checkout {
+  position: relative; }
+  .snipcart-checkout svg {
+    fill: #008ac9; }
+  .snipcart-checkout .snipcart-items-count {
+    position: absolute;
+    top: -0.0625rem;
+    right: -0.0625rem;
+    background-color: #212B36;
+    color: white;
+    font-family: "sf_pro_textbold", Helvetica, sans-serif;
+    font-size: 0.75em;
+    padding: 0 0.125rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 0 0.125rem white;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    min-width: 1.2rem;
+    text-align: center; }
+
+.snipcart {
+  font-family: "sf_pro_textregular", Helvetica, sans-serif;
+  font-size: inherit;
+  font-weight: normal;
+  color: inherit; }
+
+.snipcart__font--secondary {
+  font-family: "sf_pro_textbold", Helvetica, sans-serif; }
+
+.snipcart-item-line__title {
+  font-family: "config_condensedbold", Helvetica, sans-serif; }
+
+.snipcart__font--std {
+  font-family: "sf_pro_textregular", Helvetica, sans-serif; }
+
+.snipcart-item-line__media--small {
+  margin-right: 1rem; }
+
+.snipcart-item-line__variants label {
+  font-size: 0.75em;
+  font-family: "sf_pro_textbold", Helvetica, sans-serif;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 1.5rem; }
+
+.snipcart-item-line__info {
+  display: none; }
+
+.snipcart-form__select, .snipcart-form-input {
+  padding: 0 1rem;
+  height: 2.75rem; }
+
+.snipcart-item-quantity__quantity {
+  height: 2.75rem; }
+
+.cart__footer-discount-box {
+  display: none; }
+
+.snipcart-cart-button {
+  padding: 0 1rem;
+  border-radius: 10rem;
+  height: 2.75rem; }
+
+.snipcart-cart-button--highlight {
+  background-image: none;
+  background-color: #008ac9; }
+
+.snipcart-item-custom-fields__field {
+  margin-bottom: 0; }
+
+.snipcart-item-line__variants {
+  padding-top: 0; }
 
 /*# sourceMappingURL=app.css.map */

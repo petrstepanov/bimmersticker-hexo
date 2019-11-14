@@ -56,8 +56,7 @@ hexo.extend.helper.register('get_variations', function(product){
 
 
 hexo.extend.helper.register('is_custom', function(product){
-  var isCustom = product.description.includes('Custom') || product.description.includes('custom');
-  return isCustom;
+  return _.keys(product).includes('customization_name');
 });
 
 
