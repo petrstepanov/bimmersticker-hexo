@@ -29,7 +29,13 @@ $(document).ready(function(){
     pf.init(this);
   });
 
-  // Form ajax submit (for New/Edit Job and New/Edit Campaign pages)
+  // Form validation
+  $('form input, form select, form textarea').each(function(){
+    var fv = FormValidation();
+    fv.init(this);
+  });
+
+  // Form ajax submit
   $('.js--init-ajax-submit').each(function(){
     var fas = FormAjaxSubmit();
     fas.init(this);

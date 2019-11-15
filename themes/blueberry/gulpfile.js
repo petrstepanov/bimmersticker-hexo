@@ -39,6 +39,7 @@ var paths = {
 			'./development/js/modules/content-buy-button.js',
 			'./development/js/modules/posts-filter.js',
 			'./development/js/modules/smooth-scroll.js',
+			'./development/js/modules/form-validation.js',			
 			'./development/js/modules/form-ajax-submit.js',
 			'./development/js/modules/windshield-form.js',			
 			'./development/js/modules/snipcart-button-attributes.js',		

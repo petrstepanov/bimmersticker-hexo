@@ -2,9 +2,9 @@ var SnipcartButtonAttributes = (function () {
   var DOM = {};
 
   function _cacheDom(element) {
-    DOM.$el = $(element);
-    DOM.$inputs = DOM.$el.find('select, input');
-    DOM.$button = DOM.$el.find('.snipcart-add-item');
+    DOM.$form = $(element);
+    DOM.$inputs = DOM.$form.find('select, input');
+    DOM.$snipcartButton = DOM.$form.find('.snipcart-add-item');
   }
 
   function _bindEvents(element) {
@@ -12,7 +12,12 @@ var SnipcartButtonAttributes = (function () {
       var i = DOM.$inputs.index(this) + 1;
       var customAttrName = 'item-custom' + i + '-value';
       // DOM.$button.data(customAttrName, $(this).val());
-      DOM.$button.attr('data-' + customAttrName, $(this).val());
+      DOM.$snipcartButton.attr('data-' + customAttrName, $(this).val());
+    });
+
+    DOM.$form.on('submit', function(event){
+      event.preventDefault();
+      DOM.$snipcartButton.click();
     });
   }
 

@@ -7715,8 +7715,36 @@ a {
   .card-blueberry .card-title {
     line-height: 1; }
   .card-blueberry .card-title-price {
+    background-color: #dee2e6;
+    padding: 0.3rem 1.2rem 0.3rem 0.5rem;
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    border-top-right-radius: 0.1rem;
+    border-bottom-right-radius: 0.1rem;
+    position: relative;
     white-space: nowrap;
     font-family: "sf_pro_textbold", Helvetica, sans-serif; }
+    .card-blueberry .card-title-price:before {
+      content: "";
+      position: absolute;
+      right: -0.7rem;
+      top: 50%;
+      margin-top: -1rem;
+      border-style: solid;
+      border-color: transparent;
+      border-left-color: #dee2e6;
+      border-width: 1rem 0 1rem 0.7rem; }
+    .card-blueberry .card-title-price:after {
+      content: "";
+      position: absolute;
+      background-color: white;
+      top: 50%;
+      right: 0.2rem;
+      width: 0.4rem;
+      height: 0.4rem;
+      border-radius: 0.2rem;
+      margin-top: -0.2rem;
+      margin-left: -0.2rem; }
     .card-blueberry .card-title-price sup {
       font-size: 60%;
       margin-left: 0.15rem;
@@ -7743,6 +7771,8 @@ a {
     color: #97aabf; }
   .form-control::placeholder {
     color: #97aabf; }
+  .form-control.invalid {
+    box-shadow: 0 2px 4px 0 rgba(241, 26, 34, 0.2), 0 0 0 1px #f11a22; }
 
 .select-blueberry {
   -webkit-appearance: none;
@@ -10961,6 +10991,11 @@ body {
     right: 0;
     height: 46px; }
 
+.snipcart-add-item {
+  width: 0;
+  height: 0;
+  visibility: hidden; }
+
 .snipcart-checkout {
   position: relative; }
   .snipcart-checkout svg {
@@ -11011,10 +11046,12 @@ body {
 
 .snipcart-item-line {
   padding: 15px;
+  margin: 15px;
   box-shadow: none; }
   @media (min-width: 576px) {
     .snipcart-item-line {
-      padding: 32px; } }
+      padding: 32px;
+      margin: 0 0 32px 0; } }
 
 .snipcart-item-line__info {
   display: none; }

@@ -8,7 +8,13 @@
   &::placeholder {
     color: lighten($body-color, 50%);
   }
+
+  &.invalid {
+    box-shadow: 0 2px 4px 0 rgba($red, 0.2), 0 0 0 1px $red;
+  }
 }
+
+
 
 .label-blueberry {
   @extend .label;

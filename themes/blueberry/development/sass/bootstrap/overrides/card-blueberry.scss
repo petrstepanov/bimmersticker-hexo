@@ -53,7 +53,44 @@
     line-height: 1;
   }
 
+  $price-tag-width: 0.7rem;
+  $price-tag-height: 2rem;
+  $price-tag-radius: 0.2rem;
+
   .card-title-price {
+    background-color: $gray-300;
+    padding: 0.3rem 1.2rem 0.3rem 0.5rem;
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    border-top-right-radius: 0.1rem;
+    border-bottom-right-radius: 0.1rem;
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      right: -$price-tag-width;
+      top: 50%;
+      margin-top: -$price-tag-height/2;
+      border-style: solid;
+      border-color: transparent;
+      border-left-color: $gray-300;
+      border-width: $price-tag-height/2 0 $price-tag-height/2 $price-tag-width;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      background-color: white;
+      top: 50%;
+      right: 0.2rem;
+      width: 2*$price-tag-radius;
+      height: 2*$price-tag-radius;
+      border-radius: $price-tag-radius;
+      margin-top: -$price-tag-radius;
+      margin-left: -$price-tag-radius;
+    }
+
     white-space: nowrap;
     // margin-left: 1em;
     font-family: $font-bold;

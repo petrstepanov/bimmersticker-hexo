@@ -1,10 +1,12 @@
-<button class="snipcart-add-item btn btn-blueberry btn-primary <%- typeof className !== 'undefined' ? className : ''; %>"
+<button class="snipcart-add-item"
   data-item-id="<%- product.id %>"
   data-item-price="<%- parseFloat(product.price) %>"
   data-item-url="<%- post.path %>"
   data-item-description="<%- product.description %>"
   data-item-image="<%- product.image_link %>"
   data-item-name="<%- product.title %>"
+  type="submit"
+  form="cart-form"
 
   <% var i=1; %>
   <% _.forOwn(product, function(value, key) { %>
@@ -17,4 +19,4 @@
   <% if (is_custom(product)){ %>
     data-item-custom<%- i %>-name="<%- product.customization_name %>"
   <% } %>
-><%- caption %></button>
+>Add to cart</button>
