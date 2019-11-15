@@ -5,10 +5,10 @@
 @import "bootstrap/variables-default";
 @import "bootstrap/bootstrap";
 
-@import "variables";
-@import "mixins";
-
 @import "typography";
+
+@import "extends";
+@import "mixins";
 
 @import "bootstrap/overrides/navbar-blueberry";
 @import "bootstrap/overrides/jumbotron-blueberry";
@@ -24,8 +24,9 @@
 @import "layout/post";
 @import "layout/footer";
 
+@import "banner-form";
+
 @import "icons";
-@import "forms";
 @import "utilities";
 @import "scrollspy";
 

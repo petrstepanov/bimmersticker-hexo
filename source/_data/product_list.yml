@@ -27,7 +27,7 @@
   shipping: "US::Standard:0 USD"
   weight: "0.2 lbs"
   color: "Glossy White|Matte Black|Oil Slick"
-  customization_name: "Your engine model"
+  customization_name: "Type your engine model"
   customization_placeholder: M54
 - id:	ST_BMW_BNB
   title: "Bimmer Not Beamer sticker"

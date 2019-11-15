@@ -39,4 +39,7 @@ $(document).ready(function(){
 
   // Bootstrap's popovers
   $('[data-toggle="popover"]').popover();
+
+  // Snipcart button attributes
+  SnipcartButtonAttributes.init(document.querySelector('.js--init-snipcart-button-attributes'));
 });

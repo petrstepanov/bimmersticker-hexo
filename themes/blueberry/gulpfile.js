@@ -41,6 +41,7 @@ var paths = {
 			'./development/js/modules/smooth-scroll.js',
 			'./development/js/modules/form-ajax-submit.js',
 			'./development/js/modules/windshield-form.js',			
+			'./development/js/modules/snipcart-button-attributes.js',		
 			'./development/js/app.js'],
 		srcWatch: './development/js/**/*.js',
 		dest: './source/js'

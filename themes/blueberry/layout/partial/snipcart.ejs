@@ -1,5 +1,2 @@
 <script src="https://cdn.snipcart.com/themes/v3.0.2/default/snipcart.js"></script>
-<div id="snipcart" data-api-key="ZDY1MDg3ODQtM2MxNC00OGEzLWFiMzktNzE1NjY2NjY0OTczNjM3MDkwMTkxMjkwNDc3NjYw" hidden></div>
-<script>
-    Snipcart.api.configure('show_continue_shopping', true);
-</script>
+<div id="snipcart" data-api-key="<%- typeof process.env.SNIPCART_DATA_API_KEY !== 'undefined' ? process.env.SNIPCART_DATA_API_KEY : 'ZDY1MDg3ODQtM2MxNC00OGEzLWFiMzktNzE1NjY2NjY0OTczNjM3MDkwMTkxMjkwNDc3NjYw'; %>" hidden></div>

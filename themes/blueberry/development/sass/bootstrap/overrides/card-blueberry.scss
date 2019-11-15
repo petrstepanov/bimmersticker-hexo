@@ -51,17 +51,17 @@
 
   .card-title {
     line-height: 1;
+  }
+
+  .card-title-price {
+    white-space: nowrap;
+    // margin-left: 1em;
+    font-family: $font-bold;
 
     sup {
       font-size: 60%;
       margin-left: 0.15rem;
       border-bottom: 0.15rem solid $body-color;
     }
-
-    .card-title-price {
-      white-space: nowrap;
-      margin-left: 1em;
-    }
-
-  }
+  }  
 }

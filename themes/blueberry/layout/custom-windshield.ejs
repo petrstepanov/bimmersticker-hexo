@@ -20,7 +20,7 @@
 				<% var i = 0; %>
 				<% for (var product in site.data.products) { %>
 				<div class="col-12 col-sm-6 col-md-3">
-					<label class="row align-items-center justify-content-center">
+					<label class="label-custom row align-items-center justify-content-center">
 						<div class="col-4 col-sm-8 col-md-12">
 							<input class="invisible" type="radio" name="product" value="<%= product %>"
 								<%= i++ == 0 ? 'checked' : ''; %> />
@@ -52,10 +52,9 @@
 				</div>
 				<div class="row align-items-center">
 					<% i = 0; %>
-					<% console.log(site.data.fonts); %>
 					<% for (var font in site.data.fonts){ %>
 					<div class="col-12 col-lg-6">
-						<label class="d-flex align-items-center">
+						<label class="label-custom d-flex align-items-center">
 							<input class="invisible" type="radio" name="font" value="<%= font %>"
 								<%= i++ == 0 ? 'checked' : ''; %> />
 							<span class="input-radio flex-shrink-0 mr-3"></span>
@@ -77,7 +76,7 @@
 				<div class="d-flex flex-wrap justify-content-center">
 					<% i=0; %>
 					<% for (var color in site.data.colors_text){ %>
-					<label class="d-flex flex-column align-items-center px-2 mx-1">
+					<label class="label-custom d-flex flex-column align-items-center px-2 mx-1">
 						<input class="invisible" type="radio" name="color_text" value="<%= color %>"
 							<%= i++ == 0 ? 'checked' : ''; %> />
 						<div class="input-image">
@@ -95,7 +94,7 @@
 				<div class="d-flex flex-wrap justify-content-center">
 					<% i=0; %>
 					<% for (var color in site.data.colors_strip){ %>
-					<label class="d-flex flex-column align-items-center px-2 mx-1">
+					<label class="label-custom d-flex flex-column align-items-center px-2 mx-1">
 						<input class="invisible flex-shrink-0" type="radio" name="color_base" value="<%= color %>"
 							<%= i++ == 0 ? 'checked' : ''; %> />
 						<div class="input-image">
@@ -115,32 +114,32 @@
 						In order to share an invoice we need to ask you for your email address. Additionally a valid shipping information is required. Our website does not have a server side so we do not store any of your information.
 					</p>
 					<div class="form-group">
-						<label for="inputEmail">Your email address</label>
+						<label class="label-blueberry" for="inputEmail">Your email address</label>
 						<input name="email" type="email" class="form-control" id="inputEmail" placeholder="name@example.com" required autocomplete="email" />
 						<small id="emailHelp" class="form-text text-muted">We will send a PayPal invoice to this email.</small>
 					</div>			
 					<div class="form-group">
-						<label for="inputName">First and last name</label>
+						<label class="label-blueberry" for="inputName">First and last name</label>
 						<input name="nama" type="text" class="form-control" id="inputName" required autocomplete="name" />
 					</div>			
 					<div class="form-group">
-						<label for="inputAddress">Address</label>
+						<label class="label-blueberry" for="inputAddress">Address</label>
 						<input name="address" type="text" class="form-control" id="inputAddress" placeholder="123 Any Street" required autocomplete="street-address" />
 					</div>			
 					<div class="form-group">
-						<label for="inputCity">City</label>
+						<label class="label-blueberry" for="inputCity">City</label>
 						<input name="city" type="text" class="form-control" id="inputCity" placeholder="Miami" required autocomplete="address-level2" />
 					</div>			
 					<div class="form-group">
-						<label for="inputState">State</label>
+						<label class="label-blueberry" for="inputState">State</label>
 						<input name="state" type="text" class="form-control" id="inputState" placeholder="FL" required autocomplete="address-level1" />
 					</div>			
 					<div class="form-group">
-						<label for="inputZip">Zip</label>
+						<label class="label-blueberry" for="inputZip">Zip</label>
 						<input name="zip" type="text" class="form-control" id="inputZip" placeholder="10011" required autocomplete="postal-code" />
 					</div>			
 					<div class="form-group">
-						<label for="inputCountry">Country</label>
+						<label class="label-blueberry" for="inputCountry">Country</label>
 						<input name="country" type="text" class="form-control" id="inputCountry" placeholder="USA" required autocomplete="country" />
 						<small id="emailHelp" class="form-text text-muted">Shipping outside US is $15 extra.</small>
 					</div>			

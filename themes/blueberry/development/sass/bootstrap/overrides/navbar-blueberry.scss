@@ -3,7 +3,7 @@ $nb-logo-size-bigger:   3.1rem;
 $nb-logo-size-biggest:  3.75rem;
 
 .navbar-blueberry {
-  @extend %navbar-extend;
+  @extend .navbar-extend;
 
   .logo-image, .back-link {
     height: $nb-logo-size;
@@ -20,7 +20,11 @@ $nb-logo-size-biggest:  3.75rem;
     display: flex;
     align-items: center;
     font-family: $font-bold;
-    font-size: 0.875rem;
+
+    
+    span {
+      font-size: 0.875rem;
+    }
   }
 
   .navbar-buy-button {
@@ -30,6 +34,8 @@ $nb-logo-size-biggest:  3.75rem;
   }
 
   .navbar-brand {
+    padding: 0;
+
     .logo-text {
       // font-family: $font-bold;
       // font-style: italic;
@@ -55,6 +61,11 @@ $nb-logo-size-biggest:  3.75rem;
   }
 
   .nav-item {
+    &-for-cart {
+      line-height: 2.875rem;
+      padding-left: 2.5rem;
+    }
+
     &.nav-separator {
       border-bottom: 1px solid $gray-200;
       padding-bottom: 0.75rem;

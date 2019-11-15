@@ -1,16 +1,24 @@
 .form-control {
-    color: $body-color;
-    box-shadow: 0 2px 4px 0 rgba($blue,0.20);
-    border: 0;
-    padding-left: 1.1rem;
-    padding-right: 1.1rem;
+  color: $body-color;
+  box-shadow: 0 2px 4px 0 rgba($blue, 0.2), 0 0 0 1px #dceaf9;
+  border: 0;
+  padding-left: 1.1rem;
+  padding-right: 1.1rem;
+
+  &::placeholder {
+    color: lighten($body-color, 50%);
+  }
+}
+
+.label-blueberry {
+  @extend .label;
 }
 
 .select-blueberry {
-    appearance: none;
-    background: url(/img/md-arrow-dropdown.svg);
-    background-position: right 1em top 50%;
-    background-repeat: no-repeat;
-    background-color: white;
-    background-size: 1.5em;
+  appearance: none;
+  background: url(/img/md-arrow-dropdown.svg);
+  background-position: right 1em top 50%;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-size: 1.5em;
 }

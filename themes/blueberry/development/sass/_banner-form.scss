@@ -1,9 +1,5 @@
 $selected-color: $blue;
 
-.label-blueberry {
-  @include label;
-}
-
 .label-custom {
   cursor: pointer;
 

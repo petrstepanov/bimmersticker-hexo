@@ -22,8 +22,29 @@
 }
 
 .snipcart-item-line__variants label {
-    @include label;
+    @extend .label;
     margin-top: 1.5rem;
+}
+
+// Back to shopping link {
+.snipcart-modal__close-title {
+    font-family: $font-bold !important;
+    color: $blue;
+}
+
+// Snipcart modal
+.snipcart-modal__container, .snipcart-modal, .snipcart-cart-header, .snipcart-cart__content, .snipcart-payment-methods__title {
+    background-color: $indigo;
+}
+
+// Item container
+.snipcart-item-line {
+    padding: 15px;
+    box-shadow: none;
+
+    @include media-breakpoint-up(sm){
+        padding: 32px;
+    }
 }
 
 // Description
@@ -35,6 +56,7 @@
 .snipcart-form__select, .snipcart-form-input {
     padding: 0 1rem;
     height: 2.75rem;
+    font-family: $font-regular !important;
 }
 
 // Quantity field

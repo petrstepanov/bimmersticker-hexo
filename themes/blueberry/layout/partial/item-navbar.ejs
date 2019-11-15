@@ -4,9 +4,9 @@
       <%- partial('ionicons/md-arrow-back.svg') %> <span class="ml-1">Browse all stickers
     </a>
     <div class="form-inline d-lg-none navbar-buy-button js--init-navbar-buy-button">        
-      <%- partial('partial/snipcart-button', {caption: product.price}) %>
+      <%- partial('partial/snipcart-button', {product: product, caption: product.price, className: 'btn-sm'}) %>
     </div>
-    <button class="btn ml-2 px-0 py-0 snipcart-checkout icon-lg">
+    <button class="btn ml-2 px-0 py-0 snipcart-checkout icon-md">
       <%- partial('ionicons/ios-cart.svg') %>
       <span class="snipcart-items-count"></span>
     </button>

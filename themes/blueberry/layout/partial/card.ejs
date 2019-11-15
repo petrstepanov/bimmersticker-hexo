@@ -1,12 +1,10 @@
-<div class="col-xs-12 <%- post.col_class ? post.col_class : '' %>  js--posts-filter-item"
-  data-groups='["<%- post.data_groups ? post.data_groups : '' %>"]'>
+<div class="col-xs-12 <%- post.col_class ? post.col_class : '' %>  js--posts-filter-item" data-groups='["<%- post.data_groups ? post.data_groups : '' %>"]'>
   <figure class="card card-blueberry" itemscope itemtype="http://schema.org/Product">
     <!-- Featured image -->
     <% var image = first_image(post); %>
     <% if (image){ %>
     <a itemprop="url" href="/<%- post.path %>">
-      <img itemprop="image" class="card-img-top" src="<%- image.src ? image.src : '' %>"
-        title="<%- image.title ? image.title : '' %>" alt="<%- image.alt ? image.alt : '' %>">
+      <img itemprop="image" class="card-img-top" src="<%- image.src ? image.src : '' %>" title="<%- image.title ? image.title : '' %>" alt="<%- image.alt ? image.alt : '' %>">
     </a>
     <% } %>
     <!-- Card body -->
@@ -18,22 +16,22 @@
       <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
       <% if(productIndex >= 0){ %>
         <% var product = site.data.product_list[productIndex]; %>
-        <h3 class="card-title font-size-21 d-flex justify-content-between">
-          <span itemprop="name"><%- product.title %></span>
+        <h3 class="card-title font-size-21" itemprop="name">
+          <%- product.title %>
+        </h3>
+      
+        <% if (post.excerpt){ %>
+        <p class="mb-2 pb-1" itemprop="description"><%- strip_html(post.excerpt) %></p>
+        <% } %>
+        <div class="d-flex align-items-center justify-content-between">
           <span class="card-title-price" itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
             <link itemprop="url" href="/<%- product.link %>" />
             <meta itemprop="availability" content="https://schema.org/InStock" />
-            <span itemprop="priceCurrency" content="USD">$</span>
-            <span itemprop="price" content="<%- product.price %>"><%- format_price(parseFloat(product.price)) %></span>
+            <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="<%- product.price %>"><%- format_price(parseFloat(product.price)) %></span>
           </span>
-        </h3>
+          <a href="<%- post.path %>" class="btn btn-blueberry btn-sm btn-primary">View sticker →</a>
+        </div>
       <% } %>
-      <% if (post.excerpt){ %>
-      <p class="mb-2 pb-1" itemprop="description"><%- strip_html(post.excerpt) %></p>
-      <% } %>
-      <div class="d-flex align-items-center justify-content-between">
-        <a href="<%- post.path %>" class="btn btn-blueberry btn-sm btn-primary">View sticker →</a>
-      </div>
     </div>
   </figure>
 </div>
