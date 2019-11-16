@@ -7556,10 +7556,7 @@ a {
   padding: 0.825rem 0; }
   @media (min-width: 768px) {
     .navbar-extend, .navbar-blueberry {
-      padding: 1.1rem 0; } }
-  @media (min-width: 992px) {
-    .navbar-extend, .navbar-blueberry {
-      padding: 1.5rem 0; } }
+      padding: 1rem 0; } }
   .navbar-extend .container, .navbar-blueberry .container {
     padding-left: 15px !important;
     padding-right: 15px !important; }
@@ -7572,13 +7569,13 @@ a {
   letter-spacing: 2px; }
 
 .navbar-blueberry .logo-image, .navbar-blueberry .back-link {
-  height: 2.8rem; }
+  height: 2.25rem; }
   @media (min-width: 576px) {
     .navbar-blueberry .logo-image, .navbar-blueberry .back-link {
-      height: 3.1rem; } }
+      height: 3rem; } }
   @media (min-width: 768px) {
     .navbar-blueberry .logo-image, .navbar-blueberry .back-link {
-      height: 3.75rem; } }
+      height: 3rem; } }
 
 .navbar-blueberry .back-link {
   display: -webkit-box;
@@ -7628,17 +7625,17 @@ a {
 .navbar-blueberry .navbar-nav .nav-link {
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
-  padding-left: 3.3rem; }
+  padding-left: 2.75rem; }
   .navbar-blueberry .navbar-nav .nav-link:last-child .nav-link {
     padding-right: 0; }
   .navbar-blueberry .navbar-nav .nav-link:hover {
     color: #008ac9; }
   @media (min-width: 576px) {
     .navbar-blueberry .navbar-nav .nav-link {
-      padding-left: 3.7rem; } }
+      padding-left: 3.6rem; } }
   @media (min-width: 768px) {
     .navbar-blueberry .navbar-nav .nav-link {
-      padding-left: 4.45rem; } }
+      padding-left: 3.7rem; } }
   @media (min-width: 992px) {
     .navbar-blueberry .navbar-nav .nav-link {
       font-family: "sf_pro_textbold", Helvetica, sans-serif;
@@ -10700,10 +10697,14 @@ a {
     #post-aside {
       box-shadow: inset -1px 0 0 0 #d0e9f4;
       width: 40%;
-      padding-left: 5vw;
-      padding-right: 5vw;
+      padding-left: 4vw;
+      padding-right: 4vw;
       position: relative;
       top: -1px; } }
+  @media (min-width: 1200px) {
+    #post-aside {
+      padding-left: 5vw;
+      padding-right: 5vw; } }
 
 #post-content {
   padding-top: 2em; }
@@ -10766,13 +10767,13 @@ footer {
   footer .section-blue {
     background-color: #008ac9; }
   footer .logo-circ, footer .logo-text {
-    height: 2.8rem; }
+    height: 2.25rem; }
     @media (min-width: 576px) {
       footer .logo-circ, footer .logo-text {
-        height: 3.1rem; } }
+        height: 3rem; } }
     @media (min-width: 768px) {
       footer .logo-circ, footer .logo-text {
-        height: 3.75rem; } }
+        height: 3rem; } }
   footer nav {
     display: -webkit-box;
     display: flex;

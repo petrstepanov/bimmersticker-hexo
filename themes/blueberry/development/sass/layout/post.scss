@@ -51,11 +51,16 @@
   @include media-breakpoint-up(lg){
     box-shadow: inset -1px 0 0 0 darken($indigo, 5%);
     width: 40%;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
     position: relative;
     // padding-top: 1px;
     top: -1px;
+  }
+
+  @include media-breakpoint-up(xl){  
+    padding-left: 5vw;
+    padding-right: 5vw;
   }
 }
 

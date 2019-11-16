@@ -5,7 +5,7 @@
       <% var product = site.data.product_list[productIndex]; %>
 
       <%- partial('partial/item-navbar', {product: product}) %>
-      <div class="container spacer-footer">
+      <div class="container">
         <div class="row">
           <section class="col" itemscope itemtype="http://schema.org/Product">
             <!-- Featured image -->
@@ -13,7 +13,7 @@
             <% if (image){ %>
               <img itemprop="image" class="featured-image" src="<%- image.src ? image.src : '' %>" title="<%- image.title ? image.title : '' %>" alt="<%- image.alt ? image.alt : '' %>">
             <% } %>
-            <h1 class="mb-3 font-size-28 line-height-1" itemprop="name"><%- post.title %></h1>
+            <h1 class="mb-3 mt-lg-2 font-size-28 line-height-1" itemprop="name"><%- post.title %></h1>
             <% if (product.description){ %>
               <p class="my-3" itemprop="description"><%- product.description %></p>
             <% } %>
