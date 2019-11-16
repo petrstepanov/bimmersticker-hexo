@@ -10884,6 +10884,65 @@ footer {
 .font-image {
   max-width: 75%; }
 
+.car-preview-container {
+  text-align: center; }
+  .car-preview-container .banner-text {
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    top: 23%;
+    height: 10%;
+    -webkit-mask-image: url(https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/2029047/0/14?s=%7B%22size%22:72,%22text%22:%22Your%20Banner%22,%22retina%22:false%7D);
+            mask-image: url(https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/2029047/0/14?s=%7B%22size%22:72,%22text%22:%22Your%20Banner%22,%22retina%22:false%7D);
+    -webkit-mask-size: contain;
+            mask-size: contain;
+    -webkit-mask-position: center center;
+            mask-position: center center;
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+    background-color: #EFEFEF;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; }
+  .car-preview-container .sunstrip {
+    display: none;
+    position: absolute;
+    top: 5%;
+    left: 18%;
+    right: 18%;
+    height: 13.3%;
+    -webkit-mask-image: url(/custom-windshield-banner-sun-strip/index/banner.svg);
+            mask-image: url(/custom-windshield-banner-sun-strip/index/banner.svg);
+    -webkit-mask-position: center center;
+            mask-position: center center;
+    -webkit-mask-size: contain;
+            mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+    background-color: #2D2D2D;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; }
+  .car-preview-container .sunstrip-text {
+    display: none;
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    top: 7%;
+    height: 7%;
+    -webkit-mask-image: url(https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/2029047/0/14?s=%7B%22size%22:72,%22text%22:%22Your%20Banner%22,%22retina%22:false%7D);
+            mask-image: url(https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/2029047/0/14?s=%7B%22size%22:72,%22text%22:%22Your%20Banner%22,%22retina%22:false%7D);
+    -webkit-mask-size: contain;
+            mask-size: contain;
+    -webkit-mask-position: center center;
+            mask-position: center center;
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+    background-color: #EFEFEF;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; }
+
 .icon-xs svg {
   height: 1rem; }
 

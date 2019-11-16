@@ -7,27 +7,63 @@ var WindshieldForm = (function () {
     function _cacheDom(element) {
         DOM.$el = $(element);
         DOM.$radioProduct = DOM.$el.find('input[name=product]');
+        DOM.$radioTextColor = DOM.$el.find('input[name=color_text]');
+        DOM.$radioBaseColor = DOM.$el.find('input[name=color_base]');
+        DOM.$radioFont = DOM.$el.find('input[name=font]');        
         DOM.$fontContainer = DOM.$el.find('.js--font-container');
         DOM.$textColorContainer = DOM.$el.find('.js--text-color-container');
         DOM.$baseColorContainer = DOM.$el.find('.js--base-color-container');
 
         DOM.$input = DOM.$el.find('.js--text-input');
         DOM.$fontImages = DOM.$el.find('.js--font-image');
+
+        DOM.$carContainer = DOM.$el.find('.car-preview-container');
+        DOM.$car = DOM.$el.find('.car-preview-container .car');
+
+        DOM.$banner = DOM.$el.find('.banner-text');
+        DOM.$sunstrip = DOM.$el.find('.sunstrip');              
+        DOM.$sunstripText = DOM.$el.find('.sunstrip-text');
     }
 
     function _bindEvents(element) {
         DOM.$radioProduct.change(function () {
             _showHideFormContainers(this.value);
+            _showHidePreviewElements(this.value);
+        });
+
+        DOM.$radioTextColor.change(function () {
+            _updateBannerSunstripTextColors();
+        });
+
+        DOM.$radioBaseColor.change(function () {
+            _updateSunstripBaseColor();
+        });
+
+        DOM.$radioFont.change(function () {
+            _updateBannerFontImages();
         });
 
         var that = this;
         DOM.$input.on('input', function(){
             if (timeoutUpdateImages) clearTimeout(timeoutUpdateImages);
-            var text = DOM.$input.val().length ? DOM.$input.val() : "Your Banner";
             timeoutUpdateImages = setTimeout(function(){
-                _updateTextImages(text);
+                _updateTextImages();
+                _updateBannerFontImages();
             }, 1500);
         });
+
+        $(window).resize(function() {
+            _adjustCarContainerHeight();
+        });
+    }
+
+    function _getBannerText(){
+        return DOM.$input.val().length ? DOM.$input.val() : "Your Banner";        
+    }
+
+    function _adjustCarContainerHeight(){
+        var height = parseFloat(DOM.$car.height());
+        DOM.$carContainer.height(height);
     }
 
     function _showHideFormContainers(product){
@@ -55,20 +91,86 @@ var WindshieldForm = (function () {
         }
     }
 
+    function _getSelectedSwatch(radioName){
+        return $('input[name=' + radioName + ']:checked').parent().find('.color-swatch');
+    }
+
+    function _showHidePreviewElements(product){
+        switch (product) {
+            case 'banner':
+                DOM.$banner.show();
+                DOM.$sunstrip.hide();
+                DOM.$sunstripText.hide();
+                break;
+            case 'sunstrip':
+                DOM.$banner.hide();
+                DOM.$sunstrip.show();
+                DOM.$sunstripText.hide();
+                break;
+            case 'cutsunstrip':
+                DOM.$banner.hide();
+                DOM.$sunstrip.show();
+                DOM.$sunstripText.show();
+                DOM.$sunstripText.css('background-color', '#6C6C6C');
+                break;
+            case 'textsunstrip':
+                DOM.$banner.hide();
+                DOM.$sunstrip.show();
+                DOM.$sunstripText.show();
+                var color = _getSelectedSwatch('color_text').css('background-color');
+                DOM.$sunstripText.css('background-color', color);
+                break;
+        }
+    }
+
+    function _buildFontUrl($fontImage, text){
+        var url = $fontImage.data().src;
+        url += query.replace("#", text);
+        return encodeURI(url);
+    }
+
     function _updateTextImages(text){
+        var text = _getBannerText();
+        // Update text images
         DOM.$fontImages.each(function(){
-            var url = $(this).data().src;
-            url += query.replace("#", text);
-            $(this).attr('src', encodeURI(url));
-        });
+            var url = _buildFontUrl($(this), text);
+            $(this).attr('src', url);
+        });       
+    }
+
+    function _updateBannerFontImages(){
+        var text = _getBannerText();
+        // Update banner image
+        var $fontImage = $('input[name=font]:checked').parent().find('img');
+        var url = _buildFontUrl($fontImage, text);
+        DOM.$banner.css('mask-image', 'url(' + url + ')');
+        DOM.$sunstripText.css('mask-image', 'url(' + url + ')');           
+    }
+
+    function _updateBannerSunstripTextColors(){
+        var $swatch = _getSelectedSwatch('color_text');
+        // Change banner text
+        DOM.$banner.css('background-color', $swatch.css('background-color'));
+        DOM.$banner.css('background-image', $swatch.css('background-image'));
+        // Change sun strip text color
+        DOM.$sunstripText.css('background-color', $swatch.css('background-color'));
+        DOM.$sunstripText.css('background-image', $swatch.css('background-image'));    
+    }
+
+    function _updateSunstripBaseColor(){
+        var $swatch = _getSelectedSwatch('color_base');
+        // Change sun strip base color
+        DOM.$sunstrip.css('background-color', $swatch.css('background-color'));
+        DOM.$sunstrip.css('background-image', $swatch.css('background-image'));
     }
 
     function _checkContentButtonViewport() {
         Events.emit('buyButtonViewport', { contentButtonVisible: Helpers.isInViewport(DOM.$el) });
     }
 
-    // function _render(options){
-    // }
+    function _render(options){
+        _adjustCarContainerHeight();
+    }
 
     function init(element) {
         if (element) {
@@ -76,7 +178,7 @@ var WindshieldForm = (function () {
             _cacheDom(element);
             _bindEvents();
             _showHideFormContainers(DOM.$radioProduct.val());
-            // _render();
+            _render();
         }
     }
 

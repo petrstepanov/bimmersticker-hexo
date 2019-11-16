@@ -13,12 +13,15 @@ mentari:
 lakeshore:
   name: Lakeshore
   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/1405515/0/14
-bison:
-  name: Bison 
-  url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/2361604/4/9
+# bison:
+#   name: Bison 
+#   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/2361604/4/9
+# tokyo:
+#   name: Tokyo Outline
+#   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/1288819/6/14
 tokyo:
-  name: Tokyo Outline
-  url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/1288819/6/14
+  name: Bourton Outline
+  url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/1222578/42/14
 empera:
   name: Empera 
   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/1770556/8/14

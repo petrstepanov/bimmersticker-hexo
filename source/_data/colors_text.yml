@@ -1,3 +1,7 @@
+white:
+  hex: "#EFEFEF"
+  image: /images/swatches/glare.svg
+  name: "Glossy white"
 matte_black:
   hex: "#2D2D2D"
   name: "Matte black"
@@ -13,10 +17,6 @@ orange:
   hex: "#DA6831"
   image: /images/swatches/glare.svg
   name: "Glossy orange"  
-white:
-  hex: "#EFEFEF"
-  image: /images/swatches/glare.svg
-  name: "Glossy white"
 pink:
   hex: "#F6A6BF"
   image: /images/swatches/glare.svg
