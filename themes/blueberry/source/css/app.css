@@ -7569,7 +7569,7 @@ a {
   letter-spacing: 2px; }
 
 .navbar-blueberry .logo-image, .navbar-blueberry .back-link {
-  height: 2.25rem; }
+  height: 2.5rem; }
   @media (min-width: 576px) {
     .navbar-blueberry .logo-image, .navbar-blueberry .back-link {
       height: 3rem; } }
@@ -7625,7 +7625,7 @@ a {
 .navbar-blueberry .navbar-nav .nav-link {
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
-  padding-left: 2.75rem; }
+  padding-left: 3rem; }
   .navbar-blueberry .navbar-nav .nav-link:last-child .nav-link {
     padding-right: 0; }
   .navbar-blueberry .navbar-nav .nav-link:hover {
@@ -10767,7 +10767,7 @@ footer {
   footer .section-blue {
     background-color: #008ac9; }
   footer .logo-circ, footer .logo-text {
-    height: 2.25rem; }
+    height: 2.5rem; }
     @media (min-width: 576px) {
       footer .logo-circ, footer .logo-text {
         height: 3rem; } }
