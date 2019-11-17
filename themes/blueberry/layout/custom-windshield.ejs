@@ -59,8 +59,10 @@
 							<input class="invisible" type="radio" name="font" value="<%= font %>" <%= i++ == 0 ? 'checked' : ''; %> />
 							<span class="input-radio flex-shrink-0 mr-3"></span>
 							<div class="flex-grow-1">
-								<% var src = encodeURI(site.data.fonts[font].url + query); %>
-								<img data-src="<%- site.data.fonts[font].url %>" class="mt-3 font-image js--font-image" src="<%- src %>" />
+								<% var url = site.data.fonts[font].url; %>
+								<% url = url.replace('https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/', '/font/'); %>
+								<% var src = encodeURI(url + query); %>
+								<img data-src="<%- url %>" class="mt-3 font-image js--font-image" src="<%- src %>" />
 								<p class="mt-2 mb-0"><%- site.data.fonts[font].name %></p>
 							</div>
 						</label>
