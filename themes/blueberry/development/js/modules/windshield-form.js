@@ -129,7 +129,7 @@ var WindshieldForm = (function () {
         return encodeURI(url);
     }
 
-    function _updateTextImages(text){
+    function _updateTextImages(){
         var text = _getBannerText();
         // Update text images
         DOM.$fontImages.each(function(){

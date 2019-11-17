@@ -33,20 +33,20 @@ function breakArrayVariationsRecursive(array){
         }
 
         // Split one variation object
-        var idNoNumber = object.item_group_id;
+        // var idNoNumber = object.item_group_id;
         var processedFirstVariationValue = false;
         var variationObject = _.mapValues(object, (value, key) => {
-            if (key == 'id'){
-                // Last character of a string
-                var i = parseInt(value[value.length -1]);
-                if (isNaN(i)){
-                    object[key] += '_0';
-                    globalIdMap[idNoNumber] = 0;
-                }
-                globalIdMap[idNoNumber]++;
-                newId = idNoNumber + '_' + globalIdMap[idNoNumber];
-                return newId;
-            } else {
+            // if (key == 'id'){
+            //     // Last character of a string
+            //     var i = parseInt(value[value.length -1]);
+            //     if (isNaN(i)){
+            //         object[key] += '_0';
+            //         globalIdMap[idNoNumber] = 0;
+            //     }
+            //     globalIdMap[idNoNumber]++;
+            //     newId = idNoNumber + '_' + globalIdMap[idNoNumber];
+            //     return newId;
+            // } else {
                 if (value.includes('|') && !processedFirstVariationValue){
                     var variations = value.split('|');
                     var firstVariation = variations.pop();
@@ -55,7 +55,7 @@ function breakArrayVariationsRecursive(array){
                     return firstVariation;
                 }
                 return value;    
-            }
+            // }
         });
         // Insert variation object after original object
         array.splice(index, 0, variationObject);
@@ -76,6 +76,13 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
     if (path.extname(feedFileSrc) === '.yml') {
         feedArray = jsYaml.load(feedFileData);
     } // else if add JSON too ?
+
+    // Prefix id's with two color
+    feedArray.forEach(element => {
+        if (element.color){
+            element.id = element.id + '_' + element.color.substring(0,2).toUpperCase();
+        }        
+    });
 
     // Remove all customization fields
     feedArray.forEach(element => {
