@@ -103,3 +103,7 @@ responsive_images:
 google_feed_path:
   src: source/_data/product_list.yml
   dest: product_list.txt
+
+netlify_redirects_path:
+  src: source/_redirects
+  dest: _redirects
