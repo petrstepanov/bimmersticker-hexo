@@ -33,7 +33,7 @@
               <% } %>
               <% if (is_custom(product)){ %>
                 <div class="form-group">
-                  <label class="label-blueberry"for="customization"><%- product.customization_name %></label>
+                  <label class="label-blueberry" for="customization"><%- product.customization_name %></label>
                   <input id="customization" class="form-control" required placeholder="<%- product.customization_placeholder %>" />
                 </div>
               <% } %>                          
@@ -48,13 +48,13 @@
                 <dt>Material</dt>
                 <dd itemprop="material"><%- post.material %></dd>
               <% } %>
-              <% if (post.size){ %>
+              <% if (product.size){ %>
                 <dt>Size</dt>
-                <dd><%- post.size %></dd>
+                <dd><%- print_size(product.size) %></dd>
               <% } %>
-              <% if (post.colors){ %>
+              <% if (product.color){ %>
               <dt>Colors</dt>
-              <dd class="text-transparent js--init-swatches"><%- post.colors.join(", ") %></dd>
+              <dd class="text-transparent js--init-swatches"><%- print_colors(product.color) %></dd>
               <% } %>
             </dl>
             <% if (theme.email){ %>

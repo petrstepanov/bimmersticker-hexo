@@ -50,6 +50,7 @@ $swatch-size: 0.75rem;
 
   &.holographic {
     width: $swatch-size*2;
+    background: linear-gradient(to right, lightpink, lightblue);
 
     &.opal {
       background: linear-gradient(to right, wheat, thistle);
@@ -58,4 +59,9 @@ $swatch-size: 0.75rem;
       background: linear-gradient(to right, lightpink, lightblue);
     }
   }
+
+  &.oil {
+    width: $swatch-size*2;
+    background: linear-gradient(to right, #C1C1C1, #EB9AB0, #F8ED69, #5FE0F6, #C1C1C1);
+  }  
 }

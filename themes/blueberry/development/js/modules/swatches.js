@@ -13,14 +13,15 @@ var Swatches = function(){
     var swatches = DOM.$el.text().split(", ");
     DOM.$el.html('');
     swatches.forEach(function(color){
-      var $s = $('<span class="swatch ' + color + '">' + '</span>');
+      colorClass = color.toLowerCase();
+      var $s = $('<span class="swatch ' + colorClass + '">' + '</span>');
       DOM.$el.append($s);
       $s.popover({
         animation: false,
         container: 'body',
         placement: 'top',
         trigger: 'hover',
-        content: color.charAt(0).toUpperCase() + color.slice(1),
+        content: color,
         offset: "0, 6"
       });
     });

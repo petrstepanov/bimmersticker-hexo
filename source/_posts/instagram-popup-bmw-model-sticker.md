@@ -5,15 +5,12 @@ tags:
 - bmw
 - instagram
 - sticker
-description: Buy instagram-like inspired BMW window vinyl sticker. Custom model text - 325i, 525i, 740i. For any BMW model.
-price: 8.99
-size: 5½ × 2½ in (14 × 6.5 cm)
-material: ORACAL 651 vinyl
-colors: [red, orange]
+description: Custom instagram-like BMW model window vinyl sticker. Text us your BMW model - 325i, 525i, 740i.
 categories:
 - Bmw Special
 ebay_url: https://www.ebay.com/itm/192568855873
 col_class: col-sm-6 col-md-4 col-xl-3
+product_id: ST_BMW_MODEL
 ---
 
 With custom popup text for any BMW model.

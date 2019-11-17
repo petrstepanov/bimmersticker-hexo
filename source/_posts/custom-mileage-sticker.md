@@ -7,14 +7,11 @@ tags:
 - sticker
 - window
 description: Buy a sticker that shows custom mileage for your car.
-price: 8.99
-size: 8½ × 2¾ in (22 × 7 cm)
-material: ORACAL 651 vinyl
-colors: [lilac, yellow, red, blue, mint, black, orange, pink]
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/192661747178
 col_class: col-sm-6 col-md-4
+product_id: ST_CAR_MILEAGE
 ---
 
 Respect the elders. Show them your mileage.

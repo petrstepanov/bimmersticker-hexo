@@ -7636,7 +7636,7 @@ a {
   @media (min-width: 768px) {
     .navbar-blueberry .navbar-nav .nav-link {
       padding-left: 3.7rem; } }
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
     .navbar-blueberry .navbar-nav .nav-link {
       font-family: "sf_pro_textbold", Helvetica, sans-serif;
       margin-left: 3rem;
@@ -7698,7 +7698,12 @@ a {
     overflow: hidden; }
     .card-blueberry > a img {
       -webkit-transition: all .3s ease-in-out;
-      transition: all .3s ease-in-out; }
+      transition: all .3s ease-in-out;
+      max-height: 10em;
+      -o-object-fit: cover;
+         object-fit: cover;
+      -o-object-position: center center;
+         object-position: center center; }
     .card-blueberry > a:hover img {
       -webkit-transform: scale(1.05);
               transform: scale(1.05); }
@@ -11010,13 +11015,19 @@ body {
     background: linear-gradient(to right, #f9efc9, #dec67a);
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15); }
   .swatch.holographic {
-    width: 1.5rem; }
+    width: 1.5rem;
+    background: -webkit-gradient(linear, left top, right top, from(lightpink), to(lightblue));
+    background: linear-gradient(to right, lightpink, lightblue); }
     .swatch.holographic.opal {
       background: -webkit-gradient(linear, left top, right top, from(wheat), to(thistle));
       background: linear-gradient(to right, wheat, thistle); }
     .swatch.holographic.blue {
       background: -webkit-gradient(linear, left top, right top, from(lightpink), to(lightblue));
       background: linear-gradient(to right, lightpink, lightblue); }
+  .swatch.oil {
+    width: 1.5rem;
+    background: -webkit-gradient(linear, left top, right top, from(#C1C1C1), color-stop(#EB9AB0), color-stop(#F8ED69), color-stop(#5FE0F6), to(#C1C1C1));
+    background: linear-gradient(to right, #C1C1C1, #EB9AB0, #F8ED69, #5FE0F6, #C1C1C1); }
 
 .related-posts {
   margin-top: 2rem;

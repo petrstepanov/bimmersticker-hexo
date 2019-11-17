@@ -5,17 +5,14 @@ tags:
 - car
 - sticker
 description: Buy 'RUN BAGS' window sticker for cars with air suspension. Visually designed to look like RUN DMC logo.
-price: 9.99
-size: 5¼ × 4½ in (13 × 11 cm)
-material: ORACAL 651 vinyl
-colors: [white, red]
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/192856965237
 col_class: col-sm-6 col-md-4
+product_id: ST_CAR_RUNBAGS
 ---
 
-A sticker for cars with air suspension.
+A sticker for cars with air suspension setup.
 
 <!-- more -->
 {% asset_img content-image run-bags-stance-jdm-sticker.jpg 'Run Bags window vinyl sticker for bagged car"Run Bags window vinyl sticker for stanced lowered cars on air suspension"' %}

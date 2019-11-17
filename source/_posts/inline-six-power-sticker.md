@@ -5,17 +5,14 @@ tags:
 - car
 - sticker
 description: Inline Six Power car window vinyl sticker. Designed for cars with inline six cylinder engine displacement.
-price: 9.99
-size: 7 × 2¼ in (18 × 6 cm)
-material: ORACAL 651 vinyl
-colors: [white, black, holographic]
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/193197378804
 col_class: col-sm-6 col-md-4
+product_id: ST_CAR_INLINE6
 ---
 
-A must-have sticker if you run inline six.
+A must-have sticker for your car with inline six engine.
 
 <!-- more -->
 {% asset_img content-image inline-six-power-sticker-engine.jpg 'Sticker for cars with inline six cylinder engine"Sticker for cars with inline six cylinder engine"' %}

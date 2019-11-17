@@ -9,14 +9,11 @@ tags:
 - gold
 - silver
 description: Bimmerfest 2019 sticker for BMW cars. White, silver, gold and oilslick. Text us for custom year.
-price: 8.99
-size: 7½ × 3½ in (19 × 8.5 cm)
-material: ORACAL 651, Cricut adhesive foil
-colors: [white, silver, gold, oilslick]
 categories:
 - Bmw Special
 ebay_url: https://www.ebay.com/itm/192896300464
 col_class: col-sm-6 col-md-4 col-xl-3
+product_id: ST_BMW_BMRFST
 ---
 
 Bimmerfest event will always take a special place in our heart.

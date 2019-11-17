@@ -8,7 +8,6 @@ tags:
 - sticker
 - window
 description: Buy 'touring' bmw window sticker. Made of ORACAL 651 vinyl.
-price: 7.99
 size: 6¼ × 3½ in (16 × 9 cm)
 material: ORACAL 651 vinyl
 colors: [lilac, yellow, red, blue, mint, black, orange, pink]
@@ -16,6 +15,7 @@ categories:
 - Bmw Special
 ebay_url: https://www.ebay.com/itm/192494164236
 col_class: col-sm-6 col-md-4 col-xl-3
+product_id: ST_BMW_TOURING
 ---
 
 Tourings deserve a special attention. We love wagons!

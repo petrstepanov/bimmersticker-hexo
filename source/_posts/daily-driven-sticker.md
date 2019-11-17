@@ -6,15 +6,12 @@ tags:
 - daily
 - sticker
 - window
-description: Buy 'daily driven' car window sticker. Sticker made of ORACAL vinyl.
-price: 8.99
-size: 8¾ × 6¾ in (22 × 17 cm)
-material: ORACAL 651 vinyl
-colors: [white, lilac, yellow, red, blue, black, mint, orange, pink]
+description: Daily Driven sticker for modified, stanced, JDM or sport cars. Sticker is contour cut of premium vinyls. Never fades out.
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/192715376996
 col_class: col-sm-6 col-md-4
+product_id: ST_CAR_DAILY
 ---
 
 Let them know your project car hits the roads on a daily basis.

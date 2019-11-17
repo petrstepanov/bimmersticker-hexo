@@ -169,6 +169,7 @@ var WindshieldForm = (function () {
     }
 
     function _render(options){
+        _showHideFormContainers(DOM.$radioProduct.val());
         _adjustCarContainerHeight();
     }
 
@@ -177,7 +178,6 @@ var WindshieldForm = (function () {
             // options = $.extend(options, $(element).data());
             _cacheDom(element);
             _bindEvents();
-            _showHideFormContainers(DOM.$radioProduct.val());
             _render();
         }
     }

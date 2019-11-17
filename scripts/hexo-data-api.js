@@ -77,13 +77,6 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
         feedArray = jsYaml.load(feedFileData);
     } // else if add JSON too ?
 
-    // Prefix id's with two color
-    feedArray.forEach(element => {
-        if (element.color){
-            element.id = element.id + '_' + element.color.substring(0,2).toUpperCase();
-        }        
-    });
-
     // Remove all customization fields
     feedArray.forEach(element => {
         _.forOwn(element, function(value, key) {
@@ -93,11 +86,46 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
         });
     });
 
-    // Write feed header from 1st item keys
-    var feedTxt = _.keys(feedArray[0]).join('\t');
+    // Add empty 'pattern' field if missing
+    feedArray.forEach(element => {
+        if (typeof element.pattern == 'undefined') element.pattern = "";
+    });
+
+    // If has variations - set item_group_id
+    feedArray.forEach(element => {
+        element.item_group_id = '';
+        _.forOwn(element, function(value, key) {
+            if (key.includes('|')){
+                element.item_group_id = element.id;
+            }
+        });
+    });
 
     // Iterate through array
     breakArrayVariationsRecursive(feedArray);
+
+    // Prefix id's with two color
+    feedArray.forEach(element => {
+        if (element.color){
+            element.id = element.id + '_' + element.color.toUpperCase();
+        }        
+        if (element.pattern){
+            element.id = element.id + '_' + element.color.toUpperCase();
+        }
+    });
+
+    // Populate mpn's
+    feedArray.forEach(element => {
+        element.mpn = element.id.split('_').join();
+        element.brand = 'Bimmer Sticker Store';
+        element.condition = 'new';
+        element.availability = 'in stock';
+        element.google_product_category = 'Care & Decor > Vehicle Decor > Bumper Stickers';
+        element.shipping = 'US::Standard:0 USD';
+    });
+
+    // Write feed header from 1st item keys
+    var feedTxt = _.keys(feedArray[0]).join('\t');
 
     // Export into text file
     feedArray.forEach(object => {

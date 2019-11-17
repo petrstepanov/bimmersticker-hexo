@@ -2,6 +2,7 @@
 # We parse properties containing "|", for instance "size" or "color" and iterate over them.
 # For each, we append '-#' to "id". And remain "item_group_id" equal to original "id"
 # Exclude "customization_.." keys from Google export. They are only for the frontend and Snipcart
+# item_group_id: "" is empty or set to 'id' in case of variations
 #
 # Snipcart instructions:
 # In .ejs detect attributes with "|". 
@@ -14,50 +15,167 @@
 - id:	ST_BMW_ENGINE
   title: "Custom BMW Powered windshield sticker"
   description: "Custom BMW windshield sticker with wording 'Powered' and stripes. We make it for any engine model, you call it. Sticker is contour cut out of premium outdoor vinyls."
-  google_product_category: Care & Decor > Vehicle Decor > Bumper Stickers
   product_type: Stickers > BMW
   link: https://bimmersticker.store/custom-engine-windshield-sticker/
   image_link: https://bimmersticker.store/custom-engine-windshield-sticker/bmw-custom-engine-windshield-sticker-square.jpg
-  condition: new
-  availability: "in stock"
   price: "12.99 USD"
-  mpn: STBMENG
-  brand: "Bimmer Sticker Store"
   size: "24x4 in"
-  shipping: "US::Standard:0 USD"
   weight: "0.2 lbs"
+  material: Oracal and TeckWrap vinyls
   color: "Glossy White|Matte Black|Oil Slick"
   customization_name: "Type your engine model"
   customization_placeholder: M54
+- id:	ST_BMW_TOURING
+  title: "BMW Touring sticker"
+  description: "A sticker designed for BMW wagon cars. Tourings are cool, they deserve a sticker. Sticker is contour cut out of two layers of premium outdoor vinyls."
+  product_type: Stickers > BMW
+  link: https://bimmersticker.store/touring-sticker/
+  image_link: https://bimmersticker.store/touring-sticker/bmw-touring-vinyl-window-sticker-square.jpg
+  price: "8.99 USD"
+  size: "6x3 in"
+  weight: "0.2 lbs"
+  material: Oracal 651 vinyl
+  color: "Glossy Red|Glossy Mint|Glossy Pink"
 - id:	ST_BMW_BNB
   title: "Bimmer Not Beamer sticker"
-  description: "Sticker is designed to tell them how to spell it right. Made of premium outdoor vinyl. Comes with easy installation instructions. Durability is about 5 years."
-  google_product_category: Care & Decor > Vehicle Decor > Bumper Stickers
+  description: "Sticker is made to clarify how to spell 'bimmer' right. Cut of two premium outdoor vinyl sheets. Comes with easy installation instructions."
   product_type: Stickers > BMW
   link: https://bimmersticker.store/bimmer-not-beamer/
-  image_link: https://bimmersticker.store/bimmer-not-beamer/bimmer-not-beamer-sticker.jpg
-  condition: new
-  availability: "in stock"
-  price: "7.99 USD"
-  mpn: "" # id without underscores
-  item_group_id: "" # equal to id (if variations) or empty
-  brand: "Bimmer Sticker Store"
+  image_link: https://bimmersticker.store/bimmer-not-beamer/bimmer-not-beamer-sticker-square.jpg
+  price: "8.99 USD"
   size: "7x2 in"
-  shipping: "US::Standard:0 USD"
   weight: "0.06 lbs"
-  color: "White/Red|Holographic/Red"
+  material: Oracal and TeckWrap vinyls  
+  color: "White & Red|Oil Slick & Red"
+- id:	ST_BMW_BMRFST
+  title: "Bimmerfest sticker"
+  description: "Special sticker for the Bimmerfest event. East or west. Pick one that works for you."
+  product_type: Stickers > BMW
+  link: https://bimmersticker.store/bimmerfest-sticker/
+  image_link: https://bimmersticker.store/bimmerfest-sticker/bimmerfest-vinyl-sticker-square.jpg
+  price: "8.99 USD"
+  size: "7x3 in"
+  weight: "0.06 lbs"
+  material: Oracal, Cricut and TeckWrap vinyls  
+  pattern: "East|West"
+  color: "White|Silver|Gold|Oil Slick"
+  customization_name: "Enter year"
+  customization_placeholder: "2020"
+- id:	ST_BMW_GIRLS
+  title: "Bmw Girls Make It Better sticker"
+  description: "Sticker designed for girls that drive bmw cars or maybe just like them. Made of three premium vinyl sheets. Pink, balck and white."
+  product_type: Stickers > BMW
+  link: "https://bimmersticker.store/bmw-girls-sticker/"
+  image_link: "https://bimmersticker.store/bmw-girls-sticker/sticker-bmw-girls-make-it-better-square.jpg"
+  price: "8.99 USD"
+  size: "4x3 in"
+  weight: "0.06 lbs"
+  material: "Oracal 651 vinyl"
+  pattern: "Pink heart|Black heart"
+  color: "Pink, Black, White"
+- id:	ST_BMW_MODEL
+  title: "BMW model sticker"
+  description: "Custom sticker for your BMW model. Designed like instagram-style popup. Contour cut from two vinyl sheets. Vinyl never fades out."
+  product_type: Stickers > BMW
+  link: https://bimmersticker.store/instagram-popup-bmw-model-sticker/
+  image_link: https://bimmersticker.store/instagram-popup-bmw-model-sticker/bmw-model-sticker-square.jpg
+  price: "8.99 USD"
+  size: "5x2 in"
+  weight: "0.06 lbs"
+  material: "Oracal 651 vinyl"
+  color: "White and red"
+  customization_name: "Type your BMW model"
+  customization_placeholder: "328i"
+- id:	ST_BMW_MODIFIED
+  title: "Modified BMW sticker"
+  description: "Vinyl sticker for modified bmw card. Has M style stripes next to Modified label. Available in white and oil slick. Vinyl never fades out."
+  product_type: Stickers > *
+  link: https://bimmersticker.store/bmw-modified-sticker/
+  image_link: https://bimmersticker.store/bmw-modified-sticker/bmw-modified-sticker-square.jpg
+  price: "8.99 USD"
+  size: "10x1.5 in"
+  weight: "0.06 lbs"
+  material: "Oracal and TeckWrap vinyls"
+  color: "White|Oil Slick"
+- id:	ST_CAR_INLINE6
+  title: "Inline Six Power sticker"
+  description: "Sticker for cars with inline six cylinder engine displacement. "
+  product_type: Stickers > Cars
+  link: https://bimmersticker.store/inline-six-power-sticker/
+  image_link: https://bimmersticker.store/inline-six-power-sticker/inline-six-power-sticker-engine-square.jpg
+  price: "9.99 USD"
+  size: "7x2 in"
+  weight: "0.06 lbs"
+  material: "Oracal 651 vinyl"
+  color: "White and black"
+- id:	ST_CAR_RUNCOILS
+  title: "Run Coils sticker"
+  description: "Sticker for modified cars that run on coilovers. Because bags are for groceries. Great sticker for any stanced lowered car."
+  product_type: Stickers > Cars
+  link: https://bimmersticker.store/run-coils-sticker/
+  image_link: https://bimmersticker.store/run-coils-sticker/run-coils-stance-jdm-sticker-square.jpg
+  price: "9.99 USD"
+  size: "5x4 in"
+  weight: "0.06 lbs"
+  material: "Oracal 651 vinyl"
+  color: "White and red"
+- id:	ST_CAR_DAILY
+  title: "Daily Driven sticker"
+  description: "Daily Driven sticker for sport cars that are driven every day. Available in different colors."
+  product_type: Stickers > *
+  link: https://bimmersticker.store/daily-driven-sticker/
+  image_link: https://bimmersticker.store/daily-driven-sticker/sticker-daily-driven-square.jpg
+  price: "8.99 USD"
+  size: "8x5 in"
+  weight: "0.06 lbs"
+  material: "Oracal 651 vinyl"
+  color: "White|Silver|Gold|Oilslick"
+- id:	ST_CAR_RUNBAGS
+  title: "Run Bags sticker"
+  description: "Sticker for modified cars that have air suspension setup. Great sticker for any stanced show car."
+  product_type: Stickers > Cars
+  link: https://bimmersticker.store/run-bags-sticker/
+  image_link: https://bimmersticker.store/run-bags-sticker/run-bags-stance-jdm-sticker-square.jpg
+  price: "9.99 USD"
+  size: "5x4 in"
+  weight: "0.06 lbs"
+  material: "Oracal 651 vinyl"
+  color: "White and red"
+- id:	ST_CAR_MILEAGE
+  title: "Custom mileage sticker"
+  description: "Custom mileage car sticker. For well-kept cars with impressive mileage that are in good hands."
+  product_type: Stickers > Cars
+  link: https://bimmersticker.store/custom-mileage-sticker/
+  image_link: https://bimmersticker.store/custom-mileage-sticker/custom-car-mileage-sticker-square.jpg
+  price: "8.99 USD"
+  size: "8x2 in"
+  weight: "0.06 lbs"
+  material: "Oracal 651 vinyl"
+  pattern: "Miles|Km"
+  color: "White over black|White over red"
+  customization_name: "Text us your mileage"
+  customization_placeholder: "230000"
+- id:	ST_CAR_SUPER
+  title: "Supercharged sticker"
+  description: "Sticker for supercharged vehicles. Designed to look like a famous skateboarding company. Die-cut of two vinyl sheets. Never fades out."
+  product_type: Stickers > Cars
+  link: https://bimmersticker.store/supercharged-sticker/
+  image_link: https://bimmersticker.store/supercharged-sticker/sticker-supercharged-car-square.jpg
+  price: "8.99 USD"
+  size: "8x2 in"
+  weight: "0.06 lbs"
+  material: "Oracal 651 vinyl"
+  color: "Red and white"
 - id:	ST_SOCIAL_IG
   title: "Two custom Instagram name stickers"
   description: "A set of two custom stickers with your Instagram name (handle). Stickers are contour cut out of premium outdoor vinyls. Transparent background. Available in white or holographic color. Stickers come with installation instructions."
-  google_product_category: Care & Decor > Vehicle Decor > Bumper Stickers
   product_type: Stickers > Social
-  link: https://bimmersticker.store/bimmer-not-beamer/
-  image_link: https://bimmersticker.store/bimmer-not-beamer/bimmer-not-beamer-sticker.jpg
-  condition: new
-  availability: "in stock"
-  price: "7.99 USD"
-  mpn: STBMBNB
-  brand: "Bimmer Sticker Store"
+  link: "https://bimmersticker.store/inline-six-power-sticker/"
+  image_link: "https://bimmersticker.store/inline-six-power-sticker/"
+  price: "8.99 USD"
   size: "7x2 in"
-  shipping: "US::Standard:0 USD"
   weight: "0.06 lbs"
+  material: Oracal, Cricut and TeckWrap vinyls  
+  color: "White|Silver|Gold|Oil Slick"
+  customization_name: "Your instagram name"
+  customization_placeholder: "Use '@' with your handle if you want"

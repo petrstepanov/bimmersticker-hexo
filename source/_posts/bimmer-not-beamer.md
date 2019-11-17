@@ -7,14 +7,11 @@ tags:
 - holographic
 - sticker
 description: Buy 'bimmer not bimmer' bmw window sticker. Made of ORACAL 651 and Cricut holographic vinyl.
-price: 7.99
-size: 8¼ × 2¼ in (21 × 6 cm)
-material: ORACAL 651 or Cricut vinyl
-colors: [white, holographic opal, holographic blue]
 categories:
 - Bmw Special
 ebay_url: https://www.ebay.com/itm/192568856505
 col_class: col-sm-6 col-md-4 col-xl-3
+product_id: ST_BMW_BNB
 ---
 
 They should spell it the right way. Bimmer.

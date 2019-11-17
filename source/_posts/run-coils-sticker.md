@@ -5,14 +5,11 @@ tags:
 - car
 - sticker
 description: Buy 'RUN COILS' car window sticker. Made of ORACAL 651 glossy vinyls. Visually designed to look like RUN DMC logo.
-price: 9.99
-size: 5¼ × 4½ in (13 × 11 cm)
-material: ORACAL 651 vinyl
-colors: [white, red]
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/192856957703
 col_class: col-sm-6 col-md-4
+product_id: ST_CAR_RUNCOILS
 ---
 
 Sticker designed for cars that do run on the old good rock solid coilovers!

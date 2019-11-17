@@ -12,6 +12,9 @@
 
     img {
       transition: all .3s ease-in-out;
+      max-height: 10em;
+      object-fit: cover;
+      object-position: center center;
     }
 
     &:hover {

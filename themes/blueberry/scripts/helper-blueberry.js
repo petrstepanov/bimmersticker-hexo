@@ -1,4 +1,5 @@
 var _ = require('lodash');
+const parsePath = require('parse-path');
 
 hexo.extend.helper.register('format_price', function(price){
   // var number = Number(price.replace(/[^0-9\.]+/g,""));
@@ -54,10 +55,34 @@ hexo.extend.helper.register('get_variations', function(product){
   return variations;
 });
 
+hexo.extend.helper.register('get_pathname', function(url){
+  var urlParsed = parsePath(url);
+  return urlParsed.pathname;
+});
 
 hexo.extend.helper.register('is_custom', function(product){
   return _.keys(product).includes('customization_name');
 });
+
+hexo.extend.helper.register('print_colors', function(colors){
+  return colors.replace(/\|/g, ', ');
+});
+
+hexo.extend.helper.register('print_size', function(size){
+  var pattern = /(\d*)x(\d*)/g;
+  var array = pattern.exec(size);
+  var width = parseFloat(array[1]);
+  var height = parseFloat(array[2]);
+  width *= 2.54;
+  height *= 2.54;
+  width = Math.floor(width);
+  height = Math.floor(height);
+
+  var temp = size.replace('x', ' × ');
+  temp += (' (' + width + ' × ' + height + ' cm)');
+  return temp;
+});
+
 
 
 hexo.extend.helper.register('capitalize', function(string){

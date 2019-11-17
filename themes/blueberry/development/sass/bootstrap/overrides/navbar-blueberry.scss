@@ -104,7 +104,7 @@ $nb-logo-size-biggest:  3rem;
       padding-left: $nb-logo-size-biggest + 0.7rem;
     }
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(md) {
       font-family: $font-bold;
       margin-left: 3rem;
       padding-left: 0.5rem;

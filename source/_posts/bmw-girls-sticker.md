@@ -5,16 +5,13 @@ tags:
 - bmw
 - girls
 - sticker
-description: Buy 'BMW girls make it better' vinyl sticker for ladies who make it better.
-price: 6.99
-size: 4 × 3½ in (10 × 8.5 cm)
-material: ORACAL 651 vinyl
-colors: [black, pink]
+description: Buy 'BMW girls make it better' sticker. Designed for girls that drive bmw cars or just like them. Made of three premium outdoor vinyls. Pink, balck and white colors.
 categories:
 - Bmw Special
 ebay_url: https://www.ebay.com/itm/192671124978
 etsy_url: https://www.etsy.com/listing/688312333/bmw-girls-make-it-better-vinyl-car
 col_class: col-sm-6 col-md-4 col-xl-3
+product_id: ST_BMW_GIRLS
 ---
 
 Special sticker for ladies! With love from our crew.

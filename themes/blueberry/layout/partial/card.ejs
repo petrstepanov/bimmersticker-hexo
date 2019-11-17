@@ -1,37 +1,38 @@
 <div class="col-xs-12 <%- post.col_class ? post.col_class : '' %>  js--posts-filter-item" data-groups='["<%- post.data_groups ? post.data_groups : '' %>"]'>
   <figure class="card card-blueberry" itemscope itemtype="http://schema.org/Product">
-    <!-- Featured image -->
-    <% var image = first_image(post); %>
-    <% if (image){ %>
-    <a itemprop="url" href="/<%- post.path %>">
-      <img itemprop="image" class="card-img-top" src="<%- image.src ? image.src : '' %>" title="<%- image.title ? image.title : '' %>" alt="<%- image.alt ? image.alt : '' %>">
-    </a>
-    <% } %>
-    <!-- Card body -->
-    <div itemprop="brand" itemtype="http://schema.org/Thing" itemscope>
-      <meta itemprop="name" content="Bimmer Sticker Store" />
-    </div>
-
-    <div class="card-body">
-      <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
-      <% if(productIndex >= 0){ %>
-        <% var product = site.data.product_list[productIndex]; %>
-        <h3 class="card-title font-size-21" itemprop="name">
-          <%- product.title %>
-        </h3>
-      
-        <% if (post.excerpt){ %>
-        <p class="mb-2 pb-1" itemprop="description"><%- strip_html(post.excerpt) %></p>
-        <% } %>
-        <div class="d-flex align-items-center justify-content-between">
-          <span class="card-title-price" itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
-            <link itemprop="url" href="/<%- product.link %>" />
-            <meta itemprop="availability" content="https://schema.org/InStock" />
-            <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="<%- product.price %>"><%- format_price(parseFloat(product.price)) %></span>
-          </span>
-          <a href="<%- post.path %>" class="btn btn-blueberry btn-sm btn-primary">Buy →</a>
+    <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
+    <% if(productIndex >= 0){ %>
+      <% var product = site.data.product_list[productIndex]; %>
+      <!-- Featured image -->
+      <% // var image = first_image(post); // then use image.src, image.title, image.alt %>
+      <% var image_pathname = get_pathname(product.image_link); %>
+      <a itemprop="url" href="/<%- post.path %>">
+        <div class="image-crop">
+          <img itemprop="image" class="card-img-top" src="<%- image_pathname %>" title="<%- product.description %>" alt="<%- product.description %>">
         </div>
-      <% } %>
-    </div>
+      </a>
+      <!-- Card body -->
+      <div itemprop="brand" itemtype="http://schema.org/Thing" itemscope>
+        <meta itemprop="name" content="Bimmer Sticker Store" />
+      </div>
+
+      <div class="card-body">
+          <h3 class="card-title font-size-21" itemprop="name">
+            <%- product.title %>
+          </h3>
+        
+          <% if (post.excerpt){ %>
+          <p class="mb-2 pb-1" itemprop="description"><%- strip_html(post.excerpt) %></p>
+          <% } %>
+          <div class="d-flex align-items-center justify-content-between">
+            <span class="card-title-price" itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
+              <link itemprop="url" href="/<%- product.link %>" />
+              <meta itemprop="availability" content="https://schema.org/InStock" />
+              <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="<%- product.price %>"><%- format_price(parseFloat(product.price)) %></span>
+            </span>
+            <a href="<%- post.path %>" class="btn btn-blueberry btn-sm btn-primary">View →</a>
+          </div>
+      </div>
+    <% } %>    
   </figure>
 </div>
