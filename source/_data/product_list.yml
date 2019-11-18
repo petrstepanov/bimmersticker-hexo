@@ -217,4 +217,70 @@
   material: "Oracal 651 vinyl" 
   color: "White|Black"
   customization_name: "Your Snapchat name"
-  customization_placeholder: ""  
+  customization_placeholder: ""
+- id:	ST_WSHIELD_MONEY
+  title: "Money Pit windshield banner"
+  description: "Money Pit car windshield banner. Great for project or show cars. Available in different colors. Banner comes with installation instructions."
+  product_type: Stickers > Windshield
+  link: https://bimmersticker.store/money-pit-windshield-banner/
+  image_link: https://bimmersticker.store/money-pit-windshield-banner/money-pit-car-auto-windshield-sticker-banner-square.jpg
+  price: "19.99 USD"
+  size: "30x8 in"
+  weight: "0.3 lbs"
+  material: "Oracal, Cricut and TeckWrap vinyls"
+  color: "Glossy White|Matte Black|Glossy Black|Silver[+8.00]|Gold[+8.00]|Oilslick[+8.00]"
+- id:	ST_WSHIELD_SF
+  title: "Street Fighter windshield banner"
+  description: "Street Fighter car windshield banner. Sticker font resembles the originl nintendo game branding. Great for project or show cars. Available in different colors. Banner comes with installation instructions."
+  product_type: Stickers > Windshield
+  link: https://bimmersticker.store/street-fighter-windshield-banner/
+  image_link: https://bimmersticker.store/street-fighter-windshield-banner/street-fighter-car-windshield-banner-square.jpg
+  price: "19.99 USD"
+  size: "34x5 in"
+  weight: "0.3 lbs"
+  material: "Oracal, Cricut and TeckWrap vinyls"
+  color: "Glossy White|Matte Black|Glossy Black|Silver[+8.00]|Gold[+8.00]|Oilslick[+8.00]"
+- id:	ST_WSHIELD_BM4L
+  title: "#Bimmer4Life windshield banner"
+  description: "Bimmer For Life car windshield banner. Great for project or show BMW cars. Available in different colors. Banner comes with installation instructions."
+  product_type: Stickers > Windshield
+  link: https://bimmersticker.store/bimmer4life-sticker/
+  image_link: https://bimmersticker.store/bimmer4life-sticker/sticker-bimmer4life-windshield-banner-square.jpg
+  price: "19.99 USD"
+  size: "34x5 in"
+  weight: "0.3 lbs"
+  material: "Oracal, Cricut and TeckWrap vinyls"
+  color: "Glossy White|Matte Black|Glossy Black|Silver[+8.00]|Gold[+8.00]|Oilslick[+8.00]"
+- id:	ST_WSHIELD_SEND
+  title: "Send Nudes windshield banner"
+  description: "Send Nudes car windshield banner. Great for project or show cars. Available in different colors. Banner comes with installation instructions."
+  product_type: Stickers > Windshield
+  link: https://bimmersticker.store/send-nudes-banner/
+  image_link: https://bimmersticker.store/send-nudes-banner/send-nudes-windshield-banner-square.jpg
+  price: "19.99 USD"
+  size: "30x5.5 in"
+  weight: "0.3 lbs"
+  material: "Oracal, Cricut and TeckWrap vinyls"
+  color: "Glossy White|Matte Black|Glossy Black|Silver[+8.00]|Gold[+8.00]|Oilslick[+8.00]"
+- id:	ST_WSHIELD_KNRD
+  title: "Knight Rider windshield banner"
+  description: "Knight Rider car windshield banner. Great for project or show cars. Available in different colors. Banner comes with installation instructions."
+  product_type: Stickers > Windshield
+  link: https://bimmersticker.store/knight-rider-windshield-banner/
+  image_link: https://bimmersticker.store/knight-rider-windshield-banner/knight-rider-stance-winshield-banner-car-square.jpg
+  price: "19.99 USD"
+  size: "34x5 in"
+  weight: "0.3 lbs"
+  material: "Oracal, Cricut and TeckWrap vinyls"
+  color: "Glossy White|Matte Black|Glossy Black|Silver[+8.00]|Gold[+8.00]|Oilslick[+8.00]"
+- id:	ST_WSHIELD_SHARK
+  title: "Sharknose Legend windshield banner"
+  description: "Sharknose Legend car windshield banner. Great for and oldschool BMW project like e28 or e30. Available in different colors. Banner comes with installation instructions."
+  product_type: Stickers > Windshield
+  link: https://bimmersticker.store/sharknose-windshield-banner/
+  image_link: https://bimmersticker.store/sharknose-windshield-banner/bmw-shark-sharknose-windshield-banner-square.jpg
+  price: "19.99 USD"
+  size: "34x5 in"
+  weight: "0.3 lbs"
+  material: "Oracal, Cricut and TeckWrap vinyls"
+  color: "Glossy White|Matte Black|Glossy Black|Silver[+8.00]|Gold[+8.00]|Oilslick[+8.00]"    

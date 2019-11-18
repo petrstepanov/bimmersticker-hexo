@@ -6,16 +6,13 @@ tags:
 - windshield
 - sticker
 - banner
-description: Buy "Knight Rider" car windshield banner. White and silver colors. Great addon for your modified car.
-price: 19.99
-size: 34 × 5 in (86 × 13 cm)
-material: ORACAL 651 vinyl or Cricut adhesive foil
-colors: [white, silver]
+description: Buy "Knight Rider" car windshield banner. Various color options. Great addon for your modified car.
 categories:
 - Banners
 ebay_url: https://www.ebay.com/itm/192856662344
 etsy_url: https://www.etsy.com/listing/676550790/knight-rider-windshield-banner
 col_class: col-md-6 col-lg-6 col-xl-4
+product_id: ST_WSHIELD_KNRD
 ---
 
 Did you see that movie from 80s? Dang!

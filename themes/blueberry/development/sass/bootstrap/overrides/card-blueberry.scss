@@ -12,9 +12,13 @@
 
     img {
       transition: all .3s ease-in-out;
-      max-height: 10em;
       object-fit: cover;
       object-position: center center;
+      max-height: 10rem;
+
+      &.tall {
+        max-height: 16rem;
+      }
     }
 
     &:hover {
@@ -22,26 +26,6 @@
         transform: scale(1.05);
       }
     }
-  }
-
-  .card-img-top {
-    width: 100%;
-    // mix-blend-mode: multiply;
-    // height: 8rem;
-    // object-fit: cover;
-    //
-    // @include media-breakpoint-up(sm){
-    //   height: 12rem;
-    // }
-    // @include media-breakpoint-up(md){
-    //   height: 14rem;
-    // }
-    // @include media-breakpoint-up(lg){
-    //   height: 16rem;
-    // }
-    // @include media-breakpoint-up(xl){
-    //   height: 18rem;
-    // }
   }
 
   .card-body {

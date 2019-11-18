@@ -7,18 +7,15 @@ tags:
 - sticker
 - banner
 description: Buy "Street Fighter" car windshield banner. Sticker comes in glossy white, silver and gold colors. Looks perfect on stanced, modified, drift, race and sport cars!
-price: 18.99
-size: 34 × 5 in (86 × 13 cm)
-material: ORACAL 651 vinyl or Cricut adhesive foil
-colors: [white, silver, gold]
 categories:
 - Banners
 ebay_url: https://www.ebay.com/itm/192785163047
 etsy_url: https://www.etsy.com/listing/687741173/street-fighter-windshield-banner
 col_class: col-md-6 col-lg-6 col-xl-4
+product_id: ST_WSHIELD_SF
 ---
 
-Do you remember that Nintendo game?
+A follow-up to that oldschool Nintendo game.
 
 <!-- more -->
 {% asset_img content-image street-fighter-car-windshield-banner.jpg 'Street Fighter car windshield banner vinyl sticker"Street Fighter car windshield banner vinyl sticker"' %}

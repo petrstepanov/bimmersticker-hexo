@@ -6,18 +6,15 @@ tags:
 - windshield
 - sticker
 - banner
-description: Buy "Money Pit" car front windshield banner. White and silver colors. Great addon for your modified car.
-price: 19.99
-size: 30 × 8½ in (76 × 21 cm)
-material: ORACAL 651 vinyl or Cricut adhesive foil
-colors: [black, white, silver, gold]
+description: Money Pit car front windshield banner. Great addon for your modified projet car or show car.
 categories:
 - Banners
 ebay_url: https://www.ebay.com/itm/192985300443
 col_class: col-md-6 col-lg-6 col-xl-4
+product_id: ST_WSHIELD_MONEY
 ---
 
-Sometimes your project turns into a Money Pit!
+Sometimes your car project turns into a real Money Pit...
 
 <!-- more -->
 {% asset_img content-image money-pit-car-auto-windshield-sticker-banner.jpg 'Money Pit windshield vinyl banner sticker"Money Pit windshield vinyl banner sticker"' %}

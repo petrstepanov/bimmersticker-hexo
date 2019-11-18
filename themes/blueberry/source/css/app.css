@@ -7699,16 +7699,16 @@ a {
     .card-blueberry > a img {
       -webkit-transition: all .3s ease-in-out;
       transition: all .3s ease-in-out;
-      max-height: 10em;
       -o-object-fit: cover;
          object-fit: cover;
       -o-object-position: center center;
-         object-position: center center; }
+         object-position: center center;
+      max-height: 10rem; }
+      .card-blueberry > a img.tall {
+        max-height: 16rem; }
     .card-blueberry > a:hover img {
       -webkit-transform: scale(1.05);
               transform: scale(1.05); }
-  .card-blueberry .card-img-top {
-    width: 100%; }
   .card-blueberry .card-body {
     padding: 1.05rem; }
     @media (min-width: 576px) {

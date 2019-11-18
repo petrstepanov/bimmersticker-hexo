@@ -7,14 +7,11 @@ tags:
 - sticker
 - banner
 description: Buy Sharknose Legend windshield banner for classic BMW cars. Available in holographic finish.
-price: 19.99
-size: 32 × 9 in (81 × 23 cm)
-material: ORACAL 651 or Cricut vinyl
-colors: [white, mint, pink, holographic opal]
 categories:
 - Banners
 ebay_url: https://www.ebay.com/itm/192679348906
 col_class: col-md-6 col-lg-6 col-xl-4
+product_id: ST_WSHIELD_SHARK
 ---
 
 A beautiful banner for legendary BMW cars.
