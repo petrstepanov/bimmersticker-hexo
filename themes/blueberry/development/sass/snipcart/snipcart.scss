@@ -28,6 +28,10 @@
         height: 1.2rem;
         line-height: 1.2rem;
         min-width: 1.2rem;
-        text-align: center
+        text-align: center;
+
+        .transparent & {
+            box-shadow: 0 0 0 0.125rem $indigo;
+        }
     }
 }

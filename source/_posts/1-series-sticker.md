@@ -6,15 +6,12 @@ tags:
 - 1series
 - sticker
 description: Buy BMW 1 series vinyl sticker. Made of ORACAL 651 vinyl. Available in different colors
-price: 6.99
-size: 8½ × 3 in (22 × 7.5 cm)
-material: ORACAL 651 vinyl
-colors: [white, lilac, yellow, red, blue, black, mint, orange, pink]
 categories:
-- Series and Generations
+- Series
 ebay_url: https://www.ebay.com/itm/192489081331
 col_class: col-sm-6 col-lg-4 col-xl-3
-data_groups: 1er
+#data_groups: 1er
+product_id:	ST_BMW_1SERIES
 ---
 
 1 series are really beautiful and quick subcompact cars.

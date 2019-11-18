@@ -6,16 +6,13 @@ tags:
 - 3series
 - sticker
 description: Buy BMW 3 series vinyl sticker. Made of ORACAL 651 vinyl. Available in different colors.
-price: 2.99
-size: 8½ × 3 in (22 × 7.5 cm)
-material: ORACAL 651 vinyl
-colors: [white, lilac, yellow, red, blue, black, mint, orange, pink]
 categories:
-- Series and Generations
+- Series
 ebay_url: https://www.ebay.com/itm/192488974223
 etsy_url: https://www.etsy.com/listing/603514491/bmw-3-series-window-windshield-sticker
 col_class: col-sm-6 col-lg-4 col-xl-3
-data_groups: 3er
+# data_groups: 3er
+product_id:	ST_BMW_3SERIES
 ---
 
 The most iconic sporty BMW cars for drift and track.

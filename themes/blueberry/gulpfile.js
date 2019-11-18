@@ -22,7 +22,6 @@ var paths = {
 		src: ['./node_modules/jquery/dist/jquery.js',
 			'./node_modules/bootstrap/dist/js/bootstrap.bundle.js',
 			'./node_modules/sticky-kit/dist/sticky-kit.js',
-			'./node_modules/shufflejs/dist/shuffle.js',
 			'./node_modules/in-view/dist/in-view.min.js',
 			'./node_modules/noty/lib/noty.js',
 			'./node_modules/autosize/dist/autosize.js',

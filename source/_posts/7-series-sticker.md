@@ -6,15 +6,12 @@ tags:
 - 7series
 - sticker
 description: Buy BMW 7 series vinyl sticker. Made of ORACAL 651 vinyl. Available in different colors.
-price: 6.99
-size: 8½ × 3 in (22 × 7.5 cm)
-material: ORACAL 651 vinyl
-colors: [white, lilac, yellow, red, blue, black, mint, orange, pink]
 categories:
-- Series and Generations
+- Series
 ebay_url: https://www.ebay.com/itm/192489172387
 col_class: col-sm-6 col-lg-4 col-xl-3
-data_groups: 7er
+# data_groups: 7er
+product_id:	ST_BMW_7SERIES
 ---
 
 Premium business and VIP class vehicles made by BMW.

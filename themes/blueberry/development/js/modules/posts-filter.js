@@ -5,7 +5,7 @@ var PostsFilter = function(){
     containerSelector: '.js--posts-filter-container',
     itemSelector: '.js--posts-filter-item'
   };
-  var shuffleInstance;
+  // var shuffleInstance;
 
   function _cacheDom(element) {
     DOM.$el = $(element);
@@ -16,10 +16,10 @@ var PostsFilter = function(){
   }
 
   function _initShuffle(){
-    var Shuffle = window.Shuffle;
-    shuffleInstance = new Shuffle(DOM.$grid[0], {
-      itemSelector: options.itemSelector
-    });
+    // var Shuffle = window.Shuffle;
+    // shuffleInstance = new Shuffle(DOM.$grid[0], {
+    //   itemSelector: options.itemSelector
+    // });
   }
 
   function _bindEvents(element) {
@@ -29,7 +29,22 @@ var PostsFilter = function(){
   function _handleButtonClick(){
     DOM.$buttons.filter('.active').removeClass('btn-primary').addClass('btn-link').removeClass('active');
     $(this).removeClass('btn-link').addClass('btn-primary').addClass('active');
-    shuffleInstance.filter(this.dataset.query);
+    var query = $(this).data().query;
+    DOM.$grid.fadeOut(200, function(){
+      _filterPosts(query);
+      DOM.$grid.fadeIn(200);
+    });
+  }
+
+  function _filterPosts(query){
+    DOM.$items.each(function(){
+      var groups = $(this).data().groups;
+      if (query==="all" || groups.includes(query)){
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
+    });
   }
 
   // function _render(){

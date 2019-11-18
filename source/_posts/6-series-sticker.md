@@ -6,15 +6,12 @@ tags:
 - 6series
 - sticker
 description: Buy BMW 6 series vinyl sticker. Made of ORACAL 651 vinyl. Available in different colors.
-price: 6.99
-size: 8½ × 3 in (22 × 7.5 cm)
-material: ORACAL 651 vinyl
-colors: [white, lilac, yellow, red, blue, black, mint, orange, pink]
 categories:
-- Series and Generations
+- Series
 ebay_url: https://www.ebay.com/itm/192492348777
 col_class: col-sm-6 col-lg-4 col-xl-3
-data_groups: 6er
+# data_groups: 6er
+product_id:	ST_BMW_6SERIES
 ---
 
 A sticker for the most individualistic and memorable BMW car series.

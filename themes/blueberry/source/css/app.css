@@ -11088,6 +11088,8 @@ body {
     line-height: 1.2rem;
     min-width: 1.2rem;
     text-align: center; }
+    .transparent .snipcart-checkout .snipcart-items-count {
+      box-shadow: 0 0 0 0.125rem #E5F3F9; }
 
 .snipcart {
   font-family: "sf_pro_textregular", Helvetica, sans-serif;

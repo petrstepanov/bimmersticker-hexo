@@ -60,27 +60,29 @@
 	<%- partial('partial/heading', {title: 'Windshield banners', subtitle: 'A collection of windshield banners for project and show cars, stanced vehicles, jdm cars. Check out our <a href="/custom-windshield-banner-sun-strip/">windshield banner builder</a> for custom banners and sun strips.', name: 'banners'}) %>
 	<%- partial('partial/category-posts-list', {categoryName: 'Banners'}) %>
 </section>
+<section class="pb-4">
+	<!-- Windshield banners -->
+	<%- partial('partial/heading', {title: 'Stickers for BMW series', subtitle: 'Cannot find a your BMW series in the list? Go request one in the <a href="#contact">Contact Form</a> below. We will be back ASAP.', name: 'series'}) %>
+	<%- partial('partial/category-posts-list', {categoryName: 'Series'}) %>
+</section>
 <section class="pb-4 js--init-posts-filter">
 	<!-- Series and generations -->
-	<%- partial('partial/heading', {title: 'Stickers for BMW series and generations', subtitle: 'If you cannot find a sticker for your BMW model please request one in the <a href="#contact">Contact Form</a> below. We will make it ASAP.', name: 'series-generations'}) %>
+	<%- partial('partial/heading', {title: 'Stickers for BMW generations', subtitle: 'Missing your BMW generation sticker? Please request one in the <a href="#contact">Contact Form</a> below. We will put it on the website soon.', name: 'series-generations'}) %>
 
 	<div class="container">
 		<div class="row mb-4">
 			<div class="col-sm-12 js--posts-filter-buttons">
-				<button type="button" class="btn btn-blueberry btn-sm btn-primary active strong mr-sm-1"
-					data-query="all">All</button>
-				<%
-          var filterQueries = [];
-          site.categories.findOne({name: 'Series and Generations'}).posts.each(function(post, i){
-            if (post.data_groups && filterQueries.indexOf(post.data_groups) == -1){
-              filterQueries.push(post.data_groups);
-            }
-          });
-          filterQueries.forEach(function(query, index){ %>
-				<button type="button" class="btn btn-blueberry btn-sm btn-link strong px-1 px-sm-2 mr-sm-1"
-					data-query="<%- query %>"><%- query %></button>
-				<% });
-        %>
+				<button type="button" class="btn btn-blueberry btn-sm btn-primary active strong mr-sm-1" data-query="all">All</button>
+				<% var filterQueries = []; %>
+				<% site.categories.findOne({name: 'Series and Generations'}).posts.each(function(post, i){ %>
+					<% if (post.data_groups && filterQueries.indexOf(post.data_groups) == -1){ %>
+						<% filterQueries.push(post.data_groups); %>
+					<% } %>
+					<% filterQueries.sort(); %>
+				<% }); %>
+				<% filterQueries.forEach(function(query, index){ %>
+					<button type="button" class="btn btn-blueberry btn-sm btn-link strong px-1 px-sm-2 mr-sm-1" data-query="<%- query %>"><%- query %></button>
+				<% }); %>
 			</div>
 		</div>
 	</div>
@@ -93,17 +95,14 @@
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-12 col-md-8">
-				<form class="widget-contact-form js--init-ajax-submit" action="<%- theme.formcarry_url %>" method="POST"
-					accept-charset="UTF-8"
-					data-success-notification="Thanks for reaching out! We'll get back to you soon.">
+				<form class="widget-contact-form js--init-ajax-submit" action="<%- theme.formcarry_url %>" method="POST" accept-charset="UTF-8" data-success-notification="Thanks for reaching out! We'll get back to you soon.">
 					<div class="form-group">
 						<label for="input-email">Your email</label>
 						<input type="email" name="email" class="form-control" id="input-email">
 					</div>
 					<div class="form-group">
 						<label for="input-message">Your Message</label>
-						<textarea name="message" class="form-control js--init-autosize" rows="4"
-							id="input-message"></textarea>
+						<textarea name="message" class="form-control js--init-autosize" rows="4" id="input-message"></textarea>
 					</div>
 					<div class="text-center">
 						<button type="submit" class="btn btn-blueberry btn-primary mt-2 ml-auto mr-auto">Send
