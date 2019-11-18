@@ -57,7 +57,7 @@ hexo.extend.helper.register('get_variations', function(product){
 
 hexo.extend.helper.register('get_pathname', function(url){
   var urlParsed = parsePath(url);
-  return urlParsed.pathname;
+  return '/' + urlParsed.pathname;
 });
 
 hexo.extend.helper.register('is_custom', function(product){
