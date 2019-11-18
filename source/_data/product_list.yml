@@ -21,7 +21,7 @@
   price: "12.99 USD"
   size: "24x4 in"
   weight: "0.2 lbs"
-  material: Oracal and TeckWrap vinyls
+  material: "Oracal and TeckWrap vinyls"
   color: "Glossy White|Matte Black|Oil Slick"
   customization_name: "Type your engine model"
   customization_placeholder: M54
@@ -34,7 +34,7 @@
   price: "8.99 USD"
   size: "6x3 in"
   weight: "0.2 lbs"
-  material: Oracal 651 vinyl
+  material: "Oracal 651 vinyl"
   color: "Glossy Red|Glossy Mint|Glossy Pink"
 - id:	ST_BMW_BNB
   title: "Bimmer Not Beamer sticker"
@@ -56,9 +56,9 @@
   price: "8.99 USD"
   size: "7x3 in"
   weight: "0.06 lbs"
-  material: Oracal, Cricut and TeckWrap vinyls  
+  material: "Oracal, Cricut and TeckWrap vinyls"
   pattern: "East|West"
-  color: "White|Silver|Gold|Oil Slick"
+  color: "White|Silver[+2.00]|Gold[+2.00]|Oil Slick[+2.00]"
   customization_name: "Enter year"
   customization_placeholder: "2020"
 - id:	ST_BMW_GIRLS
@@ -129,7 +129,7 @@
   size: "8x5 in"
   weight: "0.06 lbs"
   material: "Oracal 651 vinyl"
-  color: "White|Silver|Gold|Oilslick"
+  color: "White|Silver|Gold|Oil Slick"
 - id:	ST_CAR_RUNBAGS
   title: "Run Bags sticker"
   description: "Sticker for modified cars that have air suspension setup. Great sticker for any stanced show car."
@@ -168,14 +168,53 @@
   color: "Red and white"
 - id:	ST_SOCIAL_IG
   title: "Two custom Instagram name stickers"
-  description: "A set of two custom stickers with your Instagram name (handle). Stickers are contour cut out of premium outdoor vinyls. Transparent background. Available in white or holographic color. Stickers come with installation instructions."
+  description: "A set of two custom stickers with your Instagram name (handle). Stickers are contour cut out of premium outdoor vinyls. Transparent background. Available in white, holographic, silver, gold and oil slick colors. Stickers come with installation instructions."
   product_type: Stickers > Social
-  link: "https://bimmersticker.store/inline-six-power-sticker/"
-  image_link: "https://bimmersticker.store/inline-six-power-sticker/"
-  price: "8.99 USD"
-  size: "7x2 in"
+  link: https://bimmersticker.store/instagram-username-sticker/
+  image_link: https://bimmersticker.store/instagram-username-sticker/car-custom-instagram-name-stickers-square.jpg
+  price: "9.99 USD"
+  size: "7.5x2 in"
   weight: "0.06 lbs"
-  material: Oracal, Cricut and TeckWrap vinyls  
-  color: "White|Silver|Gold|Oil Slick"
+  material: "Oracal, Cricut and TeckWrap vinyls"
+  color: "White|Holographic[+2.00]|Silver[+2.00]|Gold[+2.00]|Oil Slick[+2.00]"
   customization_name: "Your instagram name"
   customization_placeholder: "Use '@' with your handle if you want"
+- id:	ST_SOCIAL_YT
+  title: "Two custom YouTube name stickers"
+  description: "A set of two custom stickers with your YouTube channel name. Stickers are contour cut out of premium outdoor vinyls. Transparent background. Available in white and black colors. Stickers come with installation instructions."
+  product_type: Stickers > Social
+  link: https://bimmersticker.store/youtube-channel-stickers/
+  image_link: https://bimmersticker.store/youtube-channel-stickers/custom-personal-youtube-channel-name-sticker-square.jpg
+  price: "12.99 USD"
+  size: "7.5x2 in"
+  weight: "0.06 lbs"
+  material: "Oracal 651 vinyl" 
+  color: "White|Black"
+  customization_name: "Your channel name"
+  customization_placeholder: "My Awesome Channel"  
+- id:	ST_SOCIAL_FB
+  title: "Two custom Facebook stickers"
+  description: "A set of two custom stickers with your Facebook profile, page or group. Stickers are contour cut out of premium outdoor vinyls. Transparent background. Available in white and black colors. Stickers come with installation instructions."
+  product_type: Stickers > Social
+  link: https://bimmersticker.store/facebook-name-profile-stickers/
+  image_link: https://bimmersticker.store/facebook-name-profile-stickers/custom-personal-facebook-profile-page-sticker-square.jpg
+  price: "12.99 USD"
+  size: "7.5x2 in"
+  weight: "0.06 lbs"
+  material: "Oracal 651 vinyl" 
+  color: "White|Black"
+  customization_name: "Profile, page or group name"
+  customization_placeholder: "My Facebook Page"
+- id:	ST_SOCIAL_SC
+  title: "Two custom Snapchat name stickers"
+  description: "A set of two custom stickers with your Snapchat name. Stickers are contour cut out of premium outdoor vinyls. Transparent background. Available in white and black colors. Stickers come with installation instructions."
+  product_type: Stickers > Social
+  link: https://bimmersticker.store/snapchat-name-stickers/
+  image_link: https://bimmersticker.store/snapchat-name-stickers/custom-personal-snapchat-name-sticker-square.jpg
+  price: "12.99 USD"
+  size: "7.5x2 in"
+  weight: "0.06 lbs"
+  material: "Oracal 651 vinyl" 
+  color: "White|Black"
+  customization_name: "Your Snapchat name"
+  customization_placeholder: ""  

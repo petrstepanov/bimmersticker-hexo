@@ -65,7 +65,13 @@ hexo.extend.helper.register('is_custom', function(product){
 });
 
 hexo.extend.helper.register('print_colors', function(colors){
-  return colors.replace(/\|/g, ', ');
+  // remove [+2.00] extra price values
+  console.log(colors);
+  colors = colors.replace(/\[\+\d*.\d*\]/g, '');
+  console.log(colors);
+  colors = colors.split('|').join(', ');
+  console.log(colors);
+  return colors;
 });
 
 hexo.extend.helper.register('print_size', function(size){
@@ -83,7 +89,22 @@ hexo.extend.helper.register('print_size', function(size){
   return temp;
 });
 
-
+hexo.extend.helper.register('parse_variation_value', function(str){
+  var obj = {
+    value: str,
+    text: str,
+    extra: "0"
+  };
+  // get extra price
+  var pattern = /(.*)\[(.*)\]/;
+  if (pattern.test(str)){
+    var array = pattern.exec(str);
+    obj.value = array[1];
+    obj.extra = array[2];
+    obj.text = obj.value + " +$" + parseFloat(array[2]).toString();
+  }
+  return obj;
+});
 
 hexo.extend.helper.register('capitalize', function(string){
   return string.charAt(0).toUpperCase() + string.slice(1);

@@ -1,4 +1,4 @@
-$swatch-size: 0.75rem;
+$swatch-size: 1rem;
 
 .swatch {
   display: inline-block;
@@ -6,10 +6,11 @@ $swatch-size: 0.75rem;
   height: $swatch-size;
   border-radius: $swatch-size/2;
   margin-left: $swatch-size*2/3;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
 
   &.white {
     background-color: white;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
+    // box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
   }
   &.lilac {
     background-color: #b195c6;
@@ -39,13 +40,13 @@ $swatch-size: 0.75rem;
   &.silver {
     width: $swatch-size*2;
     background: linear-gradient(to right, white, #ececec);
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
+    // box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
   }
 
   &.gold {
     width: $swatch-size*2;
     background: linear-gradient(to right, #f9efc9, #dec67a);
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
+    // box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
   }
 
   &.holographic {

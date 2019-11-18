@@ -22,7 +22,6 @@ Special sticker for ladies! With love from our crew.
 Dear ladies! You asked for it you get it. Amazing heart-shaped sticker with some lettering that speaks words of wisdom. BMW girls make it better. Because you do. With love from bimmersticker team.
 
 {% asset_img content-image bmw-girls-make-it-better-sticker.jpg 'Heart sticker BMW girls make better"Vinyl sticker BMW girls make it better"' %}
-
 {% blockquote %}
 Sticker "BMW girls make it better" in light variation.
 {% endblockquote %}

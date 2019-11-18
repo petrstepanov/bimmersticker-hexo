@@ -10981,13 +10981,13 @@ body {
 
 .swatch {
   display: inline-block;
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 0.375rem;
-  margin-left: 0.5rem; }
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.5rem;
+  margin-left: 0.66667rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15); }
   .swatch.white {
-    background-color: white;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15); }
+    background-color: white; }
   .swatch.lilac {
     background-color: #b195c6; }
   .swatch.yellow {
@@ -11005,17 +11005,15 @@ body {
   .swatch.pink {
     background-color: #f6a6bf; }
   .swatch.silver {
-    width: 1.5rem;
+    width: 2rem;
     background: -webkit-gradient(linear, left top, right top, from(white), to(#ececec));
-    background: linear-gradient(to right, white, #ececec);
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15); }
+    background: linear-gradient(to right, white, #ececec); }
   .swatch.gold {
-    width: 1.5rem;
+    width: 2rem;
     background: -webkit-gradient(linear, left top, right top, from(#f9efc9), to(#dec67a));
-    background: linear-gradient(to right, #f9efc9, #dec67a);
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15); }
+    background: linear-gradient(to right, #f9efc9, #dec67a); }
   .swatch.holographic {
-    width: 1.5rem;
+    width: 2rem;
     background: -webkit-gradient(linear, left top, right top, from(lightpink), to(lightblue));
     background: linear-gradient(to right, lightpink, lightblue); }
     .swatch.holographic.opal {
@@ -11025,7 +11023,7 @@ body {
       background: -webkit-gradient(linear, left top, right top, from(lightpink), to(lightblue));
       background: linear-gradient(to right, lightpink, lightblue); }
   .swatch.oil {
-    width: 1.5rem;
+    width: 2rem;
     background: -webkit-gradient(linear, left top, right top, from(#C1C1C1), color-stop(#EB9AB0), color-stop(#F8ED69), color-stop(#5FE0F6), to(#C1C1C1));
     background: linear-gradient(to right, #C1C1C1, #EB9AB0, #F8ED69, #5FE0F6, #C1C1C1); }
 

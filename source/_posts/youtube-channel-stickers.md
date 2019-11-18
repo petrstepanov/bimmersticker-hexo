@@ -6,14 +6,11 @@ tags:
 - youtube
 - window
 description: Buy two custom YouTube channel stickers. Stickers made of glossy ORACAL vinyl.
-price: 12.99
-size: 8 × 1½ in (20 × 4 cm)
-material: ORACAL 651 vinyl
-colors: [white, black, red]
 categories:
 - Social
 etsy_url: https://www.etsy.com/listing/684011876/two-custom-youtube-channel-name-vinyl
-col_class: col-sm-6 col-md-4 col-xl-3
+col_class: col-sm-6 col-md-4 col-lg-3
+product_id: ST_SOCIAL_YT
 ---
 
 Promote your YouTube! Available in white and black.

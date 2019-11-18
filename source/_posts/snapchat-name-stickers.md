@@ -6,14 +6,11 @@ tags:
 - snapchat
 - window
 description: Buy two custom Snapchat name stickers. Stickers made of glossy ORACAL vinyl.
-price: 12.99
-size: 8 × 1½ in (20 × 4 cm)
-material: ORACAL 651 vinyl
-colors: [white, black, yellow]
 categories:
 - Social
 etsy_url: https://www.etsy.com/listing/733478738/two-custom-snapchat-name-vinyl-stickers
-col_class: col-sm-6 col-md-4 col-xl-3
+col_class: col-sm-6 col-md-4 col-lg-3
+product_id: ST_SOCIAL_SC
 ---
 
 Sure thing we do have snapchat stickers for sale too.

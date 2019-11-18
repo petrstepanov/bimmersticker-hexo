@@ -4,7 +4,9 @@ var SnipcartButtonAttributes = (function () {
   function _cacheDom(element) {
     DOM.$form = $(element);
     DOM.$inputs = DOM.$form.find('select, input');
+    DOM.$selects = DOM.$form.find('select');
     DOM.$snipcartButton = DOM.$form.find('.snipcart-add-item');
+    DOM.$submitButtons = $(document).find('.js--product-submit');
   }
 
   function _bindEvents(element) {
@@ -13,6 +15,23 @@ var SnipcartButtonAttributes = (function () {
       var customAttrName = 'item-custom' + i + '-value';
       // DOM.$button.data(customAttrName, $(this).val());
       DOM.$snipcartButton.attr('data-' + customAttrName, $(this).val());
+    });
+
+    // Update price on button when selecting variations with extra price
+    DOM.$selects.on('change', function(){
+      var extraTotal = 0;
+      DOM.$selects.each(function(){
+        var $option = $(this).find('option:selected');
+        if (typeof $option.data().extra !== 'undefined'){
+          extraTotal += parseFloat($option.data().extra);
+        }
+      });
+      DOM.$submitButtons.each(function(){
+        var price = parseFloat($(this).data().basePrice);
+        price += extraTotal;
+        var baseCaption = $(this).data().baseCaption;
+        $(this).html(baseCaption + '$' + price.toString());
+      });
     });
 
     DOM.$form.on('submit', function(event){
