@@ -3,7 +3,7 @@
   data-item-price="<%- parseFloat(product.price) %>"
   data-item-url="<%- post.path %>"
   data-item-description="<%- product.description %>"
-  data-item-image="<%- product.image_link %>"
+  data-item-image="<%- get_pathname(product.image_link) %>"
   data-item-name="<%- product.title %>"
   type="submit"
   form="cart-form"
