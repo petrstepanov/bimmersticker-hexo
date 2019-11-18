@@ -40,7 +40,7 @@ var PostsFilter = function(){
     if (element) {
       options = $.extend(options, $(element).data());
       _cacheDom(element);
-      _initShuffle();
+      // _initShuffle();
       _bindEvents();
       // _render();
     }

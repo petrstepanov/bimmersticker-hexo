@@ -10970,6 +10970,10 @@ footer {
 .line-height-1 {
   line-height: 1; }
 
+.no-outline {
+  outline: none !important;
+  box-shadow: none !important; }
+
 body {
   position: relative; }
 
@@ -11077,7 +11081,7 @@ body {
     color: white;
     font-family: "sf_pro_textbold", Helvetica, sans-serif;
     font-size: 0.75em;
-    padding: 0 0.125rem;
+    padding: 0 0.25rem;
     border-radius: 2rem;
     box-shadow: 0 0 0 0.125rem white;
     height: 1.2rem;
