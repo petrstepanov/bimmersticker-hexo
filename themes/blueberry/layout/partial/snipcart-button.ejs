@@ -1,7 +1,7 @@
 <button class="snipcart-add-item"
   data-item-id="<%- product.id %>"
   data-item-price="<%- parseFloat(product.price) %>"
-  data-item-url="<%- post.path %>"
+  data-item-url="<%- url_for(post.path) %>"
   data-item-description="<%- product.description %>"
   data-item-image="<%- get_pathname(product.image_link) %>"
   data-item-name="<%- product.title %>"
