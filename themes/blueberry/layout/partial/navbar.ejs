@@ -13,7 +13,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
-    <span class="d-md-none"><%-partial('partial/snipcart-cart-button') %></span>
+    <% if(config.snipcart){ %>  
+      <span class="d-md-none"><%-partial('partial/snipcart-cart-button') %></span>
+    <% } %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
@@ -35,9 +37,11 @@
             <a class="nav-link" href="<%- theme.facebook_url %>" rel="me">Like us on Facebook</a>
           </li>
         <% } %>
-        <li class="nav-item nav-item-for-cart d-none d-md-inline">
-            <%-partial('partial/snipcart-cart-button') %>
-        </li>  
+        <% if(config.snipcart){ %>  
+          <li class="nav-item nav-item-for-cart d-none d-md-inline">
+              <%-partial('partial/snipcart-cart-button') %>
+          </li>  
+        <% } %>
       </ul>
     </div>
   </div>

@@ -107,3 +107,5 @@ google_feed_path:
 netlify_redirects_path:
   src: source/_redirects
   dest: _redirects
+
+snipcart: false

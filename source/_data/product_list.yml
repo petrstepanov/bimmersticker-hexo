@@ -22,7 +22,7 @@
   size: "24x4 in"
   weight: "0.2 lbs"
   material: "Oracal and TeckWrap vinyls"
-  color: "Glossy White|Matte Black|Oil Slick"
+  color: "Glossy White|Matte Black|Oil Slick[+2.00]"
   customization_name: "Type your engine model"
   customization_placeholder: M54
 - id:	ST_BMW_TOURING
@@ -46,7 +46,7 @@
   size: "7x2 in"
   weight: "0.06 lbs"
   material: Oracal and TeckWrap vinyls  
-  color: "White & Red|Oil Slick & Red"
+  color: "White & Red|Oil Slick & Red[+1.00]"
 - id:	ST_BMW_BMRFST
   title: "Bimmerfest sticker"
   description: "Special sticker for the Bimmerfest event. East or west. Pick one that works for you."
@@ -67,7 +67,7 @@
   product_type: Stickers > BMW
   link: "https://bimmersticker.store/bmw-girls-sticker/"
   image_link: "https://bimmersticker.store/bmw-girls-sticker/sticker-bmw-girls-make-it-better-square.jpg"
-  price: "8.99 USD"
+  price: "9.99 USD"
   size: "4x3 in"
   weight: "0.06 lbs"
   material: "Oracal 651 vinyl"
@@ -147,7 +147,7 @@
   product_type: Stickers > Cars
   link: https://bimmersticker.store/custom-mileage-sticker/
   image_link: https://bimmersticker.store/custom-mileage-sticker/custom-car-mileage-sticker-square.jpg
-  price: "8.99 USD"
+  price: "9.99 USD"
   size: "8x2 in"
   weight: "0.06 lbs"
   material: "Oracal 651 vinyl"
@@ -239,7 +239,7 @@
   size: "34x5 in"
   weight: "0.3 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "Glossy White|Matte Black|Glossy Black|Silver[+8.00]|Gold[+8.00]|Oil Slick[+8.00]"
+  color: "Glossy White|Matte Black|Glossy Black|Silver[+5.00]|Gold[+5.00]|Oil Slick[+5.00]"
 - id:	ST_WSHIELD_BM4L
   title: "#Bimmer4Life windshield banner"
   description: "Bimmer For Life car windshield banner. Great for project or show BMW cars. Available in different colors. Banner comes with installation instructions."
@@ -261,7 +261,7 @@
   size: "30x5.5 in"
   weight: "0.3 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "Glossy White|Matte Black|Glossy Black|Silver[+8.00]|Gold[+8.00]|Oil Slick[+8.00]"
+  color: "Glossy White|Matte Black|Glossy Black|Silver[+5.00]|Gold[+5.00]|Oil Slick[+5.00]"
 - id:	ST_WSHIELD_KNRD
   title: "Knight Rider windshield banner"
   description: "Knight Rider car windshield banner. Great for project or show cars. Available in different colors. Banner comes with installation instructions."
@@ -272,7 +272,7 @@
   size: "34x5 in"
   weight: "0.3 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "Glossy White|Matte Black|Glossy Black|Silver[+8.00]|Gold[+8.00]|Oil Slick[+8.00]"
+  color: "Glossy White|Matte Black|Glossy Black|Silver[+5.00]|Gold[+5.00]|Oil Slick[+5.00]"
 - id:	ST_WSHIELD_SHARK
   title: "Sharknose Legend windshield banner"
   description: "Sharknose Legend car windshield banner. Great for and oldschool BMW project like e28 or e30. Available in different colors. Banner comes with installation instructions."
@@ -290,7 +290,7 @@
   product_type: Stickers > Series
   link: https://bimmersticker.store/1-series-sticker/
   image_link: https://bimmersticker.store/1-series-sticker/bmw-1-series-sticker-square.jpg
-  price: "6.99 USD"
+  price: "7.99 USD"
   size: "7.5x2.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -301,7 +301,7 @@
   product_type: Stickers > Series
   link: https://bimmersticker.store/2-series-sticker/
   image_link: https://bimmersticker.store/2-series-sticker/bmw-2-series-sticker-square.jpg
-  price: "6.99 USD"
+  price: "7.99 USD"
   size: "7.5x2.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -312,7 +312,7 @@
   product_type: Stickers > Series
   link: https://bimmersticker.store/3-series-sticker/
   image_link: https://bimmersticker.store/3-series-sticker/bmw-3-series-sticker-square.jpg
-  price: "6.99 USD"
+  price: "7.99 USD"
   size: "7.5x2.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -323,7 +323,7 @@
   product_type: Stickers > Series
   link: https://bimmersticker.store/4-series-sticker/
   image_link: https://bimmersticker.store/4-series-sticker/bmw-4-series-sticker-square.jpg
-  price: "6.99 USD"
+  price: "7.99 USD"
   size: "7.5x2.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -334,7 +334,7 @@
   product_type: Stickers > Series
   link: https://bimmersticker.store/5-series-sticker/
   image_link: https://bimmersticker.store/5-series-sticker/bmw-5-series-sticker-square.jpg
-  price: "6.99 USD"
+  price: "7.99 USD"
   size: "7.5x2.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -345,7 +345,7 @@
   product_type: Stickers > Series
   link: https://bimmersticker.store/6-series-sticker/
   image_link: https://bimmersticker.store/6-series-sticker/bmw-6-series-sticker-square.jpg
-  price: "6.99 USD"
+  price: "7.99 USD"
   size: "7.5x2.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -356,7 +356,7 @@
   product_type: Stickers > Series
   link: https://bimmersticker.store/7-series-sticker/
   image_link: https://bimmersticker.store/7-series-sticker/bmw-7-series-sticker-square.jpg
-  price: "6.99 USD"
+  price: "7.99 USD"
   size: "7.5x2.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -367,7 +367,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e12-sticker/
   image_link: https://bimmersticker.store/e12-sticker/bmw-e12-vinyl-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -378,7 +378,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e21-sticker/
   image_link: https://bimmersticker.store/e21-sticker/bmw-e21-vinyl-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -389,7 +389,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e23-sticker/
   image_link: https://bimmersticker.store/e23-sticker/bmw-e23-vinyl-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -400,7 +400,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e28-sticker/
   image_link: https://bimmersticker.store/e28-sticker/e28-bmw-window-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -411,7 +411,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e30-sticker/
   image_link: https://bimmersticker.store/e30-sticker/bmw-e30-vinyl-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -422,7 +422,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e32-sticker/
   image_link: https://bimmersticker.store/e32-sticker/bmw-e32-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -433,7 +433,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e34-sticker/
   image_link: https://bimmersticker.store/e34-sticker/bmw-e34-vinyl-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -444,7 +444,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e36-sticker/
   image_link: https://bimmersticker.store/e36-sticker/bmw-e36-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -455,7 +455,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e38-sticker/
   image_link: https://bimmersticker.store/e38-sticker/e38-bmw-window-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -466,7 +466,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e39-sticker/
   image_link: https://bimmersticker.store/e39-sticker/e39-bmw-window-vinyl-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -477,7 +477,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e46-sticker/
   image_link: https://bimmersticker.store/e46-sticker/bmw-e46-window-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -488,7 +488,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e60-sticker/
   image_link: https://bimmersticker.store/e60-sticker/bmw-e60-window-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -499,7 +499,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e61-sticker/
   image_link: https://bimmersticker.store/e61-sticker/bmw-e61-window-vinyl-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -510,7 +510,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e70-sticker/
   image_link: https://bimmersticker.store/e70-sticker/bmw-e70-sticker-window-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -521,7 +521,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e81-sticker/
   image_link: https://bimmersticker.store/e81-sticker/bmw-e81-car-vinyl-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -532,7 +532,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e82-sticker/
   image_link: https://bimmersticker.store/e82-sticker/bmw-e82-vinyl-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -543,7 +543,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e82-sticker/
   image_link: https://bimmersticker.store/e82-sticker/bmw-e82-vinyl-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -554,7 +554,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e87-sticker/
   image_link: https://bimmersticker.store/e87-sticker/bmw-e87-car-vinyl-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -565,7 +565,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e87-sticker/
   image_link: https://bimmersticker.store/e87-sticker/bmw-e87-car-vinyl-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -576,7 +576,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e90-sticker/
   image_link: https://bimmersticker.store/e90-sticker/bmw-e90-window-sport-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -587,7 +587,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e91-sticker/
   image_link: https://bimmersticker.store/e91-sticker/bmw-e91-touring-vinyl-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -598,7 +598,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e92-sticker/
   image_link: https://bimmersticker.store/e92-sticker/e92-bmw-sticker-window-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -609,7 +609,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e92-sticker/
   image_link: https://bimmersticker.store/e92-sticker/e92-bmw-sticker-window-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -620,7 +620,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/f10-sticker/
   image_link: https://bimmersticker.store/f10-sticker/bmw-f10-window-vinyl-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -631,7 +631,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/f20-sticker/
   image_link: https://bimmersticker.store/f20-sticker/bmw-f20-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -642,7 +642,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/f21-sticker/
   image_link: https://bimmersticker.store/f21-sticker/bmw-f21-window-vinyl-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -653,7 +653,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/f22-sticker/
   image_link: https://bimmersticker.store/f22-sticker/bmw-f22-coupe-vinyl-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -664,7 +664,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/f30-sticker/
   image_link: https://bimmersticker.store/f30-sticker/bmw-f30-window-vinyl-sport-decal-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -675,7 +675,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/f31-sticker/
   image_link: https://bimmersticker.store/f31-sticker/bmw-f31-sticker-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
@@ -686,7 +686,7 @@
   product_type: Stickers > Generations
   link: https://bimmersticker.store/f32-sticker/
   image_link: https://bimmersticker.store/f32-sticker/vinyl-sticker-for-bmw-f32-square.jpg
-  price: "4.99 USD"
+  price: "5.99 USD"
   size: "6.5x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"

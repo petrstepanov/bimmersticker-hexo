@@ -1,5 +1,9 @@
 <main class="orientation-container">
-  <%- partial('partial/item-sidebar') %>
+  <% if(config.snipcart){ %>   
+    <%- partial('partial/item-sidebar') %>
+  <% } else { %>
+    <%- partial('partial/item-sidebar-old') %>
+  <% } %>
   <div id="post-content" class="spacer-footer">
     <div class="container">
       <div class="row">
