@@ -10914,13 +10914,13 @@ footer {
     display: none;
     position: absolute;
     top: 5%;
-    left: 18%;
-    right: 18%;
-    height: 13.3%;
+    left: 16.4%;
+    right: 16.4%;
+    height: 14%;
     -webkit-mask-image: url(/custom-windshield-banner-sun-strip/index/banner.svg);
             mask-image: url(/custom-windshield-banner-sun-strip/index/banner.svg);
-    -webkit-mask-position: center center;
-            mask-position: center center;
+    -webkit-mask-position: center top;
+            mask-position: center top;
     -webkit-mask-size: contain;
             mask-size: contain;
     -webkit-mask-repeat: no-repeat;
