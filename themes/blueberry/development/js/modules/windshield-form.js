@@ -17,7 +17,7 @@ var WindshieldForm = (function () {
         DOM.$input = DOM.$el.find('.js--text-input');
         DOM.$fontImages = DOM.$el.find('.js--font-image');
 
-        DOM.$carContainer = DOM.$el.find('.car-preview-container');
+        // DOM.$carContainer = DOM.$el.find('.car-preview-container');
         DOM.$car = DOM.$el.find('.car-preview-container .car');
 
         DOM.$banner = DOM.$el.find('.banner-text');
@@ -52,19 +52,19 @@ var WindshieldForm = (function () {
             }, 1500);
         });
 
-        $(window).resize(function() {
-            _adjustCarContainerHeight();
-        });
+        // $(window).resize(function() {
+        //     _adjustCarContainerHeight();
+        // });
     }
 
     function _getBannerText(){
         return DOM.$input.val().length ? DOM.$input.val() : "Your Banner";        
     }
 
-    function _adjustCarContainerHeight(){
-        var height = parseFloat(DOM.$car.height());
-        DOM.$carContainer.height(height);
-    }
+    // function _adjustCarContainerHeight(){
+    //     var height = parseFloat(DOM.$car.height());
+    //     DOM.$carContainer.height(height);
+    // }
 
     function _showHideFormContainers(product){
         switch (product) {

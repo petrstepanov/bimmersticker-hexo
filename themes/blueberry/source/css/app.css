@@ -10891,7 +10891,7 @@ footer {
   max-width: 75%; }
 
 .car-preview-container {
-  text-align: center; }
+  position: relative; }
   .car-preview-container .banner-text {
     position: absolute;
     left: 30%;
