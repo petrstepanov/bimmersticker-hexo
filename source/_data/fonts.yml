@@ -34,6 +34,12 @@ tokyo:
 empera:
   name: Empera 
   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/1770556/8/14
-capitals:
-  name: "The Capitals"
-  url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/3725138/17/14
+argon:
+  name: Argon
+  url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/443290/0/14
+aurora:
+  name: "Aurora Script"
+  url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/1402900/4/14
+  #capitals:
+#  name: "The Capitals"
+#  url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/3725138/17/14
