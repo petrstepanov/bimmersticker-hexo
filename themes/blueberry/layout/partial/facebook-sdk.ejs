@@ -1,12 +1,12 @@
-<% if(config.facebook_chat){ %>  
+<% if(config.facebook_chat){ %>
     <script id="fb-script">
         (function (d, s, id) {
-            var js, fjs = d.getElementById(s);
+            var js, fjs = d.getElementsByTagName(s)[2];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
             js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
             fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'fb-script', 'facebook-jssdk'));
+        }(document, 'script', 'facebook-jssdk'));
     </script>
     <div class="fb-customerchat" page_id="<PAGE_ID>" logged_in_greeting="How can we help you shop today?" logged_out_greeting="How can we help you shop today?" theme_color="#008ac9"></div>
 <% } %>
