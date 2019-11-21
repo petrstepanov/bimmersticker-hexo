@@ -108,4 +108,5 @@ netlify_redirects_path:
   src: source/_redirects
   dest: _redirects
 
+facebook_chat: true
 snipcart: false

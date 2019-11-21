@@ -1,10 +1,14 @@
 <%- partial('partial/head') %>
 <body data-spy="scroll" data-target="#navbar-spy" data-offset="0">
-  <%- // partial('partial/facebook-sdk') %>
+  <%- partial('partial/facebook-sdk') %>
   <%- body %>
   <%- partial('partial/footer') %>
+  <!-- scripts -->
   <%- js('js/app.js') %>
   <%- partial('partial/analytics') %>
-  <%- partial('partial/snipcart') %>  
+  <%- partial('partial/snipcart') %> 
+  <script>
+    FB.CustomerChat.show(shouldShowDialog: boolean);
+  </script> 
 </body>
 </html>
