@@ -1,5 +1,5 @@
 <% if(config.facebook_chat){ %>    
-    <script>
+    <script class="fbAsync">
         window.fbAsyncInit = function () {
             FB.init({
                 appId: '376346382812240',
@@ -12,11 +12,11 @@
     <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
     <script>
         (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
+            var js, fjs = d.getElementsByClassName(s)[0];
             if (d.getElementById(id)) return;
             js = d.createElement(s); js.id = id;
             js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
             fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+        }(document, 'fbAsync', 'facebook-jssdk'));
     </script>
 <% } %>

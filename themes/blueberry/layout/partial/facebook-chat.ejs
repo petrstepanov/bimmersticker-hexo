@@ -1,4 +1,6 @@
-<script>
-    FB.CustomerChat.show();
-</script>
-<div class="fb-customerchat" page_id="<PAGE_ID>"></div>
+<% if(config.facebook_chat){ %>    
+    <script>
+        FB.CustomerChat.show();
+    </script>
+    <div class="fb-customerchat" page_id="<PAGE_ID>"></div>
+<% } %>
