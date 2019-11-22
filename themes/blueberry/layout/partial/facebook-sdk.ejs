@@ -1,7 +1,7 @@
 <% if(config.facebook_chat){ %>
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
-    <script>
+    <script class="fb-first-script">
     window.fbAsyncInit = function() {
         FB.init({
         xfbml            : true,
@@ -10,7 +10,7 @@
     };
 
     (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
+    var js, fjs = d.getElementsByClassName('fb-first-script')[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
     js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
@@ -18,9 +18,5 @@
     }(document, 'script', 'facebook-jssdk'));</script>
 
     <!-- Your customer chat code -->
-    <div class="fb-customerchat"
-    attribution=setup_tool
-    page_id="376346382812240"
-    theme_color="#008ac9">
-    </div>
+    <div class="fb-customerchat" attribution=setup_tool page_id="376346382812240" theme_color="#008ac9"></div>
 <% } %>
