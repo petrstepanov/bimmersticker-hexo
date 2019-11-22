@@ -3,7 +3,7 @@
     <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
     <% if(productIndex >= 0){ %>
       <% var product = site.data.product_list[productIndex]; %>    
-      <%- partial('partial/item-navbar-old') %>
+      <%- partial('partial/item-navbar-old', {product: product}) %>
       <div class="container">
         <div class="row">
           <section class="col" itemscope itemtype="http://schema.org/Product">
