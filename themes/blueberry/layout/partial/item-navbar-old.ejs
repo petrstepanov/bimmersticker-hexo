@@ -5,9 +5,9 @@
     </a>
     <div class="form-inline d-lg-none navbar-buy-button js--init-navbar-buy-button">
       <% if (post.ebay_url){ %>
-        <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary btn-sm" role="button">$<%- product.price %> on eBay</a>
+        <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary btn-sm" role="button">$<%- parseFloat(product.price) %> on eBay</a>
       <% } else if (post.etsy_url){ %>
-        <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-primary btn-sm" role="button">$<%- product.price %> on Etsy</a>
+        <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-primary btn-sm" role="button">$<%- parseFloat(product.price) %> on Etsy</a>
       <% } %>
     </div>
   </div>
