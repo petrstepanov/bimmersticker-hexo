@@ -41,6 +41,14 @@ $(document).ready(function(){
     fas.init(this);
   });
 
+  // Close mailchimp dialog after form submit
+  $('.js--init-mailchimp-dialog').each(function(){
+    var md = MailchimpDialog();
+    md.init(this);
+  });
+
+  
+
   autosize(document.querySelectorAll('.js--init-autosize'));
 
   // Bootstrap's popovers

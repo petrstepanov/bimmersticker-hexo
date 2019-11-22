@@ -5,14 +5,24 @@
 		<div class="jumbotron jumbotron-fluid jumbotron-blueberry fix">
 			<div class="container">
 				<div class="row">
-					<div class="col-11 col-sm-8 col-md-5 col-lg-4">
+					<div class="col-11 col-sm-8 col-md-12 col-lg-4">
 						<h1 class="display-4 mt-lg-3"><%- theme.slogan ? theme.slogan : "" %></h1>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col col-md-8 col-lg-6 col-xl-5">
+					<div class="col col-md-8 col-lg-6 col-xl-5 mb-3">
 						<p class="front-paragraph mt-4"><%- theme.lead1 ? theme.lead1 : "" %></p>
-						<p class="front-paragraph mb-4 mb-md-5"><%- theme.lead2 ? theme.lead2 : "" %></p>
+						<p class="front-paragraph"><%- theme.lead2 ? theme.lead2 : "" %></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col mb-4 mb-md-5">
+						<div class="d-flex align-items-center">
+							<button type="button" class="btn btn-lg btn-primary rounded-pill mr-2" data-toggle="modal" data-target="#subscribeModal">
+								Subscribe to newsletter
+							</button>
+							<span class="d-none d-sm-inline front-paragraph">and get new sticker alerts.</span>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -21,21 +31,17 @@
 	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col-12 col-lg-10 col-lg-12 col-xl-10">
-				<div class="row">
-					<div class="col-12 col-sm-6 col-xl-5 col-xl-5">
-						<div class="icon-xl mt-sm-1 mb-2 mb-lg-3"><%- partial('icons/icon-roll.svg') %></div>
-						<p class="mb-4">We make stickers from the award-winning ORACAL® 651 and Cricut® adhesive outdoor vinyls. Contour cut vinyl stickers never fade out. <strong>Durability period is more than five years</strong>.</p>
-					</div>
-					<div class="col-12 col-sm-6 col-xl-5 offset-xl-1">
-						<div class="icon-xl mt-sm-1 mb-2 mb-lg-3"><%- partial('icons/icon-ship.svg') %></div>
-						<p>
-							<strong>Free shipping across US</strong> with one day handling time and three to five days
-							delivery time.
-						</p>
-						<p class="mb-4 mb-lg-0">International shipping prices start at $0.65</p>
-					</div>
-				</div>
+			<div class="col-12 col-sm-6 col-xl-5 col-xl-5">
+				<div class="icon-xl mt-sm-1 mb-2 mb-lg-3"><%- partial('icons/icon-roll.svg') %></div>
+				<p class="mb-4">We make stickers from the award-winning ORACAL® 651 and Cricut® adhesive outdoor vinyls. Contour cut vinyl stickers never fade out. <strong>Durability period is more than five years</strong>.</p>
+			</div>
+			<div class="col-12 col-sm-6 col-xl-5 offset-xl-1">
+				<div class="icon-xl mt-sm-1 mb-2 mb-lg-3"><%- partial('icons/icon-ship.svg') %></div>
+				<p>
+					<strong>Free shipping across US</strong> with one day handling time and three to five days
+					delivery time.
+				</p>
+				<p class="mb-4 mb-lg-0">International shipping prices start at $0.65</p>
 			</div>
 		</div>
 	</div>
@@ -75,13 +81,13 @@
 				<button type="button" class="btn btn-blueberry btn-sm btn-primary active strong mr-sm-1" data-query="all">All</button>
 				<% var filterQueries = []; %>
 				<% site.categories.findOne({name: 'Series and Generations'}).posts.each(function(post, i){ %>
-					<% if (post.data_groups && filterQueries.indexOf(post.data_groups) == -1){ %>
-						<% filterQueries.push(post.data_groups); %>
-					<% } %>
-					<% filterQueries.sort(); %>
+				<% if (post.data_groups && filterQueries.indexOf(post.data_groups) == -1){ %>
+				<% filterQueries.push(post.data_groups); %>
+				<% } %>
+				<% filterQueries.sort(); %>
 				<% }); %>
 				<% filterQueries.forEach(function(query, index){ %>
-					<button type="button" class="btn btn-blueberry btn-sm btn-link strong px-1 px-sm-2 mr-sm-1" data-query="<%- query %>"><%- query %></button>
+				<button type="button" class="btn btn-blueberry btn-sm btn-link strong px-1 px-sm-2 mr-sm-1" data-query="<%- query %>"><%- query %></button>
 				<% }); %>
 			</div>
 		</div>
@@ -113,3 +119,43 @@
 		</div>
 	</div>
 </section>
+
+<div class="modal fade js--init-mailchimp-dialog" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-blueberry" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title font-size-28" id="exampleModalLabel">Subscribe to newsletter</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<!-- Begin Mailchimp Signup Form -->
+			<form class="js--init-ajax-submit" data-success-event="mailchimpSuccessEvent" data-success-notification="Thanks for subscribing!" data-content-type="application/json; charset=utf-8" action="https://store.us7.list-manage.com/subscribe/post-json?u=f9e4fe98566399134546c9006&amp;id=e3386efb18&c=?" method="get">
+				<div class="modal-body">
+					<div id="mc_embed_signup">
+						<div class="form-group">
+							<label class="label-blueberry" for="mce-EMAIL">Email address</label>
+							<input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" required placeholder="Enter email" />
+							<small class="form-text text-muted">We'll never share your email with anyone else.</small>
+						</div>
+						<div class="form-group">
+							<label class="label-blueberry" for="mce-FNAME">First name</label>
+							<input type="text" name="FNAME" class="form-control" id="mce-FNAME" placeholder="Optional" />
+						</div>
+						<div class="form-group">
+							<label class="label-blueberry" for="mce-LNAME">Last name</label>
+							<input type="text" name="LNAME" class="form-control" id="mce-LNAME" placeholder="Optional" />
+						</div>
+						<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+						<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_f9e4fe98566399134546c9006_e3386efb18" tabindex="-1" value=""></div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-blueberry btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-blueberry btn-primary">Subscribe now</button>
+				</div>
+			</form>
+			<!--End mc_embed_signup-->
+		</div>
+	</div>
+</div>

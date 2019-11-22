@@ -1,6 +1,9 @@
 var FormAjaxSubmit = function(){
   var DOM = {};
-  var options = {};
+  var options = {
+    dataType: 'json',
+    contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
+  };
 
   function _cacheDom(element) {
     DOM.$form = $(element);
@@ -19,10 +22,10 @@ var FormAjaxSubmit = function(){
       $.ajax({
         url:      DOM.$form.attr('action'),
         type:     DOM.$form.attr('method'),
-        data    : DOM.$form.serialize(),
-        dataType: "json",
-        success : _onSuccess,
-        error   : _onError
+        data:     DOM.$form.serialize(),
+        dataType: options.dataType,
+        success:  _onSuccess,
+        error:    _onError
       });
     });
   }
