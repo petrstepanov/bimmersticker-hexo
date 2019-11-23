@@ -1,59 +1,45 @@
+var $ = require('jquery');
+var bootstrap = require('bootstrap');
+var autosize = require('autosize');
+
+var navbarFixer = require('./modules/navbar-fixer');
+var smoothScroll = require('./modules/smooth-scroll');
+var windshieldForm = require('./modules/windshield-form');
+var snipcartButton = require('./modules/snipcart-form');
+var contentBuyButton = require('./modules/content-buy-button');
+var navbarBuyButton = require('./modules/navbar-buy-button');
+var stickyContainer = require('./modules/sticky-container');
+var swatches = require('./modules/swatches');
+var postsFilter = require('./modules/posts-filter');
+var mailchimpDialog = require('./modules/mailchimp-dialog');
+var formValidation = require('./modules/form-validation');
+var formAjaxSubmit = require('./modules/form-ajax-submit');
+
 $(document).ready(function(){
+  navbarFixer.init(document.querySelector('.js--init-navbar-fixer'));
+  smoothScroll.init();
+  windshieldForm.init(document.querySelector('.js--init-windshield-form'));
+  snipcartButton.init(document.querySelector('.js--init-snipcart-form'));
+  contentBuyButton.init(document.querySelector('.js--init-content-buy-button'));
+  navbarBuyButton.init(document.querySelector('.js--init-navbar-buy-button'));
+  stickyContainer.init(document.querySelector('.js--init-sticky-container'));
+  swatches.init(document.querySelector('.js--init-swatches'));
+  postsFilter.init(document.querySelector('.js--init-posts-filter'));
+  mailchimpDialog.init(document.querySelector('.js--init-mailchimp-dialog'));
 
-  NavbarFixer.init(document.querySelector('.js--init-navbar-fixer'));
-  SmoothScroll.init();
-  WindshieldForm.init(document.querySelector('.js--init-windshield-form'));
-
-  $('.js--init-sticky-container').each(function(){
-    var sc = StickyContainer();
-    sc.init(this);
-  });
-
-  $('.js--init-navbar-buy-button').each(function(){
-    var nbb = NavbarBuyButton();
-    nbb.init(this);
-  });
-
-  $('.js--init-content-buy-button').each(function(){
-    var cbb = ContentBuyButton();
-    cbb.init(this);
-  });
-
-  $('.js--init-swatches').each(function(){
-    var s = Swatches();
-    s.init(this);
-  });
-
-  $('.js--init-posts-filter').each(function(){
-    var pf = PostsFilter();
-    pf.init(this);
-  });
-
-  // Form validation
   $('form input, form select, form textarea').each(function(){
-    var fv = FormValidation();
-    fv.init(this);
+    // var formValidation = new FormValidation();
+    formValidation.init(this);
   });
 
-  // Form ajax submit
   $('.js--init-ajax-submit').each(function(){
-    var fas = FormAjaxSubmit();
-    fas.init(this);
+    // var formAjaxSubmit = new FormAjaxSubmit();
+    formAjaxSubmit.init(this);
   });
 
-  // Close mailchimp dialog after form submit
-  $('.js--init-mailchimp-dialog').each(function(){
-    var md = MailchimpDialog();
-    md.init(this);
-  });
-
-  
-
+  // Autosize textareas
   autosize(document.querySelectorAll('.js--init-autosize'));
 
   // Bootstrap's popovers
   $('[data-toggle="popover"]').popover();
-
-  // Snipcart button attributes
-  SnipcartButtonAttributes.init(document.querySelector('.js--init-snipcart-button-attributes'));
 });

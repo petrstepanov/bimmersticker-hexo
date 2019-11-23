@@ -1,36 +1,33 @@
-var NavbarBuyButton = function(){
-  var DOM = {};
-  // var options = {};
+// Show or hide 'Buy' button on navbar product page
 
-  function _cacheDom(element) {
-    DOM.$el = $(element);
-    // DOM.$button = $(element).find('.js--buy-button');
-  }
+var $ = require('jquery');
+var events = require('./events');
 
-  function _bindEvents(element) {
-    Events.on('buyButtonViewport', function(data){
-      _render(data);
-    });
-  }
+var DOM = {};
+// var options = {};
 
-  function _render(data){
-    if (data.contentButtonVisible){
+function _cacheDom(element) {
+  DOM.$el = $(element);
+  // DOM.$button = $(element).find('.js--buy-button');
+}
+
+function _bindEvents(element) {
+  events.on('buyButtonViewport', function (data) {
+    if (data.contentButtonVisible) {
       DOM.$el.fadeOut();
     } else {
       DOM.$el.fadeIn();
     }
-  }
+  });
+}
 
-  function init(element) {
-    if (element) {
-      // options = $.extend(options, $(element).data());
-      _cacheDom(element);
-      _bindEvents();
-      // _render();
-    }
+function init(element) {
+  if (element) {
+    // options = $.extend(options, $(element).data());
+    _cacheDom(element);
+    _bindEvents();
+    // _render();
   }
+}
 
-  return {
-    init: init
-  };
-};
+exports.init = init;
