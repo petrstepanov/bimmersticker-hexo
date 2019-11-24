@@ -5,6 +5,7 @@
       "name": "<%- product.title %>",
       "image": "<%- product.image_link %>",
       "description": "<%- product.description %>",
+      "mpn": "<%- product.id.split('_').join(); %>",
       "brand": {
         "@type": "Thing",
         "name": "Bimmer Sticker Store"
@@ -14,6 +15,7 @@
         "url": "<%- product.link %>",
         "priceCurrency": "USD",
         "price": "<%- parseFloat(product.price) %>",
+        "priceValidUntil": "<%- moment().day(1).format("YYYY-MM-DD") %>",
         "itemCondition": "https://schema.org/NewCondition",
         "availability": "https://schema.org/InStock",
         "seller": {
