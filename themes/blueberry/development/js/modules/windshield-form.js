@@ -167,10 +167,6 @@ function _updateSunstripBaseColor() {
     DOM.$sunstrip.css('background-image', $swatch.css('background-image'));
 }
 
-function _checkContentButtonViewport() {
-    Events.emit('buyButtonViewport', { contentButtonVisible: Helpers.isInViewport(DOM.$el) });
-}
-
 function _render(options) {
     _showHideFormContainers(DOM.$radioProduct.val());
     // _adjustCarContainerHeight();

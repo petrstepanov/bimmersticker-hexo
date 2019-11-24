@@ -42,7 +42,7 @@ function _onSuccess(data){
   }
   // Run callback
   if (options.successEvent){
-    Events.emit(options.successEvent, data);
+    events.emit(options.successEvent, data);
   }
   // Enable submit button
   DOM.$submitButton.prop("disabled", false);
