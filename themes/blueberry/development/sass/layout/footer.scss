@@ -1,15 +1,15 @@
 .spacer-footer {
   padding-bottom: 3em;
 
-  @include media-breakpoint-up(sm){
+  @include media-breakpoint-up(sm) {
     padding-bottom: 6em;
   }
 
-  @include media-breakpoint-up(lg){
+  @include media-breakpoint-up(lg) {
     padding-bottom: 7em;
   }
 
-  @include media-breakpoint-up(xl){
+  @include media-breakpoint-up(xl) {
     padding-bottom: 9em;
   }
 }
@@ -18,15 +18,15 @@ footer {
   position: relative;
   margin-top: -3em;
 
-  @include media-breakpoint-up(sm){
+  @include media-breakpoint-up(sm) {
     margin-top: -6em;
   }
 
-  @include media-breakpoint-up(lg){
+  @include media-breakpoint-up(lg) {
     margin-top: -7em;
   }
 
-  @include media-breakpoint-up(xl){
+  @include media-breakpoint-up(xl) {
     margin-top: -9em;
   }
 
@@ -34,7 +34,8 @@ footer {
     background-color: $blue;
   }
 
-  .logo-circ, .logo-text {
+  .logo-circ,
+  .logo-text {
     height: $nb-logo-size;
 
     @include media-breakpoint-up(sm) {
@@ -46,27 +47,14 @@ footer {
   }
 
   nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    @include media-breakpoint-up(lg){
-      justify-content: space-between;
-    }
-
     a {
       font-family: $font-bold;
-      font-size: $font-size-12;
       color: white;
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
+      white-space: nowrap;
 
-      @include media-breakpoint-up(sm){
-        font-size:  ($font-size-12+$font-size-16)/2;
-      }
-
-      @include media-breakpoint-up(md){
-        font-size: $font-size-16;
+      svg,
+      svg * {
+        fill: white;
       }
     }
   }

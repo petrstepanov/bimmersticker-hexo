@@ -11,6 +11,13 @@
   @include make-container();
 }
 
+.sidebar-sticky {
+  @include media-breakpoint-up(lg){
+    position: sticky;
+    top: 0;
+  }
+}
+
 #post-aside {
   background-color: $indigo;
 

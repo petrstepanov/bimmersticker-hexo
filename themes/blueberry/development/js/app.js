@@ -22,7 +22,7 @@ $(document).ready(function(){
   snipcartButton.init(document.querySelector('.js--init-snipcart-form'));
   contentBuyButton.init(document.querySelector('.js--init-content-buy-button'));
   navbarBuyButton.init(document.querySelector('.js--init-navbar-buy-button'));
-  stickyContainer.init(document.querySelector('.js--init-sticky-container'));
+  // stickyContainer.init(document.querySelector('.js--init-sticky-container'));
   swatches.init(document.querySelector('.js--init-swatches'));
   postsFilter.init(document.querySelector('.js--init-posts-filter'));
   mailchimpDialog.init(document.querySelector('.js--init-mailchimp-dialog'));

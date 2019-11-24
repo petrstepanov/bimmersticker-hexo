@@ -1,26 +1,35 @@
 <footer>
   <img class="w-100" alt="footer section shape" src="<%- partial('../data-uri/wave-footer') %>" />
-  <div class="section-blue">
+  <div class="section-blue pt-4 pb-3">
     <div class="container">
-      <div class="row row-eq-height">
-        <div class="col-12 col-lg-5 text-center text-lg-left mt-2 mt-lg-3 mb-2 mb-md-3 mb-lg-4">
-          <img class="logo-circ d-inline-block d-lg-none" alt="Bimmer Sticker Store inverse logo" src="/img/bimmer-sticker-store-logo-inverse-circ.svg" />
-          <img class="logo-text d-none d-lg-inline-block" alt="Bimmer Sticker Store inverse logo with text" src="/img/bimmer-sticker-store-logo-inverse.svg" />
-        </div>
-        <nav class="col-12 col-lg-7 mt-1 mb-4 mt-lg-3 mb-lg-4">
+      <div class="row">
+        <nav class="col text-center mb-3 line-height-2">
+          <a class="text-white mx-3" href="/">All Stickers</a>
+          <a class="text-white mx-3" href="/custom-windshield-banner-sun-strip/">Custom Sun Strips and Banners</a>
+        </nav>
+        <nav class="col-12 text-center">
           <!-- <a href="/about">About</a>
           <a href="/how-to-apply">How to apply</a>
           <a href="#">Image attributions</a> -->
           <% if (theme.instagram_url){ %>
-            <a href="<%- theme.instagram_url %>" rel="me" target="_blank">Instagram</a>
+            <a class="icon-lg mx-2" href="<%- theme.instagram_url %>" rel="me" target="_blank">
+              <%- partial('ionicons/logo-instagram.svg') %><span class="d-none">Instagram</span>
+            </a>
           <% } %>
           <% if (theme.facebook_url){ %>
-            <a href="<%- theme.twitter_url %>" rel="me" target="_blank">Twitter</a>
+            <a class="icon-lg mx-2" href="<%- theme.twitter_url %>" rel="me" target="_blank">
+              <%- partial('ionicons/logo-twitter.svg') %><span class="d-none">Twitter</span>
+            </a>
           <% } %>
           <% if (theme.facebook_url){ %>
-            <a href="<%- theme.facebook_url %>" rel="me" target="_blank">Facebook</a>
+            <a class="icon-lg mx-2" href="<%- theme.facebook_url %>" rel="me" target="_blank">
+              <%- partial('ionicons/logo-facebook.svg') %><span class="d-none">Facebook</span>
+            </a>
           <% } %>
         </nav>
+        <div class="col-12">
+          <p class="text-white-50 text-center mt-3 mb-2 font-size-12">Copyright © <%- new Date().getFullYear() %>, Bimmer Sticker Store. All Rights Reserved.</p>
+        </div>
       </div>
     </div>
   </div>
