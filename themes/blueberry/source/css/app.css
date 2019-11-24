@@ -10690,7 +10690,8 @@ a {
   .sidebar-sticky {
     position: -webkit-sticky;
     position: sticky;
-    top: 0; } }
+    top: 0;
+    padding-bottom: 3em; } }
 
 #post-aside {
   background-color: #E5F3F9; }
