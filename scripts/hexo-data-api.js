@@ -117,6 +117,7 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
     // Populate mpn's
     feedArray.forEach(element => {
         element.mpn = element.id.split('_').join();
+        element.sku = element.id.split('_').join();
         element.brand = 'Bimmer Sticker Store';
         element.condition = 'new';
         element.availability = 'in stock';

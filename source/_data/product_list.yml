@@ -10,6 +10,7 @@
 # Set data-item-custom1-options="Black|Brown|Gold" to value
 # for items with customization, define data-item-custom2-name="Your instagram name"
 #
+# SKU: Stock Keeping Unit - numbers and letters (can be id without dashes)
 # MPN: Manufacturer Part Number - numbers and letters (can be id without dashes)
 # GTIN: Global Trade Item Number
 - id:	ST_BMW_ENGINE
