@@ -7,7 +7,7 @@
       <% // var image = first_image(post); // then use image.src, image.title, image.alt %>
       <% var image_pathname = get_pathname(product.image_link); %>
       <a itemprop="url" href="/<%- post.path %>">
-        <img itemprop="image" class="w-100 <%- product.product_type.includes('Windshield') ? 'tall' : ''; %>" src="<%- image_pathname %>" title="<%- product.description %>" alt="<%- product.description %>">
+        <img itemprop="image" loading="lazy" class="w-100 <%- product.product_type.includes('Windshield') ? 'tall' : ''; %>" src="<%- image_pathname %>" title="<%- product.description %>" alt="<%- product.description %>">
       </a>
       <!-- Card body -->
       <div itemprop="brand" itemtype="http://schema.org/Thing" itemscope>
