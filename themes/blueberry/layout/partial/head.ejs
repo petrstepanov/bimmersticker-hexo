@@ -30,7 +30,24 @@
     <!-- TODO: Facebook opengraph tags -->
     <%- open_graph({ url: url.replace('/index.html', '/')}) %>
     <!-- TODO: Twitter card tags -->
-    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.2/default/snipcart.css" />    
-    <%- css('css/app.css') %>
 
+    <!-- Schema organization -->
+    <script type="application/ld+json">
+      {
+        "@context" : "http://schema.org",
+        "@type" : "Organization",
+        "name" : "Bimmer Sticker Store",
+        "url" : "https://bimmersticker.store/",
+        "sameAs" : [
+          "https://www.facebook.com/bimmersticker.store/",
+          "https://twitter.com/bimmersticker",
+          "https://www.instagram.com/bimmersticker.store/"
+        ]
+      }
+    </script>
+
+    <%- css('css/app.css') %>
+    <% if(config.snipcart){ %>    
+      <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.2/default/snipcart.css" />    
+    <% } %>    
   </head>
