@@ -6,30 +6,30 @@
       <%- partial('partial/item-navbar-old', {product: product}) %>
       <div class="container">
         <div class="row">
-          <section class="col" itemscope itemtype="http://schema.org/Product">
+          <section class="col">
               <!-- Featured image -->
               <% var image = first_image(page); %>
               <% if (image){ %>
-                <img itemprop="image" class="featured-image" src="<%- image.src ? image.src : '' %>" title="<%- image.title ? image.title : '' %>" alt="<%- image.alt ? image.alt : '' %>">
+                <img class="featured-image" src="<%- image.src ? image.src : '' %>" title="<%- image.title ? image.title : '' %>" alt="<%- image.alt ? image.alt : '' %>">
               <% } %>
-              <h1 class="mb-1 font-size-28" itemprop="name"><%- post.title %></h1>
-              <% if (post.excerpt){ %>
-                <p class="text-muted" itemprop="description"><%- strip_html(post.excerpt) %></p>
+              <h1 class="mb-1 font-size-28"><%- post.title %></h1>
+              <% if (product.description){ %>
+                <p class="my-3"><%- product.description %></p>
               <% } %>
-              <div class="mt-3 js--init-content-buy-button" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+              <div class="mt-3 js--init-content-buy-button">
                 <% if (post.ebay_url && post.etsy_url){ %>
-                  <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button"><span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="<%- parseFloat(product.price) %>"><%- parseFloat(product.price) %></span> on eBay</a>
+                  <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">$<%- parseFloat(product.price) %> on eBay</a>
                   <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-link" role="button">Also on Etsy</a>
                 <% } else if (post.ebay_url){ %>
-                  <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button"><span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="<%- parseFloat(product.price) %>"><%- parseFloat(product.price) %></span> on eBay</a>
+                  <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">$<%- parseFloat(product.price) %> on eBay</a>
                 <% } else if (post.etsy_url){ %>
-                  <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button"><span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="<%- parseFloat(product.price) %>"><%- parseFloat(product.price) %></span> on Etsy</a>
+                  <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">$<%- parseFloat(product.price) %> on Etsy</a>
                 <% } %>
               </div>
               <dl class="mt-3 mt-lg-5  sticker-properties clearfix">
                 <% if (product.material){ %>
                   <dt>Material</dt>
-                  <dd itemprop="material"><%- product.material %></dd>
+                  <dd><%- product.material %></dd>
                 <% } %>
                 <% if (product.size){ %>
                   <dt>Size</dt>
@@ -47,6 +47,7 @@
         </div>
       </div>
       <img class="w-100 mt-2 d-lg-none" alt="aside section shape" src="<%- partial('data-uri/wave-aside') %>" />
+      <%- partial('schema/product', {product: product}) %>  
     <% } %>
   </div>
 </div>

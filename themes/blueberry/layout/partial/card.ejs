@@ -1,36 +1,28 @@
 <div class="col-xs-12 <%- post.col_class ? post.col_class : '' %>  js--posts-filter-item" data-groups='["<%- post.data_groups ? post.data_groups : '' %>"]'>
-  <figure class="card card-blueberry" itemscope itemtype="http://schema.org/Product">
+  <figure class="card card-blueberry">
     <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
     <% if(productIndex >= 0){ %>
       <% var product = site.data.product_list[productIndex]; %>
       <!-- Featured image -->
       <% // var image = first_image(post); // then use image.src, image.title, image.alt %>
       <% var image_pathname = get_pathname(product.image_link); %>
-      <a itemprop="url" href="/<%- post.path %>">
-        <img itemprop="image" loading="lazy" class="w-100 <%- product.product_type.includes('Windshield') ? 'tall' : ''; %>" src="<%- image_pathname %>" title="<%- product.description %>" alt="<%- product.description %>">
+      <a href="/<%- post.path %>">
+        <img loading="lazy" class="w-100 <%- product.product_type.includes('Windshield') ? 'tall' : ''; %>" src="<%- image_pathname %>" title="<%- product.description %>" alt="<%- product.description %>">
       </a>
       <!-- Card body -->
-      <div itemprop="brand" itemtype="http://schema.org/Thing" itemscope>
-        <meta itemprop="name" content="Bimmer Sticker Store" />
-      </div>
-
       <div class="card-body">
-          <h3 class="card-title font-size-21" itemprop="name">
+          <h3 class="card-title font-size-21">
             <%- product.title %>
           </h3>
-        
           <% if (post.excerpt){ %>
-          <p class="mb-2 pb-1" itemprop="description"><%- strip_html(post.excerpt) %></p>
+            <p class="mb-2 pb-1"><%- strip_html(post.excerpt) %></p>
           <% } %>
           <div class="d-flex align-items-center justify-content-between">
-            <span class="card-title-price" itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
-              <link itemprop="url" href="/<%- product.link %>" />
-              <meta itemprop="availability" content="https://schema.org/InStock" />
-              <span itemprop="priceCurrency" content="USD">$</span><span itemprop="price" content="<%- product.price %>"><%- format_price(parseFloat(product.price)) %></span>
-            </span>
+            <span class="card-title-price">$<%- format_price(parseFloat(product.price)) %></span>
             <a href="<%- post.path %>" class="btn btn-blueberry btn-sm btn-primary">View →</a>
           </div>
       </div>
+      <%- partial('schema/product', {product: product}) %>  
     <% } %>    
   </figure>
 </div>

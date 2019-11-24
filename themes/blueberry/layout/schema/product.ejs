@@ -1,0 +1,30 @@
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Product",
+      "name": "<%- product.title %>",
+      "image": "<%- product.image_link %>",
+      "description": "<%- product.description %>",
+      "brand": {
+        "@type": "Thing",
+        "name": "Bimmer Sticker Store"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "<%- product.link %>",
+        "priceCurrency": "USD",
+        "price": "<%- parseFloat(product.price) %>",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "Bimmer StickerStore"
+        }
+      }      
+      "offers": {
+        "@type": "Offer",
+        "price": "<%- parseFloat(product.price) %>",
+        "priceCurrency": "USD"
+      }
+    }
+</script>
