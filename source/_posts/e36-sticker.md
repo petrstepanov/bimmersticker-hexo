@@ -1,5 +1,5 @@
 ---
-title: BMEW e36 sticker
+title: BMW e36 sticker
 date: 2018-09-27 15:03:32
 tags:
 - bmw

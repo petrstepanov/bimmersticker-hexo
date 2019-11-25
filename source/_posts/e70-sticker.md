@@ -6,7 +6,7 @@ tags:
 - e70
 - x
 - sticker
-description: Buy BMW e70 vinyl sticker. Made of ORACAL 651 vinyl. Available in different colors.
+description: Buy BMW e70 X5 vinyl sticker. Made of ORACAL 651 vinyl. Available in different colors.
 categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192491854370

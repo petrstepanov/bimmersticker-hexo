@@ -81,13 +81,13 @@
 				<button type="button" class="btn btn-blueberry btn-sm btn-primary active strong mr-sm-1" data-query="all">All</button>
 				<% var filterQueries = []; %>
 				<% site.categories.findOne({name: 'Series and Generations'}).posts.each(function(post, i){ %>
-				<% if (post.data_groups && filterQueries.indexOf(post.data_groups) == -1){ %>
-				<% filterQueries.push(post.data_groups); %>
-				<% } %>
-				<% filterQueries.sort(); %>
+					<% if (post.data_groups && filterQueries.indexOf(post.data_groups) == -1){ %>
+						<% filterQueries.push(post.data_groups); %>
+					<% } %>
 				<% }); %>
+				<% filterQueries.sort(); %>
 				<% filterQueries.forEach(function(query, index){ %>
-				<button type="button" class="btn btn-blueberry btn-sm btn-link strong px-1 px-sm-2 mr-sm-1" data-query="<%- query %>"><%- query %></button>
+					<button type="button" class="btn btn-blueberry btn-sm btn-link strong px-1 px-sm-2 mr-sm-1" data-query="<%- query %>"><%- query %></button>
 				<% }); %>
 			</div>
 		</div>
