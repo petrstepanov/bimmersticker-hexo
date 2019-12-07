@@ -483,6 +483,17 @@
   weight: "0.06 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "Glossy White|Silver[+2.00]|Gold[+2.00]|Oil Slick[+2.00]"
+- id:	ST_BMW_E53
+  title: "BMW e53 sticker"
+  description: "Sticker for BMW x5 e53. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
+  product_type: Stickers > Generations
+  link: https://bimmersticker.store/e46-sticker/
+  image_link: https://bimmersticker.store/e53-sticker/bmw-e53-window-sticker-square.jpg
+  price: "5.99 USD"
+  size: "6.5x3.5 in"
+  weight: "0.06 lbs"
+  material: "Oracal, Cricut and TeckWrap vinyls"
+  color: "Glossy White|Silver[+2.00]|Gold[+2.00]|Oil Slick[+2.00]"  
 - id:	ST_BMW_E60
   title: "BMW e60 sticker"
   description: "Sticker for BMW e60. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
