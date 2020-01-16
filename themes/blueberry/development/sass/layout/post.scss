@@ -12,9 +12,9 @@
 }
 
 .sidebar-sticky {
-  @include media-breakpoint-up(sm) {
-    padding-bottom: 6em;
-  }
+  // @include media-breakpoint-up(sm) {
+  //   padding-bottom: 6em;
+  // }
 
   @include media-breakpoint-up(lg) {
     padding-bottom: 7em;
