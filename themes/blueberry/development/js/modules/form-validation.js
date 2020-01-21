@@ -5,39 +5,48 @@ var $ = require('jquery');
 var helpers = require('./helpers');
 
 var DOM = {};
+
+function _cacheDom(elements) {
+  DOM.els = $.makeArray(elements);
+}
 // var options = {};
 var invalidClassName = 'invalid';
 
-function _cacheDom(element) {
-  DOM.$el = $(element);
+function _bindEvents(elements){
+  elements.forEach(function (element) {
+    // Add a css class on submit when the input is invalid.
+    element.addEventListener('invalid', function () {
+      element.classList.add(invalidClassName);
+      // If element is first in the :invalid list then scroll to top
+      var currentElIndex = DOM.els.indexOf(element);
+      isInvalid = function (element) {
+        return $(element).is(':invalid');
+      };
+      var firstInvalidElIndex = DOM.els.findIndex(isInvalid);
+      if (currentElIndex == firstInvalidElIndex){
+        if (!helpers.isInViewport($(element))) {
+          $('html, body').animate({
+            scrollTop: $(element).offset().top - 150
+          }, 500);
+        }
+      }
+    });
+
+    // Remove the class when the input becomes valid.
+    // 'input' will fire each time the user types
+    element.addEventListener('input', function () {
+      if (element.validity.valid) {
+        element.classList.remove(invalidClassName);
+      }
+    });
+  });
 }
 
-function _bindEvents() {
-  // Add a css class on submit when the input is invalid.
-  DOM.$el[0].addEventListener('invalid', function () {
-    DOM.$el[0].classList.add(invalidClassName);
-    // Scroll into view if not in view
-    if (!helpers.isInViewport(DOM.$el)) {
-      $('html, body').animate({
-        scrollTop: DOM.$el.offset().top - 200
-      }, 500);
-    }
-  });
-
-  // Remove the class when the input becomes valid.
-  // 'input' will fire each time the user types
-  DOM.$el[0].addEventListener('input', function () {
-    if (DOM.$el[0].validity.valid) {
-      DOM.$el[0].classList.remove(invalidClassName);
-    }
-  });
-}
-
-function init(element) {
-  if (element) {
+function init(elements) {
+  if (elements) {
     // options = $.extend(options, element.dataset);
-    _cacheDom(element);
-    _bindEvents();
+    _cacheDom(elements);
+    _bindEvents(elements);
   }
 }
 

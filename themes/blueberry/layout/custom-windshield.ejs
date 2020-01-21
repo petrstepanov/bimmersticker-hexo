@@ -33,8 +33,11 @@
 								<%= site.data.products[product].title %>
 								<strong>$<%= site.data.products[product].price %>+</strong>
 							</p>
-							<p class="text-xs-left text-sm-center">
+							<p class="text-xs-left text-sm-center mb-0">
 								<small class="text-muted"><%= site.data.products[product].description %></small>
+							</p>
+							<p class="text-xs-left text-sm-center">
+								<small class="text-muted"><%= site.data.products[product].size %></small>
 							</p>
 						</div>
 					</label>
@@ -161,20 +164,20 @@
 				<div class="col-12 col-md-10 col-lg-8">
 					<div class="form-group">
 						<label class="label-blueberry" for="inputQuantity">How many items you need?</label>
-						<div class="input-group js--init-">
+						<div class="input-group js--init-integer-input">
 							<div class="input-group-prepend">
-								<button class="btn btn-outline-primary btn-blueberry" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
+								<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
 							</div>
-							<input name="quantity" type="number" class="form-control text-center hide-arrows" id="inputQuantity" value="1" min="1" max="999">
+							<input name="quantity" type="number" class="form-control js--input text-center hide-arrows" id="inputQuantity" value="1" min="1" max="999">
 							<div class="input-group-append">
-								<button class="btn btn-outline-primary btn-blueberry" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
+								<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
 							</div>
 						</div>					
 						<small id="emailHelp" class="form-text text-muted">We offer 15% off for orders with 10+ items</small>
 					</div>			
 				</div>
 				<div class="col-12 col-md-8 text-center text-md-left">
-					<p class="my-2"><strong>You won’t get billed right away</strong>. We will follow up and email you the PayPal invoice as soon as possible.</p>
+					<p class="my-2 my-md-3"><strong>You won’t get billed right away</strong>. We will follow up and email you the PayPal invoice as soon as possible.</p>
 				</div>
 				<div class="col-12 col-md-4 text-center text-md-right">
 					<button type="submit" class="my-2 btn btn-lg btn-blueberry btn-primary rounded-pill">Place Order</button>

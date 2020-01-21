@@ -7786,7 +7786,7 @@ a {
   .form-control::placeholder {
     color: #97aabf; }
   .form-control.invalid {
-    box-shadow: 0 2px 4px 0 rgba(241, 26, 34, 0.2), 0 0 0 1px #f11a22; }
+    border-color: #f11a22; }
 
 .select-blueberry {
   -webkit-appearance: none;
