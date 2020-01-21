@@ -1,12 +1,22 @@
 .btn-blueberry {
   font-family: $font-bold;
   border-radius: 50rem;
-  
+  box-shadow: 0 2px 4px 0 rgba($blue, 0.2);  
   // font-size: $font-size-12;
   // text-transform: uppercase;
   // letter-spacing: 1px;
 
   &.btn-sm {
     padding: 0.25rem 0.7rem;
+  }
+}
+
+.btn-outline-primary.btn-blueberry {
+  // border: 0px;
+  background-color: white;
+  // box-shadow: 0 2px 4px 0 rgba(0, 158, 230, 0.2), 0 0 0 1px $blue, inset 0 0 0 1px $blue;
+
+  &:hover {
+    background-color: $blue;    
   }
 }
