@@ -2,13 +2,13 @@ banner:
   image: product-type-banner.jpg
   title: "Windshield Banner"
   price: 25.99
-  description: "Place it on top or bottom of windshield."
+  description: "Place it on top or bottom."
   size: "Size is about 30×6 in."
 sunstrip:
   image: product-type-sunstrip.jpg
   title: "Plain Sun Strip"
   price: 19.99
-  description: "Cut it to shape the windshield."
+  description: "Cut it to fit the windshield."
   size: "Size is 60×9 in."
 cutsunstrip:
   image: product-type-cut-sunstrip.jpg

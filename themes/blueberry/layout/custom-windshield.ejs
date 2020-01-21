@@ -29,15 +29,12 @@
 							</div>
 						</div>
 						<div class="col-8 col-sm-12">
-							<p class="mt-3 mb-0 text-xs-left text-sm-center">
+							<p class="mt-3 text-xs-left text-sm-center">
 								<%= site.data.products[product].title %>
 								<strong>$<%= site.data.products[product].price %>+</strong>
 							</p>
-							<p class="text-xs-left text-sm-center mb-0">
-								<small class="text-muted"><%= site.data.products[product].description %></small>
-							</p>
-							<p class="text-xs-left text-sm-center">
-								<small class="text-muted"><%= site.data.products[product].size %></small>
+							<p class="text-xs-left text-sm-center line-height-13">
+								<small class="text-muted"><%= site.data.products[product].description %> <%= site.data.products[product].size %></small>
 							</p>
 						</div>
 					</label>
