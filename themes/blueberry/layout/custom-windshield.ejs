@@ -95,7 +95,7 @@
 					<% i=0; %>
 					<% for (var color in site.data.colors_strip){ %>
 					<label class="label-custom d-flex flex-column align-items-center px-2 mx-1">
-						<input class="invisible flex-shrink-0" type="radio" name="color_base" value="<%= color %>"
+						<input class="invisible flex-shrink-0" disabled type="radio" name="color_base" value="<%= color %>"
 							<%= i++ == 0 ? 'checked' : ''; %> />
 						<div class="input-image">
 							<% var style = site.data.colors_text[color].hex ? 'background-color: ' + site.data.colors_text[color].hex + ';': ''; %>

@@ -32,6 +32,7 @@ function _bindEvents(element) {
     DOM.$radioProduct.change(function () {
         _showHideFormContainers(this.value);
         _showHidePreviewElements(this.value);
+        _enableDisableRadioButtons(this.value);
     });
 
     DOM.$radioTextColor.change(function () {
@@ -122,6 +123,27 @@ function _showHidePreviewElements(product) {
             DOM.$sunstripText.show();
             var color = _getSelectedSwatch('color_text').css('background-color');
             DOM.$sunstripText.css('background-color', color);
+            break;
+    }
+}
+
+function _enableDisableRadioButtons(product) {
+    switch (product) {
+        case 'banner':
+            DOM.$radioTextColor.prop("disabled", false);
+            DOM.$radioBaseColor.prop("disabled", true);
+            break;
+        case 'sunstrip':
+            DOM.$radioTextColor.prop("disabled", true);
+            DOM.$radioBaseColor.prop("disabled", false);
+            break;
+        case 'cutsunstrip':
+            DOM.$radioTextColor.prop("disabled", false);
+            DOM.$radioBaseColor.prop("disabled", false);
+            break;
+        case 'textsunstrip':
+            DOM.$radioTextColor.prop("disabled", false);
+            DOM.$radioBaseColor.prop("disabled", false);
             break;
     }
 }
