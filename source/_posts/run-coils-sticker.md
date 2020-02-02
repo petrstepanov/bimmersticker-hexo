@@ -4,7 +4,7 @@ date: 2018-09-25 17:11:56
 tags:
 - car
 - sticker
-description: Buy 'RUN COILS' car window sticker. Made of ORACAL 651 glossy vinyls. Visually designed to look like RUN DMC logo.
+description: Buy "RUN COILS" car window sticker. Made of ORACAL 651 glossy vinyls. Visually designed to look like RUN DMC logo.
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/192856957703

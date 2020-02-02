@@ -109,6 +109,28 @@
   weight: "0.06 lbs"
   material: "Oracal 651 vinyl"
   color: "White and black"
+- id:	ST_CAR_BABEONBOARD
+  title: "Babe on Board sticker"
+  description: "Babe on Board is a must-have sticker for cars or trucks with ladies on board."
+  product_type: Stickers > Cars
+  link: https://bimmersticker.store/babe-on-board-sticker/
+  image_link: https://bimmersticker.store/babe-on-board-sticker/babe-on-board-sticker.jpg
+  price: "9.99 USD"
+  size: "4x3.5 in"
+  weight: "0.06 lbs"
+  material: "Oracal 651 vinyl"
+  color: "Black and yellow"
+- id:	ST_CAR_STAYTUNED
+  title: "Stay Tuned sticker"
+  description: "Stay Tuned sticker for modified cars and trucks. Sticker has a neat lettering themed with different car parts icons."
+  product_type: Stickers > Cars
+  link: https://bimmersticker.store/stay-tuned-sticker/
+  image_link: https://bimmersticker.store/stay-tuned-sticker/stay-tuned-car-truck-sticker-white.jpg
+  price: "9.99 USD"
+  size: "4x3.5 in"
+  weight: "0.06 lbs"
+  material: "Oracal 651 vinyl"
+  color: "Black and yellow"  
 - id:	ST_CAR_RUNCOILS
   title: "Run Coils sticker"
   description: "Sticker for modified cars that run on coilovers. Because bags are for groceries. Great sticker for any stanced lowered car."

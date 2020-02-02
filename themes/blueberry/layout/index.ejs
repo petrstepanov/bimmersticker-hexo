@@ -47,14 +47,14 @@
 	</div>
 </section>
 <section class="pt-2 pt-mb-4 pt-lg-4 pb-4">
+	<!-- Featured stickers -->
+	<%- partial('partial/heading', {title: 'Stickers for cars and trucks', subtitle: 'Stickers come in a variety of colors. New designs are often in progress! Check our Stories on <a rel="me" target="_blank" href="https://www.instagram.com/bimmersticker.store/">Instagram</a> and subscribe for updates.', name: 'featured'}) %>
+	<%- partial('partial/category-posts-list', {categoryName: 'Featured'}) %>
+</section>
+<section class="pb-4">
 	<!-- Bimmers only -->
 	<%- partial('partial/heading', {title: 'For bimmers only', subtitle: 'Stickers designed exclusively for BMW cars. Have a cool idea for a custom sticker? <a href="#contact">Contact us</a> and we will get back to you the same day.', name: 'bmw-special'}) %>
 	<%- partial('partial/category-posts-list', {categoryName: 'Bmw Special'}) %>
-</section>
-<section class="pb-4">
-	<!-- Featured stickers -->
-	<%- partial('partial/heading', {title: 'For other car makes', subtitle: 'Stickers come in a variety of colors. New designs are often in progress! Check our Stories on <a rel="me" target="_blank" href="https://www.instagram.com/bimmersticker.store/">Instagram</a> and subscribe for updates.', name: 'featured'}) %>
-	<%- partial('partial/category-posts-list', {categoryName: 'Featured'}) %>
 </section>
 <section class="pb-4">
 	<!-- Social stickers -->

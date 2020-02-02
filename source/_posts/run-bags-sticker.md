@@ -4,7 +4,7 @@ date: 2018-09-25 22:50:51
 tags:
 - car
 - sticker
-description: Buy 'RUN BAGS' window sticker for cars with air suspension. Visually designed to look like RUN DMC logo.
+description: Buy "RUN BAGS" window sticker for cars with air suspension. Visually designed to look like RUN DMC logo.
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/192856965237
