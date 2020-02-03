@@ -138,7 +138,7 @@ function _enableDisableRadioButtons(product) {
             DOM.$radioBaseColor.prop("disabled", false);
             break;
         case 'cutsunstrip':
-            DOM.$radioTextColor.prop("disabled", false);
+            DOM.$radioTextColor.prop("disabled", true);
             DOM.$radioBaseColor.prop("disabled", false);
             break;
         case 'textsunstrip':
