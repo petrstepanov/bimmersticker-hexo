@@ -13,7 +13,7 @@ var swatches = require('./modules/swatches');
 var postsFilter = require('./modules/posts-filter');
 var mailchimpDialog = require('./modules/mailchimp-dialog');
 var formValidation = require('./modules/form-validation');
-var formAjaxSubmit = require('./modules/form-ajax-submit');
+var FormAjaxSubmit = require('./modules/form-ajax-submit');
 var IntegerInput = require('./modules/integer-input');
 
 $(document).ready(function(){
@@ -37,7 +37,7 @@ $(document).ready(function(){
   });
 
   $('.js--init-ajax-submit').each(function(){
-    // var formAjaxSubmit = new FormAjaxSubmit();
+    var formAjaxSubmit = new FormAjaxSubmit();
     formAjaxSubmit.init(this);
   });
 
