@@ -66,6 +66,10 @@ var FormAjaxSubmit = function(){
       _bindEvents();
     }
   }
+
+  return {
+    init: init
+  };  
 };
 
 module.exports = FormAjaxSubmit;

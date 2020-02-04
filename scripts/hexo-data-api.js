@@ -91,6 +91,11 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
         if (typeof element.pattern == 'undefined') element.pattern = "";
     });
 
+    // Add empty 'additional_image_link' field if missing
+    feedArray.forEach(element => {
+        if (typeof element.additional_image_link == 'undefined') element.additional_image_link = "";
+    });    
+
     // If has variations - set item_group_id
     feedArray.forEach(element => {
         element.item_group_id = '';
