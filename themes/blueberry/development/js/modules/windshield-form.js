@@ -95,7 +95,7 @@ function _renderSuccessTemplate(){
     DOM.$el.html(rendered);
     // Scroll to top
     $('html, body').animate({
-        scrollTop: offset
+        scrollTop: 0
     }, 250);
 }
 
