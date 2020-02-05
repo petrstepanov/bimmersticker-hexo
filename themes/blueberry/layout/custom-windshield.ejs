@@ -62,7 +62,7 @@
 								<span class="input-radio flex-shrink-0 mr-3"></span>
 								<div class="flex-grow-1">
 									<% var dataSrc = site.data.fonts[font].url; %>
-									<% dataSrc = url.replace('https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/', '/font/'); %>
+									<% dataSrc = dataSrc.replace('https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/', '/font/'); %>
 									<% // var src = encodeURI(url + query); %>
 									<% var src = '/img/banner-previews/your-banner-' + font + '.png'; %>
 									<img data-src="<%- dataSrc %>" class="mt-3 font-image js--font-image" src="<%- src %>" />
