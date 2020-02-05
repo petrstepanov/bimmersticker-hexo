@@ -11,6 +11,7 @@
 
   &.invalid {
     border-color: $red;
+    box-shadow: 0 2px 4px 0 rgba($red, 0.2);
   }
 }
 

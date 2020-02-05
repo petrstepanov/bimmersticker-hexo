@@ -1,14 +1,20 @@
 // Custom banner and sun strip form interactions
 
 var $ = require('jquery');
+var helpers = require('./helpers');
+var Mustache = require('mustache');
 
 var DOM = {};
 // var options = {};
 var query = '?s={"size":72,"text":"#","retina":false}';
 var timeoutUpdateImages;
+var timestamp = Math.floor(Date.now() / 1000);
 
 function _cacheDom(element) {
     DOM.$el = $(element);
+    DOM.$container = DOM.$el.find('.js--container');
+    DOM.$form = DOM.$el.find('.js--windshield-form');
+    DOM.$orderId = DOM.$el.find('input[name=order_id]');
     DOM.$radioProduct = DOM.$el.find('input[name=product]');
     DOM.$radioTextColor = DOM.$el.find('input[name=color_text]');
     DOM.$radioBaseColor = DOM.$el.find('input[name=color_base]');
@@ -56,9 +62,34 @@ function _bindEvents(element) {
         }, 1500);
     });
 
+    DOM.$form.submit(function(event) {
+        event.preventDefault();
+        var $form = $(this);
+        $.post($form.attr("action"), $form.serialize()).then(function() {    
+            _renderSuccessTemplate();
+        });
+    });
+      
+    DOM.$el.find('.js-test').click(function(event){
+        _renderSuccessTemplate();
+    });
     // $(window).resize(function() {
     //     _adjustCarContainerHeight();
     // });
+
+    // Template events
+    $('body').on('click', '.js-print-order', function(event) {
+        event.preventDefault();
+        $('#collapseOrder').collapse('show');
+        window.print();
+    });
+}
+
+function _renderSuccessTemplate(){
+        var json = helpers.objectifyForm(DOM.$form.serializeArray());
+        var template = $('#success-template').html();
+        var rendered = Mustache.render(template, json);
+        DOM.$el.html(rendered);
 }
 
 function _getBannerText() {
@@ -191,6 +222,7 @@ function _updateSunstripBaseColor() {
 
 function _render(options) {
     _showHideFormContainers(DOM.$radioProduct.val());
+    DOM.$orderId.val("#BMDW" + timestamp);
     // _adjustCarContainerHeight();
 }
 

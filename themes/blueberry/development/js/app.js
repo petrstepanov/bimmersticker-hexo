@@ -19,7 +19,7 @@ var IntegerInput = require('./modules/integer-input');
 $(document).ready(function(){
   navbarFixer.init(document.querySelector('.js--init-navbar-fixer'));
   smoothScroll.init();
-  windshieldForm.init(document.querySelector('.js--init-windshield-form'));
+  windshieldForm.init(document.querySelector('.js--init-windshield-container'));
   snipcartForm.init(document.querySelector('.js--init-snipcart-form'));
   contentBuyButton.init(document.querySelector('.js--init-content-buy-button'));
   navbarBuyButton.init(document.querySelector('.js--init-navbar-buy-button'));

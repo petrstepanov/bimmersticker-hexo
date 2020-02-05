@@ -29,6 +29,15 @@ function offset(el) {
   return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
 }
 
+function objectifyForm(formArray) {//serialize data function
+  var returnArray = {};
+  for (var i = 0; i < formArray.length; i++){
+    returnArray[formArray[i]['name']] = formArray[i]['value'];
+  }
+  return returnArray;
+}
+
 exports.isInViewport = isInViewport;
 exports.getViewportSize = getViewportSize;
 exports.offset = offset;
+exports.objectifyForm = objectifyForm;
