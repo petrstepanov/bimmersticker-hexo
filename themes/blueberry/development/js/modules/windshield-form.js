@@ -86,10 +86,17 @@ function _bindEvents(element) {
 }
 
 function _renderSuccessTemplate(){
-        var json = helpers.objectifyForm(DOM.$form.serializeArray());
-        var template = $('#success-template').html();
-        var rendered = Mustache.render(template, json);
-        DOM.$el.html(rendered);
+    // Create JSON from form fields
+    var json = helpers.objectifyForm(DOM.$form.serializeArray());
+    // Populate success template with JSON
+    var template = $('#success-template').html();
+    var rendered = Mustache.render(template, json);
+    // Display success template
+    DOM.$el.html(rendered);
+    // Scroll to top
+    $('html, body').animate({
+        scrollTop: offset
+    }, 250);
 }
 
 function _getBannerText() {
