@@ -52,16 +52,17 @@
 				</div>
 				<div class="row align-items-center">
 					<% i = 0; %>
-					<% var query = '?s={"size":72,"text":"Your Banner","retina":false}'; %>
+					<% // var query = '?s={"size":72,"text":"Your Banner","retina":false}'; %>
 					<% for (var font in site.data.fonts){ %>
 					<div class="col-12 col-lg-6">
 						<label class="label-custom d-flex align-items-center">
 							<input class="invisible" type="radio" name="font" value="<%= font %>" <%= i++ == 0 ? 'checked' : ''; %> />
 							<span class="input-radio flex-shrink-0 mr-3"></span>
 							<div class="flex-grow-1">
-								<% var url = site.data.fonts[font].url; %>
-								<% url = url.replace('https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/', '/font/'); %>
-								<% var src = encodeURI(url + query); %>
+								<% // var url = site.data.fonts[font].url; %>
+								<% // url = url.replace('https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/', '/font/'); %>
+								<% // var src = encodeURI(url + query); %>
+								<% var src = '/img/banner-previews/your-banner-' + font + '.png'; %>
 								<img data-src="<%- url %>" class="mt-3 font-image js--font-image" src="<%- src %>" />
 								<p class="mt-2 mb-0"><%- site.data.fonts[font].name %></p>
 							</div>
