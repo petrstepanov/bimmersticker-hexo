@@ -111,21 +111,25 @@ function _getBannerText() {
 function _showHideFormContainers(product) {
     switch (product) {
         case 'banner':
+            DOM.$input.prop("disabled", false);
             DOM.$fontContainer.slideDown();
             DOM.$textColorContainer.slideDown();
             DOM.$baseColorContainer.slideUp();
             break;
         case 'sunstrip':
+            DOM.$input.prop("disabled", true);
             DOM.$fontContainer.slideUp();
             DOM.$textColorContainer.slideUp();
             DOM.$baseColorContainer.slideDown();
             break;
         case 'cutsunstrip':
+            DOM.$input.prop("disabled", false);
             DOM.$fontContainer.slideDown();
             DOM.$textColorContainer.slideUp();
             DOM.$baseColorContainer.slideDown();
             break;
         case 'textsunstrip':
+            DOM.$input.prop("disabled", false);
             DOM.$fontContainer.slideDown();
             DOM.$textColorContainer.slideDown();
             DOM.$baseColorContainer.slideDown();
