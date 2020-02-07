@@ -62,12 +62,24 @@
   color: "White|Silver[+2.00]|Gold[+2.00]|Oil Slick[+2.00]"
   customization_name: "Enter year"
   customization_placeholder: "2020"
+- id:	ST_BMW_ONELOVE
+  title: "One Love BMW sticker"
+  description: "A neat sticker with nice lettering made for all BMW fans and enthusiasts. Made of twoo layered premium vinyl sheets. Available in red and blue."
+  product_type: Stickers > BMW
+  link: https://bimmersticker.store/one-love-bmw-sticker/
+  image_link: https://bimmersticker.store/one-love-bmw-sticker/one-love-bmw-sticker-3series-5series-x3-x5-x6-blue.jpg
+  additional_image_link: https://bimmersticker.store/one-love-bmw-sticker/one-love-bmw-sticker-3series-5series-x3-x5-x6-red.jpg
+  price: "9.99 USD"
+  size: "4x3 in"
+  weight: "0.06 lbs"
+  material: "Oracal 651 vinyl"
+  color: "Blue|Red"
 - id:	ST_BMW_GIRLS
   title: "Bmw Girls Make It Better sticker"
   description: "Sticker designed for girls that drive bmw cars or maybe just like them. Made of three premium vinyl sheets. Pink, balck and white."
   product_type: Stickers > BMW
-  link: "https://bimmersticker.store/bmw-girls-sticker/"
-  image_link: "https://bimmersticker.store/bmw-girls-sticker/sticker-bmw-girls-make-it-better-square.jpg"
+  link: https://bimmersticker.store/bmw-girls-sticker/
+  image_link: https://bimmersticker.store/bmw-girls-sticker/sticker-bmw-girls-make-it-better-square.jpg
   price: "9.99 USD"
   size: "4x3 in"
   weight: "0.06 lbs"
@@ -131,7 +143,7 @@
   size: "4x3.5 in"
   weight: "0.06 lbs"
   material: "Oracal 651 vinyl"
-  color: "Black and yellow"  
+  color: "White|Oil Slick"
 - id:	ST_CAR_RUNCOILS
   title: "Run Coils sticker"
   description: "Sticker for modified cars that run on coilovers. Because bags are for groceries. Great sticker for any stanced lowered car."

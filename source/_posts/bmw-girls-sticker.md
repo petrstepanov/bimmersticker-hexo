@@ -4,6 +4,7 @@ date: 2018-09-26 04:19:56
 tags:
 - bmw
 - girls
+- love
 - sticker
 description: Buy 'BMW girls make it better' sticker. Designed for girls that drive bmw cars or just like them. Made of three premium outdoor vinyls. Pink, balck and white colors.
 categories:
