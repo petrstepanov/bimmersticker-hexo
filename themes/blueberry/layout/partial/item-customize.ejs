@@ -1,22 +1,35 @@
-<section>
-  <h2 id="contact">Customize it!</h2>
-
-  <p>Want custom stuff? Your car squad logo for friends or a window sticker for your significant other’s car?</p>
-
-  <form class="js--init-ajax-submit" action="<%- theme.formcarry_url %>" method="POST" accept-charset="UTF-8" data-success-notification="Success! We'll get back to you soon!">
-    <input type="hidden" name="title" value="<%- post.title %>" id="input-page" />
-    <div class="form-group">
-      <label for="input-email" class="d-none">A good email to reach you out</label>
-      <input type="email" name="email" class="form-control" id="input-email" placeholder="A good email to reach you out">
-    </div>
-    <div class="form-group mt-2">
-      <label for="input-message" class="d-none">Let us know what's up</label>
-      <textarea name="message" class="form-control js--init-autosize" rows="2" id="input-message" placeholder="Let us know what's up"></textarea>
-      <p class="form-text text-muted mt-2">
-        <small>We accept orders for matte, holographic, gold and silver stickers. It might take us some extra time to order a specific roll of vinyl.</small>
-      </p>
-    </div>
-    <button type="submit" class="btn btn-blueberry btn-outline-primary">Send message</button>
-    <% if (theme.instagram_url){ %><a href="<%- theme.instagram_url %>" class="btn btn-link d-inline d-sm-none" rel="me">or text us on Instagram</a><% } %>
-  </form>
-</section>
+<div class="modal fade js--init-form-inside-dialog" id="customizeModal" tabindex="-1" role="dialog" aria-labelledby="customizeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-blueberry" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title font-size-28" id="exampleModalLabel">Customization request</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<!-- Begin Custom Request Form -->
+      <form class="js--init-ajax-submit" data-success-event="formSuccessEvent" action="<%- theme.formcarry_url %>" method="POST" accept-charset="UTF-8" data-success-notification="Thanks for submitting the request. We will email you back soon!">
+        <div class="modal-body">
+          <label for="input-page" class="d-none">Source page</label>
+          <input type="hidden" name="page" value="<%- post.title %>" id="input-page" />
+          <div class="form-group">
+            <label class="label-blueberry" for="input-email">An email to reach you out</label>
+            <input type="email" required name="email" class="form-control" id="input-email">
+            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label class="label-blueberry" for="input-message">Let us know what's up</label>
+            <textarea required name="message" class="form-control js--init-autosize" rows="2" id="input-message" placeholder=""></textarea>
+            <p class="form-text text-muted mt-2">
+              <small>We have holographic, oil slick, gold and silver vinyls in stock. It might take us some extra time to order another color of your choice.</small>
+            </p>
+          </div>
+        </div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-blueberry btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-blueberry btn-primary">Send message</button>
+				</div>     
+      </form>
+		</div>
+	</div>
+</div>

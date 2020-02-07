@@ -10,7 +10,7 @@ function _cacheDom(element) {
 }
 
 function _bindEvents() {
-  events.on('mailchimpSuccessEvent', function (data) {
+  events.on('formSuccessEvent', function (data) {
     DOM.$dialog.modal('hide');
   });
 }

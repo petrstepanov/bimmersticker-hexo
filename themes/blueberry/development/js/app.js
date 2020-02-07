@@ -11,7 +11,7 @@ var navbarBuyButton = require('./modules/navbar-buy-button');
 var stickyContainer = require('./modules/sticky-container');
 var swatches = require('./modules/swatches');
 var postsFilter = require('./modules/posts-filter');
-var mailchimpDialog = require('./modules/mailchimp-dialog');
+var formInsideDialog = require('./modules/form-inside-dialog');
 var formValidation = require('./modules/form-validation');
 var FormAjaxSubmit = require('./modules/form-ajax-submit');
 var IntegerInput = require('./modules/integer-input');
@@ -26,8 +26,7 @@ $(document).ready(function(){
   // stickyContainer.init(document.querySelector('.js--init-sticky-container'));
   swatches.init(document.querySelector('.js--init-swatches'));
   postsFilter.init(document.querySelector('.js--init-posts-filter'));
-  mailchimpDialog.init(document.querySelector('.js--init-mailchimp-dialog'));
-  mailchimpDialog.init(document.querySelector('.js--init-mailchimp-dialog'));
+  formInsideDialog.init(document.querySelector('.js--init-form-inside-dialog'));
   formValidation.init(document.querySelectorAll('form input, form select, form textarea'));
 
   $('.js--init-integer-input').each(function(){
