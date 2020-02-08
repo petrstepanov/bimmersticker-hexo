@@ -7,8 +7,7 @@ var notificationCenter = require('./notification-center');
 var FormAjaxSubmit = function(){
   var DOM = {};
   var options = {
-    dataType: 'json',
-    contentType: 'application/x-www-form-urlencoded; charset=UTF-8'
+    dataType: 'json' // default for FormCarry, Netlify, Mailchimp
   };
 
   function _cacheDom(element) {
@@ -22,41 +21,46 @@ var FormAjaxSubmit = function(){
       event.preventDefault();
 
       // Disable submit button
-      DOM.$submitButton.addClass("atom-submit-button loading");
+      DOM.$submitButton.addClass("loading");
       DOM.$submitButton.prop("disabled", true);
 
+      // All forms with cross-domain actions are posted via jsonp (FormCarry, Netlify, Mailchimp)
+      // Try success: callback?
       $.ajax({
-        url:      DOM.$form.attr('action'),
         type:     DOM.$form.attr('method'),
+        url:      DOM.$form.attr('action'),
         data:     DOM.$form.serialize(),
-        dataType: options.dataType,
-        success:  _onSuccess,
-        error:    _onError
+        dataType: options.dataType
+      }).done(function(data){
+        // Mailchimp responds with data.result = 'error' and data.msg="..."
+        // FormCarry responds with Object { code: 200, status: "success", title: "Thank You!", message: "We received your submission", referer: "http://localhost:4000/" }
+        var error = data.result == 'error' || data.status == 'error';
+        var message = data.msg || data.message;
+
+        if (error){
+          if (data.msg){
+            notificationCenter.notify('error', message);
+          }
+        }
+        else {
+          // data-success-notofication overrides success server message
+          if (options.successNotification){
+            notificationCenter.notify('success', options.successNotification);
+          } else if (message){
+            notificationCenter.notify('success', message);
+          }
+          // Throw event
+          if (options.successEvent){
+            events.emit(options.successEvent, data);
+          }
+          // Reset form fields
+          DOM.$form.trigger('reset');          
+        }
+        // Enable submit button
+        DOM.$submitButton.prop("disabled", false);
+        DOM.$submitButton.removeClass("loading");
       });
     });
-  }
-
-  function _onSuccess(data){
-    // If no redirect just show notification
-    if (options.successNotification){
-      notificationCenter.notify('success', options.successNotification);
-    }
-    // Run callback
-    if (options.successEvent){
-      events.emit(options.successEvent, data);
-    }
-    // Enable submit button
-    DOM.$submitButton.prop("disabled", false);
-    DOM.$submitButton.removeClass("loading");
-    // Reset form fields
-    DOM.$form.trigger('reset');
-  }
-
-  function _onError(xhr, error) {
-      notificationCenter.notify('error', error.toString());
-      // Enable submit button
-      DOM.$submitButton.prop("disabled", false);
-      DOM.$submitButton.removeClass("loading");
   }
 
   function init(element){

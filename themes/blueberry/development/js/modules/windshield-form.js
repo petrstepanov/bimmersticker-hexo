@@ -3,6 +3,7 @@
 var $ = require('jquery');
 var helpers = require('./helpers');
 var Mustache = require('mustache');
+var events = require('./events');
 
 var DOM = {};
 // var options = {};
@@ -14,6 +15,7 @@ function _cacheDom(element) {
     DOM.$el = $(element);
     DOM.$container = DOM.$el.find('.js--container');
     DOM.$form = DOM.$el.find('.js--windshield-form');
+    DOM.$mailchimpForm = DOM.$el.find('.js--mailchimp-form');
     DOM.$orderId = DOM.$el.find('input[name=order_id]');
     DOM.$radioProduct = DOM.$el.find('input[name=product]');
     DOM.$radioTextColor = DOM.$el.find('input[name=color_text]');
@@ -65,8 +67,24 @@ function _bindEvents(element) {
     DOM.$form.submit(function(event) {
         event.preventDefault();
         var $form = $(this);
-        $.post($form.attr("action"), $form.serialize()).then(function() {    
-            _renderSuccessTemplate();
+
+        // First populate and submit Mailchimp form
+        DOM.$mailchimpForm.find('.field-email').val(DOM.$form.find('input[name=email]').val());
+        var firstLastName = DOM.$form.find('input[name=name]').val();
+        var obj = helpers.parseFirstLastName(firstLastName);
+        DOM.$mailchimpForm.find('.field-firstname').val(obj.firstName);
+        DOM.$mailchimpForm.find('.field-lastname').val(obj.lastName);
+
+        $.ajax({
+            type:     DOM.$mailchimpForm.attr('method'),
+            url:      DOM.$mailchimpForm.attr('action'),
+            data:     DOM.$mailchimpForm.serialize(),
+            dataType: 'json'
+        }).done(function(data){
+            // silent subscribe - we don't care about success notification here
+            $.post($form.attr("action"), $form.serialize()).then(function() {    
+                _renderSuccessTemplate();
+            });
         });
     });
       

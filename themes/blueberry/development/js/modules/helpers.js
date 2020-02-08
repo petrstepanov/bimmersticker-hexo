@@ -37,7 +37,22 @@ function objectifyForm(formArray) {//serialize data function
   return returnArray;
 }
 
+function parseFirstLastName(string){
+  var obj = {
+    firstName: string,
+    lastName: ""
+  };
+
+  var array = string.match(/(\S*)\s*(.*)/);
+  if (array && array.length == 3){
+    obj.firstName = array[1];
+    obj.lastName = array[2];
+  }
+  return obj;
+}
+
 exports.isInViewport = isInViewport;
 exports.getViewportSize = getViewportSize;
 exports.offset = offset;
 exports.objectifyForm = objectifyForm;
+exports.parseFirstLastName = parseFirstLastName;

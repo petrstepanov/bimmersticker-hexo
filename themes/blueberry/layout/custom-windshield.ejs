@@ -182,6 +182,12 @@
 					</div>
 				</div class="col-8">
 			</form>
+			<form class="js--mailchimp-form" action="<%- config.mailchimp.url %>" method="<%- config.mailchimp.method %>">
+				<input type="hidden" class="field-email" name="<%- config.mailchimp.email_name %>" value="" />
+				<input type="hidden" class="field-firstname" name="<%- config.mailchimp.firstname_name %>" value="" />
+				<input type="hidden" class="field-lastname" name="<%- config.mailchimp.lastname_name %>" value="" />
+				<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="hidden" name="<%- config.mailchimp.secret_name %>" tabindex="-1" value="" /></div>
+			</form>
 		</div>
 	</div>
 </div>

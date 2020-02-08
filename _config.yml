@@ -110,3 +110,15 @@ netlify_redirects_path:
 
 facebook_chat: true
 snipcart: false
+
+# Mailchimp. Undocumented AJAX form subcsribe 
+# https://stackoverflow.com/questions/21526408/mailchimp-subscribe-using-jquery-ajax
+# https://stackoverflow.com/questions/8425701/ajax-mailchimp-signup-form-integration
+
+mailchimp: 
+  url: https://store.us7.list-manage.com/subscribe/post-json?u=f9e4fe98566399134546c9006&amp;id=e3386efb18&c=?
+  method: GET
+  email_name: EMAIL
+  firstname_name: FNAME
+  lastname_name: LNAME
+  secret_name: b_f9e4fe98566399134546c9006_e3386efb18
