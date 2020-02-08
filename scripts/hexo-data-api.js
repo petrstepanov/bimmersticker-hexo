@@ -77,11 +77,14 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
         feedArray = jsYaml.load(feedFileData);
     } // else if add JSON too ?
 
-    // Remove all customization fields
+    // Remove all customization fields and paypal_hidden
     feedArray.forEach(element => {
         _.forOwn(element, function(value, key) {
-            if (!key.includes('customization')){
-                delete element.key;
+            if (key.includes('customization')){
+                delete element[key];
+            }
+            if (key.includes('paypal')){
+                delete element[key];
             }
         });
     });
