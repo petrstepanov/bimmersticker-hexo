@@ -68,20 +68,21 @@ function _bindEvents(element) {
         event.preventDefault();
         var $form = $(this);
 
-        // First populate and submit Mailchimp form
+        // Populate Mailchimp form
         DOM.$mailchimpForm.find('.field-email').val(DOM.$form.find('input[name=email]').val());
         var firstLastName = DOM.$form.find('input[name=name]').val();
         var obj = helpers.parseFirstLastName(firstLastName);
         DOM.$mailchimpForm.find('.field-firstname').val(obj.firstName);
         DOM.$mailchimpForm.find('.field-lastname').val(obj.lastName);
 
+        // Submit Mailchimp form - subscribe user
         $.ajax({
             type:     DOM.$mailchimpForm.attr('method'),
             url:      DOM.$mailchimpForm.attr('action'),
             data:     DOM.$mailchimpForm.serialize(),
             dataType: 'json'
         }).done(function(data){
-            // silent subscribe - we don't care about success notification here
+            // Submit order
             $.post($form.attr("action"), $form.serialize()).then(function() {    
                 _renderSuccessTemplate();
             });
@@ -107,6 +108,7 @@ function _renderSuccessTemplate(){
     // Create JSON from form fields
     var json = helpers.objectifyForm(DOM.$form.serializeArray());
     // Populate success template with JSON
+    nunjucks.configure({ autoescape: true });
     var template = $('#success-template').html();
     var rendered = nunjucks.renderString(template, json);
     // Display success template
