@@ -210,22 +210,28 @@
 							<th scope="row">Product:</th>
 							<td>{{product}}</td>
 						</tr>
-						<tr>
-							<th scope="row">Text:</th>
-							<td>{{text}}</td>
-						</tr>
-						<tr>
-							<th scope="row">Font:</th>
-							<td>{{font}}</td>
-						</tr>
-						<tr>
-							<th scope="row">Text color:</th>
-							<td>{{color_text}}</td>
-						</tr>
-						<tr>
-							<th scope="row">Base color:</th>
-							<td>{{color_base}}</td>
-						</tr>
+						{% if product !== 'sunstrip' %}						
+							<tr>
+								<th scope="row">Text:</th>
+								<td>{{text}}</td>
+							</tr>
+							<tr>
+								<th scope="row">Font:</th>
+								<td>{{font}}</td>
+							</tr>
+						{% endif %}
+						{% if product == 'banner' || product == 'textsunstrip' %}
+							<tr>
+								<th scope="row">Text color:</th>
+								<td>{{color_text}}</td>
+							</tr>
+						{% endif %}
+						{% if product !== 'banner' %}
+							<tr>
+								<th scope="row">Base color:</th>
+								<td>{{color_base}}</td>
+							</tr>
+						{% endif %}
 						<tr>
 							<th scope="row">Quantity:</th>
 							<td>{{quantity}}</td>

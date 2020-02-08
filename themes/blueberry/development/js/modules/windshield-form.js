@@ -2,7 +2,7 @@
 
 var $ = require('jquery');
 var helpers = require('./helpers');
-var Mustache = require('mustache');
+var nunjucks = require('nunjucks');
 var events = require('./events');
 
 var DOM = {};
@@ -108,7 +108,7 @@ function _renderSuccessTemplate(){
     var json = helpers.objectifyForm(DOM.$form.serializeArray());
     // Populate success template with JSON
     var template = $('#success-template').html();
-    var rendered = Mustache.render(template, json);
+    var rendered = nunjucks.renderString(template, json);
     // Display success template
     DOM.$el.html(rendered);
     // Scroll to top
