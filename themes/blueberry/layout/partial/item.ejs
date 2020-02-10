@@ -1,6 +1,8 @@
 <main class="orientation-container">
-  <% if(config.snipcart){ %>   
+  <% if(config.cart == "snipcart"){ %>   
     <%- partial('partial/item-sidebar') %>
+  <% } else if (config.cart == "paypal") { %>
+    <%- partial('partial/item-sidebar-paypal') %>
   <% } else { %>
     <%- partial('partial/item-sidebar-old') %>
   <% } %>

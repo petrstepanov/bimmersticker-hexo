@@ -13,7 +13,7 @@ sunstrip:
 cutsunstrip:
   image: product-type-cut-sunstrip.jpg
   title: "Cutout Sun Strip"
-  price: 29.99
+  price: 34.99
   description: "Text is cut out of the base layer."
   size: "Size is 60×11 in."
 textsunstrip:

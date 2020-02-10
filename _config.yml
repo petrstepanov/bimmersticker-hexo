@@ -109,7 +109,9 @@ netlify_redirects_path:
   dest: _redirects
 
 facebook_chat: true
-snipcart: false
+
+# Cart: paypal, snipcart, none
+cart: none
 
 # Mailchimp. Undocumented AJAX form subcsribe 
 # https://stackoverflow.com/questions/21526408/mailchimp-subscribe-using-jquery-ajax
