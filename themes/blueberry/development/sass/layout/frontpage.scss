@@ -2,13 +2,13 @@
   .section-intro-mobile-bg {
     // background-color: $blue; //transparentize($blue, 0.2);
     // background-image: url(/img/bmw-window-vinyl-sticker-decal-xs.jpg);
-    background-image: url(/img/bimmer-sticker-xs.jpg);
+    background-image: url(/img/bimmer-sticker-xs-new.jpg);
     background-size: cover;
     background-position: center 69%;
     // background-blend-mode: soft-light;
 
     @include media-breakpoint-up(md){
-      background-image: url(/img/bimmer-sticker-md.jpg);
+      background-image: url(/img/bimmer-sticker-md-new.jpg);
     }
 
     @include media-breakpoint-up(lg){
@@ -18,9 +18,8 @@
   }
 
   @include media-breakpoint-up(lg){
-    // background-image: url(/img/bmw-window-vinyl-sticker-decal-lg.jpg);
-    background-image: url(/img/bimmer-sticker-lg.jpg);
-    background-size: 130%;
+    background-image: url(/img/bmw-window-vinyl-sticker-decal-lg-new.jpg);
+    background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
 

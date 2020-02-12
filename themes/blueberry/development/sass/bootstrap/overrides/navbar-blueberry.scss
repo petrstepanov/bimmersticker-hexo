@@ -47,11 +47,21 @@ $nb-logo-size-biggest:  3.25rem;
     border-width: 0;
     padding-left: 0;
     padding-right: 0;
+
+
+    svg {
+      fill: $body-color;
+      transition: 250ms fill ease-out;
+    }
+
+    &:hover svg {
+      fill: $blue;
+    }    
   }
 
   .navbar-nav {
-    @include media-breakpoint-down(xs) {
-      padding-top: 0.5rem;
+    @include media-breakpoint-down(sm) {
+      padding-top: 1.2rem;
       padding-bottom: 0.5rem;
     }
     //
@@ -84,7 +94,9 @@ $nb-logo-size-biggest:  3.25rem;
   .navbar-nav .nav-link {
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
-    padding-left: $nb-logo-size + 0.5rem;
+    padding-left: $nb-logo-size;
+    color: $body-color;
+    text-decoration: underline;
 
     &:last-child {
       .nav-link {
@@ -97,7 +109,7 @@ $nb-logo-size-biggest:  3.25rem;
     }
 
     @include media-breakpoint-up(sm) {
-      padding-left: $nb-logo-size-bigger + 0.6rem;
+      padding-left: $nb-logo-size-bigger;
     }
 
     @include media-breakpoint-up(md) {

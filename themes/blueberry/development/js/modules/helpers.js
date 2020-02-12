@@ -51,8 +51,21 @@ function parseFirstLastName(string){
   return obj;
 }
 
+function animateCSS(node, animationName, callback) {
+  node.classList.add('animated', animationName);
+
+  function handleAnimationEnd() {
+      node.classList.remove('animated', animationName);
+      node.removeEventListener('animationend', handleAnimationEnd);
+      if (typeof callback === 'function') callback();
+  }
+
+  node.addEventListener('animationend', handleAnimationEnd);
+}
+
 exports.isInViewport = isInViewport;
 exports.getViewportSize = getViewportSize;
 exports.offset = offset;
 exports.objectifyForm = objectifyForm;
 exports.parseFirstLastName = parseFirstLastName;
+exports.animateCSS = animateCSS;

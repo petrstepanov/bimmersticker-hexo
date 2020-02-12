@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Bimmer Sticker Store
-subtitle: We specialize on making vinyl stickers for BMW cars and other car makes. Shoot us an email for custom orders.
-description: Handcrafted vinyl stickers for your BMW. Variety of designs for different models, series and generations. We offer free shipping across US.
-keywords: bmw, sticker, car, vinyl, window, windshield, banner, orcacal
+title: Die cut vinyl stickers for cars and trucks | Bimmer Sticker Store
+subtitle: We specialize on making contour-cut vinyl stickers for BMW cars and other car makes. Shoot us an email for custom orders.
+description: Handcrafted contour cut vinyl stickers for cars and trucks. Custom windshield banners and sun strips. Custom instagram name stickers. Stickers for BMW cars - variety of designs for different models, series and generations. We offer free shipping across US.
+keywords: bmw,sticker,car,vinyl,window,windshield,banner,sun strip,stance,lowered cars,race car,racing,drift,drag
 author: Petr Stepanov
-language:
-timezone:
+language: EN
+timezone: America/New_York
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -17,6 +17,8 @@ url: https://bimmersticker.store # http://localhost:4000/
 root: /
 permalink: :title/
 permalink_defaults:
+pretty_urls:
+  trailing_index: false # Set to false to remove trailing index.html from permalinks
 
 # Directory
 source_dir: source
@@ -32,7 +34,10 @@ skip_render:
 new_post_name: :title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
-external_link: true # Open external links in new tab
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude:
 filename_case: 0
 render_drafts: false
 post_asset_folder: true
@@ -58,12 +63,18 @@ default_category: uncategorized
 category_map:
 tag_map:
 
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: MMMM Do YYYY
 time_format: HH:mm:ss
+## Use post's date for updated date unless set in front-matter
+use_date_for_updated: false
 
 # Pagination
 ## Set per_page to 0 to disable pagination
