@@ -1,8 +1,6 @@
 <% if(config.snipcart){ %>    
-    <script src="https://cdn.snipcart.com/themes/v3.0.2/default/snipcart.js"></script>
     <% if (process.env.SNIPCART_API_KEY){ %>
         <div id="snipcart" data-api-key="<%- process.env.SNIPCART_API_KEY %>" hidden></div>    
-    <% } else { %>
-        <div id="snipcart" data-api-key="ZDY1MDg3ODQtM2MxNC00OGEzLWFiMzktNzE1NjY2NjY0OTczNjM3MDkwMTkxMjkwNDc3NjYw" hidden></div>    
     <% } %>
+    <script src="https://cdn.snipcart.com/themes/v3.0.8/default/snipcart.js"></script>    
 <% } %>
