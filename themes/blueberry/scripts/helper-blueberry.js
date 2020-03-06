@@ -66,9 +66,9 @@ hexo.extend.helper.register('is_custom', function(product){
 
 hexo.extend.helper.register('my_full_url_for', function(url){
   if (process.env.SITE_URL){
-    return process.env.SITE_URL + url;
+    return process.env.SITE_URL + "/" + url;
   }
-  return config.url + url;
+  return hexo.config.url + "/" + url;
 });
 
 
