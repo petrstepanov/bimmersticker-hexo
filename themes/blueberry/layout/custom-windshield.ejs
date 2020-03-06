@@ -152,7 +152,7 @@ console.log(products);
 				<div class="row justify-content-center pt-5">
 					<% for (var product in products) { %>
 
-						<button class="btn btn-primary btn-blueberry btn-lg"
+						<button class="btn btn-primary btn-blueberry btn-lg snipcart-add-item"
 							data-item-id="<%- product.id %>"
 							data-item-price="<%- parseFloat(product.price) %>"
 							data-item-url="<%- url_for(page.path) %>"
@@ -173,6 +173,8 @@ console.log(products);
 							<% if (_.keys(product).includes('customization_name')){ %>
 								data-item-custom<%- i %>-name="<%- product.customization_name %>"
 							<% } %>
+
+
 							>Add to cart
 						</button>
 					<% } %>
