@@ -49,7 +49,6 @@ function _bindEvents(element) {
         _showHideFormContainers(this.value);
         _showHidePreviewElements(this.value);
         _enableDisableRadioButtons(this.value);
-        _updateSnipcartButtonsVisibility(this.value);
     });
 
     DOM.$input.on('input', function () {
@@ -86,7 +85,7 @@ function _bindEvents(element) {
     DOM.$form.submit(function(event) {
         event.preventDefault();
         
-        switch (DOM.$radioProduct.val()) {
+        switch (DOM.$radioProduct.filter(":checked").val()) {
             case 'ST_CAR_WINDSHIELD_BANNER':
                 DOM.$btnBuyBanner.click();
                 break;
