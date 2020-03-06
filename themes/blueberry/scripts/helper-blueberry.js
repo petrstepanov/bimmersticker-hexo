@@ -64,6 +64,15 @@ hexo.extend.helper.register('is_custom', function(product){
   return _.keys(product).includes('customization_name');
 });
 
+hexo.extend.helper.register('my_full_url', function(url){
+  if (process.env.SITE_URL){
+    return process.env.SITE_URL + url;
+  }
+  return config.url + url;
+});
+
+
+
 hexo.extend.helper.register('print_colors', function(colors){
   // remove [+2.00] extra price values
   colors = colors.replace(/\[\+\d*.\d*\]/g, '');
