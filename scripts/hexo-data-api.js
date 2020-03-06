@@ -65,6 +65,14 @@ function breakArrayVariationsRecursive(array){
     }
 }
 
+function sortObjectKeys(object){
+    const ordered = {};
+    Object.keys(unordered).sort().forEach(function(key) {
+        ordered[key] = unordered[key];
+    });
+    return ordered;
+}
+
 hexo.extend.generator.register('google-feed-generator', function (locals) {
 
     // Get input file name from _config.yml
@@ -77,27 +85,20 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
         feedArray = jsYaml.load(feedFileData);
     } // else if add JSON too ?
 
-    // Remove all customization fields and paypal_hidden
+    // Remove all customization fields
     feedArray.forEach(element => {
         _.forOwn(element, function(value, key) {
             if (key.includes('customization')){
                 delete element[key];
             }
-            if (key.includes('paypal')){
-                delete element[key];
-            }
         });
     });
 
-    // Add empty 'pattern' field if missing
+    // Add 'pattern' and 'additional_image_link' fields if missing
     feedArray.forEach(element => {
-        if (typeof element.pattern == 'undefined') element.pattern = "";
+        if (!("pattern" in element)) element.pattern = "";
+        if (!("additional_image_link" in element)) element.additional_image_link = "";
     });
-
-    // Add empty 'additional_image_link' field if missing
-    feedArray.forEach(element => {
-        if (typeof element.additional_image_link == 'undefined') element.additional_image_link = "";
-    });    
 
     // If has variations - set item_group_id
     feedArray.forEach(element => {
@@ -112,13 +113,24 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
     // Iterate through array
     breakArrayVariationsRecursive(feedArray);
 
+    // Add price from color option to original price
+    feedArray.forEach(element => {
+        var regex = /(.*)\[\+([\d.]*)\]/
+        var array = element.color.match(regex);
+        if (array && array.length == 3){
+            element.color = array[1];
+            var newPrice = parseFloat(element.price) + parseFloat(array[2]);
+            element.price = newPrice.toFixed(2) + " USD";
+        }
+    });    
+
     // Prefix id's with two color
     feedArray.forEach(element => {
         if (element.color){
-            element.id = element.id + '_' + element.color.toUpperCase();
+            element.id = element.id + '_' + element.color.toUpperCase().replace(' ','_');
         }        
         if (element.pattern){
-            element.id = element.id + '_' + element.color.toUpperCase();
+            element.id = element.id + '_' + element.color.toUpperCase().replace(' ','_');
         }
     });
 
@@ -139,7 +151,16 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
     // Export into text file
     feedArray.forEach(object => {
         feedTxt += '\n';
-        feedTxt += _.values(object).join('\t');
+        // Lodash's _values not guarantees the alphabetic order of keys
+        // So we sort object keys like the first one https://stackoverflow.com/questions/5467129/sort-javascript-object-by-key
+        const objectOrdered = {};
+        Object.keys(feedArray[0]).forEach(function(key) {
+            objectOrdered[key] = object[key];
+        });        
+        feedTxt += _.values(objectOrdered).join('\t');
+        // if (object.id.includes('ST_CAR_STAYTUNED')){
+        //     console.log(object);
+        // }
     });
 
     return {

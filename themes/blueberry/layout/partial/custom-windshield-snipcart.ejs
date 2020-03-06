@@ -256,6 +256,25 @@ products = _.without(products, undefined);
 					</div>
 				</div>
 			</form>
+			<hr />
+			<h2 class="text-center my-4">You might also like</h2>
+			<div class="row justify-content-center">
+				<% 
+					var featuredProductIds = ['ST_SOCIAL_IG','ST_CAR_INLINE6','ST_CAR_STAYTUNED','ST_CAR_DAILY'];
+					var featuredProducts = _.map(site.data.product_list, function(o) {
+						if (featuredProductIds.includes(o.id)) return o;
+					}); 
+					featuredProducts = _.without(featuredProducts, undefined);
+				%>
+				<% for (var product of featuredProducts){ %>
+					<div class="col-6 col-sm-4 col-md-3 text-center">
+						<a href="<%- get_pathname(product.link) %>">
+							<img src="<%- prefix_filename('small_', product.image_link) %>" alt="<%- product.title %>" class="w-50 rounded-circle" />
+							<p class="mt-2"><%- product.title %></p>
+						</a>
+					</div>
+				<% } %>
+			</div>
 		</div>
 	</div>
 </div>

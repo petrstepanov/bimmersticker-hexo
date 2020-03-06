@@ -72,7 +72,15 @@ hexo.extend.helper.register('my_full_url_for', function(url){
   return hexo.config.url + url_for(url);
 });
 
-
+hexo.extend.helper.register('prefix_filename', function(prefix, url){
+  var regex = /(.*)\/(.*)/
+  var array = url.match(regex);
+  if (array && array.length != 3){
+    return url
+  }
+  var newUrl = array[1] + "/" + prefix + array[2];
+  return newUrl;
+});
 
 hexo.extend.helper.register('print_colors', function(colors){
   // remove [+2.00] extra price values
