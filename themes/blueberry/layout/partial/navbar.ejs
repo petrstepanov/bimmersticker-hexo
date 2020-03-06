@@ -19,7 +19,7 @@
         </span>        
       </button>
     </div>
-    <% if(config.snipcart){ %>  
+    <% if(config.cart == "snipcart"){ %>  
       <span class="d-md-none"><%-partial('partial/snipcart-cart-button') %></span>
     <% } %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -43,7 +43,7 @@
             <a class="nav-link" href="<%- theme.facebook_url %>" rel="me">Like us on Facebook</a>
           </li>
         <% } %>
-        <% if(config.snipcart){ %>  
+        <% if(config.cart == "snipcart"){ %>
           <li class="nav-item nav-item-for-cart d-none d-md-inline">
               <%-partial('partial/snipcart-cart-button') %>
           </li>  

@@ -8,7 +8,7 @@ function _cacheDom(element) {
   DOM.$form = $(element);
   DOM.$inputs = DOM.$form.find('select, input');
   DOM.$selects = DOM.$form.find('select');
-  DOM.$snipcartButton = DOM.$form.find('.snipcart-add-item');
+  DOM.$snipcartButton = DOM.$form.find('.js--snipcart-add-item');
   DOM.$submitButtons = $(document).find('.js--product-submit');
 }
 

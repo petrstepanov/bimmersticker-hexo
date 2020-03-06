@@ -1,5 +1,18 @@
 <%- partial('partial/navbar') %>
 
+<% 
+// Select products with ids containing "ST_CAR_WINDSHIELD"
+var products = _.map(site.data.product_list, function(o) {
+    if (o.id.includes("ST_CAR_WINDSHIELD")) return o;
+}); 
+
+// Remove undefines from the array
+products = _.without(products, undefined);
+console.log(products);
+%>
+
+
+
 <div class="js--init-windshield-container container spacer-footer">
 	<div class="row">
 		<div class="col js-container">
@@ -7,8 +20,7 @@
 				<div class="col col-md-11 col-lg-10">
 					<h1 class="display-4 font-handwritten text-center mt-5 mb-4">Custom Sun Strips and Windshield Banners</h1>
 					<p class="text-muted text-center">
-						Please refer to the form below to place an order for a custom windshield banner or sun strip. We
-						will contact you as soon as possible.
+						Use our interactive tool to create a custom windshield banner or sun strip for your car or truck. Please check our Instagram to see <a href="<%- theme.instagram_url %>">examples of banners</a> we made.
 					</p>
 				</div>
 			</div>
@@ -20,22 +32,41 @@
 				<h2 class="text-center mt-4 mb-3">What type of product are you looking for?</h2>
 				<div class="row justify-content-center">
 					<% var i = 0; %>
-					<% for (var product in site.data.products) { %>
+					<% for (var product in products) { %>
 					<div class="col-12 col-sm-6 col-md-3">
 						<label class="label-custom row align-items-center justify-content-center">
 							<div class="col-4 col-sm-8 col-md-12">
 								<input class="invisible" type="radio" name="product" value="<%= product %>" <%= i++ == 0 ? 'checked' : ''; %> />
 								<div class="input-image">
-									<img class="w-100" src="index/<%- site.data.products[product].image %>" />
+									<img class="w-100" src="<%- products[product].image_link %>" />
 								</div>
 							</div>
 							<div class="col-8 col-sm-12">
 								<p class="mt-3 text-xs-left text-sm-center">
-									<%= site.data.products[product].title %>
-									<strong>$<%= site.data.products[product].price %>+</strong>
+									<%= products[product].title.replace('Custom ','') %>
+									<strong>$<%= parseFloat(products[product].price) %>+</strong>
 								</p>
 								<p class="text-xs-left text-sm-center line-height-13">
-									<small class="text-muted"><%= site.data.products[product].description %><br class="d-none d-lg-inline" /> <%= site.data.products[product].size %></small>
+									<small class="text-muted">
+										<%
+											var description = "";
+											switch(products[product].id){
+												case "ST_CAR_WINDSHIELD_BANNER":
+													description = "Place it on top or bottom."
+													break;
+												case "ST_CAR_WINDSHIELD_SUNSTRIP":
+													description = "Cut it to fit the windshield."
+													break;
+												case "ST_CAR_WINDSHIELD_SUNSTRIP_CUT":
+													description = "Text is cut out of the base layer."
+													break;
+												case "ST_CAR_WINDSHIELD_SUNSTRIP_TEXT":
+													description = "Text layer on top of the base strip."
+													break;
+											}
+										%>
+										<%- description %>
+										<br class="d-none d-lg-inline" />Size is <%- products[product].id == "ST_CAR_WINDSHIELD_BANNER" ? "about" : "" %> <%= products[product].size %></small>
 								</p>
 							</div>
 						</label>
@@ -43,7 +74,7 @@
 					<% } %>
 				</div>
 				<div class="js--font-container">
-					<h2 class="text-center mt-4 mb-3">Select text style</h2>
+					<h2 class="text-center mt-4 mb-3">Type your text and select the font you like</h2>
 					<div class="row justify-content-center">
 						<div class="col col-md-8">
 							<div class="form-group mb-4">
@@ -118,161 +149,35 @@
 						</div>
 					</div>
 				</div>
-				<h2 class="text-center mt-4 mb-3">Contact information</h2>
-				<div class="row justify-content-center">
-					<div class="col col-md-10 col-lg-8">
-						<p class="text-muted text-center mb-3">
-							In order to share an invoice we need to ask you for your email address. Additionally a valid shipping information is required. Our website does not have a server side so we do not store any of your information.
-						</p>
-						<div class="form-group">
-							<label class="label-blueberry" for="inputEmail">Your email address</label>
-							<input name="email" type="email" class="form-control" id="inputEmail" placeholder="name@example.com" required autocomplete="email" />
-							<small id="emailHelp" class="form-text text-muted">We will send a PayPal invoice to this email.</small>
-						</div>
-						<div class="form-group">
-							<label class="label-blueberry" for="inputName">First and last name</label>
-							<input name="name" type="text" class="form-control" id="inputName" required autocomplete="name" />
-						</div>
-						<div class="form-group">
-							<label class="label-blueberry" for="inputAddress">Address</label>
-							<input name="address" type="text" class="form-control" id="inputAddress" placeholder="123 Any Street" required autocomplete="street-address" />
-						</div>
-						<div class="form-group">
-							<label class="label-blueberry" for="inputCity">City</label>
-							<input name="city" type="text" class="form-control" id="inputCity" placeholder="Miami" required autocomplete="address-level2" />
-						</div>
-						<div class="form-group">
-							<label class="label-blueberry" for="inputState">State</label>
-							<input name="state" type="text" class="form-control" id="inputState" placeholder="FL" required autocomplete="address-level1" />
-						</div>
-						<div class="form-group">
-							<label class="label-blueberry" for="inputZip">Zip</label>
-							<input name="zip" type="text" class="form-control" id="inputZip" placeholder="10011" required autocomplete="postal-code" />
-						</div>
-						<div class="form-group">
-							<label class="label-blueberry" for="inputCountry">Country</label>
-							<input name="country" type="text" class="form-control" id="inputCountry" placeholder="USA" required autocomplete="country" />
-							<small id="emailHelp" class="form-text text-muted">Shipping outside US is $13.54 extra.</small>
-						</div>
-					</div>
+				<div class="row justify-content-center pt-5">
+					<% for (var product in products) { %>
+
+						<button class="btn btn-primary btn-blueberry btn-lg"
+							data-item-id="<%- product.id %>"
+							data-item-price="<%- parseFloat(product.price) %>"
+							data-item-url="<%- url_for(page.path) %>"
+							data-item-description="<%- product.description %>"
+							data-item-image="<%- get_pathname(product.image_link) %>"
+							data-item-name="<%- product.title %>"
+							type="submit"
+							form="cart-form"
+
+							<% var i=1; %>
+							<% _.forOwn(product, function(value, key) { %>
+								<% if (value.includes('|')){ %>
+									data-item-custom<%- i %>-name="<%- capitalize(key) %>" 
+									data-item-custom<%- i++ %>-options="<%- value %>" 
+								<% } %>
+							<% }); %>
+
+							<% if (_.keys(product).includes('customization_name')){ %>
+								data-item-custom<%- i %>-name="<%- product.customization_name %>"
+							<% } %>
+							>Add to cart
+						</button>
+					<% } %>
 				</div>
-				<hr />
-				<div class="row align-items-center justify-content-center">
-					<div class="col-12 col-md-10 col-lg-8">
-						<div class="form-group">
-							<label class="label-blueberry" for="inputQuantity">How many items you need?</label>
-							<div class="input-group js--init-integer-input">
-								<div class="input-group-prepend">
-									<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
-								</div>
-								<input name="quantity" type="number" class="form-control js--input text-center hide-arrows" id="inputQuantity" value="1" min="1" max="999">
-								<div class="input-group-append">
-									<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
-								</div>
-							</div>
-							<small id="emailHelp" class="form-text text-muted">We offer 10% off for orders with 10+ items</small>
-						</div>
-					</div>
-					<div class="col-12 col-md-8 text-center text-md-left">
-						<p class="my-2 my-md-3"><strong>You won’t get billed right away</strong>. We will follow up and email you the PayPal invoice as soon as possible.</p>
-						<!-- <button class="js-test">Test</button> -->
-					</div>
-					<div class="col-12 col-md-4 text-center text-md-right">
-						<button type="submit" class="my-2 btn btn-lg btn-blueberry btn-primary rounded-pill">Place Order</button>
-					</div>
-				</div class="col-8">
-			</form>
-			<form class="js--mailchimp-form" action="<%- config.mailchimp.url %>" method="<%- config.mailchimp.method %>">
-				<input type="hidden" class="field-email" name="<%- config.mailchimp.email_name %>" value="" />
-				<input type="hidden" class="field-firstname" name="<%- config.mailchimp.firstname_name %>" value="" />
-				<input type="hidden" class="field-lastname" name="<%- config.mailchimp.lastname_name %>" value="" />
-				<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="hidden" name="<%- config.mailchimp.secret_name %>" tabindex="-1" value="" /></div>
 			</form>
 		</div>
 	</div>
 </div>
-<script id="success-template" type="text/template">
-	<div class="row justify-content-center">
-		<div class="col col-md-8">
-			<h1 class="display-4 font-handwritten text-center mt-5 mb-4">Thanks for Your Order!</h1>
-			<p>Your <strong>custom order was placed successfully</strong>. We are processing your information and will reach you out with further instructions via email <strong>{{email}}</strong>. Your order number is following:</p>
-			<p class="mt-4 text-center h3">{{order_id}}</p>
-			<p class="mb-4 text-center">
-				<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOrder" aria-expanded="false" aria-controls="collapseExample">
-					Show your order details
-				</button>
-				<!-- <a data-toggle="collapse" href="#collapseOrder" role="button" aria-expanded="false" aria-controls="collapseOrder">Expand your order details</a> -->
-			</p>
-			<div class="collapse" id="collapseOrder">
-				<table class="table mb-4">
-					<tbody>
-						<tr>
-							<th scope="row">Product:</th>
-							<td>{{product}}</td>
-						</tr>
-						{% if product !== 'sunstrip' %}						
-							<tr>
-								<th scope="row">Text:</th>
-								<td>{{text}}</td>
-							</tr>
-							<tr>
-								<th scope="row">Font:</th>
-								<td>{{font}}</td>
-							</tr>
-						{% endif %}
-						{% if (product == 'banner') or (product == 'textsunstrip') %}
-							<tr>
-								<th scope="row">Text color:</th>
-								<td>{{color_text}}</td>
-							</tr>
-						{% endif %}
-						{% if product !== 'banner' %}
-							<tr>
-								<th scope="row">Base color:</th>
-								<td>{{color_base}}</td>
-							</tr>
-						{% endif %}
-						<tr>
-							<th scope="row">Quantity:</th>
-							<td>{{quantity}}</td>
-						</tr>
-						<tr>
-							<th scope="row">Full name:</th>
-							<td>{{name}}</td>
-						</tr>
-						<tr>
-							<th scope="row">Address:</th>
-							<td>{{address}}</td>
-						</tr>
-						<tr>
-							<th scope="row">City:</th>
-							<td>{{city}}</td>
-						</tr>
-						<tr>
-							<th scope="row">State:</th>
-							<td>{{state}}</td>
-						</tr>
-						<tr>
-							<th scope="row">Zip:</th>
-							<td>{{zip}}</td>
-						</tr>
-						<tr>
-							<th scope="row">Country:</th>
-							<td>{{country}}</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<p class="mb-3">It’s a good idea to make a screenshot or save this number for the future reference. If you have a printer right by you can go ahead and <a href="#" class="js-print-order">print this confirmation page</a>.</p>
-			<p>Now what. Do you want to place another custom banner or sun strip order? Or maybe just explore the other stickers we offer?</p>
-			<div class="row">
-				<div class="col-12 col-md-6 text-center text-md-left">
-					<a href="/custom-windshield-banner-sun-strip" class="mt-3 btn btn-outline-primary">← Place another custom order</a>
-				</div>
-				<div class="col-12 col-md-6 text-center text-md-right">
-					<a href="/" class="mt-3 btn btn-primary">Check other stickers we offer</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</script>

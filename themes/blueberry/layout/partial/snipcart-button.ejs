@@ -1,12 +1,10 @@
-<button class="snipcart-add-item"
+<button class="btn js--snipcart-add-item invisible"
   data-item-id="<%- product.id %>"
   data-item-price="<%- parseFloat(product.price) %>"
   data-item-url="<%- url_for(post.path) %>"
   data-item-description="<%- product.description %>"
   data-item-image="<%- get_pathname(product.image_link) %>"
   data-item-name="<%- product.title %>"
-  type="submit"
-  form="cart-form"
 
   <% var i=1; %>
   <% _.forOwn(product, function(value, key) { %>
@@ -16,7 +14,7 @@
     <% } %>
   <% }); %>
 
-  <% if (is_custom(product)){ %>
+  <% if (_.keys(product).includes('customization_name')){ %>
     data-item-custom<%- i %>-name="<%- product.customization_name %>"
   <% } %>
 >Add to cart</button>

@@ -18,3 +18,9 @@
   outline: none !important;
   box-shadow: none !important;
 }
+
+.invisible {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
