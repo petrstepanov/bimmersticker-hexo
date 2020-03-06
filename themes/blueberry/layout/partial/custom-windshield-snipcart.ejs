@@ -176,11 +176,11 @@ products = _.without(products, undefined);
 						<button type="submit" class="btn btn-primary btn-blueberry btn-lg">Add item to cart</button>
 						<br />
 						<% for (var product of products) { %>
-
+							
 							<button class="snipcart-add-item btn invisible"
 								data-item-id="<%- product.id %>"
 								data-item-price="<%- parseFloat(product.price) %>"
-								data-item-url="<%- my_full_url_for(page.path) %>"
+								data-item-url="<%- process.env.SITE_URL %><%- url_for(page.path) %>"
 								data-item-description="<%- product.description %>"
 								data-item-image="<%- get_pathname(product.image_link) %>"
 								data-item-name="<%- product.title %>"
