@@ -12,7 +12,7 @@
 					</p>
 				</div>
 			</div>
-			<form autocomplete="off" class="js--windshield-form" name="contact" method="POST" data-netlify="true">
+			<form autocomplete="off" class="js--windshield-form-snipcart" name="contact" method="POST" data-netlify="true">
 				<!-- autocomplete="off" because of Firefox radio buttons bug -->
 				<!-- https://stackoverflow.com/questions/7988729/firefox-remembering-radio-buttons-incorrectly -->
 				<input type="hidden" name="order_id" value="" />
@@ -85,7 +85,12 @@
 								<% style += site.data.colors_text[color].image ? 'background-image: url(' + site.data.colors_text[color].image + ');' : ''; %>
 								<div class="color-swatch" style="<%- style %>"></div>
 							</div>
-							<p class="mt-2"><%- site.data.colors_text[color].name %></p>
+							<p class="mt-2">
+								<%- site.data.colors_text[color].name %>
+								<% if (site.data.colors_text[color].extra) { %>
+									<strong>+$<%- site.data.colors_text[color].extra %></strong>
+								<% } %>
+							</p>
 						</label>
 						<% } %>
 					</div>
@@ -98,11 +103,16 @@
 						<label class="label-custom d-flex flex-column align-items-center px-2 mx-1">
 							<input class="invisible flex-shrink-0" disabled type="radio" name="color_base" value="<%= color %>" <%= i++ == 0 ? 'checked' : ''; %> />
 							<div class="input-image">
-								<% var style = site.data.colors_text[color].hex ? 'background-color: ' + site.data.colors_text[color].hex + ';': ''; %>
-								<% style += site.data.colors_text[color].image ? 'background-image: url(' + site.data.colors_text[color].image + ');' : ''; %>
+								<% var style = site.data.colors_strip[color].hex ? 'background-color: ' + site.data.colors_strip[color].hex + ';': ''; %>
+								<% style += site.data.colors_strip[color].image ? 'background-image: url(' + site.data.colors_strip[color].image + ');' : ''; %>
 								<div class="color-swatch" style="<%- style %>"></div>
 							</div>
-							<p class="mt-2"><%- site.data.colors_text[color].name %></p>
+							<p class="mt-2">
+								<%- site.data.colors_strip[color].name %>
+								<% if (site.data.colors_strip[color].extra) { %>
+									<strong>+$<%- site.data.colors_strip[color].extra %></strong>
+								<% } %>
+							</p>
 						</label>
 						<% } %>
 					</div>

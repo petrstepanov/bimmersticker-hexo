@@ -27,7 +27,8 @@ red:
   name: "Glossy red"
 oilslick:
   image: /images/swatches/oilslick.svg
-  name: "Oil slick <strong>+$8</strong>"
+  name: "Oil slick"
+  extra: 9.99
 
 
 

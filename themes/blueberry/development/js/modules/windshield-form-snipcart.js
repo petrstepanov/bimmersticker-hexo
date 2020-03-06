@@ -13,8 +13,7 @@ var timestamp = Math.floor(Date.now() / 1000);
 
 function _cacheDom(element) {
     DOM.$el = $(element);
-    DOM.$container = DOM.$el.find('.js--container');
-    DOM.$form = DOM.$el.find('.js--windshield-form');
+    DOM.$form = DOM.$el;
     DOM.$mailchimpForm = DOM.$el.find('.js--mailchimp-form');
     DOM.$orderId = DOM.$el.find('input[name=order_id]');
     DOM.$radioProduct = DOM.$el.find('input[name=product]');
@@ -66,58 +65,58 @@ function _bindEvents(element) {
 
     DOM.$form.submit(function(event) {
         event.preventDefault();
-        var $form = $(this);
+        // var $form = $(this);
 
-        // Populate Mailchimp form
-        DOM.$mailchimpForm.find('.field-email').val(DOM.$form.find('input[name=email]').val());
-        var firstLastName = DOM.$form.find('input[name=name]').val();
-        var obj = helpers.parseFirstLastName(firstLastName);
-        DOM.$mailchimpForm.find('.field-firstname').val(obj.firstName);
-        DOM.$mailchimpForm.find('.field-lastname').val(obj.lastName);
+        // // Populate Mailchimp form
+        // DOM.$mailchimpForm.find('.field-email').val(DOM.$form.find('input[name=email]').val());
+        // var firstLastName = DOM.$form.find('input[name=name]').val();
+        // var obj = helpers.parseFirstLastName(firstLastName);
+        // DOM.$mailchimpForm.find('.field-firstname').val(obj.firstName);
+        // DOM.$mailchimpForm.find('.field-lastname').val(obj.lastName);
 
-        // Submit Mailchimp form - subscribe user
-        $.ajax({
-            type:     DOM.$mailchimpForm.attr('method'),
-            url:      DOM.$mailchimpForm.attr('action'),
-            data:     DOM.$mailchimpForm.serialize(),
-            dataType: 'json'
-        }).done(function(data){
-            // Submit order
-            $.post($form.attr("action"), $form.serialize()).then(function() {    
-                _renderSuccessTemplate();
-            });
-        });
+        // // Submit Mailchimp form - subscribe user
+        // $.ajax({
+        //     type:     DOM.$mailchimpForm.attr('method'),
+        //     url:      DOM.$mailchimpForm.attr('action'),
+        //     data:     DOM.$mailchimpForm.serialize(),
+        //     dataType: 'json'
+        // }).done(function(data){
+        //     // Submit order
+        //     $.post($form.attr("action"), $form.serialize()).then(function() {    
+        //         _renderSuccessTemplate();
+        //     });
+        // });
     });
       
-    DOM.$el.find('.js-test').click(function(event){
-        _renderSuccessTemplate();
-    });
+    // DOM.$el.find('.js-test').click(function(event){
+    //     _renderSuccessTemplate();
+    // });
     // $(window).resize(function() {
     //     _adjustCarContainerHeight();
     // });
 
     // Template events
-    $('body').on('click', '.js-print-order', function(event) {
-        event.preventDefault();
-        $('#collapseOrder').collapse('show');
-        window.print();
-    });
+    // $('body').on('click', '.js-print-order', function(event) {
+    //     event.preventDefault();
+    //     $('#collapseOrder').collapse('show');
+    //     window.print();
+    // });
 }
 
-function _renderSuccessTemplate(){
-    // Create JSON from form fields
-    var json = helpers.objectifyForm(DOM.$form.serializeArray());
-    // Populate success template with JSON
-    nunjucks.configure({ autoescape: true });
-    var template = $('#success-template').html();
-    var rendered = nunjucks.renderString(template, json);
-    // Display success template
-    DOM.$el.html(rendered);
-    // Scroll to top
-    $('html, body').animate({
-        scrollTop: 0
-    }, 250);
-}
+// function _renderSuccessTemplate(){
+//     // Create JSON from form fields
+//     var json = helpers.objectifyForm(DOM.$form.serializeArray());
+//     // Populate success template with JSON
+//     nunjucks.configure({ autoescape: true });
+//     var template = $('#success-template').html();
+//     var rendered = nunjucks.renderString(template, json);
+//     // Display success template
+//     DOM.$el.html(rendered);
+//     // Scroll to top
+//     $('html, body').animate({
+//         scrollTop: 0
+//     }, 250);
+// }
 
 function _getBannerText() {
     return DOM.$input.val().length ? DOM.$input.val() : "Your Banner";
@@ -130,25 +129,25 @@ function _getBannerText() {
 
 function _showHideFormContainers(product) {
     switch (product) {
-        case 'banner':
+        case 'ST_CAR_WINDSHIELD_BANNER':
             DOM.$input.prop("disabled", false);
             DOM.$fontContainer.slideDown();
             DOM.$textColorContainer.slideDown();
             DOM.$baseColorContainer.slideUp();
             break;
-        case 'sunstrip':
+        case 'ST_CAR_WINDSHIELD_SUNSTRIP':
             DOM.$input.prop("disabled", true);
             DOM.$fontContainer.slideUp();
             DOM.$textColorContainer.slideUp();
             DOM.$baseColorContainer.slideDown();
             break;
-        case 'cutsunstrip':
+        case 'ST_CAR_WINDSHIELD_SUNSTRIP_CUT':
             DOM.$input.prop("disabled", false);
             DOM.$fontContainer.slideDown();
             DOM.$textColorContainer.slideUp();
             DOM.$baseColorContainer.slideDown();
             break;
-        case 'textsunstrip':
+        case 'ST_CAR_WINDSHIELD_SUNSTRIP_TEXT':
             DOM.$input.prop("disabled", false);
             DOM.$fontContainer.slideDown();
             DOM.$textColorContainer.slideDown();
@@ -163,23 +162,23 @@ function _getSelectedSwatch(radioName) {
 
 function _showHidePreviewElements(product) {
     switch (product) {
-        case 'banner':
+        case 'ST_CAR_WINDSHIELD_BANNER':
             DOM.$banner.show();
             DOM.$sunstrip.hide();
             DOM.$sunstripText.hide();
             break;
-        case 'sunstrip':
+        case 'ST_CAR_WINDSHIELD_SUNSTRIP':
             DOM.$banner.hide();
             DOM.$sunstrip.show();
             DOM.$sunstripText.hide();
             break;
-        case 'cutsunstrip':
+        case 'ST_CAR_WINDSHIELD_SUNSTRIP_CUT':
             DOM.$banner.hide();
             DOM.$sunstrip.show();
             DOM.$sunstripText.show();
             DOM.$sunstripText.css('background-color', '#6C6C6C');
             break;
-        case 'textsunstrip':
+        case 'ST_CAR_WINDSHIELD_SUNSTRIP_TEXT':
             DOM.$banner.hide();
             DOM.$sunstrip.show();
             DOM.$sunstripText.show();
@@ -191,19 +190,19 @@ function _showHidePreviewElements(product) {
 
 function _enableDisableRadioButtons(product) {
     switch (product) {
-        case 'banner':
+        case 'ST_CAR_WINDSHIELD_BANNER':
             DOM.$radioTextColor.prop("disabled", false);
             DOM.$radioBaseColor.prop("disabled", true);
             break;
-        case 'sunstrip':
+        case 'ST_CAR_WINDSHIELD_SUNSTRIP':
             DOM.$radioTextColor.prop("disabled", true);
             DOM.$radioBaseColor.prop("disabled", false);
             break;
-        case 'cutsunstrip':
+        case 'ST_CAR_WINDSHIELD_SUNSTRIP_CUT':
             DOM.$radioTextColor.prop("disabled", true);
             DOM.$radioBaseColor.prop("disabled", false);
             break;
-        case 'textsunstrip':
+        case 'ST_CAR_WINDSHIELD_SUNSTRIP_TEXT':
             DOM.$radioTextColor.prop("disabled", false);
             DOM.$radioBaseColor.prop("disabled", false);
             break;

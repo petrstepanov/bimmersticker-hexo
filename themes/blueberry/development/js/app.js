@@ -4,7 +4,8 @@ var autosize = require('autosize');
 
 var navbarFixer = require('./modules/navbar-fixer');
 var smoothScroll = require('./modules/smooth-scroll');
-var windshieldForm = require('./modules/windshield-form');
+// var windshieldForm = require('./modules/windshield-form');
+var windshieldFormSnipcart = require('./modules/windshield-form-snipcart');
 var snipcartForm = require('./modules/snipcart-form');
 var contentBuyButton = require('./modules/content-buy-button');
 var navbarBuyButton = require('./modules/navbar-buy-button');
@@ -19,7 +20,8 @@ var IntegerInput = require('./modules/integer-input');
 $(document).ready(function(){
   navbarFixer.init(document.querySelector('.js--init-navbar-fixer'));
   smoothScroll.init();
-  windshieldForm.init(document.querySelector('.js--init-windshield-container'));
+  // windshieldForm.init(document.querySelector('.js--init-windshield-container'));
+  windshieldFormSnipcart.init(document.querySelector('.js--windshield-form-snipcart'));
   snipcartForm.init(document.querySelector('.js--init-snipcart-form'));
   contentBuyButton.init(document.querySelector('.js--init-content-buy-button'));
   navbarBuyButton.init(document.querySelector('.js--init-navbar-buy-button'));

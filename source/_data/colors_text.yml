@@ -27,13 +27,16 @@ red:
   name: "Glossy red"
 silver:
   image: /images/swatches/silver.svg
-  name: "Silver <strong>+$9.99</strong>"
+  name: "Silver"
+  extra: 9.99
 gold:
   image: /images/swatches/gold.svg
-  name: "Gold <strong>+$9.99</strong>"
+  name: "Gold"
+  extra: 9.99
 oilslick:
   image: /images/swatches/oilslick.svg
-  name: "Oil slick <strong>+$9.99</strong>"
+  name: "Oil slick"
+  extra: 9.99
 
 
 

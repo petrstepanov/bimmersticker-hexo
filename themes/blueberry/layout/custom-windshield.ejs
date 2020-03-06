@@ -8,12 +8,9 @@ var products = _.map(site.data.product_list, function(o) {
 
 // Remove undefines from the array
 products = _.without(products, undefined);
-console.log(products);
 %>
 
-
-
-<div class="js--init-windshield-container container spacer-footer">
+<div class="container spacer-footer">
 	<div class="row">
 		<div class="col js-container">
 			<div class="row justify-content-center">
@@ -24,7 +21,7 @@ console.log(products);
 					</p>
 				</div>
 			</div>
-			<form autocomplete="off" class="js--windshield-form" name="contact" method="POST" data-netlify="true">
+			<form autocomplete="off" class="js--windshield-form-snipcart" name="contact" method="POST" data-netlify="true">
 				<!-- autocomplete="off" because of Firefox radio buttons bug -->
 				<!-- https://stackoverflow.com/questions/7988729/firefox-remembering-radio-buttons-incorrectly -->
 				<input type="hidden" name="order_id" value="" />
@@ -36,7 +33,7 @@ console.log(products);
 					<div class="col-12 col-sm-6 col-md-3">
 						<label class="label-custom row align-items-center justify-content-center">
 							<div class="col-4 col-sm-8 col-md-12">
-								<input class="invisible" type="radio" name="product" value="<%= product %>" <%= i++ == 0 ? 'checked' : ''; %> />
+								<input class="invisible" type="radio" name="product" value="<%= products[product].id %>" <%= i++ == 0 ? 'checked' : ''; %> />
 								<div class="input-image">
 									<img class="w-100" src="<%- products[product].image_link %>" />
 								</div>
@@ -116,7 +113,12 @@ console.log(products);
 								<% style += site.data.colors_text[color].image ? 'background-image: url(' + site.data.colors_text[color].image + ');' : ''; %>
 								<div class="color-swatch" style="<%- style %>"></div>
 							</div>
-							<p class="mt-2"><%- site.data.colors_text[color].name %></p>
+							<p class="mt-2">
+								<%- site.data.colors_text[color].name %>
+								<% if (site.data.colors_text[color].extra) { %>
+									<strong>+$<%- site.data.colors_text[color].extra %></strong>
+								<% } %>
+							</p>
 						</label>
 						<% } %>
 					</div>
@@ -129,11 +131,16 @@ console.log(products);
 						<label class="label-custom d-flex flex-column align-items-center px-2 mx-1">
 							<input class="invisible flex-shrink-0" disabled type="radio" name="color_base" value="<%= color %>" <%= i++ == 0 ? 'checked' : ''; %> />
 							<div class="input-image">
-								<% var style = site.data.colors_text[color].hex ? 'background-color: ' + site.data.colors_text[color].hex + ';': ''; %>
-								<% style += site.data.colors_text[color].image ? 'background-image: url(' + site.data.colors_text[color].image + ');' : ''; %>
+								<% var style = site.data.colors_strip[color].hex ? 'background-color: ' + site.data.colors_strip[color].hex + ';': ''; %>
+								<% style += site.data.colors_strip[color].image ? 'background-image: url(' + site.data.colors_strip[color].image + ');' : ''; %>
 								<div class="color-swatch" style="<%- style %>"></div>
 							</div>
-							<p class="mt-2"><%- site.data.colors_text[color].name %></p>
+							<p class="mt-2">
+								<%- site.data.colors_strip[color].name %>
+								<% if (site.data.colors_strip[color].extra) { %>
+									<strong>+$<%- site.data.colors_strip[color].extra %></strong>
+								<% } %>								
+							</p>
 						</label>
 						<% } %>
 					</div>
@@ -153,27 +160,73 @@ console.log(products);
 					<% for (var product in products) { %>
 
 						<button class="btn btn-primary btn-blueberry btn-lg snipcart-add-item"
-							data-item-id="<%- product.id %>"
-							data-item-price="<%- parseFloat(product.price) %>"
+							data-item-id="<%- products[product].id %>"
+							data-item-price="<%- parseFloat(products[product].price) %>"
 							data-item-url="<%- url_for(page.path) %>"
-							data-item-description="<%- product.description %>"
-							data-item-image="<%- get_pathname(product.image_link) %>"
-							data-item-name="<%- product.title %>"
-							type="submit"
-							form="cart-form"
+							data-item-description="<%- products[product].description %>"
+							data-item-image="<%- get_pathname(products[product].image_link) %>"
+							data-item-name="<%- products[product].title %>"
 
 							<% var i=1; %>
-							<% _.forOwn(product, function(value, key) { %>
-								<% if (value.includes('|')){ %>
-									data-item-custom<%- i %>-name="<%- capitalize(key) %>" 
-									data-item-custom<%- i++ %>-options="<%- value %>" 
-								<% } %>
-							<% }); %>
 
-							<% if (_.keys(product).includes('customization_name')){ %>
-								data-item-custom<%- i %>-name="<%- product.customization_name %>"
+							<% // Custom text %>
+							<% if (_.keys(products[product]).includes('customization_name')){ %>
+								data-item-custom<%- i %>-name="<%- products[product].customization_name %>"
 							<% } %>
 
+							<% // Select font %>
+							<% if (products[product].id != "ST_CAR_WINDSHIELD_SUNSTRIP"){ %>
+								<% i++; %>
+								data-item-custom<%- i %>-name="Font"
+								<% 
+									var fontNames = [];
+									_.forEach(site.data.fonts, function(value, key) {
+										fontNames.push(value.name);
+									}); 
+								%>							
+								data-item-custom<%- i %>-options="<%- fontNames.join('|') %>"
+							<% } %>
+
+							<% // Select font color%>
+							<% if (products[product].id == "ST_CAR_WINDSHIELD_BANNER" ||
+							       products[product].id == "ST_CAR_WINDSHIELD_SUNSTRIP_TEXT"){ %>
+								<% i++; %>
+								data-item-custom<%- i %>-name="Text color"
+								<% 
+									var colorTextNames = [];
+									_.forEach(site.data.colors_text, function(value, key) {
+										var color = value.name;
+										// Add [+9.99]
+										if (value.extra){
+											color += '[+';
+											color += value.extra;
+											color += ']';
+										} 
+										colorTextNames.push(color);
+									}); 
+								%>							
+								data-item-custom<%- i %>-options="<%- colorTextNames.join('|') %>"
+							<% } %>
+
+							<% // Select background color%>
+							<% if (products[product].id != "ST_CAR_WINDSHIELD_BANNER"){ %>
+								<% i++; %>
+								data-item-custom<%- i %>-name="Text color"
+								<% 
+									var colorBackgroundNames = [];
+									_.forEach(site.data.colors_text, function(value, key) {
+										var color = value.name;
+										// Add [+9.99]
+										if (value.extra){
+											color += '[+';
+											color += value.extra;
+											color += ']';
+										} 
+										colorBackgroundNames.push(color);
+									}); 
+								%>							
+								data-item-custom<%- i %>-options="<%- colorBackgroundNames.join('|') %>"
+							<% } %>
 
 							>Add to cart
 						</button>

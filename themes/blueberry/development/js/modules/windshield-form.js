@@ -13,7 +13,6 @@ var timestamp = Math.floor(Date.now() / 1000);
 
 function _cacheDom(element) {
     DOM.$el = $(element);
-    DOM.$container = DOM.$el.find('.js--container');
     DOM.$form = DOM.$el.find('.js--windshield-form');
     DOM.$mailchimpForm = DOM.$el.find('.js--mailchimp-form');
     DOM.$orderId = DOM.$el.find('input[name=order_id]');
