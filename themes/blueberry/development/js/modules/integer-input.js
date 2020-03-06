@@ -32,6 +32,7 @@ var IntegerInput = function(){
         value = value < min ? min : value;
         value = value > max ? max : value;
         DOM.$input.val(value);
+        DOM.$input.trigger("change");
     }
 
     function init(element) {

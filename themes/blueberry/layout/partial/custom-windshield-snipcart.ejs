@@ -1,0 +1,261 @@
+<%- partial('partial/navbar') %>
+
+<% 
+// Select products with ids containing "ST_CAR_WINDSHIELD"
+var products = _.map(site.data.product_list, function(o) {
+    if (o.id.includes("ST_CAR_WINDSHIELD")) return o;
+}); 
+
+// Remove undefines from the array
+products = _.without(products, undefined);
+%>
+
+<div class="container spacer-footer">
+	<div class="row">
+		<div class="col js-container">
+			<div class="row justify-content-center">
+				<div class="col col-md-11 col-lg-10">
+					<h1 class="display-4 font-handwritten text-center mt-5 mb-4">Custom Sun Strips and Windshield Banners</h1>
+					<p class="text-muted text-center">
+						Use our interactive tool to create a custom windshield banner or sun strip for your car or truck. Please check our Instagram to see <a href="<%- theme.instagram_url %>">examples of banners</a> we made.
+					</p>
+				</div>
+			</div>
+			<form autocomplete="off" class="js--windshield-form-snipcart" name="contact" method="POST" data-netlify="true">
+				<!-- autocomplete="off" because of Firefox radio buttons bug -->
+				<!-- https://stackoverflow.com/questions/7988729/firefox-remembering-radio-buttons-incorrectly -->
+				<input type="hidden" name="order_id" value="" />
+
+				<h2 class="text-center mt-4 mb-3">What type of product are you looking for?</h2>
+				<div class="row justify-content-center">
+					<% var i = 0; %>
+					<% for (var product in products) { %>
+					<div class="col-12 col-sm-6 col-md-3">
+						<label class="label-custom row align-items-center justify-content-center">
+							<div class="col-4 col-sm-8 col-md-12">
+								<input class="invisible" type="radio" name="product" value="<%= products[product].id %>" <%= i++ == 0 ? 'checked' : ''; %> />
+								<div class="input-image">
+									<img class="w-100" src="<%- products[product].image_link %>" />
+								</div>
+							</div>
+							<div class="col-8 col-sm-12">
+								<p class="mt-3 text-xs-left text-sm-center">
+									<%= products[product].title.replace('Custom ','') %>
+									<strong>$<%= parseFloat(products[product].price) %>+</strong>
+								</p>
+								<p class="text-xs-left text-sm-center line-height-13">
+									<small class="text-muted">
+										<%
+											var description = "";
+											switch(products[product].id){
+												case "ST_CAR_WINDSHIELD_BANNER":
+													description = "Place it on top or bottom."
+													break;
+												case "ST_CAR_WINDSHIELD_SUNSTRIP":
+													description = "Cut it to fit the windshield."
+													break;
+												case "ST_CAR_WINDSHIELD_SUNSTRIP_CUT":
+													description = "Text is cut out of the base layer."
+													break;
+												case "ST_CAR_WINDSHIELD_SUNSTRIP_TEXT":
+													description = "Text layer on top of the base strip."
+													break;
+											}
+										%>
+										<%- description %>
+										<br class="d-none d-lg-inline" />Size is <%- products[product].id == "ST_CAR_WINDSHIELD_BANNER" ? "about" : "" %> <%= products[product].size %></small>
+								</p>
+							</div>
+						</label>
+					</div>
+					<% } %>
+				</div>
+				<div class="js--font-container">
+					<h2 class="text-center mt-4 mb-3">Type your text and select the font you like</h2>
+					<div class="row justify-content-center">
+						<div class="col col-md-8">
+							<div class="form-group mb-4">
+								<input class="form-control form-control-lg js--text-input" type="text" name="text" required placeholder="Type your text here">
+							</div>
+						</div>
+					</div>
+					<div class="row align-items-center">
+						<% i = 0; %>
+						<% // var query = '?s={"size":72,"text":"Your Banner","retina":false}'; %>
+						<% for (var font in site.data.fonts){ %>
+						<div class="col-12 col-lg-6">
+							<label class="label-custom d-flex align-items-center">
+								<input class="invisible" type="radio" name="font" value="<%= site.data.fonts[font].name %>" <%= i++ == 0 ? 'checked' : ''; %> />
+								<span class="input-radio flex-shrink-0 mr-3"></span>
+								<div class="flex-grow-1">
+									<% var dataSrc = site.data.fonts[font].url; %>
+									<% dataSrc = dataSrc.replace('https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/', '/font/'); %>
+									<% // var src = encodeURI(url + query); %>
+									<% var src = '/img/banner-previews/your-banner-' + font + '.png'; %>
+									<img data-src="<%- dataSrc %>" class="mt-3 font-image js--font-image" src="<%- src %>" />
+									<p class="mt-2 mb-0"><%- site.data.fonts[font].name %></p>
+								</div>
+							</label>
+						</div>
+						<% } %>
+					</div>
+				</div>
+				<h2 class="text-center mt-4 mb-3">Select colors</h2>
+				<div class="frame js--text-color-container">
+					<div class=frame-name-container><span class="frame-name">Text layer color</span></div>
+					<div class="d-flex flex-wrap justify-content-center">
+						<% i=0; %>
+						<% for (var color in site.data.colors_text){ %>
+						<label class="label-custom d-flex flex-column align-items-center px-2 mx-1">
+							<input class="invisible" type="radio" name="color_text" value="<%= site.data.colors_text[color].name %>" <%= i++ == 0 ? 'checked' : ''; %> />
+							<div class="input-image">
+								<% var style = site.data.colors_text[color].hex ? 'background-color: ' + site.data.colors_text[color].hex + ';': ''; %>
+								<% style += site.data.colors_text[color].image ? 'background-image: url(' + site.data.colors_text[color].image + ');' : ''; %>
+								<div class="color-swatch" style="<%- style %>"></div>
+							</div>
+							<p class="mt-2">
+								<%- site.data.colors_text[color].name %>
+								<% if (site.data.colors_text[color].extra) { %>
+									<strong>+$<%- site.data.colors_text[color].extra %></strong>
+								<% } %>
+							</p>
+						</label>
+						<% } %>
+					</div>
+				</div>
+				<div class="frame js--base-color-container" style="display: none">
+					<div class=frame-name-container><span class="frame-name">Sun strip base color</span></div>
+					<div class="d-flex flex-wrap justify-content-center">
+						<% i=0; %>
+						<% for (var color in site.data.colors_strip){ %>
+						<label class="label-custom d-flex flex-column align-items-center px-2 mx-1">
+							<input class="invisible flex-shrink-0" disabled type="radio" name="color_base" value="<%= site.data.colors_strip[color].name %>" <%= i++ == 0 ? 'checked' : ''; %> />
+							<div class="input-image">
+								<% var style = site.data.colors_strip[color].hex ? 'background-color: ' + site.data.colors_strip[color].hex + ';': ''; %>
+								<% style += site.data.colors_strip[color].image ? 'background-image: url(' + site.data.colors_strip[color].image + ');' : ''; %>
+								<div class="color-swatch" style="<%- style %>"></div>
+							</div>
+							<p class="mt-2">
+								<%- site.data.colors_strip[color].name %>
+								<% if (site.data.colors_strip[color].extra) { %>
+									<strong>+$<%- site.data.colors_strip[color].extra %></strong>
+								<% } %>								
+							</p>
+						</label>
+						<% } %>
+					</div>
+				</div>
+				<h2 class="text-center mt-4 mb-3">Preview</h2>
+				<div class="row justify-content-center mb-5">
+					<div class="col col-md-10 col-lg-8">
+						<div class="car-preview-container">
+							<img class="w-100 car" src="index/bmw-car.svg" />
+							<div class="banner-text"></div>
+							<div class="sunstrip"></div>
+							<div class="sunstrip-text"></div>
+						</div>
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-12 col-md-10 col-lg-8">
+						<div class="form-group">
+							<label class="label-blueberry" for="inputQuantity">How many items you need?</label>
+							<div class="input-group js--init-integer-input">
+								<div class="input-group-prepend">
+									<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
+								</div>
+								<input name="quantity" type="number" class="form-control js--input text-center hide-arrows" id="inputQuantity" value="1" min="1" max="999">
+								<div class="input-group-append">
+									<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
+								</div>
+							</div>
+							<small id="emailHelp" class="form-text text-muted mt-2">We offer <strong>5% off</strong> for orders with 4+ items and <strong>10% off</strong> for 10+ items</small>
+						</div>
+					</div>
+					<div class="col-12 col-md-10 col-lg-8 text-center mt-4">
+						<button type="submit" class="btn btn-primary btn-blueberry btn-lg">Add item to cart</button>
+						<br />
+						<% for (var product of products) { %>
+
+							<button class="snipcart-add-item btn invisible"
+								data-item-id="<%- product.id %>"
+								data-item-price="<%- parseFloat(product.price) %>"
+								data-item-url="<%- url_for(page.path) %>"
+								data-item-description="<%- product.description %>"
+								data-item-image="<%- get_pathname(product.image_link) %>"
+								data-item-name="<%- product.title %>"
+									
+								<% var i=1; %>
+
+								<% // Custom text %>
+								<% if (_.keys(product).includes('customization_name')){ %>
+									data-item-custom<%- i %>-name="<%- product.customization_name %>"
+									<% i++; %>
+								<% } %>
+
+								<% // Select font %>
+								<% if (product.id != "ST_CAR_WINDSHIELD_SUNSTRIP"){ %>
+									data-item-custom<%- i %>-name="Font"
+									<% 
+										var fontNames = [];
+										_.forEach(site.data.fonts, function(value, key) {
+											fontNames.push(value.name);
+										}); 
+									%>							
+									data-item-custom<%- i %>-options="<%- fontNames.join('|') %>"
+									<% i++; %>
+								<% } %>
+
+								<% // Select font color%>
+								<% if (product.id == "ST_CAR_WINDSHIELD_BANNER" ||
+									product.id == "ST_CAR_WINDSHIELD_SUNSTRIP_TEXT"){ %>
+									data-item-custom<%- i %>-name="Text color"
+									<% 
+										var colorTextNames = [];
+										_.forEach(site.data.colors_text, function(value, key) {
+											var color = value.name;
+											// Add [+9.99]
+											if (value.extra){
+												color += '[+';
+												color += value.extra;
+												color += ']';
+											} 
+											colorTextNames.push(color);
+										}); 
+									%>							
+									data-item-custom<%- i %>-options="<%- colorTextNames.join('|') %>"
+									<% i++; %>
+								<% } %>
+
+								<% // Select background color%>
+								<% if (product.id != "ST_CAR_WINDSHIELD_BANNER"){ %>
+									data-item-custom<%- i %>-name="Text color"
+									<% 
+										var colorBackgroundNames = [];
+										_.forEach(site.data.colors_text, function(value, key) {
+											var color = value.name;
+											// Add [+9.99]
+											if (value.extra){
+												color += '[+';
+												color += value.extra;
+												color += ']';
+											} 
+											colorBackgroundNames.push(color);
+										}); 
+									%>							
+									data-item-custom<%- i %>-options="<%- colorBackgroundNames.join('|') %>"
+									<% i++; %>
+								<% } %>
+
+								<% // Select quantity %>
+								data-item-quantity="1"
+
+								>
+							</button>
+						<% } %>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

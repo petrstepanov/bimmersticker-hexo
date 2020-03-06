@@ -33,6 +33,15 @@ function _cacheDom(element) {
     DOM.$banner = DOM.$el.find('.banner-text');
     DOM.$sunstrip = DOM.$el.find('.sunstrip');
     DOM.$sunstripText = DOM.$el.find('.sunstrip-text');
+
+    // Quantity control
+    DOM.$inputQuantity = DOM.$el.find('input[name=quantity]');
+
+    // Snipcart buttons
+    DOM.$btnBuyBanner = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_WINDSHIELD_BANNER]');
+    DOM.$btnBuySunStrip = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_WINDSHIELD_SUNSTRIP]');
+    DOM.$btnBuyCutSunStrip = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_WINDSHIELD_SUNSTRIP_CUT]');
+    DOM.$btnBuyTextSunStrip = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_WINDSHIELD_SUNSTRIP_TEXT]');
 }
 
 function _bindEvents(element) {
@@ -40,92 +49,63 @@ function _bindEvents(element) {
         _showHideFormContainers(this.value);
         _showHidePreviewElements(this.value);
         _enableDisableRadioButtons(this.value);
+        _updateSnipcartButtonsVisibility(this.value);
     });
 
-    DOM.$radioTextColor.change(function () {
-        _updateBannerSunstripTextColors();
-    });
-
-    DOM.$radioBaseColor.change(function () {
-        _updateSunstripBaseColor();
-    });
-
-    DOM.$radioFont.change(function () {
-        _updateBannerFontImages();
-    });
-
-    var that = this;
     DOM.$input.on('input', function () {
         if (timeoutUpdateImages) clearTimeout(timeoutUpdateImages);
         timeoutUpdateImages = setTimeout(function () {
             _updateTextImages();
             _updateBannerFontImages();
         }, 1500);
+        _updateSnipcartButtonsText(this.value);
+    });
+
+    DOM.$radioFont.change(function () {
+        _updateBannerFontImages();
+        _updateSnipcartButtonsFont(this.value);
+    });
+
+    DOM.$radioTextColor.change(function () {
+        _updateBannerSunstripTextColors();
+        _updateSnipcartButtonsTextColor(this.value);
+    });
+
+    DOM.$radioBaseColor.change(function () {
+        _updateSunstripBaseColor();
+        _updateSnipcartButtonsBaseColor(this.value)
+    });
+
+    DOM.$inputQuantity.change(function(){
+        DOM.$btnBuyBanner.attr('data-item-quantity', this.value);
+        DOM.$btnBuySunStrip.attr('data-item-quantity', this.value);
+        DOM.$btnBuyCutSunStrip.attr('data-item-quantity', this.value);
+        DOM.$btnBuyTextSunStrip.attr('data-item-quantity', this.value);
     });
 
     DOM.$form.submit(function(event) {
         event.preventDefault();
-        // var $form = $(this);
-
-        // // Populate Mailchimp form
-        // DOM.$mailchimpForm.find('.field-email').val(DOM.$form.find('input[name=email]').val());
-        // var firstLastName = DOM.$form.find('input[name=name]').val();
-        // var obj = helpers.parseFirstLastName(firstLastName);
-        // DOM.$mailchimpForm.find('.field-firstname').val(obj.firstName);
-        // DOM.$mailchimpForm.find('.field-lastname').val(obj.lastName);
-
-        // // Submit Mailchimp form - subscribe user
-        // $.ajax({
-        //     type:     DOM.$mailchimpForm.attr('method'),
-        //     url:      DOM.$mailchimpForm.attr('action'),
-        //     data:     DOM.$mailchimpForm.serialize(),
-        //     dataType: 'json'
-        // }).done(function(data){
-        //     // Submit order
-        //     $.post($form.attr("action"), $form.serialize()).then(function() {    
-        //         _renderSuccessTemplate();
-        //     });
-        // });
+        
+        switch (DOM.$radioProduct.value()) {
+            case 'ST_CAR_WINDSHIELD_BANNER':
+                DOM.$btnBuyBanner.click();
+                break;
+            case 'ST_CAR_WINDSHIELD_SUNSTRIP':
+                DOM.$btnBuySunStrip.click();
+                break;
+            case 'ST_CAR_WINDSHIELD_SUNSTRIP_CUT':
+                DOM.$btnBuyCutSunStrip.click();
+                break;
+            case 'ST_CAR_WINDSHIELD_SUNSTRIP_TEXT':
+                DOM.$btnBuyTextSunStrip.click();
+                break;
+        }
     });
-      
-    // DOM.$el.find('.js-test').click(function(event){
-    //     _renderSuccessTemplate();
-    // });
-    // $(window).resize(function() {
-    //     _adjustCarContainerHeight();
-    // });
-
-    // Template events
-    // $('body').on('click', '.js-print-order', function(event) {
-    //     event.preventDefault();
-    //     $('#collapseOrder').collapse('show');
-    //     window.print();
-    // });
 }
-
-// function _renderSuccessTemplate(){
-//     // Create JSON from form fields
-//     var json = helpers.objectifyForm(DOM.$form.serializeArray());
-//     // Populate success template with JSON
-//     nunjucks.configure({ autoescape: true });
-//     var template = $('#success-template').html();
-//     var rendered = nunjucks.renderString(template, json);
-//     // Display success template
-//     DOM.$el.html(rendered);
-//     // Scroll to top
-//     $('html, body').animate({
-//         scrollTop: 0
-//     }, 250);
-// }
 
 function _getBannerText() {
     return DOM.$input.val().length ? DOM.$input.val() : "Your Banner";
 }
-
-// function _adjustCarContainerHeight(){
-//     var height = parseFloat(DOM.$car.height());
-//     DOM.$carContainer.height(height);
-// }
 
 function _showHideFormContainers(product) {
     switch (product) {
@@ -248,6 +228,32 @@ function _updateSunstripBaseColor() {
     // Change sun strip base color
     DOM.$sunstrip.css('background-color', $swatch.css('background-color'));
     DOM.$sunstrip.css('background-image', $swatch.css('background-image'));
+}
+
+
+// Updating Snipcart buttons' attributes
+
+function _updateSnipcartButtonsText(value){
+    DOM.$btnBuyBanner.attr('data-item-custom1-value', value);
+    DOM.$btnBuyCutSunStrip.attr('data-item-custom1-value', value);
+    DOM.$btnBuyTextSunStrip.attr('data-item-custom1-value', value);
+}
+
+function _updateSnipcartButtonsFont(value){
+    DOM.$btnBuyBanner.attr('data-item-custom2-value', value);
+    DOM.$btnBuyCutSunStrip.attr('data-item-custom2-value', value);
+    DOM.$btnBuyTextSunStrip.attr('data-item-custom2-value', value);
+}
+
+function _updateSnipcartButtonsTextColor(value){
+    DOM.$btnBuyBanner.attr('data-item-custom3-value', value);
+    DOM.$btnBuyTextSunStrip.attr('data-item-custom3-value', value);
+}
+
+function _updateSnipcartButtonsBaseColor(value){
+    DOM.$btnBuySunStrip.attr('data-item-custom1-value', value);
+    DOM.$btnBuyCutSunStrip.attr('data-item-custom3-value', value);
+    DOM.$btnBuyTextSunStrip.attr('data-item-custom4-value', value);
 }
 
 function _render(options) {
