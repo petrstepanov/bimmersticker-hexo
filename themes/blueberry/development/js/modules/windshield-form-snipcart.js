@@ -86,7 +86,7 @@ function _bindEvents(element) {
     DOM.$form.submit(function(event) {
         event.preventDefault();
         
-        switch (DOM.$radioProduct.value()) {
+        switch (DOM.$radioProduct.val()) {
             case 'ST_CAR_WINDSHIELD_BANNER':
                 DOM.$btnBuyBanner.click();
                 break;
