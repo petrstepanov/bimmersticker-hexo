@@ -1,4 +1,4 @@
-<% if(caonfig.cart == "snipcart"){ %>    
+<% if(config.cart == "snipcart"){ %>    
     <% if (process.env.SNIPCART_API_KEY){ %>
         <div hidden id="snipcart" data-api-key="<%- process.env.SNIPCART_API_KEY %>" hidden></div>    
     <% } %>
