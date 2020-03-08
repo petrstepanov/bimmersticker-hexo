@@ -184,7 +184,7 @@ products = _.without(products, undefined);
 								data-item-description="<%- product.description %>"
 								data-item-image="<%- get_pathname(product.image_link) %>"
 								data-item-name="<%- product.title %>"
-								data-item-weight="<%- parseFloat(product.weight)*28 %>"
+								data-item-weight="<%- lbs_to_g(product.weight) %>"
 								
 								<% var i=1; %>
 

@@ -8,6 +8,13 @@ hexo.extend.helper.register('format_price', function(price){
   return integer + '<sup>' + decimal + '</sup>';
 });
 
+hexo.extend.helper.register('lbs_to_g', function(string){
+  var lbs = parseFloat(string);
+  var oz = lbs*16;
+  var g = oz*28.3495;
+  return g;
+});
+
 hexo.extend.helper.register('first_image', function(page){
   var image = {};
   var regexp = /<img .*?>/gm;
