@@ -21,7 +21,7 @@
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/product-type-banner.jpg
   price: "29.99 USD"
   size: "28x6 in"
-  weight: "0.125 lbs"
+  weight: "0.1875 lbs"
   material: "Oracal and TeckWrap vinyls"
   color: "White|Matte black|Black|Mint|Orange|Pink|Red|Silver[+9.99]|Gold[+9.99]|Oil Slick[+9.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your banner text"
@@ -33,7 +33,7 @@
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/product-type-sunstrip.jpg
   price: "25.99 USD"
   size: "60x10 in"
-  weight: "0.25 lbs"
+  weight: "0.24 lbs"
   material: "Oracal 651 or TeckWrap vinyls"
   color: "Matte black|Black|Mint|Orange|White|Pink|Red|Oil Slick[+9.99]" # for Google only. Real app takes these from colors_strip.yml
 - id:	ST_CAR_WINDSHIELD_SUNSTRIP_CUT
@@ -44,7 +44,7 @@
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/product-type-cut-sunstrip.jpg
   price: "39.99 USD"
   size: "60x10 in"
-  weight: "0.25 lbs"
+  weight: "0.24 lbs"
   material: "Oracal 651 and TeckWrap vinyls"
   color: "Matte black|Black|Mint|Orange|White|Pink|Red|Oil Slick[+9.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your sun strip text"
@@ -56,7 +56,7 @@
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/product-type-text-sunstrip.jpg
   price: "39.99 USD"
   size: "60x10 in"
-  weight: "0.25 lbs"
+  weight: "0.24 lbs"
   material: "Oracal 651 and TeckWrap vinyls"
   color: "White|Matte black|Black|Mint|Orange|Pink|Red|Silver[+9.99]|Gold[+9.99]|Oil Slick[+9.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your sun strip text"
