@@ -134,4 +134,4 @@ exports.scriptsDev = scriptsDev;
 exports.development = development;
 exports.production = production;
 
-exports.default = process.env.BUILD_TYPE ? process.env.BUILD_TYPE : production;
+exports.default = process.env.BUILD_TYPE=='production' ? production : development;
