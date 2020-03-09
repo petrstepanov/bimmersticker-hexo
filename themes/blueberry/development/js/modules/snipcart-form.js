@@ -3,11 +3,13 @@
 
 var $ = require('jquery');
 var DOM = {};
+var events = require('./events')
 
 function _cacheDom(element) {
   DOM.$form = $(element);
   DOM.$inputs = DOM.$form.find('select, input');
   DOM.$selects = DOM.$form.find('select');
+  DOM.$selectColor = DOM.$form.find('select#color')
   DOM.$snipcartButton = DOM.$form.find('.js--snipcart-add-item');
   DOM.$submitButtons = $(document).find('.js--product-submit');
 }
@@ -35,6 +37,16 @@ function _bindEvents(element) {
       var baseCaption = $(this).data().baseCaption;
       $(this).html(baseCaption + '$' + price.toString());
     });
+  });
+
+  // Throw event about selecting specific color in the dropdown
+  DOM.$selectColor.on('change', function () {
+    var $options = $(this).find('option');
+    var option = $(this).find('option:selected').get(0);
+    var selectedIndex = $options.index(option);
+    if (selectedIndex >= 0){
+      events.emit('colorIndexSelectedEvent', {index: selectedIndex});
+    }
   });
 
   DOM.$form.on('submit', function (event) {

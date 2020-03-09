@@ -16,6 +16,7 @@ var formInsideDialog = require('./modules/form-inside-dialog');
 var formValidation = require('./modules/form-validation');
 var FormAjaxSubmit = require('./modules/form-ajax-submit');
 var IntegerInput = require('./modules/integer-input');
+var Carousel = require ('./modules/carousel');
 
 $(document).ready(function(){
   navbarFixer.init(document.querySelector('.js--init-navbar-fixer'));
@@ -42,11 +43,12 @@ $(document).ready(function(){
     formAjaxSubmit.init(this);
   });
 
-  
-
   // Autosize textareas
   autosize(document.querySelectorAll('.js--init-autosize'));
 
   // Bootstrap's popovers
   $('[data-toggle="popover"]').popover();
+
+  // Connect color dropdowns and carousels
+  Carousel.init();
 });
