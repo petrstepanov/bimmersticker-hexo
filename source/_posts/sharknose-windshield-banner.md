@@ -17,7 +17,7 @@ product_id: ST_WSHIELD_SHARK
 A beautiful banner for legendary BMW cars.
 
 <!-- more -->
-{% asset_img content-image bmw-shark-sharknose-windshield-banner-holographic.jpg 'Sharknose Legend classic BMW window banner with crown"Sharknose Legend classic BMW window banner with crown"' %}
+<!-- {% asset_img content-image bmw-shark-sharknose-windshield-banner-holographic.jpg 'Sharknose Legend classic BMW window banner with crown"Sharknose Legend classic BMW window banner with crown"' %} -->
 
 A tribute to these beautifully engineered classical BMW cars. Sticker has a crown icon on it to stress the "respect for the elders". Banner is designed to be used on the windshield but technically can go anywhere (garage wall, front porch etc).
 

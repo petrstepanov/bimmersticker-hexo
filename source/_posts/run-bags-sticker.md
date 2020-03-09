@@ -15,7 +15,7 @@ product_id: ST_CAR_RUNBAGS
 A sticker for cars with air suspension setup.
 
 <!-- more -->
-{% asset_img content-image run-bags-stance-jdm-sticker.jpg 'Run Bags window vinyl sticker for bagged car"Run Bags window vinyl sticker for stanced lowered cars on air suspension"' %}
+<!-- {% asset_img content-image run-bags-stance-jdm-sticker.jpg 'Run Bags window vinyl sticker for bagged car"Run Bags window vinyl sticker for stanced lowered cars on air suspension"' %} -->
 
 This battle will be going forever. Bags or coils, static or air? Its your business which way to go. Its props and cons, a tie game and in the end of the day.
 

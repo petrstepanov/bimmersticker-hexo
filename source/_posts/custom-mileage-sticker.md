@@ -17,7 +17,7 @@ product_id: ST_CAR_MILEAGE
 Respect the elders. Show them your mileage.
 
 <!-- more -->
-{% asset_img content-image custom-car-mileage-sticker-black.jpg 'Custom mileage sticker for any car model"Vinyl car sticker with your mileage"' %}
+<!-- {% asset_img content-image custom-car-mileage-sticker-black.jpg 'Custom mileage sticker for any car model"Vinyl car sticker with your mileage"' %} -->
 
 Now this is a cool thing. We all know that older cars were build tough. Back those days when automobile companies did really compete between each other trying to make a better car. That's why they are still on the roads!
 

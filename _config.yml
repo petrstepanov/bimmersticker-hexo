@@ -109,6 +109,10 @@ responsive_images:
     small:
       width: 128
       height: 128
+    medium:
+      width: 512
+      height: 512
+      quality: 30
 
 # Data file export
 google_feed_path:

@@ -16,7 +16,7 @@ product_id: ST_BMW_MODEL
 With custom popup text for any BMW model.
 
 <!-- more -->
-{% asset_img content-image bmw-sticker-instagram-popup.jpg 'Instagram sytyle popup sticker for any bmw model"Instagram sytyle popup sticker for any bmw model"' %}
+<!-- {% asset_img content-image bmw-sticker-instagram-popup.jpg 'Instagram sytyle popup sticker for any bmw model"Instagram sytyle popup sticker for any bmw model"' %} -->
 
 Think about it. Today instagram is the most popular social network. We came up with the idea to combine the instagram popup design with the custom BMW model numbers. It turned out to look pretty damn cool. We can make the sticker for any custom bmw model. For instance, 525i, 328i, 740i, 525xi. Anything.
 

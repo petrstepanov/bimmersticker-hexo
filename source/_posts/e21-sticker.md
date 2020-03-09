@@ -18,7 +18,7 @@ product_id: ST_BMW_E21
 Legendary shark. first generation of BMW's 3 series.
 
 <!-- more -->
-{% asset_img content-image bmw-e21-vinyl-sticker.jpg 'BMW e21 vinyl sticker"BMW e21 vinyl sticker"' %}
+<!-- {% asset_img content-image bmw-e21-vinyl-sticker.jpg 'BMW e21 vinyl sticker"BMW e21 vinyl sticker"' %} -->
 
 BMW e21 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 
 

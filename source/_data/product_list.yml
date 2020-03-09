@@ -254,12 +254,13 @@
   description: "A set of two custom stickers with your Instagram name (handle). Stickers are contour cut out of premium outdoor vinyls. Transparent background. Available in white, holographic, silver, gold and oil slick colors. Stickers come with installation instructions."
   product_type: Stickers > Social
   link: https://bimmersticker.store/instagram-username-sticker/
-  image_link: https://bimmersticker.store/instagram-username-sticker/car-custom-instagram-name-stickers-square.jpg
+  image_link: https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-white-color.jpg
+  additional_image_link: https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-holographic-color.jpg,https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-oil-slick-color.jpg,https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-silver-color.jpg,https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-gold-color.jpg
   price: "9.99 USD"
   size: "7.5x2 in"
   weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "White|Holographic[+2.00]|Silver[+2.00]|Gold[+2.00]|Oil Slick[+2.00]"
+  color: "White|Holographic[+2.00]|Oil Slick[+2.00]|Silver[+2.00]|Gold[+2.00]"
   customization_name: "Your instagram name"
   customization_placeholder: "Use '@' with your handle if you want"
 - id:	ST_SOCIAL_YT

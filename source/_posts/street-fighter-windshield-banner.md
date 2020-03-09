@@ -18,7 +18,7 @@ product_id: ST_WSHIELD_SF
 A follow-up to that oldschool Nintendo game.
 
 <!-- more -->
-{% asset_img content-image street-fighter-car-windshield-banner.jpg 'Street Fighter car windshield banner vinyl sticker"Street Fighter car windshield banner vinyl sticker"' %}
+<!-- {% asset_img content-image street-fighter-car-windshield-banner.jpg 'Street Fighter car windshield banner vinyl sticker"Street Fighter car windshield banner vinyl sticker"' %} -->
 
 We do remrmber playing that Street Fighter 2 a lot back those times. From our prerspective a race car can easily be a street fighter too, right? So we decided to give it a shot and make a this windshield banner. It turned out nice, the font is gnarly and resembles the one used in the game. Banner will look really cool on a race car, drift car or stances show car.
 

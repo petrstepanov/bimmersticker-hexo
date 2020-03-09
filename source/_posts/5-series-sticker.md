@@ -18,7 +18,7 @@ product_id:	ST_BMW_5SERIES
 Five series is one foot on the track, another in business.
 
 <!-- more -->
-{% asset_img content-image bmw-5-series-vinyl-window-sticker.jpg 'BMW 5 series 5er vinyl sticker"BMW 5 series 5er vinyl sticker"' %}
+<!-- {% asset_img content-image bmw-5-series-vinyl-window-sticker.jpg 'BMW 5 series 5er vinyl sticker"BMW 5 series 5er vinyl sticker"' %} -->
 
 A nicely designed and handcrafted '5 series' sticker. Five series have a lot of bodies. First one was e12, replaced by e28, e34. Later on it was e39. Next e60 sedan and e61 wagon. Sixth generation f10 sedan, f11 wagon and f07 gran tourismo. Latest generation is g30 sedan, g31 wagon and g38 long version.
 

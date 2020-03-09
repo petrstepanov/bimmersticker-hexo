@@ -18,6 +18,6 @@ product_id: ST_BMW_E53
 First ever legendary BMW luxury crossover.
 
 <!-- more -->
-{% asset_img content-image bmw-e53-window-sticker-decal.jpg 'BMW e53 vinyl sport drift stance sticker"BMW e53 vinyl sport drift stance sticker"' %}
+<!-- {% asset_img content-image bmw-e53-window-sticker-decal.jpg 'BMW e53 vinyl sport drift stance sticker"BMW e53 vinyl sport drift stance sticker"' %} -->
 
 Here is a BMW e53 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with transfer tape and easy installation instructions. 

@@ -17,7 +17,7 @@ product_id: ST_CAR_SUPER
 Wait a minute, it's Supercharged, not Supreme!
 
 <!-- more -->
-{% asset_img content-image sticker-supercharged-car-supreme.jpg 'Car Supercharged window sticker"Vinyl Supercharged window sticker for any car model"' %}
+<!-- {% asset_img content-image sticker-supercharged-car-supreme.jpg 'Car Supercharged window sticker"Vinyl Supercharged window sticker for any car model"' %} -->
 
 Well yes there is definitely some hype going around the Supreme streetwear. It is a true mystery why the lines to Supreme stores sometimes get longer than to Apple Store. Hate it or like it. Whatever.
 

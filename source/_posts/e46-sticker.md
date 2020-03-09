@@ -19,6 +19,6 @@ product_id: ST_BMW_E46
 Very affordable, reliable and easy to maintain 3 series.
 
 <!-- more -->
-{% asset_img content-image bmw-e46-window-sticker.jpg 'BMW e46 vinyl sport drift stance sticker"BMW e46 vinyl sport drift stance sticker"' %}
+<!-- {% asset_img content-image bmw-e46-window-sticker.jpg 'BMW e46 vinyl sport drift stance sticker"BMW e46 vinyl sport drift stance sticker"' %} -->
 
 BMW e46 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

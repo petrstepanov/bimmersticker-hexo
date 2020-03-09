@@ -15,7 +15,7 @@ product_id: ST_CAR_RUNCOILS
 Sticker designed for cars that do run on the old good rock solid coilovers!
 
 <!-- more -->
-{% asset_img content-image run-coils-stance-jdm-sticker.jpg 'Run Coils window vinyl sticker"Run Coils window vinyl sticker for stanced lowered cars"' %}
+<!-- {% asset_img content-image run-coils-stance-jdm-sticker.jpg 'Run Coils window vinyl sticker"Run Coils window vinyl sticker for stanced lowered cars"' %} -->
 
 This battle will be going forever. Bags or coils, static or air? Its your business which way to go. Its props and cons, a tie game and in the end of the day.
 

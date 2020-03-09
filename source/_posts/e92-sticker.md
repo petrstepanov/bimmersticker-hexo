@@ -18,6 +18,6 @@ product_id: ST_BMW_E92
 Beautiful coupe designed in the best sporty BMW traditions.
 
 <!-- more -->
-{% asset_img content-image e92-bmw-sticker-window.jpg 'BMW e92 vinyl sport drift stance sticker"BMW e92 vinyl sport drift stance sticker"' %}
+<!-- {% asset_img content-image e92-bmw-sticker-window.jpg 'BMW e92 vinyl sport drift stance sticker"BMW e92 vinyl sport drift stance sticker"' %} -->
 
 BMW e92 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

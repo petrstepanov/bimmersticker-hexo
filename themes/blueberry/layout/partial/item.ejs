@@ -10,7 +10,26 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <section><%- page.more %></section>
+          <section>
+            <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
+            <% if (productIndex >= 0){ %>
+              <% var product = site.data.product_list[productIndex]; %>
+              <div class="post-featured-container">
+                <!-- Featured gallery -->                
+                <% if (product.additional_image_link) { %>
+                  <% var data = {
+                        images: (product.image_link + "," + product.additional_image_link).split(","),
+                        alt: product.description
+                  }; %>
+                  <%- carousel(data); %>
+                <% } else { %>
+                  <!-- Featured image -->
+                  <img class="w-100" src="<%- product.image_link %>" title="<%- product.title %>" alt="<%- product.description %>" />
+                <% } %>
+              </div>
+            <% } %>
+            <%- page.more %>
+          </section>
           <%- partial('partial/item-customize') %>
           <%- partial('partial/item-similar') %>
           <%- // partial('partial/item-comments') %>

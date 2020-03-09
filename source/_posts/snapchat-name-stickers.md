@@ -16,7 +16,7 @@ product_id: ST_SOCIAL_SC
 Sure thing we do have snapchat stickers for sale too.
 
 <!-- more -->
-{% asset_img content-image custom-personal-snapchat-name-sticker.jpg 'Personal Snapchat profile sticker"Custom Snapchat name sticker"' %}
+<!-- {% asset_img content-image custom-personal-snapchat-name-sticker.jpg 'Personal Snapchat profile sticker"Custom Snapchat name sticker"' %} -->
 
 A pair of custom Snapchat stickers. Use them to promote your acount, business or elsewhere. Works great as a gift too. Design of the stickers is based on the most recent bold snapchat logo.
 

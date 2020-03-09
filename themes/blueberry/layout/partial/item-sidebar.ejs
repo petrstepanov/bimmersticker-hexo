@@ -1,17 +1,25 @@
 <div id="post-aside">
   <div class="sidebar-sticky">
     <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
-    <% if(productIndex >= 0){ %>
+    <% if (productIndex >= 0){ %>
       <% var product = site.data.product_list[productIndex]; %>
       <%- partial('partial/item-navbar', {product: product}) %>
       <div class="container">
         <div class="row">
           <section class="col">
-            <!-- Featured image -->
-            <% var image = first_image(page); %>
-            <% if (image){ %>
-              <img class="featured-image" src="<%- image.src ? image.src : '' %>" title="<%- image.title ? image.title : '' %>" alt="<%- image.alt ? image.alt : '' %>">
-            <% } %>
+            <div class="sidebar-featured-container">
+              <!-- Featured gallery -->
+              <% if (product.additional_image_link) { %>
+                <% var data = {
+                      images: (product.image_link + "," + product.additional_image_link).split(","),
+                      alt: product.description
+                }; %>
+                <%- carousel(data); %>
+              <% } else { %>
+                <!-- Featured image -->
+                <img class="w-100" src="<%- product.image_link %>" title="<%- product.title %>" alt="<%- product.description %>" />
+              <% } %>
+            </div>
             <h1 class="mb-3 mt-lg-2 font-size-28 line-height-1"><%- post.title %></h1>
             <% if (product.description){ %>
               <p class="my-3"><%- product.description %></p>
@@ -58,7 +66,7 @@
               <% } %>
             </dl>
             <% if (theme.email){ %>
-              <button type="button" class="btn btn-link px-0" href="#" data-toggle="modal" data-target="#customizeModal">Contact us for custom colors, sizes and designs.</button>
+              <button type="button" class="btn btn-link px-0" href="#" data-toggle="modal" data-target="#customizeModal">Contact us for custom colors and sizes.</button>
             <% } %>
           </section>
         </div>

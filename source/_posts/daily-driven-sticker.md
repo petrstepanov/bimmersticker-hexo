@@ -17,7 +17,7 @@ product_id: ST_CAR_DAILY
 Let them know your project car hits the roads on a daily basis.
 
 <!-- more -->
-{% asset_img content-image sticker-daily-driven.jpg 'Daily driven sticker for stanced or modified cars"Vinyl car window sticker daily driven"' %}
+<!-- {% asset_img content-image sticker-daily-driven.jpg 'Daily driven sticker for stanced or modified cars"Vinyl car window sticker daily driven"' %} -->
 
 Here in bimmersticker.store we all drive modified cars. We do know that driving a lowered car every next day is a commitment. You have to deal with the potholes, and sometimes change your oil pans. But it is doable.
 

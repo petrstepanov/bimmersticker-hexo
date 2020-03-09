@@ -30,7 +30,7 @@
 #post-aside {
   background-color: $indigo;
 
-  .featured-image {
+  .sidebar-featured-container {
     // Calc in SASS https://stackoverflow.com/questions/17982111/sass-variable-in-css-calc-function
     width: calc(100% + #{$grid-gutter-width});
     margin-left: -($grid-gutter-width / 2);
@@ -38,16 +38,28 @@
     margin-bottom: 1.75em;
 
     @include media-breakpoint-up(sm){
-      margin: 1.75rem 0;
-      border-radius: $border-radius;
+      margin-top: 1.75rem;
+      margin-left: 0;
+      margin-right: 0;
       width: 100%;
-      object-fit: cover;
+      border-radius: $border-radius;
+      overflow: hidden;
     }
 
     @include media-breakpoint-up(lg){
       display: none;
     }
-  }
+
+    // Crop featured image and gallery images
+    img {
+      max-height: 20rem;
+      object-fit: cover;
+
+      @include media-breakpoint-up(sm){
+        max-height: 24rem;
+      }
+    }
+  } 
 
   .sticker-properties {
     dt {
@@ -91,28 +103,31 @@
     padding-top: 3.75em;
   }
 
+  .post-featured-container {
+    border-radius: $border-radius;
+    overflow: hidden;
+    margin: 1em 0 1.75em 0;
+    display: none;
+
+    @include media-breakpoint-up(lg){
+      display: block;
+    }
+
+    // Crop featured image or gallery in content
+    img {
+      max-height: 30rem;
+      object-fit: cover;
+
+      @include media-breakpoint-up(sm){
+        max-height: 24rem;
+      }      
+    }
+  }
+
   .content-image {
     width: 100%;
     border-radius: $border-radius;
     margin: 1em 0 1.75em 0;
-
-    &:first-of-type {
-      display: none;
-
-      @include media-breakpoint-up(lg){
-        display: inline;
-        // margin-left: -2.75em;
-        // margin-right: -2.75em;
-        // margin-top: -3.75em;        
-      }
-
-      // @include media-breakpoint-up(xl){
-      //   display: inline;
-      //   margin-left: -5.55em;
-      //   margin-right: -5.55em;
-      //   margin-top: 3.75em;        
-      // }
-    }
   }
 
   h2 {

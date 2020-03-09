@@ -18,7 +18,7 @@ product_id: ST_BMW_E36
 Motorsport icon. Number one in drift, drag, track and car meets.
 
 <!-- more -->
-{% asset_img content-image bmw-e36-sticker-vinyl.jpg 'BMW e36 drift stance sport vinyl sticker"BMW e36 drift stance sport vinyl sticker"' %}
+<!-- {% asset_img content-image bmw-e36-sticker-vinyl.jpg 'BMW e36 drift stance sport vinyl sticker"BMW e36 drift stance sport vinyl sticker"' %} -->
 
 The whole business started from this BMW e36 sticker. It was the first one ever made for our project car.
 

@@ -17,7 +17,7 @@ product_id:	ST_BMW_2SERIES
 For compact coupés and newer MPV body styles.
 
 <!-- more -->
-{% asset_img content-image bmw-2-series-vinyl-sticker.jpg 'BMW 2 series 2er vinyl sticker"BMW 2 series 2er vinyl sticker"' %}
+<!-- {% asset_img content-image bmw-2-series-vinyl-sticker.jpg 'BMW 2 series 2er vinyl sticker"BMW 2 series 2er vinyl sticker"' %} -->
 
 A nicely designed and handcrafted '2 series' sticker. Currently there are following bodies for 2 series: a coupe f22 and its convertible variant f23. Also there are two Multi-Purpose-Vehicles f45 and a little longer f46.
 
