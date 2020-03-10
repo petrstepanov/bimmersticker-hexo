@@ -24,7 +24,7 @@
             <% if (product.description){ %>
               <p class="my-3"><%- product.description %></p>
             <% } %>
-            <form class="js--init-snipcart-form" id="cart-form">
+            <form autocomplete="off" class="js--init-snipcart-form" id="cart-form">
               <% if (has_variations(product)){ %>
                 <% var variations = get_variations(product); %>
                 <% _.forOwn(variations, function(values, key) { %>
