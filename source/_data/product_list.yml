@@ -234,7 +234,7 @@
   size: "8x2 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
-  pattern: "miles|mm"
+  pattern: "miles|km"
   color: "white/black|white/red"
   customization_name: "Text us your mileage"
   customization_placeholder: "230000"

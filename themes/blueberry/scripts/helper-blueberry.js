@@ -127,15 +127,15 @@ hexo.extend.helper.register('parse_variation_value', function(str){
   var obj = {
     value: str,
     text: str,
-    extra: "0"
+    extra: 0
   };
-  // get extra price
+
   var pattern = /(.*)\[(.*)\]/;
   if (pattern.test(str)){
     var array = pattern.exec(str);
-    obj.value = array[1];
+    obj.value = capitalize(array[0]);
     obj.extra = array[2];
-    obj.text = obj.value + " +$" + parseFloat(array[2]).toString();
+    obj.text = capitalize(array[1]) + " +$" + parseFloat(array[2]).toString();
   }
   return obj;
 });
