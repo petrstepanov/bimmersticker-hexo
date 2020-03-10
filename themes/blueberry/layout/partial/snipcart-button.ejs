@@ -8,13 +8,18 @@
   data-item-weight="<%- lbs_to_g(product.shipping_weight) %>"
   
   <% var i=1; %>
-  <% _.forOwn(product, function(value, key) { %>
-    <% if (value.includes('|')){ %>
-        data-item-custom<%- i %>-name="<%- capitalize(key) %>" 
-        data-item-custom<%- i++ %>-options="<%- value %>" 
-    <% } %>
-  <% }); %>
-
+  <% if (has_variations(product)){ %>
+    <% var variations = get_variations(product); %>
+    <% _.forOwn(variations, function(values, key) { %>
+      <% var options = []; %>
+      <% values.forEach(value => { %>
+        <% var variation = parse_variation_value(value); %>
+        <% options.push(variation.value); %>
+      <% });%>
+      data-item-custom<%- i %>-name="<%- capitalize(key) %>"
+      data-item-custom<%- i++ %>-options="<%- options.join("|") %>" 
+    <% }); %>
+  <% } %>  
   <% if (_.keys(product).includes('customization_name')){ %>
     data-item-custom<%- i %>-name="<%- product.customization_name %>"
   <% } %>

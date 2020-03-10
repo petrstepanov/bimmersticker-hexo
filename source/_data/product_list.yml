@@ -21,7 +21,7 @@
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/product-type-banner.jpg
   price: "25.99 USD"
   size: "28x6 in"
-  shipping_weight: "0.1875 lbs"
+  shipping_weight: "0.2 lbs"
   material: "Oracal and TeckWrap vinyls"
   color: "white|matte black|black|mint|orange|pink|red|silver[+9.99]|gold[+9.99]|oil slick[+9.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your banner text"
@@ -234,7 +234,7 @@
   size: "8x2 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
-  pattern: "miles|mm"
+  pattern: "miles|km"
   color: "white/black|white/red"
   customization_name: "Text us your mileage"
   customization_placeholder: "230000"
