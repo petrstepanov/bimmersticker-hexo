@@ -111,7 +111,19 @@ hexo.extend.helper.register('print_size', function(size){
   return temp;
 });
 
+// hexo.extend.helper.register('title_case', function(str){
+//   var splitStr = str.toLowerCase().split(' ');
+//   for (var i = 0; i < splitStr.length; i++) {
+//       splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+//   }
+//   return splitStr.join(' '); 
+// });
+
 hexo.extend.helper.register('parse_variation_value', function(str){
+  const capitalize = hexo.extend.helper.get('capitalize').bind(hexo);
+  str = str.replace(/\//g, " & ");
+  str = capitalize(str);  
+
   var obj = {
     value: str,
     text: str,

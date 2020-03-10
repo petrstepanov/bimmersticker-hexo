@@ -28,9 +28,9 @@ function breakArrayVariationsRecursive(array){
     else {
         var object = array[index];
         // Since object has variations we set its 'item_group_id'
-        if (object.item_group_id == ""){
+        // if (object.item_group_id == ""){
             object.item_group_id = object.id;  
-        }
+        // }
 
         // Split one variation object
         // var idNoNumber = object.item_group_id;
@@ -94,21 +94,21 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
         });
     });
 
-    // Add 'pattern' and 'additional_image_link' fields if missing
-    feedArray.forEach(element => {
-        if (!("pattern" in element)) element.pattern = "";
-        if (!("additional_image_link" in element)) element.additional_image_link = "";
-    });
+    // Add missing  'pattern' and 'additional_image_link' fields if missing
+    // feedArray.forEach(element => {
+    //     if (!("pattern" in element)) element.pattern = "";
+    //     if (!("additional_image_link" in element)) element.additional_image_link = "";
+    // });
 
     // If has variations - set item_group_id
-    feedArray.forEach(element => {
-        element.item_group_id = '';
-        _.forOwn(element, function(value, key) {
-            if (key.includes('|')){
-                element.item_group_id = element.id;
-            }
-        });
-    });
+    // feedArray.forEach(element => {
+    //     element.item_group_id = '';
+    //     _.forOwn(element, function(value, key) {
+    //         if (key.includes('|')){
+    //             element.item_group_id = element.id;
+    //         }
+    //     });
+    // });
 
     // Iterate through array
     breakArrayVariationsRecursive(feedArray);
@@ -124,25 +124,27 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
         }
     });    
 
-    // Prefix id's with two color
+    // Prefix id's with color and pattern
     feedArray.forEach(element => {
-        if (element.color){
-            element.id = element.id + '_' + element.color.toUpperCase().replace(' ','_');
-        }        
-        if (element.pattern){
-            element.id = element.id + '_' + element.color.toUpperCase().replace(' ','_');
+        if ("item_group_id" in element){
+            if ("color" in element){
+                element.id = element.id + '_' + element.color.toUpperCase().replace(' ','_');
+            }        
+            if ("pattern" in element){
+                element.id = element.id + '_' + element.pattern.toUpperCase().replace(' ','_');
+            }    
         }
     });
 
     // Populate mpn's
     feedArray.forEach(element => {
-        element.mpn = element.id.split('_').join();
-        element.sku = element.id.split('_').join();
+        element.mpn = element.id.split('_').join('');
+        element.sku = element.id.split('_').join('');
         element.brand = 'Bimmer Sticker Store';
         element.condition = 'new';
         element.availability = 'in stock';
-        element.google_product_category = 'Care & Decor > Vehicle Decor > Bumper Stickers';
-        element.shipping = 'US::Standard:0 USD';
+        element.google_product_category = 'Vehicles & Parts > Vehicle Parts & Accessories > Vehicle Maintenance, Care & Decor > Vehicle Decor > Bumper Stickers';
+        // element.shipping = 'US::Standard:0 USD';
     });
 
     // Write feed header from 1st item keys
@@ -155,7 +157,7 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
         // So we sort object keys like the first one https://stackoverflow.com/questions/5467129/sort-javascript-object-by-key
         const objectOrdered = {};
         Object.keys(feedArray[0]).forEach(function(key) {
-            objectOrdered[key] = object[key];
+            objectOrdered[key] = object[key] ? object[key] : "";
         });        
         feedTxt += _.values(objectOrdered).join('\t');
         // if (object.id.includes('ST_CAR_STAYTUNED')){
