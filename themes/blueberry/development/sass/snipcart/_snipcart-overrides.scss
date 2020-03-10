@@ -34,6 +34,7 @@
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
+    margin-bottom: 1rem;
 
     button {
         margin-top: 1rem;
@@ -72,22 +73,30 @@
     display: none;
 }
 
-// Select field
-.snipcart-form__select, .snipcart-form-input {
-    padding: 0 1rem;
-    height: 2.75rem;
-    font-family: $font-regular !important;
+%input-field {
     box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
     border: 1px solid #dceaf9;
     border-radius: 0.4rem;
 }
 
+// Select field
+.snipcart-form__select, .snipcart-form-input {
+    padding: 0 1rem;
+    height: 2.75rem;
+    font-family: $font-regular !important;
+    @extend %input-field;
+}
+
+// Input field
+snipcart-input__input {
+    font-family: $font-regular !important;
+    @extend %input-field;
+}
+
 // Quantity field
 .snipcart-item-quantity__quantity { 
     height: 2.75rem;
-    box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
-    border: 1px solid #dceaf9;
-    border-radius: 0.4rem;    
+    @extend %input-field; 
 }
 
 // Discount container
@@ -132,4 +141,29 @@
 // Secured by snipcart
 .snipcart-featured-payment-methods__title {
     background-color: $indigo;
+}
+
+// Checkout step badges
+.snipcart__box--badge {
+    margin-top: -24px;
+}
+
+.snipcart-typeahead {
+    background-color: transparent;
+}
+
+// Checkout input fields... weird
+.snipcart-input {
+    border: 0px !important;
+    height: auto;
+
+    input {
+        @extend %input-field;
+        height: 2.75rem;
+        font-family: $font-regular;
+    }
+}
+
+.snipcart-form__label {
+    @extend .label;
 }
