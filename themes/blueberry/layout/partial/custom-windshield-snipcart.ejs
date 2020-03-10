@@ -3,7 +3,11 @@
 <% 
 	// Select products with ids containing "ST_CAR_WINDSHIELD"
 	var products = _.map(site.data.product_list, function(o) {
-		if (o.id.includes("ST_CAR_WINDSHIELD")) return o;
+		if (o.id.includes("ST_CAR_WINDSHIELD")){
+			// Important - clone object because we will modify them later.
+			var clonedObj = Object.assign({}, o);
+			return cloneObj;
+		}
 	}); 
 
 	// Remove undefines from the array
@@ -281,4 +285,4 @@
 </div>
 
 <% // Write schema.org product metedata %>
-<%- partial('schema/products-parser', {productsList: products}) %>
+<%- partial('schema/products-parser', {products: products}) %>
