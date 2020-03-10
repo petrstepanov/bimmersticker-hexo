@@ -5,50 +5,50 @@ var path = require('path');
 
 // Checks if products array has object with value containing "|"
 
-// function findObjectWithVariations(array){
-//     var index = -1;
-//     array.forEach((element, i) => {
-//         _.values(element).forEach(value =>{
-//             if (value.includes('|')){
-//                 index = i;
-//                 return false;
-//             }
-//         });
-//     });
-//     return index;
-// }
+function findObjectWithVariations(array){
+    var index = -1;
+    array.forEach((element, i) => {
+        _.values(element).forEach(value =>{
+            if (value.includes('|')){
+                index = i;
+                return false;
+            }
+        });
+    });
+    return index;
+}
 
-// function breakArrayVariationsRecursive(array){
-//     var index = findObjectWithVariations(array);
-//     if (index==-1){
-//         return array;
-//     }
-//     else {
-//         var object = array[index];
-//         // Since object has variations we set its 'item_group_id'
-//         object.item_group_id = object.id;  
+function breakArrayVariationsRecursive(array){
+    var index = findObjectWithVariations(array);
+    if (index==-1){
+        return array;
+    }
+    else {
+        var object = array[index];
+        // Since object has variations we set its 'item_group_id'
+        object.item_group_id = object.id;  
 
-//         // Split one variation object
-//         var processedFirstVariationValue = false;
-//         var variationObject = _.mapValues(object, (value, key) => {
-//             if (value.includes('|') && !processedFirstVariationValue){
-//                 var variations = value.split('|');
-//                 var firstVariation = variations.pop();
-//                 object[key] = variations.join('|');
-//                 processedFirstVariationValue = true;
-//                 return firstVariation;
-//             }
-//             return value;    
-//         });
-//         // Insert variation object after original object
-//         array.splice(index, 0, variationObject);
-//         // Continue until no more variations found
-//         return breakArrayVariationsRecursive(array);
-//     }
-// }
+        // Split one variation object
+        var processedFirstVariationValue = false;
+        var variationObject = _.mapValues(object, (value, key) => {
+            if (value.includes('|') && !processedFirstVariationValue){
+                var variations = value.split('|');
+                var firstVariation = variations.pop();
+                object[key] = variations.join('|');
+                processedFirstVariationValue = true;
+                return firstVariation;
+            }
+            return value;    
+        });
+        // Insert variation object after original object
+        array.splice(index, 0, variationObject);
+        // Continue until no more variations found
+        return breakArrayVariationsRecursive(array);
+    }
+}
 
 hexo.extend.generator.register('google-feed-generator', function (locals) {
-    const breakArrayVariationsRecursive = hexo.extend.helper.get('breakArrayVariationsRecursive').bind(hexo);
+    // const breakArrayVariationsRecursive = hexo.extend.helper.get('breakArrayVariationsRecursive').bind(hexo);
     const addPriceFromColorOption = hexo.extend.helper.get('addPriceFromColorOption').bind(hexo);
     const setUniqueIdFromVariations = hexo.extend.helper.get('setUniqueIdFromVariations').bind(hexo);
     const setExtraProductAttributes = hexo.extend.helper.get('setExtraProductAttributes').bind(hexo);
