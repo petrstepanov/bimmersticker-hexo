@@ -70,7 +70,7 @@
   size: "24x4 in"
   shipping_weight: "0.2 lbs"
   material: "Oracal and TeckWrap vinyls"
-  color: "white|matte black|oil slick[+2.00]"
+  color: "white|matte black|oil slick[+1]"
   customization_name: "Type your engine model"
   customization_placeholder: M54
 - id:	ST_BMW_TOURING
@@ -212,7 +212,7 @@
   size: "8x5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
-  color: "white|silver|gold[+1.00]|oil slick[+1.00]"
+  color: "white|black|silver[+2.00]|gold[+2.00]|oil slick[+2.00]"
 - id:	ST_CAR_RUNBAGS
   title: "Run Bags sticker"
   description: "Sticker for modified cars that have air suspension setup. Great sticker for any stanced show car."
@@ -234,7 +234,7 @@
   size: "8x2 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
-  pattern: "Miles|Km"
+  pattern: "miles|mm"
   color: "white/black|white/red"
   customization_name: "Text us your mileage"
   customization_placeholder: "230000"
@@ -312,7 +312,7 @@
   size: "25x7 in"
   shipping_weight: "0.1875 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|matte black|black|silver[+5.99]|gold[+5.99]|oil slick[+5.99]"
+  color: "white|matte black|black|silver[+6]|gold[+6]|oil slick[+6]"
 - id:	ST_WSHIELD_SF
   title: "Street Fighter windshield banner"
   description: "Street Fighter car windshield banner. Sticker font resembles the originl nintendo game branding. Great for project or show cars. Available in different colors. Banner comes with installation instructions."
@@ -323,7 +323,7 @@
   size: "30x5 in"
   shipping_weight: "0.1875 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|matte black|black|silver[+5.99]|gold[+5.99]|oil slick[+5.99]"
+  color: "white|matte black|black|silver[+6]|gold[+6]|oil slick[+6]"
 - id:	ST_WSHIELD_BM4L
   title: "#bimmer4life windshield banner"
   description: "Bimmer For Life car windshield banner. Great for project or show BMW cars. Available in different colors. Banner comes with installation instructions."
@@ -334,7 +334,7 @@
   size: "31x7 in"
   shipping_weight: "0.1875 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|matte black|black|silver[+9.99]|gold[+9.99]|oil slick[+9.99]"
+  color: "white|matte black|black|silver[+9]|gold[+9]|oil slick[+9]"
 - id:	ST_WSHIELD_SEND
   title: "Send Nudes windshield banner"
   description: "Send Nudes car windshield banner. Great for project or show cars. Available in different colors. Banner comes with installation instructions."
@@ -345,7 +345,7 @@
   size: "28x5 in"
   shipping_weight: "0.1875 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|matte black|black|silver[+5.99]|gold[+5.99]|oil slick[+5.99]"
+  color: "white|matte black|black|silver[+6]|gold[+6]|oil slick[+6]"
 - id:	ST_WSHIELD_KNRD
   title: "Knight Rider windshield banner"
   description: "Knight Rider car windshield banner. Great for project or show cars. Available in different colors. Banner comes with installation instructions."
@@ -356,7 +356,7 @@
   size: "30x5 in"
   shipping_weight: "0.1875 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|matte black|black|silver[+5.99]|gold[+5.99]|oil slick[+5.99]"
+  color: "white|matte black|black|silver[+6]|gold[+6]|oil slick[+6]"
 - id:	ST_WSHIELD_SHARK
   title: "Sharknose Legend windshield banner"
   description: "Sharknose Legend car windshield banner. Great for and oldschool BMW project like e28 or e30. Available in different colors. Banner comes with installation instructions."

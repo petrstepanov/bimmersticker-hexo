@@ -35,7 +35,7 @@ function _bindEvents(element) {
       var price = parseFloat($(this).data().basePrice);
       price += extraTotal;
       var baseCaption = $(this).data().baseCaption;
-      $(this).html(baseCaption + '$' + price.toString());
+      $(this).html(baseCaption + '$' + newPrice.toFixed(2).toString());
     });
   });
 
