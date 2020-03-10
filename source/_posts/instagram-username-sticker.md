@@ -27,3 +27,10 @@ White and holographic instagram stickers with transparent background.
 
 Stickers are contour cut out of a solid vinyl sheet and have no background. We use only premium outdoor vinyls. Durability tops at around 6 years. Stickers come with easy application instructions. 
 
+{% asset_img content-image holographic-custom-instagram-username-sticker.jpg 'Sticker with custom instagram username. Holographic vinyl."Sticker with custom instagram username. Holographic vinyl."' %}
+{% blockquote %}
+Sticker with custom instagram username, cut out of the holographic vinyl.
+{% endblockquote %}
+
+
+

@@ -115,11 +115,11 @@
 
     // Crop featured image or gallery in content
     img {
-      max-height: 30rem;
+      max-height: 25rem;
       object-fit: cover;
 
-      @include media-breakpoint-up(sm){
-        max-height: 24rem;
+      @include media-breakpoint-up(xl){
+        max-height: 30rem;
       }      
     }
   }
