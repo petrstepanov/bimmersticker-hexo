@@ -83,8 +83,11 @@
 }
 
 // Quantity field
-.snipcart-item-quantity__quantity {
+.snipcart-item-quantity__quantity { 
     height: 2.75rem;
+    box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
+    border: 1px solid #dceaf9;
+    border-radius: 0.4rem;    
 }
 
 // Discount container
