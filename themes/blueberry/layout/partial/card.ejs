@@ -1,6 +1,7 @@
 <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
 <% if (productIndex >= 0){ %>
-  <% var product = site.data.product_list[productIndex]; %>
+  <% // Clone product because we will modify this object %>
+  <% var product = Object.assign({}, site.data.product_list[productIndex]); %>
   <div class="col-xs-12 <%- post.col_class ? post.col_class : '' %>  js--posts-filter-item" data-groups='["<%- post.data_groups ? post.data_groups : '' %>"]'>
     <figure class="card card-blueberry">      
       <!-- Featured image -->

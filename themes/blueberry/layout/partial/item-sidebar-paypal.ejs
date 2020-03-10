@@ -2,7 +2,7 @@
   <div class="position-sticky">
     <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
     <% if(productIndex >= 0){ %>
-      <% var product = site.data.product_list[productIndex]; %>
+      <% var product = Object.assign({}, site.data.product_list[productIndex]); %>      
       <%- partial('partial/item-navbar', {product: product}) %>
       <div class="container">
         <div class="row">
