@@ -279,3 +279,6 @@ products = _.without(products, undefined);
 		</div>
 	</div>
 </div>
+
+<% // Write schema.org product metedata %>
+<%- partial('schema/products-parser', {products: products}) %>

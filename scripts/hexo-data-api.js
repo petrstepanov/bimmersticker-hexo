@@ -5,75 +5,53 @@ var path = require('path');
 
 // Checks if products array has object with value containing "|"
 
-var globalIdMap = {};
+// function findObjectWithVariations(array){
+//     var index = -1;
+//     array.forEach((element, i) => {
+//         _.values(element).forEach(value =>{
+//             if (value.includes('|')){
+//                 index = i;
+//                 return false;
+//             }
+//         });
+//     });
+//     return index;
+// }
 
-function findObjectWithVariations(array){
-    var index = -1;
-    array.forEach((element, i) => {
-        _.values(element).forEach(value =>{
-            if (value.includes('|')){
-                index = i;
-                return false;
-            }
-        });
-    });
-    return index;
-}
+// function breakArrayVariationsRecursive(array){
+//     var index = findObjectWithVariations(array);
+//     if (index==-1){
+//         return array;
+//     }
+//     else {
+//         var object = array[index];
+//         // Since object has variations we set its 'item_group_id'
+//         object.item_group_id = object.id;  
 
-function breakArrayVariationsRecursive(array){
-    var index = findObjectWithVariations(array);
-    if (index==-1){
-        return array;
-    }
-    else {
-        var object = array[index];
-        // Since object has variations we set its 'item_group_id'
-        // if (object.item_group_id == ""){
-            object.item_group_id = object.id;  
-        // }
-
-        // Split one variation object
-        // var idNoNumber = object.item_group_id;
-        var processedFirstVariationValue = false;
-        var variationObject = _.mapValues(object, (value, key) => {
-            // if (key == 'id'){
-            //     // Last character of a string
-            //     var i = parseInt(value[value.length -1]);
-            //     if (isNaN(i)){
-            //         object[key] += '_0';
-            //         globalIdMap[idNoNumber] = 0;
-            //     }
-            //     globalIdMap[idNoNumber]++;
-            //     newId = idNoNumber + '_' + globalIdMap[idNoNumber];
-            //     return newId;
-            // } else {
-                if (value.includes('|') && !processedFirstVariationValue){
-                    var variations = value.split('|');
-                    var firstVariation = variations.pop();
-                    object[key] = variations.join('|');
-                    processedFirstVariationValue = true;
-                    return firstVariation;
-                }
-                return value;    
-            // }
-        });
-        // Insert variation object after original object
-        array.splice(index, 0, variationObject);
-        // Continue until no more vriations found
-        // return setTimeout(()=>{breakArrayVariationsRecursive(array);}, 5000);
-        return breakArrayVariationsRecursive(array);
-    }
-}
-
-function sortObjectKeys(object){
-    const ordered = {};
-    Object.keys(unordered).sort().forEach(function(key) {
-        ordered[key] = unordered[key];
-    });
-    return ordered;
-}
+//         // Split one variation object
+//         var processedFirstVariationValue = false;
+//         var variationObject = _.mapValues(object, (value, key) => {
+//             if (value.includes('|') && !processedFirstVariationValue){
+//                 var variations = value.split('|');
+//                 var firstVariation = variations.pop();
+//                 object[key] = variations.join('|');
+//                 processedFirstVariationValue = true;
+//                 return firstVariation;
+//             }
+//             return value;    
+//         });
+//         // Insert variation object after original object
+//         array.splice(index, 0, variationObject);
+//         // Continue until no more variations found
+//         return breakArrayVariationsRecursive(array);
+//     }
+// }
 
 hexo.extend.generator.register('google-feed-generator', function (locals) {
+    const breakArrayVariationsRecursive = hexo.extend.helper.get('breakArrayVariationsRecursive').bind(hexo);
+    const addPriceFromColorOption = hexo.extend.helper.get('addPriceFromColorOption').bind(hexo);
+    const setUniqueIdFromVariations = hexo.extend.helper.get('setUniqueIdFromVariations').bind(hexo);
+    const setExtraProductAttributes = hexo.extend.helper.get('setExtraProductAttributes').bind(hexo);
 
     // Get input file name from _config.yml
     var feedFileSrc = hexo.config.google_feed_path.src;
@@ -94,58 +72,15 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
         });
     });
 
-    // Add missing  'pattern' and 'additional_image_link' fields if missing
-    // feedArray.forEach(element => {
-    //     if (!("pattern" in element)) element.pattern = "";
-    //     if (!("additional_image_link" in element)) element.additional_image_link = "";
-    // });
-
-    // If has variations - set item_group_id
-    // feedArray.forEach(element => {
-    //     element.item_group_id = '';
-    //     _.forOwn(element, function(value, key) {
-    //         if (key.includes('|')){
-    //             element.item_group_id = element.id;
-    //         }
-    //     });
-    // });
-
     // Iterate through array
     breakArrayVariationsRecursive(feedArray);
 
-    // Add price from color option to original price
     feedArray.forEach(element => {
-        var regex = /(.*)\[\+([\d.]*)\]/
-        var array = element.color.match(regex);
-        if (array && array.length == 3){
-            element.color = array[1];
-            var newPrice = parseFloat(element.price) + parseFloat(array[2]);
-            element.price = newPrice.toFixed(2) + " USD";
-        }
-    });    
-
-    // Prefix id's with color and pattern
-    feedArray.forEach(element => {
-        if ("item_group_id" in element){
-            if ("color" in element){
-                element.id = element.id + '_' + element.color.toUpperCase().replace(' ','_');
-            }        
-            if ("pattern" in element){
-                element.id = element.id + '_' + element.pattern.toUpperCase().replace(' ','_');
-            }    
-        }
+        addPriceFromColorOption(element);
+        setUniqueIdFromVariations(element);
+        setExtraProductAttributes(element);
     });
 
-    // Populate mpn's
-    feedArray.forEach(element => {
-        element.mpn = element.id.split('_').join('');
-        element.sku = element.id.split('_').join('');
-        element.brand = 'Bimmer Sticker Store';
-        element.condition = 'new';
-        element.availability = 'in stock';
-        element.google_product_category = 'Vehicles & Parts > Vehicle Parts & Accessories > Vehicle Maintenance, Care & Decor > Vehicle Decor > Bumper Stickers';
-        // element.shipping = 'US::Standard:0 USD';
-    });
 
     // Write feed header from 1st item keys
     var feedTxt = _.keys(feedArray[0]).join('\t');
@@ -160,9 +95,6 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
             objectOrdered[key] = object[key] ? object[key] : "";
         });        
         feedTxt += _.values(objectOrdered).join('\t');
-        // if (object.id.includes('ST_CAR_STAYTUNED')){
-        //     console.log(object);
-        // }
     });
 
     return {
