@@ -30,17 +30,23 @@
 
 // Snipcart header - match with height of the website header
 .snipcart-cart-header {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
-    height: $nb-logo-size;
+    margin-bottom: 0;
 
-    @include media-breakpoint-up(sm) {
-        height: $nb-logo-size-bigger;
-    }
-    @include media-breakpoint-up(md) {
-        height: $nb-logo-size-biggest;
+    button {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        height: $nb-logo-size;
+
+        @include media-breakpoint-up(sm) {
+            height: $nb-logo-size-bigger;
+        }
+        @include media-breakpoint-up(md) {
+            height: $nb-logo-size-biggest;
+        }    
     }
 }
 
@@ -67,16 +73,32 @@
     display: none;
 }
 
+%input-field {
+    box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
+    border: 1px solid #dceaf9;
+    border-radius: 0.4rem;
+
+    @include form-control-focus($ignore-warning: true);
+}
+
 // Select field
 .snipcart-form__select, .snipcart-form-input {
     padding: 0 1rem;
     height: 2.75rem;
     font-family: $font-regular !important;
+    @extend %input-field;
+}
+
+// Input field
+snipcart-input__input {
+    font-family: $font-regular !important;
+    @extend %input-field;
 }
 
 // Quantity field
-.snipcart-item-quantity__quantity {
+.snipcart-item-quantity__quantity { 
     height: 2.75rem;
+    @extend %input-field; 
 }
 
 // Discount container
@@ -95,8 +117,8 @@
     background-image: none;
     background-color: $blue;
 }
-// Misc margins for fields
 
+// Misc margins for fields
 .snipcart-item-custom-fields__field {
     margin-bottom: 0;
 }
@@ -116,4 +138,35 @@
 .snipcart-item-line__variants label {
     @extend .label;
     margin-top: 1.5rem;
+}
+
+// Secured by snipcart
+.snipcart-featured-payment-methods__title {
+    background-color: $indigo;
+}
+
+// Checkout step badges
+.snipcart__box--badge {
+    margin-top: -24px;
+}
+
+.snipcart-typeahead {
+    background-color: transparent;
+}
+
+// Checkout input fields... weird
+.snipcart-input {
+    border: 0px !important;
+    box-shadow: none !important;
+    height: auto;
+
+    input {
+        @extend %input-field;
+        height: 2.75rem;
+        font-family: $font-regular !important;
+    }
+}
+
+.snipcart-form__label {
+    @extend .label;
 }
