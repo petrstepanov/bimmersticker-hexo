@@ -155,12 +155,13 @@ snipcart-input__input {
 // Checkout input fields... weird
 .snipcart-input {
     border: 0px !important;
+    box-shadow: none !important;
     height: auto;
 
     input {
         @extend %input-field;
         height: 2.75rem;
-        font-family: $font-regular;
+        font-family: $font-regular !important;
     }
 }
 
