@@ -1,13 +1,13 @@
 <%- partial('partial/navbar') %>
 
 <% 
-// Select products with ids containing "ST_CAR_WINDSHIELD"
-var products = _.map(site.data.product_list, function(o) {
-    if (o.id.includes("ST_CAR_WINDSHIELD")) return o;
-}); 
+	// Select products with ids containing "ST_CAR_WINDSHIELD"
+	var products = _.map(site.data.product_list, function(o) {
+		if (o.id.includes("ST_CAR_WINDSHIELD")) return o;
+	}); 
 
-// Remove undefines from the array
-products = _.without(products, undefined);
+	// Remove undefines from the array
+	products = _.without(products, undefined);
 %>
 
 <div class="container spacer-footer">
@@ -281,4 +281,4 @@ products = _.without(products, undefined);
 </div>
 
 <% // Write schema.org product metedata %>
-<%- // partial('schema/products-parser', {products: products}) %>
+<%- partial('schema/products-parser', {productsList: products}) %>
