@@ -15,7 +15,7 @@ product_id: ST_CAR_STAYTUNED
 Neat sticker has a lettering themed with different car parts icons.
 
 <!-- more -->
-{% asset_img content-image stay-tuned-car-truck-sticker-rect.jpg 'Stay Tuned car truck window vinyl bumper sticker"Stay Tuned car truck window vinyl bumper sticker"' %}
+<!-- {% asset_img content-image stay-tuned-car-truck-sticker-rect.jpg 'Stay Tuned car truck window vinyl bumper sticker"Stay Tuned car truck window vinyl bumper sticker"' %} -->
 
 "Stay Tuned" sticker has amazing beautiful lettering with integrated icons of car parts. There is a strut, oil can, piston, open end wrench and a drilled rotor with a caliper on it. Sticker will look nice on a tuned car, euro car, stanced or modified vehicle.
 

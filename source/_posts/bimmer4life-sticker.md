@@ -18,7 +18,7 @@ product_id: ST_WSHIELD_BM4L
 The first BMW windshield sticker we ever made.
 
 <!-- more -->
-{% asset_img content-image sticker-bimmer4life.jpg 'BMW bimmer4life window windshield banner vinyl sticker"BMW vinyl windshield banner sticker"' %}
+<!-- {% asset_img content-image sticker-bimmer4life.jpg 'BMW bimmer4life window windshield banner vinyl sticker"BMW vinyl windshield banner sticker"' %} -->
 
 A sticker that speaks for itself. Made by bimmer drivers. Made for bimmer drivers. Works best on the front windshield.
 

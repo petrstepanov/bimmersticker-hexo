@@ -19,7 +19,7 @@ product_id: ST_BMW_BMRFST
 Bimmerfest event will always take a special place in our heart.
 
 <!-- more -->
-{% asset_img content-image bimmerfest-east-west-2019-vinyl-sticker.jpg 'Bimmerfest bimmer bmw car vinyl sticker"Bimmerfest bimmer bmw car vinyl sticker"' %}
+<!-- {% asset_img content-image bimmerfest-east-west-2019-vinyl-sticker.jpg 'Bimmerfest bimmer bmw car vinyl sticker"Bimmerfest bimmer bmw car vinyl sticker"' %} -->
 
 A special sticker designed for the Bimmerfest event. It is going to happen soon so don't miss your chance to get the sticker if you're going. We have stickers for both - bimmerfest east and west events.
 

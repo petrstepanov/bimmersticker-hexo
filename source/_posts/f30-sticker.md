@@ -18,6 +18,6 @@ product_id: ST_BMW_F30
 Modern 3 series. Same aggressive habits and a nice new body.
 
 <!-- more -->
-{% asset_img content-image bmw-f30-window-vinyl-sport-decal.jpg 'BMW f30 vinyl sport drift stance sticker"BMW f30 vinyl sport drift stance sticker"' %}
+<!-- {% asset_img content-image bmw-f30-window-vinyl-sport-decal.jpg 'BMW f30 vinyl sport drift stance sticker"BMW f30 vinyl sport drift stance sticker"' %} -->
 
 BMW f30 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

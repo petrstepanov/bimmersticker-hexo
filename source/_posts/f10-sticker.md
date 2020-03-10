@@ -18,6 +18,6 @@ product_id: ST_BMW_F10
 Most electronically advanced 5 series BMW car.
 
 <!-- more -->
-{% asset_img content-image bmw-f10-window-vinyl-sticker.jpg 'BMW f10 vinyl sport drift stance sticker"BMW f10 vinyl sport drift stance sticker"' %}
+<!-- {% asset_img content-image bmw-f10-window-vinyl-sticker.jpg 'BMW f10 vinyl sport drift stance sticker"BMW f10 vinyl sport drift stance sticker"' %} -->
 
 BMW f10 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

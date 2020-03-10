@@ -18,6 +18,6 @@ product_id: ST_BMW_E39
 Fourth generation of BMW 5 Series. Fast, reliable and cheap.
 
 <!-- more -->
-{% asset_img content-image e39-bmw-window-vinyl-sticker.jpg 'BMW e39 vinyl sticker"BMW e39 vinyl sticker"' %}
+<!-- {% asset_img content-image e39-bmw-window-vinyl-sticker.jpg 'BMW e39 vinyl sticker"BMW e39 vinyl sticker"' %} -->
 
 BMW e39 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

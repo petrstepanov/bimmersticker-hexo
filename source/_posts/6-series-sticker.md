@@ -17,7 +17,7 @@ product_id:	ST_BMW_6SERIES
 A sticker for the most individualistic and memorable BMW car series.
 
 <!-- more -->
-{% asset_img content-image bmw-6-series-sticker.jpg 'BMW 6 series 6er vinyl sticker"BMW 6 series 6er vinyl sticker"' %}
+<!-- {% asset_img content-image bmw-6-series-sticker.jpg 'BMW 6 series 6er vinyl sticker"BMW 6 series 6er vinyl sticker"' %} -->
 
 A nicely designed and handcrafted '6 series' sticker. Six series of BMW cars have three generations: oldschool e24, then e63 coupe and e64 cabrio. Later they introduced the 4-door coupe f06, and 2-door convertible and coupe (f12, f13). In 2017 the g32 Gran Tourismo came out.
 

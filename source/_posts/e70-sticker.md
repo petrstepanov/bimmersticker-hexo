@@ -18,6 +18,6 @@ product_id: ST_BMW_E70
 Awesome sport utility vehicle from BMW.
 
 <!-- more -->
-{% asset_img content-image bmw-e70-sticker-window.jpg 'BMW e70 vinyl sport drift stance sticker"BMW e70 vinyl sport drift stance sticker"' %}
+<!-- {% asset_img content-image bmw-e70-sticker-window.jpg 'BMW e70 vinyl sport drift stance sticker"BMW e70 vinyl sport drift stance sticker"' %} -->
 
 BMW e70 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

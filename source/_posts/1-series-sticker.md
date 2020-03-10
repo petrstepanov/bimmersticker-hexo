@@ -17,7 +17,7 @@ product_id:	ST_BMW_1SERIES
 1 series are really beautiful and quick subcompact cars.
 
 <!-- more -->
-{% asset_img content-image bmw-1-series-sticker.jpg 'BMW 1series 1er vinyl sticker"BMW 1series 1er vinyl sticker"' %}
+<!-- {% asset_img content-image bmw-1-series-sticker.jpg 'BMW 1series 1er vinyl sticker"BMW 1series 1er vinyl sticker"' %} -->
 
 A nicely designed and handcrafted '1 series' sticker. Fits following BMW generations.
 

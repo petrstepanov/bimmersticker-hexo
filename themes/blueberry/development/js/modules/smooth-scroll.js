@@ -7,7 +7,7 @@ var DOM = {};
 var options = {};
 
 function _cacheDom(element) {
-  DOM.$links = $("body").find('a[href^="#"]').not('[href="#"]');
+  DOM.$links = $("body").find('a[href^="#"]').not('[href="#"]').not('[href^="#carousel"]');
 }
 
 function _bindEvents(element) {

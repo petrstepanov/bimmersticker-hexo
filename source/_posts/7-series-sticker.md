@@ -17,7 +17,7 @@ product_id:	ST_BMW_7SERIES
 Premium business and VIP class vehicles made by BMW.
 
 <!-- more -->
-{% asset_img content-image bmw-7-series-sticker.jpg 'BMW 7 series 6er vinyl sticker"BMW 7 series 6er vinyl sticker"' %}
+<!-- {% asset_img content-image bmw-7-series-sticker.jpg 'BMW 7 series 6er vinyl sticker"BMW 7 series 6er vinyl sticker"' %} -->
 
 A nicely designed and handcrafted '7 series' sticker. Six series of BMW cars have three generations: oldschool e24, then e63 coupe and e64 cabrio. Later they introduced the 4-door coupe f06, and 2-door convertible and coupe (f12, f13). In 2017 the g32 Gran Tourismo came out.
 

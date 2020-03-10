@@ -21,7 +21,7 @@ product_id: ST_BMW_TOURING
 Tourings deserve a special attention. We love wagons!
 
 <!-- more -->
-{% asset_img content-image sticker-touring-bmw.jpg 'Touring sticker for bmw cars"Vinyl sticker for touring bmw cars"' %}
+<!-- {% asset_img content-image sticker-touring-bmw.jpg 'Touring sticker for bmw cars"Vinyl sticker for touring bmw cars"' %} -->
 
 Tourings are very special BMW cars. They are functional, rare and unique. We decided we have to make a special sticker for BMW wagons just because.
 

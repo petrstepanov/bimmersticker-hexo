@@ -15,7 +15,7 @@ product_id: ST_CAR_INLINE6
 A must-have sticker for your car with inline six engine.
 
 <!-- more -->
-{% asset_img content-image inline-six-power-sticker-engine.jpg 'Sticker for cars with inline six cylinder engine"Sticker for cars with inline six cylinder engine"' %}
+<!-- {% asset_img content-image inline-six-power-sticker-engine.jpg 'Sticker for cars with inline six cylinder engine"Sticker for cars with inline six cylinder engine"' %} -->
 
 Six cylinder engines speak for themselves. Easy to maintain and good amount of horse power at the same time. BMW cars are one the most iconic inline-six engine developers. We designed this sticker to support drivers that share the same point of view. Sticker can be used elsewhere too. Other car brands like VOLGO, Nissan, Datsun, Mercedes and many more.
 

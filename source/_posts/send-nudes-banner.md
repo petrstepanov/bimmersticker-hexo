@@ -18,7 +18,7 @@ product_id: ST_WSHIELD_SEND
 Awesome finishing touch for your project car.
 
 <!-- more -->
-{% asset_img content-image send-nudes-windshield-banner.jpg 'Send Nudes window windshield banner vinyl sticker"Send Nudes window windshield banner vinyl sticker"' %}
+<!-- {% asset_img content-image send-nudes-windshield-banner.jpg 'Send Nudes window windshield banner vinyl sticker"Send Nudes window windshield banner vinyl sticker"' %} -->
 
 It's a kinda popular windshield banner now. But most of the designs we've seen just suck. This windshield banner is handcrafted with love. They will send it lol. Made of the finest Oracal 651 vinyls. Gold and silver variations are more expensive and made of a Cricut adhesive foils.
 

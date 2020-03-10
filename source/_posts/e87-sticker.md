@@ -18,6 +18,6 @@ product_id: ST_BMW_E87
 Nice sticker for a 1 series four door car.
 
 <!-- more -->
-{% asset_img content-image bmw-e87-car-vinyl-sticker.jpg 'BMW e87 vinyl sport drift stance sticker"BMW e87 vinyl sport drift stance sticker"' %}
+<!-- {% asset_img content-image bmw-e87-car-vinyl-sticker.jpg 'BMW e87 vinyl sport drift stance sticker"BMW e87 vinyl sport drift stance sticker"' %} -->
 
 BMW e87 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

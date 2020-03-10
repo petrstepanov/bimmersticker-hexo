@@ -17,7 +17,7 @@ product_id:	ST_BMW_4SERIES
 Newer series that offers us a greatest coupe of all times.
 
 <!-- more -->
-{% asset_img content-image vinyl-sticker-4-series-bmw.jpg 'BMW 4 series 4er vinyl sticker"BMW 4 series 4er vinyl sticker"' %}
+<!-- {% asset_img content-image vinyl-sticker-4-series-bmw.jpg 'BMW 4 series 4er vinyl sticker"BMW 4 series 4er vinyl sticker"' %} -->
 
 A nicely designed and handcrafted '4 series' sticker. Sticker will fit following BMW models: f32 sedan, f33 convertible and f36 Gran Coupe. Additionally f82 M4 and f83 Competition M4.
 

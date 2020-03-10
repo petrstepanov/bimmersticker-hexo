@@ -18,6 +18,6 @@ product_id: ST_BMW_F20
 Get a sticker for your sporty BMW 1 series hatchback.
 
 <!-- more -->
-{% asset_img content-image bmw-f20-sticker.jpg 'BMW f20 vinyl sport drift stance sticker"BMW f20 vinyl sport drift stance sticker"' %}
+<!-- {% asset_img content-image bmw-f20-sticker.jpg 'BMW f20 vinyl sport drift stance sticker"BMW f20 vinyl sport drift stance sticker"' %} -->
 
 BMW f20 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

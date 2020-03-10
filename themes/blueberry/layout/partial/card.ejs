@@ -9,7 +9,7 @@
 
       <% if (product.additional_image_link && product.additional_image_link.length > 0){ %>
         <% var additionalImages = product.additional_image_link.split(','); %>
-        <% var carouselId = product.id.toLowerCase() + "_carousel"; %>
+        <% var carouselId = "carousel_" + product.id.toLowerCase(); %>
         <div id="<%- carouselId %>" class="carousel slide" data-ride="carousel">
 <!--          <ol class="carousel-indicators mb-0">
             <li data-target="#<%- carouselId %>" data-slide-to="0" class="active"></li>
@@ -21,13 +21,13 @@
             <% var imgClass = product.product_type.includes('Windshield') ? 'tall' : ''; %>
             <div class="carousel-item active">
               <a class="img-wrapper" href="/<%- post.path %>">
-                <img loading="lazy"  src="<%- get_pathname(product.image_link) %>" class="d-block w-100 <%- imgClass %>" alt="<%- product.description %>">
+                <img loading="lazy"  src="<%- get_pathname(prefix_filename('medium_', product.image_link)) %>" class="d-block w-100 <%- imgClass %>" alt="<%- product.description %>">
               </a>
             </div>
             <% additionalImages.forEach(function(element, index){ %>
               <div class="carousel-item">
                 <a class="img-wrapper" href="/<%- post.path %>">
-                  <img loading="lazy"  src="<%- get_pathname(element) %>" class="d-block w-100 <%- imgClass %>" alt="<%- product.description %>">
+                  <img loading="lazy"  src="<%- get_pathname(prefix_filename('medium_', element)) %>" class="d-block w-100 <%- imgClass %>" alt="<%- product.description %>">
                 </a>
               </div>
             <% }); %>
@@ -44,7 +44,7 @@
       <% } else { %>
         <!-- if product has one image -->
         <a class="img-wrapper" href="/<%- post.path %>">
-          <img loading="lazy" class="w-100 <%- product.product_type.includes('Windshield') ? 'tall' : ''; %>" src="<%- get_pathname(product.image_link) %>" title="<%- product.title %>" alt="<%- product.description %>">
+          <img loading="lazy" class="w-100 <%- product.product_type.includes('Windshield') ? 'tall' : ''; %>" src="<%- get_pathname(prefix_filename('medium_', product.image_link)) %>" title="<%- product.title %>" alt="<%- product.description %>">
         </a>
       <% } %>
 

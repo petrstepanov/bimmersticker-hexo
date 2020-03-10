@@ -17,7 +17,7 @@ product_id: ST_BMW_BNB
 They should spell it the right way. Bimmer.
 
 <!-- more -->
-{% asset_img content-image sticker-bimmer-not-beamer.jpg 'BMW bimmer not beamer window vinyl sticker"BMW bimmer not beamer window vinyl sticker"' %}
+<!-- {% asset_img content-image sticker-bimmer-not-beamer.jpg 'BMW bimmer not beamer window vinyl sticker"BMW bimmer not beamer window vinyl sticker"' %} -->
 
 They name it bimmer, beemer, beamer oh my god! How do we spell it right? This vinyl sticker was released in order to shed the light here.
 

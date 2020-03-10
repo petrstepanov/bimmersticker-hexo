@@ -18,7 +18,7 @@ product_id: ST_BMW_E12
 First five series car ever built. A real oldtimer now.
 
 <!-- more -->
-{% asset_img content-image bmw-e12-vinyl-sticker.jpg 'BMW e12 vinyl sticker"BMW e12 vinyl sticker"' %}
+<!-- {% asset_img content-image bmw-e12-vinyl-sticker.jpg 'BMW e12 vinyl sticker"BMW e12 vinyl sticker"' %} -->
 
 BMW e12 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 
 

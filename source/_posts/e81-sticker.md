@@ -18,6 +18,6 @@ product_id: ST_BMW_E81
 Nice sticker for a 1 series coupe car.
 
 <!-- more -->
-{% asset_img content-image bmw-e81-car-vinyl-sticker.jpg 'BMW e81 vinyl sport drift stance sticker"BMW e81 vinyl sport drift stance sticker"' %}
+<!-- {% asset_img content-image bmw-e81-car-vinyl-sticker.jpg 'BMW e81 vinyl sport drift stance sticker"BMW e81 vinyl sport drift stance sticker"' %} -->
 
 BMW e81 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

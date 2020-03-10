@@ -18,6 +18,6 @@ product_id: ST_BMW_E30
 A daily driver, a drift missle, a show car. Best bimmer?
 
 <!-- more -->
-{% asset_img content-image bmw-e30-vinyl-sticker.jpg 'BMW e30 drift stance vinyl sticker"BMW e30 vinyl sticker"' %}
+<!-- {% asset_img content-image bmw-e30-vinyl-sticker.jpg 'BMW e30 drift stance vinyl sticker"BMW e30 vinyl sticker"' %} -->
 
 BMW e30 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 
