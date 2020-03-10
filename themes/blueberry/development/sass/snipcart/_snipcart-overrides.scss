@@ -5,36 +5,49 @@
     color: inherit;
 }
 
-.snipcart__font--secondary { //}, .snipcart__font--subtitle {
-    font-family: $font-bold;
-}
 
-.snipcart-item-line__title {
-    font-family: $font-display;
-}
-
+// Snipcart fonts
 .snipcart__font--std {
     font-family: $font-regular;
 }
 
-.snipcart-item-line__media--small {
-    margin-right: 1rem;
+.snipcart__font--secondary {
+    font-family: $font-bold;
 }
 
-.snipcart-item-line__variants label {
-    @extend .label;
-    margin-top: 1.5rem;
+.snipcart__font--black, .snipcart__font--subtitle {
+    font-family: $font-bold;
+    font-weight: normal;
+}
+
+// Snipcart modal
+.snipcart-modal__container {
+    z-index: 2147483650;   // Show over facebook dialog 
+}
+.snipcart-modal__container, .snipcart-modal, .snipcart-cart-header, .snipcart-cart__content, .snipcart-payment-methods__title {
+    background-color: $indigo;
+}
+
+// Snipcart header - match with height of the website header
+.snipcart-cart-header {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: $nb-logo-size;
+
+    @include media-breakpoint-up(sm) {
+        height: $nb-logo-size-bigger;
+    }
+    @include media-breakpoint-up(md) {
+        height: $nb-logo-size-biggest;
+    }
 }
 
 // Back to shopping link {
 .snipcart-modal__close-title {
     font-family: $font-bold !important;
-    color: $blue;
-}
-
-// Snipcart modal
-.snipcart-modal__container, .snipcart-modal, .snipcart-cart-header, .snipcart-cart__content, .snipcart-payment-methods__title {
-    background-color: $indigo;
+    color: $link-color;
 }
 
 // Item container
@@ -66,7 +79,7 @@
     height: 2.75rem;
 }
 
-// Discount conteiner
+// Discount container
 .cart__footer-discount-box {
     display: none;
 }
@@ -88,6 +101,19 @@
     margin-bottom: 0;
 }
 
+.snipcart-item-line__title {
+    font-family: $font-display;
+}
+
+.snipcart-item-line__media--small {
+    margin-right: 1rem;
+}
+
 .snipcart-item-line__variants {
     padding-top: 0;
+}
+
+.snipcart-item-line__variants label {
+    @extend .label;
+    margin-top: 1.5rem;
 }
