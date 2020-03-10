@@ -1,9 +1,4 @@
 <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
-<%- post.title %>
-<%- productIndex + ", " + post.product_id %>
-
-<%- JSON.stringify(product) %>
-
 <% if (productIndex >= 0){ %>
   <% var product = site.data.product_list[productIndex]; %>
   <div class="col-xs-12 <%- post.col_class ? post.col_class : '' %>  js--posts-filter-item" data-groups='["<%- post.data_groups ? post.data_groups : '' %>"]'>

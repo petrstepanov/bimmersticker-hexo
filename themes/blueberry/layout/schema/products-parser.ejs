@@ -3,11 +3,11 @@
 
 	breakArrayVariationsRecursive(productsList);
 
-	// productsList.forEach(product => {
-	// 	addPriceFromColorOption(product);
-	// 	setUniqueIdFromVariations(product);
-	// 	setExtraProductAttributes(product);
-	// });
+	productsList.forEach(product => {
+		addPriceFromColorOption(product);
+		setUniqueIdFromVariations(product);
+		setExtraProductAttributes(product);
+	});
 %>
 
 <% for (product of productsList){ %>
