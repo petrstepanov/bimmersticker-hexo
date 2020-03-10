@@ -1,8 +1,7 @@
 <% page.photos = ['/img/bimmersticker-store-og-front-omage-bme-328i-windshield-banner-vinyl-sticker.jpg']; %>
 
 
-<% var a = _.findIndex(site.data.product_list, {'id': 'ST_CAR_STAYTUNED'}); %>
-<%- a %>
+<%- JSON.stringify(site.data.product_list); %>
 <section class="section-intro">
 	<div class="section-intro-mobile-bg">
 		<%- // partial('partial/navbar', {className: 'transparent'}) %>
