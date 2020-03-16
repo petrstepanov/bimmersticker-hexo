@@ -29,3 +29,11 @@
   height: 0;
   visibility: hidden;
 }
+
+.cryptedmail:after {
+  content: attr(data-name) "@" attr(data-domain) "." attr(data-com); 
+}
+
+.cryptedphone:after {
+  content: attr(data-country) " (" attr(data-area) ") " attr(data-local); 
+}
