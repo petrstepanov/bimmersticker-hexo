@@ -109,6 +109,17 @@
   color: "white|silver[+1]|gold[+1]|oil slick[+1]"
   customization_name: "Enter year"
   customization_placeholder: "2020"
+- id:	ST_BMW_GANG
+  title: "Bimmer Gang sticker"
+  description: "Dope Bimmer Gang contour cut sticker. Made of premium white and blue ORACAL vinyls. Sticker has a bmw logo, lettering and some flames."
+  product_type: Stickers > BMW
+  link: https://bimmersticker.store/bimmer-gang-sticker/
+  image_link: https://bimmersticker.store/bimmer-gang-sticker/bimmer-gang-bmw-vinyl-car-sticker.jpg
+  price: "9.99 USD"
+  size: "5x3 in"
+  shipping_weight: "0.025 lbs"
+  material: "Oracal 651 vinyl"
+  color: "blue/white"
 - id:	ST_BMW_ONELOVE
   title: "One Love BMW sticker"
   description: "A neat sticker with nice lettering made for all BMW fans and enthusiasts. Made of twoo layered premium vinyl sheets. Available in red and blue."
@@ -120,7 +131,7 @@
   size: "4x3 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
-  color: "blue|red"
+  color: "blue/white|red/white"
 - id:	ST_BMW_GIRLS
   title: "Bmw Girls Make It Better sticker"
   description: "Sticker designed for girls that drive bmw cars or maybe just like them. Made of three premium vinyl sheets. pink, balck and white."
