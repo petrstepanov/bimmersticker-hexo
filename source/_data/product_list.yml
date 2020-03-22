@@ -643,17 +643,6 @@
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|oil slick[+1]"
-- id:	ST_BMW_E82
-  title: "BMW e82 sticker"
-  description: "Sticker for BMW e82. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
-  product_type: Stickers > Generations
-  link: https://bimmersticker.store/e82-sticker/
-  image_link: https://bimmersticker.store/e82-sticker/bmw-e82-vinyl-sticker-square.jpg
-  price: "5.99 USD"
-  size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
-  material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
 - id:	ST_BMW_E87
   title: "BMW e87 sticker"
   description: "Sticker for BMW e87. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
