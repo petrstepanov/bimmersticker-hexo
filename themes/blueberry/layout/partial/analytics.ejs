@@ -1,4 +1,36 @@
 <script>
+  window.addEventListener('load',function(){
+    jQuery('.js--init-snipcart-form .js--product-submit').click(function(){
+      gtag('event', 'Click', {
+        'event_category' : '01. Buy',
+        'event_label' : jQuery('h1').text().trim()
+      });
+    });
+    jQuery('.js--init-navbar-buy-button .js--product-submit').click(function(){
+      gtag('event', 'Click', {
+        'event_category' : '01. Buy (Navbar)',
+        'event_label' : jQuery('h1').text().trim()
+      });
+    });
+    jQuery('#snipcart .snipcart-cart__footer .snipcart-cart-button').click(function(){
+      gtag('event', 'Click', {
+        'event_category' : '02. Cart Checkout',
+        'event_label' : jQuery('h1').text().trim()
+      });
+    });
+    jQuery('#snipcart .snipcart-checkout-step:first-child .snipcart-cart-button').click(function(){
+      gtag('event', 'Click', {
+        'event_category' : '03. Shipping',
+        'event_label' : jQuery('h1').text().trim()
+      });
+    });
+    jQuery('#snipcart .snipcart-payment-methods-list button').click(function(){
+      gtag('event', 'Click', {
+        'event_category' : '04. PayPal',
+        'event_label' : jQuery('h1').text().trim()
+      });
+    });    
+  });
 
   // window.addEventListener('load',function(){
   //   jQuery('.card-body .btn-blueberry:contains("Buy on eBay")').click(function(){
