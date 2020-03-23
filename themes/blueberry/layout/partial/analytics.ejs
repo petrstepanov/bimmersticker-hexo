@@ -3,31 +3,37 @@
     jQuery('.js--init-snipcart-form .js--product-submit').click(function(){
       gtag('event', 'Click', {
         'event_category' : '01. Buy',
-        'event_label' : jQuery('h1').text().trim()
+        'event_label' : jQuery('.js--snipcart-add-item').attr("data-item-id")
       });
     });
     jQuery('.js--init-navbar-buy-button .js--product-submit').click(function(){
       gtag('event', 'Click', {
         'event_category' : '01. Buy (Navbar)',
-        'event_label' : jQuery('h1').text().trim()
+        'event_label' : jQuery('.js--snipcart-add-item').attr("data-item-id")
+      });
+    });
+    jQuery('.js--windshield-form-snipcart input[type="submit"]').click(function(){
+      gtag('event', 'Click', {
+        'event_category' : '01. Buy windshield',
+        'event_label' : $('.js--snipcart-add-item').getAttribute("data-item-id")
       });
     });
     jQuery('#snipcart .snipcart-cart__footer .snipcart-cart-button').click(function(){
       gtag('event', 'Click', {
         'event_category' : '02. Cart Checkout',
-        'event_label' : jQuery('h1').text().trim()
+        'event_label' : $("input[name='product']:checked").length ? $("input[name='product']:checked").val() : $('.js--snipcart-add-item').attr("data-item-id")
       });
     });
     jQuery('#snipcart .snipcart-checkout-step:first-child .snipcart-cart-button').click(function(){
       gtag('event', 'Click', {
         'event_category' : '03. Shipping',
-        'event_label' : jQuery('h1').text().trim()
+        'event_label' : $("input[name='product']:checked").length ? $("input[name='product']:checked").val() : $('.js--snipcart-add-item').attr("data-item-id")
       });
     });
     jQuery('#snipcart .snipcart-payment-methods-list button').click(function(){
       gtag('event', 'Click', {
         'event_category' : '04. PayPal',
-        'event_label' : jQuery('h1').text().trim()
+        'event_label' : $("input[name='product']:checked").length ? $("input[name='product']:checked").val() : $('.js--snipcart-add-item').attr("data-item-id")
       });
     });    
   });
