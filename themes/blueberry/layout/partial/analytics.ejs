@@ -1,36 +1,36 @@
 <script>
   window.addEventListener('load',function(){
-    jQuery('.js--init-snipcart-form .js--product-submit').click(function(){
+    document.getElementsByClassName('.js--init-snipcart-form .js--product-submit')[0].addEventListener('click', function (event) {
       gtag('event', 'Click', {
         'event_category' : '01. Buy',
-        'event_label' : jQuery('.js--snipcart-add-item').attr("data-item-id")
+        'event_label' : $('.js--snipcart-add-item').attr("data-item-id")
       });
     });
-    jQuery('.js--init-navbar-buy-button .js--product-submit').click(function(){
+    document.getElementsByClassName('.js--init-navbar-buy-button .js--product-submit')[0].addEventListener('click', function (event) {
       gtag('event', 'Click', {
         'event_category' : '01. Buy (Navbar)',
-        'event_label' : jQuery('.js--snipcart-add-item').attr("data-item-id")
+        'event_label' : $('.js--snipcart-add-item').attr("data-item-id")
       });
     });
-    jQuery('.js--windshield-form-snipcart input[type="submit"]').click(function(){
+    document.getElementsByClassName('.js--windshield-form-snipcart input[type="submit"]')[0].addEventListener('click', function (event) {
       gtag('event', 'Click', {
         'event_category' : '01. Buy windshield',
         'event_label' : $('.js--snipcart-add-item').getAttribute("data-item-id")
       });
     });
-    jQuery('#snipcart .snipcart-cart__footer .snipcart-cart-button').click(function(){
+    document.getElementsByClassName('#snipcart .snipcart-cart__footer .snipcart-cart-button')[0].addEventListener('click', function (event) {
       gtag('event', 'Click', {
         'event_category' : '02. Cart Checkout',
         'event_label' : $("input[name='product']:checked").length ? $("input[name='product']:checked").val() : $('.js--snipcart-add-item').attr("data-item-id")
       });
     });
-    jQuery('#snipcart .snipcart-checkout-step:first-child .snipcart-cart-button').click(function(){
+    document.getElementsByClassName('#snipcart .snipcart-checkout-step:first-child .snipcart-cart-button')[0].addEventListener('click', function (event) {
       gtag('event', 'Click', {
         'event_category' : '03. Shipping',
         'event_label' : $("input[name='product']:checked").length ? $("input[name='product']:checked").val() : $('.js--snipcart-add-item').attr("data-item-id")
       });
     });
-    jQuery('#snipcart .snipcart-payment-methods-list button').click(function(){
+    document.getElementsByClassName('#snipcart .snipcart-payment-methods-list button')[0].addEventListener('click', function (event) {
       gtag('event', 'Click', {
         'event_category' : '04. PayPal',
         'event_label' : $("input[name='product']:checked").length ? $("input[name='product']:checked").val() : $('.js--snipcart-add-item').attr("data-item-id")
@@ -39,31 +39,31 @@
   });
 
   // window.addEventListener('load',function(){
-  //   jQuery('.card-body .btn-blueberry:contains("Buy on eBay")').click(function(){
+  //   $('.card-body .btn-blueberry:contains("Buy on eBay")').click(function(){
   //     gtag('event', 'Click', {
   //       'event_category' : 'Buy on eBay Button',
-  //       'event_label' : jQuery(this).parents('.card-body').find('.card-title').text().split('$')[0].trim()
+  //       'event_label' : $(this).parents('.card-body').find('.card-title').text().split('$')[0].trim()
   //     });
   //   })
-  //   jQuery('.card-body a:contains("More info")').click(function(){
+  //   $('.card-body a:contains("More info")').click(function(){
   //     gtag('event', 'Click', {
   //       'event_category' : 'More Info Button',
-  //       'event_label' : jQuery(this).parents('.card-body').find('.card-title').text().split('$')[0].trim()
+  //       'event_label' : $(this).parents('.card-body').find('.card-title').text().split('$')[0].trim()
   //     });
   //   })
-  //   jQuery('.card-body a:contains("or Etsy")').click(function(){
+  //   $('.card-body a:contains("or Etsy")').click(function(){
   //     gtag('event', 'Click', {
   //       'event_category' : 'Etsy Button',
-  //       'event_label' : jQuery(this).parents('.card-body').find('.card-title').text().split('$')[0].trim()
+  //       'event_label' : $(this).parents('.card-body').find('.card-title').text().split('$')[0].trim()
   //     });
   //   })
-  //   jQuery('.js--init-content-buy-button:contains(" on eBay")').click(function(){
+  //   $('.js--init-content-buy-button:contains(" on eBay")').click(function(){
   //     gtag('event', 'Click', {
   //       'event_category' : 'More Info - Buy eBay Button',
-  //       'event_label' : jQuery(this).parents().find('[itemprop="name"]').text()
+  //       'event_label' : $(this).parents().find('[itemprop="name"]').text()
   //     });
   //   })
-  //   jQuery('.navbar-blueberry .btn-blueberry:contains("on eBay")').click(function(){
+  //   $('.navbar-blueberry .btn-blueberry:contains("on eBay")').click(function(){
   //     gtag('event', 'Click', {
   //       'event_category' : 'NavBar eBay Button',
   //       'event_label' : window.location.pathname.replace(/\//g,'')
