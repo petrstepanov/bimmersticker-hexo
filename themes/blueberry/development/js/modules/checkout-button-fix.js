@@ -13,7 +13,7 @@ var CheckoutButtonFix = function(){
             return false;
         }
         var suffixClass = "." + DOM.$suffix.attr('class');
-        return !DOM.$button.find(suffixClass);
+        return !DOM.$button.find(suffixClass).length;
     }
 
     function _fixCaption(){
