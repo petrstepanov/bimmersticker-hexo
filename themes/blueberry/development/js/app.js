@@ -16,6 +16,7 @@ var formInsideDialog = require('./modules/form-inside-dialog');
 var formValidation = require('./modules/form-validation');
 var FormAjaxSubmit = require('./modules/form-ajax-submit');
 var IntegerInput = require('./modules/integer-input');
+var CheckoutButtonFix = require('./modules/checkout-button-fix');
 var Carousel = require ('./modules/carousel');
 
 $(document).ready(function(){
@@ -51,4 +52,8 @@ $(document).ready(function(){
 
   // Connect color dropdowns and carousels
   Carousel.init();
+
+  // Fix checkout button caption
+  var checkoutButtonFix = new CheckoutButtonFix();
+  checkoutButtonFix.init();
 });
