@@ -9,7 +9,7 @@ var CheckoutButtonFix = function(){
 
     function _needFix(){
         DOM.$buttonCaption = $('#snipcart button[title="Checkout with PayPal"] .snipcart-payment-methods-list-item__label');
-        if (!DOM.$button.length){
+        if (!DOM.$buttonCaption.length){
             return false;
         }
         var suffixClass = "." + DOM.$suffix.attr('class');
