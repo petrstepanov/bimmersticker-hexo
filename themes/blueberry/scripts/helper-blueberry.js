@@ -133,7 +133,7 @@ hexo.extend.helper.register('parse_variation_value', function(str){
   var pattern = /(.*)\[(.*)\]/;
   if (pattern.test(str)){
     var array = pattern.exec(str);
-    obj.value = capitalize(array[0]);
+    obj.value = capitalize(array[1]); //capitalize(array[0]);
     obj.extra = array[2];
     obj.text = capitalize(array[1]) + " +$" + parseFloat(array[2]).toString();
   }
