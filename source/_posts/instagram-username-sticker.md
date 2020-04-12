@@ -9,7 +9,7 @@ description: Buy custom instagram name handle stickers for a car window. Sticker
 categories:
 - Social
 etsy_url: https://www.etsy.com/listing/634953846/two-custom-instagram-name-handle-vinyl
-col_class: col-sm-6 col-md-4 col-lg-3
+col_class: col-6 col-md-4 col-lg-3
 product_id: ST_SOCIAL_IG
 ---
 

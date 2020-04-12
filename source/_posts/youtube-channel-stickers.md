@@ -9,7 +9,7 @@ description: Buy two custom YouTube channel stickers. Stickers made of glossy OR
 categories:
 - Social
 etsy_url: https://www.etsy.com/listing/684011876/two-custom-youtube-channel-name-vinyl
-col_class: col-sm-6 col-md-4 col-lg-3
+col_class: col-6 col-md-4 col-lg-3
 product_id: ST_SOCIAL_YT
 ---
 

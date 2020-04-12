@@ -2,7 +2,7 @@
 <% if (productIndex >= 0){ %>
   <% // Clone product because we will modify this object %>
   <% var product = Object.assign({}, site.data.product_list[productIndex]); %>
-  <div class="col-xs-12 <%- post.col_class ? post.col_class : '' %>  js--posts-filter-item" data-groups='["<%- post.data_groups ? post.data_groups : '' %>"]'>
+  <div class="<%- post.col_class ? post.col_class : '' %>  js--posts-filter-item" data-groups='["<%- post.data_groups ? post.data_groups : '' %>"]'>
     <figure class="card card-blueberry">      
       <!-- Featured image -->
       <% if (product.additional_image_link && product.additional_image_link.length > 0){ %>
@@ -51,7 +51,7 @@
           <% } %>
           <div class="d-flex align-items-center justify-content-between">
             <span class="card-title-price">$<%- format_price(parseFloat(product.price)) %></span>
-            <a href="<%- post.path %>" class="btn btn-blueberry btn-sm btn-primary">View →</a>
+            <a href="<%- post.path %>" class="btn btn-blueberry btn-sm btn-primary">View<span class="d-none d-sm-inline"> →</span></a>
           </div>
       </div>
     </figure>

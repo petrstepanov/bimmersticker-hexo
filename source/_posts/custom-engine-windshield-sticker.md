@@ -12,7 +12,7 @@ material: ORACAL 651 or Cricut vinyls
 categories:
 - Bmw Special
 ebay_url: https://www.ebay.com/itm/192698406384
-col_class: col-sm-6 col-md-4 col-xl-3
+col_class: col-6 col-md-4 col-xl-3
 product_id:	ST_BMW_ENGINE
 ---
 

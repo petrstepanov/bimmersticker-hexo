@@ -10,7 +10,7 @@ description: Daily Driven sticker for modified, stanced, JDM or sport cars. Stic
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/192715376996
-col_class: col-sm-6 col-md-4
+col_class: col-6 col-md-4
 product_id: ST_CAR_DAILY
 ---
 

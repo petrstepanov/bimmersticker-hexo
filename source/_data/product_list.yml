@@ -190,6 +190,18 @@
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
   color: "black/yellow"
+- id:	ST_CAR_LOWEREDLIFE
+  title: "Lowered Lifestyle sticker"
+  description: "Lowered Lifestyle sticker for stanced or slammed vehicles. Will look great on any lowered car, truck or modified vehicle. Can be placed either on a window or on the vehicle body."
+  product_type: Stickers > Cars
+  link: https://bimmersticker.store/lowered-lifestyle-sticker/
+  image_link: https://bimmersticker.store/lowered-lifestyle-sticker/lowered-lifestyle-sticker-for-stance-slammed-car-truck-white.jpg
+  additional_image_link: https://bimmersticker.store/lowered-lifestyle-sticker/lowered-lifestyle-sticker-for-stance-slammed-car-truck-rainbow.jpg
+  price: "7.99 USD"
+  size: "5.5x2.5 in"
+  shipping_weight: "0.025 lbs"
+  material: "Oracal 651 vinyl"
+  color: "white|oil slick[+1.00]"
 - id:	ST_CAR_STAYTUNED
   title: "Stay Tuned sticker"
   description: "Stay Tuned sticker for modified cars and trucks. Sticker has a neat lettering themed with different car parts icons."

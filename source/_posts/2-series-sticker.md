@@ -9,7 +9,7 @@ description: Buy BMW 2 series vinyl sticker. Made of ORACAL 651 vinyl. Available
 categories:
 - Series
 ebay_url: https://www.ebay.com/itm/192489131318
-col_class: col-sm-6 col-lg-4 col-xl-3
+col_class: col-6 col-lg-4 col-xl-3
 # data_groups: 2er
 product_id:	ST_BMW_2SERIES
 ---

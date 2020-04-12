@@ -11,7 +11,7 @@ colors: [white, lilac, yellow, red, blue, black, mint, orange, pink]
 categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192490056915
-col_class: col-sm-6 col-lg-4 col-xl-3
+col_class: col-6 col-lg-4 col-xl-3
 data_groups: 5er
 product_id: ST_BMW_E28
 ---

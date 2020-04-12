@@ -9,7 +9,7 @@ description: Buy two custom Facebook profile stickers. Stickers made of glossy O
 categories:
 - Social
 etsy_url: https://www.etsy.com/listing/698265088/two-custom-facebook-name-vinyl-stickers
-col_class: col-sm-6 col-md-4 col-lg-3
+col_class: col-6 col-md-4 col-lg-3
 product_id: ST_SOCIAL_FB
 ---
 

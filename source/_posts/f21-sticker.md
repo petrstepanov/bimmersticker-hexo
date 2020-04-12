@@ -10,7 +10,7 @@ description: Buy BMW f21 vinyl sticker. Made of ORACAL 651 vinyl. Available in d
 categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192717412832
-col_class: col-sm-6 col-lg-4 col-xl-3
+col_class: col-6 col-lg-4 col-xl-3
 data_groups: 1er
 product_id: ST_BMW_F21
 ---

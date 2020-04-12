@@ -10,7 +10,7 @@ description: Buy vinyl sticker for BMW f22 cars. Made of ORACAL 651 vinyl. Avail
 categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192677415252
-col_class: col-sm-6 col-lg-4 col-xl-3
+col_class: col-6 col-lg-4 col-xl-3
 data_groups: 2er
 product_id: ST_BMW_F22
 ---

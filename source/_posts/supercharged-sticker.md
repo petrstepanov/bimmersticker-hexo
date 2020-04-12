@@ -10,7 +10,7 @@ description: Buy 'Supercharged' car window sticker (Supreme style). Made of ORAC
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/192639584367
-col_class: col-sm-6 col-md-4
+col_class: col-6 col-md-4
 product_id: ST_CAR_SUPER
 ---
 

@@ -9,7 +9,7 @@ description: Buy 'One Love BMW'. For all BMW fans and enthusiasts out there. Ava
 categories:
 - Bmw Special
 ebay_url: https://www.ebay.com/itm/193335458020
-col_class: col-sm-6 col-md-4 col-xl-3
+col_class: col-6 col-md-4 col-xl-3
 product_id: ST_BMW_ONELOVE
 ---
 

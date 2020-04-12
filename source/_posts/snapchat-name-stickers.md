@@ -9,7 +9,7 @@ description: Buy two custom Snapchat name stickers. Stickers made of glossy ORAC
 categories:
 - Social
 etsy_url: https://www.etsy.com/listing/733478738/two-custom-snapchat-name-vinyl-stickers
-col_class: col-sm-6 col-md-4 col-lg-3
+col_class: col-6 col-md-4 col-lg-3
 product_id: ST_SOCIAL_SC
 ---
 

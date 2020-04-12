@@ -10,7 +10,7 @@ description: Buy a sticker that shows custom mileage for your car.
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/192661747178
-col_class: col-sm-6 col-md-4
+col_class: col-6 col-md-4
 product_id: ST_CAR_MILEAGE
 ---
 
