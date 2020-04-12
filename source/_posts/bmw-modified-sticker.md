@@ -10,7 +10,7 @@ description: Buy BMW M1 M3 M5 Modified vinyl sticker. Great for tuned bimmers. C
 categories:
 - Bmw Special
 ebay_url: https://www.ebay.com/itm/192621877644
-col_class: col-sm-6 col-md-4 col-xl-3
+col_class: col-6 col-md-4 col-xl-3
 product_id: ST_BMW_MODIFIED
 ---
 

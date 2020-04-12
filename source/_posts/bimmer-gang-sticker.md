@@ -9,7 +9,7 @@ description: Dope Bimmer Gang contour cut sticker. Made of premium white and blu
 categories:
 - Bmw Special
 ebay_url: https://www.ebay.com/itm/193392625800
-col_class: col-sm-6 col-md-4 col-xl-3
+col_class: col-6 col-md-4 col-xl-3
 product_id: ST_BMW_GANG
 ---
 

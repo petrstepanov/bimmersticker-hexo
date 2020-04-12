@@ -11,7 +11,7 @@ categories:
 - Bmw Special
 ebay_url: https://www.ebay.com/itm/192671124978
 etsy_url: https://www.etsy.com/listing/688312333/bmw-girls-make-it-better-vinyl-car
-col_class: col-sm-6 col-md-4 col-xl-3
+col_class: col-6 col-md-4 col-xl-3
 product_id: ST_BMW_GIRLS
 ---
 

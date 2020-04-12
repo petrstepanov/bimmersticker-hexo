@@ -10,7 +10,7 @@ categories:
 - Series
 ebay_url: https://www.ebay.com/itm/192489165301
 etsy_url: https://www.etsy.com/listing/603586159/bmw-5-series-window-windshield-sticker
-col_class: col-sm-6 col-lg-4 col-xl-3
+col_class: col-6 col-lg-4 col-xl-3
 # data_groups: 5er
 product_id:	ST_BMW_5SERIES
 ---

@@ -12,7 +12,7 @@ description: Bimmerfest 2019 sticker for BMW cars. White, silver, gold and oilsl
 categories:
 - Bmw Special
 ebay_url: https://www.ebay.com/itm/192896300464
-col_class: col-sm-6 col-md-4 col-xl-3
+col_class: col-6 col-md-4 col-xl-3
 product_id: ST_BMW_BMRFST
 ---
 

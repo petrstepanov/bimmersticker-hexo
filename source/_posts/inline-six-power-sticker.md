@@ -8,7 +8,7 @@ description: Inline Six Power car window vinyl sticker. Designed for cars with i
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/193197378804
-col_class: col-sm-6 col-md-4
+col_class: col-6 col-md-4
 product_id: ST_CAR_INLINE6
 ---
 

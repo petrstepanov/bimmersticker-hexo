@@ -9,7 +9,7 @@ description: Buy BMW 6 series vinyl sticker. Made of ORACAL 651 vinyl. Available
 categories:
 - Series
 ebay_url: https://www.ebay.com/itm/192492348777
-col_class: col-sm-6 col-lg-4 col-xl-3
+col_class: col-6 col-lg-4 col-xl-3
 # data_groups: 6er
 product_id:	ST_BMW_6SERIES
 ---

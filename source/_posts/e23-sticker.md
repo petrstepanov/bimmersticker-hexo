@@ -10,7 +10,7 @@ description: Buy BMW e23 vinyl sticker. Made of ORACAL 651 vinyl. Available in d
 categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192491664353
-col_class: col-sm-6 col-lg-4 col-xl-3
+col_class: col-6 col-lg-4 col-xl-3
 data_groups: 7er
 product_id: ST_BMW_E23
 ---

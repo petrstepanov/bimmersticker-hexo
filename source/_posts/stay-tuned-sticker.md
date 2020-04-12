@@ -8,7 +8,7 @@ description: '"Stay tuned" sticker for modified cars and trucks. Sticker has a n
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/193328205536
-col_class: col-sm-6 col-md-4
+col_class: col-6 col-md-4
 product_id: ST_CAR_STAYTUNED
 ---
 

@@ -8,7 +8,7 @@ description: Buy "RUN BAGS" window sticker for cars with air suspension. Visuall
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/192856965237
-col_class: col-sm-6 col-md-4
+col_class: col-6 col-md-4
 product_id: ST_CAR_RUNBAGS
 ---
 

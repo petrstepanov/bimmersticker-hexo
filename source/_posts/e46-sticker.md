@@ -11,7 +11,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/192431649657
 etsy_url: https://www.etsy.com/listing/603588265/bmw-e46-window-windshield-sticker-stance
-col_class: col-sm-6 col-lg-4 col-xl-3
+col_class: col-6 col-lg-4 col-xl-3
 data_groups: 3er
 product_id: ST_BMW_E46
 ---

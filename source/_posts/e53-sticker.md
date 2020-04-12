@@ -10,7 +10,7 @@ description: Buy BMW e53 x5 vinyl sticker. Made of premium vinyls. Available in 
 categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/193244652380
-col_class: col-sm-6 col-lg-4 col-xl-3
+col_class: col-6 col-lg-4 col-xl-3
 data_groups: 5er
 product_id: ST_BMW_E53
 ---

@@ -8,7 +8,7 @@ description: '"Babe on Board" is a must-have sticker for cars or trucks with lad
 categories:
 - Featured
 ebay_url: https://www.ebay.com/itm/193263211486
-col_class: col-sm-6 col-md-4
+col_class: col-6 col-md-4
 product_id: ST_CAR_BABEONBOARD
 ---
 
