@@ -11,7 +11,7 @@ col_class: col-6 col-md-4
 product_id: ST_CAR_INTELINSIDE
 ---
 
-Remember that Intel logo? Custom sticker with any engine type.
+Remember that Intel logo? Custom sticker for any engine model.
 
 <!-- more -->
 
