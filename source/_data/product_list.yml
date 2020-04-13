@@ -202,6 +202,19 @@
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
   color: "white|oil slick[+1.00]"
+- id:	ST_CAR_INTELINSIDE
+  title: "Two custom engine stickers"
+  description: 'Buy two custom stickers with the engine model of your choice. Stickers resemble the "Intel Inside" logo. Use for S52, RB28, 2JZ, SR20, LS3 or any other engine type.'
+  product_type: Stickers > Cars
+  link: https://bimmersticker.store/custom-engine-inside-sticker/
+  image_link: https://bimmersticker.store/custom-engine-inside-sticker/custom-engine-inside-sticker.jpg
+  price: "11.99 USD"
+  size: "2x2.5 in"
+  shipping_weight: "0.015 lbs"
+  material: "Oracal 651 vinyl"
+  color: "blue/white"
+  customization_name: "Type your engine model"
+  customization_placeholder: "S52, RB28, 2JZ, SR20, LS3..."
 - id:	ST_CAR_STAYTUNED
   title: "Stay Tuned sticker"
   description: "Stay Tuned sticker for modified cars and trucks. Sticker has a neat lettering themed with different car parts icons."
