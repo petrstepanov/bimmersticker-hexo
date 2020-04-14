@@ -215,6 +215,17 @@
   color: "blue/white"
   customization_name: "Type your engine model"
   customization_placeholder: "S52, RB28, 2JZ, SR20, LS3..."
+- id:	ST_CAR_HARDTUNED
+  title: "HARD Tuned sticker"
+  description: "HARD Tuned sticker for project cars, drift vehicles and tuned trucks. Will look great on stanced (lowered) vehicles. Neat lettering, available in white and red colors."
+  product_type: Stickers > Cars
+  link: https://bimmersticker.store/hard-tuned-sticker/
+  image_link: https://bimmersticker.store/hard-tuned-sticker/hard-tuned-vinyl-sticker-for-cars.jpg
+  price: "8.99 USD"
+  size: "5x3 in"
+  shipping_weight: "0.025 lbs"
+  material: "Oracal 651 vinyl"
+  color: "white/red"
 - id:	ST_CAR_STAYTUNED
   title: "Stay Tuned sticker"
   description: "Stay Tuned sticker for modified cars and trucks. Sticker has a neat lettering themed with different car parts icons."
