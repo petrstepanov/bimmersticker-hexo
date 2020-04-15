@@ -715,21 +715,10 @@
   color: "white|silver[+1]|gold[+1]|oil slick[+1]"
 - id:	ST_BMW_E91
   title: "BMW e91 sticker"
-  description: "Sticker for BMW e91. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
+  description: "Sticker for BMW e91 touring. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
   product_type: Stickers > Generations
   link: https://bimmersticker.store/e91-sticker/
   image_link: https://bimmersticker.store/e91-sticker/bmw-e91-touring-vinyl-sticker-square.jpg
-  price: "5.99 USD"
-  size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
-  material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
-- id:	ST_BMW_E92
-  title: "BMW e92 sticker"
-  description: "Sticker for BMW e92. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
-  product_type: Stickers > Generations
-  link: https://bimmersticker.store/e92-sticker/
-  image_link: https://bimmersticker.store/e92-sticker/e92-bmw-sticker-window-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
