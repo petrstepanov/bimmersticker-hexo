@@ -9,7 +9,7 @@ var windshieldFormSnipcart = require('./modules/windshield-form-snipcart');
 var snipcartForm = require('./modules/snipcart-form');
 var contentBuyButton = require('./modules/content-buy-button');
 var navbarBuyButton = require('./modules/navbar-buy-button');
-var stickyContainer = require('./modules/sticky-container');
+// var stickyContainer = require('./modules/sticky-container');
 var swatches = require('./modules/swatches');
 var postsFilter = require('./modules/posts-filter');
 var formInsideDialog = require('./modules/form-inside-dialog');
@@ -17,7 +17,8 @@ var formValidation = require('./modules/form-validation');
 var FormAjaxSubmit = require('./modules/form-ajax-submit');
 var IntegerInput = require('./modules/integer-input');
 var CheckoutButtonFix = require('./modules/checkout-button-fix');
-var Carousel = require ('./modules/carousel');
+var Carousel = require('./modules/carousel');
+var VideoFullWidth = require('./modules/video');
 
 $(document).ready(function(){
   navbarFixer.init(document.querySelector('.js--init-navbar-fixer'));
@@ -56,4 +57,10 @@ $(document).ready(function(){
   // Fix checkout button caption
   var checkoutButtonFix = new CheckoutButtonFix();
   checkoutButtonFix.init();
+
+  // Make videos full width
+  $('video').each(function(){
+    var videoFullWith = new VideoFullWidth();
+    videoFullWith.init(this);
+  });  
 });

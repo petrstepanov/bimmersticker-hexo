@@ -437,6 +437,18 @@
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+- id:	ST_BMW_3SERIESSPORT
+  title: "BMW 3 series sport sticker"
+  description: "Vinyl sticker for BMW 3 series cars: e21, e30, e36, e90, f30, g20, f80. Sticker has a sporty design and will fit a race car, modified, or stanced vehicle. Available in white and rainbow colors. Contour cut from premium outdoor vinyls."
+  product_type: Stickers > Series
+  link: https://bimmersticker.store/bmw-3-series-sticker/
+  image_link: https://bimmersticker.store/bmw-3-series-sticker/bmw-3-series-328-325-330-335-e30-e36-e90-f30-g20-f80-sticker.jpg
+  additional_image_link: https://bimmersticker.store/bmw-3-series-sticker/bmw-3-series-e30-e36-e90-f30-g20-f80-holographic-sticker.jpg
+  price: "7.99 USD"
+  size: "5.5x2.5 in"
+  shipping_weight: "0.025 lbs"
+  material: "Oracal 651 and TeckWrap vinyls"
+  color: "white|oil slick[+1]"  
 - id:	ST_BMW_3SERIES
   title: "BMW 3 series sticker"
   description: "Sticker for BMW 3 Series family. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
