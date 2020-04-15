@@ -251,10 +251,10 @@
   color: "white/red"
 - id:	ST_CAR_DAILY
   title: "Daily Driven sticker"
-  description: "Daily Driven sticker for sport cars that are driven every day. Available in different colors."
+  description: "Daily Driven sticker for cars that are driven every day. Will look awesome on jdm, stanced (lowered) and drift cars. Available in different colors."
   product_type: Stickers > Cars
   link: https://bimmersticker.store/daily-driven-sticker/
-  image_link: https://bimmersticker.store/daily-driven-sticker/sticker-daily-driven-square.jpg
+  image_link: https://bimmersticker.store/daily-driven-sticker/daily-driven-vinyl-sticker-for-cars.jpg
   price: "8.99 USD"
   size: "8x5 in"
   shipping_weight: "0.025 lbs"
