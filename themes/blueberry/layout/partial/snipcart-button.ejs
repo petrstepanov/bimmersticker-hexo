@@ -14,7 +14,8 @@
       <% var options = []; %>
       <% values.forEach(value => { %>
         <% var variation = parse_variation_value(value); %>
-        <% options.push(variation.value); %>
+        <% var vaiationSnipcartString = variation.extra != 0 ? variation.value + "[+" + variation.extra + "]" : variation.value; %>
+        <% options.push(vaiationSnipcartString); %>
       <% });%>
       data-item-custom<%- i %>-name="<%- capitalize(key) %>"
       data-item-custom<%- i++ %>-options="<%- options.join("|") %>" 
