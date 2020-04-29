@@ -9,7 +9,6 @@
         <% var additionalImages = product.additional_image_link.split(','); %>
         <% var carouselId = "carousel_" + product.id.toLowerCase(); %>
         <div id="<%- carouselId %>" class="carousel slide" data-ride="carousel">
-          </ol>
           <div class="carousel-inner">
             <% var imgClass = product.product_type.includes('Windshield') ? 'tall' : ''; %>
             <div class="carousel-item active">
