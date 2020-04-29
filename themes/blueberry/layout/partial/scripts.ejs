@@ -1,5 +1,8 @@
 <!-- Main App JS -->
-<%- js('js/app.js?1234  ') %>
 
-<!-- Analytics hooks-->
-<%- // partial('partial/analytics') %>
+<% // For production environment add ?t= timestamp for javascript %>
+<% if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
+    <%- js('js/app.js?t=' + (new Date()).getTime().toString()) %> -->
+<% } else { %>
+    <%- js('js/app.js') %>
+<% } %>

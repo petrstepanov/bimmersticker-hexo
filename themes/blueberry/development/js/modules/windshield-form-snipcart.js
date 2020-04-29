@@ -15,7 +15,6 @@ function _cacheDom(element) {
     DOM.$el = $(element);
     DOM.$form = DOM.$el;
     DOM.$mailchimpForm = DOM.$el.find('.js--mailchimp-form');
-    DOM.$orderId = DOM.$el.find('input[name=order_id]');
     DOM.$radioProduct = DOM.$el.find('input[name=product]');
     DOM.$radioTextColor = DOM.$el.find('input[name=color_text]');
     DOM.$radioBaseColor = DOM.$el.find('input[name=color_base]');
@@ -44,42 +43,97 @@ function _cacheDom(element) {
     DOM.$btnBuyTextSunStrip = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_WINDSHIELD_SUNSTRIP_TEXT]');
 }
 
+function _saveData(){
+    // Helper parses form data to JSON
+    var data = helpers.getFormData(DOM.$form);
+    console.log(data);
+    // Save JSON to local storage
+    localStorage.setItem("dataKey", JSON.stringify(data));
+}
+
+function _loadData(){
+    if (localStorage.getItem("dataKey")) {
+        var data = JSON.parse(localStorage.getItem("dataKey"));
+        console.log(data);
+        // Update view
+        if (data.product){
+            DOM.$radioProduct.filter('[value="' + data.product + '"]').attr('checked', true).change();
+        }
+        if (data.text){
+            DOM.$input.val(data.text).trigger("input");
+        }
+        if (data.font){
+            DOM.$radioFont.filter('[value="' + data.font + '"]').attr('checked', true).change();
+        }
+        if (data.color_text){
+            DOM.$radioTextColor.filter('[value="' + data.color_text + '"]').attr('checked', true).change();
+        }
+        if (data.color_base){
+            DOM.$radioBaseColor.filter('[value="' + data.color_base + '"]').attr('checked', true).change();
+        }
+        if (data.quantity){
+            DOM.$inputQuantity.val(data.quantity).change();
+        }
+    }
+}
+
 function _bindEvents(element) {
-    DOM.$radioProduct.change(function () {
+    DOM.$radioProduct.change(function (event) {
         _showHideFormContainers(this.value);
         _showHidePreviewElements(this.value);
         _enableDisableRadioButtons(this.value);
+        if (event.originalEvent && event.originalEvent.isTrusted){
+            // Save data only of the event was triggered with human
+            _saveData(); 
+        }
     });
 
-    DOM.$input.on('input', function () {
+    DOM.$input.on('input', function (event) {
         if (timeoutUpdateImages) clearTimeout(timeoutUpdateImages);
         timeoutUpdateImages = setTimeout(function () {
             _updateTextImages();
             _updateBannerFontImages();
         }, 1500);
         _updateSnipcartButtonsText(this.value);
+        if (event.originalEvent && event.originalEvent.isTrusted){
+            // Save data only of the event was triggered with human
+            _saveData(); 
+        }
     });
 
-    DOM.$radioFont.change(function () {
+    DOM.$radioFont.change(function (event) {
         _updateBannerFontImages();
         _updateSnipcartButtonsFont(this.value);
+        if (event.originalEvent && event.originalEvent.isTrusted){
+            // Save data only of the event was triggered with human
+            _saveData(); 
+        }
     });
 
-    DOM.$radioTextColor.change(function () {
+    DOM.$radioTextColor.change(function (event) {
         _updateBannerSunstripTextColors();
         _updateSnipcartButtonsTextColor(this.value);
+        if (event.originalEvent && event.originalEvent.isTrusted){
+            // Save data only of the event was triggered with human
+            _saveData(); 
+        }
     });
 
-    DOM.$radioBaseColor.change(function () {
+    DOM.$radioBaseColor.change(function (event) {
         _updateSunstripBaseColor();
-        _updateSnipcartButtonsBaseColor(this.value)
+        _updateSnipcartButtonsBaseColor(this.value);
+        if (event.originalEvent && event.originalEvent.isTrusted){
+            // Save data only of the event was triggered with human
+            _saveData(); 
+        }
     });
 
-    DOM.$inputQuantity.change(function(){
+    DOM.$inputQuantity.change(function (event) {
         DOM.$btnBuyBanner.attr('data-item-quantity', this.value);
         DOM.$btnBuySunStrip.attr('data-item-quantity', this.value);
         DOM.$btnBuyCutSunStrip.attr('data-item-quantity', this.value);
         DOM.$btnBuyTextSunStrip.attr('data-item-quantity', this.value);
+        _saveData(); 
     });
 
     DOM.$form.submit(function(event) {
@@ -195,8 +249,11 @@ function _buildFontUrl($fontImage, text) {
 }
 
 function _updateTextImages() {
+    // On testing environment do nothing (no font url rewrite implemented)
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
+
+    // Update radio font images to reflect custom text
     var text = _getBannerText();
-    // Update text images
     DOM.$fontImages.each(function () {
         var url = _buildFontUrl($(this), text);
         $(this).attr('src', url);
@@ -204,8 +261,11 @@ function _updateTextImages() {
 }
 
 function _updateBannerFontImages() {
+    // On testing environment do nothing (no font url rewrite implemented)
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
+
+    // Update car banner and sun strip images
     var text = _getBannerText();
-    // Update banner image
     var $fontImage = $('input[name=font]:checked').parent().find('img');
     var url = _buildFontUrl($fontImage, text);
     DOM.$banner.css('mask-image', 'url(' + url + ')');
@@ -255,18 +315,13 @@ function _updateSnipcartButtonsBaseColor(value){
     DOM.$btnBuyTextSunStrip.attr('data-item-custom4-value', value);
 }
 
-function _render(options) {
-    _showHideFormContainers(DOM.$radioProduct.val());
-    DOM.$orderId.val("#BMDW" + timestamp);
-    // _adjustCarContainerHeight();
-}
-
 function init(element) {
     if (element) {
         // options = $.extend(options, $(element).data());
         _cacheDom(element);
         _bindEvents();
-        _render();
+        // _showHideFormContainers(DOM.$radioProduct.val());
+        _loadData();
     }
 }
 

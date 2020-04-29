@@ -63,9 +63,21 @@ function animateCSS(node, animationName, callback) {
   node.addEventListener('animationend', handleAnimationEnd);
 }
 
+function getFormData($form){
+  var unindexed_array = $form.serializeArray();
+  var indexed_array = {};
+
+  $.map(unindexed_array, function(n, i){
+      indexed_array[n['name']] = n['value'];
+  });
+
+  return indexed_array;
+}
+
 exports.isInViewport = isInViewport;
 exports.getViewportSize = getViewportSize;
 exports.offset = offset;
 exports.objectifyForm = objectifyForm;
 exports.parseFirstLastName = parseFirstLastName;
 exports.animateCSS = animateCSS;
+exports.getFormData = getFormData;

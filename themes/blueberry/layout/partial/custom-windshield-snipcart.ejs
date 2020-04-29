@@ -21,14 +21,13 @@
 				<div class="col col-md-11 col-lg-10">
 					<h1 class="display-4 font-handwritten text-center mt-5 mb-4">Custom Sun Strips and Windshield Banners</h1>
 					<p class="text-muted text-center">
-						Use our interactive tool to create a custom windshield banner or sun strip for your car or truck. Please check our Instagram to see <a href="<%- theme.instagram_url %>">examples of banners</a> we made.
+						Use our interactive tool to create a custom windshield banner or sun strip for your car or truck. These products will fit any vehicle make and model. Please check our Instagram to see <a href="<%- theme.instagram_url %>"> examples of banners</a> we made.
 					</p>
 				</div>
 			</div>
 			<form autocomplete="off" class="js--windshield-form-snipcart" name="contact" method="POST" data-netlify="true">
 				<!-- autocomplete="off" because of Firefox radio buttons bug -->
 				<!-- https://stackoverflow.com/questions/7988729/firefox-remembering-radio-buttons-incorrectly -->
-				<input type="hidden" name="order_id" value="" />
 
 				<h2 class="text-center mt-4 mb-3">What type of product are you looking for?</h2>
 				<div class="row justify-content-center">
@@ -265,7 +264,7 @@
 			<h2 class="text-center my-4">You might also like</h2>
 			<div class="row justify-content-center">
 				<% 
-					var featuredProductIds = ['ST_SOCIAL_IG','ST_CAR_INLINE6','ST_CAR_STAYTUNED','ST_CAR_DAILY'];
+					var featuredProductIds = ['ST_SOCIAL_SC','ST_SOCIAL_FB', 'ST_SOCIAL_YT', 'ST_SOCIAL_IG'];
 					var featuredProducts = _.map(site.data.product_list, function(o) {
 						if (featuredProductIds.includes(o.id)) return o;
 					}); 
@@ -274,11 +273,16 @@
 				<% for (var product of featuredProducts){ %>
 					<div class="col-6 col-sm-4 col-md-3 text-center">
 						<a href="<%- get_pathname(product.link) %>">
-							<img src="<%- prefix_filename('small_', product.image_link) %>" alt="<%- product.title %>" class="w-50 rounded-circle" />
+							<img src="<%- prefix_filename('small_', product.image_link) %>" alt="<%- product.title %>" class="w-75 rounded-circle" />
 							<p class="mt-2"><%- product.title %></p>
 						</a>
 					</div>
 				<% } %>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-10 col-lg-8 text-center mt-4">
+					<a href="/#featured" title="Explore other vinyl stickers we have" class="btn btn-outline-primary btn-blueberry btn-lg">Click to see more stickers we have</a>
+				</div>
 			</div>
 		</div>
 	</div>
