@@ -249,8 +249,11 @@ function _buildFontUrl($fontImage, text) {
 }
 
 function _updateTextImages() {
+    // On testing environment do nothing (no font url rewrite implemented)
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
+
+    // Update radio font images to reflect custom text
     var text = _getBannerText();
-    // Update text images
     DOM.$fontImages.each(function () {
         var url = _buildFontUrl($(this), text);
         $(this).attr('src', url);
@@ -258,8 +261,11 @@ function _updateTextImages() {
 }
 
 function _updateBannerFontImages() {
+    // On testing environment do nothing (no font url rewrite implemented)
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
+
+    // Update car banner and sun strip images
     var text = _getBannerText();
-    // Update banner image
     var $fontImage = $('input[name=font]:checked').parent().find('img');
     var url = _buildFontUrl($fontImage, text);
     DOM.$banner.css('mask-image', 'url(' + url + ')');

@@ -73,7 +73,7 @@ hexo.extend.helper.register('is_custom', function(product){
 
 hexo.extend.helper.register('my_full_url_for', function(url){
   const url_for = hexo.extend.helper.get('url_for').bind(hexo);
-  if (process.env.SITE_URL){
+  if (process && process.env && process.env.SITE_URL){
     return process.env.SITE_URL + url_for(url);
   }
   return hexo.config.url + url_for(url);
