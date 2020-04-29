@@ -82,7 +82,10 @@ function _bindEvents(element) {
         _showHideFormContainers(this.value);
         _showHidePreviewElements(this.value);
         _enableDisableRadioButtons(this.value);
-        if (event.originalEvent && event.originalEvent.isTrusted){ _saveData(); }
+        if (event.originalEvent && event.originalEvent.isTrusted){
+            // Save data only of the event was triggered with human
+            _saveData(); 
+        }
     });
 
     DOM.$input.on('input', function (event) {
@@ -92,33 +95,48 @@ function _bindEvents(element) {
             _updateBannerFontImages();
         }, 1500);
         _updateSnipcartButtonsText(this.value);
-        if (event.originalEvent && event.originalEvent.isTrusted){ _saveData(); }
+        if (event.originalEvent && event.originalEvent.isTrusted){
+            // Save data only of the event was triggered with human
+            _saveData(); 
+        }
     });
 
     DOM.$radioFont.change(function (event) {
         _updateBannerFontImages();
         _updateSnipcartButtonsFont(this.value);
-        if (event.originalEvent && event.originalEvent.isTrusted){ _saveData(); }
+        if (event.originalEvent && event.originalEvent.isTrusted){
+            // Save data only of the event was triggered with human
+            _saveData(); 
+        }
     });
 
     DOM.$radioTextColor.change(function (event) {
         _updateBannerSunstripTextColors();
         _updateSnipcartButtonsTextColor(this.value);
-        if (event.originalEvent && event.originalEvent.isTrusted){ _saveData(); }
+        if (event.originalEvent && event.originalEvent.isTrusted){
+            // Save data only of the event was triggered with human
+            _saveData(); 
+        }
     });
 
     DOM.$radioBaseColor.change(function (event) {
         _updateSunstripBaseColor();
         _updateSnipcartButtonsBaseColor(this.value);
-        if (event.originalEvent && event.originalEvent.isTrusted){ _saveData(); }
+        if (event.originalEvent && event.originalEvent.isTrusted){
+            // Save data only of the event was triggered with human
+            _saveData(); 
+        }
     });
 
-    DOM.$inputQuantity.change(function(){
+    DOM.$inputQuantity.change(function (event) {
         DOM.$btnBuyBanner.attr('data-item-quantity', this.value);
         DOM.$btnBuySunStrip.attr('data-item-quantity', this.value);
         DOM.$btnBuyCutSunStrip.attr('data-item-quantity', this.value);
         DOM.$btnBuyTextSunStrip.attr('data-item-quantity', this.value);
-        if (event.originalEvent && event.originalEvent.isTrusted){ _saveData(); }
+        if (event.originalEvent && event.originalEvent.isTrusted){
+            // Save data only of the event was triggered with human
+            _saveData(); 
+        }
     });
 
     DOM.$form.submit(function(event) {
