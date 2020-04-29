@@ -65,21 +65,13 @@ function getProductImageSrc(productId, isThumb){
   return '';
 }
 
-function listRelatedPosts(options) {
+function getRelatedPosts(options) {
   if (!options) {
     options = {};
   }
 
   options = assign({
     maxCount: 5,
-    pClass: 'related-posts-none',
-    ulClass: 'related-posts',
-    liClass: 'related-posts-item',
-    aClass: 'related-posts-link',
-    thumbClass: 'related-posts-thumb',
-    generateAbstract: false,
-    abstractClass: 'related-posts-item-abstract',
-    abstractLength: 110,
     orderBy: 'date',
     isAscending: false
   }, options);
@@ -112,30 +104,25 @@ function listRelatedPosts(options) {
   var root = this.config.root;
   var count = Math.min(options.maxCount, postList.length);
 
+  if (count === 0) return [];
 
-  if (count === 0){
-    result += '<p class="' + options.pClass + '">No related post.</p>';
-  } else {
-    result += '<ul class="' + options.ulClass + '">';
+  result += '<ul class="' + options.ulClass + '">';
 
-    const get_product_image_src = hexo.extend.helper.get('get_product_image_src').bind(this);
-    var src = get_product_image_src(this.post.product_id, true);
+  const get_product_image_src = hexo.extend.helper.get('get_product_image_src').bind(this);
+  const get_pathname = hexo.extend.helper.get('get_pathname').bind(this);
 
-    var imageHTML = '<span class="small" style="background-image: url(' + src + ')"></span>';
-    if (options.generateAbstract) {
-      for (var i = 0; i < count; i++) {
-        result += '<li class="' + options.liClass + '">' + '<a class="' + options.aClass + '" href="' + root + postList[i].path + '">' + imageHTML + postList[i].title + '</a><div class="' + options.abstractClass + '">' + striptags(postList[i].content).substring(0, options.abstractLength) + '</div></li>';
-      }
-    } else {
-      for (var i = 0; i < count; i++) {
-        result += '<li class="' + options.liClass + '">' + '<a class="' + options.aClass + '" href="' + root + postList[i].path + '">' + imageHTML + postList[i].title + '</a></li>';
-      }
+  var items = [];
+  for (var i = 0; i < count; i++) {
+    var item = {
+      image_src: get_pathname(get_product_image_src(postList[i].product_id, true)),
+      url:       get_pathname(root + postList[i].path),
+      title:     postList[i].title
     }
-    result += '</ul>';
+    items.push(item);
   }
 
-  return result;
+  return items;
 }
 
-hexo.extend.helper.register('list_related_posts', listRelatedPosts);
+hexo.extend.helper.register('get_related_posts', getRelatedPosts);
 hexo.extend.helper.register('get_product_image_src', getProductImageSrc);

@@ -107,8 +107,8 @@ responsive_images:
   pattern: '**/*.+(png|jpg|jpeg)'
   sizes:
     small:
-      width: 128
-      height: 128
+      width: 196
+      height: 196
     medium:
       width: 512
       height: 512
