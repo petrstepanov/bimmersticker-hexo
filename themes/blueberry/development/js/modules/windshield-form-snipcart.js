@@ -133,10 +133,7 @@ function _bindEvents(element) {
         DOM.$btnBuySunStrip.attr('data-item-quantity', this.value);
         DOM.$btnBuyCutSunStrip.attr('data-item-quantity', this.value);
         DOM.$btnBuyTextSunStrip.attr('data-item-quantity', this.value);
-        if (event.originalEvent && event.originalEvent.isTrusted){
-            // Save data only of the event was triggered with human
-            _saveData(); 
-        }
+        _saveData(); 
     });
 
     DOM.$form.submit(function(event) {
