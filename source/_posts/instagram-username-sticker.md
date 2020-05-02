@@ -1,11 +1,11 @@
 ---
-title: Instagram name stickers
+title: Custom Instagram name stickers
 date: 2018-09-23 17:12:56
 tags:
 - custom
 - instagram
 - window
-description: Buy custom instagram name handle stickers for a car window. Stickers made of glossy ORACAL or holographic vinyls.
+description: Buy custom Instagram account name stickers for a car window. Stickers made of premium outdoor vinyls. Available in white, holographic, rainbow, gold and silver colors.
 categories:
 - Social
 etsy_url: https://www.etsy.com/listing/634953846/two-custom-instagram-name-handle-vinyl

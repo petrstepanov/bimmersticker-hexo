@@ -296,6 +296,20 @@
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
   color: "red/white"
+- id:	ST_SOCIAL_TIK
+  title: "Custom TikTok account sticker"
+  description: "TikTok social network sticker with your account name on it. Available in light and dark color variations. Sticker is contour cut out of premium outdoor vinyls. Transparent background."
+  product_type: Stickers > Social
+  link: https://bimmersticker.store/custom-tiktok-name-sticker/
+  image_link: https://bimmersticker.store/custom-tiktok-name-sticker/custom-tiktok-account-vinyl-sticker-black.jpg
+  additional_image_link: https://bimmersticker.store/custom-tiktok-name-sticker/custom-tiktok-account-vinyl-sticker-white.jpg
+  price: "8.99 USD"
+  size: "7.5x2 in"
+  shipping_weight: "0.025 lbs"
+  material: "Oracal 651 vinyls"
+  color: "black|white"
+  customization_name: "Your TikTok name"
+  customization_placeholder: "Use '@' with your name if you want"  
 - id:	ST_SOCIAL_IG
   title: "Two custom Instagram name stickers"
   description: "A set of two custom stickers with your Instagram name (handle). Stickers are contour cut out of premium outdoor vinyls. Transparent background. Available in white, holographic, silver, gold and oil slick colors. Stickers come with installation instructions."
