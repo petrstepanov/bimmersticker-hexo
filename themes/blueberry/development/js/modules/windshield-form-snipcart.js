@@ -7,7 +7,6 @@ var events = require('./events');
 
 var DOM = {};
 // var options = {};
-var query = '?s={"size":72,"text":"#","retina":false}';
 var timeoutUpdateImages;
 var timestamp = Math.floor(Date.now() / 1000);
 
@@ -244,8 +243,9 @@ function _enableDisableRadioButtons(product) {
 
 function _buildFontUrl($fontImage, text) {
     var url = $fontImage.data().src;
+    var query = '?s={"size":72,"text":"#","retina":false}';
     url += query.replace("#", text);
-    return encodeURI(url);
+    return encodeURIComponent(url);
 }
 
 function _updateTextImages() {
