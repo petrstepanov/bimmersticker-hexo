@@ -18,7 +18,7 @@
   description: "Windshield banner for cars and trucks with custom text. Variety of fonts and colors."
   product_type: Stickers > Banners
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
-  image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/product-type-banner.jpg
+  image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-text-windshield-banner.jpg
   price: "25.99 USD"
   size: "28x6 in"
   shipping_weight: "0.2 lbs"
@@ -30,18 +30,18 @@
   description: "Windshield sun strip for cars and trucks. Variety of colors available."
   product_type: Stickers > Banners
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
-  image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/product-type-sunstrip.jpg
+  image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-color-windshield-sun-strip.jpg
   price: "19.99 USD"
   size: "60x10 in"
   shipping_weight: "0.375 lbs"
   material: "Oracal 651 or TeckWrap vinyls"
   color: "matte black|black|mint|orange|white|pink|red|oil slick[+9.99]" # for Google only. Real app takes these from colors_strip.yml
 - id:	ST_CAR_WINDSHIELD_SUNSTRIP_CUT
-  title: "Custom Cut Out Sun Strip"
+  title: "Custom Reverse Cut Sun Strip"
   description: "Windshield sun strip with custom text for cars and trucks. Variety of fonts and colors. Text is cut out of the base layer."
   product_type: Stickers > Banners
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
-  image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/product-type-cut-sunstrip.jpg
+  image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-text-windshield-banner-sun-strip-reverse-cut.jpg
   price: "35.99 USD"
   size: "60x10 in"
   shipping_weight: "0.5 lbs"
@@ -53,7 +53,7 @@
   description: "Windshield sun strip with custom text for cars and trucks. Variety of fonts and colors. Text layer is on top of the base sun layer."
   product_type: Stickers > Banners
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
-  image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/product-type-text-sunstrip.jpg
+  image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-text-windshield-banner-sun-strip.jpg
   price: "35.99 USD"
   size: "60x10 in"
   shipping_weight: "0.35 lbs"
