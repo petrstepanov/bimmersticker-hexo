@@ -38,7 +38,24 @@
 							<div class="col-4 col-sm-8 col-md-12">
 								<input class="invisible" type="radio" name="product" value="<%= products[product].id %>" <%= i++ == 0 ? 'checked' : ''; %> />
 								<div class="input-image">
-									<img class="w-100" src="<%- products[product].image_link %>" />
+										<%
+										var image = "";
+										switch(products[product].id){
+											case "ST_CAR_WINDSHIELD_BANNER":
+												image = "/custom-windshield-banner-sun-strip/index/product-type-banner.jpg";
+												break;
+											case "ST_CAR_WINDSHIELD_SUNSTRIP":
+												image = "/custom-windshield-banner-sun-strip/index/product-type-sunstrip.jpg";
+												break;
+											case "ST_CAR_WINDSHIELD_SUNSTRIP_CUT":
+												image = "/custom-windshield-banner-sun-strip/index/product-type-cut-sunstrip.jpg";
+												break;
+											case "ST_CAR_WINDSHIELD_SUNSTRIP_TEXT":
+												image = "/custom-windshield-banner-sun-strip/index/product-type-text-sunstrip.jpg";
+												break;
+										}
+									%>									
+									<img class="w-100" src="<%- image %>" />
 								</div>
 							</div>
 							<div class="col-8 col-sm-12">
