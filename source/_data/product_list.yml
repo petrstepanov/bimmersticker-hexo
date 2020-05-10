@@ -15,7 +15,7 @@
 # GTIN: Global Trade Item Number
 - id:	ST_CAR_WINDSHIELD_BANNER
   title: "Custom Windshield Banner"
-  description: "Custom windshield banner for cars and trucks with your own text. Variety of fonts and colors. Made from premium outdoor vinyls."
+  description: "Custom windshield banner with your own text. Will fit any car or truck. Variety of fonts and colors. Made from premium outdoor vinyls."
   product_type: Stickers > Banners
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-text-windshield-banner.jpg
@@ -27,7 +27,7 @@
   customization_name: "Your banner text"
 - id:	ST_CAR_WINDSHIELD_SUNSTRIP
   title: "Plain Sun Strip"
-  description: "Custom windshield banner (sun strip) for cars and trucks. Available in variety of colors. Made from premium outdoor vinyls."
+  description: "Custom windshield banner (sun strip) for any car or truck. Available in variety of colors. Made from premium outdoor vinyls."
   product_type: Stickers > Banners
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-color-windshield-sun-strip.jpg
@@ -38,7 +38,7 @@
   color: "matte black|black|mint|orange|white|pink|red|oil slick[+14.99]" # for Google only. Real app takes these from colors_strip.yml
 - id:	ST_CAR_WINDSHIELD_SUNSTRIP_CUT
   title: "Custom Reverse Cut Sun Strip"
-  description: "Windshield sun strip (banner) with custom text for cars and trucks. Variety of fonts and colors. Text is cut out of the base vinyl layer. Made from premium outdoor vinyls."
+  description: "Windshield sun strip (banner) with custom text. Will fit any car or truck. Variety of fonts and colors. Text is cut out of the base vinyl layer. Made from premium outdoor vinyls."
   product_type: Stickers > Banners
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-text-windshield-banner-sun-strip-reverse-cut.jpg
@@ -50,7 +50,7 @@
   customization_name: "Your sun strip text"
 - id:	ST_CAR_WINDSHIELD_SUNSTRIP_TEXT
   title: "Custom Text Sun Strip"
-  description: "Windshield sun strip (banner) with custom text for cars and trucks. Variety of fonts and colors. Text layer is overlaid on top of the base background. Made from premium outdoor vinyls."
+  description: "Windshield sun strip (banner) with custom text. Will fit any car or truck. Variety of fonts and colors. Text layer is overlaid on top of the base background. Made from premium outdoor vinyls."
   product_type: Stickers > Banners
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-text-windshield-banner-sun-strip.jpg
