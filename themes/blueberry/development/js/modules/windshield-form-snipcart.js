@@ -243,9 +243,8 @@ function _enableDisableRadioButtons(product) {
 
 function _buildFontUrl($fontImage, text) {
     var url = $fontImage.data().src;
-    var query = '?s={"size":72,"text":"#","retina":false}';
-    url += query.replace("#", text);
-    return encodeURIComponent(url);
+    var query = '{"size":72,"text":"#","retina":false}'.replace("#", text);
+    return url + '?s=' + encodeURIComponent(query);
 }
 
 function _updateTextImages() {
@@ -268,6 +267,10 @@ function _updateBannerFontImages() {
     var text = _getBannerText();
     var $fontImage = $('input[name=font]:checked').parent().find('img');
     var url = _buildFontUrl($fontImage, text);
+    // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
+    // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
+    url = url.replace(/[() '"]/g, '\\$&');
+    
     DOM.$banner.css('mask-image', 'url(' + url + ')');
     DOM.$sunstripText.css('mask-image', 'url(' + url + ')');
 }
