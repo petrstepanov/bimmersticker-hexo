@@ -243,9 +243,8 @@ function _enableDisableRadioButtons(product) {
 
 function _buildFontUrl($fontImage, text) {
     var url = $fontImage.data().src;
-    var query = '?s={"size":72,"text":"#","retina":false}';
-    url += query.replace("#", text);
-    return encodeURIComponent(url);
+    var query = '?s={"size":72,"text":"#","retina":false}'.replace("#", text);
+    return url + encodeURIComponent(query);
 }
 
 function _updateTextImages() {
