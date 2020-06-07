@@ -238,6 +238,18 @@
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
   color: "white|oil slick[+1.00]"
+- id:	ST_CAR_FUCKPOLICE
+  title: "Fuck The Police sticker"
+  description: "Fuck The Police sticker inspired by the punk and a.c.a.b. ideas. For cars and trucks. The hand flips off and covers some letters. Available in white and rainbow colors."
+  product_type: Stickers > Cars
+  link: https://bimmersticker.store/fuck-the-police-sticker/
+  image_link: https://bimmersticker.store/fuck-the-police-sticker/fuck-the-police-sticker-white.jpg
+  additional_image_link: https://bimmersticker.store/fuck-the-police-sticker/fuck-the-police-sticker-holographic.jpg
+  price: "9.99 USD"
+  size: "6x3.5 in"
+  shipping_weight: "0.025 lbs"
+  material: "TECKWRAP outdoor vinyls"
+  color: "white|oil slick[+1.00]"
 - id:	ST_CAR_RUNCOILS
   title: "Run Coils sticker"
   description: "Sticker for modified cars that run on coilovers. Because bags are for groceries. Great sticker for any stanced lowered car."
