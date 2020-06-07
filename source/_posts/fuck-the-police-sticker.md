@@ -1,6 +1,6 @@
 ---
 title: Fuck the Police sticker
-date: 2020-04-14 15:33:26
+date: 2015-04-12 15:33:26
 tags:
 - car
 - sticker
