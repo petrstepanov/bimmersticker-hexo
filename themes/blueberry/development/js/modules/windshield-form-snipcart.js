@@ -26,6 +26,7 @@ function _cacheDom(element) {
     DOM.$fontImages = DOM.$el.find('.js--font-image');
 
     // DOM.$carContainer = DOM.$el.find('.car-preview-container');
+    DOM.$textWidthNotice = DOM.$el.find('.js--text-width');
     DOM.$car = DOM.$el.find('.car-preview-container .car');
 
     DOM.$banner = DOM.$el.find('.banner-text');
@@ -198,17 +199,20 @@ function _showHidePreviewElements(product) {
             DOM.$banner.show();
             DOM.$sunstrip.hide();
             DOM.$sunstripText.hide();
+            DOM.$textWidthNotice.show();
             break;
         case 'ST_CAR_WINDSHIELD_SUNSTRIP':
             DOM.$banner.hide();
             DOM.$sunstrip.show();
             DOM.$sunstripText.hide();
+            DOM.$textWidthNotice.hide();
             break;
         case 'ST_CAR_WINDSHIELD_SUNSTRIP_CUT':
             DOM.$banner.hide();
             DOM.$sunstrip.show();
             DOM.$sunstripText.show();
             DOM.$sunstripText.css('background-color', '#6C6C6C');
+            DOM.$textWidthNotice.show();
             break;
         case 'ST_CAR_WINDSHIELD_SUNSTRIP_TEXT':
             DOM.$banner.hide();
@@ -216,6 +220,7 @@ function _showHidePreviewElements(product) {
             DOM.$sunstripText.show();
             var color = _getSelectedSwatch('color_text').css('background-color');
             DOM.$sunstripText.css('background-color', color);
+            DOM.$textWidthNotice.show();
             break;
     }
 }
