@@ -3,11 +3,11 @@ title: Return and Refund Policy
 date: 2020-03-13 01:22:20
 ---
 
-Last updated: March 13, 2020
+Last updated: June 08, 2020
 
 Thank you for shopping at Bimmer Sticker Store operated by Bimmer Sticker Store.
 
-If, for any reason, You are not completely satisfied with a purchase We invite You to review our policy on refunds and returns. This Return and Refund Policy has been created with the help of <a href="https://www.termsfeed.com/return-refund-policy-generator/">Return and Refund Policy Generator</a>.
+If, for any reason, You are not completely satisfied with a purchase We invite You to review our policy on refunds and returns. This Return and Refund Policy has been created with the help of the <a href="https://www.termsfeed.com/return-refund-policy-generator/" target="_blank">Return and Refund Policy Generator</a>
 
 The following terms are applicable for any products that You purchased with Us.
 
@@ -23,9 +23,9 @@ The following definitions shall have the same meaning regardless of whether they
 For the purposes of this Return and Refund Policy:
 
 * **You** means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.
-* **Company** (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Bimmer Sticker Store.
+* **Company** (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to Sticker Store LLC, 318 Ravenel St, Columbia, SC 29205.
 * **Service** refers to the Website.
-* **Website** refers to Bimmer Sticker Store, accessible from https://bimmersticker.store/
+* **Website** refers to Bimmer Sticker Store, accessible from <a href="https://bimmersticker.store/" rel="external nofollow noopener" target="_blank">https://bimmersticker.store/</a>
 * **Goods** refer to the items offered for sale on the Service.
 * **Orders** mean a request by You to purchase Goods from Us.
 
@@ -40,14 +40,15 @@ In order to exercise Your right of cancellation, You must inform Us of your deci
 * By email: info@bimmersticker.store
 * By visiting this page on our website: https://bimmersticker.store/#contact
 * By phone number: 4194968602
-* By mail: 1407 Napoleon Rd, Bowling Green, OH 43402, United States
+* By mail: 318 Ravenel St, Columbia, SC 29205, United States
 
 We will reimburse You no later than 14 days from the day on which We receive the returned Goods. We will use the same means of payment as You used for the Order, and You will not incur any fees for such reimbursement.
 
 ## Conditions for Returns
 In order for the Goods to be eligible for a return, please make sure that:
-* The Goods were purchased in the last 14 days
-* The Goods are in the original packaging
+* The Goods were purchased in the last 14 days.
+* The Goods are in the original packaging.
+* The Goods are not damadged and were not attempted to be used.
 
 The following Goods cannot be returned:
 * The supply of Goods made to Your specifications or clearly personalized.
@@ -61,8 +62,8 @@ We reserve the right to refuse returns of any merchandise that does not meet the
 
 You are responsible for the cost and risk of returning the Goods to Us. You should send the Goods at the following address:
 ```
-1407 Napoleon Rd,
-Bowling Green, OH 43402,
+318 Ravenel St
+Columbia, SC 29205
 United States
 ```
 We cannot be held responsible for Goods damaged or lost in return shipment. Therefore, We recommend an insured and trackable mail service. We are unable to issue a refund without actual receipt of the Goods or proof of received return delivery.
@@ -80,4 +81,4 @@ If you have any questions about our Returns and Refunds Policy, please contact u
 * By email: info@bimmersticker.store
 * By visiting this page on our website: https://bimmersticker.store/#contact
 * By phone number: 4194968602
-* By mail: 1407 Napoleon Rd, Bowling Green, OH 43402, United States
+* By mail: 318 Ravenel St, Columbia, SC 29205, United States
