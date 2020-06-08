@@ -40,7 +40,7 @@ In order to exercise Your right of cancellation, You must inform Us of your deci
 * By email: info@bimmersticker.store
 * By visiting this page on our website: https://bimmersticker.store/#contact
 * By phone number: 4194968602
-* By mail: 1407 Napoleon Rd, Bowling Green, OH 43402, United States
+* By mail: 318 Ravenel St, Columbia, SC 29205, United States
 
 We will reimburse You no later than 14 days from the day on which We receive the returned Goods. We will use the same means of payment as You used for the Order, and You will not incur any fees for such reimbursement.
 
@@ -80,4 +80,4 @@ If you have any questions about our Returns and Refunds Policy, please contact u
 * By email: info@bimmersticker.store
 * By visiting this page on our website: https://bimmersticker.store/#contact
 * By phone number: 4194968602
-* By mail: 1407 Napoleon Rd, Bowling Green, OH 43402, United States
+* By mail: 318 Ravenel St, Columbia, SC 29205, United States
