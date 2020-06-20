@@ -258,7 +258,7 @@
 									data-item-custom<%- i %>-name="Base color"
 									<% 
 										var colorBackgroundNames = [];
-										_.forEach(site.data.colors_text, function(value, key) {
+										_.forEach(site.data.colors_strip, function(value, key) {
 											var color = value.name;
 											// Add [+9.99]
 											if (value.extra){
