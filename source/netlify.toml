@@ -59,5 +59,3 @@
   from = "/font/:id1/:id2/:slug"
   to = "https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/:id1/:id2/:slug"
   status = 200
-  force = true
-  headers = {Cache-Control: "no-store"}
