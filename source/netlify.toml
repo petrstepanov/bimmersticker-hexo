@@ -55,10 +55,9 @@
 # PER-DEPLOY.
 
 # Problem with cacing font images
-# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
 [[redirects]]
   from = "/font/*"
   to = "https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/:splat"
   status = 200
   force = true
-  headers = {Cache-Control: "no-store", Cache-Control: "proxy-revalidate", Pragma: "no-cache", X-Author = "Petr"}
+  headers = {Cache-Control: "no-store"}
