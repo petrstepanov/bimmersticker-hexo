@@ -54,9 +54,12 @@
 # For context-specific rules, use _headers or _redirects files, which are
 # PER-DEPLOY.
 
+# Problem with cacing font images
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
 [[redirects]]
   from = "/font/*"
   to = "https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/:splat"
   status = 200
   force = true
-  headers = {X-Author = "Petr"}
+  headers = {Cache-Control: no-store, 
+             X-Author = "Petr"}
