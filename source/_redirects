@@ -1,5 +1,5 @@
 # Redirect fonts
-/font/*  https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/:splat  200
+/font/*  https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/:splat  200!
 
 # Redirect domain aliases to primary domain
 https://test.bimmersticker.store/* https://awesome-golick-927444.netlify.com/:splat 301!
