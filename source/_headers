@@ -1,0 +1,4 @@
+# disable cache for font images:
+/font/*
+  # headers for that path:
+  Cache-Control: no-store
