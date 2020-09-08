@@ -12,7 +12,7 @@ col_class: col-6 col-md-4
 product_id: ST_CAR_FUCKPOLICE
 ---
 
-Because <a href="https://blacklivesmatter.com/" rel="nofollow">#BlackLivesMatter</a>. In memory of the <a href="https://en.wikipedia.org/wiki/George_Floyd">George Floyd</a>.
+Because <a href="https://blacklivesmatter.com/" rel="nofollow">#BlackLivesMatter</a>. In memory of <a href="https://en.wikipedia.org/wiki/George_Floyd">George Floyd</a>.
 
 <!-- more -->
 
