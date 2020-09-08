@@ -387,6 +387,18 @@
   shipping_weight: "0.19 lbs"
   material: "Oracal 651 vinyl, Cricut adhesive foil"
   color: "red/white|gold/white[+5]"
+- id:	ST_WSHIELD_AMERICA
+  title: "BMW of America windshield banner"
+  description: "BMW of America windshield banner for sedans, coupes, tourings and SUVs. The lettering is themed with stars and stripes like American flag. Will fit any bimmer. Available in white and rainbow holographic colors."
+  product_type: Stickers > Windshield
+  link: https://bimmersticker.store/bmw-of-america-windshield-banner/
+  image_link: https://bimmersticker.store/bmw-of-america-windshield-banner/bmw-of-america-windshield-banner-white.jpg
+  additional_image_link: https://bimmersticker.store/bmw-of-america-windshield-banner/bmw-of-america-windshield-banner-rainbow.jpg
+  price: "19.99 USD"
+  size: "32x3 in"
+  shipping_weight: "0.19 lbs"
+  material: "Oracal 651 vinyl, TECKWRAP holographic vinyl"
+  color: "white|rainbow[+5]"
 - id:	ST_WSHIELD_MONEY
   title: "Money Pit windshield banner"
   description: "Money Pit car windshield banner. Great for project or show cars. Available in different colors. Banner comes with installation instructions."
