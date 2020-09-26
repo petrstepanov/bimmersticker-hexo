@@ -16,7 +16,7 @@ orange:
 white:
   hex: "#EFEFEF"
   image: /images/swatches/glare.svg
-  name: "Glossy white"
+  name: "White"
 pink:
   hex: "#F6A6BF"
   image: /images/swatches/glare.svg
