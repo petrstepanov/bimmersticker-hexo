@@ -42,10 +42,12 @@
     box-shadow: 0 4px 4px 0 rgba($blue, 0.1);
 
     button {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        height: $nb-logo-size;
+        margin-top: 0.825rem 0;
+        @include media-breakpoint-up(md){
+          margin: 1rem 0;
+        }
 
+        height: $nb-logo-size;
         @include media-breakpoint-up(sm) {
             height: $nb-logo-size-bigger;
         }
@@ -67,19 +69,33 @@
     background-color: $indigo;
 }
 
+.snipcart-featured-payment-methods {
+    margin-bottom: 110px;
+}
+
 .snipcart-cart-summary { 
-    border-radius: 0 0 0.5rem 0.5rem;
-    overflow: hidden;    
     box-shadow: 0 4px 4px 0 rgba($blue, 0.1);
 
     .snipcart-cart-summary__actions.snipcart__box--header, .snipcart-cart-summary__footer { 
         display: none;
     }
+
+    .snipcart-cart-summary-fees__item {
+        padding-top: 1.5rem;
+    }
+
+    .snipcart-cart-summary-fees__notice {
+        line-height: 1.3;
+    }
+}
+
+.snipcart-checkout-step {
+    padding-top: 1rem;
 }
 
 .snipcart-form {
+    background-color: transparent;
     box-shadow: none;
-    border-radius: 0.5rem;
 }
 
 .snipcart-item-line {
@@ -91,6 +107,12 @@
     height: auto;
 }
 
+.snipcart__box {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    padding: 1.5rem 1rem;
+    margin-bottom: 0;
+}
 // .snipcart-layout__content{
 //     display: flex;
 // }
@@ -192,7 +214,7 @@ snipcart-input__input {
 
 // Checkout step badges
 .snipcart__box--badge {
-    margin-top: -24px;
+    margin-top: 0px;
 }
 
 .snipcart-typeahead {
