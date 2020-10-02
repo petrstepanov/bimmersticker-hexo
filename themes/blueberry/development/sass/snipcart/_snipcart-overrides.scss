@@ -23,7 +23,8 @@
 // Snipcart modal
 .snipcart-modal__container {
     z-index: 2147483650;   // Show over facebook dialog 
-    background-color: linear-gradient(white 50%, $indigo 50%); // need gradient
+    background-image: linear-gradient(white 50%, $indigo 50%);
+    background-color: white;
 }
 
 .snipcart-modal {
@@ -38,7 +39,7 @@
     padding-bottom: 0;
     margin-bottom: 0;
     background-color: white;
-    box-shadow: 0 4px 4px 0 rgba($blue, 0.2);
+    box-shadow: 0 4px 4px 0 rgba($blue, 0.1);
 
     button {
         margin-top: 1rem;
@@ -64,6 +65,21 @@
 
 .snipcart-payment-methods__title {
     background-color: $indigo;
+}
+
+.snipcart-cart-summary { 
+    border-radius: 0 0 0.5rem 0.5rem;
+    overflow: hidden;    
+    box-shadow: 0 4px 4px 0 rgba($blue, 0.1);
+
+    .snipcart-cart-summary__actions.snipcart__box--header, .snipcart-cart-summary__footer { 
+        display: none;
+    }
+}
+
+.snipcart-form {
+    box-shadow: none;
+    border-radius: 0.5rem;
 }
 
 .snipcart-item-line {
