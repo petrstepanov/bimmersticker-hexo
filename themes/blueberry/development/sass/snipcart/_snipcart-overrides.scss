@@ -23,8 +23,10 @@
 // Snipcart modal
 .snipcart-modal__container {
     z-index: 2147483650;   // Show over facebook dialog 
+    background-color: linear-gradient(white 50%, $indigo 50%); // need gradient
 }
-.snipcart-modal__container, .snipcart-modal, .snipcart-cart-header, .snipcart-cart__content, .snipcart-payment-methods__title {
+
+.snipcart-modal {
     background-color: $indigo;
 }
 
@@ -35,6 +37,8 @@
     padding-top: 0;
     padding-bottom: 0;
     margin-bottom: 0;
+    background-color: white;
+    box-shadow: 0 4px 4px 0 rgba($blue, 0.2);
 
     button {
         margin-top: 1rem;
@@ -49,6 +53,31 @@
         }    
     }
 }
+
+.snipcart-layout__content {
+    background-color: $indigo;
+}
+
+.snipcart-cart__content {
+    background-color: $indigo;
+}
+
+.snipcart-payment-methods__title {
+    background-color: $indigo;
+}
+
+.snipcart-item-line {
+    border-radius: 0.5rem;
+}
+
+// Important for mobile (iOS) - header got shrinked
+.snipcart-layout {
+    height: auto;
+}
+
+// .snipcart-layout__content{
+//     display: flex;
+// }
 
 // Back to shopping link {
 .snipcart-modal__close-title {
