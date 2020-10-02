@@ -42,10 +42,12 @@
     box-shadow: 0 4px 4px 0 rgba($blue, 0.1);
 
     button {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        height: $nb-logo-size;
+        margin-top: 0.825rem 0;
+        @include media-breakpoint-up(md){
+          margin: 1rem 0;
+        }
 
+        height: $nb-logo-size;
         @include media-breakpoint-up(sm) {
             height: $nb-logo-size-bigger;
         }
