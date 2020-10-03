@@ -13,7 +13,7 @@
     font-family: $font-regular;
 }
 
-.snipcart__font--bold {
+.snipcart__font--bold, .snipcart__font--bold * {
     font-family: $font-bold;
 }
 
@@ -22,51 +22,67 @@
     font-weight: normal;
 }
 
-// Snipcart modal
-// .snipcart-modal__container {
-//     z-index: 2147483650;   // Show over facebook dialog 
-//     background-image: linear-gradient(white 50%, $indigo 50%);
-//     background-color: white;
-// }
-
-// .snipcart-modal {
-//     background-color: $indigo;
-// }
-
-
-// Snipcart navbar 
-// Always show "Continue Shopping" label
-.snipcart-modal__close-title {
-    display: block !important;
-    line-height: inherit;
+.snipcart__font--large {
+    font-size: $font-size-21;
 }
 
-// // Snipcart header - match with height of the website header
-// .snipcart-cart-header {
-//     margin-top: 0;
-//     margin-bottom: 0;
-//     padding-top: 0;
-//     padding-bottom: 0;
-//     margin-bottom: 0;
-//     background-color: white;
-//     box-shadow: 0 4px 4px 0 rgba($blue, 0.1);
+// Snipcart icon colors
+.snipcart__icon--blue-light path {
+    fill: $indigo;
+}
 
-//     button {
-//         margin: 0.825rem 0;
+// Snipcart modal
+.snipcart-modal__container {
+    z-index: 2147483650;   // Show over facebook dialog
+    // iPhone scroll - have white top and blue bottom background
+    background-image: linear-gradient(white 50%, $indigo 50%);
+    background-color: white;
+}
 
-//         @include media-breakpoint-up(md){
-//           margin: 1rem 0;
-//         }
+.snipcart-modal {
+    // Make modal background indigo
+    background-color: $indigo;
+}
 
-//         height: $nb-logo-size;
-//         @include media-breakpoint-up(sm) {
-//             height: $nb-logo-size-bigger;
-//         }
-//         @include media-breakpoint-up(md) {
-//             height: $nb-logo-size-biggest;
-//         }    
-//     }
-// }
+// Snipcart header - match with height of the website header
+.snipcart-cart-header {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    // Make header white color with shadow
+    background-color: white;
+    box-shadow: 0 4px 4px 0 rgba($blue, 0.1);
+    // TODO: add rounded cornens for larger resolutions
+
+    // Always show "Continue Shopping" label
+    .snipcart-modal__close-title {
+        display: block !important;
+        line-height: inherit;
+    }
+
+    // Make "Continue Shopping" label blue
+    .snipcart-cart-header__close-button * {
+        color: $link-color;
+    }
+
+    // Copy styling from .navbar-blueberry to match its height
+    button {
+        margin: 0.825rem 0;
+
+        @include media-breakpoint-up(md){
+          margin: 1rem 0;
+        }
+
+        height: $nb-logo-size;
+        @include media-breakpoint-up(sm) {
+            height: $nb-logo-size-bigger;
+        }
+        @include media-breakpoint-up(md) {
+            height: $nb-logo-size-biggest;
+        }    
+    }
+}
 
 // .snipcart-layout__content {
 //     background-color: $indigo;

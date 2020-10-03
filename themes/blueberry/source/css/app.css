@@ -11334,16 +11334,52 @@ body {
   font-size: inherit;
   font-family: "sf_pro_textregular", Helvetica, sans-serif; }
 
-.snipcart__font--bold {
+.snipcart__font--bold, .snipcart__font--bold * {
   font-family: "sf_pro_textbold", Helvetica, sans-serif; }
 
 .snipcart__font--black, .snipcart__font--subtitle {
   font-family: "sf_pro_textbold", Helvetica, sans-serif;
   font-weight: normal; }
 
-.snipcart-modal__close-title {
-  display: block !important;
-  line-height: inherit; }
+.snipcart__font--large {
+  font-size: 1.3125em; }
+
+.snipcart__icon--blue-light path {
+  fill: #E5F3F9; }
+
+.snipcart-modal__container {
+  z-index: 2147483650;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, white), color-stop(50%, #E5F3F9));
+  background-image: linear-gradient(white 50%, #E5F3F9 50%);
+  background-color: white; }
+
+.snipcart-modal {
+  background-color: #E5F3F9; }
+
+.snipcart-cart-header {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: white;
+  box-shadow: 0 4px 4px 0 rgba(0, 158, 230, 0.1); }
+  .snipcart-cart-header .snipcart-modal__close-title {
+    display: block !important;
+    line-height: inherit; }
+  .snipcart-cart-header .snipcart-cart-header__close-button * {
+    color: #009ee6; }
+  .snipcart-cart-header button {
+    margin: 0.825rem 0;
+    height: 3rem; }
+    @media (min-width: 768px) {
+      .snipcart-cart-header button {
+        margin: 1rem 0; } }
+    @media (min-width: 576px) {
+      .snipcart-cart-header button {
+        height: 3rem; } }
+    @media (min-width: 768px) {
+      .snipcart-cart-header button {
+        height: 3.25rem; } }
 
 @media print {
   footer {
