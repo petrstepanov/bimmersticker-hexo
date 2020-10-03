@@ -224,6 +224,11 @@
     background-clip: padding-box;
 }
 
+// Remove weird Snipcart input parent container styling
+.snipcart-input {
+    height: auto;
+    border: 0;
+}
 
 // Quantity field
 .snipcart-item-quantity__quantity { 
@@ -239,9 +244,35 @@
 }
 
 .snipcart-discount-box {
+    background-color: transparent;
+
     .snipcart-discount-box__button {
         @extend %snipcart-button;
+        background-color: $gray-300;
     }
+
+    .snipcart-form { 
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .snipcart-discount-box__form {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+
+        .snipcart-input__input {
+            margin-right: 1em;
+        }
+    }
+
+    .snipcart-discount-box__cancel {
+        margin-left: 1em;
+    }
+}
+
+.snipcart-input--no-style .snipcart-input__input {
+    padding: 0 0.75em;
 }
 
 // Checkout button
