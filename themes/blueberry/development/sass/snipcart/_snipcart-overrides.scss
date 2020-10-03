@@ -1,25 +1,28 @@
-// .snipcart {
-//     font-family: $font-regular;
-//     font-size: inherit;
-//     font-weight: normal;
-//     color: inherit;
-// }
+//
+.snipcart * {
+    font-family: $font-regular;
+    font-size: inherit;
+    font-weight: normal;
+    color: inherit;
+    line-height: inherit;
+}
 
-// // Snipcart fonts
-// .snipcart__font--std {
-//     font-family: $font-regular;
-// }
+// Snipcart font overrides
+.snipcart__font--std {
+    font-size: inherit;
+    font-family: $font-regular;
+}
 
-// .snipcart__font--secondary {
-//     font-family: $font-bold;
-// }
+.snipcart__font--bold {
+    font-family: $font-bold;
+}
 
-// .snipcart__font--black, .snipcart__font--subtitle {
-//     font-family: $font-bold;
-//     font-weight: normal;
-// }
+.snipcart__font--black, .snipcart__font--subtitle {
+    font-family: $font-bold;
+    font-weight: normal;
+}
 
-// // Snipcart modal
+// Snipcart modal
 // .snipcart-modal__container {
 //     z-index: 2147483650;   // Show over facebook dialog 
 //     background-image: linear-gradient(white 50%, $indigo 50%);
@@ -29,6 +32,14 @@
 // .snipcart-modal {
 //     background-color: $indigo;
 // }
+
+
+// Snipcart navbar 
+// Always show "Continue Shopping" label
+.snipcart-modal__close-title {
+    display: block !important;
+    line-height: inherit;
+}
 
 // // Snipcart header - match with height of the website header
 // .snipcart-cart-header {

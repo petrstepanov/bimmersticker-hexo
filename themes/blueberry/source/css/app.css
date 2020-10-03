@@ -11323,6 +11323,28 @@ body {
     .transparent .snipcart-checkout .snipcart-items-count {
       box-shadow: 0 0 0 0.125rem #E5F3F9; }
 
+.snipcart * {
+  font-family: "sf_pro_textregular", Helvetica, sans-serif;
+  font-size: inherit;
+  font-weight: normal;
+  color: inherit;
+  line-height: inherit; }
+
+.snipcart__font--std {
+  font-size: inherit;
+  font-family: "sf_pro_textregular", Helvetica, sans-serif; }
+
+.snipcart__font--bold {
+  font-family: "sf_pro_textbold", Helvetica, sans-serif; }
+
+.snipcart__font--black, .snipcart__font--subtitle {
+  font-family: "sf_pro_textbold", Helvetica, sans-serif;
+  font-weight: normal; }
+
+.snipcart-modal__close-title {
+  display: block !important;
+  line-height: inherit; }
+
 @media print {
   footer {
     display: none; } }
