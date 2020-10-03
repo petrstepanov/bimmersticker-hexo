@@ -27,8 +27,8 @@
 }
 
 // Snipcart icon colors
-.snipcart__icon--blue-light path {
-    fill: $indigo;
+.snipcart__icon--blue-light path, .snipcart__icon--blue-dark path {
+    fill: $link-color;
 }
 
 // Snipcart modal
@@ -66,6 +66,11 @@
         color: $link-color;
     }
 
+    // Not sure what is this but is screws the layout
+    .snipcart-cart-header__options {
+        display: none;
+    }
+
     // Copy styling from .navbar-blueberry to match its height
     button {
         margin: 0.825rem 0;
@@ -84,37 +89,33 @@
     }
 }
 
-// .snipcart-layout__content {
-//     background-color: $indigo;
-// }
+// Background colors
+.snipcart-cart__content {
+    background-color: $indigo;
+}
 
-// .snipcart-cart__content {
-//     background-color: $indigo;
-// }
+// "Secured by Snipcart" label background fix
+.snipcart-payment-methods__title {
+    background-color: $indigo;
+}
 
-// .snipcart-payment-methods__title {
-//     background-color: $indigo;
-// }
+// Make "Checkout" button visible when scrolling to the bottom with the iPhone keyboard on
+.snipcart-featured-payment-methods {
+    margin-bottom: 7rem;
+}
 
-// .snipcart-featured-payment-methods {
-//     margin-bottom: 110px;
-// }
+// Cart summary - confusing step. Remove editing cart summary from cart summary.
+.snipcart-cart-summary { 
+    box-shadow: 0 4px 4px 0 rgba($blue, 0.1);
 
-// .snipcart-cart-summary { 
-//     box-shadow: 0 4px 4px 0 rgba($blue, 0.1);
+    .snipcart-cart-summary__actions.snipcart__box--header, .snipcart-cart-summary__footer { 
+        display: none;
+    }
 
-//     .snipcart-cart-summary__actions.snipcart__box--header, .snipcart-cart-summary__footer { 
-//         display: none;
-//     }
-
-//     .snipcart-cart-summary-fees__item {
-//         padding-top: 1.5rem;
-//     }
-
-//     .snipcart-cart-summary-fees__notice {
-//         line-height: 1.3;
-//     }
-// }
+    .snipcart-cart-summary-fees__total {
+        padding-top: 1.5rem;
+    }
+}
 
 // .snipcart-checkout-step {
 //     padding-top: 1rem;
@@ -129,10 +130,10 @@
 //     border-radius: 0.5rem;
 // }
 
-// // Important for mobile (iOS) - header got shrinked
-// .snipcart-layout {
-//     height: auto;
-// }
+// Header was vertically shrinked if snipcart-layout's height is 100%
+.snipcart-layout {
+    height: auto;
+}
 
 // .snipcart__box {
 //     background-color: #fff;
