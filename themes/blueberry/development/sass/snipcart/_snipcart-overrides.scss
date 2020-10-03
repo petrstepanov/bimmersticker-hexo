@@ -55,22 +55,6 @@
     box-shadow: 0 4px 4px 0 rgba($blue, 0.1);
     // TODO: add rounded cornens for larger resolutions
 
-    // Always show "Continue Shopping" label
-    .snipcart-modal__close-title {
-        display: block !important;
-        line-height: inherit;
-    }
-
-    // Make "Continue Shopping" label blue
-    .snipcart-cart-header__close-button * {
-        color: $link-color;
-    }
-
-    // Not sure what is this but is screws the layout
-    .snipcart-cart-header__options {
-        display: none;
-    }
-
     // Copy styling from .navbar-blueberry to match its height
     button {
         margin: 0.825rem 0;
@@ -87,6 +71,38 @@
             height: $nb-logo-size-biggest;
         }    
     }
+
+    // Always show "Continue Shopping" label
+    .snipcart-modal__close-title {
+        display: block !important;
+        line-height: inherit;
+    }
+
+    // Make "Continue Shopping" label blue
+    .snipcart-cart-header__close-button * {
+        color: $link-color;
+    }
+
+    // Number of items in the cart - fixing layout. Otherwise "Continue shopping" wraps
+    .snipcart-cart-header__options {
+        flex: 0;
+    }
+
+    // Font for final item vlue in header too big, plus fixing icon padding
+    .snipcart-modal__header-summary {
+        .snipcart__font--large {
+            font-size: 1rem;
+        }
+
+        span {
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+// Header was vertically shrinked if snipcart-layout's height is 100%
+.snipcart-layout {
+    height: auto;
 }
 
 // Background colors
@@ -117,6 +133,9 @@
     }
 }
 
+// Cart screen
+
+// Checkout screen
 // .snipcart-checkout-step {
 //     padding-top: 1rem;
 // }
@@ -129,11 +148,6 @@
 // .snipcart-item-line {
 //     border-radius: 0.5rem;
 // }
-
-// Header was vertically shrinked if snipcart-layout's height is 100%
-.snipcart-layout {
-    height: auto;
-}
 
 // .snipcart__box {
 //     background-color: #fff;
