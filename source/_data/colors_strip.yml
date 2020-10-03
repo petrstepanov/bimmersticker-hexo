@@ -9,10 +9,6 @@ mint:
   hex: "#5EC4B7"
   image: /images/swatches/glare.svg
   name: "Glossy mint"
-yellow:
-  hex: "#f6C642"
-  image: /images/swatches/glare.svg
-  name: "Glossy yellow"
 orange:
   hex: "#DA6831"
   image: /images/swatches/glare.svg
