@@ -1,6 +1,4 @@
-// CART VIEW
-
-// Shopping item container
+// SHOPPING ITEM CONTAINER
 .snipcart-item-line {
     padding: 1rem;
     margin: 1rem;
@@ -49,47 +47,12 @@
     }
 }
 
-
-// FORM FIELDS
-
-%input-field {
-    box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
-    border: 1px solid #dceaf9;
-    border-radius: 0.4rem;
-    @include form-control-focus($ignore-warning: true);
-    padding: 0 0.75rem;
-    height: 2.75rem;
-    background-color: white;
-}
-
-// Fields
-.snipcart-form__select, .snipcart-input__input {
-    @extend %input-field;
-
-    // Override bold font with regular for inputs
-    &.snipcart__font--bold {
-        font-family: $font-regular;
-    }
-}
-
-// Remove weird iOS inner shadow for inputs
-.snipcart-input__input {
-    background-clip: padding-box;
-}
-
-// Remove weird Snipcart input parent container styling
-.snipcart-input {
-    height: auto;
-    border: 0;
-}
-
-// Quantity field
+// QUANTITY FIELD
 .snipcart-item-quantity__quantity { 
     @extend %input-field; 
 }
 
 // PROMO CODE BOX
-
 %snipcart-button {
     padding: 0 1rem;
     border-radius: 2.75rem;;
@@ -132,8 +95,7 @@
     padding: 0 0.75rem;
 }
 
-// Checkout button
-
+// CHECKOUT BUTTON
 .snipcart-cart-button {
     @extend %snipcart-button;
     align-items: center;
@@ -148,4 +110,14 @@
 // Make -> arrow sit next to the "Checkout" ->
 .snipcart-cart-button__icon {
     flex: 0;
+}
+
+// Make "Checkout" button visible when scrolling to the bottom with the iPhone keyboard on
+.snipcart-featured-payment-methods {
+    margin-bottom: 7rem;
+}
+
+// "Secured by Snipcart" label background fix
+.snipcart-featured-payment-methods__title {
+    background-color: $indigo;
 }
