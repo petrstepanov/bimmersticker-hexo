@@ -188,11 +188,6 @@
         // Item variations
         .snipcart-item-line__variants {
             padding-top: 0;
-            
-            label {
-                @extend .label;
-                margin-top: 1rem;
-            }
         }     
     }
 }
@@ -235,6 +230,17 @@
 .snipcart-item-quantity__quantity { 
     @extend %input-field; 
 }
+
+// Checkboxes - make labels not span full width
+.snipcart-checkbox+label {
+    display: inline;
+}
+
+.snipcart-form__label {
+    @extend .label;
+    margin-top: 1rem;
+}
+
 
 // PROMO CODE BOX
 
@@ -326,6 +332,8 @@
             .snipcart__box--badge {
                 background : $blue;
                 color: white;
+                margin: 0 0.5rem 0 0;
+                margin-bottom: 0;
             }        
             
             .snipcart__font--subtitle {
@@ -345,25 +353,22 @@
                 margin-bottom: 0;
             }
         }
-
-        // Remove "I don't see my address" checkbox
-        .addressNotFound+.snipcart-form__label--checkbox {
-
-            &::before{
-                display: none;                
-            }
-        }
     }
 }
 
-// Move "I don't see my address" to the right
-#snipcart-checkout-step-billing .snipcart-form__row {
-    justify-content: space-between;
+// Style "I don't see my address" checkbox (remove checkbox, float right and make blue)
+label[for=addressNotFound] {
+    float: right;
+    color: $link-color;
+
+    &::before {
+        display: none;
+    }
 }
 
-// Checkboxes - make labels not span full width
-.snipcart-checkbox+label {
-    display: inline;
+// Enlarger the "Zip code field"
+.snipcart-form__cell--tidy {
+    width: 35%;
 }
 
 // Minimum height fix for address textbox
@@ -399,8 +404,4 @@
 //         height: 2.75rem;
 //         font-family: $font-regular !important;
 //     }
-// }
-
-// .snipcart-form__label {
-//     @extend .label;
 // }
