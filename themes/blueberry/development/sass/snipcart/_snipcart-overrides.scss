@@ -98,7 +98,7 @@
     justify-content: space-between;
 
     .snipcart-cart-header__close-button, .snipcart-cart-header__options {
-        flex: 0;
+        flex: 0 1 auto;
     }
 
 }
@@ -114,7 +114,7 @@
 }
 
 // "Secured by Snipcart" label background fix
-.snipcart-payment-methods__title {
+.snipcart-featured-payment-methods__title {
     background-color: $indigo;
 }
 
@@ -247,11 +247,6 @@
 // .snipcart-item-line__variants label {
 //     @extend .label;
 //     margin-top: 1.5rem;
-// }
-
-// // Secured by snipcart
-// .snipcart-featured-payment-methods__title {
-//     background-color: $indigo;
 // }
 
 // // Checkout step badges
