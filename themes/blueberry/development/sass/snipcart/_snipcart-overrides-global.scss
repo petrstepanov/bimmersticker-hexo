@@ -1,5 +1,4 @@
 // FONTS AND COLORS
-
 .snipcart * {
     font-family: $font-regular;
     font-size: inherit;
@@ -8,7 +7,6 @@
     line-height: inherit;
 }
 
-// Snipcart font overrides
 .snipcart__font--std {
     font-size: inherit;
     font-family: $font-regular;
@@ -111,7 +109,6 @@
     .snipcart-cart-header__close-button, .snipcart-cart-header__options {
         flex: 0 1 auto;
     }
-
 }
 
 // Header was vertically shrinked if snipcart-layout's height is 100%
@@ -123,7 +120,6 @@
 .snipcart-cart__content {
     background-color: $indigo;
 }
-
 
 // FORM FIELDS
 
