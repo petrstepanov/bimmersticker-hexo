@@ -27,6 +27,10 @@
     font-size: $font-size-21;
 }
 
+.snipcart__font--xlarge {
+    font-size: $font-size-21;
+}
+
 // Snipcart icon colors
 .snipcart__icon--blue-light path, .snipcart__icon--blue-dark path {
     fill: $link-color;
@@ -177,7 +181,7 @@
             
             label {
                 @extend .label;
-                margin-top: 1.5em;
+                margin-top: 1.2em;
             }
         }     
     }
@@ -208,9 +212,13 @@
 }
 
 // Input field
-snipcart-input__input {
+.snipcart-input__input {
     font-family: $font-regular !important;
     @extend %input-field;
+
+    // &.snipcart__font--bold {
+    //     font-family: $font-regular;
+    // }
 }
 
 // Quantity field
@@ -253,17 +261,6 @@ snipcart-input__input {
 //     background-color: #fff;
 //     border-radius: 0.5rem;
 //     padding: 1.5rem 1rem;
-//     margin-bottom: 0;
-// }
-
-// // Back to shopping link {
-// .snipcart-modal__close-title {
-//     font-family: $font-bold !important;
-//     color: $link-color;
-// }
-
-// // Misc margins for fields
-// .snipcart-item-custom-fields__field {
 //     margin-bottom: 0;
 // }
 
