@@ -23,7 +23,7 @@ function _bindEvents(element) {
   });
   // Close navbar when clicking outside of tha navbar
   $('body').on('click', function (event) {
-    console.log("body click");
+    // console.log("body click");
     // if click was coming not from navbar - hide navbar
     if (!$.contains(DOM.$navbar[0], event.target)){
       _collapseNavbar();

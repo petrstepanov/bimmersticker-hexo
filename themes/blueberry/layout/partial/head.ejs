@@ -45,8 +45,13 @@
       }
     </script>
 
-    <% if(config.cart == "snipcart"){ %>    
-      <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.9/default/snipcart.css" />    
+    <% if(config.cart == "snipcart"){ %>   
+      <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.22/default/snipcart.css" /> 
     <% } %>
-    <%- css('css/app.css') %>
+    <% if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
+      <%- css('css/app.css?t=' + (new Date()).getTime().toString()) %>
+    <% } else { %>
+      <%- css('css/app.css') %>
+    <% } %>    
+    
   </head>
