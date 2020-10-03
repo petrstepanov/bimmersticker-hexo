@@ -10,6 +10,10 @@
         margin: 0 0 2rem 0;
     }
 
+    .snipcart-item-custom-fields__field {
+        margin-bottom: 0.5rem;
+    }
+
     // Remove excess padding and margin 
     .snipcart-item-line__container {
         padding: 0;
@@ -38,18 +42,19 @@
         // Item variations
         .snipcart-item-line__variants {
             padding-top: 0;
-            
-            label {
-                @extend .label;
-                margin-top: 1rem;
-            }
         }     
     }
 }
 
-// QUANTITY FIELD
-.snipcart-item-quantity__quantity { 
+// QUANTITY FIELD AND LABEL
+.snipcart-item-quantity__quantity {
+    height: auto;
     @extend %input-field; 
+}
+
+.snipcart .snipcart-item-quantity__label { // ? uff
+    @extend .my-label;
+    margin-top: 1rem;
 }
 
 // PROMO CODE BOX
@@ -82,6 +87,7 @@
         padding: 0;
 
         .snipcart-input__input {
+            @extend %input-field;
             margin-right: 1rem;
         }
     }
@@ -96,15 +102,10 @@
 }
 
 // CHECKOUT BUTTON
-.snipcart-cart-button {
-    @extend %snipcart-button;
-    align-items: center;
-}
-
-.snipcart-cart-button--highlight {
-    color: white;
-    background-image: none;
-    background-color: $blue;
+.snipcart-cart__checkout-button {
+    svg {
+        transform: scale(1.75) translateX(0.5rem);
+    }
 }
 
 // Make -> arrow sit next to the "Checkout" ->
