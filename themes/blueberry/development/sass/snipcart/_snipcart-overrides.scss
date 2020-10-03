@@ -207,6 +207,7 @@
     @include form-control-focus($ignore-warning: true);
     padding: 0 0.75em;
     height: 2.5em;
+    background-color: white;
 }
 
 // Fields
@@ -256,6 +257,10 @@
         box-shadow: none;
     }
 
+    .snipcart-discount-box__form-container button {
+        color: $link-color;
+    }
+
     .snipcart-discount-box__form {
         border: none;
         background-color: transparent;
@@ -279,11 +284,17 @@
 
 .snipcart-cart-button {
     @extend %snipcart-button;
+    align-items: center;
 }
 
 .snipcart-cart-button--highlight {
+    color: white;
     background-image: none;
     background-color: $blue;
+}
+
+.snipcart-cart-button__icon {
+    flex: 0;
 }
 
 // CHEKOUT SCREEN
