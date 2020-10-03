@@ -1,0 +1,151 @@
+// CART VIEW
+
+// Shopping item container
+.snipcart-item-line {
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: none;
+    border-radius: 0.5rem;
+
+    @include media-breakpoint-up(sm){
+        padding: 2rem;
+        margin: 0 0 2rem 0;
+    }
+
+    // Remove excess padding and margin 
+    .snipcart-item-line__container {
+        padding: 0;
+        margin: 0;
+
+        // Item title container
+        .snipcart-item-line__header {
+            margin-bottom: 0.5rem;
+
+            // Set display font for the item heading
+            .snipcart-item-line__title {
+                font-family: $font-display;
+            }    
+
+            // Remove weird border on Delere icon (trash bin)
+            .snipcart__button--icon {
+                border: 0;
+            }
+        }
+        
+        // Hide item description
+        .snipcart-item-line__info {
+            display: none;
+        }
+
+        // Item variations
+        .snipcart-item-line__variants {
+            padding-top: 0;
+            
+            label {
+                @extend .label;
+                margin-top: 1rem;
+            }
+        }     
+    }
+}
+
+
+// FORM FIELDS
+
+%input-field {
+    box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
+    border: 1px solid #dceaf9;
+    border-radius: 0.4rem;
+    @include form-control-focus($ignore-warning: true);
+    padding: 0 0.75rem;
+    height: 2.75rem;
+    background-color: white;
+}
+
+// Fields
+.snipcart-form__select, .snipcart-input__input {
+    @extend %input-field;
+
+    // Override bold font with regular for inputs
+    &.snipcart__font--bold {
+        font-family: $font-regular;
+    }
+}
+
+// Remove weird iOS inner shadow for inputs
+.snipcart-input__input {
+    background-clip: padding-box;
+}
+
+// Remove weird Snipcart input parent container styling
+.snipcart-input {
+    height: auto;
+    border: 0;
+}
+
+// Quantity field
+.snipcart-item-quantity__quantity { 
+    @extend %input-field; 
+}
+
+// PROMO CODE BOX
+
+%snipcart-button {
+    padding: 0 1rem;
+    border-radius: 2.75rem;;
+    height: 2.75rem;;
+}
+
+.snipcart-discount-box {
+    background-color: transparent;
+
+    .snipcart-discount-box__button {
+        @extend %snipcart-button;
+        background-color: $gray-300;
+    }
+
+    .snipcart-form { 
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .snipcart-discount-box__form-container button {
+        color: $link-color;
+    }
+
+    .snipcart-discount-box__form {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+
+        .snipcart-input__input {
+            margin-right: 1rem;
+        }
+    }
+
+    .snipcart-discount-box__cancel {
+        margin-left: 1rem;
+    }
+}
+
+.snipcart-input--no-style .snipcart-input__input {
+    padding: 0 0.75rem;
+}
+
+// Checkout button
+
+.snipcart-cart-button {
+    @extend %snipcart-button;
+    align-items: center;
+}
+
+.snipcart-cart-button--highlight {
+    color: white;
+    background-image: none;
+    background-color: $blue;
+}
+
+// Make -> arrow sit next to the "Checkout" ->
+.snipcart-cart-button__icon {
+    flex: 0;
+}
