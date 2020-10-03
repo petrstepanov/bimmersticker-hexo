@@ -53,8 +53,12 @@
     // Make header white color with shadow
     background-color: white;
     box-shadow: 0 4px 4px 0 rgba($blue, 0.1);
-    // TODO: add rounded cornens for larger resolutions
 
+    // Add rounded cornens for larger resolutions
+    @include media-breakpoint-up(sm){
+        border-bottom-left-radius: 0.5em;
+        border-bottom-right-radius: 0.5em;
+    }
     // Copy styling from .navbar-blueberry to match its height
     button {
         margin: 0.825rem 0;
@@ -136,7 +140,30 @@
     }
 }
 
-// Cart screen
+// CART SCREEN
+
+// Item container
+.snipcart-item-line {
+    padding: 1em;
+    margin: 1em;
+    box-shadow: none;
+    border-radius: 0.5rem;
+
+    @include media-breakpoint-up(sm){
+        padding: 2em;
+        margin: 0 0 2em 0;
+    }
+
+    .snipcart-item-line__container {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+// Description
+.snipcart-item-line__info {
+    display: none;
+}
 
 // Checkout screen
 // .snipcart-checkout-step {
@@ -146,10 +173,6 @@
 // .snipcart-form {
 //     background-color: transparent;
 //     box-shadow: none;
-// }
-
-// .snipcart-item-line {
-//     border-radius: 0.5rem;
 // }
 
 // .snipcart__box {
@@ -165,22 +188,7 @@
 //     color: $link-color;
 // }
 
-// // Item container
-// .snipcart-item-line {
-//     padding: 15px;
-//     margin: 15px;
-//     box-shadow: none;
 
-//     @include media-breakpoint-up(sm){
-//         padding: 32px;
-//         margin: 0 0 32px 0;
-//     }
-// }
-
-// // Description
-// .snipcart-item-line__info {
-//     display: none;
-// }
 
 // %input-field {
 //     box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
