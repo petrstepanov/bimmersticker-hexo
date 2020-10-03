@@ -188,6 +188,11 @@
         // Item variations
         .snipcart-item-line__variants {
             padding-top: 0;
+            
+            label {
+                @extend .label;
+                margin-top: 1rem;
+            }
         }     
     }
 }
@@ -230,18 +235,6 @@
 .snipcart-item-quantity__quantity { 
     @extend %input-field; 
 }
-
-// Labels
-.snipcart-form__label {
-    @extend .label;
-    margin-top: 1rem;
-}
-
-// Checkboxes
-.snipcart-checkbox+label {
-    display: inline;
-}
-
 
 // PROMO CODE BOX
 
@@ -287,16 +280,11 @@
     padding: 0 0.75rem;
 }
 
-
-// CHECKOUT BUTTON
+// Checkout button
 
 .snipcart-cart-button {
     @extend %snipcart-button;
-    align-items: center; // Vertical align text and icon
-
-    svg {
-        transform: scale(1.75) translateX(0.25rem);
-    }
+    align-items: center;
 }
 
 .snipcart-cart-button--highlight {
@@ -338,13 +326,14 @@
             .snipcart__box--badge {
                 background : $blue;
                 color: white;
-                margin: 0 0.5rem 0 0;
             }        
             
             .snipcart__font--subtitle {
                 font-family: $font-display;
                 font-size: $font-size-21;
             }
+
+
         }
 
         // Align "I don't see my adress"
@@ -368,13 +357,8 @@
 }
 
 // Move "I don't see my address" to the right
-label[for=addressNotFound] {
-    float: right;
-    color: $link-color;
-
-    &::before {
-        display: none;
-    }
+#snipcart-checkout-step-billing .snipcart-form__row {
+    justify-content: space-between;
 }
 
 // Checkboxes - make labels not span full width
