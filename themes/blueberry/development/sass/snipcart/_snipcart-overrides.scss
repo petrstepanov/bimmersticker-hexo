@@ -1,4 +1,5 @@
-//
+// GLOBAL AND LAYOUT OVERRIDES
+
 .snipcart * {
     font-family: $font-regular;
     font-size: inherit;
@@ -52,7 +53,7 @@
     padding-bottom: 0;
     // Make header white color with shadow
     background-color: white;
-    box-shadow: 0 4px 4px 0 rgba($blue, 0.1);
+    box-shadow: 0 0.25em 0.25em 0 rgba($blue, 0.1);
 
     // Add rounded cornens for larger resolutions
     @include media-breakpoint-up(sm){
@@ -90,11 +91,11 @@
     // Font for final item vlue in header too big, plus fixing icon padding
     .snipcart-modal__header-summary {
         .snipcart__font--large {
-            font-size: 1rem;
+            font-size: 1em;
         }
 
         span {
-            margin-left: 0.5rem;
+            margin-left: 0.5em;
         }
     }
 
@@ -124,48 +125,121 @@
 
 // Make "Checkout" button visible when scrolling to the bottom with the iPhone keyboard on
 .snipcart-featured-payment-methods {
-    margin-bottom: 7rem;
+    margin-bottom: 7em;
 }
 
 // Cart summary - confusing step. Remove editing cart summary from cart summary.
 .snipcart-cart-summary { 
-    box-shadow: 0 4px 4px 0 rgba($blue, 0.1);
+    box-shadow: 0 0.25em 0.25em 0 rgba($blue, 0.1);
 
     .snipcart-cart-summary__actions.snipcart__box--header, .snipcart-cart-summary__footer { 
         display: none;
     }
 
     .snipcart-cart-summary-fees__total {
-        padding-top: 1.5rem;
+        padding-top: 1.5em;
     }
 }
 
+
 // CART SCREEN
 
-// Item container
+// Shopping item container
 .snipcart-item-line {
     padding: 1em;
     margin: 1em;
     box-shadow: none;
-    border-radius: 0.5rem;
+    border-radius: 0.5em;
 
     @include media-breakpoint-up(sm){
         padding: 2em;
         margin: 0 0 2em 0;
     }
 
+    // Remove excess padding and margin 
     .snipcart-item-line__container {
         padding: 0;
         margin: 0;
+
+        // Style Item Title
+        .snipcart-item-line__title {
+            font-family: $font-display;
+        }
+        
+        // Hide item description
+        .snipcart-item-line__info {
+            display: none;
+        }
+
+        // Item variations
+        .snipcart-item-line__variants {
+            padding-top: 0;
+            
+            label {
+                @extend .label;
+                margin-top: 1.5em;
+            }
+        }     
     }
 }
 
-// Description
-.snipcart-item-line__info {
-    display: none;
+
+// FORM FIELDS
+
+%input-field {
+    box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
+    border: 1px solid #dceaf9;
+    border-radius: 0.4rem;
+
+    @include form-control-focus($ignore-warning: true);
 }
 
-// Checkout screen
+// Remove input shadow in iOS
+.snipcart-form-input {
+    background-clip: padding-box;
+}
+
+// Select field
+.snipcart-form__select, .snipcart-form-input {
+    padding: 0 1em;
+    height: 2.75em;
+    font-family: $font-regular !important;
+    @extend %input-field;
+}
+
+// Input field
+snipcart-input__input {
+    font-family: $font-regular !important;
+    @extend %input-field;
+}
+
+// Quantity field
+.snipcart-item-quantity__quantity { 
+    height: 2.75em;
+    @extend %input-field; 
+}
+
+// PROMO CODE BOX
+
+// // Discount container
+// .cart__footer-discount-box {
+//     display: none;
+// }
+
+// Checkout button
+.snipcart-cart-button {
+    padding: 0 1rem;
+    border-radius: 10rem;
+    height: 2.75rem;
+}
+
+.snipcart-cart-button--highlight {
+    background-image: none;
+    background-color: $blue;
+}
+
+// CHEKOUT SCREEN
+
 // .snipcart-checkout-step {
 //     padding-top: 1rem;
 // }
@@ -188,73 +262,13 @@
 //     color: $link-color;
 // }
 
-
-
-// %input-field {
-//     box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
-//     border: 1px solid #dceaf9;
-//     border-radius: 0.4rem;
-
-//     @include form-control-focus($ignore-warning: true);
-// }
-
-// // Select field
-// .snipcart-form__select, .snipcart-form-input {
-//     padding: 0 1rem;
-//     height: 2.75rem;
-//     font-family: $font-regular !important;
-//     @extend %input-field;
-// }
-
-// // Input field
-// snipcart-input__input {
-//     font-family: $font-regular !important;
-//     @extend %input-field;
-// }
-
-// // Quantity field
-// .snipcart-item-quantity__quantity { 
-//     height: 2.75rem;
-//     @extend %input-field; 
-// }
-
-// // Discount container
-// .cart__footer-discount-box {
-//     display: none;
-// }
-
-// // Checkout button
-// .snipcart-cart-button {
-//     padding: 0 1rem;
-//     border-radius: 10rem;
-//     height: 2.75rem;
-// }
-
-// .snipcart-cart-button--highlight {
-//     background-image: none;
-//     background-color: $blue;
-// }
-
 // // Misc margins for fields
 // .snipcart-item-custom-fields__field {
 //     margin-bottom: 0;
 // }
 
-// .snipcart-item-line__title {
-//     font-family: $font-display;
-// }
-
 // .snipcart-item-line__media--small {
 //     margin-right: 1rem;
-// }
-
-// .snipcart-item-line__variants {
-//     padding-top: 0;
-// }
-
-// .snipcart-item-line__variants label {
-//     @extend .label;
-//     margin-top: 1.5rem;
 // }
 
 // // Checkout step badges
