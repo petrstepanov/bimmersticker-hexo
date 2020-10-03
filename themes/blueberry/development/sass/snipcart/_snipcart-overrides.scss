@@ -165,13 +165,19 @@
         padding: 0;
         margin: 0;
 
-        // Style Item Title
+        // Item title container
         .snipcart-item-line__header {
             margin-bottom: 0.5em;
 
+            // Set display font for the item heading
             .snipcart-item-line__title {
                 font-family: $font-display;
             }    
+
+            // Remove weird border on Delere icon (trash bin)
+            .snipcart__button--icon {
+                border: 0;
+            }
         }
         
         // Hide item description
@@ -226,16 +232,22 @@
 
 // PROMO CODE BOX
 
-// // Discount container
-// .cart__footer-discount-box {
-//     display: none;
-// }
+%snipcart-button {
+    padding: 0 1em;
+    border-radius: 2.5em;
+    height: 2.5em;
+}
+
+.snipcart-discount-box {
+    .snipcart-discount-box__button {
+        @extend %snipcart-button;
+    }
+}
 
 // Checkout button
+
 .snipcart-cart-button {
-    padding: 0 1rem;
-    border-radius: 10rem;
-    height: 2.75rem;
+    @extend %snipcart-button;
 }
 
 .snipcart-cart-button--highlight {
