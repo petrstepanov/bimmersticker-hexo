@@ -83,11 +83,6 @@
         color: $link-color;
     }
 
-    // Number of items in the cart - fixing layout. Otherwise "Continue shopping" wraps
-    .snipcart-cart-header__options {
-        flex: 0;
-    }
-
     // Font for final item vlue in header too big, plus fixing icon padding
     .snipcart-modal__header-summary {
         .snipcart__font--large {
@@ -98,6 +93,14 @@
             margin-left: 0.5rem;
         }
     }
+
+    // Make header items centered and fit horizontally
+    justify-content: space-between;
+
+    .snipcart-cart-header__close-button, .snipcart-cart-header__options {
+        flex: 0;
+    }
+
 }
 
 // Header was vertically shrinked if snipcart-layout's height is 100%
