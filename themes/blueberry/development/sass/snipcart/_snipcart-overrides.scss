@@ -166,8 +166,12 @@
         margin: 0;
 
         // Style Item Title
-        .snipcart-item-line__title {
-            font-family: $font-display;
+        .snipcart-item-line__header {
+            margin-bottom: 0.5em;
+
+            .snipcart-item-line__title {
+                font-family: $font-display;
+            }    
         }
         
         // Hide item description
@@ -181,7 +185,7 @@
             
             label {
                 @extend .label;
-                margin-top: 1.2em;
+                margin-top: 1em;
             }
         }     
     }
@@ -193,37 +197,30 @@
 %input-field {
     box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
     border: 1px solid #dceaf9;
-    border-radius: 0.4rem;
-
+    border-radius: 0.4em;
     @include form-control-focus($ignore-warning: true);
+    padding: 0 0.75em;
+    height: 2.5em;
 }
 
-// Remove input shadow in iOS
-.snipcart-form-input {
+// Fields
+.snipcart-form__select, .snipcart-input__input {
+    @extend %input-field;
+
+    // Override bold font with regular for inputs
+    &.snipcart__font--bold {
+        font-family: $font-regular;
+    }
+}
+
+// Remove weird iOS inner shadow for inputs
+.snipcart-input__input {
     background-clip: padding-box;
 }
 
-// Select field
-.snipcart-form__select, .snipcart-form-input {
-    padding: 0 1em;
-    height: 2.75em;
-    font-family: $font-regular !important;
-    @extend %input-field;
-}
-
-// Input field
-.snipcart-input__input {
-    font-family: $font-regular !important;
-    @extend %input-field;
-
-    // &.snipcart__font--bold {
-    //     font-family: $font-regular;
-    // }
-}
 
 // Quantity field
 .snipcart-item-quantity__quantity { 
-    height: 2.75em;
     @extend %input-field; 
 }
 
