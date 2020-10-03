@@ -4,11 +4,12 @@ var CheckoutButtonFix = function(){
     var DOM = {};
 
     function _cacheDom(){
-        DOM.$suffix = $('<span class="suffix">or Credit card</span>');
+        // DOM.$suffix = $('<span class="suffix">or Credit card</span>');
+        DOM.$suffix = $('<span class="suffix">Checkout with Card or PayPal</span>');
     }
 
     function _needFix(){
-        DOM.$buttonCaption = $('#snipcart button[title="Checkout with PayPal"] .snipcart-payment-methods-list-item__label');
+        DOM.$buttonCaption = $('#snipcart button[title="Checkout with PayPal"]');
         if (!DOM.$buttonCaption.length){
             return false;
         }
@@ -18,7 +19,8 @@ var CheckoutButtonFix = function(){
 
     function _fixCaption(){
         if (_needFix()){
-            DOM.$buttonCaption.append(DOM.$suffix);
+            // DOM.$buttonCaption.append(DOM.$suffix);
+            DOM.$buttonCaption.html(DOM.$suffix);
         }
     }
 

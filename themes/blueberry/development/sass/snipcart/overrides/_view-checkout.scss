@@ -189,6 +189,37 @@
     margin-top: -12px;
     top: 50%;
 }
+
+// Checkout with PayPal
+.snipcart-payment-methods-list-item__button {
+    @extend %snipcart-button;
+    align-items: center;
+    color: white;
+    background-color: $blue;
+    border: 0;
+    text-align: center;
+    font-size: $font-size-21;
+
+    // svg {
+    //     display: inline-block;
+    //     margin-left: 0.5em;
+
+    //     path {
+    //         fill: white !important;
+    //     }
+    // }
+
+    // .snipcart-payment-methods-list-item__label {
+    //     display: inline;
+    //     margin-right: 0.5rem;
+
+    //     .snipcart-payment-methods-list-item__icon {
+    //         transform: translateY(-0.15rem);
+    //         margin-left: 0;
+    //     }
+    // }    
+}
+
 // .snipcart-item-line__media--small {
 //     margin-right: 1rem;
 // }

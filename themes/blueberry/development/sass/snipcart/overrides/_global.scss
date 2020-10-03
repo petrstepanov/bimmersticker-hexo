@@ -166,6 +166,11 @@
     }
 
     // Styling buttons
+    %snipcart-button {
+        border-radius: 2.75rem;
+        padding: 0.5rem 0.75rem;
+    }
+
     .snipcart-cart-button {
         @extend %snipcart-button;
         align-items: center;
