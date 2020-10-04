@@ -1,4 +1,6 @@
-# bimmersticker.store
+# Bimmer Sticker Store
 
-A beautiful website that sells neat stickers for BMW cars and other brands.
-It speaks for itself. Now go [check it out](http://bimmersticker.store)
+An online store for Sticker Store LLC that sells vinyl stickers for BMW cars and other brands.
+Custom social media stickers, bumper stickers, windshield banners and sun strips for cars and trucks.
+
+Store is available live at [https://bimmersticker.store](https://bimmersticker.store). Go check it out!
