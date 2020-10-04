@@ -49,7 +49,7 @@
       <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.22/default/snipcart.css" /> 
     <% } %>
     <% if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
-      <%- css('css/app.css?t=' + (new Date()).getTime().toString()) %>
+      <%- css('css/app.css') %>
     <% } else { %>
       <%- css('css/app.css') %>
     <% } %>    
