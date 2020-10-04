@@ -21,12 +21,13 @@ var CheckoutButtonFix = function(){
         if (_needFix()){
             // DOM.$buttonCaption.append(DOM.$suffix);
             DOM.$buttonCaption.html(DOM.$suffix);
+            DOM.$buttonCaption.css('visibility', 'visible');
         }
     }
 
     function _bindEvents(){
         // Monitor if button caption needs to be changed in a loop
-        setInterval(_fixCaption, 2000);
+        setInterval(_fixCaption, 500);
     }
 
     function init() {
