@@ -63,7 +63,7 @@
         align-items: center;
 
         .snipcart__box--badge {
-            background : $gray-300;
+            background : $indigo;
             font-family: $font-display;
             font-size: $font-size-21;
             color: white;
@@ -152,7 +152,7 @@
 }
 
 // Billing completed step icon
-.snipcart-billing-completed__step-icon {
+.snipcart-checkout-step__icon {
     @extend .snip-checkout-icon;
 }
 
@@ -188,6 +188,12 @@
 .snipcart-form-radio:checked+label:after {
     margin-top: -12px;
     top: 50%;
+}
+
+// 3. Payment
+
+.snipcart-payment__header {
+    margin-bottom: 0;
 }
 
 // Checkout with PayPal
