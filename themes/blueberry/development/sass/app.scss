@@ -39,7 +39,9 @@
 @import "disqus/disqus-overrides";
 
 @import "snipcart/snipcart";
-@import "snipcart/snipcart-overrides";
+@import "snipcart/overrides/global";
+@import "snipcart/overrides/view-cart";
+@import "snipcart/overrides/view-checkout";
 
 @import "print";
 

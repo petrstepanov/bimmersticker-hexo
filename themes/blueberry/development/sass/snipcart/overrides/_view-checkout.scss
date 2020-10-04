@@ -1,0 +1,255 @@
+// NAVBAR TWEAKS
+.snipcart-modal__header-summary-title {
+    span {
+        padding-left: 0.5rem;
+    }
+}
+
+// Dropbows cart details
+.snipcart-cart-summary__content {
+    padding: 1rem 3.3rem 2rem 3.3rem;
+}
+
+.snipcart .snipcart-cart-header .snipcart-modal__header-summary span {
+    margin-left: 0;
+}
+
+// Cart summary - confusing step. Remove editing cart summary from cart summary.
+.snipcart-cart-summary { 
+    box-shadow: 0 0.25rem 0.25rem 0 rgba($blue, 0.1);
+
+    .snipcart-cart-summary__actions.snipcart__box--header, .snipcart-cart-summary__footer { 
+        display: none;
+    }
+
+    .snipcart-cart-summary-fees__total {
+        padding-top: 1.5rem;
+    }
+}
+
+// Pading of each step box
+.snipcart-checkout-step {
+    padding-top: 1em;
+    padding-bottom: 0;
+
+    &:last-child {
+        padding-bottom: 1em;
+    }
+}
+
+// Styling the Checkout steps 1,2,3
+.snipcart-form {
+    // Remove background from form containers
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.snipcart__box {
+    // Instead add background to their child containers
+    background-color: #fff;
+    border-radius: 0.5rem;
+    padding: 1.2rem 1rem;
+    margin-bottom: 0;
+
+    // Space between form fields - only bottom 0.5 rem just like on cart screen
+    .snipcart-form__field {
+        padding: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    // Display title next to the badge
+    .snipcart__box--title {
+        display: flex;
+        align-items: center;
+
+        .snipcart__box--badge {
+            background : $indigo;
+            font-family: $font-display;
+            font-size: $font-size-21;
+            color: white;
+            margin: 0 0.75rem 0 0;
+            border: 0;
+
+            &.snipcart__box--badge-highlight {
+                background : $blue;
+            }
+        }        
+        
+        .snipcart__font--subtitle {
+            font-family: $font-display;
+            font-size: $font-size-21;
+        }
+    }
+
+    // Address dropdown
+    .snipcart-typeahead__suggestion {
+        span {
+            font-family: $font-regular;
+        }
+
+        &:last-child {
+            display: none;
+        }
+    }    
+
+    // Align "I don't see my adress"
+    .snipcart-form__row {
+        align-items: center;
+        
+        .snipcart-form__cell--input-aligned {
+            margin-top: 2.25rem;
+            margin-bottom: 0;
+        }
+    }
+
+    // Make "I don't see my address" checkbox look like a link
+    label[for="addressNotFound"] {
+        float: right;
+        color: $link-color;
+
+        &::before{
+            display: none;                
+        }
+    }
+}
+
+// Checkboxes - make labels not span full width
+.snipcart-checkbox+label {
+    display: inline;
+}
+
+// Minimum height fix for address textbox
+.snipcart-form__address__autocomplete > .snipcart-textbox {
+    min-height: 2.75rem;
+}
+
+// Weird "Typeahead field around address textbox"
+.snipcart-typeahead {
+    background: transparent;
+}
+
+// Actions link - "Edit" address after already input
+.snipcart__actions--link {
+    color: $link-color;
+}
+
+.snip-checkout-icon {
+    margin-right: 1.3rem;
+    margin-left: 0.7rem;
+    transform: scale(1.5);   
+}
+
+// Shipping to icon layout
+
+.snipcart__font--bold.snipcart__notice--with-icon {
+    font-family: $font-regular;
+}
+
+.snipcart__notice--with-icon {
+    svg {
+        @extend .snip-checkout-icon;
+    }
+}
+
+// Billing completed step icon
+.snipcart-checkout-step__icon {
+    @extend .snip-checkout-icon;
+}
+
+// Shipping selection
+.snipcart-shipping-rates-list {
+    margin-bottom: 1.4rem;
+}
+
+.snipcart-shipping-rates-list-item {
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    border: 0;
+
+    &.snipcart-shipping-rates-list-item--highlight {
+        border: none;
+        background-color: $indigo;
+    }
+}
+
+.snipcart__font--bold .snipcart-form-radio+label {
+    font-family: $font-regular;
+}
+
+.snipcart-form-radio+label:before {
+    margin-right: 1.3em;
+}
+
+.snipcart-form-radio:checked+label:before {
+    background: $blue;
+}
+
+// Fix checkbox 
+.snipcart-form-radio:checked+label:after {
+    margin-top: -12px;
+    top: 50%;
+}
+
+// 3. Payment
+
+.snipcart-payment__header {
+    margin-bottom: 0;
+}
+
+// Checkout with PayPal
+.snipcart-payment-methods-list-item__button {
+    @extend %snipcart-button;
+    align-items: center;
+    color: white;
+    background-color: $blue;
+    border: 0;
+    text-align: center;
+    font-size: $font-size-21;
+
+    // svg {
+    //     display: inline-block;
+    //     margin-left: 0.5em;
+
+    //     path {
+    //         fill: white !important;
+    //     }
+    // }
+
+    // .snipcart-payment-methods-list-item__label {
+    //     display: inline;
+    //     margin-right: 0.5rem;
+
+    //     .snipcart-payment-methods-list-item__icon {
+    //         transform: translateY(-0.15rem);
+    //         margin-left: 0;
+    //     }
+    // }    
+}
+
+// .snipcart-item-line__media--small {
+//     margin-right: 1rem;
+// }
+
+// // Checkout step badges
+
+
+// .snipcart-typeahead {
+//     background-color: transparent;
+// }
+
+// // Checkout input fields... weird
+// .snipcart-input {
+//     border: 0px !important;
+//     box-shadow: none !important;
+//     height: auto;
+
+//     input {
+//         @extend %input-field;
+//         height: 2.75rem;
+//         font-family: $font-regular !important;
+//     }
+// }
+
+// .snipcart-form__label {
+//     @extend .label;
+// }

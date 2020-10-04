@@ -160,3 +160,11 @@ $font-size-89: 5.5625em;
 .no-wrap {
   white-space: nowrap;
 }
+
+.display-4 {
+  font-size: 3rem;
+
+  @include media-breakpoint-up(sm) {
+    font-size: 3.5rem;
+  }
+}

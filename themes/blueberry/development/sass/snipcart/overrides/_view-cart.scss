@@ -1,0 +1,119 @@
+// SHOPPING ITEM CONTAINER
+.snipcart-item-line {
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: none;
+    border-radius: 0.5rem;
+
+    @include media-breakpoint-up(sm){
+        padding: 2rem;
+        margin: 0 0 2rem 0;
+    }
+
+    .snipcart-item-custom-fields__field {
+        margin-bottom: 0.5rem;
+    }
+
+    // Remove excess padding and margin 
+    .snipcart-item-line__container {
+        padding: 0;
+        margin: 0;
+
+        // Item title container
+        .snipcart-item-line__header {
+            margin-bottom: 0.5rem;
+
+            // Set display font for the item heading
+            .snipcart-item-line__title {
+                font-family: $font-display;
+            }    
+
+            // Remove weird border on Delere icon (trash bin)
+            .snipcart__button--icon {
+                border: 0;
+            }
+        }
+        
+        // Hide item description
+        .snipcart-item-line__info {
+            display: none;
+        }
+
+        // Item variations
+        .snipcart-item-line__variants {
+            padding-top: 0;
+        }     
+    }
+}
+
+// QUANTITY FIELD AND LABEL
+.snipcart-item-quantity__quantity {
+    height: auto;
+    @extend %input-field; 
+}
+
+.snipcart .snipcart-item-quantity__label { // ? uff
+    @extend .my-label;
+    margin-top: 1rem;
+}
+
+// PROMO CODE BOX
+
+.snipcart-discount-box {
+    background-color: transparent;
+
+    .snipcart-discount-box__button {
+        @extend %snipcart-button;
+        background-color: $gray-300;
+    }
+
+    .snipcart-form { 
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .snipcart-discount-box__form-container button {
+        color: $link-color;
+    }
+
+    .snipcart-discount-box__form {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+
+        .snipcart-input__input {
+            @extend %input-field;
+            margin-right: 1rem;
+        }
+    }
+
+    .snipcart-discount-box__cancel {
+        margin-left: 1rem;
+    }
+}
+
+.snipcart-input--no-style .snipcart-input__input {
+    padding: 0 0.75rem;
+}
+
+// CHECKOUT BUTTON
+.snipcart-cart__checkout-button {
+    svg {
+        transform: scale(1.75) translateX(0.5rem);
+    }
+}
+
+// Make -> arrow sit next to the "Checkout" ->
+.snipcart-cart-button__icon {
+    flex: 0;
+}
+
+// Make "Checkout" button visible when scrolling to the bottom with the iPhone keyboard on
+.snipcart-featured-payment-methods {
+    margin-bottom: 7rem;
+}
+
+// "Secured by Snipcart" label background fix
+.snipcart-featured-payment-methods__title {
+    background-color: $indigo;
+}
