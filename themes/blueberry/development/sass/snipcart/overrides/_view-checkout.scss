@@ -197,7 +197,14 @@
 }
 
 // Checkout with PayPal
+
+.snipcart-payment-methods-list-item {
+    margin-top: 1.5rem
+}
+
 .snipcart-payment-methods-list-item__button {
+    visibility: hidden;
+    height: auto;
     @extend %snipcart-button;
     align-items: center;
     color: white;
