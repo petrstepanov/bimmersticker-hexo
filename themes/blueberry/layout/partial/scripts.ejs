@@ -1,8 +1,7 @@
 <!-- Main App JS -->
 
 <% // For production environment add ?t= timestamp for javascript %>
-<% if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
-    <%- js('js/app.js') %>
-<% } else { %>
-    <%- js('js/app.js') %>
-<% } %>
+<% // if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
+<% // } else { %>
+<% // } %>
+<script src="/js/app.js?t=<%- (new Date()).getTime().toString() %>"></script>
