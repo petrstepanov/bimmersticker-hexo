@@ -64,9 +64,8 @@
         box-shadow: 0 0.25rem 0.25rem 0 rgba($blue, 0.1);
 
         // Add rounded cornens for larger resolutions
-        @include media-breakpoint-up(sm){
-            border-bottom-left-radius: 0.5rem;
-            border-bottom-right-radius: 0.5rem;
+        @include media-breakpoint-up(md){
+            width: 100%;
         }
 
         // Copy styling from .navbar-blueberry to match its height

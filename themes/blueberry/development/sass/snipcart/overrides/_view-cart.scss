@@ -5,9 +5,14 @@
     box-shadow: none;
     border-radius: 0.5rem;
 
-    @include media-breakpoint-up(sm){
-        padding: 2rem;
-        margin: 0 0 2rem 0;
+    @include media-breakpoint-up(md){
+        margin-top: 1.5rem;
+    }
+
+    // Snipcart breakpoint
+    @media (min-width: 768px) {
+        padding: 1.5rem;
+        margin: 1.5rem 0 0;
     }
 
     .snipcart-item-custom-fields__field {
@@ -58,7 +63,6 @@
 }
 
 // PROMO CODE BOX
-
 .snipcart-discount-box {
     background-color: transparent;
 
@@ -111,6 +115,10 @@
 // Make "Checkout" button visible when scrolling to the bottom with the iPhone keyboard on
 .snipcart-featured-payment-methods {
     margin-bottom: 7rem;
+
+    @include media-breakpoint-up(md){
+        margin-bottom: 0;
+    }
 }
 
 // "Secured by Snipcart" label background fix
