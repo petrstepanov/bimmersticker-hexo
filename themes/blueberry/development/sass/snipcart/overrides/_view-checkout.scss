@@ -5,11 +5,6 @@
     }
 }
 
-// Dropbows cart details
-.snipcart-cart-summary__content {
-    padding: 1rem 3.3rem 2rem 3.3rem;
-}
-
 .snipcart .snipcart-cart-header .snipcart-modal__header-summary span {
     margin-left: 0;
 }
@@ -17,9 +12,27 @@
 // Cart summary - confusing step. Remove editing cart summary from cart summary.
 .snipcart-cart-summary { 
     box-shadow: 0 0.25rem 0.25rem 0 rgba($blue, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+    @include media-breakpoint-up(md){
+        margin-top: 1.5rem;
+    }
 
     .snipcart-cart-summary__actions.snipcart__box--header, .snipcart-cart-summary__footer { 
         display: none;
+    }
+
+    @include media-breakpoint-up(md){
+        .snipcart-cart-summary__actions.snipcart__box--header {
+            margin-top: 1rem;
+            display: flex;        
+        }        
+    }
+
+    // Dropbows cart details
+    .snipcart-cart-summary__content {
+        padding: 1rem 3.3rem 2rem 3.3rem;
     }
 
     .snipcart-cart-summary-fees__total {
@@ -27,10 +40,21 @@
     }
 }
 
+// Slide out cart settings on larger displays
+.snipcart-cart__secondary-header {
+    background-color: $indigo;
+    min-height: 5.3rem;
+}
+
 // Pading of each step box
 .snipcart-checkout-step {
-    padding-top: 1em;
+    margin-top: 1em;
     padding-bottom: 0;
+
+    @include media-breakpoint-up(md){
+        padding: 0;
+        margin-top: 1.5rem;
+    }
 
     &:last-child {
         padding-bottom: 1em;
