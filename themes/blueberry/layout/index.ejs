@@ -59,11 +59,31 @@
 	<div class="container">
 		<div class="row mb-4">
 			<div class="col-12">
-				<figure class="card card-blueberry">      
-					<a class="img-wrapper" href="/custom-windshield-banner-sun-strip/">
-						<img loading="lazy" class="w-100" src="/custom-windshield-banner-sun-strip/custom-text-windshield-banners-order-online.jpg" title="Custom windshield banners and sun strips with your own text and colors" alt="Custom windshield banners and sun strips with your own text and colors">
-					</a>
-
+				<figure class="card card-blueberry">
+					<% carouselId = "carousel_windshield_banner"; %>
+					<% var url = "/custom-windshield-banner-sun-strip/"; %>
+					<div id="<%- carouselId %>" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<a class="img-wrapper" href="<%- url %>">
+									<img loading="lazy"  src="/custom-windshield-banner-sun-strip/custom-text-windshield-banners-order-online.jpg" class="d-block w-100" alt="Personalized windshield sun strips with custom text">
+								</a>
+							</div>
+							<div class="carousel-item">
+								<a class="img-wrapper" href="<%- url %>">
+									<img loading="lazy"  src="/custom-windshield-banner-sun-strip/any-wording-on-your-car-truck-windshield.jpg" class="d-block w-100" alt="Custom windshield banners for your car or truck">
+								</a>
+							</div>
+						</div>
+						<a class="carousel-control-prev" href="#<%- carouselId %>" role="button" data-slide="prev">
+						  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						  <span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#<%- carouselId %>" role="button" data-slide="next">
+						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						  <span class="sr-only">Next</span>
+						</a>
+					</div>      					
 					<!-- Card body -->
 					<div class="card-body text-center">
 						<div class="row justify-content-md-center">
