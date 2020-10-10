@@ -1,6 +1,6 @@
 ---
 title: RUN BAGS sticker
-date: 2018-09-25 22:50:51
+date: 2019-03-14 22:50:51
 tags:
 - car
 - sticker

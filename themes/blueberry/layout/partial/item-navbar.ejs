@@ -1,7 +1,23 @@
 <nav class="navbar navbar-blueberry js--init-navbar-fixer js--navbar-blueberry transparent" data-max-fixed-width="992">
   <div class="container">
-    <a class="back-link icon-sm js--init-back-button" href="/">
-      <%- partial('ionicons/md-arrow-back.svg') %> <span class="ml-1 js--label">Browse all stickers</span>
+    <% 
+      var href = "/";
+      var label = "Browse all stickers";
+
+      post.categories.forEach(function(item){
+        if (item.name.includes("Social")){ 
+          href = "/custom-social-media-stickers/";
+          label = "Other social stickers";
+        }
+        else if (item.name.includes("Series and Generations")){ 
+          href = "/stickers-for-bmw-generations/";
+          label = "All BMW generations";
+        }
+      });
+
+      %>
+    <a class="back-link icon-sm js--init-back-button" href="<%- href %>">
+      <%- partial('ionicons/md-arrow-back.svg') %> <span class="ml-1 js--label"><%- label %></span>
     </a>
     <div class="form-inline d-lg-none navbar-buy-button js--init-navbar-buy-button">        
       <button type="submit" form="cart-form" class="btn btn-sm btn-blueberry btn-primary js--product-submit" data-base-caption="" data-base-price="<%- parseFloat(product.price) %>">$<%- parseFloat(product.price) %></button>

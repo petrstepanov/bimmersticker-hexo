@@ -1,6 +1,6 @@
 ---
 title: Inline Six Power Sticker
-date: 2018-09-25 17:11:56
+date: 2019-11-07 17:11:56
 tags:
 - car
 - sticker

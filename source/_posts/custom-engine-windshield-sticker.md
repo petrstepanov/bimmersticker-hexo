@@ -1,6 +1,6 @@
 ---
 title: Custom BMW Powered windshield sticker
-date: 2018-09-24 14:31:05
+date: 2020-03-13 14:31:05
 tags:
 - bmw
 - custom

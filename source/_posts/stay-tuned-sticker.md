@@ -1,6 +1,6 @@
 ---
 title: Stay Tuned sticker
-date: 2016-01-25 17:11:56
+date: 2020-02-01 17:11:56
 tags:
 - car
 - sticker

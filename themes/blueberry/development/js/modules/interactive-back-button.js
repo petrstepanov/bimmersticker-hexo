@@ -1,5 +1,3 @@
-// Filtering cards on the main page
-
 var $ = require('jquery');
 var Cookies = require('js-cookie');
 
@@ -10,24 +8,29 @@ function _cacheDom(element) {
   DOM.$label = DOM.$link.find(".js--label");
 }
 
-function _render(){
+function _renderBackFromCookies(){
   DOM.$link.attr("href", Cookies.get('previousUrl'));
   DOM.$label.html("Go back");
-
-  // Make back link visible
-  DOM.$label.css("visibility", "visible");
 }
 
 function init(element) {
+  var previousHref = Cookies.get('previousUrl');
+  var currentHref = window.location.href;
+
+
   if (element) {  
-    // If saved previous URL change "<- Browse all stickers" to "<- Go Back"
-    if (Cookies.get('previousUrl')){
-      _cacheDom(element);
-      _render();    
+    _cacheDom(element);
+
+    // Two scenarios of changing the Back buton behaviour
+    if (Cookies.get('previousUrl') && Cookies.get('previousUrl') != window.location.href){
+      // If previous url saved in cookies is different from current - navigate there
+      _renderBackFromCookies();    
     }
+
+    // Make back link visible
+    DOM.$label.css("visibility", "visible"); 
   }
 
-  // Store previous url for 10 minutes
   var date = new Date();
   date.setTime(date.getTime() + (10 * 60 * 1000));
   Cookies.set('previousUrl', window.location.href, { expires: date });  // expires after 10 minutes  
