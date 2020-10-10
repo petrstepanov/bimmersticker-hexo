@@ -19,8 +19,12 @@ var IntegerInput = require('./modules/integer-input');
 var CheckoutButtonFix = require('./modules/checkout-button-fix');
 var Carousel = require('./modules/carousel');
 var VideoFullWidth = require('./modules/video');
+var InteractiveBackButton = require('./modules/interactive-back-button');
 
 $(document).ready(function(){
+  // Interactive Back Button
+  InteractiveBackButton.init(document.querySelector('.js--init-back-button'));
+    
   navbarFixer.init(document.querySelector('.js--init-navbar-fixer'));
   smoothScroll.init();
   // windshieldForm.init(document.querySelector('.js--init-windshield-container'));
@@ -62,5 +66,5 @@ $(document).ready(function(){
   $('video').each(function(){
     var videoFullWith = new VideoFullWidth();
     videoFullWith.init(this);
-  });  
+  });
 });

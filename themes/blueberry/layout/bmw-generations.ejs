@@ -1,0 +1,48 @@
+<%- partial('partial/navbar') %>
+
+<div class="container spacer-footer">
+	<div class="row">
+		<div class="col js-container">
+			<div class="row justify-content-center">
+				<div class="col col-md-11 col-lg-10">
+					<h1 class="display-4 font-handwritten text-center mt-5 mb-4">Vinyl Stickers for different BMW Generations</h1>
+					<p class="text-muted text-center">
+						We have deigned dedicated stickers for almost every BMW generation. We offer vinyl decals for a variety of BMW models: from early iconic Sharks such as e12, e28 etc.. to modern BMW G series.  
+                    </p>
+                    <p class="text-muted text-center">
+                        Stickers can be placed on the windshield, window or a body or four car. Please heat the sticker with a heat gun in order to remove it from the vehicle body without damadging the paint.
+                    </p>
+				</div>
+			</div>
+
+			<section class="pt-5 pb-4 js--init-posts-filter">
+				<!-- Generations -->
+				<div class="container">
+					<div class="row mb-4">
+						<div class="col-sm-12 js--posts-filter-buttons">
+							<button type="button" class="btn btn-blueberry btn-sm btn-primary active strong mr-sm-1" data-query="all">All</button>
+							<% var filterQueries = []; %>
+							<% site.categories.findOne({name: 'Series and Generations'}).posts.each(function(post, i){ %>
+								<% if (post.data_groups && filterQueries.indexOf(post.data_groups) == -1){ %>
+									<% filterQueries.push(post.data_groups); %>
+								<% } %>
+							<% }); %>
+							<% filterQueries.sort(); %>
+							<% filterQueries.forEach(function(query, index){ %>
+								<button type="button" class="btn btn-blueberry btn-sm btn-link strong px-1 px-sm-2 mr-sm-1" data-query="<%- query %>"><%- query %></button>
+							<% }); %>
+						</div>
+					</div>
+				</div>
+				<%- partial('partial/category-posts-list', {categoryName: 'Series and Generations', sortBy: 'title'}) %>
+			</section>
+			
+
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-10 col-lg-8 text-center mt-4">
+					<a href="/#featured" title="Explore other vinyl stickers we have" class="btn btn-outline-primary btn-blueberry btn-lg">Click to see other stickers we offer</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

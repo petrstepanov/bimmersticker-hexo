@@ -72,28 +72,29 @@
 	<%- partial('partial/heading', {title: 'Stickers for BMW series', subtitle: 'Cannot find a your BMW series in the list? Go request one in the <a href="#contact">Contact Form</a> below. We will be back ASAP.', name: 'series'}) %>
 	<%- partial('partial/category-posts-list', {categoryName: 'Series', sortBy: 'title'}) %>
 </section>
-<section class="pb-4 js--init-posts-filter">
-	<!-- Generations -->
-	<%- partial('partial/heading', {title: 'Stickers for BMW generations', subtitle: 'Missing your BMW generation sticker? Please request one in the <a href="#contact">Contact Form</a> below. We will put it on the website soon.', name: 'series-generations'}) %>
+<section>
+	<%- partial('partial/heading', {title: 'Stickers for BMW generations', subtitle: 'We have designed a dedicated sticker for almost every BMW generation.', name: 'series-generations'}) %>	
 
 	<div class="container">
-		<div class="row mb-4">
-			<div class="col-sm-12 js--posts-filter-buttons">
-				<button type="button" class="btn btn-blueberry btn-sm btn-primary active strong mr-sm-1" data-query="all">All</button>
-				<% var filterQueries = []; %>
-				<% site.categories.findOne({name: 'Series and Generations'}).posts.each(function(post, i){ %>
-					<% if (post.data_groups && filterQueries.indexOf(post.data_groups) == -1){ %>
-						<% filterQueries.push(post.data_groups); %>
-					<% } %>
-				<% }); %>
-				<% filterQueries.sort(); %>
-				<% filterQueries.forEach(function(query, index){ %>
-					<button type="button" class="btn btn-blueberry btn-sm btn-link strong px-1 px-sm-2 mr-sm-1" data-query="<%- query %>"><%- query %></button>
-				<% }); %>
+		<div class="row mb-4 justify-content-md-center">
+			<div class="col-12 col-md-8">
+				<figure class="card card-blueberry">      
+					<a class="img-wrapper" href="/stickers-for-bmw-generations">
+						<img loading="lazy" class="w-100" src="/stickers-for-bmw-generations/generations-banner.jpg" title="Vinyl stickers for BMW generations" alt="Vinyl stickers for BMW generations">
+					</a>
+
+					<!-- Card body -->
+					<div class="card-body text-center">
+						<h3 class="card-title font-size-21">
+							Stickers for BMW Generations
+						</h3>
+						<p class="mb-2 pb-1">We offer vinyl decals for all generations of BMW cars: from early iconic Shark models (e12, e28 etc..) to the modern BMW G series. Feel free to check them out!</p>
+						<a href="/stickers-for-bmw-generations" class="btn btn-blueberry btn-primary">View stickers for BMW Generations<span class="d-none d-sm-inline"> →</span></a>
+					</div>
+				</figure>
 			</div>
 		</div>
 	</div>
-	<%- partial('partial/category-posts-list', {categoryName: 'Series and Generations', sortBy: 'title'}) %>
 </section>
 
 <section class="pt-4 section-whitesmoke spacer-footer">
