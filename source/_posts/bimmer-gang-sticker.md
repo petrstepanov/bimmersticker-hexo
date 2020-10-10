@@ -1,6 +1,6 @@
 ---
 title: Bimmer Gang Sticker
-date: 2016-08-26 04:19:56
+date: 2020-05-22 04:19:56
 tags:
 - bmw
 - bimmer

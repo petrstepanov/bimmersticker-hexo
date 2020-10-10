@@ -1,6 +1,6 @@
 ---
 title: Bimmerfest 2019 sticker
-date: 2018-09-25 22:50:51
+date: 2019-11-17 22:50:51
 tags:
 - bmw
 - bimmer

@@ -1,6 +1,6 @@
 ---
 title: Lowered Lifestyle sticker
-date: 2016-01-25 17:11:56
+date: 2020-04-12 17:11:56
 tags:
 - car
 - sticker

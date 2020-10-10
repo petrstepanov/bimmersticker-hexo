@@ -73,6 +73,19 @@
   color: "white|matte black|oil slick[+1]"
   customization_name: "Type your engine model"
   customization_placeholder: M54
+- id:	ST_BMW_POW
+  title: "Two BMW Powered window stickers"
+  description: "A set of custom BMW window stickers with 'Powered' wording and stripes. Please specify your engine model. Sticker is contour cut out of premium outdoor vinyls."
+  product_type: Stickers > BMW
+  link: https://bimmersticker.store/two-bmw-powered-window-stickers/
+  image_link: https://bimmersticker.store/two-bmw-powered-window-stickers/two-bmw-powered-stickers-for-custom-engine.jpg
+  price: "9.99 USD"
+  size: "8x1 in"
+  shipping_weight: "0.2 lbs"
+  material: "Oracal and TeckWrap vinyls"
+  color: "white|matte black|rainbow[+2]"
+  customization_name: "Type your engine model"
+  customization_placeholder: M52  
 - id:	ST_BMW_TOURING
   title: "BMW Touring sticker"
   description: "A sticker designed for BMW wagon cars. Tourings are cool, they deserve a sticker. Sticker is contour cut out of two layers of premium outdoor vinyls."
@@ -226,6 +239,17 @@
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
   color: "white/red"
+- id: ST_CAR_JDM
+  title: "Vintage JDM Sticker Pack"
+  description: "A set of vintage JDM (Japan Domestic Market) stickers from 70s and 80s. JDM sticker pack for cars and motorcycles. Inspired by oldschool Bosozoku street culture."
+  product_type: Stickers > Cars
+  link: https://bimmersticker.store/bosozoku-jdm-sticker-pack/
+  image_link: https://bimmersticker.store/bosozoku-jdm-sticker-pack/bosozoku-jdm-vintage-sticker-pack.jpg
+  price: "22.99 USD"
+  size: "3x3 in"
+  shipping_weight: "0.025 lbs"
+  material: "Laserjet vinyl"
+  color: "multicolored"  
 - id:	ST_CAR_STAYTUNED
   title: "Stay Tuned sticker"
   description: "Stay Tuned sticker for modified cars and trucks. Sticker has a neat lettering themed with different car parts icons."
@@ -359,7 +383,7 @@
   size: "7.5x2 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl" 
-  color: "white|black"
+  color: "white/blue|black/blue"
   customization_name: "Profile, page or group name"
   customization_placeholder: "My Facebook Page"
 - id:	ST_SOCIAL_SC
@@ -372,9 +396,22 @@
   size: "7.5x2 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl" 
-  color: "white|black"
+  color: "white/yellow|black/yellow"
   customization_name: "Your Snapchat name"
-  customization_placeholder: ""
+  customization_placeholder: "My Snapchat"
+- id:	ST_SOCIAL_SO
+  title: "Two custom SoundCloud profile stickers"
+  description: "A set of two custom stickers with your SoundCloud profile name. Stickers are contour cut out of premium outdoor vinyls. Transparent background. Available in white and black colors. Installation instructions are provided."
+  product_type: Stickers > Social
+  link: https://bimmersticker.store/custom-soundcloud-profile-stickers/
+  image_link: https://bimmersticker.store/custom-soundcloud-profile-stickers/custom-personal-soundcloud-profile-sticker.jpg
+  price: "10.99 USD"
+  size: "7.5x2 in"
+  shipping_weight: "0.025 lbs"
+  material: "Oracal 651 vinyl" 
+  color: "white/orange|black/orange"
+  customization_name: "Your SoundCloud Profile"
+  customization_placeholder: "My Profile"  
 - id:	ST_WSHIELD_HARDTUNED
   title: "HARD Tuned windshield banner"
   description: "HARD Tuned windshield banner for cars and trucks. Has a nice lettering. Will fit any stanced, drift, lowered or modified vehicle. Available in white and red and gold and red colors."

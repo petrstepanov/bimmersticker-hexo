@@ -48,9 +48,10 @@
     <% if(config.cart == "snipcart"){ %>   
       <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.22/default/snipcart.css" /> 
     <% } %>
-    <% // if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
-    <% // } else { %>
-    <% // } %>    
-    <link rel="stylesheet" href="/css/app.css?t=<%- (new Date()).getTime().toString() %>">
+    <% if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
+      <link rel="stylesheet" href="/css/app.css?t=<%- (new Date()).getTime().toString() %>">
+      <% } else { %>
+      <link rel="stylesheet" href="/css/app.css">
+    <% } %>
     
   </head>

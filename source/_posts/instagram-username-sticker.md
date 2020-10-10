@@ -1,6 +1,6 @@
 ---
 title: Custom Instagram name stickers
-date: 2018-09-23 17:12:56
+date: 2018-10-05 17:12:56
 tags:
 - custom
 - instagram

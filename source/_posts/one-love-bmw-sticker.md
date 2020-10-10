@@ -1,6 +1,6 @@
 ---
 title: One Love BMW sticker
-date: 2016-09-26 04:19:56
+date: 2020-02-07 04:19:56
 tags:
 - bmw
 - love

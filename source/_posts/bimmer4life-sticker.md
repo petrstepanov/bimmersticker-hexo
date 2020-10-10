@@ -1,6 +1,6 @@
 ---
 title: '#bimmer4life windshield sticker'
-date: 2018-09-14 15:38:35
+date: 2018-09-21 15:38:35
 tags:
 - bmw
 - bimmer

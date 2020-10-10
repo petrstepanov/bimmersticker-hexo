@@ -11,7 +11,7 @@ categories:
 - Series and Generations
 ebay_url: https://www.ebay.com/itm/193244652380
 col_class: col-6 col-lg-4 col-xl-3
-data_groups: 5er
+data_groups: X
 product_id: ST_BMW_E53
 ---
 

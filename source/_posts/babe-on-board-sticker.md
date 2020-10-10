@@ -1,6 +1,6 @@
 ---
 title: Babe on Board sticker
-date: 2017-11-25 17:11:56
+date: 2020-02-02 17:11:56
 tags:
 - car
 - sticker
