@@ -14,7 +14,7 @@ colors: [white, mint, pink]
 categories:
 - Banners
 ebay_url: https://www.ebay.com/itm/192489357995
-col_class: col-md-6 col-lg-6 col-xl-4
+col_class: col-6 col-lg-6 col-xl-4
 ---
 
 Because lowered BMW's are the coolest.

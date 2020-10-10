@@ -11,7 +11,7 @@ categories:
 - Banners
 ebay_url: https://www.ebay.com/itm/192856662344
 etsy_url: https://www.etsy.com/listing/676550790/knight-rider-windshield-banner
-col_class: col-md-6 col-lg-6 col-xl-4
+col_class: col-6 col-lg-6 col-xl-4
 product_id: ST_WSHIELD_KNRD
 ---
 
