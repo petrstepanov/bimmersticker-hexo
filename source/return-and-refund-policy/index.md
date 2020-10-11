@@ -13,7 +13,7 @@ The following terms are applicable for any products that You purchased with Us.
 
 ## Interpretation and Definitions
 
-###Interpretation
+### Interpretation
 
 The words of which the initial letter is capitalized have meanings defined under the following conditions.
 
