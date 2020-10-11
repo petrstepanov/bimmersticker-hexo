@@ -4,4 +4,6 @@ Allow: /
 
 Disallow: /archives/
 Disallow: /categories/
+Disallow: /form-error-banners/
 Disallow: /tags/
+Disallow: /toml/
