@@ -39,7 +39,7 @@ function init(element) {
 
   var date = new Date();
   date.setTime(date.getTime() + (5 * 60 * 1000)); // 5 minute expiration 
-  Cookies.set('pageLoaded', window.location.href, { expires: date });
+  Cookies.set('pageLoaded', window.location.href, { expires: date, sameSite: 'strict' });
 }
 
 exports.init = init;
