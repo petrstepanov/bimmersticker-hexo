@@ -17,9 +17,6 @@ function _renderBackLink(){
 
   // Set label
   DOM.$label.html("Go back");
-
-  // Make label visible
-  DOM.$label.css("visibility", "visible"); 
 }
 
 function init(element) {
@@ -35,6 +32,9 @@ function init(element) {
       // If previous url saved in cookies is different from current - navigate there
       _renderBackLink();    
     }
+
+    // Make label visible
+    DOM.$label.css("visibility", "visible");     
   }
 
   var date = new Date();
