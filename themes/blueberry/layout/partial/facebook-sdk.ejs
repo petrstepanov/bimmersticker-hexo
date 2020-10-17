@@ -10,12 +10,10 @@
         };
 
         (function(d, s, id) {
-            // Petr Stepanov: since FB script is not the first one, we get it by class-name 'fb-first-script'
-            // var js, fjs = d.getElementsByTagName(s)[0];
+            // Petr Stepanov: instead of getting first script we get script with class 'fb-first-script'
             var js, fjs = d.getElementsByClassName('fb-first-script')[0];
             if (d.getElementById(id)) return;
-            var js = d.createElement(s); 
-            js.id = id;
+            js = d.createElement(s); js.id = id;
             js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
