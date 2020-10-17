@@ -8,9 +8,18 @@ function _cacheDom(element) {
   DOM.$label = DOM.$link.find(".js--label");
 }
 
-function _renderBackFromCookies(){
-  DOM.$link.attr("href", Cookies.get('previousUrl'));
+function _renderBackLink(){
+  // Attach click handler
+  DOM.$link.click(function(event) {
+    event.preventDefault();
+    window.history.back();
+  });
+
+  // Set label
   DOM.$label.html("Go back");
+
+  // Make label visible
+  DOM.$label.css("visibility", "visible"); 
 }
 
 function init(element) {
@@ -21,19 +30,16 @@ function init(element) {
   if (element) {  
     _cacheDom(element);
 
-    // Two scenarios of changing the Back buton behaviour
-    if (Cookies.get('previousUrl') && Cookies.get('previousUrl') != window.location.href){
+    // If page was loaded before then back button acts like back button
+    if (Cookies.get('pageLoaded')){
       // If previous url saved in cookies is different from current - navigate there
-      _renderBackFromCookies();    
+      _renderBackLink();    
     }
-
-    // Make back link visible
-    DOM.$label.css("visibility", "visible"); 
   }
 
   var date = new Date();
-  date.setTime(date.getTime() + (10 * 60 * 1000));
-  Cookies.set('previousUrl', window.location.href, { expires: date });  // expires after 10 minutes  
+  date.setTime(date.getTime() + (5 * 60 * 1000)); // 5 minute expiration 
+  Cookies.set('pageLoaded', window.location.href, { expires: date });
 }
 
 exports.init = init;
