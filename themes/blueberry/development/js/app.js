@@ -1,6 +1,7 @@
 var $ = require('jquery');
 var bootstrap = require('bootstrap');
 var autosize = require('autosize');
+var AOS = require('aos');
 
 var navbarFixer = require('./modules/navbar-fixer');
 var smoothScroll = require('./modules/smooth-scroll');
@@ -67,4 +68,13 @@ $(document).ready(function(){
     var videoFullWith = new VideoFullWidth();
     videoFullWith.init(this);
   });
+ 
+  // Viewport animations
+  AOS.init({
+    initClassName: 'aos-init',
+    animatedClassName: 'animate__animated', // class applied on animation
+    useClassNames: true
+  });
+
+  
 });

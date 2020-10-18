@@ -50,6 +50,10 @@ $nb-logo-size-biggest:  3.25rem;
     padding-right: 0;
 
 
+    [class^="icon-"] {
+      --animate-duration: 350ms;
+    }
+
     svg {
       fill: $body-color;
       transition: 250ms fill ease-out;

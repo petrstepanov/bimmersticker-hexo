@@ -15,8 +15,8 @@ function notify(type, text, timeout) {
     theme: 'custom',
     timeout: milliseconds,
     animation: {
-      open: 'animated fadeInUp', // Animate.css class names
-      close: 'animated fadeOutUp' // Animate.css class names
+      open: 'animate__animated animate__fadeInUp', // Animate.css class names
+      close: 'animate__animated animate__fadeOutUp' // Animate.css class names
     }
   }).show();
 }
