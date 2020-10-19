@@ -11,8 +11,9 @@ let orders = JSON.parse(rawdata);
 // Fill orders starting from certain number
 // In order to keep previous records
 let firstOrderIndex = 2558;
+let lastOrderIndex = 5000;
 
-for (var i = firstOrderIndex; i < 5000; i++){
+for (var i = firstOrderIndex; i < lastOrderIndex; i++){
     orders[i] = Math.random() < 0.7 ? 'Sarah' : 'Anton';
 }
 
