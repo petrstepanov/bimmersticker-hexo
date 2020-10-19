@@ -14,7 +14,7 @@ let firstOrderIndex = 2558;
 let lastOrderIndex = 5000;
 
 for (var i = firstOrderIndex; i < lastOrderIndex; i++){
-    orders[i] = Math.random() < 0.7 ? 'Sarah' : 'Anton';
+    orders[i] = Math.random() < 0.75 ? 'Sarah' : 'Anton';
 }
 
 let data = JSON.stringify(orders);
