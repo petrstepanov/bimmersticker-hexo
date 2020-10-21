@@ -25,6 +25,10 @@ red:
   hex: "#DA3731"
   image: /images/swatches/glare.svg
   name: "Glossy red"
+blue:
+  hex: "#3991c4"
+  image: /images/swatches/glare.svg
+  name: "Glossy blue"  
 silver:
   image: /images/swatches/silver.svg
   name: "Silver"
