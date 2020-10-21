@@ -20,19 +20,33 @@
 			<div class="row justify-content-center">
 				<div class="col col-md-11 col-lg-10">
 					<h1 class="display-4 font-handwritten text-center mt-5 mb-4">Custom Sun Strips and Windshield Banners</h1>
-					<p class="text-muted text-center">
-						Use our interactive tool to create a custom windshield banner or sun strip for your car or truck. Products are made from <strong>opaque adhesive vinyls</strong> and <strong>placed on the outside of the windshield</strong>.
-					</p>
-					<p class="text-muted text-center">
-						Windshield banners and sun strips will <strong>fit any vehicle make and model</strong>. Please refer to our Instagram to see <a href="<%- theme.instagram_url %>"> some examples of banners</a> we make.
+					<p class="text-muted text-center mb-4">
+						Use our interactive tool to create a custom windshield banner or sun strip for your car or truck. Please refer to our Instagram to see <a href="<%- theme.instagram_url %>"> some examples of banners</a> we make.
 					</p>
 				</div>
 			</div>
-			<form autocomplete="off" class="js--windshield-form-snipcart" name="contact" method="POST" data-netlify="true">
+			<div class="row">
+				<div class="col-12 col-sm-6 col-xl-5 col-xl-5 text-center">
+					<div class="icon-xxl mt-sm-1 mb-lg-2"><%- partial('icons/icon-car.svg') %></div>
+					<p class="mb-3">
+						Windshield banners and sun strips will <strong>fit any vehicle make, model and body style</strong>.
+					</p>
+				</div>
+				<div class="col-12 col-sm-6 col-xl-5 offset-xl-1 text-center">
+					<div class="icon-xxl mt-sm-1 mb-lg-2"><%- partial('icons/icon-windshield.svg') %></div>
+					<p class="mb-3 mb-lg-0">
+						Products are made from <strong>opaque adhesive vinyls</strong> and <strong>placed on the outside of the windshield</strong>.
+					</p>
+				</div>
+			</div>
+			<form autocomplete="off" class="js--windshield-form-snipcart" name="windshield" method="POST" data-netlify="true" action="/form-error-banners/index.html">
 				<!-- autocomplete="off" because of Firefox radio buttons bug -->
 				<!-- https://stackoverflow.com/questions/7988729/firefox-remembering-radio-buttons-incorrectly -->
 
 				<h2 class="text-center mt-4 mb-3">What type of product are you looking for?</h2>
+				<p class="text-muted text-center mb-4">
+					Please tap on the specific product below that you are interested in.
+				</p>				
 				<div class="row justify-content-center">
 					<% var i = 0; %>
 					<% for (var product in products) { %>
@@ -200,7 +214,7 @@
 									<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
 								</div>
 							</div>
-							<div class="alert alert-success mt-3 text-center" role="alert">
+							<div class="alert alert-success mt-3 text-center animate__delay-1s" role="alert" data-aos="animate__tada">
 								<small>We offer <strong>10% off</strong> for 2+,  <strong>15% off</strong> for 4+ and <strong>20% off</strong> for 10+ same items in your cart!</small>
 							</div>							
 						</div>
