@@ -1,8 +1,60 @@
-<!-- Main App JS -->
+<!-- Lazy Loading Scripts -->
+<!-- https://gist.github.com/LionsAd/d6d490161e5d07bfa6d14cd711bc528e -->
 
-<% // For production environment add ?t= timestamp for javascript %>
-<% if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
-    <script type="text/javascript" src="/js/app.js?t=<%- (new Date()).getTime().toString() %>"></script>
-<% } else { %>
-    <script type="text/javascript" src="/js/app.js"></script>
-<% } %>
+<template id="lazy-scripts">
+    <!-- Main App JS -->
+    <% // For production environment add ?t= timestamp for javascript %>
+    <% if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
+        <script type="text/javascript" src="/js/app.js?t=<%- (new Date()).getTime().toString() %>"></script>
+    <% } else { %>
+        <script type="text/javascript" src="/js/app.js"></script>
+    <% } %>
+
+    <!-- Snipcart JS -->
+    <% if(config.cart == "snipcart"){ %>    
+        <% if (process && process.env && process.env.SNIPCART_API_KEY){ %>
+            <script async src="https://cdn.snipcart.com/themes/v3.0.22/default/snipcart.js" />
+        <% } %>
+    <% } %>
+
+    <!-- Facebook SDK -->
+    <% if(config.facebook_chat){ %>
+        <script class="fb-first-script">
+            window.fbAsyncInit = function() {
+                FB.init({
+                xfbml            : true,
+                version          : 'v8.0'
+                });
+            };
+
+            (function(d, s, id) {
+                // Petr Stepanov: instead of getting first script we get script with class 'fb-first-script'
+                var js, fjs = d.getElementsByClassName('fb-first-script')[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); 
+                js.id = id;
+                js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+    <% } %>
+</template>
+
+<script type="text/javascript">
+    function loadLazyScripts() {
+        var lazyScripts = document.getElementById('lazy-scripts');
+
+        var scripts = lazyScripts.content.querySelectorAll('script');
+        for (var index = 0; index < scripts.length; index++) {
+            var script = scripts[index];
+            if (script.getAttribute('async') === null) {
+                script.async = false;
+            }
+        }
+
+        lazyScripts.parentNode.append(lazyScripts.content);
+    }
+
+    // Let's wait till the page is loaded for true progressive enhancement.
+    window.addEventListener("load", loadLazyScripts);
+</script>
