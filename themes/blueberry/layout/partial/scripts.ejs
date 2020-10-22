@@ -5,21 +5,14 @@
     <!-- Main App JS -->
     <% // For production environment add ?t= timestamp for javascript %>
     <% if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
-        <script type="text/javascript" src="/js/app.js?t=<%- (new Date()).getTime().toString() %>"></script>
+        <script src="/js/app.js?t=<%- (new Date()).getTime().toString() %>"></script>
     <% } else { %>
-        <script type="text/javascript" src="/js/app.js"></script>
-    <% } %>
-
-    <!-- Snipcart JS -->
-    <% if(config.cart == "snipcart"){ %>    
-        <% if (process && process.env && process.env.SNIPCART_API_KEY){ %>
-            <script async src="https://cdn.snipcart.com/themes/v3.0.22/default/snipcart.js" />
-        <% } %>
+        <script src="/js/app.js"></script>
     <% } %>
 
     <!-- Facebook SDK -->
     <% if(config.facebook_chat){ %>
-        <script class="fb-first-script">
+        <script class="fb-first">
             window.fbAsyncInit = function() {
                 FB.init({
                 xfbml            : true,
@@ -29,7 +22,7 @@
 
             (function(d, s, id) {
                 // Petr Stepanov: instead of getting first script we get script with class 'fb-first-script'
-                var js, fjs = d.getElementsByClassName('fb-first-script')[0];
+                var js, fjs = d.getElementsByClassName('fb-first')[0];
                 if (d.getElementById(id)) return;
                 js = d.createElement(s); 
                 js.id = id;
@@ -38,9 +31,16 @@
             }(document, 'script', 'facebook-jssdk'));
         </script>
     <% } %>
+
+    <!-- Snipcart JS -->
+    <% if(config.cart == "snipcart"){ %>    
+        <% if (process && process.env && process.env.SNIPCART_API_KEY){ %>
+            <script async src="https://cdn.snipcart.com/themes/v3.0.22/default/snipcart.js"></script>
+        <% } %>
+    <% } %>
 </template>
 
-<script type="text/javascript">
+<script>
     function loadLazyScripts() {
         var lazyScripts = document.getElementById('lazy-scripts');
 
