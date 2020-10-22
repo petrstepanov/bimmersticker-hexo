@@ -5,9 +5,9 @@
     <!-- Main App JS -->
     <% // For production environment add ?t= timestamp for javascript %>
     <% if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
-        <script type="text/javascript" src="/js/app.js?t=<%- (new Date()).getTime().toString() %>" />
+        <script type="text/javascript" src="/js/app.js?t=<%- (new Date()).getTime().toString() %>"></script>
     <% } else { %>
-        <script type="text/javascript" src="/js/app.js" />
+        <script type="text/javascript" src="/js/app.js"></script>
     <% } %>
 
     <!-- Facebook SDK -->
@@ -35,7 +35,7 @@
     <!-- Snipcart JS -->
     <% if(config.cart == "snipcart"){ %>    
         <% if (process && process.env && process.env.SNIPCART_API_KEY){ %>
-            <script type="text/javascript" async src="https://cdn.snipcart.com/themes/v3.0.22/default/snipcart.js" />
+            <script type="text/javascript" async src="https://cdn.snipcart.com/themes/v3.0.22/default/snipcart.js"></script>
         <% } %>
     <% } %>
 </template>
