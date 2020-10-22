@@ -7,12 +7,12 @@
     <% if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
         <script type="text/javascript" src="/js/app.js?t=<%- (new Date()).getTime().toString() %>" />
     <% } else { %>
-        <script type="text/javascript" src="/js/app.js" /></script>
+        <script type="text/javascript" src="/js/app.js" />
     <% } %>
 
     <!-- Facebook SDK -->
     <% if(config.facebook_chat){ %>
-        <script type="text/javascript" class="fb-first-script">
+        <script type="text/javascript" class="fb-first">
             window.fbAsyncInit = function() {
                 FB.init({
                 xfbml            : true,
@@ -22,7 +22,7 @@
 
             (function(d, s, id) {
                 // Petr Stepanov: instead of getting first script we get script with class 'fb-first-script'
-                var js, fjs = d.getElementsByClassName('fb-first-script')[0];
+                var js, fjs = d.getElementsByClassName('fb-first')[0];
                 if (d.getElementById(id)) return;
                 js = d.createElement(s); 
                 js.id = id;
