@@ -1,7 +1,27 @@
 // FONTS AND COLORS
 .snipcart {
+    font-family: $font-family-base;
+}
+
+.snipcart__font--secondary,.snipcart__font--subtitle {
+    font-family: $font-family-base;
+}
+
+.snipcart-modal__close{
+    font-family: $font-family-base;
+}
+
+.snipcart__actions--link{
+    font-family: $font-family-base;
+}
+
+.snipcart-cart-summary-expanded-item{
+    font-family: $font-family-base;
+}
+
+.snipcart {
     * {
-        font-family: $font-family-base;
+        // font-family: $font-family-base;
         font-weight: 400; // Native font stack
 
         font-size: inherit;
