@@ -8,7 +8,8 @@ var FacebookLoadOnScroll = function(){
     function _bindEvents(){
         $(window).scroll(function(){
             if (!isLoaded){
-                setTimeout(_loadFacebook, 3000);
+                // setTimeout(_loadFacebook, 3000);
+                _loadFacebook();
                 isLoaded = true;
             }
         });
