@@ -10,6 +10,15 @@
         <script src="/js/app.js"></script>
     <% } %>
 
+    <!-- Snipcart JS -->
+    <% if(config.cart == "snipcart"){ %>    
+        <% if (process && process.env && process.env.SNIPCART_API_KEY){ %>
+            <script async src="https://cdn.snipcart.com/themes/v3.0.22/default/snipcart.js"></script>
+        <% } %>
+    <% } %>
+</template>
+
+<template id="lazy-scripts-facebook">
     <!-- Facebook SDK -->
     <% if(config.facebook_chat){ %>
         <script class="fb-first">
@@ -30,13 +39,6 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-    <% } %>
-
-    <!-- Snipcart JS -->
-    <% if(config.cart == "snipcart"){ %>    
-        <% if (process && process.env && process.env.SNIPCART_API_KEY){ %>
-            <script async src="https://cdn.snipcart.com/themes/v3.0.22/default/snipcart.js"></script>
-        <% } %>
     <% } %>
 </template>
 

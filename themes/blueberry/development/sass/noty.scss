@@ -8,7 +8,9 @@
   z-index: 9999999;
 
   .type {
-    font-family: $font-bold;
+    // font-family: $font-bold;
+    font-weight: bolder; // Native font stack
+    
     letter-spacing: 1px;
     margin-top: 0.45rem;
     color: black;

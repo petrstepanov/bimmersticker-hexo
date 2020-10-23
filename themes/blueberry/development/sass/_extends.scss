@@ -21,7 +21,9 @@ $box-shadow-blueberry: 0 5px 30px 0 rgba(0,0,0,0.1);
 
 .my-label {
   font-size: $font-size-12;
-  font-family: $font-bold;
+  // font-family: $font-bold;
+  font-weight: bolder; // Native font stack
+  
   color: $text-muted;
   text-transform: uppercase;
   letter-spacing: 2px;
