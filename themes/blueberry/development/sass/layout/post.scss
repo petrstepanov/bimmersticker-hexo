@@ -65,7 +65,9 @@
     dt {
       float: left;
       clear: left;
-      font-family: $font-bold;
+      // font-family: $font-bold;
+      font-weight: bolder; // Native font stack
+      
       margin-bottom: 0.5rem;
     }
 

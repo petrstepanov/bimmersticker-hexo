@@ -17,14 +17,14 @@ body {
 }
 
 // Font faces
-@font-face {
-    font-family: 'aristotelicasmallcaps-bold';
-    src: url('/fonts/aristotelicasmallcaps-bold-webfont.woff2') format('woff2'),
-         url('/fonts/aristotelicasmallcaps-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
+// @font-face {
+//     font-family: 'aristotelicasmallcaps-bold';
+//     src: url('/fonts/aristotelicasmallcaps-bold-webfont.woff2') format('woff2'),
+//          url('/fonts/aristotelicasmallcaps-bold-webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+//     font-display: swap;
+// }
 
 @font-face {
   font-family: 'config_condensedbold';
@@ -35,23 +35,23 @@ body {
   font-display: swap;
 }
 
-@font-face {
-    font-family: 'sf_pro_textregular';
-    src: url('/fonts/sf-pro-text-regular-webfont.woff2') format('woff2'),
-         url('/fonts/sf-pro-text-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
+// @font-face {
+//     font-family: 'sf_pro_textregular';
+//     src: url('/fonts/sf-pro-text-regular-webfont.woff2') format('woff2'),
+//          url('/fonts/sf-pro-text-regular-webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+//     font-display: swap;
+// }
 
-@font-face {
-    font-family: 'sf_pro_textbold';
-    src: url('/fonts/sf-pro-text-bold-webfont.woff2') format('woff2'),
-         url('/fonts/sf-pro-text-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
+// @font-face {
+//     font-family: 'sf_pro_textbold';
+//     src: url('/fonts/sf-pro-text-bold-webfont.woff2') format('woff2'),
+//          url('/fonts/sf-pro-text-bold-webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+//     font-display: swap;
+// }
 
 @font-face {
     font-family: 'letrista_script';
@@ -64,8 +64,8 @@ body {
 
 $font-handwrtten: "letrista_script", Helvetica, sans-serif;
 $font-display:    "config_condensedbold", Helvetica, sans-serif;
-$font-regular:    "sf_pro_textregular", Helvetica, sans-serif;
-$font-bold:       "sf_pro_textbold", Helvetica, sans-serif;
+// $font-regular:    "sf_pro_textregular", Helvetica, sans-serif;
+// $font-bold:       "sf_pro_textbold", Helvetica, sans-serif;
 
 .font-handwritten {
   font-family: $font-handwrtten;
@@ -81,10 +81,10 @@ h6 {
   letter-spacing: 0.05rem;
 }
 
-b, strong, .strong {
-  font-family: 'sf_pro_textbold';
-  font-weight: normal;
-}
+// b, strong, .strong {
+//   font-family: 'sf_pro_textbold';
+//   font-weight: normal;
+// }
 
 a {
   transition: color .15s ease-in-out;

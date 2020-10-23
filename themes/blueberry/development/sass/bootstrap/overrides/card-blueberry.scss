@@ -99,7 +99,8 @@
 
     white-space: nowrap;
     // margin-left: 1em;
-    font-family: $font-bold;
+    // font-family: $font-bold;
+    font-weight: bolder; // Native font stack
 
     sup {
       font-size: 60%;

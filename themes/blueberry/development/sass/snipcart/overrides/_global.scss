@@ -1,7 +1,9 @@
 // FONTS AND COLORS
 .snipcart {
     * {
-        font-family: $font-regular;
+        // font-family: $font-regular;
+        font-weight: 400; // Native font stack
+
         font-size: inherit;
         font-weight: normal;
         color: inherit;
@@ -10,20 +12,25 @@
 
     .snipcart__font--std {
         font-size: inherit;
-        font-family: $font-regular;
+        // font-family: $font-regular;
+        font-weight: 400; // Native font stack
     }
 
     .snipcart__font--bold, .snipcart__font--bold * {
-        font-family: $font-bold;
+        // font-family: $font-bold;
+        font-weight: bolder; // Native font stack
     }
 
     .snipcart__font--bold input {
-        font-family: $font-regular;
+        // font-family: $font-regular;
+        font-weight: 400; // Native font stack
     }
 
     .snipcart__font--black, .snipcart__font--subtitle {
-        font-family: $font-bold;
-        font-weight: normal;
+        // font-family: $font-bold;
+        font-weight: bolder; // Native font stack
+
+        // font-weight: normal;
     }
 
     .snipcart__font--large {
@@ -143,7 +150,8 @@
 
         // Override bold font with regular for inputs
         &.snipcart__font--bold {
-            font-family: $font-regular;
+            // font-family: $font-regular;
+            font-weight: 400; // Native font stack
         }
     }
 
