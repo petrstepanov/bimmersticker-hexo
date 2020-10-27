@@ -22,7 +22,7 @@
     <div class="form-inline d-lg-none navbar-buy-button js--init-navbar-buy-button">        
       <button type="submit" form="cart-form" class="btn btn-sm btn-blueberry btn-primary js--product-submit" data-base-caption="" data-base-price="<%- parseFloat(product.price) %>">$<%- parseFloat(product.price) %></button>
     </div>
-    <button class="btn ml-2 px-0 py-0 snipcart-checkout icon-md">
+    <button class="btn ml-2 px-0 py-0 snipcart-checkout icon-md" aria-label="View Cart">
       <%- partial('ionicons/ios-cart.svg') %>
       <span class="snipcart-items-count"></span>
     </button>
