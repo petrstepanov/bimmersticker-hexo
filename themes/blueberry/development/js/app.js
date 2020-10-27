@@ -80,4 +80,6 @@ $(document).ready(function(){
     animatedClassName: 'animate__animated', // class applied on animation
     useClassNames: true
   });
+
+  
 });
