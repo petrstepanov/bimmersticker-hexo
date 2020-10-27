@@ -21,7 +21,7 @@ var paths = {
 		dest: './source/css'
 	},
 	scripts: {
-		src: ['./development/js/app.js', './development/js/snipcart.js'],  // Only entry point for browserify
+		src: ['./development/js/app.js'],  // Only entry point for browserify
 		srcWatch: './development/js/**/*.js',
 		dest: './source/js'
 	},
