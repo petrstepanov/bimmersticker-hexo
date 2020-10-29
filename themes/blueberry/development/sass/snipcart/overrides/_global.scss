@@ -71,7 +71,9 @@
     .snipcart-modal__container {
         z-index: 2147483650;   // Show over facebook dialog
         // iPhone scroll - have white top and blue bottom background
-        background-image: linear-gradient(white 50%, $indigo 50%);
+
+        // Contentful issue??
+        // background-image: linear-gradient(white 50%, $indigo 50%);
         background-color: white;
     }
 
