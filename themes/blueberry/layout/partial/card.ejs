@@ -13,13 +13,13 @@
             <% var imgClass = product.product_type.includes('Windshield') ? 'tall' : ''; %>
             <div class="carousel-item active">
               <a class="img-wrapper" href="/<%- post.path %>">
-                <img loading="lazy"  src="<%- get_pathname(prefix_filename('medium_', product.image_link)) %>" class="d-block w-100 max-height <%- imgClass %>" alt="<%- product.description %>">
+                <img width="160" height="160" loading="lazy"  src="<%- get_pathname(prefix_filename('medium_', product.image_link)) %>" class="d-block w-100 fix-height <%- imgClass %>" alt="<%- product.description %>">
               </a>
             </div>
             <% additionalImages.forEach(function(element, index){ %>
               <div class="carousel-item">
                 <a class="img-wrapper" href="/<%- post.path %>">
-                  <img loading="lazy"  src="<%- get_pathname(prefix_filename('medium_', element)) %>" class="d-block w-100 max-height <%- imgClass %>" alt="<%- product.description %>">
+                  <img width="160" height="160" loading="lazy"  src="<%- get_pathname(prefix_filename('medium_', element)) %>" class="d-block w-100 fix-height <%- imgClass %>" alt="<%- product.description %>">
                 </a>
               </div>
             <% }); %>
@@ -36,7 +36,7 @@
       <% } else { %>
         <!-- if product has one image -->
         <a class="img-wrapper" href="/<%- post.path %>">
-          <img loading="lazy" class="w-100 max-height <%- product.product_type.includes('Windshield') ? 'tall' : ''; %>" src="<%- get_pathname(prefix_filename('medium_', product.image_link)) %>" title="<%- product.title %>" alt="<%- product.description %>">
+          <img width="160" height="160" loading="lazy" class="w-100 fix-height <%- product.product_type.includes('Windshield') ? 'tall' : ''; %>" src="<%- get_pathname(prefix_filename('medium_', product.image_link)) %>" title="<%- product.title %>" alt="<%- product.description %>">
         </a>
       <% } %>
 

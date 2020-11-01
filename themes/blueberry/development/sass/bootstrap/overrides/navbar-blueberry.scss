@@ -2,6 +2,22 @@ $nb-logo-size:          3rem;
 $nb-logo-size-bigger:   3rem;
 $nb-logo-size-biggest:  3.25rem;
 
+// Google Cumulative Layout Shift CLS
+
+body {
+  padding-top: $nb-logo-size + 2*$navbar-padding-y;
+
+  @include media-breakpoint-up(sm) {
+    height: $nb-logo-size-bigger + 2*$navbar-padding-y;
+  }
+  @include media-breakpoint-up(md) {
+    height: $nb-logo-size-biggest + 2*$nb-padding-md;
+  }
+}
+
+
+// Navbar sizes
+
 .navbar-blueberry {
   @extend .navbar-extend;
 

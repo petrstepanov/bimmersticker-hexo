@@ -91,7 +91,9 @@ function _checkNeedsFixed() {
 
 function _render() {
   _checkNavbarHeight();
-  _fixReleaseNavbar();
+  // PS: since introduced Snipcart Navbar is always fixed.
+  //     navbar always has "fixed-top" class and body top padding is set in CSS
+  // _fixReleaseNavbar();
 }
 
 function init(element) {
