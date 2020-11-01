@@ -1,4 +1,4 @@
-<div id="carousel_{{ id }}" class="carousel carousel-fade slide" data-ride="carousel">
+<div id="carousel_{{ id }}" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     {% for image in images %}
       <li data-target="#carousel_{{ id }}" data-slide-to="{{ loop.index0 }}" {{ 'class="active"' if loop.index0==0 else "" }}></li>
@@ -7,7 +7,7 @@
   <div class="carousel-inner">
     {% for image in images %}
       <div class="carousel-item {{ 'active' if loop.index0==0 else "" }}">
-          <img src="{{ image }}" class="d-block w-100" alt="{{ alt }}">
+          <img width="320" height="320" src="{{ image }}" class="d-block w-100" alt="{{ alt }}">
       </div>
     {% endfor %}  
   </div>

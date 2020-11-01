@@ -17,7 +17,7 @@
                 <%- carousel(data); %>
               <% } else { %>
                 <!-- Featured image -->
-                <img class="w-100" src="<%- get_pathname(product.image_link) %>" title="<%- product.title %>" alt="<%- product.description %>" />
+                <img width="320" height="320" class="w-100" src="<%- get_pathname(product.image_link) %>" title="<%- product.title %>" alt="<%- product.description %>" />
               <% } %>
             </div>
             <h1 class="mb-3 mt-lg-2 font-size-28 line-height-1"><%- post.title %></h1>

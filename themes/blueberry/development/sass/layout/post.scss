@@ -52,12 +52,14 @@
 
     // Crop featured image and gallery images
     img {
-      max-height: 20rem;
+      // PS: Google CLS - set fixed height
+      height: 320px;
+      // max-height: 20rem;
       object-fit: cover;
 
-      @include media-breakpoint-up(sm){
-        max-height: 24rem;
-      }
+      // @include media-breakpoint-up(sm){
+      //   max-height: 24rem;
+      // }
     }
   } 
 
