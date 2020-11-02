@@ -17,10 +17,11 @@ function _cacheDom(element) {
 }
 
 function _bindEvents(element) {
-  $(window).resize(function () {
-    _checkNavbarHeight();
-    _fixReleaseNavbar();
-  });
+  // $(window).resize(function () {
+    // _saveNavbarHeight();
+    // _fixReleaseNavbar();
+  // });
+
   // Close navbar when clicking outside of tha navbar
   $('body').on('click', function (event) {
     // console.log("body click");
@@ -59,40 +60,38 @@ function _bindEvents(element) {
   });
 }
 
-function _fixReleaseNavbar() {
-  if (_checkNeedsFixed()) {
-    DOM.$navbar.addClass('fixed-top');
-    $('body').css('padding-top', getNavbarHeight() + 'px');
-    fixed = true;
-  } else {
-    DOM.$navbar.removeClass('fixed-top');
-    $('body').css('padding-top', 0);
-    fixed = false;
-  }
-}
+// function _fixReleaseNavbar() {
+//   if (_checkNeedsFixed()) {
+//     DOM.$navbar.addClass('fixed-top');
+//     $('body').removeClass('no-top-padding');
+//     fixed = true;
+//   } else {
+//     DOM.$navbar.removeClass('fixed-top');
+//     $('body').addClass('no-top-padding');
+//     fixed = false;
+//   }
+// }
 
-function _checkNavbarHeight() {
-  _collapseNavbar();
-  if (!DOM.$navbarCollapse.hasClass('show')) {
-    height = DOM.$navbar.outerHeight();
-  }
-}
+// function _saveNavbarHeight() {
+//   _collapseNavbar();
+//   if (!DOM.$navbarCollapse.hasClass('show')) {
+//     height = DOM.$navbar.outerHeight();
+//   }
+// }
 
 function _collapseNavbar() {
   DOM.$navbarCollapse.collapse('hide');
 }
 
-function _checkNeedsFixed() {
-  if (helpers.getViewportSize().width < options.maxFixedWidth) {
-    return true;
-  }
-  return false;
-}
+// function _checkNeedsFixed() {
+//   if (helpers.getViewportSize().width < options.maxFixedWidth) {
+//     return true;
+//   }
+//   return false;
+// }
 
 function _render() {
-  _checkNavbarHeight();
-  // PS: since introduced Snipcart Navbar is always fixed.
-  //     navbar always has "fixed-top" class and body top padding is set in CSS
+  // _saveNavbarHeight();
   // _fixReleaseNavbar();
 }
 

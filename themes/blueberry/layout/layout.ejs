@@ -1,5 +1,5 @@
 <%- partial('partial/head') %>
-<body data-spy="scroll" data-target="#navbar-spy" data-offset="0">
+<body data-spy="scroll" data-target="#navbar-spy" data-offset="0" class="<%- is_post()? 'is-post':'' %>">
   <%- body %>
   <%- partial('partial/footer') %>
   <!-- scripts -->
