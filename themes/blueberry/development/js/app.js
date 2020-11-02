@@ -4,7 +4,7 @@ var autosize = require('autosize');
 var AOS = require('aos');
 
 var navbarFixer = require('./modules/navbar-fixer');
-var smoothScroll = require('./modules/smooth-scroll');
+// var smoothScroll = require('./modules/smooth-scroll');
 // var windshieldForm = require('./modules/windshield-form');
 var windshieldFormSnipcart = require('./modules/windshield-form-snipcart');
 var snipcartForm = require('./modules/snipcart-form');
@@ -28,7 +28,7 @@ $(document).ready(function(){
   InteractiveBackButton.init(document.querySelector('.js--init-back-button'));
     
   navbarFixer.init(document.querySelector('.js--init-navbar-fixer'));
-  smoothScroll.init();
+  // smoothScroll.init();
   // windshieldForm.init(document.querySelector('.js--init-windshield-container'));
   windshieldFormSnipcart.init(document.querySelector('.js--windshield-form-snipcart'));
   snipcartForm.init(document.querySelector('.js--init-snipcart-form'));

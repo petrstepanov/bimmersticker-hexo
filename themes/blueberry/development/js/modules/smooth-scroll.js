@@ -7,12 +7,13 @@ var DOM = {};
 var options = {};
 
 function _cacheDom(element) {
-  DOM.$links = $("body").find('a[href^="#"]').not('[href="#"]').not('[href^="#carousel"]');
+  DOM.$links = $('a[href^="#"]:not([href="#"],[href^="#carousel"])');
 }
 
-function _bindEvents(element) {
-  DOM.$links.click(_onLinkClicked);
-  // DOM.$el.on('event', 'selector', _handleEvent);
+function _bindEvents() {
+  DOM.$links.click(function(event){
+    _onLinkClicked(event);
+  });
 }
 
 function _onLinkClicked(event){
@@ -20,9 +21,8 @@ function _onLinkClicked(event){
   var $target = $(event.currentTarget.getAttribute('href'));
   if ($target.length){
     var offset = $target.offset().top - 30;
-    if (navbarFixer.isFixed()){
-      offset -= navbarFixer.getNavbarHeight();
-    }
+    // Account on the navbar fixed height (equals to body padding)
+    offset -= parseInt($('body').css('padding-top'));
     $('html, body').animate({
       scrollTop: offset
     }, 500);

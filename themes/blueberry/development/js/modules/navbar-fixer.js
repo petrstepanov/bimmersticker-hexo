@@ -5,8 +5,8 @@ var helpers = require('./helpers');
 
 var DOM = {};
 var options = {};
-var fixed = false;
-var height = 0;
+// var fixed = false;
+// var height = 0;
 
 function _cacheDom(element) {
   DOM.$navbar = $(element);
@@ -90,29 +90,29 @@ function _collapseNavbar() {
 //   return false;
 // }
 
-function _render() {
+// function _render() {
   // _saveNavbarHeight();
   // _fixReleaseNavbar();
-}
+//}
 
 function init(element) {
   if (element) {
     options = $.extend(options, $(element).data());
     _cacheDom(element);
     _bindEvents();
-    _render();
+    // _render();
   }
 }
 
-function isFixed() {
-  return fixed;
-}
+// function isFixed() {
+//   return fixed;
+// }
 
-function getNavbarHeight() {
-  return height;
-}
+// function getNavbarHeight() {
+//   return height;
+// }
 
 
 exports.init = init;
-exports.isFixed = isFixed;
-exports.getNavbarHeight = getNavbarHeight;
+// exports.isFixed = isFixed;
+// exports.getNavbarHeight = getNavbarHeight;
