@@ -37,9 +37,10 @@ function init(element) {
     DOM.$label.css("visibility", "visible");     
   }
 
-  var date = new Date();
-  date.setTime(date.getTime() + (5 * 60 * 1000)); // 5 minute expiration 
-  Cookies.set('pageLoaded', window.location.href, { expires: date, sameSite: 'strict' });
+  // var date = new Date();
+  // date.setTime(date.getTime() + (5 * 60 * 1000)); // 5 minute expiration 
+  // Expires: takes number of days; 5 minutes is 5/24*60 ~ 0.003 of a day 
+  Cookies.set('pageLoaded', window.location.href, { expires: 0.003, sameSite: 'strict' });
 }
 
 exports.init = init;
