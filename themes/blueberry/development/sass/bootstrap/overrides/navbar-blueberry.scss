@@ -28,7 +28,7 @@ body {
   @extend .navbar-extend;
 
   &.is-post {
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       &.is-post {
         position: relative;
         top: auto;
