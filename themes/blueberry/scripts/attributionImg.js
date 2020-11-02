@@ -13,8 +13,17 @@ hexo.extend.tag.register('attribution_img', function (args) {
     authorName: args[4],
     authorUrl: args[5],
     licenseName: args[6],
-    licenseUrl: args[7]
+    licenseUrl: args[7],
+    width: 500,
+    height: 500
   };
+
+  if (args[8]){ 
+    data.width = args[8]; 
+  }
+  if (args[9]){
+    data.height = args[9];
+  }
 
   var templatePath = pathFn.join(hexo.theme_dir, 'templates/attributionImg.njk');
 

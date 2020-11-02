@@ -18,6 +18,6 @@ product_id: ST_BMW_E82
 A nice little sticker for the most compact BMW ever.
 
 <!-- more -->
-<!-- {% asset_img content-image bmw-e82-vinyl-sticker.jpg 'BMW e82 vinyl sport drift stance sticker"BMW e82 vinyl sport drift stance sticker"' %} -->
+<!-- {% asset_img content-image bmw-e82-vinyl-sticker.jpg 500 500 'BMW e82 vinyl sport drift stance sticker"BMW e82 vinyl sport drift stance sticker"' %} -->
 
 BMW e82 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

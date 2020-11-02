@@ -18,6 +18,6 @@ product_id: ST_BMW_F22
 Exciting dynamics and a design. Nice little bimmer.
 
 <!-- more -->
-<!-- {% asset_img content-image bmw-f22-coupe-vinyl-sticker.jpg 'BMW f22 vinyl sticker sport drift stance"BMW f22 vinyl sticker sport drift stance"' %} -->
+<!-- {% asset_img content-image bmw-f22-coupe-vinyl-sticker.jpg 500 500 'BMW f22 vinyl sticker sport drift stance"BMW f22 vinyl sticker sport drift stance"' %} -->
 
 BMW f22 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

@@ -15,13 +15,13 @@ product_id: ST_CAR_STAYTUNED
 Neat sticker has a lettering themed with different car parts icons.
 
 <!-- more -->
-<!-- {% asset_img content-image stay-tuned-car-truck-sticker-rect.jpg 'Stay Tuned car truck window vinyl bumper sticker"Stay Tuned car truck window vinyl bumper sticker"' %} -->
+<!-- {% asset_img content-image stay-tuned-car-truck-sticker-rect.jpg 500 500 'Stay Tuned car truck window vinyl bumper sticker"Stay Tuned car truck window vinyl bumper sticker"' %} -->
 
 "Stay Tuned" sticker has amazing beautiful lettering with integrated icons of car parts. There is a strut, oil can, piston, open end wrench and a drilled rotor with a caliper on it. Sticker will look nice on a tuned car, euro car, stanced or modified vehicle.
 
 Made of a glossy glossy white ORACAL® 651 adhesive vinyl or from holographic oil slick TECKWRAP vinyl. Sticker comes with a transfer tape and application instructions.
 
-{% asset_img content-image stay-tuned-sticker-with-bmw-e36.jpg 'Stay tuned sticker decal available in glossy white and holographic colors"Stay tuned sticker decal available in glossy white and holographic colors"' %}
+{% asset_img content-image stay-tuned-sticker-with-bmw-e36.jpg 1280 960 'Stay tuned sticker decal available in glossy white and holographic colors"Stay tuned sticker decal available in glossy white and holographic colors"' %}
 {% blockquote %}
 Stay Tuned, because never stock!
 {% endblockquote %}

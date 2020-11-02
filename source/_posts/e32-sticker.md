@@ -18,6 +18,6 @@ product_id: ST_BMW_E32
 Another VIP 7 series. But with a shady mafia stuff.
 
 <!-- more -->
-<!-- {% asset_img content-image bmw-e32-sticker-window.jpg 'BMW e32 sport vinyl sticker"BMW e32 sport vinyl sticker"' %} -->
+<!-- {% asset_img content-image bmw-e32-sticker-window.jpg 500 500 'BMW e32 sport vinyl sticker"BMW e32 sport vinyl sticker"' %} -->
 
 BMW e32 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

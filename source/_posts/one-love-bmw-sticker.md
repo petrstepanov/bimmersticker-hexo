@@ -16,7 +16,7 @@ product_id: ST_BMW_ONELOVE
 St. Valentine's day special. For all BMW fans.
 
 <!-- more -->
-<!-- {% asset_img content-image one-love-bmw-blue-vinyl-sticker.jpg 'One Love BMW vinyl sticker for bmw fans"One Love BMW vinyl sticker for bmw fans"' %} -->
+<!-- {% asset_img content-image one-love-bmw-blue-vinyl-sticker.jpg 500 500 'One Love BMW vinyl sticker for bmw fans"One Love BMW vinyl sticker for bmw fans"' %} -->
 
 With respect to the upcoming St. Valentine's day we made this "One Love BMW" sticker. The "One Love" lettering nicely pairs with the BMW label on the bottom. Heart-shaped layer is available in blue or red. Pick the one that you like the best.
 

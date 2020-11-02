@@ -16,11 +16,11 @@ product_id: ST_BMW_POW
 A set of two stickers with your personal engine model.
 
 <!-- more -->
-<!-- {% asset_img content-image sticker-touring-bmw.jpg 'Touring sticker for bmw cars"Vinyl sticker for touring bmw cars"' %} -->
+<!-- {% asset_img content-image sticker-touring-bmw.jpg 500 500 'Touring sticker for bmw cars"Vinyl sticker for touring bmw cars"' %} -->
 
 Custom BMW window sticker with any engine model. Text us your model on the checkout page or message separately. Available in glossy white or matte black and rainbow colors.
 
-{% asset_img content-image two-bmw-m52-powered-stickers.jpg 'Two BMW stickers with your custom BMW engine model"Two BMW stickers with your custom BMW engine model"' %}
+{% asset_img content-image two-bmw-m52-powered-stickers.jpg 500 500 'Two BMW stickers with your custom BMW engine model"Two BMW stickers with your custom BMW engine model"' %}
 
 Stickers is contour cut out of ORACAL® 651 outdoor adhesive glossy vinyl. Application instructions are provided.
 

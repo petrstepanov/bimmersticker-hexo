@@ -19,6 +19,6 @@ product_id: ST_BMW_E90
 Classic bimmer, one of the most common on the roads today.
 
 <!-- more -->
-<!-- {% asset_img content-image bmw-e90-window-sport-sticker.jpg 'BMW e90 vinyl sport drift stance sticker"BMW e90 vinyl sport drift stance sticker"' %} -->
+<!-- {% asset_img content-image bmw-e90-window-sport-sticker.jpg 500 500 'BMW e90 vinyl sport drift stance sticker"BMW e90 vinyl sport drift stance sticker"' %} -->
 
 BMW e90 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

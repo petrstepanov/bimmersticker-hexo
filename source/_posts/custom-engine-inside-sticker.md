@@ -19,7 +19,7 @@ Two custom stickers with the engine model of your choice. Stickers are designed 
 
 Please specify your engine type in the customization field. Any engine models can be used, for instance: S52, RB28, 2JZ, SR20, LS3... etc.
 
-{% asset_img content-image custom-engine-intel-inside-stickers-m52-s52-1jz-2jz-rb28-sr20-ls1-ls2-ls3.jpg 'Custom engine sticker made to look like intel inside logo"Custom engine sticker made to look like intel inside logo"' %}
+{% asset_img content-image custom-engine-intel-inside-stickers-m52-s52-1jz-2jz-rb28-sr20-ls1-ls2-ls3.jpg 500 500 'Custom engine sticker made to look like intel inside logo"Custom engine sticker made to look like intel inside logo"' %}
 {% blockquote %}
 Engine sticker copied from the famous Intel logo
 {% endblockquote %}

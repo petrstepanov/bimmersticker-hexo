@@ -17,13 +17,13 @@ product_id: ST_CAR_MILEAGE
 Respect the elders. Show them your mileage.
 
 <!-- more -->
-<!-- {% asset_img content-image custom-car-mileage-sticker-black.jpg 'Custom mileage sticker for any car model"Vinyl car sticker with your mileage"' %} -->
+<!-- {% asset_img content-image custom-car-mileage-sticker-black.jpg 500 500 'Custom mileage sticker for any car model"Vinyl car sticker with your mileage"' %} -->
 
 Now this is a cool thing. We all know that older cars were build tough. Back those days when automobile companies did really compete between each other trying to make a better car. That's why they are still on the roads!
 
 This specific sticker is not only designed for BMW cars. It fits nice for Honda, Toyota and other makes.
 
-{% asset_img content-image car-vinyl-mileage-window-sticker.jpg 'Glossy vinyl window mileage decal"Sticker with your car odometer mileage value"' %}
+{% asset_img content-image car-vinyl-mileage-window-sticker.jpg 500 500 'Glossy vinyl window mileage decal"Sticker with your car odometer mileage value"' %}
 
 Sticker available in "miles" and "kilometers" option. Also we can make the odometer background vinyl layer pretty much any color.
 

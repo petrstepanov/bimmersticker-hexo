@@ -18,6 +18,6 @@ product_id: ST_BMW_F31
 One of the most advanced BMW wagons on the market.
 
 <!-- more -->
-<!-- {% asset_img content-image bmw-f31-sticker.jpg 'BMW f31 bumper window sticker sport stance style decal"BMW f31 bumper window sticker sport stance style decal"' %} -->
+<!-- {% asset_img content-image bmw-f31-sticker.jpg 500 500 'BMW f31 bumper window sticker sport stance style decal"BMW f31 bumper window sticker sport stance style decal"' %} -->
 
 BMW f31 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

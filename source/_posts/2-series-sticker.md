@@ -17,11 +17,9 @@ product_id:	ST_BMW_2SERIES
 For compact coupés and newer MPV body styles.
 
 <!-- more -->
-<!-- {% asset_img content-image bmw-2-series-vinyl-sticker.jpg 'BMW 2 series 2er vinyl sticker"BMW 2 series 2er vinyl sticker"' %} -->
+<!-- {% asset_img content-image bmw-2-series-vinyl-sticker.jpg 500 500 'BMW 2 series 2er vinyl sticker"BMW 2 series 2er vinyl sticker"' %} -->
 
 A nicely designed and handcrafted '2 series' sticker. Currently there are following bodies for 2 series: a coupe f22 and its convertible variant f23. Also there are two Multi-Purpose-Vehicles f45 and a little longer f46.
-
-{% asset_img content-image  'BMW 2 series vinyl sticker"Sticker for bmw 2 series cars"' %}
 
 {% attribution_img
   '2-series-bmw-sticker.jpg'
@@ -31,12 +29,11 @@ A nicely designed and handcrafted '2 series' sticker. Currently there are follow
   'Chris Präger'
   'https://www.flickr.com/photos/chrispraeger/'
   'CC BY 2.0'
-  'https://creativecommons.org/licenses/by/2.0/'
+  'https://creativecommons.org/licenses/by/2.0/',
 %}
 
 Sticker is cut off a sheet of ORACAL® 651 adhesive glossy vinyl. Can be applied on a window, windshield and body paint as well.
 
-{% asset_img content-image  '"2 series sticker on a bmw car"' %}
 {% attribution_img
   '2-series-window-sticker.jpg'
   '2 series vinyl sticker for a BMW car'
@@ -46,6 +43,8 @@ Sticker is cut off a sheet of ORACAL® 651 adhesive glossy vinyl. Can be applied
   'https://www.flickr.com/photos/smademediagalleria/'
   'CC BY-SA 2.0'
   'https://creativecommons.org/licenses/by-sa/2.0/'
+  '853'
+  '639'
 %}
 
 Vinyl sticker is available in nine different colors in stock. Please message us the color you want on the eBay checkout page. Sticker comes with the transfer tape for easy application.

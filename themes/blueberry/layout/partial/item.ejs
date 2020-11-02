@@ -19,12 +19,14 @@
                 <% if (product.additional_image_link) { %>
                   <% var data = {
                         images: (product.image_link + "," + product.additional_image_link).split(","),
-                        alt: product.description
+                        alt: product.description,
+                        width: 400,
+                        height: 400
                   }; %>
                   <%- carousel(data); %>
                 <% } else { %>
                   <!-- Featured image -->
-                  <img class="w-100" src="<%- get_pathname(product.image_link) %>" title="<%- product.title %>" alt="<%- product.description %>" />
+                  <img class="w-100" width="400" height="400" src="<%- get_pathname(product.image_link) %>" title="<%- product.title %>" alt="<%- product.description %>" />
                 <% } %>
               </div>
             <% } %>

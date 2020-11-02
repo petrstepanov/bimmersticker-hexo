@@ -19,7 +19,7 @@ product_id:	ST_BMW_ENGINE
 Window sticker that resembles original BMW engine cover design.
 
 <!-- more -->
-<!-- {% asset_img content-image bmw-custom-engine-windshield-sticker.jpg 'BMW Powered windshield sticker with custom engine"BMW Powered windshield sticker with custom engine"' %} -->
+<!-- {% asset_img content-image bmw-custom-engine-windshield-sticker.jpg 500 500 'BMW Powered windshield sticker with custom engine"BMW Powered windshield sticker with custom engine"' %} -->
 
 BMW company is known for building very reliable and powerful engines. We decided to make a sticker that will let other people know what's under your hood. Personally we think it's a very cool idea. Especially if you say swapped something unusual in your BMW. How about "LS1 Powered" e36 🧐?
 

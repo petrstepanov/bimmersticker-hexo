@@ -17,15 +17,15 @@ product_id:	ST_BMW_4SERIES
 Newer series that offers us a greatest coupe of all times.
 
 <!-- more -->
-<!-- {% asset_img content-image vinyl-sticker-4-series-bmw.jpg 'BMW 4 series 4er vinyl sticker"BMW 4 series 4er vinyl sticker"' %} -->
+<!-- {% asset_img content-image vinyl-sticker-4-series-bmw.jpg 500 500 'BMW 4 series 4er vinyl sticker"BMW 4 series 4er vinyl sticker"' %} -->
 
 A nicely designed and handcrafted '4 series' sticker. Sticker will fit following BMW models: f32 sedan, f33 convertible and f36 Gran Coupe. Additionally f82 M4 and f83 Competition M4.
 
-{% asset_img content-image 4-series-sticker-on-a-bmw-window.jpg 'Vinyl sticker for BMW 4 series in different colors"Sticker for BMW 4 series available in different colors"' %}
+{% asset_img content-image 4-series-sticker-on-a-bmw-window.jpg 500 500 'Vinyl sticker for BMW 4 series in different colors"Sticker for BMW 4 series available in different colors"' %}
 
 Sticker is cut off a sheet of ORACAL® 651 adhesive glossy vinyl. Can be applied on a window, windshield and body paint as well.
 
-{% asset_img content-image 4-series-bmw-sticker.jpg '4 series sticker on a bmw window"4 series sticker on a bmw window"' %}
+{% asset_img content-image 4-series-bmw-sticker.jpg 500 500 '4 series sticker on a bmw window"4 series sticker on a bmw window"' %}
 
 Vinyl sticker is available in nine different colors in stock. Please message us the color you want on the eBay checkout page. Sticker comes with the transfer tape for easy application.
 

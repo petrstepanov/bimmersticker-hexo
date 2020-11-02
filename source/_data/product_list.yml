@@ -469,6 +469,17 @@
   shipping_weight: "0.1875 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|matte black|black|silver[+9]|gold[+9]|oil slick[+9]"
+- id:	ST_WSHIELD_LOWER
+  title: "lower than ground windshield banner"
+  description: "Lower Than Ground car windshield banner. Great for tuned cars or show cars. Available in different colors. Banner comes with installation instructions."
+  product_type: Stickers > Windshield
+  link: https://bimmersticker.store/lower-than-ground-sticker/
+  image_link: https://bimmersticker.store/lower-than-ground-sticker/lower-than-ground-windshield-banner-for-tuned-cars.jpg
+  price: "19.99 USD"
+  size: "31x7 in"
+  shipping_weight: "0.1875 lbs"
+  material: "Oracal, Cricut and TeckWrap vinyls"
+  color: "white|matte black|black|silver[+9]|gold[+9]|oil slick[+9]"  
 - id:	ST_WSHIELD_SEND
   title: "Send Nudes windshield banner"
   description: "Send Nudes car windshield banner. Great for project or show cars. Available in different colors. Banner comes with installation instructions."

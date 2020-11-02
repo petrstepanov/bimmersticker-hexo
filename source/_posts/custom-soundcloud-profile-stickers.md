@@ -17,7 +17,7 @@ product_id: ST_SOCIAL_SO
 A great way to spread the word for music artists.
 
 <!-- more -->
-<!-- {% asset_img content-image custom-personal-facebook-profile-name-sticker.jpg 'Personal Facebook profile name sticker"Personal Facebook profile name sticker"' %} -->
+<!-- {% asset_img content-image custom-personal-facebook-profile-name-sticker.jpg 500 500 'Personal Facebook profile name sticker"Personal Facebook profile name sticker"' %} -->
 
 A set of two custom stickers for your SoundCloud profile. Promote your account, record label or music band! Spread the word and and increase number of your followers!
 

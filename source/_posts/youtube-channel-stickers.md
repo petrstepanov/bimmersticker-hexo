@@ -16,7 +16,7 @@ product_id: ST_SOCIAL_YT
 Promote your YouTube! Available in white and black.
 
 <!-- more -->
-<!-- {% asset_img content-image custom-personal-youtube-channel-name-sticker.jpg 'Personal YouTube channel name sticker"Personal YouTube channel name sticker"' %} -->
+<!-- {% asset_img content-image custom-personal-youtube-channel-name-sticker.jpg 500 500 'Personal YouTube channel name sticker"Personal YouTube channel name sticker"' %} -->
 
 A pair of custom YouTube channel stickers. Throw them on your car to promote the build. Or use for any other kind of business. Works great as a gift too. Design of the stickers is based on the original YouTube logo.
 

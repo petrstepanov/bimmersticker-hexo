@@ -21,12 +21,12 @@ product_id: ST_BMW_TOURING
 Tourings deserve a special attention. We love wagons!
 
 <!-- more -->
-<!-- {% asset_img content-image sticker-touring-bmw.jpg 'Touring sticker for bmw cars"Vinyl sticker for touring bmw cars"' %} -->
+<!-- {% asset_img content-image sticker-touring-bmw.jpg 500 500 'Touring sticker for bmw cars"Vinyl sticker for touring bmw cars"' %} -->
 
 Tourings are very special BMW cars. They are functional, rare and unique. We decided we have to make a special sticker for BMW wagons just because.
 
-{% asset_img content-image bmw-touring-vinyl-window-sticker.jpg 'Vinyl touring sticker for BMW wagons"Touring sticker on a bmw e36 wagon"' %}
+{% asset_img content-image bmw-touring-vinyl-window-sticker.jpg 500 500 'Vinyl touring sticker for BMW wagons"Touring sticker on a bmw e36 wagon"' %}
 
 As a base bottom vinyl layer we used the most iconic touring silhouette - e39. It it nicely complemented by the top touring lettering vinyl layer which is available in different colors.
 
-{% asset_img content-image bmw-touring-window-sticker.jpg 'Touring oracal vinyl sticker for BMW"Touring oracal vinyl sticker for BMW wagon"' %}
+{% asset_img content-image bmw-touring-window-sticker.jpg 500 500 'Touring oracal vinyl sticker for BMW"Touring oracal vinyl sticker for BMW wagon"' %}

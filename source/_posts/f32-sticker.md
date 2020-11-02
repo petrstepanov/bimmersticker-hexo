@@ -18,6 +18,6 @@ product_id: ST_BMW_F32
 The most advanced BMW coupe on the market.
 
 <!-- more -->
-<!-- {% asset_img content-image vinyl-sticker-for-bmw-f32-4series-coupe.jpg 'BMW f32 4series sport drift stance vinyl sticker sticker"' %} -->
+<!-- {% asset_img content-image vinyl-sticker-for-bmw-f32-4series-coupe.jpg 500 500 'BMW f32 4series sport drift stance vinyl sticker sticker"' %} -->
 
 BMW f32 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

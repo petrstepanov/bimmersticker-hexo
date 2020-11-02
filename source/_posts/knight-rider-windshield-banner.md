@@ -18,7 +18,7 @@ product_id: ST_WSHIELD_KNRD
 Did you see that movie from 80s? Dang!
 
 <!-- more -->
-<!-- {% asset_img content-image knight-rider-stance-winshield-banner-car.jpg 'Knight Rider car vinyl windshield banner"Knight Rider car vinyl windshield banner"' %} -->
+<!-- {% asset_img content-image knight-rider-stance-winshield-banner-car.jpg 500 500 'Knight Rider car vinyl windshield banner"Knight Rider car vinyl windshield banner"' %} -->
 
 Handcrafted “Knight Rider" windshield banner. A throwback to that oldschool movie with David Hasselhoff. Font made to resemble original movie poster look. Cut from ORACAL® 651 adhesive white glossy vinyl or Cricut adhesive silver foil. Banner has a red stripe on the bottom.
 

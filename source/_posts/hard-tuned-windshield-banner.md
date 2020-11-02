@@ -20,7 +20,7 @@ Soft tuned does not count. Get this banner only if your vehicle qualifies :-)
 
 HARD Tuned windshield banner for cars and trucks. Has an outstanding look and available in gold foil or red color. Please select the option that fits your car best. Gold color is real gold metallic foil, looks crazy cool. Banner will be a great add-on for a lowered car, stance truck, show car or modified vehicle. Will add some style to your show car. Originally designed for the windshield but can be used pretty much anywhere.
 
-{% asset_img content-image hard-tuned-windshield-banner-for-drift-race-stance-modified-cars-trucks.jpg 'HARD Tuned windshield banner on a stanced car"HARD Tuned windshield banner on a stanced car"' %}
+{% asset_img content-image hard-tuned-windshield-banner-for-drift-race-stance-modified-cars-trucks.jpg 1582 1298 'HARD Tuned windshield banner on a stanced car"HARD Tuned windshield banner on a stanced car"' %}
 {% blockquote %}
 Windshield banner is made out of two vinyl layers layered on top of each other
 {% endblockquote %}

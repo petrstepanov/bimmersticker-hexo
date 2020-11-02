@@ -21,7 +21,7 @@ Because <a href="https://blacklivesmatter.com/" rel="nofollow">#BlackLivesMatter
 
 Sticker is contour cut out of ORACAL® 651 outdoor adhesive glossy vinyl. Sticker has no background. Comes with a transfer tape and application instructions.
 
-{% asset_img content-image fuck-the-police-stickers-for-cars-and-trucks-white-holographic.jpg 'Fuck the Police vinyl stickers for cars and trucks"Fuck the Police vinyl stickers for cars and trucks"' %}
+{% asset_img content-image fuck-the-police-stickers-for-cars-and-trucks-white-holographic.jpg 500 500 'Fuck the Police vinyl stickers for cars and trucks"Fuck the Police vinyl stickers for cars and trucks"' %}
 {% blockquote %}
 A punk-inspired lettering around a hand that flips you off takes the message straight to the point.
 {% endblockquote %}
