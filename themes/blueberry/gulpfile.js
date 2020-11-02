@@ -20,6 +20,11 @@ var paths = {
 		srcWatch: './development/sass/**/*.scss',
 		dest: './source/css'
 	},
+	stylesCSS: {
+		src: ['./development/sass/snipcart/snipcart-local.css'],
+		srcWatch: './development/sass/snipcart/snipcart-local.css',
+		dest: './source/css'
+	},
 	scripts: {
 		src: ['./development/js/app.js'],  // Only entry point for browserify
 		srcWatch: './development/js/**/*.js',
@@ -66,6 +71,11 @@ function styles() {
 		.pipe(gulp.dest(paths.styles.dest));
 }
 
+function stylesCSS() {
+	return gulp.src(paths.stylesCSS.src)
+		.pipe(gulp.dest(paths.stylesCSS.dest));
+}
+
 function stylesDev() {
 	return gulp.src(paths.styles.src)
 		.pipe(sourcemaps.init())
@@ -74,7 +84,6 @@ function stylesDev() {
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(paths.styles.dest));
 }
-
 
 // Scripts Task
 
@@ -114,13 +123,14 @@ function scriptsDev() {
 function watch() {
 	gulp.watch(paths.scripts.srcWatch, scriptsDev);
 	gulp.watch(paths.styles.srcWatch, stylesDev);
+	gulp.watch(paths.stylesCSS.srcWatch, stylesCSS);
 }
 
 
 // Build
 
-var development = gulp.series(clean, copyIcons, gulp.parallel(stylesDev, scriptsDev), watch);
-var production = gulp.series(clean, copyIcons, gulp.parallel(styles, scripts));
+var development = gulp.series(clean, copyIcons, gulp.parallel(stylesDev, stylesCSS, scriptsDev), watch);
+var production = gulp.series(clean, copyIcons, gulp.parallel(styles, stylesCSS, scripts));
 
 
 // Exports

@@ -53,6 +53,9 @@
 
     <% if(config.cart == "snipcart"){ %>   
       <!-- Serve Snipcart CSS locally! Better PageSpeeds! -->
+      <!-- Defer non-critical CSS -->
+      <!-- https://web.dev/optimize-lcp/#defer-non-critical-css -->
+      <link rel="preload" href="/css/snipcart-local.css" as="style" onload="this.rel='stylesheet'">
       <!-- <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.22/default/snipcart.css" />  -->
     <% } %>
     <% if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
