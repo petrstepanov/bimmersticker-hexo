@@ -17,7 +17,7 @@ product_id: ST_WSHIELD_MONEY
 Sometimes your car project turns into a real Money Pit...
 
 <!-- more -->
-<!-- {% asset_img content-image money-pit-car-auto-windshield-sticker-banner.jpg 'Money Pit windshield vinyl banner sticker"Money Pit windshield vinyl banner sticker"' %} -->
+<!-- {% asset_img content-image money-pit-car-auto-windshield-sticker-banner.jpg 500 500 'Money Pit windshield vinyl banner sticker"Money Pit windshield vinyl banner sticker"' %} -->
 
 Handmade "Money Pit" windshield banner. We know how project cars sometimes turn into  endless money pits (or black holes). To pay respect and support to every car enthusiast that deals with this problem we made this front windshield banner with nice looking lettering font.
 

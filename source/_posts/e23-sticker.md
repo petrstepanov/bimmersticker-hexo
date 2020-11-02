@@ -18,10 +18,10 @@ product_id: ST_BMW_E23
 First generation of the BMW luxury sedans.
 
 <!-- more -->
-<!-- {% asset_img content-image bmw-e23-vinyl-sticker.jpg 'BMW e23 vinyl sticker"BMW e23 vinyl sticker"' %} -->
+<!-- {% asset_img content-image bmw-e23-vinyl-sticker.jpg 500 500 'BMW e23 vinyl sticker"BMW e23 vinyl sticker"' %} -->
 
 BMW e23 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 
 
-{% asset_img content-image e21-vinyl-sticker-for-bmw.jpg 'Vinyl e21 sticker for BMW cars"Vinyl e21 sticker for BMW cars"' %}
+{% asset_img content-image e21-vinyl-sticker-for-bmw.jpg 500 500 'Vinyl e21 sticker for BMW cars"Vinyl e21 sticker for BMW cars"' %}
 
-{% asset_img content-image e21-lowered-bmw-sticker.jpg 'Lowered e21 BMW with vinyl sticker"Lowered e21 BMW with vinyl sticker"' %}
+{% asset_img content-image e21-lowered-bmw-sticker.jpg 500 500 'Lowered e21 BMW with vinyl sticker"Lowered e21 BMW with vinyl sticker"' %}

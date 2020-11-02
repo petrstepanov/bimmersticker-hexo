@@ -18,6 +18,6 @@ product_id: ST_BMW_E60
 Incredibly comfortable as well as safe and sporty.
 
 <!-- more -->
-<!-- {% asset_img content-image bmw-e60-window-sticker-decal.jpg 'BMW e60 vinyl sport drift stance sticker"BMW e60 vinyl sport drift stance sticker"' %} -->
+<!-- {% asset_img content-image bmw-e60-window-sticker-decal.jpg 500 500 'BMW e60 vinyl sport drift stance sticker"BMW e60 vinyl sport drift stance sticker"' %} -->
 
 BMW e60 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

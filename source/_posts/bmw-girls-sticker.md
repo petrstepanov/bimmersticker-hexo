@@ -18,18 +18,18 @@ product_id: ST_BMW_GIRLS
 Special sticker for ladies! With love from our crew.
 
 <!-- more -->
-<!-- {% asset_img content-image sticker-bmw-girls-make-it-better.jpg 'Heart shaped sticker bmw girls"Heart shaped sticker bmw girls make it better"' %} -->
+<!-- {% asset_img content-image sticker-bmw-girls-make-it-better.jpg 500 500 'Heart shaped sticker bmw girls"Heart shaped sticker bmw girls make it better"' %} -->
 
 Dear ladies! You asked for it you get it. Amazing heart-shaped sticker with some lettering that speaks words of wisdom. BMW girls make it better. Because you do. With love from bimmersticker team.
 
-{% asset_img content-image bmw-girls-make-it-better-sticker.jpg 'Heart sticker BMW girls make better"Vinyl sticker BMW girls make it better"' %}
+{% asset_img content-image bmw-girls-make-it-better-sticker.jpg 500 500 'Heart sticker BMW girls make better"Vinyl sticker BMW girls make it better"' %}
 {% blockquote %}
 Sticker "BMW girls make it better" in light variation.
 {% endblockquote %}
 
 Sticker is made of three layers of adhesive ORACAL vinyl and is available in multiple colors and two variations. Light sticker has white "BMW GIRLS" and black "Make it better" letters over a color background.
 
-{% asset_img content-image bmw-girls-sticker-heart-inverted.jpg 'Heart sticker BMW girls make better inverted"Vinyl sticker BMW girls make it better inverted"' %}
+{% asset_img content-image bmw-girls-sticker-heart-inverted.jpg 500 500 'Heart sticker BMW girls make better inverted"Vinyl sticker BMW girls make it better inverted"' %}
 
 {% blockquote %}
 Dark "BMW girls make it better" sticker in pink color.

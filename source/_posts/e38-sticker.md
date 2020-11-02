@@ -18,6 +18,6 @@ product_id: ST_BMW_E38
 Extremely safe and luxury bimmer. With satellite navgation.
 
 <!-- more -->
-<!-- {% asset_img content-image e38-bmw-window-sticker.jpg 'BMW e38 sport vinyl sticker"BMW e38 sport vinyl sticker"' %} -->
+<!-- {% asset_img content-image e38-bmw-window-sticker.jpg 500 500 'BMW e38 sport vinyl sticker"BMW e38 sport vinyl sticker"' %} -->
 
 BMW e38 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

@@ -15,13 +15,13 @@ product_id: ST_CAR_BABEONBOARD
 A must-have sticker if you have ladies on board.
 
 <!-- more -->
-<!-- {% asset_img content-image babe-on-board-sticker-rect.jpg 'Babe on board car truck window vinyl sticker"Babe on board car truck window vinyl sticker"' %} -->
+<!-- {% asset_img content-image babe-on-board-sticker-rect.jpg 500 500 'Babe on board car truck window vinyl sticker"Babe on board car truck window vinyl sticker"' %} -->
 
 Sticker is intended to be placed in the back window of an automobile to caution other drivers that a lady is travelling in the automobile.
 
 Made of two glossy ORACAL® 651 adhesive glossy vinyl layers. Yellow and black, just like the famous "Baby on board". Sticker comes with a transfer tape and application instructions.
 
-{% asset_img content-image babe-on-board-sticker-for-cars-trucks.jpg 'Babe on board vinyl decal sticker with panties"Babe on board vinyl decal sticker with panties"' %}
+{% asset_img content-image babe-on-board-sticker-for-cars-trucks.jpg 500 500 'Babe on board vinyl decal sticker with panties"Babe on board vinyl decal sticker with panties"' %}
 {% blockquote %}
 That's babe on board, not baby on board lol.
 {% endblockquote %}

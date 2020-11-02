@@ -16,7 +16,7 @@ product_id: ST_SOCIAL_FB
 Facebook is still a thing. Get a pair of custom stickers.
 
 <!-- more -->
-<!-- {% asset_img content-image custom-personal-facebook-profile-name-sticker.jpg 'Personal Facebook profile name sticker"Personal Facebook profile name sticker"' %} -->
+<!-- {% asset_img content-image custom-personal-facebook-profile-name-sticker.jpg 500 500 'Personal Facebook profile name sticker"Personal Facebook profile name sticker"' %} -->
 
 A pair of custom Facebook profile stickers. Works great as a gift too. Design of the stickers is based on the most recent circle-shaped Facebook logo.
 

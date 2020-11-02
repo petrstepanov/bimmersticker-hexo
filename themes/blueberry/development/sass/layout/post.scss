@@ -119,19 +119,24 @@
 
     // Crop featured image or gallery in content
     img {
-      max-height: 25rem;
+      height: 400px;
       object-fit: cover;
+      // max-height: 25rem;
 
-      @include media-breakpoint-up(xl){
-        max-height: 30rem;
-      }      
+      // @include media-breakpoint-up(xl){
+      //   max-height: 30rem;
+      // }      
     }
   }
 
   .content-image {
     width: 100%;
+    height: auto;
     border-radius: $border-radius;
     margin: 1em 0 1.75em 0;
+    // For Google CLS
+    // Browsers add this themselves
+    // aspect-ratio: attr(width) / attr(height);
   }
 
   h2 {

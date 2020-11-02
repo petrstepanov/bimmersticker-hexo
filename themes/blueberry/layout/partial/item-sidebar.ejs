@@ -12,7 +12,9 @@
               <% if (product.additional_image_link) { %>
                 <% var data = {
                       images: (product.image_link + "," + product.additional_image_link).split(","),
-                      alt: product.description
+                      alt: product.description,
+                      width: 320,
+                      height: 320
                 }; %>
                 <%- carousel(data); %>
               <% } else { %>

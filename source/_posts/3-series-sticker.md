@@ -18,11 +18,11 @@ product_id:	ST_BMW_3SERIES
 The most iconic sporty BMW cars for drift and track.
 
 <!-- more -->
-<!-- {% asset_img content-image 3-series-sticker-for-bmw-cars.jpg 'BMW 3 series 3er vinyl sticker"BMW 3 series 3er vinyl sticker"' %} -->
+<!-- {% asset_img content-image 3-series-sticker-for-bmw-cars.jpg 500 500 'BMW 3 series 3er vinyl sticker"BMW 3 series 3er vinyl sticker"' %} -->
 
 A nicely designed and handcrafted '3 series' sticker. Sticker is designed to be applied on all 3 series models: from oldschool e21 and e30, e36, e46 and newer e90 with tourings e91, coupes e92, and cabrios e93. Latest generation of 3 series cars is presented by f30 sedan, f31 wagon and f34 hatchback bodies.
 
-{% asset_img content-image bmw-3-series-vinyl-sticker.jpg 'Vinyl sticker for BMW 3 series in different colors"Sticker for BMW 3 series available in different colors"' %}
+{% asset_img content-image bmw-3-series-vinyl-sticker.jpg 500 500 'Vinyl sticker for BMW 3 series in different colors"Sticker for BMW 3 series available in different colors"' %}
 
 Sticker is cut off a sheet of ORACAL® 651 adhesive glossy vinyl. Can be applied on a window, windshield and body paint as well.
 

@@ -20,7 +20,7 @@ HARD Tuned sticker is a nice addon for any modified car.
 
 Sticker is contour cut out of ORACAL® 651 adhesive glossy vinyl layers. Comes with a transfer tape and application instructions.
 
-{% asset_img content-image hard-tuned-sticker-for-car-window-or-body.jpg 'HARD Tuned vinyl sticker for lowered or modified cars"HARD Tuned vinyl sticker for lowered or modified cars"' %}
+{% asset_img content-image hard-tuned-sticker-for-car-window-or-body.jpg 3024 2178 'HARD Tuned vinyl sticker for lowered or modified cars"HARD Tuned vinyl sticker for lowered or modified cars"' %}
 {% blockquote %}
 Dope lettering bonds the typefaces together into an amazingly looking combo. Stickers are available in any quantity.
 {% endblockquote %}

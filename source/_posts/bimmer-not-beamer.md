@@ -17,13 +17,13 @@ product_id: ST_BMW_BNB
 They should spell it the right way. Bimmer.
 
 <!-- more -->
-<!-- {% asset_img content-image sticker-bimmer-not-beamer.jpg 'BMW bimmer not beamer window vinyl sticker"BMW bimmer not beamer window vinyl sticker"' %} -->
+<!-- {% asset_img content-image sticker-bimmer-not-beamer.jpg 500 500 'BMW bimmer not beamer window vinyl sticker"BMW bimmer not beamer window vinyl sticker"' %} -->
 
 They name it bimmer, beemer, beamer oh my god! How do we spell it right? This vinyl sticker was released in order to shed the light here.
 
 Originally the correct name for a bmw car is bimmer. BMW motorcycles go by beemers. Beamer is a rudimentary word that should never be used. Period.
 
-{% asset_img content-image holographic-bimmer-sticker.jpg 'Bimmer not beamer available in holographic colors"Holographic vinyl window sticker bimmer not beamer"' %}
+{% asset_img content-image holographic-bimmer-sticker.jpg 500 500 'Bimmer not beamer available in holographic colors"Holographic vinyl window sticker bimmer not beamer"' %}
 
 The goal of this sticker is to let people know how to pronounce and spell it right. Get the sticker to support the community.
 

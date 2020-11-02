@@ -15,13 +15,13 @@ product_id: ST_CAR_JDM
 Inspired by the Bosozoku street culture from 70s and 80s.
 
 <!-- more -->
-<!-- {% asset_img content-image stay-tuned-car-truck-sticker-rect.jpg 'Stay Tuned car truck window vinyl bumper sticker"Stay Tuned car truck window vinyl bumper sticker"' %} -->
+<!-- {% asset_img content-image stay-tuned-car-truck-sticker-rect.jpg 500 500 'Stay Tuned car truck window vinyl bumper sticker"Stay Tuned car truck window vinyl bumper sticker"' %} -->
 
 A set of vintage JDM (Japan Domestic Market) vintage stickers from 70s and 80s. Sticker pack contains 8 contour cut stickers. Stickers are laserjet printed on a adhesive outdoor vinyl with the overlaminate layer. Will not fade out on the sun.
 
 Stickers are great for indoor and outdoor use. Can be used on a laptop, car window, pretty much any smooth and clean surface. Durability period of the sticker is about 5 years. Please do not pressure wash.
 
-{% asset_img content-image buy-bosozoku-jdm-vintage-sticker-pack.jpg 'Oldschool vintage Bosozoku JDM sticker pack"Oldschool vintage Bosozoku JDM sticker pack"' %}
+{% asset_img content-image buy-bosozoku-jdm-vintage-sticker-pack.jpg 500 500 'Oldschool vintage Bosozoku JDM sticker pack"Oldschool vintage Bosozoku JDM sticker pack"' %}
 {% blockquote %}
 Original Japan designs from 70s and 80s
 {% endblockquote %}

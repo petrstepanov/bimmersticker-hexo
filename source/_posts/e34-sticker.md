@@ -18,7 +18,7 @@ product_id: ST_BMW_E34
 One of the most reliable 5 series cars ever built.
 
 <!-- more -->
-<!-- {% asset_img content-image bmw-e34-vinyl-sticker.jpg 'BMW e34 sport vinyl sticker"BMW e34 sport vinyl sticker"' %} -->
+<!-- {% asset_img content-image bmw-e34-vinyl-sticker.jpg 500 500 'BMW e34 sport vinyl sticker"BMW e34 sport vinyl sticker"' %} -->
 
 A vinyl sticker for the most iconic 5 series BMW car e34. Sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 
 

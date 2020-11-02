@@ -19,6 +19,6 @@ product_id: ST_BMW_E28
 Iconic five series shark looks even better with a sticker.
 
 <!-- more -->
-<!-- {% asset_img content-image e28-bmw-window-sticker.jpg 'BMW e28 vinyl sticker"BMW e28 vinyl sticker"' %} -->
+<!-- {% asset_img content-image e28-bmw-window-sticker.jpg 500 500 'BMW e28 vinyl sticker"BMW e28 vinyl sticker"' %} -->
 
 BMW e28 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

@@ -18,6 +18,6 @@ product_id: ST_BMW_E61
 Very rare nice and comfortable BMW wagon.
 
 <!-- more -->
-<!-- {% asset_img content-image bmw-e61-window-vinyl-sticker.jpg 'BMW e61 vinyl sport drift stance sticker"BMW e61 vinyl sport drift stance sticker"' %} -->
+<!-- {% asset_img content-image bmw-e61-window-vinyl-sticker.jpg 500 500 'BMW e61 vinyl sport drift stance sticker"BMW e61 vinyl sport drift stance sticker"' %} -->
 
 BMW e61 sticker is contour cut out of premium outdoor vinyls. It will never fade out on sun. Sticker comes with easy installation instructions. 

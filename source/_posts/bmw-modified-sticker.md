@@ -17,7 +17,7 @@ product_id: ST_BMW_MODIFIED
 BMW M Sticker for modified cars.
 
 <!-- more -->
-<!-- {% asset_img content-image bmw-m1-m3-m5-modified-sticker.jpg 'Modified sticker for bmw cars"Vinyl Modified sticker for your bmw"' %} -->
+<!-- {% asset_img content-image bmw-m1-m3-m5-modified-sticker.jpg 500 500 'Modified sticker for bmw cars"Vinyl Modified sticker for your bmw"' %} -->
 
 Originally BMW "M" division was originated to carry out the BMW's racing program. "M" letter here stands for word Motorsport. In bimmersticker.store we think about in a different perspective. Built not bought.
 
@@ -38,7 +38,7 @@ We encourage people to use the sticker on non-M cars too. Because Modified, not 
 
 Sticker comes in three different colors. Glossy white, holographic opal (lighter silver-ish color) and holographic blue (darker blue-ish) colors.
 
-{% asset_img content-image bmw-modified-sticker-holographic-colors.jpg 'BMW Modified sticker available in holographic colors"BMW Modified sticker available in holographic colors"' %}
+{% asset_img content-image bmw-modified-sticker-holographic-colors.jpg 500 500 'BMW Modified sticker available in holographic colors"BMW Modified sticker available in holographic colors"' %}
 
 {% blockquote %}
 Holographic colors. Top image shows holographic opal (lighter). Bottom one is holographic blue.
