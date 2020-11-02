@@ -7,7 +7,7 @@
     <% for (var item of relatedPosts){ %>
         <div class="col-6 col-sm-4 col-md-3 text-center">
             <a href="<%- get_pathname(item.url) %>">
-                <img width="150" height="150" src="<%- item.image_src %>" alt="<%- item.title %>" class="related-posts-image" />
+                <img width="150" height="150" src="<%- item.image_src %>" alt="<%- item.title %>" class="w-75 h-auto rounded-circle" />
                 <p class="mt-2"><%- item.title %></p>
             </a>
         </div>
