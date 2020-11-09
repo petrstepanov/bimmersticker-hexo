@@ -37,9 +37,9 @@ The deadline for cancelling an Order is 14 days from the date on which You recei
 
 In order to exercise Your right of cancellation, You must inform Us of your decision by means of a clear statement. You can inform us of your decision by:
 
-* By email: info@bimmersticker.store
+* By email: <a href="mailto:&#105;&#110;&#102;&#111;&#064;&#098;&#105;&#109;&#109;&#101;&#114;&#115;&#116;&#105;&#099;&#107;&#101;&#114;&#046;&#115;&#116;&#111;&#114;&#101;">&#105;&#110;&#102;&#111;&#064;&#098;&#105;&#109;&#109;&#101;&#114;&#115;&#116;&#105;&#099;&#107;&#101;&#114;&#046;&#115;&#116;&#111;&#114;&#101;</a>
 * By visiting this page on our website: https://bimmersticker.store/#contact
-* By phone number: 4194968602
+* By phone number: <a href="tel:+&#049;&#054;&#052;&#054;&#051;&#048;&#049;&#050;&#055;&#050;&#050;">+&#049;&#032;(&#054;&#052;&#054;)&#032;&#051;&#048;&#049;&#045;&#050;&#055;&#050;&#050;</a>
 * By mail: 318 Ravenel St, Columbia, SC 29205, United States
 
 We will reimburse You no later than 14 days from the day on which We receive the returned Goods. We will use the same means of payment as You used for the Order, and You will not incur any fees for such reimbursement.
@@ -61,11 +61,13 @@ We reserve the right to refuse returns of any merchandise that does not meet the
 ## Returning Goods
 
 You are responsible for the cost and risk of returning the Goods to Us. You should send the Goods at the following address:
-```
+
+<pre>Sticker Store LLC
 318 Ravenel St
 Columbia, SC 29205
 United States
-```
+</pre>
+
 We cannot be held responsible for Goods damaged or lost in return shipment. Therefore, We recommend an insured and trackable mail service. We are unable to issue a refund without actual receipt of the Goods or proof of received return delivery.
 
 ## Gifts
@@ -78,7 +80,7 @@ If the Goods weren’t marked as a gift when purchased, or the gift giver had th
 
 If you have any questions about our Returns and Refunds Policy, please contact us:
 
-* By email: info@bimmersticker.store
+* By email: <a href="mailto:&#105;&#110;&#102;&#111;&#064;&#098;&#105;&#109;&#109;&#101;&#114;&#115;&#116;&#105;&#099;&#107;&#101;&#114;&#046;&#115;&#116;&#111;&#114;&#101;">&#105;&#110;&#102;&#111;&#064;&#098;&#105;&#109;&#109;&#101;&#114;&#115;&#116;&#105;&#099;&#107;&#101;&#114;&#046;&#115;&#116;&#111;&#114;&#101;</a>
 * By visiting this page on our website: https://bimmersticker.store/#contact
-* By phone number: 4194968602
+* By phone number: <a href="tel:+&#049;&#054;&#052;&#054;&#051;&#048;&#049;&#050;&#055;&#050;&#050;">+&#049;&#032;(&#054;&#052;&#054;)&#032;&#051;&#048;&#049;&#045;&#050;&#055;&#050;&#050;</a>   
 * By mail: 318 Ravenel St, Columbia, SC 29205, United States
