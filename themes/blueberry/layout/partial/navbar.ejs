@@ -8,59 +8,9 @@
         <span class="d-none"><%- config.title %></span>
       <% } %>
     </a>
-    <div class="flex-grow-1 text-right">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <!-- <span class="navbar-toggler-icon"></span> -->
-        <span class="icon-md js--icon-open faster">
-          <%- partial('ionicons/ios-menu.svg') %>
-        </span>
-        <span class="icon-md js--icon-close faster" style="display: none">
-          <%- partial('ionicons/ios-close.svg') %>
-        </span>        
-      </button>
-    </div>
-    <% if(config.cart == "snipcart"){ %>  
-      <span class="d-md-none"><%-partial('partial/snipcart-cart-button') %></span>
-    <% } %>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item d-md-none d-lg-inline">
-          <a class="nav-link" href="/">All Stickers</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/custom-social-media-stickers/"><span class="d-md-none">Custom </span>Social <span class="d-md-none d-lg-inline">Media</span> Stickers</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/custom-windshield-banner-sun-strip/"><span class="d-md-none d-xl-inline">Custom </span>Windshield Banners</a>
-        </li>
-        <li class="nav-item nav-separator d-md-none">
-          <a class="nav-link" href="/#contact">Contact us</a>
-        </li>
-        <li class="nav-item d-md-none">
-          <a class="nav-link" href="<%- theme.googlereview_url %>">
-            <span class="icon-xs mr-1"><%- partial('ionicons/ios-star.svg') %></span>Review us on Google
-          </a>
-        </li>
-        <% if (theme.instagram_url){ %>
-          <li class="nav-item d-md-none">
-            <a class="nav-link" href="<%- theme.instagram_url %>" rel="me">
-              Follow us on Instagram
-            </a>
-          </li>
-        <% } %>
-        <% if (theme.facebook_url){ %>
-          <li class="nav-item d-md-none">
-            <a class="nav-link" href="<%- theme.facebook_url %>" rel="me">
-              Like us on Facebook
-            </a>
-          </li>
-        <% } %>
-        <% if(config.cart == "snipcart"){ %>
-          <li class="nav-item nav-item-for-cart d-none d-md-inline">
-              <%-partial('partial/snipcart-cart-button') %>
-          </li>  
-        <% } %>
-      </ul>
-    </div>
+    <!-- Grow element -->
+    <div class="flex-grow-1 text-right"></div>
+    <!-- Hamburger, cart and collapse elements -->
+    <%- partial('partial/navbar-hamburger-cart-collapse') %>
   </div>
 </nav>
