@@ -1,16 +1,20 @@
 [class^=icon-]{
   display: inline-block;
+
+  svg {
+    transform: translateY(-0.12em);
+  }
 }
 
 .icon-xs {
   svg {
-    height: 1rem;
+    height: 1.25rem;
   }
 }
 
 .icon-sm {
   svg {
-    height: 1.5rem;
+    height: 1.75rem;
   }
 }
 

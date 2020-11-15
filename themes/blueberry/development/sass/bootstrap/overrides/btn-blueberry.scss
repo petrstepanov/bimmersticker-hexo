@@ -2,15 +2,32 @@ button:focus {
   outline: none;
 }
 
+.btn-link {
+
+  svg path {
+    fill: $link-color;
+  }
+
+  &:hover {
+    svg path {
+      fill: $link-hover-color;
+    }    
+  }
+}
+
 .btn-blueberry {
   // font-family: $font-bold;
   font-weight: bolder; // Native font stack
-  
   border-radius: 50rem;
   box-shadow: 0 2px 4px 0 rgba($blue, 0.2);  
   // font-size: $font-size-12;
   // text-transform: uppercase;
   // letter-spacing: 1px;
+
+  // For icons centering
+  // display: inline-flex;
+  // align-items: center;
+
 
   &.btn-sm {
     padding: 0.25rem 0.7rem;
@@ -18,6 +35,16 @@ button:focus {
 
   &.btn-link {
     box-shadow: none;
+  }
+
+  svg path {
+    fill: white;
+  }
+
+  &:hover {
+    svg path {
+      fill: white;
+    }  
   }
 }
 

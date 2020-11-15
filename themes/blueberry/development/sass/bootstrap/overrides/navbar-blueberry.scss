@@ -137,6 +137,18 @@ body {
     padding-left: $nb-logo-size;
     color: $body-color;
     text-decoration: underline;
+   
+    svg path {
+      fill: $body-color;
+    }
+
+    &:hover {
+      color: $link-color;
+
+      svg path {
+        fill: $link-color;
+      }      
+    }
 
     &:last-child {
       .nav-link {
