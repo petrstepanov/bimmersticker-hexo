@@ -68,7 +68,16 @@
               <% } %>
             </dl>
             <% if (theme.email){ %>
-              <button type="button" class="btn btn-link px-0" href="#" data-toggle="modal" data-target="#customizeModal">Contact us for custom colors and sizes.</button>
+              <button type="button" class="btn btn-link px-0" href="#" data-toggle="modal" data-target="#customizeModal">
+                <span class="icon-xs d-none d-sm-inline"><%- partial('ionicons/ios-mail.svg') %></span>
+                Contact us for custom colors and sizes
+              </button>
+            <% } %>
+            <% if (theme.googlereview_url){ %>
+              <a href="<%- theme.googlereview_url %>" title="Leave us a review on Google" class="btn btn-link px-0">
+                <span class="icon-xs d-none d-sm-inline"><%- partial('ionicons/ios-star.svg') %></span>
+                Leave us a review on Google
+              </a>
             <% } %>
           </section>
         </div>

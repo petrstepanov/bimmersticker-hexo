@@ -173,7 +173,7 @@
 - id:	ST_BMW_MODIFIED
   title: "Modified BMW sticker"
   description: "Vinyl sticker for modified bmw card. Has M style stripes next to Modified label. Available in white and oil slick. Vinyl never fades out."
-  product_type: Stickers > Cars
+  product_type: Stickers > BMW
   link: https://bimmersticker.store/bmw-modified-sticker/
   image_link: https://bimmersticker.store/bmw-modified-sticker/bmw-modified-sticker-square.jpg
   price: "8.99 USD"
@@ -181,6 +181,17 @@
   shipping_weight: "0.025 lbs"
   material: "Oracal and TeckWrap vinyls"
   color: "white|oil slick"
+- id:	ST_BMW_ROUNDEL
+  title: "BMW of America roundel overlay sticker"
+  description: "An overlay sticker that transforms your BMW roundel into a BMW of America badge. Design features americal flag and bottom lettering."
+  product_type: Stickers > BMW
+  link: https://bimmersticker.store/bmw-of-america-roundel-sticker/
+  image_link: https://bimmersticker.store/bmw-of-america-roundel-sticker/bmw-of-america-roundel-badge-sticker-decal.jpg
+  price: "9.99 USD"
+  size: "82x82 mm|74x74 mm"
+  shipping_weight: "0.025 lbs"
+  material: "Oracal 651 vinyl"
+  color: "blue/white"
 - id:	ST_CAR_INLINE6
   title: "Inline Six Power sticker"
   description: "Sticker for cars with inline six cylinder engine displacement. "
