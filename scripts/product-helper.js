@@ -75,7 +75,10 @@ hexo.extend.helper.register('setUniqueIdFromVariations', function(product){
         }        
         if ("pattern" in product){
             product.id = product.id + '_' + product.pattern.toUpperCase().replace(' ','_');
-        }    
+        }
+        if ("size" in product){
+            product.id = product.id + '_' + product.size.toUpperCase().replace(' ','_');
+        }
     }
 });
 
