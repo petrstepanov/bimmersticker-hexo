@@ -14,11 +14,11 @@ body {
     padding-top: $nb-logo-size-biggest + 2*$nb-padding-md;
   }
 
-  &.is-post {
-    @include media-breakpoint-up(lg) {
-      padding-top: 0;
-    }
-  }
+  // &.is-post {
+  //   @include media-breakpoint-up(lg) {
+  //     padding-top: 0;
+  //   }
+  // }
 }
 
 
@@ -27,14 +27,12 @@ body {
 .navbar-blueberry {
   @extend .navbar-extend;
 
-  &.is-post {
+  .is-post & {
     @include media-breakpoint-up(lg) {
-      &.is-post {
-        position: relative;
-        top: auto;
-        right: auto;
-        left: auto;
-        z-index: auto;
+      .container {
+        padding-left: 5vw !important;
+        padding-right: 5vw !important;
+        max-width: none;
       }
     }
   }
