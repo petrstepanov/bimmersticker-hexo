@@ -3,7 +3,6 @@
     <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
     <% if (productIndex >= 0){ %>
       <% var product = Object.assign({}, site.data.product_list[productIndex]); %>
-      <%- partial('partial/item-navbar', {product: product}) %>
       <div class="container">
         <div class="row">
           <section class="col">
@@ -22,7 +21,7 @@
                 <img width="320" height="320" class="w-100" src="<%- get_pathname(product.image_link) %>" title="<%- product.title %>" alt="<%- product.description %>" />
               <% } %>
             </div>
-            <h1 class="mb-3 mt-lg-2 font-size-28 line-height-1"><%- post.title %></h1>
+            <h1 class="mb-3 mt-lg-4 font-size-28 line-height-1"><%- post.title %></h1>
             <% if (product.description){ %>
               <p class="my-3"><%- product.description %></p>
             <% } %>
@@ -68,7 +67,7 @@
               <% } %>
             </dl>
             <% if (theme.email){ %>
-              <button type="button" class="btn btn-link px-0" href="#" data-toggle="modal" data-target="#customizeModal">
+              <button type="button" class="btn btn-link px-0 text-left" href="#" data-toggle="modal" data-target="#customizeModal">
                 <span class="icon-xs"><%- partial('ionicons/ios-mail.svg') %></span>
                 Contact us for custom colors and sizes
               </button>
