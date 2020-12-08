@@ -1,6 +1,6 @@
 <!-- Menu hamburger -->
 <div class="text-right">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <!-- <span class="navbar-toggler-icon"></span> -->
     <span class="icon-md js--icon-open faster">
       <%- partial('ionicons/ios-menu.svg') %>
@@ -11,7 +11,7 @@
   </button>
 </div>
 <!-- Cart button -->
-<button class="btn ml-2 px-0 py-0 snipcart-checkout icon-md" aria-label="View Cart">
+<button class="btn ml-2 px-0 py-0 snipcart-checkout icon-md d-md-none" aria-label="View Cart">
   <%- partial('ionicons/ios-cart.svg') %>
   <span class="snipcart-items-count"></span>
 </button>
