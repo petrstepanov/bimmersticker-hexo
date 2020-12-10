@@ -1,9 +1,9 @@
 <%- partial('partial/navbar') %>
 
 <% 
-	// Select products with ids containing "ST_CAR_WINDSHIELD"
+	// Select products with ids containing "ST_CAR_W_"
 	var products = _.map(site.data.product_list, function(o) {
-		if (o.id.includes("ST_CAR_WINDSHIELD")){
+		if (o.id.includes("ST_CAR_W_")){
 			// Important - clone object because we will modify them later.
 			var clonedObj = Object.assign({}, o);
 			return clonedObj;
@@ -58,16 +58,16 @@
 										<%
 										var image = "";
 										switch(products[product].id){
-											case "ST_CAR_WINDSHIELD_BANNER":
+											case "ST_CAR_W_BANNER":
 												image = "/custom-windshield-banner-sun-strip/index/product-type-banner.jpg";
 												break;
-											case "ST_CAR_WINDSHIELD_SUNSTRIP":
+											case "ST_CAR_W_SUNSTRIP":
 												image = "/custom-windshield-banner-sun-strip/index/product-type-sunstrip.jpg";
 												break;
-											case "ST_CAR_WINDSHIELD_SUNSTRIP_CUT":
+											case "ST_CAR_W_SUNSTRIP_CUT":
 												image = "/custom-windshield-banner-sun-strip/index/product-type-cut-sunstrip.jpg";
 												break;
-											case "ST_CAR_WINDSHIELD_SUNSTRIP_TEXT":
+											case "ST_CAR_W_SUNSTRIP_TEXT":
 												image = "/custom-windshield-banner-sun-strip/index/product-type-text-sunstrip.jpg";
 												break;
 										}
@@ -85,22 +85,22 @@
 										<%
 											var description = "";
 											switch(products[product].id){
-												case "ST_CAR_WINDSHIELD_BANNER":
+												case "ST_CAR_W_BANNER":
 													description = "Place it on top or bottom."
 													break;
-												case "ST_CAR_WINDSHIELD_SUNSTRIP":
+												case "ST_CAR_W_SUNSTRIP":
 													description = "Cut it to fit the windshield."
 													break;
-												case "ST_CAR_WINDSHIELD_SUNSTRIP_CUT":
+												case "ST_CAR_W_SUNSTRIP_CUT":
 													description = "Text is cut out of the base layer."
 													break;
-												case "ST_CAR_WINDSHIELD_SUNSTRIP_TEXT":
+												case "ST_CAR_W_SUNSTRIP_TEXT":
 													description = "Text layer on top of the base strip."
 													break;
 											}
 										%>
 										<%- description %>
-										<br class="d-none d-lg-inline" />Size is <%- products[product].id == "ST_CAR_WINDSHIELD_BANNER" ? "about" : "" %> <%= products[product].size %></small>
+										<br class="d-none d-lg-inline" />Size is <%- products[product].id == "ST_CAR_W_BANNER" ? "about" : "" %> <%= products[product].size %></small>
 								</p>
 							</div>
 						</label>
@@ -242,7 +242,7 @@
 								<% } %>
 
 								<% // Select font %>
-								<% if (product.id != "ST_CAR_WINDSHIELD_SUNSTRIP"){ %>
+								<% if (product.id != "ST_CAR_W_SUNSTRIP"){ %>
 									data-item-custom<%- i %>-name="Font"
 									<% 
 										var fontNames = [];
@@ -255,8 +255,8 @@
 								<% } %>
 
 								<% // Select font color %>
-								<% if (product.id == "ST_CAR_WINDSHIELD_BANNER" ||
-									product.id == "ST_CAR_WINDSHIELD_SUNSTRIP_TEXT"){ %>
+								<% if (product.id == "ST_CAR_W_BANNER" ||
+									product.id == "ST_CAR_W_SUNSTRIP_TEXT"){ %>
 									data-item-custom<%- i %>-name="Text color"
 									<% 
 										var colorTextNames = [];
@@ -276,7 +276,7 @@
 								<% } %>
 
 								<% // Select background color %>
-								<% if (product.id != "ST_CAR_WINDSHIELD_BANNER"){ %>
+								<% if (product.id != "ST_CAR_W_BANNER"){ %>
 									data-item-custom<%- i %>-name="Base color"
 									<% 
 										var colorBackgroundNames = [];

@@ -20,6 +20,15 @@ BMW of America overlay sticker for the front and rear BMW badges (roundels). Des
 
 Sticker of 82 mm diameter fits most hood and trunk emblems. However, some BMW trunk emblems are 74 mm in diameter. If ordering for the trunk please make sure you order the correct size.
 
+<div class="row">
+    <div class="col-12 col-md-6">
+        <img class="content-image" src="bmw-of-america-overlay-sticker-for-roundel-badge-emblem.jpg" alt="BMW of America Sticker for front 82mm and rear 74mm BME emblems" width="1024" height="1024"/>
+    </div>
+    <div class="col-12 col-md-6">
+        <img class="content-image" src="american-flag-bmw-emblem-roundel-overlay-sticker.jpg" alt="American Flag BMW Emblem Overlay Sticker" width="1024" height="1024"/>    
+    </div>
+</div>
+
 Sticker is contour cut from premium outdoor vinyls. Will never fade out on the sun. Durability period of the sticker is estimated to be more than 5 years.
 
 Sticker comes with the transfer tape and application instructions. We ship wit USPS First Class Package the same day the payment is received. Tracking number is provided.

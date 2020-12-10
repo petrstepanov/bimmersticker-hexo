@@ -84,7 +84,9 @@ hexo.extend.helper.register('setUniqueIdFromVariations', function(product){
 
 hexo.extend.helper.register('setExtraProductAttributes', function(product){
     product.mpn = product.id.split('_').join('');
-    product.sku = product.id.split('_').join('');
+
+    // Note: Google does not need the "sku". It matches feed's "id" with schema's "sku"
+    // product.sku = product.id;
     product.brand = 'Bimmer Sticker Store';
     product.condition = 'new';
     product.availability = 'in stock';

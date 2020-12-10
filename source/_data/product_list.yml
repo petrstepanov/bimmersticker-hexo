@@ -13,7 +13,7 @@
 # SKU: Stock Keeping Unit - numbers and letters (can be id without dashes)
 # MPN: Manufacturer Part Number - numbers and letters (can be id without dashes)
 # GTIN: Global Trade Item Number
-- id:	ST_CAR_WINDSHIELD_BANNER
+- id:	ST_CAR_W_BANNER
   title: "Custom Windshield Banner"
   description: "Custom windshield banner with your own text. Will fit any car or truck. Variety of fonts and colors. Made from premium outdoor vinyls."
   product_type: Stickers > Banners
@@ -25,7 +25,7 @@
   material: "Oracal and TeckWrap vinyls"
   color: "white|matte black|black|mint|orange|pink|red|silver[+9.99]|gold[+9.99]|oil slick[+9.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your banner text"
-- id:	ST_CAR_WINDSHIELD_SUNSTRIP
+- id:	ST_CAR_W_SUNSTRIP
   title: "Plain Sun Strip"
   description: "Custom windshield banner (sun strip) for any car or truck. Available in variety of colors. Made from premium outdoor vinyls."
   product_type: Stickers > Banners
@@ -36,7 +36,7 @@
   shipping_weight: "0.375 lbs"
   material: "Oracal 651 or TeckWrap vinyls"
   color: "matte black|black|mint|orange|white|pink|red|oil slick[+14.99]" # for Google only. Real app takes these from colors_strip.yml
-- id:	ST_CAR_WINDSHIELD_SUNSTRIP_CUT
+- id:	ST_CAR_W_SUNSTRIP_CUT
   title: "Custom Reverse Cut Sun Strip"
   description: "Windshield sun strip (banner) with custom text. Will fit any car or truck. Variety of fonts and colors. Text is cut out of the base vinyl layer. Made from premium outdoor vinyls."
   product_type: Stickers > Banners
@@ -48,7 +48,7 @@
   material: "Oracal 651 and TeckWrap vinyls"
   color: "matte black|black|mint|orange|white|pink|red|oil slick[+9.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your sun strip text"
-- id:	ST_CAR_WINDSHIELD_SUNSTRIP_TEXT
+- id:	ST_CAR_W_SUNSTRIP_TEXT
   title: "Custom Text Sun Strip"
   description: "Windshield sun strip (banner) with custom text. Will fit any car or truck. Variety of fonts and colors. Text layer is overlaid on top of the base background. Made from premium outdoor vinyls."
   product_type: Stickers > Banners
