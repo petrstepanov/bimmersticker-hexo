@@ -37,10 +37,10 @@ function _cacheDom(element) {
     DOM.$inputQuantity = DOM.$el.find('input[name=quantity]');
 
     // Snipcart buttons
-    DOM.$btnBuyBanner = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_WINDSHIELD_BANNER]');
-    DOM.$btnBuySunStrip = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_WINDSHIELD_SUNSTRIP]');
-    DOM.$btnBuyCutSunStrip = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_WINDSHIELD_SUNSTRIP_CUT]');
-    DOM.$btnBuyTextSunStrip = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_WINDSHIELD_SUNSTRIP_TEXT]');
+    DOM.$btnBuyBanner = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_W_BANNER]');
+    DOM.$btnBuySunStrip = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_W_SUNSTRIP]');
+    DOM.$btnBuyCutSunStrip = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_W_SUNSTRIP_CUT]');
+    DOM.$btnBuyTextSunStrip = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_W_SUNSTRIP_TEXT]');
 }
 
 function _saveData(){
@@ -140,16 +140,16 @@ function _bindEvents(element) {
         event.preventDefault();
         
         switch (DOM.$radioProduct.filter(":checked").val()) {
-            case 'ST_CAR_WINDSHIELD_BANNER':
+            case 'ST_CAR_W_BANNER':
                 DOM.$btnBuyBanner.click();
                 break;
-            case 'ST_CAR_WINDSHIELD_SUNSTRIP':
+            case 'ST_CAR_W_SUNSTRIP':
                 DOM.$btnBuySunStrip.click();
                 break;
-            case 'ST_CAR_WINDSHIELD_SUNSTRIP_CUT':
+            case 'ST_CAR_W_SUNSTRIP_CUT':
                 DOM.$btnBuyCutSunStrip.click();
                 break;
-            case 'ST_CAR_WINDSHIELD_SUNSTRIP_TEXT':
+            case 'ST_CAR_W_SUNSTRIP_TEXT':
                 DOM.$btnBuyTextSunStrip.click();
                 break;
         }
@@ -162,25 +162,25 @@ function _getBannerText() {
 
 function _showHideFormContainers(product) {
     switch (product) {
-        case 'ST_CAR_WINDSHIELD_BANNER':
+        case 'ST_CAR_W_BANNER':
             DOM.$input.prop("disabled", false);
             DOM.$fontContainer.slideDown();
             DOM.$textColorContainer.slideDown();
             DOM.$baseColorContainer.slideUp();
             break;
-        case 'ST_CAR_WINDSHIELD_SUNSTRIP':
+        case 'ST_CAR_W_SUNSTRIP':
             DOM.$input.prop("disabled", true);
             DOM.$fontContainer.slideUp();
             DOM.$textColorContainer.slideUp();
             DOM.$baseColorContainer.slideDown();
             break;
-        case 'ST_CAR_WINDSHIELD_SUNSTRIP_CUT':
+        case 'ST_CAR_W_SUNSTRIP_CUT':
             DOM.$input.prop("disabled", false);
             DOM.$fontContainer.slideDown();
             DOM.$textColorContainer.slideUp();
             DOM.$baseColorContainer.slideDown();
             break;
-        case 'ST_CAR_WINDSHIELD_SUNSTRIP_TEXT':
+        case 'ST_CAR_W_SUNSTRIP_TEXT':
             DOM.$input.prop("disabled", false);
             DOM.$fontContainer.slideDown();
             DOM.$textColorContainer.slideDown();
@@ -195,26 +195,26 @@ function _getSelectedSwatch(radioName) {
 
 function _showHidePreviewElements(product) {
     switch (product) {
-        case 'ST_CAR_WINDSHIELD_BANNER':
+        case 'ST_CAR_W_BANNER':
             DOM.$banner.show();
             DOM.$sunstrip.hide();
             DOM.$sunstripText.hide();
             DOM.$textWidthNotice.show();
             break;
-        case 'ST_CAR_WINDSHIELD_SUNSTRIP':
+        case 'ST_CAR_W_SUNSTRIP':
             DOM.$banner.hide();
             DOM.$sunstrip.show();
             DOM.$sunstripText.hide();
             DOM.$textWidthNotice.hide();
             break;
-        case 'ST_CAR_WINDSHIELD_SUNSTRIP_CUT':
+        case 'ST_CAR_W_SUNSTRIP_CUT':
             DOM.$banner.hide();
             DOM.$sunstrip.show();
             DOM.$sunstripText.show();
             DOM.$sunstripText.css('background-color', '#6C6C6C');
             DOM.$textWidthNotice.show();
             break;
-        case 'ST_CAR_WINDSHIELD_SUNSTRIP_TEXT':
+        case 'ST_CAR_W_SUNSTRIP_TEXT':
             DOM.$banner.hide();
             DOM.$sunstrip.show();
             DOM.$sunstripText.show();
@@ -227,19 +227,19 @@ function _showHidePreviewElements(product) {
 
 function _enableDisableRadioButtons(product) {
     switch (product) {
-        case 'ST_CAR_WINDSHIELD_BANNER':
+        case 'ST_CAR_W_BANNER':
             DOM.$radioTextColor.prop("disabled", false);
             DOM.$radioBaseColor.prop("disabled", true);
             break;
-        case 'ST_CAR_WINDSHIELD_SUNSTRIP':
+        case 'ST_CAR_W_SUNSTRIP':
             DOM.$radioTextColor.prop("disabled", true);
             DOM.$radioBaseColor.prop("disabled", false);
             break;
-        case 'ST_CAR_WINDSHIELD_SUNSTRIP_CUT':
+        case 'ST_CAR_W_SUNSTRIP_CUT':
             DOM.$radioTextColor.prop("disabled", true);
             DOM.$radioBaseColor.prop("disabled", false);
             break;
-        case 'ST_CAR_WINDSHIELD_SUNSTRIP_TEXT':
+        case 'ST_CAR_W_SUNSTRIP_TEXT':
             DOM.$radioTextColor.prop("disabled", false);
             DOM.$radioBaseColor.prop("disabled", false);
             break;
