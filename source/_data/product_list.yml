@@ -145,18 +145,6 @@
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
   color: "blue/white|red/white"
-- id:	ST_BMW_GIRLS
-  title: "Bmw Girls Make It Better sticker"
-  description: "Sticker designed for girls that drive bmw cars or maybe just like them. Made of three premium vinyl sheets. pink, balck and white."
-  product_type: Stickers > BMW
-  link: https://bimmersticker.store/bmw-girls-sticker/
-  image_link: https://bimmersticker.store/bmw-girls-sticker/sticker-bmw-girls-make-it-better-square.jpg
-  price: "9.99 USD"
-  size: "4x3 in"
-  shipping_weight: "0.025 lbs"
-  material: "Oracal 651 vinyl"
-  pattern: "pink heart|black heart"
-  color: "pink/black/white"
 - id:	ST_BMW_MODEL
   title: "BMW model sticker"
   description: "Custom sticker for your BMW model. Designed like instagram-style popup. Contour cut from two vinyl sheets. Vinyl never fades out."
@@ -170,17 +158,6 @@
   color: "red/white"
   customization_name: "Type your BMW model"
   customization_placeholder: "328i"
-- id:	ST_BMW_MODIFIED
-  title: "Modified BMW sticker"
-  description: "Vinyl sticker for modified bmw card. Has M style stripes next to Modified label. Available in white and oil slick. Vinyl never fades out."
-  product_type: Stickers > BMW
-  link: https://bimmersticker.store/bmw-modified-sticker/
-  image_link: https://bimmersticker.store/bmw-modified-sticker/bmw-modified-sticker-square.jpg
-  price: "8.99 USD"
-  size: "10x1.5 in"
-  shipping_weight: "0.025 lbs"
-  material: "Oracal and TeckWrap vinyls"
-  color: "white|oil slick"
 - id:	ST_BMW_ROUNDEL
   title: "BMW of America roundel overlay sticker"
   description: "An overlay sticker that transforms your BMW roundel into a BMW of America badge. Design features americal flag and bottom lettering."
