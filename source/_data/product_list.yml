@@ -133,18 +133,18 @@
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
   color: "blue/white"
-- id:	ST_BMW_ONELOVE
-  title: "One Love BMW sticker"
-  description: "A neat sticker with nice lettering made for all BMW fans and enthusiasts. Made of twoo layered premium vinyl sheets. Available in red and blue."
+- id:	ST_BMW_GIRLS
+  title: "Bmw Girls Make It Better sticker"
+  description: "Sticker designed for girls that drive bmw cars or maybe just like them. Made of three premium vinyl sheets. pink, balck and white."
   product_type: Stickers > BMW
-  link: https://bimmersticker.store/one-love-bmw-sticker/
-  image_link: https://bimmersticker.store/one-love-bmw-sticker/one-love-bmw-sticker-3series-5series-x3-x5-x6-blue.jpg
-  additional_image_link: https://bimmersticker.store/one-love-bmw-sticker/one-love-bmw-sticker-3series-5series-x3-x5-x6-red.jpg
+  link: https://bimmersticker.store/bmw-girls-sticker/
+  image_link: https://bimmersticker.store/bmw-girls-sticker/sticker-bmw-girls-make-it-better-square.jpg
   price: "9.99 USD"
   size: "4x3 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
-  color: "blue/white|red/white"
+  pattern: "pink heart|black heart"
+  color: "pink/black/white"
 - id:	ST_BMW_MODEL
   title: "BMW model sticker"
   description: "Custom sticker for your BMW model. Designed like instagram-style popup. Contour cut from two vinyl sheets. Vinyl never fades out."
