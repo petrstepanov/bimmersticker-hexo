@@ -19,9 +19,12 @@ greycliff:
 quincy:
   name: "Quincy Black"
   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/144395/50/14
-heritage:
-  name: Heritage
-  url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/908638/8/14
+#heritage:
+#  name: Heritage
+#  url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/908638/8/14
+plicata:
+  name: "Plicata"
+  url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/940855/0/14
 # bison:
 #   name: Bison 
 #   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/2361604/4/9
