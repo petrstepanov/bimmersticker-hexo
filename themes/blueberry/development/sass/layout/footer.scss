@@ -46,18 +46,20 @@ footer {
     }
   }
 
-  nav {
-    a {
-      // font-family: $font-bold;
-      font-weight: bolder; // Native font stack
-      
-      color: white;
-      white-space: nowrap;
+  a {
+    // font-family: $font-bold;
+    font-weight: bolder; // Native font stack
+    
+    color: white;
+    white-space: nowrap;
 
-      svg,
-      svg * {
-        fill: white;
-      }
+    svg,
+    svg * {
+      fill: white;
     }
+  }
+
+  .payment-icon {
+    filter: invert(100%);
   }
 }

@@ -7,37 +7,43 @@
 }
 
 .icon-xs {
-  svg {
+  svg, img {
     height: 1.25rem;
+    width: auto;    
   }
 }
 
 .icon-sm {
-  svg {
+  svg, img {
     height: 1.75rem;
+    width: auto;    
   }
 }
 
 .icon-md {
-  svg {
+  svg, img {
     height: 2rem;
+    width: auto;
   }
 }
 
 .icon-lg {
-  svg {
+  svg, img {
     height: 2.5rem;
+    width: auto;    
   }
 }
 
 .icon-xl {
-  svg {
+  svg, img {
     height: 3rem;
+    width: auto; 
   }
 }
 
 .icon-xxl {
-  svg {
+  svg, img {
     height: 4rem;
+    width: auto; 
   }
 }
