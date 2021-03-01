@@ -37,7 +37,7 @@ hexo.extend.generator.register('orders-generator', function (locals) {
 
         // Assignee
         if (i <= 2444) order.assignee = 'Petr';                        // I made up to 2444
-        if (i > 2444) order.assignee = 'Sara';                         // Sara started working on 2445
+        if (i > 2444) order.assignee = 'Sarah';                         // Sara started working on 2445
         if (antonOrders.indexOf(i) >= 0) order.assignee = 'Anton';     // Anton helped with some orders
         if (myOrders.indexOf(i) >= 0) order.assignee = 'Petr';         // Some I make
 
