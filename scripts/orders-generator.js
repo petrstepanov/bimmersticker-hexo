@@ -21,7 +21,7 @@ hexo.extend.generator.register('orders-generator', function (locals) {
     let firstOrderIndex = 1583;
     let lastOrderIndex = 5000;
 
-    let myOrders = [3092, 3091, 3090, 3089, 3088, 3087, 3086, 3085, 3084, 3083, 3082,
+    let heatherOrders = [3104, 3103, 3102, 3101, 3100, 3099, 3092, 3091, 3090, 3089, 3088, 3087, 3086, 3085, 3084, 3083, 3082,
                     3081, 3080, 3079, 3078, 3077, 3076, 3075, 3074,
                     3073, 3072, 3071, 3070, 3069, 3068, 3067, 3056,
                     3046, 3039, 3028, 3017, 3016, 3015, 3014, 2997,
@@ -58,7 +58,7 @@ hexo.extend.generator.register('orders-generator', function (locals) {
         if (i <= 2444) order.assignee = 'Petr';                        // I made up to 2444
         if (i > 2444) order.assignee = 'Sarah';                         // Sara started working on 2445
         if (antonOrders.indexOf(i) >= 0) order.assignee = 'Anton';     // Anton helped with some orders
-        if (myOrders.indexOf(i) >= 0) order.assignee = 'Petr';         // Some I make
+        if (heatherOrders.indexOf(i) >= 0) order.assignee = 'Petr';         // Some I make
 
         // Redo & Reship
         if (redoReshipOrders.indexOf(i) >= 0){
