@@ -44,7 +44,7 @@ hexo.extend.generator.register('orders-generator', function (locals) {
                     2371, 2365, 2364, 2362, 2360];
 
     let redoReshipOrders = [3082, 3066, 3042, 3038, 3010, 2878, 2879, 3035, 2892, 2829, 2744, 2741, 2771, 2673, 2507, 2509];
-    let reshipOrders = [2997, 2820, 2755, 2444, 2439];
+    let reshipOrders = [3049, 2997, 2820, 2755, 2444, 2439];
 
     for (var i = firstOrderIndex; i < lastOrderIndex; i++){
         var order = {
