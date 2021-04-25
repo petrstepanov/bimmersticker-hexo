@@ -41,7 +41,7 @@ var FormAjaxSubmit = function(){
         // See: https://docs.netlify.com/forms/setup/#file-uploads
         // This was not tested yet. Because Netlify has 10 MB monthly upload limit!
         options.contentType = 'multipart/form-data';
-        let formData = new FormData(DOM.$form[0]);
+        var formData = new FormData(DOM.$form[0]);
         data = new URLSearchParams(formData).toString();
       }
 
@@ -65,19 +65,20 @@ var FormAjaxSubmit = function(){
             return;
           }
         }
-
-        // data-success-notofication overrides success server message
-        if (options.successNotification){
-          notificationCenter.notify('success', options.successNotification);
-        } else if (message){
-          notificationCenter.notify('success', message);
+        else {
+          // data-success-notofication overrides success server message
+          if (options.successNotification){
+            notificationCenter.notify('success', options.successNotification);
+          } else if (message){
+            notificationCenter.notify('success', message);
+          }
+          // Throw event
+          if (options.successEvent){
+            events.emit(options.successEvent, data);
+          }
+          // Reset form fields
+          DOM.$form.trigger('reset');          
         }
-        // Throw event
-        if (options.successEvent){
-          events.emit(options.successEvent, data);
-        }
-        // Reset form fields
-        DOM.$form.trigger('reset');          
       })
       .fail(function(data) {
         notificationCenter.notify('error', 'Unknown error occured!');
