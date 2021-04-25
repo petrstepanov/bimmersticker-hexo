@@ -45,15 +45,8 @@ var FormAjaxSubmit = function(){
         data = new URLSearchParams(formData).toString();
       }
 
-      // Do not provirde dataType in ajax() because it has intelligent guess!
-      // dataType (default: Intelligent Guess (xml, json, script, or html)
-
-      // Unfortunately for Mailchimp we need jsonp, therefore manually provdedata type
-      // Determine dataType
-      if (DOM.$form.attr('action').includes('subscribe')){
-        options.dataType = 'json';
-      }
-
+      // For Mailchimp we need jsonp, therefore MAilchimp form has data-data-type="json"
+      
       $.ajax({
         type:        DOM.$form.attr('method'),
         url:         DOM.$form.attr('action'),
