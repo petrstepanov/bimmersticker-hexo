@@ -26,6 +26,9 @@ var FormAjaxSubmit = function(){
 
       // All forms with cross-domain actions are posted via jsonp (FormCarry, Netlify, Mailchimp)
       // Try success: callback?
+
+
+
       $.ajax({
         type:     DOM.$form.attr('method'),
         url:      DOM.$form.attr('action'),
@@ -56,10 +59,15 @@ var FormAjaxSubmit = function(){
           // Reset form fields
           DOM.$form.trigger('reset');          
         }
+      })
+      .fail(function() {
+        alert( "error" );
+      })
+      .always(function() {
         // Enable submit button
         DOM.$submitButton.prop("disabled", false);
         DOM.$submitButton.removeClass("loading");
-      });
+      });      
     });
   }
 
