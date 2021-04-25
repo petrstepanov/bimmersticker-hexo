@@ -270,7 +270,7 @@ var FormAjaxSubmit = function(){
   var DOM = {};
   var options = {
     // dataType: 'json', // default for FormCarry, Mailchimp; Netlify returns HTML now
-    // contentType: 'application/x-www-form-urlencoded'
+    contentType: 'application/x-www-form-urlencoded'
   };
 
   function _cacheDom(element) {
@@ -295,13 +295,25 @@ var FormAjaxSubmit = function(){
       // Default contentType in jQuery's ajax() is 'application/x-www-form-urlencoded; charset=UTF-8'
       // (see ajax() manual). Terefore we dont have to specify it.
 
+      // By default we use jQuery's serialize() to create URL-encoded form string
+      var data = DOM.$form.serialize();
+
+      // However, if form contains file field, it must be 
+      if (DOM.$form.find('file').length){
+        // See: https://docs.netlify.com/forms/setup/#file-uploads
+        options.contentType = 'multipart/form-data';
+        let formData = new FormData(DOM.$form[0]);
+        data = new URLSearchParams(formData).toString();
+      }
+
+      // Do not provirde dataType in ajax() because it has intelligent guess!
+      // dataType (default: Intelligent Guess (xml, json, script, or html)
 
       $.ajax({
         type:        DOM.$form.attr('method'),
         url:         DOM.$form.attr('action'),
         data:        DOM.$form.serialize(),
-        // dataType:    options.dataType, dataType (default: Intelligent Guess (xml, json, script, or html)
-        // contentType: options.contentType
+        contentType: options.contentType
       }).done(function(data){
         // Mailchimp responds with data.result = 'error' and data.msg="..."
         // FormCarry responds with Object { code: 200, status: "success", title: "Thank You!", message: "We received your submission", referer: "http://localhost:4000/" }
