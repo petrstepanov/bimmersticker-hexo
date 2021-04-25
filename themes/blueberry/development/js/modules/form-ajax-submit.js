@@ -7,7 +7,7 @@ var notificationCenter = require('./notification-center');
 var FormAjaxSubmit = function(){
   var DOM = {};
   var options = {
-    // dataType: 'json', // default for FormCarry, Mailchimp; Netlify returns HTML now
+    dataType: 'html', // default for Netlify, but FormCarry and Mailchimp need 'json' (jsonp);
     contentType: 'application/x-www-form-urlencoded'
   };
 
@@ -47,10 +47,18 @@ var FormAjaxSubmit = function(){
 
       // Do not provirde dataType in ajax() because it has intelligent guess!
       // dataType (default: Intelligent Guess (xml, json, script, or html)
+
+      // Unfortunately for Mailchimp we need jsonp, therefore manually provdedata type
+      // Determine dataType
+      if (DOM.$form.attr('action').includes('subscribe')){
+        options.dataType = 'json';
+      }
+
       $.ajax({
         type:        DOM.$form.attr('method'),
         url:         DOM.$form.attr('action'),
         data:        DOM.$form.serialize(),
+        dataType:    options.dataType,
         contentType: options.contentType
       }).done(function(data){
         // Mailchimp responds with data.result = 'error' and data.msg="..."
