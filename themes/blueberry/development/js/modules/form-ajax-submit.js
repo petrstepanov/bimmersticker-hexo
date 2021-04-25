@@ -7,7 +7,8 @@ var notificationCenter = require('./notification-center');
 var FormAjaxSubmit = function(){
   var DOM = {};
   var options = {
-    dataType: 'json' // default for FormCarry, Netlify, Mailchimp
+    // dataType: 'json', // default for FormCarry, Mailchimp; Netlify returns HTML now
+    contentType: 'application/x-www-form-urlencoded'
   };
 
   function _cacheDom(element) {
@@ -26,20 +27,42 @@ var FormAjaxSubmit = function(){
 
       // All forms with cross-domain actions are posted via jsonp (FormCarry, Netlify, Mailchimp)
       // Try success: callback?
+
+      // However, for forms with files we need to change it to "multipart/form-data"
+
+      // Default contentType in jQuery's ajax() is 'application/x-www-form-urlencoded; charset=UTF-8'
+      // (see ajax() manual). Terefore we dont have to specify it.
+
+      // By default we use jQuery's serialize() to create URL-encoded form string
+      var data = DOM.$form.serialize();
+
+      // However, if form contains file field, it must be 
+      if (DOM.$form.find('file').length){
+        // See: https://docs.netlify.com/forms/setup/#file-uploads
+        // This was not tested yet. Because Netlify has 10 MB monthly upload limit!
+        options.contentType = 'multipart/form-data';
+        var formData = new FormData(DOM.$form[0]);
+        data = new URLSearchParams(formData).toString();
+      }
+
+      // Do not provirde dataType in ajax() because it has intelligent guess!
+      // dataType (default: Intelligent Guess (xml, json, script, or html)
       $.ajax({
-        type:     DOM.$form.attr('method'),
-        url:      DOM.$form.attr('action'),
-        data:     DOM.$form.serialize(),
-        dataType: options.dataType
+        type:        DOM.$form.attr('method'),
+        url:         DOM.$form.attr('action'),
+        data:        DOM.$form.serialize(),
+        contentType: options.contentType
       }).done(function(data){
         // Mailchimp responds with data.result = 'error' and data.msg="..."
         // FormCarry responds with Object { code: 200, status: "success", title: "Thank You!", message: "We received your submission", referer: "http://localhost:4000/" }
+        // Netlify responds with HTML...
         var error = data.result == 'error' || data.status == 'error';
         var message = data.msg || data.message;
 
         if (error){
           if (data.msg){
             notificationCenter.notify('error', message);
+            return;
           }
         }
         else {
@@ -56,10 +79,15 @@ var FormAjaxSubmit = function(){
           // Reset form fields
           DOM.$form.trigger('reset');          
         }
+      })
+      .fail(function(data) {
+        notificationCenter.notify('error', 'Unknown error occured!');
+      })
+      .always(function() {
         // Enable submit button
         DOM.$submitButton.prop("disabled", false);
         DOM.$submitButton.removeClass("loading");
-      });
+      });      
     });
   }
 
