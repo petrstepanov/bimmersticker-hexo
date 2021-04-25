@@ -269,7 +269,8 @@ var notificationCenter = require('./notification-center');
 var FormAjaxSubmit = function(){
   var DOM = {};
   var options = {
-    dataType: 'json' // default for FormCarry, Netlify, Mailchimp
+    dataType: 'json', // default for FormCarry, Netlify, Mailchimp
+    contentType: 'application/x-www-form-urlencoded'
   };
 
   function _cacheDom(element) {
@@ -297,7 +298,8 @@ var FormAjaxSubmit = function(){
         type:     DOM.$form.attr('method'),
         url:      DOM.$form.attr('action'),
         data:     DOM.$form.serialize(),
-        dataType: options.dataType
+        dataType: options.dataType,
+        contentType: options.contentType
       }).done(function(data){
         // Mailchimp responds with data.result = 'error' and data.msg="..."
         // FormCarry responds with Object { code: 200, status: "success", title: "Thank You!", message: "We received your submission", referer: "http://localhost:4000/" }
@@ -324,7 +326,7 @@ var FormAjaxSubmit = function(){
           DOM.$form.trigger('reset');          
         }
       })
-      .fail(function() {
+      .fail(function(data) {
         alert( "error" );
       })
       .always(function() {
