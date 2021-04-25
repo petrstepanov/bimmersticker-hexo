@@ -307,8 +307,8 @@ var FormAjaxSubmit = function(){
         data = new URLSearchParams(formData).toString();
       }
 
-      // For Mailchimp we need jsonp, therefore MAilchimp form has data-data-type="json"
-      
+      // For Mailchimp we need jsonp, therefore Mailchimp form has data-data-type="json"
+
       $.ajax({
         type:        DOM.$form.attr('method'),
         url:         DOM.$form.attr('action'),
