@@ -32,6 +32,21 @@ var FormAjaxSubmit = function(){
       // (see ajax() manual). Terefore we dont have to specify it.
       // However, for forms with files we need to change it to "multipart/form-data"
 
+      // New Netlify forms docs require FormData?
+      // Netlify forms do not have "action" attribute
+      let formData = new FormData(DOM.$form[0])
+      fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": options.contentType },
+        body: new URLSearchParams(formData).toString()
+      }).then(function(){
+        notificationCenter.notify('success', options.successNotification);
+      })
+      .catch(function(error){
+        notificationCenter.notify('error', error);
+      })
+
+        /*
       $.ajax({
         type:     DOM.$form.attr('method'),
         url:      DOM.$form.attr('action'),
@@ -72,6 +87,7 @@ var FormAjaxSubmit = function(){
         DOM.$submitButton.prop("disabled", false);
         DOM.$submitButton.removeClass("loading");
       });      
+      */
     });
   }
 
