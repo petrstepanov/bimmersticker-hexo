@@ -27,7 +27,9 @@ var FormAjaxSubmit = function(){
       // All forms with cross-domain actions are posted via jsonp (FormCarry, Netlify, Mailchimp)
       // Try success: callback?
 
-
+      // Default contentType in jQuery's ajax() is 'application/x-www-form-urlencoded; charset=UTF-8'
+      // (see ajax() manual). Terefore we dont have to specify it.
+      // However, for forms with files we need to change it to "multipart/form-data"
 
       $.ajax({
         type:     DOM.$form.attr('method'),
