@@ -301,6 +301,7 @@ var FormAjaxSubmit = function(){
       // However, if form contains file field, it must be 
       if (DOM.$form.find('file').length){
         // See: https://docs.netlify.com/forms/setup/#file-uploads
+        // This was not tested yet. Because Netlify has 10 MB monthly upload limit!
         options.contentType = 'multipart/form-data';
         let formData = new FormData(DOM.$form[0]);
         data = new URLSearchParams(formData).toString();
@@ -308,7 +309,6 @@ var FormAjaxSubmit = function(){
 
       // Do not provirde dataType in ajax() because it has intelligent guess!
       // dataType (default: Intelligent Guess (xml, json, script, or html)
-
       $.ajax({
         type:        DOM.$form.attr('method'),
         url:         DOM.$form.attr('action'),
@@ -317,31 +317,32 @@ var FormAjaxSubmit = function(){
       }).done(function(data){
         // Mailchimp responds with data.result = 'error' and data.msg="..."
         // FormCarry responds with Object { code: 200, status: "success", title: "Thank You!", message: "We received your submission", referer: "http://localhost:4000/" }
+        // Netlify responds with HTML...
         var error = data.result == 'error' || data.status == 'error';
         var message = data.msg || data.message;
 
         if (error){
           if (data.msg){
             notificationCenter.notify('error', message);
+            return;
           }
         }
-        else {
-          // data-success-notofication overrides success server message
-          if (options.successNotification){
-            notificationCenter.notify('success', options.successNotification);
-          } else if (message){
-            notificationCenter.notify('success', message);
-          }
-          // Throw event
-          if (options.successEvent){
-            events.emit(options.successEvent, data);
-          }
-          // Reset form fields
-          DOM.$form.trigger('reset');          
+
+        // data-success-notofication overrides success server message
+        if (options.successNotification){
+          notificationCenter.notify('success', options.successNotification);
+        } else if (message){
+          notificationCenter.notify('success', message);
         }
+        // Throw event
+        if (options.successEvent){
+          events.emit(options.successEvent, data);
+        }
+        // Reset form fields
+        DOM.$form.trigger('reset');          
       })
       .fail(function(data) {
-        alert( "error" );
+        notificationCenter.notify('error', 'Unknown error occured!');
       })
       .always(function() {
         // Enable submit button
