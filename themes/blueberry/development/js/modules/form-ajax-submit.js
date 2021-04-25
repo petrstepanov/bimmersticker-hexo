@@ -50,7 +50,7 @@ var FormAjaxSubmit = function(){
 
       // Unfortunately for Mailchimp we need jsonp, therefore manually provdedata type
       // Determine dataType
-      if (DOM.$form.attr('action').includes('subscribe')){
+      if (DOM.$form.attr('action') !== 'undefined' && DOM.$form.attr('action').includes('subscribe')){
         options.dataType = 'json';
       }
 
