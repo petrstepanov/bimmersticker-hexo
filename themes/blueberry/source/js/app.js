@@ -269,8 +269,8 @@ var notificationCenter = require('./notification-center');
 var FormAjaxSubmit = function(){
   var DOM = {};
   var options = {
-    dataType: 'json', // default for FormCarry, Netlify, Mailchimp
-    contentType: 'application/x-www-form-urlencoded'
+    // dataType: 'json', // default for FormCarry, Mailchimp; Netlify returns HTML now
+    // contentType: 'application/x-www-form-urlencoded'
   };
 
   function _cacheDom(element) {
@@ -290,31 +290,18 @@ var FormAjaxSubmit = function(){
       // All forms with cross-domain actions are posted via jsonp (FormCarry, Netlify, Mailchimp)
       // Try success: callback?
 
-      // Default contentType in jQuery's ajax() is 'application/x-www-form-urlencoded; charset=UTF-8'
-      // (see ajax() manual). Terefore we dont have to specify it.
       // However, for forms with files we need to change it to "multipart/form-data"
 
-      // New Netlify forms docs require FormData?
-      // Netlify forms do not have "action" attribute
-      let formData = new FormData(DOM.$form[0])
-      fetch('/', {
-        method: 'POST',
-        headers: { "Content-Type": options.contentType },
-        body: new URLSearchParams(formData).toString()
-      }).then(function(){
-        notificationCenter.notify('success', options.successNotification);
-      })
-      .catch(function(error){
-        notificationCenter.notify('error', error);
-      })
+      // Default contentType in jQuery's ajax() is 'application/x-www-form-urlencoded; charset=UTF-8'
+      // (see ajax() manual). Terefore we dont have to specify it.
 
-        /*
+
       $.ajax({
-        type:     DOM.$form.attr('method'),
-        url:      DOM.$form.attr('action'),
-        data:     DOM.$form.serialize(),
-        dataType: options.dataType,
-        contentType: options.contentType
+        type:        DOM.$form.attr('method'),
+        url:         DOM.$form.attr('action'),
+        data:        DOM.$form.serialize(),
+        // dataType:    options.dataType, dataType (default: Intelligent Guess (xml, json, script, or html)
+        // contentType: options.contentType
       }).done(function(data){
         // Mailchimp responds with data.result = 'error' and data.msg="..."
         // FormCarry responds with Object { code: 200, status: "success", title: "Thank You!", message: "We received your submission", referer: "http://localhost:4000/" }
@@ -349,7 +336,6 @@ var FormAjaxSubmit = function(){
         DOM.$submitButton.prop("disabled", false);
         DOM.$submitButton.removeClass("loading");
       });      
-      */
     });
   }
 
