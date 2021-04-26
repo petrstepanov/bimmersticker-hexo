@@ -3,6 +3,7 @@ title: BMW of America Roundel Sticker (With Flag)
 date: 2020-11-14 14:31:36
 tags:
 - bmw
+- roundel
 - sticker
 description: An overlay sticker that transforms your BMW roundel into a BMW of America badge with flag and lettering.
 categories:
