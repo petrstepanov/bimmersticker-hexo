@@ -23,7 +23,7 @@
   size: "28x6 in"
   shipping_weight: "0.2 lbs"
   material: "Oracal and TeckWrap vinyls"
-  color: "white|matte black|black|mint|orange|pink|red|silver[+9.99]|gold[+9.99]|oil slick[+9.99]" # for Google only. Real app takes these from colors_strip.yml
+  color: "white|matte black|black|mint|orange|pink|red|silver[+9.99]|gold[+9.99]|rainbow[+9.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your banner text"
 - id:	ST_CAR_W_SUNSTRIP
   title: "Plain Sun Strip"
@@ -35,7 +35,7 @@
   size: "60x10 in"
   shipping_weight: "0.375 lbs"
   material: "Oracal 651 or TeckWrap vinyls"
-  color: "matte black|black|mint|orange|white|pink|red|oil slick[+14.99]" # for Google only. Real app takes these from colors_strip.yml
+  color: "matte black|black|mint|orange|white|pink|red|rainbow[+14.99]" # for Google only. Real app takes these from colors_strip.yml
 - id:	ST_CAR_W_SUNSTRIP_CUT
   title: "Custom Reverse Cut Sun Strip"
   description: "Windshield sun strip (banner) with custom text. Will fit any car or truck. Variety of fonts and colors. Text is cut out of the base vinyl layer. Made from premium outdoor vinyls."
@@ -46,7 +46,7 @@
   size: "60x10 in"
   shipping_weight: "0.5 lbs"
   material: "Oracal 651 and TeckWrap vinyls"
-  color: "matte black|black|mint|orange|white|pink|red|oil slick[+9.99]" # for Google only. Real app takes these from colors_strip.yml
+  color: "matte black|black|mint|orange|white|pink|red|rainbow[+9.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your sun strip text"
 - id:	ST_CAR_W_SUNSTRIP_TEXT
   title: "Custom Text Sun Strip"
@@ -58,7 +58,7 @@
   size: "60x10 in"
   shipping_weight: "0.35 lbs"
   material: "Oracal 651 and TeckWrap vinyls"
-  color: "white|matte black|black|mint|orange|pink|red|silver[+9.99]|gold[+9.99]|oil slick[+9.99]" # for Google only. Real app takes these from colors_strip.yml
+  color: "white|matte black|black|mint|orange|pink|red|silver[+9.99]|gold[+9.99]|rainbow[+9.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your sun strip text"
 - id:	ST_BMW_ENGINE
   title: "Custom BMW Powered windshield sticker"
@@ -70,7 +70,7 @@
   size: "24x4 in"
   shipping_weight: "0.2 lbs"
   material: "Oracal and TeckWrap vinyls"
-  color: "white|matte black|oil slick[+1]"
+  color: "white|matte black|rainbow[+1]"
   customization_name: "Type your engine model"
   customization_placeholder: M54
 - id:	ST_BMW_POW
@@ -107,7 +107,7 @@
   size: "7x2 in"
   shipping_weight: "0.025 lbs"
   material: Oracal and TeckWrap vinyls  
-  color: "white/red|oil slick/red[+1.00]"
+  color: "white/red|rainbow/red[+1.00]"
 - id:	ST_BMW_BMRFST
   title: "Bimmerfest sticker"
   description: "Special sticker for the Bimmerfest event. East or west. Pick one that works for you."
@@ -119,7 +119,7 @@
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
   pattern: "East|West"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
   customization_name: "Enter year"
   customization_placeholder: "2020"
 - id:	ST_BMW_GANG
@@ -160,7 +160,7 @@
   customization_placeholder: "328i"
 - id:	ST_BMW_ROUNDEL
   title: "BMW of America roundel overlay sticker"
-  description: "An overlay sticker that transforms your BMW roundel into a BMW of America badge. Design features americal flag and bottom lettering."
+  description: "Overlay sticker that adds american flag over your BMW roundel emblem. Sticker features BMW of America lettering on the bottom."
   product_type: Stickers > BMW
   link: https://bimmersticker.store/bmw-of-america-roundel-sticker/
   image_link: https://bimmersticker.store/bmw-of-america-roundel-sticker/bmw-of-america-roundel-badge-sticker-decal.jpg
@@ -168,7 +168,18 @@
   size: "82x82 mm|74x74 mm"
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
-  color: "blue/white"
+  color: "red/white"
+- id:	ST_BMW_ROUNDEL_BW
+  title: "BMW of America black flag emblem sticker"
+  description: "Overlay sticker that adds american flag over your BMW roundel emblem. Sticker features BMW of America lettering on the bottom."
+  product_type: Stickers > BMW
+  link: https://bimmersticker.store/bmw-of-america-black-flag-roundel-sticker/
+  image_link: https://bimmersticker.store/bmw-of-america-black-flag-roundel-sticker/black-bmw-of-america-emblem-sticker-with-flag.jpg
+  price: "9.99 USD"
+  size: "82x82 mm|74x74 mm"
+  shipping_weight: "0.025 lbs"
+  material: "Oracal 651 vinyl"
+  color: "black/white"  
 - id:	ST_CAR_INLINE6
   title: "Inline Six Power sticker"
   description: "Sticker for cars with inline six cylinder engine displacement. "
@@ -180,6 +191,17 @@
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
   color: "white/black"
+- id:	ST_CAR_SMOKE_TIRES
+  title: "Smoke Tires Not Drugs sticker"
+  description: "Contour cut vinyl sticker for drifters. Looks like a pack of Marlboro cigarettes."
+  product_type: Stickers > Cars
+  link: https://bimmersticker.store/smoke-tires-not-drugs-sticker/
+  image_link: https://bimmersticker.store/smoke-tires-not-drugs-sticker/smoke-tires-not-drugs-car-drift-sticker.jpg
+  price: 5.99 USD"
+  size: "For Laptop • 2x3 in|For Car • 3x4 in[+4.00]"
+  shipping_weight: "0.025 lbs"
+  material: "Oracal 651 vinyl"
+  color: "red/white/black"  
 - id:	ST_CAR_BABEONBOARD
   title: "Babe on Board sticker"
   description: "Babe on Board is a must-have sticker for cars or trucks with ladies on board."
@@ -202,7 +224,7 @@
   size: "5.5x2.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
-  color: "white|oil slick[+1.00]"
+  color: "white|rainbow[+1.00]"
 - id:	ST_CAR_INTELINSIDE
   title: "Two custom engine stickers"
   description: "Buy two custom stickers with the engine model of your choice. Stickers resemble the Intel Inside logo. Use for S52, RB28, 2JZ, SR20, LS3 or any other engine type."
@@ -249,7 +271,7 @@
   size: "4x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
-  color: "white|oil slick[+1.00]"
+  color: "white|rainbow[+1.00]"
 - id:	ST_CAR_FUCKPOLICE
   title: "Fuck The Police sticker"
   description: "Fuck The Police sticker inspired by the punk and a.c.a.b. ideas. For cars and trucks. The hand flips off and covers some letters. Available in white and rainbow colors."
@@ -261,7 +283,7 @@
   size: "6x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "TECKWRAP outdoor vinyls"
-  color: "white|oil slick[+1.00]"
+  color: "white|rainbow[+1.00]"
 - id:	ST_CAR_RUNCOILS
   title: "Run Coils sticker"
   description: "Sticker for modified cars that run on coilovers. Because bags are for groceries. Great sticker for any stanced lowered car."
@@ -283,7 +305,7 @@
   size: "8x5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
-  color: "white|black|silver[+2.00]|gold[+2.00]|oil slick[+2.00]"
+  color: "white|black|silver[+2.00]|gold[+2.00]|rainbow[+2.00]"
 - id:	ST_CAR_RUNBAGS
   title: "Run Bags sticker"
   description: "Sticker for modified cars that have air suspension setup. Great sticker for any stanced show car."
@@ -336,7 +358,7 @@
   customization_placeholder: "Use '@' with your name if you want"  
 - id:	ST_SOCIAL_IG
   title: "Two custom Instagram name stickers"
-  description: "A set of two custom stickers with your Instagram name (handle). Stickers are contour cut out of premium outdoor vinyls. Transparent background. Available in white, holographic, silver, gold and oil slick colors. Stickers come with installation instructions."
+  description: "A set of two custom stickers with your Instagram name (handle). Stickers are contour cut out of premium outdoor vinyls. Transparent background. Available in white, holographic, silver, gold and rainbow colors. Stickers come with installation instructions."
   product_type: Stickers > Social
   link: https://bimmersticker.store/instagram-username-sticker/
   image_link: https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-white-color.jpg
@@ -345,7 +367,7 @@
   size: "7.5x2 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|holographic[+1.00]|oil slick[+1.00]|silver[+1.00]|gold[+1.00]"
+  color: "white|holographic[+1.00]|rainbow[+1.00]|silver[+1.00]|gold[+1.00]"
   customization_name: "Your instagram name"
   customization_placeholder: "Use '@' with your handle if you want"
 - id:	ST_SOCIAL_YT
@@ -424,6 +446,18 @@
   shipping_weight: "0.19 lbs"
   material: "Oracal 651 vinyl, Cricut adhesive foil"
   color: "red/white|gold/white[+5]"
+- id:	ST_WSHIELD_ANTIS
+  title: "ANTISOCIAL windshield banner"
+  description: "Antisocial windshield banner for cars and trucks. Aggressive style lettering with broken font falling apart in peices."
+  product_type: Stickers > Windshield
+  link: https://bimmersticker.store/antisocial-windshield-banner/
+  image_link: https://bimmersticker.store/antisocial-windshield-banner/antisocial-windshield-banner-for-car-truck-white.jpg
+  additional_image_link: https://bimmersticker.store/antisocial-windshield-banner/antisocial-windshield-banner-for-car-truck-holographic.jpg
+  price: "21.99 USD"
+  size: "28x7 in"
+  shipping_weight: "0.19 lbs"
+  material: "Oracal 651 vinyls, TECKWRAP vinyl"
+  color: "white|black|holographic[+5]"  
 - id:	ST_WSHIELD_MONEY
   title: "Money Pit windshield banner"
   description: "Money Pit car windshield banner. Great for project or show cars. Available in different colors. Banner comes with installation instructions."
@@ -434,7 +468,7 @@
   size: "25x7 in"
   shipping_weight: "0.1875 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|matte black|black|silver[+6]|gold[+6]|oil slick[+6]"
+  color: "white|matte black|black|silver[+6]|gold[+6]|rainbow[+6]"
 - id:	ST_WSHIELD_SF
   title: "Street Fighter windshield banner"
   description: "Street Fighter car windshield banner. Sticker font resembles the originl nintendo game branding. Great for project or show cars. Available in different colors. Banner comes with installation instructions."
@@ -445,18 +479,18 @@
   size: "30x5 in"
   shipping_weight: "0.1875 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|matte black|black|silver[+6]|gold[+6]|oil slick[+6]"
+  color: "white|matte black|black|silver[+6]|gold[+6]|rainbow[+6]"
 - id:	ST_WSHIELD_BM4L
   title: "#bimmer4life windshield banner"
   description: "Bimmer For Life car windshield banner. Great for project or show BMW cars. Available in different colors. Banner comes with installation instructions."
   product_type: Stickers > Windshield
   link: https://bimmersticker.store/bimmer4life-sticker/
   image_link: https://bimmersticker.store/bimmer4life-sticker/sticker-bimmer4life-windshield-banner-square.jpg
-  price: "19.99 USD"
+  price: "21.99 USD"
   size: "31x7 in"
   shipping_weight: "0.1875 lbs"
-  material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|matte black|black|silver[+9]|gold[+9]|oil slick[+9]"
+  material: "Premium outdoor vinyls: Oracal 651, TeckWrap"
+  color: "white|matte black|rainbow[+9]"
 - id:	ST_WSHIELD_LOWER
   title: "lower than ground windshield banner"
   description: "Lower Than Ground car windshield banner. Great for tuned cars or show cars. Available in different colors. Banner comes with installation instructions."
@@ -467,7 +501,7 @@
   size: "31x7 in"
   shipping_weight: "0.1875 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|matte black|black|silver[+9]|gold[+9]|oil slick[+9]"  
+  color: "white|matte black|black|silver[+9]|gold[+9]|rainbow[+9]"  
 - id:	ST_WSHIELD_SEND
   title: "Send Nudes windshield banner"
   description: "Send Nudes car windshield banner. Great for project or show cars. Available in different colors. Banner comes with installation instructions."
@@ -478,7 +512,7 @@
   size: "28x5 in"
   shipping_weight: "0.1875 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|matte black|black|silver[+6]|gold[+6]|oil slick[+6]"
+  color: "white|matte black|holographic[+6]|rainbow[+6]"
 - id:	ST_WSHIELD_KNRD
   title: "Knight Rider windshield banner"
   description: "Knight Rider car windshield banner. Great for project or show cars. Available in different colors. Banner comes with installation instructions."
@@ -489,7 +523,7 @@
   size: "30x5 in"
   shipping_weight: "0.1875 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|matte black|black|silver[+6]|gold[+6]|oil slick[+6]"
+  color: "white|matte black|rainbow[+6]"
 - id:	ST_WSHIELD_SHARK
   title: "Sharknose Legend windshield banner"
   description: "Sharknose Legend car windshield banner. Great for and oldschool BMW project like e28 or e30. Available in different colors. Banner comes with installation instructions."
@@ -500,7 +534,7 @@
   size: "30x8 in"
   shipping_weight: "0.1875 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|matte black|black|silver[+9.99]|gold[+9.99]|oil slick[+9.99]"
+  color: "white|matte black|rainbow[+9.99]"
 - id:	ST_BMW_E12
   title: "BMW e12 sticker"
   description: "Sticker for BMW e12. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -511,7 +545,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E21
   title: "BMW e21 sticker"
   description: "Sticker for BMW e21. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -522,7 +556,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E23
   title: "BMW e23 sticker"
   description: "Sticker for BMW e21. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -533,7 +567,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E28
   title: "BMW e28 sticker"
   description: "Sticker for BMW e28. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -544,7 +578,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E30
   title: "BMW e30 sticker"
   description: "Sticker for BMW e30. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -555,7 +589,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E32
   title: "BMW e32 sticker"
   description: "Sticker for BMW e32. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -566,7 +600,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E34
   title: "BMW e34 sticker"
   description: "Sticker for BMW e34. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -577,7 +611,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E36
   title: "BMW e36 sticker"
   description: "Sticker for BMW e36. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -588,7 +622,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E38
   title: "BMW e38 sticker"
   description: "Sticker for BMW e38. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -599,7 +633,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E39
   title: "BMW e39 sticker"
   description: "Sticker for BMW e39. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -610,7 +644,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E46
   title: "BMW e46 sticker"
   description: "Sticker for BMW e46. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -621,7 +655,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E53
   title: "BMW e53 sticker"
   description: "Sticker for BMW x5 e53. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -632,7 +666,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"  
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"  
 - id:	ST_BMW_E60
   title: "BMW e60 sticker"
   description: "Sticker for BMW e60. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -643,7 +677,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E61
   title: "BMW e61 sticker"
   description: "Sticker for BMW e61. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -654,7 +688,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E70
   title: "BMW e70 sticker"
   description: "Sticker for BMW e70. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -665,7 +699,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E81
   title: "BMW e81 sticker"
   description: "Sticker for BMW e81. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -676,7 +710,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E82
   title: "BMW e82 sticker"
   description: "Sticker for BMW e82. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -687,7 +721,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E87
   title: "BMW e87 sticker"
   description: "Sticker for BMW e87. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -698,7 +732,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E90
   title: "BMW e90 sticker"
   description: "Sticker for BMW e90. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -709,7 +743,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E91
   title: "BMW e91 sticker"
   description: "Sticker for BMW e91 touring. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -720,7 +754,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E92
   title: "BMW e92 sticker"
   description: "Sticker for BMW e92. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -731,7 +765,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_F10
   title: "BMW f10 sticker"
   description: "Sticker for BMW f10. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -742,7 +776,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_F20
   title: "BMW f20 sticker"
   description: "Sticker for BMW f20. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -753,7 +787,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_F21
   title: "BMW f21 sticker"
   description: "Sticker for BMW f21. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -764,7 +798,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_F22
   title: "BMW f22 sticker"
   description: "Sticker for BMW f22. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -775,7 +809,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_F30
   title: "BMW f30 sticker"
   description: "Sticker for BMW f30. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -786,7 +820,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_F31
   title: "BMW f31 sticker"
   description: "Sticker for BMW f31. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -797,7 +831,7 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_F32
   title: "BMW f32 sticker"
   description: "Sticker for BMW f32. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
@@ -808,4 +842,4 @@
   size: "6.5x3.5 in"
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|silver[+1]|gold[+1]|oil slick[+1]"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"

@@ -3,7 +3,10 @@ var _ = require('lodash');
 function findObjectWithVariations(array){
     var index = -1;
     array.forEach((element, i) => {
-        _.values(element).forEach(value =>{
+        _.values(element).forEach(value => {
+            if (!value){
+                console.log(element);
+            }
             if (value.includes('|')){
                 index = i;
                 return false;
