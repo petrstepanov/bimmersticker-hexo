@@ -63,11 +63,12 @@ hexo.extend.generator.register('orders-generator', function (locals) {
         };
 
         // Assignee
-        if (i <= 2444) order.assignee = 'Petr';                        // I made up to 2444
-        else if (i > 2444 && i < 3239) order.assignee = 'Sarah';       // Sara started working on 2445
-        else if (i >= 3239 && i < 3347) order.assignee = 'Petr';                   // Sara left March 29
-        else if (i >= 3347) orders.assignee = 'Anton';
+        if (i < 2445) order.assignee = 'Petr';                     // I made up to 2444
+        if (i >= 2445 && i < 3239) order.assignee = 'Sarah';       // Sara started working on 2445
+        if (i >= 3239 && i < 3347) order.assignee = 'Petr';        // Sara left March 29 2021
+        if (i >= 3347) order.assignee = 'Anton';                   // Anton started full time May 1 2021
 
+        // Assignee overrides
         if (antonOrders.indexOf(i) >= 0) order.assignee = 'Anton';     // Anton helped with some orders
         if (heatherOrders.indexOf(i) >= 0) order.assignee = 'Petr';    // Some I make
 
