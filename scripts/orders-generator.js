@@ -21,7 +21,7 @@ hexo.extend.generator.register('orders-generator', function (locals) {
     let firstOrderIndex = 1583;
     let lastOrderIndex = 5000;
 
-    let heatherOrders = [3373, 
+    let heatherOrders = [3365, 3374, 3373, 
                     3370, 3369, 3368, 3367, 3366, 3364, 3366, 3360, 
                     3359, 3355, 3351, 3237, 3236, 3235, 3234, 3229,
                     3227, 3226, 3225, 3224, 3223, 3222, 3221, 3219,
