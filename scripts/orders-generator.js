@@ -72,6 +72,7 @@ hexo.extend.generator.register('orders-generator', function (locals) {
         if (i >= 2445 && i < 3239) order.assignee = 'Sarah';       // Sara started working on 2445
         if (i >= 3239 && i < 3347) order.assignee = 'Petr';        // Sara left March 29 2021
         if (i >= 3347) order.assignee = 'Anton';                   // Anton started full time May 1 2021
+        if (i >= 3378) order.assignee = 'Petr';                    // Anton left May 14
 
         // Assignee overrides
         if (antonOrders.indexOf(i) >= 0) order.assignee = 'Anton';     // Anton helped with some orders
