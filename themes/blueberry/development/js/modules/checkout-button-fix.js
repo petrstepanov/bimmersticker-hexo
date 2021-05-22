@@ -21,7 +21,7 @@ var CheckoutButtonFix = function(){
         if (_needFix()){
             // DOM.$buttonCaption.append(DOM.$suffix);
             DOM.$buttonCaption.html(DOM.$suffix);
-            DOM.$buttonCaption.css('visibility', 'visible');
+            // DOM.$buttonCaption.css('visibility', 'visible');
         }
     }
 
