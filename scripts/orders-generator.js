@@ -57,6 +57,7 @@ hexo.extend.generator.register('orders-generator', function (locals) {
                     2371, 2365, 2364, 2362, 2360];
 
     let redoReshipOrders = [
+        3527, 3499, 
         3379, 3365, 3362, 3303,
         3229, 3198, 3131, 3082,
         3066, 3042, 3038, 3035,
