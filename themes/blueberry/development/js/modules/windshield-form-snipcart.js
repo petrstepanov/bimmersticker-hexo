@@ -261,6 +261,9 @@ function _updateTextImages() {
     DOM.$fontImages.each(function () {
         var url = _buildFontUrl($(this), text);
         $(this).attr('src', url);
+        // Remove width and height set on the first page load for Google CLS improvements
+        $(this).removeAttr("width");
+        $(this).removeAttr("height");
     });
 }
 
