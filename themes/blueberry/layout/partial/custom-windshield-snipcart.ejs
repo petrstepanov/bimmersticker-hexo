@@ -132,7 +132,7 @@
 									<% dataSrc = dataSrc.replace('https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/', '/font/'); %>
 									<% // var src = encodeURI(url + query); %>
 									<% var src = '/img/banner-previews/your-banner-' + font + '.png'; %>
-									<img data-src="<%- dataSrc %>" alt="Preview your text in <%- font %> font" class="mt-3 font-image js--font-image" src="<%- src %>" />
+									<img width="site.data.fonts[font].preview_width" height="site.data.fonts[font].preview_height" data-src="<%- dataSrc %>" alt="Preview your text in <%- font %> font" class="mt-3 font-image js--font-image" src="<%- src %>" />
 									<p class="mt-2 mb-0"><%- site.data.fonts[font].name %></p>
 								</div>
 							</label>
@@ -317,7 +317,7 @@
 				<% for (var product of featuredProducts){ %>
 					<div class="col-6 col-sm-4 col-md-3 text-center">
 						<a href="<%- get_pathname(product.link) %>">
-							<img src="<%- prefix_filename('small_', product.image_link) %>" alt="<%- product.title %>" class="w-75 rounded-circle" />
+							<img width="150" height="150" src="<%- prefix_filename('small_', product.image_link) %>" alt="<%- product.title %>" class="w-75 rounded-circle" />
 							<p class="mt-2"><%- product.title %></p>
 						</a>
 					</div>
