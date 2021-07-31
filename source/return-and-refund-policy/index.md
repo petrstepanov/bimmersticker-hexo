@@ -23,7 +23,7 @@ The following definitions shall have the same meaning regardless of whether they
 For the purposes of this Return and Refund Policy:
 
 * **You** means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.
-* **Company** (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to Sticker Store LLC, 514 Woodrow St, Apt F, Columbia, SC 29205.
+* **Company** (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to Sticker Store LLC, 318 Ravenel St, Columbia, SC 29205.
 * **Service** refers to the Website.
 * **Website** refers to Bimmer Sticker Store, accessible from <a href="https://bimmersticker.store/" rel="external nofollow noopener" target="_blank">https://bimmersticker.store/</a>
 * **Goods** refer to the items offered for sale on the Service.
@@ -40,7 +40,7 @@ In order to exercise Your right of cancellation, You must inform Us of your deci
 * By email: <a href="mailto:&#105;&#110;&#102;&#111;&#064;&#098;&#105;&#109;&#109;&#101;&#114;&#115;&#116;&#105;&#099;&#107;&#101;&#114;&#046;&#115;&#116;&#111;&#114;&#101;">&#105;&#110;&#102;&#111;&#064;&#098;&#105;&#109;&#109;&#101;&#114;&#115;&#116;&#105;&#099;&#107;&#101;&#114;&#046;&#115;&#116;&#111;&#114;&#101;</a>
 * By visiting this page on our website: https://bimmersticker.store/#contact
 * By phone number: <a href="tel:+&#049;&#054;&#052;&#054;&#051;&#048;&#049;&#050;&#055;&#050;&#050;">+&#049;&#032;(&#054;&#052;&#054;)&#032;&#051;&#048;&#049;&#045;&#050;&#055;&#050;&#050;</a>
-* By mail: 514 Woodrow St, Apt F, Columbia, SC 29205, United States
+* By mail: 181 Gate House Rd, Newport News, VA 23608, United States
 
 We will reimburse You no later than 14 days from the day on which We receive the returned Goods. We will use the same means of payment as You used for the Order, and You will not incur any fees for such reimbursement.
 
@@ -83,4 +83,4 @@ If you have any questions about our Returns and Refunds Policy, please contact u
 * By email: <a href="mailto:&#105;&#110;&#102;&#111;&#064;&#098;&#105;&#109;&#109;&#101;&#114;&#115;&#116;&#105;&#099;&#107;&#101;&#114;&#046;&#115;&#116;&#111;&#114;&#101;">&#105;&#110;&#102;&#111;&#064;&#098;&#105;&#109;&#109;&#101;&#114;&#115;&#116;&#105;&#099;&#107;&#101;&#114;&#046;&#115;&#116;&#111;&#114;&#101;</a>
 * By visiting this page on our website: https://bimmersticker.store/#contact
 * By phone number: <a href="tel:+&#049;&#054;&#052;&#054;&#051;&#048;&#049;&#050;&#055;&#050;&#050;">+&#049;&#032;(&#054;&#052;&#054;)&#032;&#051;&#048;&#049;&#045;&#050;&#055;&#050;&#050;</a>   
-* By mail: 514 Woodrow St, Apt F, Columbia, SC 29205, United States
+* By mail: 181 Gate House Rd, Newport News, VA 23608, United States
