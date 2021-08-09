@@ -777,6 +777,17 @@
   shipping_weight: "0.025 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
+- id:	ST_BMW_F15
+  title: "BMW X5 f15 sticker"
+  description: "Sticker for BMW X5 f15 generation. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
+  product_type: Stickers > Generations
+  link: https://bimmersticker.store/f15-sticker-bmw-x5/
+  image_link: https://bimmersticker.store/f15-sticker-bmw-x5/window-sticker-for-bmw-f15-x5-suv.jpg
+  price: "5.99 USD"
+  size: "6.5x3.5 in"
+  shipping_weight: "0.025 lbs"
+  material: "Oracal outdoor vinyls"
+  color: "white|matte black|silver[+1]|gold[+1]"
 - id:	ST_BMW_F20
   title: "BMW f20 sticker"
   description: "Sticker for BMW f20. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
