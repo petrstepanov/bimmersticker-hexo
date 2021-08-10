@@ -56,15 +56,20 @@ hexo.extend.generator.register('orders-generator', function (locals) {
                     2385, 2383, 2381, 2380, 2379, 2378, 2376, 2375, 2374,
                     2371, 2365, 2364, 2362, 2360];
 
+    let refundOrders = [
+        3401, 3328
+    ];
+
     let redoReshipOrders = [
-        3540, 3527, 3511, 3499, 
+        3553, 3540, 3527, 3511, 3499, 
         3379, 3365, 3362, 3303,
         3229, 3198, 3131, 3082,
         3066, 3042, 3038, 3035,
         3010, 2892, 2879, 2878,
         2829, 2771, 2744, 2741,
         2673, 2509, 2507
-      ]
+    ];
+
     let reshipOrders = [3049, 2997, 2820, 2755, 2444, 2439];
 
     for (var i = firstOrderIndex; i < lastOrderIndex; i++){
@@ -72,7 +77,8 @@ hexo.extend.generator.register('orders-generator', function (locals) {
             number: i,
             assignee: "None",
             redo: false,
-            reship: false
+            reship: false,
+            refund: false
         };
 
         // Assignee
@@ -92,6 +98,9 @@ hexo.extend.generator.register('orders-generator', function (locals) {
             order.reship = true;
         } 
         if (reshipOrders.indexOf(i) >= 0) order.reship = true;
+
+        // Refund orfers
+        if (refundOrders.indexOf(i) >= 0) order.refund = true;
 
         // Save order data
         orders.push(order);
