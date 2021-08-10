@@ -159,7 +159,11 @@
 		</div>
 	</div>
 </section>
-
+<section class="pb-4">
+	<!-- Bimmers only -->
+	<%- partial('partial/heading', {title: 'Other Stickers', subtitle: 'We also make stickers for bicycles, laptops and many more. They will be posted in the section below.', name: 'bmw-special'}) %>
+	<%- partial('partial/category-posts-list', {categoryName: 'Other', order: 'desc'}) %>
+</section>
 <section class="pt-4 section-whitesmoke spacer-footer">
 	<%- partial('partial/heading', {title: 'Contact us', subtitle: 'Got sticker ideas or any questions? Use form below to contact us. We will get back to you as soon as possible!', name: 'contact'}) %>
 

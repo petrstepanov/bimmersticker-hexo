@@ -535,6 +535,17 @@
   shipping_weight: "0.1875 lbs"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|matte black|rainbow[+9.99]"
+- id:	ST_MRC_W124
+  title: "Mercedes W124 sticker"
+  description: "Window sticker for Mercedes-Benz W124. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
+  product_type: Stickers > Other
+  link: https://bimmersticker.store/mercedes-w124-sticker/
+  image_link: https://bimmersticker.store/mercedes-w124-sticker/mercedes-w124-window-sticker-body-decal.jpg
+  price: "5.99 USD"
+  size: "6.5x3.5 in"
+  shipping_weight: "0.025 lbs"
+  material: "Oracal, Cricut and TeckWrap vinyls"
+  color: "white|silver[+1]|gold[+1]|rainbow[+1]"  
 - id:	ST_BMW_E12
   title: "BMW e12 sticker"
   description: "Sticker for BMW e12. Available in different colors. Contour cut from premium outdoor vinyls. Never fades out."
