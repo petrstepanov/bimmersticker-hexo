@@ -6,6 +6,12 @@
   }
 }
 
+// Firefox do not aspect svg by default??
+// https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping
+svg {
+  aspect-ratio: attr(width) / attr(height);
+}
+
 .icon-xs {
   svg, img {
     height: 1.25rem;

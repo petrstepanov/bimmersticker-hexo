@@ -11,6 +11,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var del = require('del');
 var log = require('gulplog');
+var replace = require('gulp-replace');
 
 var paths = {
 	styles: {
@@ -52,6 +53,7 @@ function clean() {
 
 function copyIcons() {
 	return gulp.src(paths.icons.src)
+		.pipe(replace('<svg', '<svg width="512" height="512"'))
 		.pipe(gulp.dest(paths.icons.dest));
 }
 
