@@ -8,6 +8,8 @@
     // background-color: white;
 
     display: block;
+    // Google Cumulative Layout Shift (CLS)
+    height: 160px;
     overflow: hidden;
 
     img {
@@ -15,7 +17,7 @@
       object-fit: cover;
       object-position: center center;
 
-      &.max-height {
+      &.fix-height {
         // Google Cumulative Layout Shift (CLS)
         
         height: 160px;
