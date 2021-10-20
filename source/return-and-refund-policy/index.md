@@ -5,7 +5,7 @@ date: 2020-03-13 01:22:20
 
 Last updated: June 08, 2020
 
-Thank you for shopping at Bimmer Sticker Store operated by Bimmer Sticker Store.
+Thank you for shopping at Bimmer Sticker Store operated by Sticker Store LLC.
 
 If, for any reason, You are not completely satisfied with a purchase We invite You to review our policy on refunds and returns. This Return and Refund Policy has been created with the help of the <a href="https://www.termsfeed.com/return-refund-policy-generator/" target="_blank">Return and Refund Policy Generator</a>
 
@@ -25,7 +25,7 @@ For the purposes of this Return and Refund Policy:
 * **You** means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.
 * **Company** (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to Sticker Store LLC, 318 Ravenel St, Columbia, SC 29205.
 * **Service** refers to the Website.
-* **Website** refers to Bimmer Sticker Store, accessible from <a href="https://bimmersticker.store/" rel="external nofollow noopener" target="_blank">https://bimmersticker.store/</a>
+* **Website** refers to Sticker Store LLC (Bimmer Sticker Store), accessible from <a href="https://bimmersticker.store/" rel="external nofollow noopener" target="_blank">https://bimmersticker.store/</a>
 * **Goods** refer to the items offered for sale on the Service.
 * **Orders** mean a request by You to purchase Goods from Us.
 
