@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .card-blueberry {
   box-shadow: $box-shadow-blueberry;
   border: 0;
@@ -79,11 +81,11 @@
       position: absolute;
       right: -$price-tag-width + 0.03rem;
       top: 50%;
-      margin-top: -$price-tag-height/2;
+      margin-top: math.div(-$price-tag-height, 2);
       border-style: solid;
       border-color: transparent;
       border-left-color: $gray-300;
-      border-width: $price-tag-height/2 0 $price-tag-height/2 $price-tag-width;
+      border-width: math.div($price-tag-height, 2) 0 math.div($price-tag-height, 2) $price-tag-width;
     }
 
     &:after {

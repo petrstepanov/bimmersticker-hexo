@@ -17,9 +17,11 @@
 @import "bootstrap/overrides/forms-blueberry";
 @import "bootstrap/overrides/modals-blueberry";
 
-@import "./../../node_modules/noty/lib/noty";
-@import "noty";
+// @import "./../../node_modules/noty/lib/noty";
 @import "./../../node_modules/animate.css/animate";
+
+@import "./../../node_modules/toastify-js/src/toastify";
+@import "toastify";
 
 @import "layout/frontpage";
 @import "layout/post";

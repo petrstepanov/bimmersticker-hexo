@@ -4,7 +4,7 @@ var rename = require('gulp-rename');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
-var sass = require('gulp-sass');
+var sass = require('gulp-sass')(require('sass'));
 var concat = require('gulp-concat');
 var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
@@ -15,9 +15,7 @@ var replace = require('gulp-replace');
 
 var paths = {
 	styles: {
-		src: ['./development/sass/app.scss',
-			'./node_modules/noty/lib/noty.css',
-			'./node_modules/noty/lib/themes/nest.css'],
+		src: ['./development/sass/app.scss'],
 		srcWatch: './development/sass/**/*.scss',
 		dest: './source/css'
 	},

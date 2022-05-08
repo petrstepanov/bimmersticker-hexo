@@ -20,10 +20,12 @@ var IntegerInput = require('./modules/integer-input');
 var CheckoutButtonFix = require('./modules/checkout-button-fix');
 var Carousel = require('./modules/carousel');
 var VideoFullWidth = require('./modules/video');
-var FacebookLoadOnScroll = require('./modules/facebook-load-on-scroll');
+// var FacebookLoadOnScroll = require('./modules/facebook-load-on-scroll');
 var InteractiveBackButton = require('./modules/interactive-back-button');
 
-$(document).ready(function(){
+$(function() {
+  // Handler for .ready() called.
+
   // Interactive Back Button
   InteractiveBackButton.init(document.querySelector('.js--init-back-button'));
     
@@ -71,8 +73,8 @@ $(document).ready(function(){
   });
  
   // Load Messenger when start scrolling
-  var facebookLoadOnScroll = new FacebookLoadOnScroll();
-  facebookLoadOnScroll.init();
+  // var facebookLoadOnScroll = new FacebookLoadOnScroll();
+  // facebookLoadOnScroll.init();
 
   // Viewport animations
   AOS.init({

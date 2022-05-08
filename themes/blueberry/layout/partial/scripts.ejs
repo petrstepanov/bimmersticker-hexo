@@ -19,27 +19,7 @@
 </template>
 
 <template id="lazy-scripts-facebook">
-    <!-- Facebook SDK -->
-    <% if(config.facebook_chat){ %>
-        <script class="fb-first">
-            window.fbAsyncInit = function() {
-                FB.init({
-                xfbml            : true,
-                version          : 'v8.0'
-                });
-            };
-
-            (function(d, s, id) {
-                // Petr Stepanov: instead of getting first script we get script with class 'fb-first-script'
-                var js, fjs = d.getElementsByClassName('fb-first')[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); 
-                js.id = id;
-                js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script>
-    <% } %>
+    <!-- FB Fabebook Chat Was here -->
 </template>
 
 <script>

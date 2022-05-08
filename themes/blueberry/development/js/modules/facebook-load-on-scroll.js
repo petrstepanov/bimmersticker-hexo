@@ -1,3 +1,5 @@
+// Petr Steanov: CORS issues - disabled.
+
 var $ = require('jquery');
 
 var FacebookLoadOnScroll = function(){
