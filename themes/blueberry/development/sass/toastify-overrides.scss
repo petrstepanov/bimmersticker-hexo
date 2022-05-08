@@ -1,4 +1,12 @@
+/* Overrides for Toastify plugin */
+
 .toastify {
+
+  max-width: calc(100% - 30px);
+
+  @include media-breakpoint-up(md) {
+    max-width: calc(50% - 20px);    
+  }
 
   &.success {
     background: $green;
@@ -14,3 +22,4 @@
 .toast-close {
   padding: 0 0 0 15px;
 }
+
