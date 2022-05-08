@@ -1,10 +1,10 @@
 
 // Popup notifications based on noty.js
-var Noty = require('toastify-js')
+var Toastify = require('toastify-js')
 
-function makeHtml(type, text) {
-  return '<p class="type">' + type.toUpperCase() + '</p><p>' + text + '</p>';
-}
+// function makeHtml(type, text) {
+//   return '<p class="type">' + type.toUpperCase() + '</p><p>' + text + '</p>';
+// }
 
 function notify(type, text, timeout) {
   var milliseconds = typeof timeout !== 'undefined' ? timeout : 5000;
