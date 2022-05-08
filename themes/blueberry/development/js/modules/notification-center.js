@@ -6,7 +6,7 @@ var Toastify = require('toastify-js')
 //   return '<p class="type">' + type.toUpperCase() + '</p><p>' + text + '</p>';
 // }
 
-function notify(type, text, timeout) {
+function notify(type, message, timeout) {
   var milliseconds = typeof timeout !== 'undefined' ? timeout : 5000;
   // new Noty({
   //   type: type,
@@ -21,7 +21,7 @@ function notify(type, text, timeout) {
   // }).show();
 
   Toastify({
-    text: "text",
+    text: message,
     duration: milliseconds,
     close: true,
     gravity: "top",

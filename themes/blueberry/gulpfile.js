@@ -15,8 +15,7 @@ var replace = require('gulp-replace');
 
 var paths = {
 	styles: {
-		src: ['./development/sass/app.scss',
-			'./node_modules/toastify-js/src/toastify.css'],
+		src: ['./development/sass/app.scss'],
 		srcWatch: './development/sass/**/*.scss',
 		dest: './source/css'
 	},

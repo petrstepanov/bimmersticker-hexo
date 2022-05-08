@@ -1,0 +1,16 @@
+.toastify {
+
+  &.success {
+    background: $green;
+    color: white;
+  }
+
+  &.error {
+    background: $red;
+    color: white;
+  }
+}
+
+.toast-close {
+  padding: 0 0 0 15px;
+}
