@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 $box-shadow-blueberry: 0 5px 30px 0 rgba(0,0,0,0.1);
 $nb-padding-md: 1rem;
 
@@ -15,8 +17,8 @@ $nb-padding-md: 1rem;
   // }
 
   .container {
-    padding-left: $grid-gutter-width / 2 !important;
-    padding-right: $grid-gutter-width / 2 !important;
+    padding-left: math.div($grid-gutter-width, 2) !important;
+    padding-right: math.div($grid-gutter-width, 2) !important;
   }
 }
 

@@ -42,8 +42,8 @@
   .sidebar-featured-container {
     // Calc in SASS https://stackoverflow.com/questions/17982111/sass-variable-in-css-calc-function
     width: calc(100% + #{$grid-gutter-width});
-    margin-left: -($grid-gutter-width / 2);
-    margin-right: -($grid-gutter-width / 2);
+    margin-left: calc($grid-gutter-width / -2);
+    margin-right: calc($grid-gutter-width / -2);
     margin-bottom: 1.75em;
     height: 320px;
     
