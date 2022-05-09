@@ -1,10 +1,2 @@
 /*
-  Referrer-Policy: origin
-
-# Facebook Content Security Policy Error:
-# https://stackoverflow.com/questions/50064433/content-security-policy-error-coming-up-when-facebook-chat-into-website
-https://www.facebook.com/*
-  Referrer-Policy: origin
-
-https://connect.facebook.net/*
-  Referrer-Policy: origin
+  Content-Security-Policy: script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.snipcart.com https://connect.facebook.net https://www.facebook.com
