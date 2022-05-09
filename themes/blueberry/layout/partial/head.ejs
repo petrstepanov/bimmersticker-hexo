@@ -27,7 +27,7 @@
     <!-- Favicon end -->
 
     <!-- For FB Messenger: "Content Security Policy of your site blocks some resources" -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src https://www.facebook.com; child-src 'none'; object-src 'none'"> -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.snipcart.com https://connect.facebook.net https://www.facebook.com" />
 
     <!-- TODO: Facebook opengraph tags -->
     <%- open_graph({ url: url.replace('/index.html', '/')}) %>
