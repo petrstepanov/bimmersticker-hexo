@@ -127,7 +127,7 @@ netlify_headers_path:
   src: source/_headers
   dest: _headers
 
-facebook_chat: true
+facebook_chat: false
 
 # Cart: paypal, snipcart, none
 cart: snipcart

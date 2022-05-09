@@ -1,3 +1,4 @@
-/*
-  Content-Security-Policy: script-src 'unsafe-eval' 'unsafe-inline' 'self' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.snipcart.com https://connect.facebook.net https://www.facebook.com
-  Content-Security-Policy: frame-ancestors https://www.facebook.com https://connect.facebook.net
+#/*
+#  Content-Security-Policy: script-src 'unsafe-eval' 'unsafe-inline' 'self' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.snipcart.com https://connect.facebook.net https://facebook.com https://www.facebook.com
+#  Content-Security-Policy: frame-ancestors https://facebook.com https://www.facebook.com https://connect.facebook.net
+#  Content-Security-Policy: child-src https://facebook.com https://www.facebook.com https://connect.facebook.net
