@@ -1,2 +1,2 @@
 /*
-  Content-Security-Policy: script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.snipcart.com https://connect.facebook.net https://www.facebook.com
+  Content-Security-Policy: script-src 'unsafe-inline' 'self' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.snipcart.com https://connect.facebook.net https://www.facebook.com
