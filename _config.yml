@@ -123,6 +123,10 @@ netlify_redirects_path:
   src: source/_redirects
   dest: _redirects
 
+netlify_headers_path:
+  src: source/_headers
+  dest: _headers
+
 facebook_chat: false
 
 # Cart: paypal, snipcart, none
