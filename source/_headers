@@ -2,3 +2,6 @@
 # https://stackoverflow.com/questions/50064433/content-security-policy-error-coming-up-when-facebook-chat-into-website
 https://www.facebook.com/*
   Referrer-Policy: origin
+
+https://connect.facebook.net/*
+  Referrer-Policy: origin
