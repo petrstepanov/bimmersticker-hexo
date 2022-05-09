@@ -78,8 +78,7 @@ $(function() {
 
   // Viewport animations
   AOS.init({
-    initClassName: 'aos-init',
-    animatedClassName: 'animate__animated', // class applied on animation
-    useClassNames: true
+    useClassNames: true,
+    animatedClassName: 'animate__animated'
   });
 });
