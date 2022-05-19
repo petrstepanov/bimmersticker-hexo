@@ -8,7 +8,10 @@
 				</button>
 			</div>
 			<!-- Begin Custom Request Form -->
-      <form class="js--init-ajax-submit" data-success-event="formSuccessEvent" action="<%- theme.formcarry_url %>" method="POST" accept-charset="UTF-8" data-success-notification="Thanks for submitting the request. We will email you back soon!">
+      <form name="<%- post.path %>" data-netlify="true" data-success-event="formSuccessEvent" class="js--init-ajax-submit" method="POST" data-success-notification="Thanks for submitting your question. We will email you back soon!">
+      <!-- 
+        <form class="js--init-ajax-submit" data-success-event="formSuccessEvent" action="<%- theme.formcarry_url %>" method="POST" accept-charset="UTF-8" data-success-notification="Thanks for submitting the request. We will email you back soon!">
+      -->
         <div class="modal-body">
           <label for="input-page" class="d-none">Source page</label>
           <input type="hidden" name="page" value="<%- post.title %>" id="input-page" />
