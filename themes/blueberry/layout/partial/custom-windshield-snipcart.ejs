@@ -219,8 +219,15 @@
 							</div>							
 						</div>
 					</div>
+					<!-- Hack: make users without JavaScript fill their email so we can reach oiut back -->
+					<div class="col-12 col-md-10 col-lg-8 js--nojs-only">
+						<div class="form-group">
+							<label class="label-blueberry" for="email">Enter your email</label>
+							<input class="form-control form-control-lg js--text-input" type="text" required name="email" placeholder="your@email.com" />
+						</div>
+					</div>				
 					<div class="col-12 col-md-10 col-lg-8 text-center mt-4">
-						<button type="submit" class="btn btn-primary btn-blueberry btn-lg">Add item to cart</button>
+						<button type="submit" id="submitButton" class="btn btn-primary btn-blueberry btn-lg">Submit Banner Request</button>
 						<br />
 						<% for (var product of products) { %>
 							

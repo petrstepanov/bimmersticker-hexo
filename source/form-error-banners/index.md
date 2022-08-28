@@ -1,5 +1,5 @@
 ---
-title: Bummer. Your order was not placed...
+title: Thank You!
 date: 2020-10-11 11:25:57
 ---
 
@@ -7,10 +7,19 @@ date: 2020-10-11 11:25:57
 <div class="row justify-content-center">
 <div class="col-12 col-lg-8">
 
-<p class="font-size-50 text-center">😨</p>
+<p class="font-size-50 text-center">😃👍</p>
 
-<p class="mb-4">Unfortunately an error occured while loading JavaScript in your web browser.</p>
+<p class="text-center mb-4 lead">We received your order and will <strong>email the invoice shortly</strong>.<br/>Please put an eye on your mailbox!</p>
 
+<h2 class="text-center">What now?</h2>
+
+<p class="text-center mb-4">Feel free to check some banners we made on our <a href="<%- theme.instagram_url %>" rel="me">Instagram page</a> or explore our <a href="/">store home page</a> and find more cool stickers.</p>
+
+<div class="col-12">
+    <p class="text-center mb-3"><a class="btn btn-primary btn-blueberry btn-lg">Check our Banners on Instagram</a></p>
+</div>
+
+<!--
 <h2>What are your next steps?</h2>
 
 <p>No worries, we can help you out. Here are several options for you:</p>
@@ -22,8 +31,10 @@ date: 2020-10-11 11:25:57
     <li class="mt-2">Other ways to reach us out: direct message us on <a href="https://www.instagram.com/bimmersticker.store/">Instagram</a> or on <a href="https://www.facebook.com/bimmersticker.store/">Facebook Page</a>.</li>
 </ul>
 
+
 <p>Thanks for your patience. We value our customers and looking forward to hearing from you any time!</p>
 
+-->
 </div>
 </div>
 </div>                

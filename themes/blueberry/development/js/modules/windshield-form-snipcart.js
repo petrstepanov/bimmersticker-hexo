@@ -41,6 +41,10 @@ function _cacheDom(element) {
     DOM.$btnBuySunStrip = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_W_SUNSTRIP]');
     DOM.$btnBuyCutSunStrip = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_W_SUNSTRIP_CUT]');
     DOM.$btnBuyTextSunStrip = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_W_SUNSTRIP_TEXT]');
+
+    // Find elements displayed for users with JavaScript not loaded
+    DOM.$noJs = DOM.$el.find('.js--nojs-only');
+    DOM.$submitButton = DOM.$el.find('#submitButton');
 }
 
 function _saveData(){
@@ -75,6 +79,11 @@ function _loadData(){
             DOM.$inputQuantity.val(data.quantity).change();
         }
     }
+}
+
+function _onLoad() {
+    DOM.$noJs.remove();
+    DOM.$submitButton.text("Add Item to Cart");
 }
 
 function _bindEvents(element) {
@@ -331,6 +340,7 @@ function init(element) {
         // options = $.extend(options, $(element).data());
         _cacheDom(element);
         _bindEvents();
+        _onLoad();
         // _showHideFormContainers(DOM.$radioProduct.val());
         _loadData();
     }
