@@ -16,7 +16,7 @@ date: 2020-10-11 11:25:57
 <p class="text-center mb-4">Feel free to check some banners we made on our <a href="<%- theme.instagram_url %>" rel="me">Instagram page</a> or explore our <a href="/">store home page</a> and find more cool stickers.</p>
 
 <div class="col-12">
-    <p class="text-center mb-3"><a class="btn btn-primary btn-blueberry btn-lg">Check our Banners on Instagram</a></p>
+    <p class="text-center mb-3"><a class="btn btn-primary btn-blueberry btn-lg" href="<%- theme.instagram_url %>" rel="me">Check our Banners on Instagram</a></p>
 </div>
 
 <!--
