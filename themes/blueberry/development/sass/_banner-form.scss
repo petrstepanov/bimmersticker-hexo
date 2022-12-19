@@ -130,6 +130,7 @@ $selected-color: $blue;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    transform: perspective(400px) rotateX(30deg);
   }
 
   .sunstrip {
@@ -164,5 +165,6 @@ $selected-color: $blue;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    transform: perspective(400px) rotateX(30deg);
   }
 }
