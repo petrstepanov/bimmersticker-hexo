@@ -285,8 +285,8 @@ function _buildFontUrl($fontImage, text) {
 }
 
 function _buildFontUnicodeUrl(text) {
-    var url = "/font-unicode/" + text;
-    return encodeURIComponent(url);
+    var url = "/font-unicode/" + encodeURIComponent(text);
+    return url;
 }
 
 function _updateFontPreviews() {
@@ -316,7 +316,7 @@ function _updateBannerImage(hasUnicode = false) {
         var $fontImage = $('input[name=font]:checked').parent().find('img');
         url = _buildFontUrl($fontImage, text);
     } else {
-        url = _buildFontUnicodeUrl($fontImage, text);
+        url = _buildFontUnicodeUrl(text);
     }
     // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
     // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
