@@ -7,7 +7,7 @@
 # Redirect unicode font
 # Url taken from this page: https://www.myfonts.com/collections/arial-unicode-inactive-font-monotype-imaging
 # Important - set &w=0 then image generates with no margin!
-/font-unicode/*  https://render.myfonts.net/fonts/font_rend.php?id=b7d022f7d5cc811a43c452f3d8a32325&rt=:splat&rs=25&w=0&sc=2&fg=FFFFFF&bg=000000  200!
+/font-unicode/*  https://render.myfonts.net/fonts/font_rend.php?https://render.myfonts.net/fonts/font_rend.php?id=de892884133a0eff8a4920ea421a18c2&rt=:splat&rs=25&w=0&rbe=&sc=2&nie=true&fg=FFFFFF&bg=000000&ft=&nf=1  200!
 
 # Redirect facebook
 # /fb/*  https://connect.facebook.net/:splat  200!
