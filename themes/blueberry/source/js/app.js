@@ -1129,7 +1129,9 @@ function _bindEvents(element) {
     });
 
     DOM.$radioFont.change(function (event) {
-        _updateBannerImage();
+        var text = _getBannerText();
+        var containsNonLatinCharacters = /[^\u0000-\u00ff]/.test(text);
+        _updateBannerImage(containsNonLatinCharacters);
         _updateSnipcartButtonsFont(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
@@ -1307,11 +1309,13 @@ function _updateBannerImage(hasUnicode = false) {
     // Update car banner and sun strip images
     var text = _getBannerText();
     var url = '';
+    var maskMode = '';
     if (!hasUnicode){
         var $fontImage = $('input[name=font]:checked').parent().find('img');
         url = _buildFontUrl($fontImage, text);
     } else {
         url = _buildFontUnicodeUrl(text);
+        maskMode = 'luminance';
     }
     // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
     // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
@@ -1319,6 +1323,15 @@ function _updateBannerImage(hasUnicode = false) {
     
     DOM.$banner.css('mask-image', 'url(' + url + ')');
     DOM.$sunstripText.css('mask-image', 'url(' + url + ')');
+
+    // CSS tweaks that account on discrepancy between creativemarket.com and myfonts.net
+    if (hasUnicode){
+        DOM.$banner.addClass('unicode-on');
+        DOM.$sunstripText.addClass('unicode-on');
+    } else {
+        DOM.$banner.removeClass('unicode-on');
+        DOM.$sunstripText.removeClass('unicode-on');
+    }
 }
 
 function _updateBannerSunstripTextColors() {

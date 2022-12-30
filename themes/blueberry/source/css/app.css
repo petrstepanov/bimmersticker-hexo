@@ -14139,6 +14139,17 @@ footer .payment-icon {
   background-repeat: no-repeat;
   transform: perspective(400px) rotateX(30deg);
 }
+.car-preview-container .unicode-on {
+  mask-mode: luminance;
+}
+.car-preview-container .banner-text.unicode-on {
+  top: 20.5%;
+  height: 15%;
+}
+.car-preview-container .sunstrip-text.unicode-on {
+  top: 4.5%;
+  height: 12%;
+}
 
 [class^=icon-] {
   display: inline-block;
