@@ -167,4 +167,18 @@ $selected-color: $blue;
     background-repeat: no-repeat;
     transform: perspective(400px) rotateX(30deg);
   }
+
+  .unicode-on {
+    mask-mode: luminance;
+  }
+
+  .banner-text.unicode-on {
+    top: 20.5%;
+    height: 15%;
+  }
+
+  .sunstrip-text.unicode-on {
+    top: 4.5%;
+    height: 12%;
+  }
 }

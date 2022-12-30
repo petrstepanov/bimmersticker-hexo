@@ -1,5 +1,14 @@
+# Why we redirect fonts and not use them on the website?
+# Because we do not own them and we do not want to to easily change them.
+
 # Redirect fonts
 /font/*  https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/:splat  200!
+
+# Redirect unicode font
+# Url taken from this page: https://www.myfonts.com/collections/arial-unicode-inactive-font-monotype-imaging
+# Example: https://render.myfonts.net/fonts/font_rend.php?id=de892884133a0eff8a4920ea421a18c2&rt=%E8%99%9A%E3%81%A7&rs=25&w=0&rbe=&sc=2&nie=true&fg=FFFFFF&bg=000000&ft=&nf=1
+# Important - set &w=0 then image generates with no margin!
+/font-unicode/*  https://render.myfonts.net/fonts/font_rend.php?id=de892884133a0eff8a4920ea421a18c2&rs=25&w=0&rbe=&sc=2&nie=true&fg=FFFFFF&bg=000000&ft=&nf=1&rt=:splat  200!
 
 # Redirect facebook
 # /fb/*  https://connect.facebook.net/:splat  200!

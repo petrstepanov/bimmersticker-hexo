@@ -19,6 +19,7 @@ function _cacheDom(element) {
     DOM.$radioBaseColor = DOM.$el.find('input[name=color_base]');
     DOM.$radioFont = DOM.$el.find('input[name=font]');
     DOM.$fontContainer = DOM.$el.find('.js--font-container');
+    DOM.$fontContainerList = DOM.$el.find('.js--font-container-list');
     DOM.$textColorContainer = DOM.$el.find('.js--text-color-container');
     DOM.$baseColorContainer = DOM.$el.find('.js--base-color-container');
 
@@ -98,10 +99,32 @@ function _bindEvents(element) {
     });
 
     DOM.$input.on('input', function (event) {
+
+        var text = _getBannerText();
+
+        // Check string has non-latin characters and show/hide font selection panel
+        // This should happen instantly unlike the delayed request for updating font previews
+        // https://stackoverflow.com/questions/147824/how-to-find-whether-a-particular-string-has-unicode-characters-esp-double-byte
+        var containsNonLatinCharacters = /[^\u0000-\u00ff]/.test(text);
+        if (containsNonLatinCharacters){
+            DOM.$fontContainerList.slideUp();
+        }
+        else {
+            DOM.$fontContainerList.slideDown();
+        }
+        
+        // Timeout for updating the font previews
         if (timeoutUpdateImages) clearTimeout(timeoutUpdateImages);
         timeoutUpdateImages = setTimeout(function () {
-            _updateTextImages();
-            _updateBannerFontImages();
+            // Update radio font images to reflect custom text
+            var text = _getBannerText();
+            var containsNonLatinCharacters = /[^\u0000-\u00ff]/.test(text);
+
+            if (!containsNonLatinCharacters){
+                _updateFontPreviews();
+            }
+    
+            _updateBannerImage(containsNonLatinCharacters);
         }, 1500);
         _updateSnipcartButtonsText(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
@@ -111,7 +134,9 @@ function _bindEvents(element) {
     });
 
     DOM.$radioFont.change(function (event) {
-        _updateBannerFontImages();
+        var text = _getBannerText();
+        var containsNonLatinCharacters = /[^\u0000-\u00ff]/.test(text);
+        _updateBannerImage(containsNonLatinCharacters);
         _updateSnipcartButtonsFont(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
@@ -261,12 +286,18 @@ function _buildFontUrl($fontImage, text) {
     return url + '?s=' + encodeURIComponent(query);
 }
 
-function _updateTextImages() {
+function _buildFontUnicodeUrl(text) {
+    var url = "/font-unicode/" + encodeURIComponent(text);
+    return url;
+}
+
+function _updateFontPreviews() {
     // On testing environment do nothing (no font url rewrite implemented)
     if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
 
     // Update radio font images to reflect custom text
     var text = _getBannerText();
+
     DOM.$fontImages.each(function () {
         var url = _buildFontUrl($(this), text);
         $(this).attr('src', url);
@@ -276,20 +307,36 @@ function _updateTextImages() {
     });
 }
 
-function _updateBannerFontImages() {
+function _updateBannerImage(hasUnicode = false) {
     // On testing environment do nothing (no font url rewrite implemented)
     if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
 
     // Update car banner and sun strip images
     var text = _getBannerText();
-    var $fontImage = $('input[name=font]:checked').parent().find('img');
-    var url = _buildFontUrl($fontImage, text);
+    var url = '';
+    var maskMode = '';
+    if (!hasUnicode){
+        var $fontImage = $('input[name=font]:checked').parent().find('img');
+        url = _buildFontUrl($fontImage, text);
+    } else {
+        url = _buildFontUnicodeUrl(text);
+        maskMode = 'luminance';
+    }
     // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
     // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
     url = url.replace(/[() '"]/g, '\\$&');
     
     DOM.$banner.css('mask-image', 'url(' + url + ')');
     DOM.$sunstripText.css('mask-image', 'url(' + url + ')');
+
+    // CSS tweaks that account on discrepancy between creativemarket.com and myfonts.net
+    if (hasUnicode){
+        DOM.$banner.addClass('unicode-on');
+        DOM.$sunstripText.addClass('unicode-on');
+    } else {
+        DOM.$banner.removeClass('unicode-on');
+        DOM.$sunstripText.removeClass('unicode-on');
+    }
 }
 
 function _updateBannerSunstripTextColors() {
