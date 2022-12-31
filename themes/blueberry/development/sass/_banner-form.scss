@@ -170,15 +170,16 @@ $selected-color: $blue;
 
   .unicode-on {
     mask-mode: luminance;
+    -webkit-mask-mode: luminance;
   }
 
   .banner-text.unicode-on {
-    top: 20.5%;
-    height: 15%;
+    top: 18%;
+    height: 20%;
   }
 
   .sunstrip-text.unicode-on {
-    top: 4.5%;
-    height: 12%;
+    top: 3%;
+    height: 15%;
   }
 }

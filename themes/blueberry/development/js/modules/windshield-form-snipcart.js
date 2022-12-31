@@ -126,6 +126,7 @@ function _bindEvents(element) {
     
             _updateBannerImage(containsNonLatinCharacters);
         }, 1500);
+
         _updateSnipcartButtonsText(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
@@ -327,7 +328,10 @@ function _updateBannerImage(hasUnicode = false) {
     url = url.replace(/[() '"]/g, '\\$&');
     
     DOM.$banner.css('mask-image', 'url(' + url + ')');
+    DOM.$banner.css('-webkit-mask-image', 'url(' + url + ')');
+
     DOM.$sunstripText.css('mask-image', 'url(' + url + ')');
+    DOM.$sunstripText.css('-webkit-mask-image', 'url(' + url + ')');
 
     // CSS tweaks that account on discrepancy between creativemarket.com and myfonts.net
     if (hasUnicode){
