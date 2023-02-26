@@ -177,3 +177,7 @@ $font-size-89: 5.5625em;
 .white-text {
   color: white;
 }
+
+.numbered::before {
+  content: attr(data-number) ' ';
+}
