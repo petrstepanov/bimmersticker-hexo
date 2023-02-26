@@ -81,4 +81,16 @@ $(function() {
     useClassNames: true,
     animatedClassName: 'animate__animated'
   });
+
+  // Automatic pills selection
+  if ($('.nav-pills').length > 0) {
+    var hashtag = window.location.hash;
+    if (hashtag!='') {
+        //$('.nav-tabs > li').removeClass('active');
+        //$('.nav-tabs > li > a[href="'+hashtag+'"]').parent('li').addClass('active');
+        //$('.tab-content > div').removeClass('active');
+        //$(hashtag).addClass('active');
+        $(hashtag).tab('show');
+    }
+  }
 });
