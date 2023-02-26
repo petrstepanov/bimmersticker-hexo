@@ -37,3 +37,16 @@
 .cryptedphone:after {
   content: attr(data-country) " (" attr(data-area) ") " attr(data-local); 
 }
+
+.nav-link svg {
+  width: 100%;
+  height: auto;
+}
+
+.nav-link svg path {
+  fill: $primary;
+}
+
+.nav-link.active svg path {
+  fill: white;
+}

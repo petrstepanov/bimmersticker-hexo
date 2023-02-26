@@ -21,6 +21,7 @@
     "hexo-renderer-marked": "^2.0.0",
     "hexo-renderer-stylus": "^1.1.0",
     "hexo-server": "^1.0.0",
+    "hexo-tag-youtube-responsive": "^0.4.2",
     "parse-path": "^4.0.3",
     "uuid": "^7.0.3"
   }
