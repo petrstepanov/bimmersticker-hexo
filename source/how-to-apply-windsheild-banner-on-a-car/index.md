@@ -40,7 +40,7 @@ date: 2023-01-31 12:26:44
 </div>
 
 <div class="tab-content" id="pills-tabContent">
-<div class="tab-pane fade show active" id="pills-sun-strip" role="tabpanel" aria-labelledby="pills-sun-strip-tab">
+<section class="tab-pane fade show active" id="pills-sun-strip" role="tabpanel" aria-labelledby="pills-sun-strip-tab">
 
 <!-- Sun Strip Tab : Begin -->
 <h2 class="d-none">How to install Windshield Sun Strip on a Car or Truck?</h2>
@@ -94,8 +94,8 @@ date: 2023-01-31 12:26:44
 
 <!-- Sun Strip Tab : End -->
 
-</div>
-<div class="tab-pane fade" id="pills-banner" role="tabpanel" aria-labelledby="pills-banner-tab">
+</section>
+<section class="tab-pane fade" id="pills-banner" role="tabpanel" aria-labelledby="pills-banner-tab">
 
 <!-- Banner Tab : Begin -->
 <h2 class="d-none">How to apply a Windshield Banner on a Vehicle?</h2>
@@ -142,5 +142,5 @@ date: 2023-01-31 12:26:44
 
 <!-- Banner Tab : End -->
 
-</div>
+</section>
 </div>
