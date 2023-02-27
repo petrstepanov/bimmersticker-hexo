@@ -1,6 +1,8 @@
 ---
 title: How to Apply Windshield Banner on a Car or Truck
+description: Application instructions for Windshield Decals - Banners and Sun Strips on a car or truck
 date: 2023-01-31 12:26:44
+thumbnail: sun-strip/05-removing-the-transfer-tape.jpg
 ---
 
 <div class="row justify-content-center">
