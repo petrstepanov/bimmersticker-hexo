@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "hexo": "^4.2.1",
+    "hexo-featured-image": "^0.4.3",
     "hexo-filter-responsive-images": "^1.7.0",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
