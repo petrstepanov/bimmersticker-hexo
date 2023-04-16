@@ -72,15 +72,30 @@ hexo.extend.helper.register('addPriceFromColorOption', function(product){
 });
 
 hexo.extend.helper.register('setUniqueIdFromVariations', function(product){
+    // Function to convert variatioon to ID suffix
+    var variationToId = function (variationString) {
+        // To uppercase
+        variationString = variationString.toUpperCase();
+        // Remove special characters e.g. "Small • 2x3 in"
+        variationString = variationString.replace(' • ', '_');
+        // Remove spaces
+        variationString = variationString.replace(' ', '_');
+        // Remove possible price increases e.g. "[+4.00]"
+        const reg = /\[.*\]/
+        variationString = variationString.replace(reg, '');
+        return variationString;
+    }
+
     if ("item_group_id" in product){
         if ("color" in product){
-            product.id = product.id + '_' + product.color.toUpperCase().replace(' ','_');
+            product.id = product.id + '_' + variationToId(product.color);
         }        
         if ("pattern" in product){
-            product.id = product.id + '_' + product.pattern.toUpperCase().replace(' ','_');
+            product.id = product.id + '_' + variationToId(product.pattern);
         }
         if ("size" in product){
-            product.id = product.id + '_' + product.size.toUpperCase().replace(' ','_');
+            var sizeVariation = product.size.toUpperCase().replace(' ','_');
+            product.id = product.id + '_' + variationToId(product.size);
         }
     }
 });
