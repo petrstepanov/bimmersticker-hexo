@@ -135,7 +135,7 @@ hexo.extend.helper.register('parse_variation_value', function(str){
     var array = pattern.exec(str);
     obj.value = capitalize(array[1]); //capitalize(array[0]);
     obj.extra = parseFloat(array[2]).toFixed(2);
-    obj.text = capitalize(array[1]) + " +$" + obj.extra.toString();
+    obj.text = capitalize(array[1]) + " • $" + parseFloat(array[2]) + " extra";
   }
   return obj;
 });
