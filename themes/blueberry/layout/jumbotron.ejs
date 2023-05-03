@@ -1,0 +1,19 @@
+<section>
+	<%- partial('partial/navbar') %>
+	<div class="jumbotron jumbotron-fluid jumbotron-blueberry-page pb-5" style="background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(<%- page.featured_image %>)">
+		<div class="container">
+			<% if (page.title){ %>
+				<h1 class="display-4 font-handwritten text-center mt-5 mb-4"><%- page.title %></h1>
+			<% } %>
+			<% if (page.excerpt){ %>
+				<p class="text-center lead mb-3"><%- page.excerpt %></p>
+			<% } %>
+			<% if (page.click_to_action_text){ %>
+				<p class="text-center"><a class="btn btn-primary btn-blueberry" href="<%- page.click_to_action_url %>"><%- page.click_to_action_text %></a></p>
+			<% } %>			
+		</div>
+	</div>
+	<div class="container spacer-footer">
+		<%- page.content %>                
+	</div>
+</section>
