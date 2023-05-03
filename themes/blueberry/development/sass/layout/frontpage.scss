@@ -2,13 +2,13 @@
   .section-intro-mobile-bg {
     // background-color: $blue; //transparentize($blue, 0.2);
     // background-image: url(/img/bmw-window-vinyl-sticker-decal-xs.jpg);
-    background-image: url(/img/bimmer-sticker-xs-new.jpg);
+    background-image: url(/img/bmw-windshield-banner-on-5series-e39-sm.jpg);
     background-size: cover;
     background-position: center 69%;
     // background-blend-mode: soft-light;
 
     @include media-breakpoint-up(md){
-      background-image: url(/img/bimmer-sticker-md-new.jpg);
+      background-image: url(/img/bmw-windshield-banner-on-5series-e39-md.jpg);
     }
 
     @include media-breakpoint-up(lg){
@@ -18,7 +18,8 @@
   }
 
   @include media-breakpoint-up(lg){
-    background-image: url(/img/bmw-window-vinyl-sticker-decal-lg-new.jpg);
+    // background-image: url(/img/bmw-window-vinyl-sticker-decal-lg-new.jpg);
+    background-image: url(/img/bmw-windshield-banner-on-5series-e39.jpg);
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
