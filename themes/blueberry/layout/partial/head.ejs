@@ -42,8 +42,8 @@
     <!-- For FB Messenger: "Content Security Policy of your site blocks some resources" -->
     <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.snipcart.com https://connect.facebook.net https://www.facebook.com" /> -->
 
-    <!-- TODO: Facebook opengraph tags -->
-    <%- open_graph({ url: url.replace('/index.html', '/')}) %>
+    <!-- TODO: Facebook opengraph tags (and meta:description) -->
+<%- open_graph({ url: url.replace('/index.html', '/')}) %>
     <!-- TODO: Twitter card tags -->
 
     <!-- Schema organization -->
