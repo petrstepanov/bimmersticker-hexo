@@ -1,4 +1,7 @@
-<% page.photos = ['/img/bimmersticker-store-og-front-omage-bme-328i-windshield-banner-vinyl-sticker.jpg']; %>
+<%
+  // OpenGraph Image Settings - 1200x630 minimum
+  page.photos = [config.url + '/img/sticker-store-llc-bimmer-sticker-store.jpg'];
+%>
 
 <section class="section-intro">
 	<div class="section-intro-mobile-bg">
@@ -52,23 +55,23 @@
 </section>
 <section class="pb-4">
 	<!-- Windshield banners -->
-	<%- partial('partial/heading', {title: 'Windshield Banners and Sun Strips', subtitle: 'We offer a collection of <a href="/what-is-a-car-windshield-banner/">windshield banners</a> for project and show cars, stanced vehicles, jdm cars. <a href="/custom-windshield-banner-sun-strip/">Create your personal banner or sun strip</a> with our online tool</a>.', name: 'banners'}) %>
+	<%- partial('partial/heading', {title: 'Windshield Banners and Sun Strips', subtitle: 'We offer a collection of <a href="/what-is-a-car-windshield-banner/">windshield banners</a> for project and show cars, stanced vehicles, jdm cars. <a href="/custom-windshield-banner-sun-strip/">Create your personal banner or sun strip</a> with our online tool.', name: 'banners'}) %>
 
 	<div class="container">
 		<div class="row mb-4">
 			<div class="col-12">
 				<figure class="card card-blueberry">
 					<% carouselId = "carousel_windshield_banner"; %>
-					<% var url = "/custom-windshield-banner-sun-strip/"; %>
+					<% var href = "/custom-windshield-banner-sun-strip/"; %>
 					<div id="<%- carouselId %>" class="carousel slide" data-ride="carousel">
 						<div class="carousel-inner">
 							<div class="carousel-item active">
-								<a class="img-wrapper release-height-md" href="<%- url %>">
+								<a class="img-wrapper release-height-md" href="<%- href %>">
 									<img width="3905" height="1274" loading="lazy"  src="/custom-windshield-banner-sun-strip/custom-text-windshield-banners-order-online.jpg" class="d-block h-auto w-100" alt="Personalized windshield sun strips with custom text">
 								</a>
 							</div>
 							<div class="carousel-item">
-								<a class="img-wrapper release-height-md" href="<%- url %>">
+								<a class="img-wrapper release-height-md" href="<%- href %>">
 									<img width="3905" height="1274" loading="lazy"  src="/custom-windshield-banner-sun-strip/any-wording-on-your-car-truck-windshield.jpg" class="d-block h-auto w-100" alt="Custom windshield banners for your car or truck">
 								</a>
 							</div>
