@@ -19,16 +19,14 @@ Both windshield banners and sun strips are easy to install and can be removed wi
 
 <div class="row">
   <div class="col-md">
-    <img class="content-image" src="windshield-vinyl-sun-strips.jpg" width="500" height="500" alt="BMW sun strips made at Bimmer Sticker Store" />
-    <blockquote>Our <a href="https://www.instagram.com/the_hoodlums.no/" rel="nofollow">customer's BMW</a> with personalized sun strips</blockquote>
+    <img class="content-image" src="windshield-vinyl-sun-strips.jpg" width="500" height="500" alt="BMW sun strips made at Bimmer Sticker Store" />
+    <blockquote>Our <a href="https://www.instagram.com/the_hoodlums.no/" rel="nofollow">customer's BMW</a> with personalized sun strips.</blockquote>
   </div>
   <div class="col-md">
-    <img class="content-image" src="volkswagen-golf-with-a-sun-strip.jpg" width="500" height="500" alt="volkswagen golf with windshield banner from Sticker Store LLC" />
+    <img class="content-image" src="volkswagen-golf-with-a-sun-strip.jpg" width="500" height="500" alt="volkswagen golf with windshield banner from Sticker Store LLC" />
     <blockquote>Windshield sun strips are universal and will fit any car make and model. For instance, <a href="https://www.instagram.com/thatginstergti/" rel="nofollow">check this VW with our Windshield Banner</a>.</blockquote>
   </div>
 </div>
-
-
 
 So if you're looking to add a little personality and style to your ride, or if you're looking for a creative way to promote your business or organization, a custom windshield banner or sun strip is the perfect solution. At our company, we can help you create a design that will make your vehicle stand out from the crowd and get noticed.
 
