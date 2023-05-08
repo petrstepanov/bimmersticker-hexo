@@ -24,23 +24,23 @@
       </script> 
     -->
 
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><%= page.title ? page.title : config.title %></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon begin: https://realfavicongenerator.net/ -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
-    <link rel="manifest" href="/site.webmanifest"/>
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#007eb8"/>
-    <meta name="msapplication-TileColor" content="#ffffff"/>
-    <meta name="theme-color" content="#ffffff"/>    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#007eb8">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
     <!-- Favicon end -->
 
     <!-- For FB Messenger: "Content Security Policy of your site blocks some resources" -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.snipcart.com https://connect.facebook.net https://www.facebook.com" /> -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.snipcart.com https://connect.facebook.net https://www.facebook.com"> -->
 
     <!-- TODO: Facebook opengraph tags (and meta:description) -->
 <%- open_graph({ url: url.replace('/index.html', '/')}) %>
@@ -64,17 +64,16 @@
     <!-- Preload Fonts -->
     <!-- <link rel="preload" href="/fonts/sf-pro-text-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>  -->
     <!-- <link rel="preload" href="/fonts/sf-pro-text-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>  -->
-    <link rel="preload" href="/fonts/letristascript-webfont.woff2" as="font" type="font/woff2" crossorigin /> 
-    <link rel="preload" href="/fonts/configcondensed-bold-webfont.woff2" as="font" type="font/woff2" crossorigin /> 
+    <link rel="preload" href="/fonts/letristascript-webfont.woff2" as="font" type="font/woff2" crossorigin> 
+    <link rel="preload" href="/fonts/configcondensed-bold-webfont.woff2" as="font" type="font/woff2" crossorigin> 
 
     <% if(config.cart == "snipcart"){ %>   
       <!-- Serve Snipcart CSS locally! Better PageSpeeds! -->
-      <!-- <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.22/default/snipcart.css" />  -->
+      <!-- <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.22/default/snipcart.css">  -->
     <% } %>
     <% if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
-      <link rel="stylesheet" href="/css/app.css?t=<%- (new Date()).getTime().toString() %>" />
+      <link rel="stylesheet" href="/css/app.css?t=<%- (new Date()).getTime().toString() %>">
       <% } else { %>
-      <link rel="stylesheet" href="/css/app.css" />
+      <link rel="stylesheet" href="/css/app.css">
     <% } %>
-    
   </head>

@@ -1,12 +1,11 @@
 <%- partial('partial/head') %>
-<body data-spy="scroll" data-target="#navbar-spy" data-offset="0" class="<%- is_post()? 'is-post':'' %>">
+<body data-spy="scroll" data-target="#navbar-spy" data-offset="0" class="<%- is_post() ? 'is-post' : '' %>">
   <% if(config.facebook_chat){ %>
     <!-- Messenger Chat Plugin Code -->
     <div id="fb-root"></div>
 
     <!-- Your Chat Plugin code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
+    <div id="fb-customer-chat" class="fb-customerchat"></div>
 
     <script>
       var chatbox = document.getElementById('fb-customer-chat');
