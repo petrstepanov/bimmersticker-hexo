@@ -51,7 +51,7 @@ People love windshield banners for a variety of reasons. Here are some of the mo
 
 4. **Sun protection** - A sun strip is a practical addition to your vehicle that can help reduce glare and protect your eyes from the sun's harmful rays. It can make driving safer and more comfortable, especially during long trips or in areas with intense sunlight.
 
-<img class="content-image" src="how-windshield-sun-strip-banner-looks-inside-car-cabin.png" width="2048" height="860" alt="How Windshield Banner and Sun Strip look inside the car" />
+<img class="content-image" src="how-windshield-sun-strip-banner-looks-inside-car-cabin.png" width="2048" height="860" alt="How Windshield Banner and Sun Strip look inside the car" />
 <blockquote>How Windshield Banners and Sun Strips look inside the car? It creates a very comfortable feeling inside the cabin!</blockquote>
 
 Overall, windshield banners are a fun and practical way to add a personal touch to your vehicle while also promoting your business or team spirit. They're easy to install, affordable, and can make a big impact on the look and feel of your car or truck.
