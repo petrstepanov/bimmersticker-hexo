@@ -37,3 +37,7 @@
 .cryptedphone:after {
   content: attr(data-country) " (" attr(data-area) ") " attr(data-local); 
 }
+
+.transform-scale-85 {
+  transform: scale(0.85);
+}

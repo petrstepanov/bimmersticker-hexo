@@ -7,14 +7,14 @@
 	<div class="section-intro-mobile-bg">
 		<%- // partial('partial/navbar', {className: 'transparent'}) %>
 		<%- partial('partial/navbar') %>
-		<div class="jumbotron jumbotron-fluid jumbotron-blueberry fix">
+		<div class="jumbotron jumbotron-fluid jumbotron-blueberry">
 			<div class="container">
-				<div class="row">
+				<div class="row fix-link-underline">
 					<div class="col-11 col-sm-8 col-md-12 col-lg-5">
 						<h1 class="display-4 mt-lg-3"><%- theme.slogan ? theme.slogan : "" %></h1>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row fix-link-underline">
 					<div class="col col-md-8 col-lg-6 col-xl-5 mb-3">
 						<p class="front-paragraph mt-5"><%- theme.lead1 ? theme.lead1 : "" %></p>
 						<p class="front-paragraph"><%- theme.lead2 ? theme.lead2 : "" %></p>
@@ -35,7 +35,8 @@
 					</div>
 				</div>
 			</div>
-			<img class="w-100 h-auto d-lg-none" alt="jumbotron section shape" width="960" height="78" src="<%- partial('data-uri/wave-header') %>" />
+			<!-- <img class="w-100 h-auto d-lg-none" alt="jumbotron section shape" width="960" height="78" src="<%- partial('data-uri/wave-header') %>" /> -->
+			<div class="d-lg-none"><%- partial('images/wave-header.svg') %></div>
 		</div>
 	</div>
 	<div class="container">

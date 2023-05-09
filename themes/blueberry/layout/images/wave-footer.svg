@@ -1,0 +1,18 @@
+<svg width="1280" height="123" preserveAspectRatio="xMidYMin meet" class="w-100 h-auto" viewBox="0 0 1280 123" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path d="M0.249951181,0 C-0.0833170605,15 -0.0833170605,56 0.249951181,123 L1280,123 C1280,169.894932 1280,142.394932 1280,40.5 C1280,70.5 1268.50225,116 1139.52744,109.5 C1010.55263,103 142,82.5 102.729936,80.5 C18.9407695,76.2326698 12.2476079,38 0.249951181,0 Z" id="path-1"></path>
+        <filter x="-0.3%" y="-2.8%" width="100.6%" height="105.5%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="8" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0812669837 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Main" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="custom-banner" transform="translate(0.000000, -3536.000000)">
+            <g id="wave-footer" transform="translate(0.000000, 3536.000000)">
+                <use fill="#007CC2" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>
