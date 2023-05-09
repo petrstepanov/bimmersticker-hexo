@@ -40,7 +40,7 @@
     }
   }
 
-  &.fix a {
+  .fix-link-underline a {
     @include media-breakpoint-between(xs, md) {
       color: white;
       text-decoration: underline !important;

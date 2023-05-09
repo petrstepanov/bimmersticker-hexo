@@ -3,9 +3,10 @@
 // Article on BMW colors
 // https://www.bmwblog.com/2009/04/13/history-bmw-m-logo-colors-explained/
 
-// Coolors pallette
+// Color pallette
 // https://coolors.co/export/pdf/008ac9-2b115a-f11a22-44af69-f7e756
-$blue:    #009ee6; // #008ac9; // from M logo
+// contrast tool: https://dequeuniversity.com/rules/axe/4.6/color-contrast
+$blue:    #007CC2; //#009ee6 - bimmersticker color, darkened because of Lighthouse contrast issues // #008ac9; // from M logo
 $indigo:  #E5F3F9; // for aside post section
 $purple:  #2b115a; // from M logo
 $pink:    #e83e8c;
