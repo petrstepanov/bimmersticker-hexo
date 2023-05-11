@@ -143,3 +143,6 @@ mailchimp:
   firstname_name: FNAME
   lastname_name: LNAME
   secret_name: b_f9e4fe98566399134546c9006_e3386efb18
+
+featured_image:
+  absolute_path_reference: true
