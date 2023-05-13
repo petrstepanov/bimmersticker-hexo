@@ -41,11 +41,14 @@
 
 @import "disqus/disqus-overrides";
 
-@import "snipcart/snipcart-local-3.6.1"; // Host snipcart CSS locally - saves time (https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.css)
+// Top Menu styling for cart button
 @import "snipcart/snipcart";
-@import "snipcart/overrides/global";
-@import "snipcart/overrides/view-cart";
-@import "snipcart/overrides/view-checkout";
+
+// Host snipcart CSS locally - saves time (https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.css)
+@import "snipcart/snipcart-local-3.6.1"; 
+// @import "snipcart/overrides/global";
+// @import "snipcart/overrides/view-cart";
+// @import "snipcart/overrides/view-checkout";
 
 @import "print";
 
