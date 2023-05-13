@@ -41,7 +41,7 @@
 
 @import "disqus/disqus-overrides";
 
-@import "snipcart/snipcart-local"; // Host snipcart CSS locally - saves time?
+@import "snipcart/snipcart-local-3.6.1"; // Host snipcart CSS locally - saves time (https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.css)
 @import "snipcart/snipcart";
 @import "snipcart/overrides/global";
 @import "snipcart/overrides/view-cart";
