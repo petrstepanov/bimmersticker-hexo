@@ -18,14 +18,19 @@ $primary-color-hover: darken($primary, 7.5%);
     --color-buttonPrimary-hover: #FFFFFF;
     --bgColor-buttonPrimary: #{$primary};
     --bgColor-buttonPrimary-hover: #{$primary-color-hover};
+    --shadow-buttonPrimary-hover: 0 2px 4px 0 #{rgba($blue, 0.9)};
+
+    // Default shadow - for boxes (containers)
+    --shadow-default: 0 0.25rem 0.25rem 0 #{rgba($blue, 0.1)}; // Same as website header
 
     // Inputs
     --bgColor-input: #FFFFFF;
     --borderColor-input: #dceaf9;
     --borderColor-input-hover: #dceaf9;    
     --borderColor-input-focus: #{$primary};
-    --shadow-input-focus: 0 2px 4px 0 rgba(#{$blue}, 0.2);
-    --shadow-input-error: 0 2px 4px 0 rgba(#{$red}, 0.2);
+    // 
+    --shadow-input-focus: 0 2px 4px 0 #{rgba($blue, 0.2)};
+    --shadow-input-error: 0 2px 4px 0 #{rgba($red, 0.1)};
 
     // Icons
     --color-icon: #{$body-color};

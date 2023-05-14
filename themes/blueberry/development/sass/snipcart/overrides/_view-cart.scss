@@ -1,8 +1,11 @@
+.snipcart-scrollbar {
+    overflow: visible;
+}
+
 // SHOPPING ITEM CONTAINER
 .snipcart-item-line {
     padding: 1rem;
     margin: 1rem;
-    box-shadow: none;
     border-radius: 0.5rem;
 
     &:first-child {
@@ -161,7 +164,7 @@
 
 // Cart summary - confusing step. Remove editing cart summary from cart summary.
 .snipcart-cart-summary {
-    box-shadow: 0 0.25rem 0.25rem 0 rgba($blue, 0.1);
+    box-shadow: var(--shadow-default);
     border-radius: 0.5rem;
     overflow: hidden;
 
@@ -255,6 +258,7 @@
     border-radius: 0.5rem;
     padding: 1.2rem 1rem;
     margin-bottom: 1rem;
+    box-shadow: var(--shadow-default);
 
     @include media-breakpoint-up(md) {
         margin-bottom: 1.5rem;
