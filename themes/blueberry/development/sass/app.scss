@@ -44,15 +44,18 @@
 // Top Menu styling for cart button
 @import "snipcart/snipcart";
 
+/*! Snipcart variables. Starting Snipcart 3.2.X you can define colors in variables */
+@import "snipcart/snipcart-variables";
+
 // Host snipcart CSS locally - saves time (https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.css)
 @import "snipcart/snipcart-local-3.6.1"; 
 
 /*! PETR STEPANOV: Overrides for Snipcart start here */
 /*  read more about SASS comments here https://sass-lang.com/documentation/syntax/comments */
-
 @import "snipcart/overrides/global";
 @import "snipcart/overrides/view-cart";
 @import "snipcart/overrides/view-checkout";
+@import "snipcart/overrides/view-complete";
 
 @import "print";
 

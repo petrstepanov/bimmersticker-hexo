@@ -1,0 +1,33 @@
+/*! Snipcart Theming: https://docs.snipcart.com/v3/setup/theming */
+/* Syntax to integrate SASS variables into CSS variables: https://sass-lang.com/documentation/breaking-changes/css-vars */
+
+// Bootstrap darkens color 7.5%
+$primary-color-hover: darken($primary, 7.5%);
+
+#snipcart {
+    // Default text color
+    --color-default: #{$body-color};
+
+    --color-buttonPrimary: #FFFFFF;
+    --color-buttonPrimary-hover: #FFFFFF;
+    --bgColor-buttonPrimary: #{$primary};
+    --bgColor-buttonPrimary-hover: #{$primary-color-hover};
+
+    // Inputs
+    --bgColor-input: #FFFFFF;
+    --borderColor-input: #dceaf9;
+    --borderColor-input-hover: #dceaf9;    
+    --borderColor-input-focus: #{$primary};
+    --shadow-input-focus: 0 2px 4px 0 rgba(#{$blue}, 0.2);
+    --shadow-input-error: 0 2px 4px 0 rgba(#{$red}, 0.2);
+
+    // Icons
+    --color-icon: #{$body-color};
+
+    // Link colors
+    --color-link: #{$link-color};
+    --color-link-hover: #{$link-hover-color};
+
+    // Last Payment icon (badge?) on order complete page was blue
+    --color-badge: #{$body-color};
+}

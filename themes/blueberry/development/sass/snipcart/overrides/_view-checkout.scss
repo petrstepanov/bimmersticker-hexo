@@ -1,14 +1,3 @@
-// NAVBAR TWEAKS
-.snipcart-modal__header-summary-title {
-    span {
-        padding-left: 0.5rem;
-    }
-}
-
-.snipcart .snipcart-cart-header .snipcart-modal__header-summary span {
-    margin-left: 0;
-}
-
 // Cart summary - confusing step. Remove editing cart summary from cart summary.
 .snipcart-cart-summary { 
     box-shadow: 0 0.25rem 0.25rem 0 rgba($blue, 0.1);
@@ -42,24 +31,33 @@
 
 // Slide out cart settings on larger displays
 .snipcart-cart__secondary-header {
-    background-color: $indigo;
+//     background-color: $indigo;
     min-height: 5.3rem;
+}
+
+.snipcart-layout__content {
+    margin-top: 1em;
+
+    @include media-breakpoint-up(md){
+        margin-top: 1.5rem;
+    }
 }
 
 // Pading of each step box
 .snipcart-checkout-step {
-    margin-top: 1em;
-    padding-bottom: 0;
-
-    @include media-breakpoint-up(md){
-        padding: 0;
-        margin-top: 1.5rem;
-    }
-
-    &:last-child {
-        padding-bottom: 1em;
-    }
+     margin-top: 0em;
 }
+//     padding-bottom: 0;
+
+//     @include media-breakpoint-up(md){
+//         padding: 0;
+//         margin-top: 1.5rem;
+//     }
+
+//     &:last-child {
+//         padding-bottom: 1em;
+//     }
+// }
 
 // Styling the Checkout steps 1,2,3
 .snipcart-form {
@@ -69,11 +67,14 @@
 }
 
 .snipcart__box {
-    // Instead add background to their child containers
-    background-color: #fff;
+    background-color: #fff; // Payment box (3) lacking white background
     border-radius: 0.5rem;
     padding: 1.2rem 1rem;
-    margin-bottom: 0;
+    margin-bottom: 1rem;
+
+    @include media-breakpoint-up(md){
+        margin-bottom: 1.5rem;
+    }
 
     // Space between form fields - only bottom 0.5 rem just like on cart screen
     .snipcart-form__field {
@@ -90,18 +91,14 @@
             background : $indigo;
             font-family: $font-display;
             font-size: $font-size-21;
-            color: white;
+            color: $body-color;
             margin: 0 0.75rem 0 0;
             border: 0;
 
             &.snipcart__box--badge-highlight {
                 background : $blue;
+                color: white;
             }
-        }        
-        
-        .snipcart__font--subtitle {
-            font-family: $font-display;
-            font-size: $font-size-21;
         }
     }
 
@@ -119,7 +116,7 @@
 
     // Align "I don't see my adress"
     .snipcart-form__row {
-        align-items: center;
+        align-items: flex-start;
         
         .snipcart-form__cell--input-aligned {
             margin-top: 2.25rem;
@@ -128,14 +125,14 @@
     }
 
     // Make "I don't see my address" checkbox look like a link
-    label[for="addressNotFound"] {
-        float: right;
-        color: $link-color;
+    // label[for="addressNotFound"] {
+    //     float: right;
+    //     color: $link-color;
 
-        &::before{
-            display: none;                
-        }
-    }
+    //     &::before{
+    //         display: none;                
+    //     }
+    // }
 }
 
 // Checkboxes - make labels not span full width
@@ -144,18 +141,13 @@
 }
 
 // Minimum height fix for address textbox
-.snipcart-form__address__autocomplete > .snipcart-textbox {
-    min-height: 2.75rem;
+.snipcart-form__address-autocomplete > .snipcart-textbox {
+    min-height: 2.643rem;
 }
 
 // Weird "Typeahead field around address textbox"
 .snipcart-typeahead {
     background: transparent;
-}
-
-// Actions link - "Edit" address after already input
-.snipcart__actions--link {
-    color: $link-color;
 }
 
 .snip-checkout-icon {
@@ -182,7 +174,13 @@
     @extend .snip-checkout-icon;
 }
 
-// Shipping selection
+
+// 2. Shipping selection
+
+.snipcart-checkout-step {
+    padding-bottom: 0;
+}
+
 .snipcart-shipping-rates-list {
     margin-bottom: 1.4rem;
 }
@@ -229,61 +227,14 @@
     margin-top: 1.5rem
 }
 
-.snipcart-payment-methods-list-item__button {
-    // visibility: hidden;
-    height: auto;
-    @extend %snipcart-button;
-    align-items: center;
-    color: white;
-    background-color: $blue;
-    border: 0;
-    display: block;
-    font-size: $font-size-21;
-
-    // svg {
-    //     display: inline-block;
-    //     margin-left: 0.5em;
-
-    //     path {
-    //         fill: white !important;
-    //     }
-    // }
-
-    // .snipcart-payment-methods-list-item__label {
-    //     display: inline;
-    //     margin-right: 0.5rem;
-
-    //     .snipcart-payment-methods-list-item__icon {
-    //         transform: translateY(-0.15rem);
-    //         margin-left: 0;
-    //     }
-    // }    
-}
-
-// .snipcart-item-line__media--small {
-//     margin-right: 1rem;
-// }
-
-// // Checkout step badges
-
-
-// .snipcart-typeahead {
-//     background-color: transparent;
-// }
-
-// // Checkout input fields... weird
-// .snipcart-input {
-//     border: 0px !important;
-//     box-shadow: none !important;
+// .snipcart-payment-methods-list-item__button {
+//     // visibility: hidden;
 //     height: auto;
-
-//     input {
-//         @extend %input-field;
-//         height: 2.75rem;
-//         font-family: $font-regular !important;
-//     }
-// }
-
-// .snipcart-form__label {
-//     @extend .label;
+//     @extend %snipcart-button;
+//     align-items: center;
+//     color: white;
+//     background-color: $blue;
+//     border: 0;
+//     display: block;
+//     font-size: $font-size-21;
 // }

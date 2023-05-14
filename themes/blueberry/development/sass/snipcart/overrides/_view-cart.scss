@@ -5,6 +5,10 @@
     box-shadow: none;
     border-radius: 0.5rem;
 
+    &:first-child {
+        margin-top: 0;
+    }
+
     @include media-breakpoint-up(md){
         margin-top: 1.5rem;
     }
@@ -121,7 +125,25 @@
     }
 }
 
-// "Secured by Snipcart" label background fix
+// Stuff under the "Checkout" button
+.snipcart-featured-payment-methods {
+    padding: 0.75rem;
+}
+
+// "Secured by Snipcart" button
 .snipcart-featured-payment-methods__title {
-    background-color: $indigo;
+    background-color: $indigo; // label background fix
+    font-weight: normal;
+    pointer-events: none; // Disable link to Snipcart website
+    font-size: $font-size-12;
+
+    a svg.snipcart__icon path {
+        fill: $body-color;
+    }
+}
+
+// Payment card icons "VISA" "MASTERCARD" below line
+.snipcart-featured-payment-methods__list-item .snipcart__icon {
+    width: 2rem;
+    height: 2rem;
 }

@@ -1,180 +1,279 @@
-// FONTS AND COLORS
+// COLORS
+// Starting Snipcart 3.2.X colors are moved to variables, see snipcart-variables.scss
+
+
+// FONTS
+// Replacing all original Snipcart CSS lines with "font-family" with native font stack
 .snipcart {
     font-family: $font-family-base;
+    font-size: inherit;
+    font-weight: normal;
 }
 
-.snipcart__font--secondary,.snipcart__font--subtitle {
+// Tweaking line height which is defined as "1" in the default Snipcart file
+.snipcart * {
+    line-height: inherit;
+}
+
+.snipcart__font--secondary,
+.snipcart__font--subtitle,
+.snipcart__font--subtitle-small {
     font-family: $font-family-base;
 }
 
-.snipcart-modal__close{
+.snipcart-modal__close {
     font-family: $font-family-base;
 }
 
-.snipcart__actions--link{
+.snipcart__actions--link {
     font-family: $font-family-base;
 }
 
-.snipcart-cart-summary-expanded-item{
+.snipcart-base-button__label {
     font-family: $font-family-base;
 }
 
-.snipcart {
-    * {
-        // font-family: $font-family-base;
-        font-weight: 400; // Native font stack
+.snipcart-button-link {
+    font-family: $font-family-base;
+}
 
-        font-size: inherit;
-        font-weight: normal;
-        color: inherit;
-        line-height: inherit;
-    }
+.snipcart-cart-summary-expanded-item {
+    font-family: $font-family-base;
+}
 
-    .snipcart__font--std {
-        font-size: inherit;
-        // font-family: $font-regular;
-        font-weight: 400; // Native font stack
-    }
+.snipcart-test-banner__message {
+    font-family: $font-family-base;
+}
 
-    .snipcart__font--bold, .snipcart__font--bold * {
-        // font-family: $font-bold;
-        font-weight: bold; // Native font stack
-    }
+// Override font sizes (copy classes from beautified original Snipcart CSS)
+.snipcart__font--small {
+    font-size: $font-size-14;
+}
 
-    .snipcart__font--bold input {
-        // font-family: $font-regular;
-        font-weight: 400; // Native font stack
-    }
+.snipcart__font--subtitle-small,
+.snipcart__font--tiny {
+    font-size: $font-size-16;
+}
 
-    .snipcart__font--black, .snipcart__font--subtitle {
-        // font-family: $font-bold;
-        font-weight: bolder; // Native font stack
+.snipcart__font--std {
+    font-size: $font-size-16;
+    line-height: inherit; // Inherit Bootstrap
+}
 
-        // font-weight: normal;
-    }
+.snipcart__font--large {
+    font-size: $font-size-21;
+}
 
-    .snipcart__font--large {
+.snipcart__box--badge,
+.snipcart__font--subtitle,
+.snipcart__font--xlarge {
+    font-size: $font-size-21;
+}
+
+// Override font weights
+.snipcart__font--slim {
+    // font-weight: lighter;
+    font-weight: normal; // Snipcart font is too slim -> setting to normal
+}
+
+.snipcart__font--regular {
+    font-weight: normal;
+}
+
+.snipcart__font--bold {
+    font-weight: bold;
+    line-height: inherit; // Inherit Bootstrap
+}
+
+.snipcart__font--black,
+.snipcart__font--subtitle,
+.snipcart__font--subtitle-small {
+    font-weight: bold;
+}
+
+.snipcart__font--subtitle {
+    font-family: $font-display;
+    font-size: $font-size-21;
+}
+
+// BUTTONS
+// Define mixin
+%snipcart-button {
+    border-radius: 2.75rem;
+    padding: 0.4rem 0.75rem;
+
+    .snipcart-base-button__label {
         font-size: $font-size-21;
     }
 
-    .snipcart__font--xlarge {
-        font-size: $font-size-21;
+    .snipcart-base-button__icon,
+    .snipcart-base-button__icon .snipcart__icon {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+}
+
+// Apply mixin
+.snipcart-base-button {
+    @extend %snipcart-button;
+    // align-items: center;
+}
+
+
+// MODAL DIALOG
+/* This only used for Faceebook Chat plugin. Screw it it added a lot of load time and gave hard time to install...
+.snipcart-modal__container {
+    z-index: 2147483650;   // Show over facebook dialog
+    // iPhone scroll - have white top and blue bottom background
+
+    // Contentful issue??
+    // background-image: linear-gradient(white 50%, $indigo 50%);
+    background-color: white;
+}
+*/
+.snipcart-modal {
+    // Make modal background indigo
+    background-color: $indigo;
+}
+
+
+// ICONS
+// Affects navbar icon sizes and +/- up/down icons in the input and dropdown fields
+.snipcart__icon {
+    width: 1.35rem;
+    height: 1.35rem;
+}
+
+// Padding around circular +/- icons - was increasing the input field height vs default input fields height
+.snipcart-button-icon.is-small {
+    padding: 0;
+}
+
+
+// NAVBAR
+// Make Cart header look same as the default website navbar
+.snipcart-cart-header {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    // Make header white color with shadow
+    background-color: white;
+    box-shadow: 0 0.25rem 0.25rem 0 rgba($blue, 0.1);
+    // Make header items centered and fit horizontally
+    justify-content: space-between;
+
+    @include media-breakpoint-up(md) {
+        width: 100%;
     }
 
-    // Snipcart icon colors
-    .snipcart__icon--blue-light path, .snipcart__icon--blue-dark path {
-        fill: $link-color;
-    }
+    // Copy styling from .navbar-blueberry to match its height
+    button {
+        margin: 0.825rem 0;
 
-
-    // MODAL DIALOG
-    .snipcart-modal__container {
-        z-index: 2147483650;   // Show over facebook dialog
-        // iPhone scroll - have white top and blue bottom background
-
-        // Contentful issue??
-        // background-image: linear-gradient(white 50%, $indigo 50%);
-        background-color: white;
-    }
-
-    .snipcart-modal {
-        // Make modal background indigo
-        background-color: $indigo;
-    }
-
-    // NAVBAR
-    .snipcart-cart-header {
-        margin-top: 0;
-        margin-bottom: 0;
-        padding-top: 0;
-        padding-bottom: 0;
-        // Make header white color with shadow
-        background-color: white;
-        box-shadow: 0 0.25rem 0.25rem 0 rgba($blue, 0.1);
-
-        // Add rounded cornens for larger resolutions
-        @include media-breakpoint-up(md){
-            width: 100%;
-        }
-
-        // Copy styling from .navbar-blueberry to match its height
-        button {
-            margin: 0.825rem 0;
-
-            @include media-breakpoint-up(md){
+        @include media-breakpoint-up(md) {
             margin: 1rem 0;
-            }
-
-            height: $nb-logo-size;
-            @include media-breakpoint-up(sm) {
-                height: $nb-logo-size-bigger;
-            }
-            @include media-breakpoint-up(md) {
-                height: $nb-logo-size-biggest;
-            }    
         }
 
-        // Always show "Continue Shopping"
-        .snipcart-modal__close-title {
-            display: block !important;
-            line-height: inherit;
+        height: $nb-logo-size;
+
+        @include media-breakpoint-up(sm) {
+            height: $nb-logo-size-bigger;
         }
 
-        // Make "Continue Shopping" blue
-        .snipcart-cart-header__close-button * {
-            color: $link-color;
-        }
-
-        // Font for final item vlue in header too big, plus fixing icon padding
-        .snipcart-modal__header-summary {
-            .snipcart__font--large {
-                font-size: 1rem;
-            }
-
-            span {
-                margin-left: 0.5rem;
-            }
-        }
-
-        // Make header items centered and fit horizontally
-        justify-content: space-between;
-
-        .snipcart-cart-header__close-button, .snipcart-cart-header__options {
-            flex: 0 1 auto;
+        @include media-breakpoint-up(md) {
+            height: $nb-logo-size-biggest;
         }
     }
 
-    // Header was vertically shrinked if snipcart-layout's height is 100%
-    .snipcart-layout {
+    // Always show "Continue Shopping"
+    .snipcart-modal__close-title {
+        display: inline !important;
+        height: auto; // why Snipcart defines height for inline element??
+    }
+
+    // Make "Continue Shopping" blue
+    .snipcart-cart-header__close-button * {
+        color: $link-color;
+    }
+
+    // Right most item in the Snipcart navbar
+    .snipcart-modal__header-summary {
+        // Font for final item velue in header too big, plus fixing icon padding
+        .snipcart__font--large {
+            font-size: $font-size-16;
+        }
+        // On last checkout step disable padding for full price in the navbar
+        span {
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        // On last checkout step disable folding right cart icon
+        svg:last-child {
+            display: none;
+        }
+    }
+
+    // Right most item in the header
+    .snipcart-cart-header__close-button,
+    .snipcart-cart-header__options {
+        flex: 0 1 auto;
+    }
+
+    // Right most item in the header
+    .snipcart-cart-header__options {
+        cursor: default; // Make unclickable
+        pointer-events: none;
+    }
+}
+
+// Header was vertically shrinked if snipcart-layout's height is 100%
+.snipcart-layout {
+    height: auto;
+}
+
+// Background colors
+.snipcart-cart__content {
+    background-color: $indigo;
+}
+
+
+// FORM FIELDS
+.snipcart {
+    // Input wrapper with border. Do not remove weird Snipcart input parent container styling.
+    .snipcart-input {
         height: auto;
-    }
-
-    // Background colors
-    .snipcart-cart__content {
-        background-color: $indigo;
-    }
-
-    // FORM FIELDS
-
-    %input-field {
-        box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
-        border: 1px solid #dceaf9;
         border-radius: 0.4rem;
-        @include form-control-focus($ignore-warning: true);
-        padding: 0.4rem 0.75rem;
-        // height: 2.75rem;
-        background-color: white;
     }
 
-    .snipcart-form__select, .snipcart-input__input {
+    // Actual input inside - mixin
+    %input-field {
+        // box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
+        // border-width: 1px;
+        // border-style: solid;
+        border-radius: 0.5rem;
+        // @include form-control-focus($ignore-warning: true);
+        padding: 0.5rem 0.75rem;
+        box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
+    }
+
+    // Apply mixin
+    .snipcart-form__select,
+    .snipcart-input__input {
         height: auto;
         @extend %input-field;
 
         // Override bold font with regular for inputs
         &.snipcart__font--bold {
-            // font-family: $font-regular;
-            font-weight: 400; // Native font stack
+            font-weight: normal; // Native font stack
         }
+    }
+
+    // Error labels under the fields
+    .snipcart-field-error {
+        font-size: $font-size-14 !important;
+        padding-top: 0.4rem;
     }
 
     // Remove weird iOS inner shadow for inputs
@@ -182,46 +281,9 @@
         background-clip: padding-box;
     }
 
-    // Remove weird Snipcart input parent container styling
-    .snipcart-input {
-        height: auto;
-        border: 0;
-    }
-           
     // Styling labels
     .snipcart-form__label:not(.snipcart-form__label--checkbox):not(.snipcart-form-radio__label) {
         @extend .my-label;
-        margin-top: 1rem;
-    }
-
-    // Styling buttons
-    %snipcart-button {
-        border-radius: 2.75rem;
-        padding: 0.5rem 0.75rem;
-    }
-
-    .snipcart-cart-button {
-        @extend %snipcart-button;
-        align-items: center;
-
-        .snipcart-cart-button__icon {
-            margin: 0 1em;
-        }
-    }
-    
-    .snipcart-cart-button--highlight {
-        color: white;
-        background-image: none;
-        background-color: $blue;
-    }    
-
-    // Make snipcart-textbox same font like other fields - 16px
-    .snipcart-textbox {
-        font-size: 16px;
-    }
-
-    // Error field
-    .snipcart-error-message--input {
-        color: $red;
+        margin-top: 0.75rem;
     }
 }
