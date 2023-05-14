@@ -8,6 +8,12 @@ $primary-color-hover: darken($primary, 7.5%);
     // Default text color
     --color-default: #{$body-color};
 
+    // Default background color
+    --bgColor-default: white;
+
+    // Default border color (for separators)
+    --borderColor-default: #e3e6e8;
+
     --color-buttonPrimary: #FFFFFF;
     --color-buttonPrimary-hover: #FFFFFF;
     --bgColor-buttonPrimary: #{$primary};
@@ -33,4 +39,5 @@ $primary-color-hover: darken($primary, 7.5%);
 
     // Sliding Cart Modal on the right on the checkout step
     --bgColor-modalVeil: rgba(0,0,0,0.4);
+    --bgColor-alt: white;
 }
