@@ -3,6 +3,8 @@
 
 // Bootstrap darkens color 7.5%
 $primary-color-hover: darken($primary, 7.5%);
+$ui-element-shadow: 0 2px 4px 0 #{rgba($blue, 0.2)};
+$ui-element-shadow-red: 0 2px 4px 0 #{rgba($red, 0.2)};
 
 #snipcart {
     // Default text color
@@ -14,11 +16,23 @@ $primary-color-hover: darken($primary, 7.5%);
     // Default border color (for separators)
     --borderColor-default: #e3e6e8;
 
+    // Primary Button
     --color-buttonPrimary: #FFFFFF;
     --color-buttonPrimary-hover: #FFFFFF;
     --bgColor-buttonPrimary: #{$primary};
     --bgColor-buttonPrimary-hover: #{$primary-color-hover};
-    --shadow-buttonPrimary-hover: 0 2px 4px 0 #{rgba($blue, 0.9)};
+    --borderColor-buttonPrimary: #{$primary};
+    --borderColor-buttonPrimary-hover: #{$primary-color-hover};  
+    --shadow-buttonPrimary-hover: #{$ui-element-shadow};
+
+    // Secondary Button
+    --color-buttonSecondary: #{$primary};
+    --color-buttonSecondary-hover: #{$primary-color-hover}; 
+    --bgColor-buttonSecondary: #FFFFFF;
+    --bgColor-buttonSecondary-hover: #FFFFFF;    
+    --borderColor-buttonSecondary: #{$primary};
+    --borderColor-buttonSecondary-hover: #{$primary-color-hover}; 
+    --shadow-buttonSecondary-hover: #{$ui-element-shadow};
 
     // Default shadow - for boxes (containers)
     --shadow-default: 0 0.25rem 0.25rem 0 #{rgba($blue, 0.1)}; // Same as website header
@@ -28,9 +42,9 @@ $primary-color-hover: darken($primary, 7.5%);
     --borderColor-input: #dceaf9;
     --borderColor-input-hover: #dceaf9;    
     --borderColor-input-focus: #{$primary};
-    // 
-    --shadow-input-focus: 0 2px 4px 0 #{rgba($blue, 0.2)};
-    --shadow-input-error: 0 2px 4px 0 #{rgba($red, 0.1)};
+
+    --shadow-input-focus:  #{$ui-element-shadow};
+    --shadow-input-error:  #{$ui-element-shadow-red};
 
     // Icons
     --color-icon: #{$body-color};
