@@ -4,9 +4,9 @@
     border-radius: 0.5rem;
     overflow: hidden;
 
-    @include media-breakpoint-up(md) {
-        margin-top: 1.5rem;
-    }
+    // @include media-breakpoint-up(md) {
+    //     margin-top: 1.5rem;
+    // }
 
     .snipcart-cart-summary__actions.snipcart__box--header,
     .snipcart-cart-summary__footer {
@@ -22,7 +22,7 @@
 
     // Dropbows cart details
     .snipcart-cart-summary__content {
-        padding: 1rem 3.3rem 2rem 3.3rem;
+        padding: 1rem 2rem 2rem 2rem;
     }
 
     .snipcart-cart-summary-fees__total {
