@@ -39,6 +39,7 @@
 
 .snipcart-cart-summary-expanded-item {
     font-family: $font-family-base;
+    font-size: inherit;
 }
 
 .snipcart-test-banner__message {
@@ -285,5 +286,9 @@
     .snipcart-form__label:not(.snipcart-form__label--checkbox):not(.snipcart-form-radio__label) {
         @extend .my-label;
         margin-top: 0.75rem;
+        
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: block;
     }
 }

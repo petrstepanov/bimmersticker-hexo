@@ -439,3 +439,9 @@
 //     display: block;
 //     font-size: $font-size-21;
 // }
+
+.snipcart-payment-card-form snipcart-payment-card-form--loaded {
+    iframe {
+        height: auto;
+    }
+}
