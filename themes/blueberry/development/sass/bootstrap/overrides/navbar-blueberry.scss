@@ -52,7 +52,7 @@ body {
     display: flex;
     align-items: center;
     // font-family: $font-bold;
-    font-weight: bolder; // Native font stack
+    font-weight: bold; // Native font stack
 
     
     span {
@@ -166,7 +166,7 @@ body {
 
     @include media-breakpoint-up(md) {
       // font-family: $font-bold;
-      font-weight: bolder; // Native font stack
+      font-weight: bold; // Native font stack
 
       margin-left: 3rem;
       padding-left: 0.5rem;

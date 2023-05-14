@@ -12,6 +12,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var del = require('del');
 var log = require('gulplog');
 var replace = require('gulp-replace');
+var beep = require('beepbeep');
 
 var paths = {
 	styles: {
@@ -34,13 +35,11 @@ var paths = {
 	}
 };
 
-
 // Clean Task
 
 function clean() {
 	return del([paths.styles.dest, paths.scripts.dest, paths.fonts.dest, paths.icons.dest]);
 }
-
 
 // Copy resources
 
@@ -72,7 +71,7 @@ function stylesDev() {
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer())
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(paths.styles.dest));
+		.pipe(gulp.dest(paths.styles.dest)).on('end', function () { beep(); });
 }
 
 
@@ -105,7 +104,7 @@ function scriptsDev() {
 		.pipe(buffer())
 		.pipe(sourcemaps.init({loadMaps: true}))
 		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(paths.scripts.dest));
+		.pipe(gulp.dest(paths.scripts.dest)).on('end', function () { beep(); });
 }
 
 
@@ -116,15 +115,19 @@ function watch() {
 	gulp.watch(paths.styles.srcWatch, stylesDev);
 }
 
+// Beep rask (with callback)
+function beeptask(cb) {
+	beep();
+	cb();
+}
 
 // Build
 
 var development = gulp.series(clean, copyIcons, gulp.parallel(stylesDev, scriptsDev), watch);
-var production = gulp.series(clean, copyIcons, gulp.parallel(styles, scripts));
+var production = gulp.series(clean, copyIcons, gulp.parallel(styles, scripts), beeptask);
 
 
 // Exports
-
 exports.clean = clean;
 exports.styles = styles;
 exports.stylesDev = stylesDev;

@@ -1,9 +1,0 @@
-User-agent: *
-
-Allow: /
-
-Disallow: /archives/
-Disallow: /orders/
-Disallow: /categories/
-Disallow: /tags/
-Disallow: /toml/

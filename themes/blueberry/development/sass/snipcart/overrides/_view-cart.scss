@@ -1,9 +1,16 @@
+.snipcart-scrollbar {
+    overflow: visible;
+}
+
 // SHOPPING ITEM CONTAINER
 .snipcart-item-line {
     padding: 1rem;
     margin: 1rem;
-    box-shadow: none;
     border-radius: 0.5rem;
+
+    &:first-child {
+        margin-top: 0;
+    }
 
     @include media-breakpoint-up(md){
         margin-top: 1.5rem;
@@ -112,16 +119,329 @@
     flex: 0;
 }
 
-// Make "Checkout" button visible when scrolling to the bottom with the iPhone keyboard on
+
 .snipcart-featured-payment-methods {
+    // Make "Checkout" button visible when scrolling to the bottom with the iPhone keyboard on
     margin-bottom: 7rem;
 
+    // Compact padding for payment icons - stuff under the "Checkout" button
+    padding: 0.75rem;
+
+    // For side cart on desktop
     @include media-breakpoint-up(md){
         margin-bottom: 0;
     }
+
+    border-top: 1px solid;
+    border-color: var(--borderColor-default);
 }
 
-// "Secured by Snipcart" label background fix
+// "Secured by Snipcart" button
 .snipcart-featured-payment-methods__title {
-    background-color: $indigo;
+    background-color: $indigo; // label background fix
+    font-weight: normal;
+    pointer-events: none; // Disable link to Snipcart website
+    font-size: $font-size-12;
+
+    a svg.snipcart__icon path {
+        fill: $body-color;
+    }
+}
+
+.snipcart-featured-payment-methods--no-background {
+    margin-top: 0rem;
+
+    .snipcart-featured-payment-methods__title {
+        background-color: white;
+    }
+}
+
+// Payment card icons "VISA" "MASTERCARD" below line
+.snipcart-featured-payment-methods__list-item .snipcart__icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+// Cart summary - confusing step. Remove editing cart summary from cart summary.
+.snipcart-cart-summary {
+    box-shadow: var(--shadow-default);
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+    // Dropbows cart details
+    .snipcart-cart-summary__content {
+        padding: 1.2rem 2rem 2rem 2rem;
+    }
+
+    // Set accordingly separator width
+    .snipcart-cart-summary__separator {
+        width: auto;
+        margin-left: -2rem;
+        margin-right: -2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .snipcart-cart-summary-fees__total {
+        padding-top: 1.5rem;
+    }
+}
+
+// Slide out cart settings on larger displays
+.snipcart-cart__secondary-header {
+    //     background-color: $indigo;
+    min-height: 5.3rem;
+}
+
+.snipcart-layout__content {
+    margin-top: 1em;
+
+    @include media-breakpoint-up(md) {
+        margin-top: 1.5rem;
+    }
+}
+
+// CART SLIDING inside right panel on checkout step
+.snipcart-item-line--cart-edit {
+    border-bottom: 0;
+}
+
+.snipcart-cart-summary__overlay {
+    backdrop-filter: blur(0.3rem);
+}
+
+.snipcart-cart-summary--edit {
+    .snipcart-layout__content {
+        margin-top: 0;
+    }
+
+    .snipcart-modal {
+        // Make modal background indigo
+        background-color: white;
+    }
+
+    .snipcart-cart__secondary-header {
+        background-color: white;
+        border-bottom: 1px solid lightgrey;
+
+        @media(min-width:1024px) {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        h1 {
+            font-family: $font-display !important;
+        }
+
+        .snipcart__icon {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+    }
+
+    .snipcart-cart__footer {
+        @include media-breakpoint-up(md) {
+            padding: 1.5rem;
+        }
+    }
+}
+
+// Padding of each step box
+.snipcart-checkout-step {
+    margin-top: 0em;
+}
+
+// Styling the Checkout steps 1,2,3
+.snipcart-form {
+    // Remove background from form containers
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.snipcart__box {
+    background-color: #fff; // Payment box (3) lacking white background
+    border-radius: 0.5rem;
+    padding: 1.2rem 1rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-default);
+
+    @include media-breakpoint-up(md) {
+        margin-bottom: 1.5rem;
+    }
+
+    // Space between form fields - only bottom 0.5 rem just like on cart screen
+    .snipcart-form__field {
+        padding: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    // Display title next to the badge
+    .snipcart__box--title {
+        display: flex;
+        align-items: center;
+
+        .snipcart__box--badge {
+            background: $indigo;
+            font-family: $font-display;
+            font-size: $font-size-21;
+            color: $body-color;
+            margin: 0 0.75rem 0 0;
+            border: 0;
+
+            &.snipcart__box--badge-highlight {
+                background: $blue;
+                color: white;
+            }
+        }
+    }
+
+    // Address dropdown
+    .snipcart-typeahead__suggestion {
+        span {
+            // font-family: $font-regular;
+            font-weight: 400; // Native font stack
+        }
+
+        &:last-child {
+            display: none;
+        }
+    }
+
+    // Align "I don't see my adress"
+    .snipcart-form__row {
+        align-items: flex-start;
+
+        .snipcart-form__cell--input-aligned {
+            margin-top: 2.25rem;
+            margin-bottom: 0;
+        }
+    }
+
+    // Make "I don't see my address" checkbox look like a link
+    // label[for="addressNotFound"] {
+    //     float: right;
+    //     color: $link-color;
+
+    //     &::before{
+    //         display: none;                
+    //     }
+    // }
+}
+
+.snipcart__box--header {
+    min-height: 40px;
+}
+
+// Checkboxes - make labels not span full width
+.snipcart-checkbox+label {
+    display: inline;
+}
+
+// Minimum height fix for address textbox
+.snipcart-form__address-autocomplete>.snipcart-textbox {
+    min-height: 2.643rem;
+}
+
+// Weird "Typeahead field around address textbox"
+.snipcart-typeahead {
+    background: transparent;
+}
+
+// Shipping to icon layout
+
+.snipcart__font--bold.snipcart__notice--with-icon {
+    // font-family: $font-regular;
+    font-weight: 400; // Native font stack
+}
+
+// Billing completed step icon
+.snipcart-checkout-step__icon {
+    width: auto;
+    margin-right: 0.95rem;
+    margin-left: 0.3rem;
+
+    .snipcart__icon {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+// .snipcart__notice--with-icon {
+//     svg {
+//         @extend .snip-checkout-icon;
+//     }
+// }
+
+// 2. Shipping selection
+
+.snipcart-checkout-step {
+    padding-bottom: 0;
+}
+
+.snipcart-shipping-rates-list {
+    margin-bottom: 1.4rem;
+}
+
+.snipcart-shipping-rates-list-item {
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    border: 0;
+
+    &.snipcart-shipping-rates-list-item--highlight {
+        border: none;
+        background-color: $indigo;
+    }
+}
+
+.snipcart__font--bold .snipcart-form-radio+label {
+    // font-family: $font-regular;
+    font-weight: 400; // Native font stack
+}
+
+.snipcart-form-radio+label:before {
+    margin-right: 1.3em;
+}
+
+.snipcart-form-radio:checked+label:before {
+    background: $blue;
+}
+
+// Fix checkbox 
+.snipcart-form-radio:checked+label:after {
+    margin-top: -12px;
+    top: 50%;
+}
+
+.snipcart-checkout-step__col {
+    // align-items: flex-start;
+}
+
+// 3. Payment
+
+.snipcart-payment__header {
+    margin-bottom: 0;
+}
+
+// Checkout with PayPal
+
+.snipcart-payment-methods-list-item {
+    margin-top: 1.5rem
+}
+
+// .snipcart-payment-methods-list-item__button {
+//     // visibility: hidden;
+//     height: auto;
+//     @extend %snipcart-button;
+//     align-items: center;
+//     color: white;
+//     background-color: $blue;
+//     border: 0;
+//     display: block;
+//     font-size: $font-size-21;
+// }
+
+.snipcart-payment-card-form snipcart-payment-card-form--loaded {
+    iframe {
+        height: auto;
+    }
 }

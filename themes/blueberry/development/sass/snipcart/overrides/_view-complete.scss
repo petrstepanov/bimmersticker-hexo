@@ -1,0 +1,27 @@
+// Remove scrollbar from cart summary
+.snipcart-cart-summary-items-list {
+    max-height: none;
+}
+
+// Style order details
+.snipcart-cart-summary-expanded-item__custom-fields {
+    font-family: monospace;
+    font-size: $font-size-14;
+    border-left: 2px solid lightgrey;
+    margin: 1rem 0.5rem;
+    padding: 0 1.25rem;
+}
+
+// Align columns
+.snipcart-checkout-step__cols {
+    align-items: flex-start;
+}
+
+// Polish headings
+.snipcart-billing-completed--titled .snipcart-billing-completed__step-title {
+    margin-bottom: 0.35rem;
+}
+
+.snipcart-shipping-completed--titled .snipcart-shipping-completed__step-title {
+    margin-bottom: 0.35rem;
+}
