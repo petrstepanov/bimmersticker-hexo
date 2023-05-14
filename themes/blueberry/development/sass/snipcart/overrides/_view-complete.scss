@@ -1,3 +1,8 @@
+// Remove scrollbar from cart summary
+.snipcart-cart-summary-items-list {
+    max-height: none;
+}
+
 // Style order details
 .snipcart-cart-summary-expanded-item__custom-fields {
     font-family: monospace;

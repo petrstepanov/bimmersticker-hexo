@@ -28,6 +28,9 @@ $primary-color-hover: darken($primary, 7.5%);
     --color-link: #{$link-color};
     --color-link-hover: #{$link-hover-color};
 
-    // Last Payment icon (badge?) on order complete page was blue
+    // Last Payment icon (turned out to be a Snipcart "badge", not icon?) on order complete page was blue
     --color-badge: #{$body-color};
+
+    // Sliding Cart Modal on the right on the checkout step
+    --bgColor-modalVeil: rgba(0,0,0,0.4);
 }
