@@ -115,10 +115,16 @@ function watch() {
 	gulp.watch(paths.styles.srcWatch, stylesDev);
 }
 
+// Beep rask (with callback)
+function beeptask(cb) {
+	beep();
+	cb();
+}
+
 // Build
 
 var development = gulp.series(clean, copyIcons, gulp.parallel(stylesDev, scriptsDev), watch);
-var production = gulp.series(clean, copyIcons, gulp.parallel(styles, scripts), beep);
+var production = gulp.series(clean, copyIcons, gulp.parallel(styles, scripts), beeptask);
 
 
 // Exports
