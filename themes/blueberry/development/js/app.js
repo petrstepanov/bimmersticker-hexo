@@ -63,8 +63,8 @@ $(function() {
   Carousel.init();
 
   // Fix checkout button caption
-  var checkoutButtonFix = new CheckoutButtonFix();
-  checkoutButtonFix.init();
+  // var checkoutButtonFix = new CheckoutButtonFix();
+  // checkoutButtonFix.init();
 
   // Make videos full width
   $('video').each(function(){
