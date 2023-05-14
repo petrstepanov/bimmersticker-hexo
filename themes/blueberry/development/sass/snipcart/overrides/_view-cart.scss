@@ -215,6 +215,11 @@
         margin-top: 0;
     }
 
+    .snipcart-modal {
+        // Make modal background indigo
+        background-color: white;
+    }
+
     .snipcart-cart__secondary-header {
         background-color: white;
         border-bottom: 1px solid lightgrey;
@@ -354,7 +359,6 @@
     width: auto;
     margin-right: 0.95rem;
     margin-left: 0.3rem;
-    margin-top: 0.5rem;
 
     .snipcart__icon {
         width: 2rem;
@@ -409,7 +413,7 @@
 }
 
 .snipcart-checkout-step__col {
-    align-items: flex-start;
+    // align-items: flex-start;
 }
 
 // 3. Payment

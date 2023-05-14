@@ -43,6 +43,7 @@ $primary-color-hover: darken($primary, 7.5%);
     --color-badge: #{$body-color};
 
     // Sliding Cart Modal on the right on the checkout step
+    --bgColor-modal: transparent;
     --bgColor-modalVeil: rgba(0,0,0,0.4);
     --bgColor-alt: white;
 }
