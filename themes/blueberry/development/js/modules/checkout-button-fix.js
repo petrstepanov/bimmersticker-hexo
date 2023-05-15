@@ -4,24 +4,22 @@ var CheckoutButtonFix = function(){
     var DOM = {};
 
     function _cacheDom(){
-        // DOM.$suffix = $('<span class="suffix">or Credit card</span>');
-        DOM.$suffix = $('<span class="suffix">Checkout with Card or PayPal</span>');
+        DOM.$newLabel = $('<span class="new-label">Pay with Card • via PayPal</span>');
     }
 
     function _needFix(){
-        DOM.$buttonCaption = $('#snipcart button[title="Checkout with PayPal"]');
-        if (!DOM.$buttonCaption.length){
+        DOM.$buttonPay = $('#snipcart button[title="Checkout with PayPal"]');
+        if (!DOM.$buttonPay.length){
             return false;
         }
-        var suffixClass = "." + DOM.$suffix.attr('class');
-        return !DOM.$buttonCaption.find(suffixClass).length;
+        var newLabelClass = "." + DOM.$newLabel.attr('class');
+        return !DOM.$buttonPay.find(newLabelClass).length;
     }
 
     function _fixCaption(){
         if (_needFix()){
-            // DOM.$buttonCaption.append(DOM.$suffix);
-            DOM.$buttonCaption.html(DOM.$suffix);
-            // DOM.$buttonCaption.css('visibility', 'visible');
+            DOM.$buttonPay.find('.snipcart-payment-methods-list-item__label').remove();
+            DOM.$buttonPay.prepend(DOM.$newLabel);
         }
     }
 

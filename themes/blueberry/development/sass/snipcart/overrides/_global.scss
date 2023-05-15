@@ -187,6 +187,11 @@
         }
     }
 
+    .snipcart-cart-header__title {
+        // Center title in the cart
+        margin-left: -8.5rem
+    }
+
     // Always show "Continue Shopping"
     .snipcart-modal__close-title {
         display: inline !important;
