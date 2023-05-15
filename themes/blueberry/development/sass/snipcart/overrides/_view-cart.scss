@@ -440,8 +440,44 @@
 //     font-size: $font-size-21;
 // }
 
+// This is for the test environment, fix iframe height...
 .snipcart-payment-card-form snipcart-payment-card-form--loaded {
     iframe {
         height: auto;
+    }
+}
+
+// Checkout with PayPal button - no styling whatsoever
+.snipcart-payment-methods-list-item__button {
+    @extend %snipcart-button;
+    background-color: $blue;
+    border-color: $blue;    
+    height: auto;
+    box-shadow: var(--shadow-default);
+    justify-content: center;
+    font-size: $font-size-21;
+    font-weight: normal;
+    color: white;
+
+    &:hover {
+        background-color: $primary-color-hover;
+        border-color: $primary-color-hover; 
+    }
+
+    .snipcart-payment-methods-list-item__label, .new-label {
+        font-weight: normal;
+        flex-grow: 1;
+        text-align: center;
+        display: inline;
+    }
+
+    .snipcart-payment-methods-list-item__arrow {
+        margin-left: 0.5rem;
+        color: white;
+    }
+
+    .snipcart__icon {
+        width: 1.75rem;
+        height: 1.75rem;
     }
 }
