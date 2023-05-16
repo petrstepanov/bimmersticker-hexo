@@ -60,19 +60,19 @@
 									var alt = "";
 									switch(products[product].id){
 										case "ST_CAR_W_BANNER":
-											image = "/custom-windshield-banner-sun-strip/index/product-type-banner.jpg";
+											image = "/custom-windshield-banner-sun-strip/index/product-type-banner.avif";
 											alt = "car with windshield banner";
 											break;
 										case "ST_CAR_W_SUNSTRIP":
-											image = "/custom-windshield-banner-sun-strip/index/product-type-sunstrip.jpg";
+											image = "/custom-windshield-banner-sun-strip/index/product-type-sunstrip.avif";
 											alt = "car with a plain color sun strip";
 											break;
 										case "ST_CAR_W_SUNSTRIP_CUT":
-											image = "/custom-windshield-banner-sun-strip/index/product-type-cut-sunstrip.jpg";
+											image = "/custom-windshield-banner-sun-strip/index/product-type-cut-sunstrip.avif";
 											alt = "car with a reverse cut sun strip";
 											break;
 										case "ST_CAR_W_SUNSTRIP_TEXT":
-											image = "/custom-windshield-banner-sun-strip/index/product-type-text-sunstrip.jpg";
+											image = "/custom-windshield-banner-sun-strip/index/product-type-text-sunstrip.avif";
 											alt = "car with a sun strip with custom text";
 											break;
 									}
@@ -137,7 +137,7 @@
 									<% var dataSrc = site.data.fonts[font].url; %>
 									<% dataSrc = dataSrc.replace('https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/', '/font/'); %>
 									<% // var src = encodeURI(url + query); %>
-									<% var src = '/img/banner-previews/your-banner-' + font + '.png'; %>
+									<% var src = '/img/banner-previews/your-banner-' + font + '.avif'; %>
 									<img width="<%- site.data.fonts[font].preview_width %>" height="<%- site.data.fonts[font].preview_height %>" data-src="<%- dataSrc %>" alt="Preview your text in <%- font %> font" class="mt-3 font-image js--font-image" src="<%- src %>" />
 									<span class="d-block mt-2 mb-0"><%- site.data.fonts[font].name %></span>
 								</span>
