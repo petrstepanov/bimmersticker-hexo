@@ -60,24 +60,29 @@
 									var alt = "";
 									switch(products[product].id){
 										case "ST_CAR_W_BANNER":
-											image = "/custom-windshield-banner-sun-strip/index/product-type-banner.avif";
+											image = "/custom-windshield-banner-sun-strip/index/product-type-banner";
 											alt = "car with windshield banner";
 											break;
 										case "ST_CAR_W_SUNSTRIP":
-											image = "/custom-windshield-banner-sun-strip/index/product-type-sunstrip.avif";
+											image = "/custom-windshield-banner-sun-strip/index/product-type-sunstrip";
 											alt = "car with a plain color sun strip";
 											break;
 										case "ST_CAR_W_SUNSTRIP_CUT":
-											image = "/custom-windshield-banner-sun-strip/index/product-type-cut-sunstrip.avif";
+											image = "/custom-windshield-banner-sun-strip/index/product-type-cut-sunstrip";
 											alt = "car with a reverse cut sun strip";
 											break;
 										case "ST_CAR_W_SUNSTRIP_TEXT":
-											image = "/custom-windshield-banner-sun-strip/index/product-type-text-sunstrip.avif";
+											image = "/custom-windshield-banner-sun-strip/index/product-type-text-sunstrip";
 											alt = "car with a sun strip with custom text";
 											break;
 									}
-									%>									
-									<img class="w-100 h-auto" width="128" height="128" alt="<%- alt %>" src="<%- image %>" />
+									%>
+									<picture>
+										<!--This is the optional AVIF image-->
+										<source type="image/avif" srcset="<%- image %>.avif" />
+										<!--This is the fallback JPEG image-->
+										<img class="w-100 h-auto" width="128" height="128" alt="<%- alt %>" src="<%- image %>.jpg" />
+									</picture>								
 								</span>
 							</span>
 							<span class="d-block col-8 col-sm-12">

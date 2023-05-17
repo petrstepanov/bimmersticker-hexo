@@ -38,7 +38,9 @@
             // Set display font for the item heading
             .snipcart-item-line__title {
                 font-family: $font-display;
-            }    
+                line-height: 1.1;
+                margin: 0 1rem;
+            }
 
             // Remove weird border on Delere icon (trash bin)
             .snipcart__button--icon {
