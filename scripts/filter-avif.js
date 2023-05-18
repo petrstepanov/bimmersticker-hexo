@@ -84,9 +84,9 @@ function myAvif(data) {
 // That's how Hexo processes content
 function convertImageFn(buffer, avifPath) {
   return function () {
-    console.log("Avif Processing " + avifPath);
+    console.log("AVIF Processing: " + avifPath);
 
-    console.trace("Here I am!")
+    // console.trace("Here I am!")
 
     var img = sharp(buffer).rotate();
     return img.toFormat('avif', { quality: 50 }).toBuffer();

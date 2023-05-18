@@ -105,6 +105,7 @@ sitemap:
 # Configuration for hexo-image-sizes https://github.com/hexojs/hexo-filter-responsive-images
 # Responsive image breakpoints for 100% width containers are taken from "variables-default.scss" bootstrap override
 responsive_images:
+  priority: 8
   - pattern: ['**/custom-text-windshield-banners-order-online.jpg',
               '**/any-wording-on-your-car-truck-windshield.jpg']
     sizes:
