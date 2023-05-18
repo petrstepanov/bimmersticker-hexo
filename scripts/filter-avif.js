@@ -57,7 +57,10 @@ function myAvif(data) {
 
     return Promise.mapSeries(routes, function (filePath) {
       // Skip non jpegs
-      const regex = /\.jp[e]*g$/ig;
+      // const regex = /\.jp[e]*g$/ig;
+
+      const regex = /custom-text-windshield-banners-order-online/g;
+
       const found = filePath.match(regex);
       if (!found) return;
 
@@ -82,9 +85,12 @@ function myAvif(data) {
 function convertImageFn(buffer, avifPath) {
   return function () {
     console.log("Avif Processing " + avifPath);
+
+    console.trace("Here I am!")
+
     var img = sharp(buffer).rotate();
     return img.toFormat('avif', { quality: 50 }).toBuffer();
   }
 }
 
-hexo.extend.filter.register('after_generate', myAvif);
+hexo.extend.filter.register('after_generate', myAvif, 9);
