@@ -74,10 +74,9 @@ function myAvif(data) {
         }
       }).then(function (buffer) {
         var avifPath = getAvifPath(filePath);
-        return route.set(avifPath, convertImageFn(buffer, avifPath));
+        return Promise.promisify(route.set(avifPath, convertImageFn(buffer, avifPath)));
       });
     });
-  // });
 }
 
 // Image needs to be written to buffer and then assigned to new route with its name
