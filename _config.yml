@@ -140,7 +140,6 @@ responsive_images:
         width: 512
         height: 512
         quality: 30
-    priority: 8
 
 
 # Data file export
