@@ -39,7 +39,6 @@ function myAvif(data) {
 
       return new Promise(function (resolve, reject) {
         console.log("AVIF Processing: " + avifPath);
-        // console.trace("Here I am!")
         var img = sharp(buffer).rotate();
         img.toFormat('avif', { quality: 50 }).toBuffer().then(function (buffer) {
           route.set(avifPath, buffer);
