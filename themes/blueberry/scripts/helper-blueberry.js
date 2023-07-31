@@ -112,10 +112,9 @@ hexo.extend.helper.register('print_size', function(size){
   temp += (' (' + width + ' × ' + height + ' cm)');
   */
   
-  // var temp = size.replaceAll('x', ' × ');
-  var temp = size.replace(/x/g, ' × ');
-  // temp = temp.replaceAll('|', ', ');
-  temp = temp.replace(/|/g, ', ');
+  // Can't use .replaceAll not supported yet on production
+  var temp = size.replace(/x/g, '×');
+  temp = temp.replace(/\|/g, ', ');
   return temp;
 });
 
