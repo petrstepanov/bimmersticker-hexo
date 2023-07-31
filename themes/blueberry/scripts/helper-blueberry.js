@@ -111,8 +111,11 @@ hexo.extend.helper.register('print_size', function(size){
   var temp = size.replace('x', ' × ');
   temp += (' (' + width + ' × ' + height + ' cm)');
   */
-  var temp = size.replaceAll('x', ' × ');
-  temp = temp.replaceAll('|', ', ');
+  
+  // var temp = size.replaceAll('x', ' × ');
+  var temp = size.replace(/x/g, ' × ');
+  // temp = temp.replaceAll('|', ', ');
+  temp = temp.replace(/|/g, ', ');
   return temp;
 });
 
