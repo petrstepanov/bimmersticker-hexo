@@ -7,7 +7,7 @@ tags:
 - sticker
 description: An overlay sticker that transforms your BMW roundel into a BMW of America badge with flag and lettering.
 categories:
-- Bmw Special
+- Roundel
 ebay_url: https://www.ebay.com/itm/193742616508
 col_class: col-6 col-md-4 col-xl-3
 product_id: ST_BMW_ROUNDEL

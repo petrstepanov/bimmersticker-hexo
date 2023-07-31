@@ -164,7 +164,7 @@
   product_type: Stickers > BMW
   link: https://bimmersticker.store/bmw-of-america-roundel-sticker/
   image_link: https://bimmersticker.store/bmw-of-america-roundel-sticker/bmw-of-america-roundel-badge-sticker-decal.jpg
-  price: "9.99 USD"
+  price: "14.99 USD"
   size: "82x82 mm|74x74 mm"
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
@@ -175,11 +175,22 @@
   product_type: Stickers > BMW
   link: https://bimmersticker.store/bmw-of-america-black-flag-roundel-sticker/
   image_link: https://bimmersticker.store/bmw-of-america-black-flag-roundel-sticker/black-bmw-of-america-emblem-sticker-with-flag.jpg
-  price: "9.99 USD"
+  price: "14.99 USD"
   size: "82x82 mm|74x74 mm"
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
-  color: "black/white"  
+  color: "black/white"
+- id:	ST_BMW_ROUNDEL_MARYLAND
+  title: "Flag of Maryland roundel emblem sticker for BMW"
+  description: "Overlay sticker that covers BMW emblem with Maryland USA state flag image. We only sell sticker to be applied on top of the emblem."
+  product_type: Stickers > BMW
+  link: https://bimmersticker.store/bmw-roundel-sticker-maryland/
+  image_link: https://bimmersticker.store/bmw-roundel-sticker-maryland/maryland-bmw-emblem-overlay-sticker.jpg
+  price: "19.99 USD"
+  size: "82x82 mm|74x74 mm"
+  shipping_weight: "0.025 lbs"
+  material: "Oracal 651 vinyl"
+  color: "black/white" 
 - id:	ST_CAR_INLINE6
   title: "Inline Six Power sticker"
   description: "Sticker for cars with inline six cylinder engine displacement. "
