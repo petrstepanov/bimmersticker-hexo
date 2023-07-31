@@ -7,7 +7,7 @@ tags:
 - sticker
 description: Overlay sticker that adds american flag over your BMW roundel emblem. Sticker features BMW of America lettering on the bottom.
 categories:
-- Bmw Special
+- Roundel
 ebay_url: https://www.ebay.com/itm/193766929804
 col_class: col-6 col-md-4 col-xl-3
 product_id: ST_BMW_ROUNDEL_BW

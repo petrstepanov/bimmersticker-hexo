@@ -160,26 +160,59 @@
   customization_placeholder: "328i"
 - id:	ST_BMW_ROUNDEL
   title: "BMW of America roundel overlay sticker"
-  description: "Overlay sticker that adds american flag over your BMW roundel emblem. Sticker features BMW of America lettering on the bottom."
+  description: "Overlay sticker that adds american flag over your BMW roundel emblem. Sticker features BMW of America lettering on the bottom.  We only sell the sticker not the emblem."
   product_type: Stickers > BMW
   link: https://bimmersticker.store/bmw-of-america-roundel-sticker/
   image_link: https://bimmersticker.store/bmw-of-america-roundel-sticker/bmw-of-america-roundel-badge-sticker-decal.jpg
-  price: "9.99 USD"
+  price: "14.99 USD"
   size: "82x82 mm|74x74 mm"
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
   color: "red/white"
 - id:	ST_BMW_ROUNDEL_BW
   title: "BMW of America black flag emblem sticker"
-  description: "Overlay sticker that adds american flag over your BMW roundel emblem. Sticker features BMW of America lettering on the bottom."
+  description: "Overlay sticker that adds american flag over your BMW roundel emblem. Sticker features BMW of America lettering on the bottom. We only sell the sticker not the emblem."
   product_type: Stickers > BMW
   link: https://bimmersticker.store/bmw-of-america-black-flag-roundel-sticker/
   image_link: https://bimmersticker.store/bmw-of-america-black-flag-roundel-sticker/black-bmw-of-america-emblem-sticker-with-flag.jpg
-  price: "9.99 USD"
+  price: "14.99 USD"
   size: "82x82 mm|74x74 mm"
   shipping_weight: "0.025 lbs"
   material: "Oracal 651 vinyl"
-  color: "black/white"  
+  color: "black/white"
+- id:	ST_BMW_ROUNDEL_MARYLAND
+  title: "Flag of Maryland roundel emblem sticker for BMW"
+  description: "Overlay sticker that covers BMW emblem with Maryland (USA) flag image.  We only sell the sticker not the emblem."
+  product_type: Stickers > BMW
+  link: https://bimmersticker.store/bmw-roundel-sticker-maryland/
+  image_link: https://bimmersticker.store/bmw-roundel-sticker-maryland/maryland-bmw-emblem-overlay-sticker.jpg
+  price: "19.99 USD"
+  size: "82x82 mm|74x74 mm"
+  shipping_weight: "0.025 lbs"
+  material: "Oracal 651 vinyl"
+  color: "black/white/yellow/red"
+- id:	ST_BMW_ROUNDEL_TEXAS
+  title: "Flag of Texas roundel emblem sticker for BMW"
+  description: "Overlay sticker that covers BMW emblem with Texas state flag design.  We only sell the sticker not the emblem."
+  product_type: Stickers > BMW
+  link: https://bimmersticker.store/texas-sticker-for-bmw-roundel/
+  image_link: https://bimmersticker.store/texas-sticker-for-bmw-roundel/texas-sticker-for-bmw-badge-roundel.jpg
+  price: "14.99 USD"
+  size: "82x82 mm|74x74 mm"
+  shipping_weight: "0.025 lbs"
+  material: "Oracal 651 vinyl"
+  color: "black/white/yellow/red"
+- id:	ST_BMW_ROUNDEL_COLOR
+  title: "Overlay color sticker for the BMW badge "
+  description: "Easily change the color of your BMW emblem. We offer variety of colors. We only sell the sticker not the emblem."
+  product_type: Stickers > BMW
+  link: https://bimmersticker.store/change-your-bmw-badge-color/
+  image_link: https://bimmersticker.store/change-your-bmw-badge-color/overlay-bmw-rounder-with-custom-color-sticker.jpg
+  price: "7.99 USD"
+  size: "82x82 mm|74x74 mm"
+  shipping_weight: "0.025 lbs"
+  material: "Oracal 651 vinyl"
+  color: "black|matte black|red|orange|yellow|gold|silver"  
 - id:	ST_CAR_INLINE6
   title: "Inline Six Power sticker"
   description: "Sticker for cars with inline six cylinder engine displacement. "
