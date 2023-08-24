@@ -19,7 +19,8 @@
   product_type: Stickers > Banners
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-text-windshield-banner.jpg
-  price: "27.99 USD"
+  price: "29.99 USD"
+  pattern: "car|truck[+4.99]"
   size: "28x6 in"
   shipping_weight: "0.2 lbs"
   material: "Oracal and TeckWrap vinyls"
@@ -31,7 +32,8 @@
   product_type: Stickers > Banners
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-color-windshield-sun-strip.jpg
-  price: "27.99 USD"
+  price: "29.99 USD"
+  pattern: "car|truck[+9.99]"
   size: "60x10 in"
   shipping_weight: "0.375 lbs"
   material: "Oracal 651 or TeckWrap vinyls"
@@ -43,6 +45,7 @@
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-text-windshield-banner-sun-strip-reverse-cut.jpg
   price: "35.99 USD"
+  pattern: "car|truck[+9.99]"
   size: "60x10 in"
   shipping_weight: "0.5 lbs"
   material: "Oracal 651 and TeckWrap vinyls"
@@ -55,6 +58,7 @@
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-text-windshield-banner-sun-strip.jpg
   price: "39.99 USD"
+  pattern: "car|truck[+14.99]"
   size: "60x10 in"
   shipping_weight: "0.35 lbs"
   material: "Oracal 651 and TeckWrap vinyls"
