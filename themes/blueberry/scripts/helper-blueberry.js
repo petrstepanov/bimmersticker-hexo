@@ -97,6 +97,8 @@ hexo.extend.helper.register('print_colors', function(colors){
 });
 
 hexo.extend.helper.register('print_size', function(size){
+
+  /*
   var pattern = /(\d*)x(\d*)/g;
   var array = pattern.exec(size);
   var width = parseFloat(array[1]);
@@ -108,6 +110,11 @@ hexo.extend.helper.register('print_size', function(size){
 
   var temp = size.replace('x', ' × ');
   temp += (' (' + width + ' × ' + height + ' cm)');
+  */
+  
+  // Can't use .replaceAll not supported yet on production
+  var temp = size.replace(/x/g, '×');
+  temp = temp.replace(/\|/g, ', ');
   return temp;
 });
 
