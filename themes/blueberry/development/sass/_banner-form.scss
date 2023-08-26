@@ -115,7 +115,7 @@ $selected-color: $blue;
 
 .car-preview-container {
   position: relative;
-  min-height: 62vw;
+  min-height: 66vw;
 
   @include media-breakpoint-up(sm) {
     min-height: 26rem;
@@ -125,9 +125,9 @@ $selected-color: $blue;
     min-height: 29rem;
   }
 
-  @include media-breakpoint-up(lg) {
-    min-height: 30rem;
-  }
+  // @include media-breakpoint-up(lg) {
+  //   min-height: 30rem;
+  // }
 
   @include media-breakpoint-up(xl) {
     min-height: 32rem;

@@ -1,6 +1,7 @@
 var Promise = require('bluebird')
 var streamToArray = require('stream-to-array')
 var sharp = require('sharp')
+const fs = require('hexo-fs')
 
 function getAvifPath(filePath) {
   const regex = /\.jp[e]*g$/ig;
@@ -36,6 +37,13 @@ function myAvif(data) {
     }).then(function (buffer) {
       // Build AVIF path from JPEG file (simply replace the extension)
       var avifPath = getAvifPath(filePath);
+
+      if (fs.existsSync(avifPath)) {
+        return new Promise(function (resolve, reject) {
+          console.log("AVIF Processing: " + avifPath + " - file exists");
+          resolve();
+        });
+      }
 
       return new Promise(function (resolve, reject) {
         console.log("AVIF Processing: " + avifPath);
