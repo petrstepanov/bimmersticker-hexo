@@ -33,6 +33,14 @@ blue:
   hex: "#3991c4"
   image: /images/swatches/glare.svg
   name: "Glossy blue"
+silver:
+  image: /images/swatches/silver.svg
+  name: "Silver"
+  extra: 14.99
+gold:
+  image: /images/swatches/gold.svg
+  name: "Gold"
+  extra: 14.99  
 oilslick:
   image: /images/swatches/oilslick.svg
   name: "Rainbow"

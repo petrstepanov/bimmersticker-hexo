@@ -391,7 +391,7 @@ function _updateVehicleType(value) {
     DOM.$radioVehicleType.parent().removeClass('active');
     DOM.$radioVehicleType.filter('[value='+value+']').parent().addClass('active');
 
-    if (value == 'regular'){
+    if (value == 'Regular'){
         DOM.$car.show();
         DOM.$noticeCar.show();
         DOM.$truck.hide();

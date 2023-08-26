@@ -24,10 +24,10 @@
 @import "./../../node_modules/toastify-js/src/toastify";
 @import "toastify-overrides";
 
+@import "layout/general";
 @import "layout/frontpage";
 @import "layout/post";
 @import "layout/footer";
-@import "layout/windshield-banners";
 
 @import "banner-form";
 

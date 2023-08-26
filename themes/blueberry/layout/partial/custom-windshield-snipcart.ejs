@@ -14,7 +14,7 @@
 	products = _.without(products, undefined);
 %>
 <!-- hidden overflow-x here for the truck image to not go out of bounds -->
-<div class="container spacer-footer" style="overflow-x: hidden">
+<div class="container spacer-footer">
 	<div class="row">
 		<div class="col js-container">
 			<div class="row justify-content-center">
@@ -223,10 +223,10 @@
 							<label class="label-blueberry">Vehicle type</label>
 							<div class="btn-group btn-group-md btn-group-toggle w-100" data-toggle="buttons">
 								<label class="btn btn-primary btn-blueberry active">
-									<input type="radio" name="pattern" value="regular" checked>Regular Car
+									<input type="radio" name="pattern" value="Regular" checked>Regular Car
 								</label>
 								<label class="btn btn-primary btn-blueberry">
-									<input type="radio" name="pattern" value="large">Large Vehicle&nbsp;&nbsp;|&nbsp;&nbsp;
+									<input type="radio" name="pattern" value="Large">Large Vehicle&nbsp;&nbsp;|&nbsp;&nbsp;
 									<% var firstProductFlag = true; %>
 									<span class="js--pattern-price-extra">
 										<% for (var product of products) {
@@ -347,7 +347,10 @@
 
 								<% // Size option - car or truck %>
 								data-item-custom<%- i %>-name="Vehicle size" 
-								data-item-custom<%- i %>-options="<%- product.pattern %>"
+								<% { %>
+									<% var productPattern = product.pattern.replace('regular', 'Regular'); productPattern = productPattern.replace('large', 'Large'); %>
+									data-item-custom<%- i %>-options="<%- productPattern %>"
+								<% } %>
 								<% i++; %>
 
 								<% // Select quantity %>
