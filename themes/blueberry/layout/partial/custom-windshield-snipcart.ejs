@@ -13,8 +13,8 @@
 	// Remove undefines from the array
 	products = _.without(products, undefined);
 %>
-
-<div class="container spacer-footer">
+<!-- hidden overflow-x here for the truck image to not go out of bounds -->
+<div class="container spacer-footer" style="overflow-x: hidden">
 	<div class="row">
 		<div class="col js-container">
 			<div class="row justify-content-center">
@@ -243,7 +243,7 @@
 								Regular size cars include all sedans, wagons, smaller SUVs and mini trucks.
 							</p>		
 							<p class="js--notice-truck text-muted text-center mt-2 mb-3" style="display: none">
-								Large vehicle option accounts for the cars with wider windshields, such as large SUVs (Escallade), heavy duty trucks (Ford F-150) and similar. Windshield Banners for large cars require more material and special geometry.
+								For cars with wider windshields such as large SUVs (Escallade), heavy duty trucks (Ford F-150) and similar. Windshield banners for larger cars require more material and special geometry.
 							</p>		
 						</div>
 						<div class="form-group">

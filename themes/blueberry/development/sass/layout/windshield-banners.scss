@@ -5,4 +5,12 @@
 .truck-container {
     margin-left: -3rem;
     margin-right: -3rem;
+
+    // @include media-breakpoint-up(lg) {
+    //     margin-left: -3rem;
+    //     margin-right: -3rem;
+    // }
+
+    // @include media-breakpoint-up(xl) {
+    // }
 }
