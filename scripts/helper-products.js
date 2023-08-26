@@ -40,7 +40,7 @@ hexo.extend.helper.register('breakArrayVariationsRecursive', function(array){
     else {
         var object = array[index];
         // Since object has variations we set its 'item_group_id'
-        object.item_group_id = object.id;  
+        object.item_group_id = object.id;
 
         // Split one variation object
         var processedFirstVariationValue = false;
@@ -52,7 +52,7 @@ hexo.extend.helper.register('breakArrayVariationsRecursive', function(array){
                 processedFirstVariationValue = true;
                 return firstVariation;
             }
-            return value;    
+            return value;
         });
         // Insert variation object after original object
         array.splice(index, 0, variationObject);

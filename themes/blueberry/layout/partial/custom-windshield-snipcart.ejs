@@ -190,7 +190,7 @@
 								<%- site.data.colors_strip[color].name %>
 								<% if (site.data.colors_strip[color].extra) { %>
 									<strong>+$<%- site.data.colors_strip[color].extra %></strong>
-								<% } %>								
+								<% } %>
 							</p>
 						</label>
 						<% } %>
@@ -202,10 +202,15 @@
 						Depending on the font used the width of the text is 20 to 30 inches.<br class="d-none d-sm-inline"/> If you want to specify the exact width, please <a href="mailto:<%- theme.email %>">send us an email</a> after you checkout.
 					</p>				
 				</div>
-				<div class="row justify-content-center mb-5">
+				<div class="row justify-content-center mb-4">
 					<div class="col col-md-10 col-lg-8">
 						<div class="car-preview-container">
-							<img class="w-100 h-auto car" width="440" height="296" src="index/bmw-car.svg" alt="Preview product on a vehicle"/>
+							<div class="car-container">
+								<img class="w-100 h-auto car" width="440" height="296" src="index/bmw-car.svg" alt="Preview product on a regular size vehicle"/>
+							</div>
+							<div class="truck-container" style="display: none">
+								<img class="w-100 h-auto truck" width="510" height="311" src="index/truck-preview.svg" alt="Preview banner on a large truck"/>
+							</div>
 							<div class="banner-text"></div>
 							<div class="sunstrip"></div>
 							<div class="sunstrip-text"></div>
@@ -214,6 +219,33 @@
 				</div>
 				<div class="row justify-content-center">
 					<div class="col-12 col-md-10 col-lg-8">
+						<div class="form-group">
+							<label class="label-blueberry">Vehicle type</label>
+							<div class="btn-group btn-group-md btn-group-toggle w-100" data-toggle="buttons">
+								<label class="btn btn-primary btn-blueberry active">
+									<input type="radio" name="pattern" value="regular" checked>Regular Car
+								</label>
+								<label class="btn btn-primary btn-blueberry">
+									<input type="radio" name="pattern" value="large">Large Vehicle&nbsp;&nbsp;|&nbsp;&nbsp;
+									<% var firstProductFlag = true; %>
+									<span class="js--pattern-price-extra">
+										<% for (var product of products) {
+											var regexpExtraTruckPrice = /\+(.+)\]/gm;
+											const extraTruckPrice = regexpExtraTruckPrice.exec(product.pattern);
+											%>
+											<span class="<%- product.id %>" style="<%- firstProductFlag ? '' : 'display: none' %>">+$<%- extraTruckPrice[1] %></span>
+											<% firstProductFlag = false; %>
+										<% } %>
+									</span>
+								</label>
+							</div>
+							<p class="js--notice-car text-muted text-center mt-2 mb-3">
+								Regular size cars include all sedans, wagons, smaller SUVs and mini trucks.
+							</p>		
+							<p class="js--notice-truck text-muted text-center mt-2 mb-3" style="display: none">
+								Large vehicle option accounts for the cars with wider windshields, such as large SUVs (Escallade), heavy duty trucks (Ford F-150) and similar. Windshield Banners for large cars require more material and special geometry.
+							</p>		
+						</div>
 						<div class="form-group">
 							<label class="label-blueberry" for="inputQuantity">How many items you need?</label>
 							<div class="input-group js--init-integer-input">
@@ -227,7 +259,7 @@
 							</div>
 							<div class="alert alert-success mt-3 text-center animate__delay-1s" role="alert" data-aos="animate__tada">
 								<small>We offer <strong>10% off</strong> for 2+,  <strong>15% off</strong> for 4+ and <strong>20% off</strong> for 10+ same items in your cart!</small>
-							</div>							
+							</div>
 						</div>
 					</div>
 					<!-- Hack: make users without JavaScript fill their email so we can reach oiut back -->
@@ -308,14 +340,18 @@
 											} 
 											colorBackgroundNames.push(color);
 										}); 
-									%>							
+									%>
 									data-item-custom<%- i %>-options="<%- colorBackgroundNames.join('|') %>"
 									<% i++; %>
 								<% } %>
 
+								<% // Size option - car or truck %>
+								data-item-custom<%- i %>-name="Vehicle size" 
+								data-item-custom<%- i %>-options="<%- product.pattern %>"
+								<% i++; %>
+
 								<% // Select quantity %>
 								data-item-quantity="1"
-
 								>
 							</button>
 						<% } %>
