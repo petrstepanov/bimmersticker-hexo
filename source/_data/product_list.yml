@@ -19,7 +19,8 @@
   product_type: Stickers > Banners
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-text-windshield-banner.jpg
-  price: "27.99 USD"
+  price: "29.99 USD"
+  pattern: "regular|large[+4.99]"
   size: "28x6 in"
   shipping_weight: "0.2 lbs"
   material: "Oracal and TeckWrap vinyls"
@@ -31,11 +32,12 @@
   product_type: Stickers > Banners
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-color-windshield-sun-strip.jpg
-  price: "27.99 USD"
+  price: "29.99 USD"
+  pattern: "regular|large[+9.99]"
   size: "60x10 in"
   shipping_weight: "0.375 lbs"
   material: "Oracal 651 or TeckWrap vinyls"
-  color: "matte black|black|mint|orange|white|pink|red|rainbow[+14.99]" # for Google only. Real app takes these from colors_strip.yml
+  color: "matte black|black|mint|orange|white|pink|red|silver[+14.99]|gold[+14.99]rainbow[+14.99]" # for Google only. Real app takes these from colors_strip.yml
 - id:	ST_CAR_W_SUNSTRIP_CUT
   title: "Custom Reverse Cut Sun Strip"
   description: "Windshield sun strip (banner) with custom text. Will fit any car or truck. Variety of fonts and colors. Text is cut out of the base vinyl layer. Made from premium outdoor vinyls."
@@ -43,10 +45,11 @@
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-text-windshield-banner-sun-strip-reverse-cut.jpg
   price: "35.99 USD"
+  pattern: "regular|large[+9.99]"
   size: "60x10 in"
   shipping_weight: "0.5 lbs"
   material: "Oracal 651 and TeckWrap vinyls"
-  color: "matte black|black|mint|orange|white|pink|red|rainbow[+9.99]" # for Google only. Real app takes these from colors_strip.yml
+  color: "matte black|black|mint|orange|white|pink|red|silver[+14.99]|gold[+14.99]rainbow[+14.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your sun strip text"
 - id:	ST_CAR_W_SUNSTRIP_TEXT
   title: "Custom Text Sun Strip"
@@ -55,10 +58,11 @@
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-text-windshield-banner-sun-strip.jpg
   price: "39.99 USD"
+  pattern: "regular|large[+14.99]"
   size: "60x10 in"
   shipping_weight: "0.35 lbs"
   material: "Oracal 651 and TeckWrap vinyls"
-  color: "white|matte black|black|mint|orange|pink|red|silver[+9.99]|gold[+9.99]|rainbow[+9.99]" # for Google only. Real app takes these from colors_strip.yml
+  color: "white|matte black|black|mint|orange|pink|red|silver[+14.99]|gold[+14.99]|rainbow[+14.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your sun strip text"
 - id:	ST_BMW_ENGINE
   title: "Custom BMW Powered windshield sticker"

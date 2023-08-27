@@ -1,10 +1,10 @@
 // Responsive typography
 html {
-  font-size: 14px;
+  font-size: 15px;
 
-  @include media-breakpoint-up(lg) {
-    font-size: 15px;
-  }
+  // @include media-breakpoint-up(lg) {
+  //   font-size: 15px;
+  // }
 
   @include media-breakpoint-up(xl) {
     font-size: 16px;

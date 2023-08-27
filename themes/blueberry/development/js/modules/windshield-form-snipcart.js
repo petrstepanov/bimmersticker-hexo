@@ -26,13 +26,19 @@ function _cacheDom(element) {
     DOM.$input = DOM.$el.find('.js--text-input');
     DOM.$fontImages = DOM.$el.find('.js--font-image');
 
-    // DOM.$carContainer = DOM.$el.find('.car-preview-container');
     DOM.$textWidthNotice = DOM.$el.find('.js--text-width');
-    DOM.$car = DOM.$el.find('.car-preview-container .car');
 
     DOM.$banner = DOM.$el.find('.banner-text');
     DOM.$sunstrip = DOM.$el.find('.sunstrip');
     DOM.$sunstripText = DOM.$el.find('.sunstrip-text');
+
+    // Car/Truck selection
+    DOM.$car = DOM.$el.find('.car-preview-container .car-container');
+    DOM.$truck = DOM.$el.find('.car-preview-container .truck-container');
+    DOM.$radioVehicleType = DOM.$el.find('input[name=pattern]');
+    DOM.$noticeCar = DOM.$el.find('.js--notice-car');
+    DOM.$noticeTruck = DOM.$el.find('.js--notice-truck');
+    DOM.$truckExtraContainer = DOM.$el.find('.js--pattern-price-extra');
 
     // Quantity control
     DOM.$inputQuantity = DOM.$el.find('input[name=quantity]');
@@ -76,6 +82,9 @@ function _loadData(){
         if (data.color_base){
             DOM.$radioBaseColor.filter('[value="' + data.color_base + '"]').attr('checked', true).change();
         }
+        if (data.pattern){
+            DOM.$radioVehicleType.filter('[value="' + data.pattern + '"]').attr('checked', true).change();
+        }
         if (data.quantity){
             DOM.$inputQuantity.val(data.quantity).change();
         }
@@ -92,6 +101,7 @@ function _bindEvents(element) {
         _showHideFormContainers(this.value);
         _showHidePreviewElements(this.value);
         _enableDisableRadioButtons(this.value);
+        _reflectExtraTruckPrice(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
             _saveData(); 
@@ -157,6 +167,15 @@ function _bindEvents(element) {
     DOM.$radioBaseColor.change(function (event) {
         _updateSunstripBaseColor();
         _updateSnipcartButtonsBaseColor(this.value);
+        if (event.originalEvent && event.originalEvent.isTrusted){
+            // Save data only of the event was triggered with human
+            _saveData(); 
+        }
+    });
+
+    DOM.$radioVehicleType.change(function (event) {
+        _updateVehicleType(this.value);
+        _updateSnipcartButtonsVehicleType(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
             _saveData(); 
@@ -281,6 +300,12 @@ function _enableDisableRadioButtons(product) {
     }
 }
 
+function _reflectExtraTruckPrice(product){
+    DOM.$truckExtraContainer.children().hide();
+    const productClass= "." + product;
+    DOM.$truckExtraContainer.find(productClass).show();
+}
+
 function _buildFontUrl($fontImage, text) {
     var url = $fontImage.data().src;
     var query = '{"size":72,"text":"#","retina":false}'.replace("#", text);
@@ -360,6 +385,25 @@ function _updateSunstripBaseColor() {
     DOM.$sunstrip.css('background-image', $swatch.css('background-image'));
 }
 
+// Visual updates for selecting vehicle type (car/truck)
+function _updateVehicleType(value) {
+    // Reflect Bootstrap button appearance
+    DOM.$radioVehicleType.parent().removeClass('active');
+    DOM.$radioVehicleType.filter('[value='+value+']').parent().addClass('active');
+
+    if (value == 'Regular'){
+        DOM.$car.show();
+        DOM.$noticeCar.show();
+        DOM.$truck.hide();
+        DOM.$noticeTruck.hide();
+    }
+    else {
+        DOM.$car.hide();
+        DOM.$noticeCar.hide();
+        DOM.$truck.show();
+        DOM.$noticeTruck.show();
+    }
+}
 
 // Updating Snipcart buttons' attributes
 
@@ -384,6 +428,13 @@ function _updateSnipcartButtonsBaseColor(value){
     DOM.$btnBuySunStrip.attr('data-item-custom1-value', value);
     DOM.$btnBuyCutSunStrip.attr('data-item-custom3-value', value);
     DOM.$btnBuyTextSunStrip.attr('data-item-custom4-value', value);
+}
+
+function _updateSnipcartButtonsVehicleType(value){
+    DOM.$btnBuyBanner.attr('data-item-custom4-value', value);
+    DOM.$btnBuySunStrip.attr('data-item-custom2-value', value);
+    DOM.$btnBuyCutSunStrip.attr('data-item-custom4-value', value);
+    DOM.$btnBuyTextSunStrip.attr('data-item-custom5-value', value);
 }
 
 function init(element) {

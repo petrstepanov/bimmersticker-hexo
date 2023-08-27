@@ -68,7 +68,24 @@
 						<div class="carousel-inner">
 							<div class="carousel-item active">
 								<a class="img-wrapper release-height-md" href="<%- href %>">
-									<img width="3905" height="1274" loading="lazy"  src="/custom-windshield-banner-sun-strip/custom-text-windshield-banners-order-online.jpg" class="d-block h-auto w-100" alt="Personalized windshield sun strips with custom text">
+									<picture>
+										<% var iPath = '/custom-windshield-banner-sun-strip/'; %>
+										<% var iName = 'custom-text-windshield-banners-order-online'; %>
+
+										<source srcset="<%- iPath + 'xl_' + iName %>.avif,    <%- iPath + 'xl-2x_' + iName %>.avif 2x" media="(min-width: 1350px)" type="image/avif" />
+										<source srcset="<%- iPath + 'xl_' + iName %>.jpg,     <%- iPath + 'xl-2x_' + iName %>.jpg  2x" media="(min-width: 1350px)" />
+
+										<source srcset="<%- iPath + 'lg_' + iName %>.avif,    <%- iPath + 'lg-2x_' + iName %>.avif 2x" media="(min-width: 992px)" type="image/avif" />
+										<source srcset="<%- iPath + 'lg_' + iName %>.jpg,     <%- iPath + 'lg-2x_' + iName %>.jpg  2x" media="(min-width: 992px)" />
+
+										<source srcset="<%- iPath + 'md_' + iName %>.avif,    <%- iPath + 'md-2x_' + iName %>.avif 2x" media="(min-width: 768px)" type="image/avif" />
+										<source srcset="<%- iPath + 'md_' + iName %>.jpg,     <%- iPath + 'md-2x_' + iName %>.jpg  2x" media="(min-width: 768px)" />
+
+										<source srcset="<%- iPath + 'xs-sm_' + iName %>.avif, <%- iPath + 'xs-sm-2x_' + iName %>.avif 2x" type="image/avif" />
+										<source srcset="<%- iPath + 'xs-sm_' + iName %>.jpg,  <%- iPath + 'xs-sm-2x_' + iName %>.jpg  2x" />
+										
+										<img width="3905" height="1274" loading="lazy"  src="/custom-windshield-banner-sun-strip/custom-text-windshield-banners-order-online.jpg" class="d-block h-auto w-100" alt="Personalized windshield sun strips with custom text">
+									</picture>
 								</a>
 							</div>
 							<div class="carousel-item">
