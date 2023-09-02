@@ -22,7 +22,7 @@
   price: "29.99 USD"
   pattern: "regular|large[+4.99]"
   size: "28x6 in"
-  shipping_weight: "0.2 lbs"
+  shipping_weight: "0.2 lb"
   material: "Oracal and TeckWrap vinyls"
   color: "white|matte black|black|mint|orange|pink|red|silver[+9.99]|gold[+9.99]|rainbow[+9.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your banner text"
@@ -35,7 +35,7 @@
   price: "29.99 USD"
   pattern: "regular|large[+9.99]"
   size: "60x10 in"
-  shipping_weight: "0.375 lbs"
+  shipping_weight: "0.375 lb"
   material: "Oracal 651 or TeckWrap vinyls"
   color: "matte black|black|mint|orange|white|pink|red|silver[+14.99]|gold[+14.99]rainbow[+14.99]" # for Google only. Real app takes these from colors_strip.yml
 - id:	ST_CAR_W_SUNSTRIP_CUT
@@ -47,7 +47,7 @@
   price: "35.99 USD"
   pattern: "regular|large[+9.99]"
   size: "60x10 in"
-  shipping_weight: "0.5 lbs"
+  shipping_weight: "0.5 lb"
   material: "Oracal 651 and TeckWrap vinyls"
   color: "matte black|black|mint|orange|white|pink|red|silver[+14.99]|gold[+14.99]rainbow[+14.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your sun strip text"
@@ -60,7 +60,7 @@
   price: "39.99 USD"
   pattern: "regular|large[+14.99]"
   size: "60x10 in"
-  shipping_weight: "0.35 lbs"
+  shipping_weight: "0.35 lb"
   material: "Oracal 651 and TeckWrap vinyls"
   color: "white|matte black|black|mint|orange|pink|red|silver[+14.99]|gold[+14.99]|rainbow[+14.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your sun strip text"
@@ -72,7 +72,7 @@
   image_link: https://bimmersticker.store/custom-engine-windshield-sticker/bmw-custom-engine-windshield-sticker-square.jpg
   price: "14.99 USD"
   size: "24x4 in"
-  shipping_weight: "0.2 lbs"
+  shipping_weight: "0.2 lb"
   material: "Oracal and TeckWrap vinyls"
   color: "white|matte black|rainbow[+1]"
   customization_name: "Type your engine model"
@@ -85,7 +85,7 @@
   image_link: https://bimmersticker.store/two-bmw-powered-window-stickers/two-bmw-powered-stickers-for-custom-engine.jpg
   price: "9.99 USD"
   size: "8x1 in"
-  shipping_weight: "0.2 lbs"
+  shipping_weight: "0.2 lb"
   material: "Oracal and TeckWrap vinyls"
   color: "white|matte black|rainbow[+2]"
   customization_name: "Type your engine model"
@@ -98,7 +98,7 @@
   image_link: https://bimmersticker.store/touring-sticker/bmw-touring-vinyl-window-sticker-square.jpg
   price: "8.99 USD"
   size: "6x3 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "red|mint|pink"
 - id:	ST_BMW_BNB
@@ -109,7 +109,7 @@
   image_link: https://bimmersticker.store/bimmer-not-beamer/bimmer-not-beamer-sticker-square.jpg
   price: "8.99 USD"
   size: "7x2 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: Oracal and TeckWrap vinyls  
   color: "white/red|rainbow/red[+1.00]"
 - id:	ST_BMW_BMRFST
@@ -120,7 +120,7 @@
   image_link: https://bimmersticker.store/bimmerfest-sticker/bimmerfest-vinyl-sticker-square.jpg
   price: "8.99 USD"
   size: "7x3 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   pattern: "East|West"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
@@ -134,7 +134,7 @@
   image_link: https://bimmersticker.store/bimmer-gang-sticker/bimmer-gang-bmw-vinyl-car-sticker.jpg
   price: "9.99 USD"
   size: "5x3 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "blue/white"
 - id:	ST_BMW_GIRLS
@@ -145,7 +145,7 @@
   image_link: https://bimmersticker.store/bmw-girls-sticker/sticker-bmw-girls-make-it-better-square.jpg
   price: "9.99 USD"
   size: "4x3 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   pattern: "pink heart|black heart"
   color: "pink/black/white"
@@ -157,7 +157,7 @@
   image_link: https://bimmersticker.store/instagram-popup-bmw-model-sticker/bmw-model-sticker-square.jpg
   price: "8.99 USD"
   size: "5x2 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "red/white"
   customization_name: "Type your BMW model"
@@ -170,7 +170,7 @@
   image_link: https://bimmersticker.store/bmw-of-america-roundel-sticker/bmw-of-america-roundel-badge-sticker-decal.jpg
   price: "14.99 USD"
   size: "82x82 mm|74x74 mm"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "red/white"
 - id:	ST_BMW_ROUNDEL_BW
@@ -181,7 +181,7 @@
   image_link: https://bimmersticker.store/bmw-of-america-black-flag-roundel-sticker/black-bmw-of-america-emblem-sticker-with-flag.jpg
   price: "14.99 USD"
   size: "82x82 mm|74x74 mm"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "black/white"
 - id:	ST_BMW_ROUNDEL_MARYLAND
@@ -192,7 +192,7 @@
   image_link: https://bimmersticker.store/bmw-roundel-sticker-maryland/maryland-bmw-emblem-overlay-sticker.jpg
   price: "19.99 USD"
   size: "82x82 mm|74x74 mm"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "black/white/yellow/red"
 - id:	ST_BMW_ROUNDEL_TEXAS
@@ -203,7 +203,7 @@
   image_link: https://bimmersticker.store/texas-sticker-for-bmw-roundel/texas-sticker-for-bmw-badge-roundel.jpg
   price: "14.99 USD"
   size: "82x82 mm|74x74 mm"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "black/white/yellow/red"
 - id:	ST_BMW_ROUNDEL_COLOR
@@ -214,7 +214,7 @@
   image_link: https://bimmersticker.store/change-your-bmw-badge-color/overlay-bmw-rounder-with-custom-color-sticker.jpg
   price: "7.99 USD"
   size: "82x82 mm|74x74 mm"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "black|matte black|red|orange|yellow|gold|silver"  
 - id:	ST_CAR_INLINE6
@@ -225,7 +225,7 @@
   image_link: https://bimmersticker.store/inline-six-power-sticker/inline-six-power-sticker-engine-square.jpg
   price: "9.99 USD"
   size: "7x2 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "white/black"
 - id:	ST_CAR_SMOKE_TIRES
@@ -236,7 +236,7 @@
   image_link: https://bimmersticker.store/smoke-tires-not-drugs-sticker/smoke-tires-not-drugs-car-drift-sticker.jpg
   price: 5.99 USD"
   size: "Small • 2x3 in|Large • 3x4 in[+4.00]"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "red/white/black"  
 - id:	ST_CAR_BABEONBOARD
@@ -247,7 +247,7 @@
   image_link: https://bimmersticker.store/babe-on-board-sticker/babe-on-board-sticker.jpg
   price: "9.99 USD"
   size: "4x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "black/yellow"
 - id:	ST_CAR_LOWEREDLIFE
@@ -259,7 +259,7 @@
   additional_image_link: https://bimmersticker.store/lowered-lifestyle-sticker/lowered-lifestyle-sticker-for-stance-slammed-car-truck-rainbow.jpg
   price: "7.99 USD"
   size: "5.5x2.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "white|rainbow[+1.00]"
 - id:	ST_CAR_INTELINSIDE
@@ -270,7 +270,7 @@
   image_link: https://bimmersticker.store/custom-engine-inside-sticker/custom-engine-inside-sticker.jpg
   price: "11.99 USD"
   size: "2x2.5 in"
-  shipping_weight: "0.015 lbs"
+  shipping_weight: "0.015 lb"
   material: "Oracal 651 vinyl"
   color: "blue/white"
   customization_name: "Type your engine model"
@@ -283,7 +283,7 @@
   image_link: https://bimmersticker.store/hard-tuned-sticker/hard-tuned-vinyl-sticker-for-cars.jpg
   price: "8.99 USD"
   size: "5x3 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "white/red"
 - id: ST_CAR_JDM
@@ -294,7 +294,7 @@
   image_link: https://bimmersticker.store/bosozoku-jdm-sticker-pack/bosozoku-jdm-vintage-sticker-pack.jpg
   price: "22.99 USD"
   size: "3x3 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Laserjet vinyl"
   color: "multicolored"  
 - id:	ST_CAR_STAYTUNED
@@ -306,7 +306,7 @@
   additional_image_link: https://bimmersticker.store/stay-tuned-sticker/stay-tuned-car-truck-sticker-holographic.jpg
   price: "9.99 USD"
   size: "4x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "white|rainbow[+1.00]"
 - id:	ST_CAR_FUCKPOLICE
@@ -318,7 +318,7 @@
   additional_image_link: https://bimmersticker.store/fuck-the-police-sticker/fuck-the-police-sticker-holographic.jpg
   price: "9.99 USD"
   size: "6x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "TECKWRAP outdoor vinyls"
   color: "white|rainbow[+1.00]"
 - id:	ST_CAR_RUNCOILS
@@ -329,7 +329,7 @@
   image_link: https://bimmersticker.store/run-coils-sticker/run-coils-stance-jdm-sticker-square.jpg
   price: "9.99 USD"
   size: "5x4 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "white/red"
 - id:	ST_CAR_DAILY
@@ -340,7 +340,7 @@
   image_link: https://bimmersticker.store/daily-driven-sticker/daily-driven-vinyl-sticker-for-cars.jpg
   price: "8.99 USD"
   size: "8x5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "white|black|silver[+2.00]|gold[+2.00]|rainbow[+2.00]"
 - id:	ST_CAR_RUNBAGS
@@ -351,7 +351,7 @@
   image_link: https://bimmersticker.store/run-bags-sticker/run-bags-stance-jdm-sticker-square.jpg
   price: "9.99 USD"
   size: "5x4 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "white/red"
 - id:	ST_CAR_MILEAGE
@@ -362,7 +362,7 @@
   image_link: https://bimmersticker.store/custom-mileage-sticker/custom-car-mileage-sticker-square.jpg
   price: "9.99 USD"
   size: "8x2 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   pattern: "miles|km"
   color: "white/black|white/red"
@@ -376,7 +376,7 @@
   image_link: https://bimmersticker.store/supercharged-sticker/sticker-supercharged-car-square.jpg
   price: "8.99 USD"
   size: "8x2 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl"
   color: "red/white"
 - id:	ST_SOCIAL_TIK
@@ -388,7 +388,7 @@
   additional_image_link: https://bimmersticker.store/custom-tiktok-name-sticker/custom-tiktok-account-vinyl-sticker-white.jpg
   price: "8.99 USD"
   size: "7.5x2 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyls"
   color: "black|white"
   customization_name: "Your TikTok name"
@@ -402,7 +402,7 @@
   additional_image_link: https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-holographic-color.jpg,https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-oil-slick-color.jpg,https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-silver-color.jpg,https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-gold-color.jpg
   price: "9.99 USD"
   size: "7.5x2 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|holographic[+1.00]|rainbow[+1.00]|silver[+1.00]|gold[+1.00]"
   customization_name: "Your instagram name"
@@ -415,7 +415,7 @@
   image_link: https://bimmersticker.store/youtube-channel-stickers/custom-personal-youtube-channel-name-sticker-square.jpg
   price: "12.99 USD"
   size: "7.5x2 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl" 
   color: "white/red|black/red"
   customization_name: "Your channel name"
@@ -428,7 +428,7 @@
   image_link: https://bimmersticker.store/facebook-name-profile-stickers/custom-personal-facebook-profile-page-sticker-square.jpg
   price: "12.99 USD"
   size: "7.5x2 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl" 
   color: "white/blue|black/blue"
   customization_name: "Profile, page or group name"
@@ -441,7 +441,7 @@
   image_link: https://bimmersticker.store/snapchat-name-stickers/custom-personal-snapchat-name-sticker-square.jpg
   price: "12.99 USD"
   size: "7.5x2 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl" 
   color: "white/yellow|black/yellow"
   customization_name: "Your Snapchat name"
@@ -454,7 +454,7 @@
   image_link: https://bimmersticker.store/custom-soundcloud-profile-stickers/custom-personal-soundcloud-profile-sticker.jpg
   price: "10.99 USD"
   size: "7.5x2 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal 651 vinyl" 
   color: "white/orange|black/orange"
   customization_name: "Your SoundCloud Profile"
@@ -468,7 +468,7 @@
   additional_image_link: https://bimmersticker.store/bmw-of-america-windshield-banner/bmw-of-america-windshield-banner-rainbow.jpg
   price: "21.99 USD"
   size: "32x3 in"
-  shipping_weight: "0.19 lbs"
+  shipping_weight: "0.19 lb"
   material: "Oracal 651 vinyl, TECKWRAP holographic vinyl"
   color: "white|matte black|rainbow[+5]"
 - id:	ST_WSHIELD_HARDTUNED
@@ -480,7 +480,7 @@
   additional_image_link: https://bimmersticker.store/hard-tuned-windshield-banner/hard-tuned-car-windshield-banner-gold.jpg
   price: "24.99 USD"
   size: "22x7 in"
-  shipping_weight: "0.19 lbs"
+  shipping_weight: "0.19 lb"
   material: "Oracal 651 vinyl, Cricut adhesive foil"
   color: "red/white|gold/white[+5]"
 - id:	ST_WSHIELD_ANTIS
@@ -492,7 +492,7 @@
   additional_image_link: https://bimmersticker.store/antisocial-windshield-banner/antisocial-windshield-banner-for-car-truck-holographic.jpg
   price: "21.99 USD"
   size: "28x7 in"
-  shipping_weight: "0.19 lbs"
+  shipping_weight: "0.19 lb"
   material: "Oracal 651 vinyls, TECKWRAP vinyl"
   color: "white|black|holographic[+5]"  
 - id:	ST_WSHIELD_MONEY
@@ -503,7 +503,7 @@
   image_link: https://bimmersticker.store/money-pit-windshield-banner/money-pit-car-auto-windshield-sticker-banner-square.jpg
   price: "21.99 USD"
   size: "25x7 in"
-  shipping_weight: "0.1875 lbs"
+  shipping_weight: "0.1875 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|matte black|black|silver[+6]|gold[+6]|rainbow[+6]"
 - id:	ST_WSHIELD_SF
@@ -514,7 +514,7 @@
   image_link: https://bimmersticker.store/street-fighter-windshield-banner/street-fighter-car-windshield-banner-square.jpg
   price: "21.99 USD"
   size: "30x5 in"
-  shipping_weight: "0.1875 lbs"
+  shipping_weight: "0.1875 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|matte black|black|silver[+6]|gold[+6]|rainbow[+6]"
 - id:	ST_WSHIELD_BM4L
@@ -525,7 +525,7 @@
   image_link: https://bimmersticker.store/bimmer4life-sticker/sticker-bimmer4life-windshield-banner-square.jpg
   price: "21.99 USD"
   size: "31x7 in"
-  shipping_weight: "0.1875 lbs"
+  shipping_weight: "0.1875 lb"
   material: "Premium outdoor vinyls: Oracal 651, TeckWrap"
   color: "white|matte black|rainbow[+9]"
 - id:	ST_WSHIELD_LOWER
@@ -536,7 +536,7 @@
   image_link: https://bimmersticker.store/lower-than-ground-sticker/lower-than-ground-windshield-banner-for-tuned-cars.jpg
   price: "21.99 USD"
   size: "31x7 in"
-  shipping_weight: "0.1875 lbs"
+  shipping_weight: "0.1875 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|matte black|black|silver[+9]|gold[+9]|rainbow[+9]"  
 - id:	ST_WSHIELD_SEND
@@ -547,7 +547,7 @@
   image_link: https://bimmersticker.store/send-nudes-banner/send-nudes-windshield-banner-square.jpg
   price: "21.99 USD"
   size: "28x5 in"
-  shipping_weight: "0.1875 lbs"
+  shipping_weight: "0.1875 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|matte black|holographic[+6]|rainbow[+6]"
 - id:	ST_WSHIELD_KNRD
@@ -558,7 +558,7 @@
   image_link: https://bimmersticker.store/knight-rider-windshield-banner/knight-rider-stance-winshield-banner-car-square.jpg
   price: "21.99 USD"
   size: "30x5 in"
-  shipping_weight: "0.1875 lbs"
+  shipping_weight: "0.1875 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|matte black|rainbow[+6]"
 - id:	ST_WSHIELD_SHARK
@@ -569,7 +569,7 @@
   image_link: https://bimmersticker.store/sharknose-windshield-banner/bmw-shark-sharknose-windshield-banner-square.jpg
   price: "21.99 USD"
   size: "30x8 in"
-  shipping_weight: "0.1875 lbs"
+  shipping_weight: "0.1875 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|matte black|rainbow[+9.99]"
 - id:	ST_MRC_W124
@@ -580,7 +580,7 @@
   image_link: https://bimmersticker.store/mercedes-w124-sticker/mercedes-w124-window-sticker-body-decal.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"  
 - id:	ST_BMW_E12
@@ -591,7 +591,7 @@
   image_link: https://bimmersticker.store/e12-sticker/bmw-e12-vinyl-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E21
@@ -602,7 +602,7 @@
   image_link: https://bimmersticker.store/e21-sticker/bmw-e21-vinyl-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E23
@@ -613,7 +613,7 @@
   image_link: https://bimmersticker.store/e23-sticker/bmw-e23-vinyl-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E28
@@ -624,7 +624,7 @@
   image_link: https://bimmersticker.store/e28-sticker/e28-bmw-window-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E30
@@ -635,7 +635,7 @@
   image_link: https://bimmersticker.store/e30-sticker/bmw-e30-vinyl-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E32
@@ -646,7 +646,7 @@
   image_link: https://bimmersticker.store/e32-sticker/bmw-e32-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E34
@@ -657,7 +657,7 @@
   image_link: https://bimmersticker.store/e34-sticker/bmw-e34-vinyl-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E36
@@ -668,7 +668,7 @@
   image_link: https://bimmersticker.store/e36-sticker/bmw-e36-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E38
@@ -679,7 +679,7 @@
   image_link: https://bimmersticker.store/e38-sticker/e38-bmw-window-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E39
@@ -690,7 +690,7 @@
   image_link: https://bimmersticker.store/e39-sticker/e39-bmw-window-vinyl-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E46
@@ -701,7 +701,7 @@
   image_link: https://bimmersticker.store/e46-sticker/bmw-e46-window-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E53
@@ -712,7 +712,7 @@
   image_link: https://bimmersticker.store/e53-sticker/bmw-e53-window-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"  
 - id:	ST_BMW_E60
@@ -723,7 +723,7 @@
   image_link: https://bimmersticker.store/e60-sticker/bmw-e60-window-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E61
@@ -734,7 +734,7 @@
   image_link: https://bimmersticker.store/e61-sticker/bmw-e61-window-vinyl-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E70
@@ -745,7 +745,7 @@
   image_link: https://bimmersticker.store/e70-sticker/bmw-e70-sticker-window-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E81
@@ -756,7 +756,7 @@
   image_link: https://bimmersticker.store/e81-sticker/bmw-e81-car-vinyl-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E82
@@ -767,7 +767,7 @@
   image_link: https://bimmersticker.store/e82-sticker/bmw-e82-vinyl-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E87
@@ -778,7 +778,7 @@
   image_link: https://bimmersticker.store/e87-sticker/bmw-e87-car-vinyl-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E90
@@ -789,7 +789,7 @@
   image_link: https://bimmersticker.store/e90-sticker/bmw-e90-window-sport-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E91
@@ -800,7 +800,7 @@
   image_link: https://bimmersticker.store/e91-sticker/bmw-e91-touring-vinyl-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_E92
@@ -811,7 +811,7 @@
   image_link: https://bimmersticker.store/e92-sticker/e92-bmw-sticker-window-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_F10
@@ -822,7 +822,7 @@
   image_link: https://bimmersticker.store/f10-sticker/bmw-f10-window-vinyl-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_F15
@@ -833,7 +833,7 @@
   image_link: https://bimmersticker.store/f15-sticker-bmw-x5/window-sticker-for-bmw-f15-x5-suv.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal outdoor vinyls"
   color: "white|matte black|silver[+1]|gold[+1]"
 - id:	ST_BMW_F20
@@ -844,7 +844,7 @@
   image_link: https://bimmersticker.store/f20-sticker/bmw-f20-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_F21
@@ -855,7 +855,7 @@
   image_link: https://bimmersticker.store/f21-sticker/bmw-f21-window-vinyl-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_F22
@@ -866,7 +866,7 @@
   image_link: https://bimmersticker.store/f22-sticker/bmw-f22-coupe-vinyl-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_F30
@@ -877,7 +877,7 @@
   image_link: https://bimmersticker.store/f30-sticker/bmw-f30-window-vinyl-sport-decal-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_F31
@@ -888,7 +888,7 @@
   image_link: https://bimmersticker.store/f31-sticker/bmw-f31-sticker-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
 - id:	ST_BMW_F32
@@ -899,6 +899,6 @@
   image_link: https://bimmersticker.store/f32-sticker/vinyl-sticker-for-bmw-f32-square.jpg
   price: "5.99 USD"
   size: "6.5x3.5 in"
-  shipping_weight: "0.025 lbs"
+  shipping_weight: "0.025 lb"
   material: "Oracal, Cricut and TeckWrap vinyls"
   color: "white|silver[+1]|gold[+1]|rainbow[+1]"
