@@ -59,12 +59,8 @@ hexo.extend.helper.register('breakArrayVariationsRecursive', function(array){
 
         // Iterate keys (properties) in original object (product)
         for (const key in object) {
-
             var value = object[key];
-            // var processedFirstVariation = false;
-            // if (value.includes('|') && !processedFirstVariation){
             if (value.includes('|')){
-
                 // Array for object clones. Each element in array will have separate corresponding variation
                 var objectClones = [];
                 // Split variations into array and iterate it
@@ -74,16 +70,12 @@ hexo.extend.helper.register('breakArrayVariationsRecursive', function(array){
                     var objectClone = JSON.parse(JSON.stringify(object));
                     // Set property value to variation without price
                     var variationNoPrice = variation.replace(/\[.*\]/, '');
-
                     objectClone[key] = variationNoPrice;
-                    // Update the title of the cloned object
+                    // Update the title of the cloned object as demonstrated here - https://support.google.com/merchants/answer/6324487
                     // Hack - TODO: for banners switch from pattern to size and rename this fields
-
                     var titleSuffix = ' - ' + capitalizeFirstLetter(variationNoPrice.replace('regular', 'for car').replace('large', 'for truck'));
                     objectClone['title'] = objectClone['title'] + titleSuffix;                    
-                    if(object.id == 'ST_CAR_W_BANNER'){
-                        console.log(objectClone['title']);
-                    }
+
                     // Check if variation contains extra [+#.##] and update price
                     var regex = /(.*)\[\+([\d.]*)\]/
                     var array = variation.match(regex);
@@ -100,13 +92,9 @@ hexo.extend.helper.register('breakArrayVariationsRecursive', function(array){
                 for (var i = objectClones.length - 1; i >= 0; i--) {
                     array.splice(index+1, 0, objectClones[i]);
                 }
-                // Set flag to not process more variation keys
-                // processedFirstVariation = true;
-
-                // Do not process more variation keys once first is found
+                // Do not process more variation keys once first is found, pass it to the next recursion call instead
                 break;
             }
-
         }
 
         // Remove original object from array
@@ -126,36 +114,6 @@ hexo.extend.helper.register('addBannerSunStripColorVariationsImageLinks', functi
         var suffix = suffix + '.jpg';
         product.image_link = product.image_link.replace('.jpg', suffix);
     }
-});
-
-// Increase product price from color and pattern variations
-// Also add them to title as demonstrated here: 
-// https://support.google.com/merchants/answer/6324487
-hexo.extend.helper.register('increasePriceAndTweakTitleFromColorAndPatternVariations', function(product){
-
-    // Wipe unit from price
-    var newPrice = parseFloat(product.price);
-
-    // Iterate object properties such as "pattern", "size", "color" and see if any property contains [+#.##] string
-    // Update price and title accordingly
-    for (var key in product) {
-        var value = product[key];
-        var regex = /(.*)\[\+([\d.]*)\]/
-        var array = value.match(regex);
-        if (array && array.length == 3){
-            // Wipe [+#.##] from key value
-            product[key] = array[1];
-            // console.log(array[1]);
-            // console.log(product[key]);
-            // Increase price
-            newPrice += parseFloat(array[2]);
-            // Update title
-            product.title = product.title + " - " + capitalizeFirstLetter(product[key]);
-        }
-    }
-
-    // Update price
-    product.price = newPrice + " USD";
 });
 
 hexo.extend.helper.register('setUniqueIdFromVariations', function(product){
