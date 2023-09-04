@@ -18,10 +18,15 @@ function findObjectWithVariations(array){
     return index;
 }
 
+function capitalizeFirstLetter(string){
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 hexo.extend.helper.register('breakArrayVariationsRecursive', function(array){
     // const findObjectWithVariations = hexo.extend.helper.get('findObjectWithVariations').bind(hexo);
     const breakArrayVariationsRecursive = hexo.extend.helper.get('breakArrayVariationsRecursive').bind(hexo);
 
+    // Execute until all the products with variations are split
     var index = findObjectWithVariations(array);
     if (index==-1){
         return array;
@@ -32,32 +37,125 @@ hexo.extend.helper.register('breakArrayVariationsRecursive', function(array){
         object.item_group_id = object.id;
 
         // Split one variation object
-        var processedFirstVariationValue = false;
-        var variationObject = _.mapValues(object, (value, key) => {
-            if (value.includes('|') && !processedFirstVariationValue){
-                var variations = value.split('|');
-                var firstVariation = variations.pop();
-                object[key] = variations.join('|');
-                processedFirstVariationValue = true;
-                return firstVariation;
-            }
-            return value;
-        });
+        // var processedFirstVariationValue = false;
+        // _.mapValues creates a new object with the same keys of the given object. Values however are generated using the given iteratee function
+        // var variationObject = _.mapValues(object, (value, key) => {
+        //     if (value.includes('|') && !processedFirstVariationValue){
+        //         var variations = value.split('|');
+        //         // Removes the last element from an array and returns that value to the caller
+        //         var firstVariation = variations.pop();
+        //         object[key] = variations.join('|');
+        //         processedFirstVariationValue = true;
+        //         return firstVariation;
+        //     }
+            
+        //     // For rest of key values keep them same as for the original object
+        //     return value;
+        // });
         // Insert variation object after original object
-        array.splice(index, 0, variationObject);
+        // array.splice(index, 0, objectClone);
+
+
+
+        // Iterate keys (properties) in original object (product)
+        for (const key in object) {
+
+            var value = object[key];
+            // var processedFirstVariation = false;
+            // if (value.includes('|') && !processedFirstVariation){
+            if (value.includes('|')){
+
+                // Array for object clones. Each element in array will have separate corresponding variation
+                var objectClones = [];
+                // Split variations into array and iterate it
+                var variations = value.split('|');
+                variations.forEach(variation => {
+                    // Create clone of the object for each variation
+                    var objectClone = JSON.parse(JSON.stringify(object));
+                    // Set property value to variation without price
+                    var variationNoPrice = variation.replace(/\[.*\]/, '');
+
+                    objectClone[key] = variationNoPrice;
+                    // Update the title of the cloned object
+                    // Hack - TODO: for banners switch from pattern to size and rename this fields
+
+                    var titleSuffix = ' - ' + capitalizeFirstLetter(variationNoPrice.replace('regular', 'for car').replace('large', 'for truck'));
+                    objectClone['title'] = objectClone['title'] + titleSuffix;                    
+                    if(object.id == 'ST_CAR_W_BANNER'){
+                        console.log(objectClone['title']);
+                    }
+                    // Check if variation contains extra [+#.##] and update price
+                    var regex = /(.*)\[\+([\d.]*)\]/
+                    var array = variation.match(regex);
+                    if (array && array.length == 3){
+                        // Update the price of the cloned object
+                        var newPrice = parseFloat(object['price']);
+                        newPrice += parseFloat(array[2]);
+                        objectClone['price'] = newPrice.toFixed(2) + " USD";
+                    }
+                    // Push cloned object to the array to be added later
+                    objectClones.push(objectClone);
+                });
+                // Insert object clones after original object (iterating reverse order here)
+                for (var i = objectClones.length - 1; i >= 0; i--) {
+                    array.splice(index+1, 0, objectClones[i]);
+                }
+                // Set flag to not process more variation keys
+                // processedFirstVariation = true;
+
+                // Do not process more variation keys once first is found
+                break;
+            }
+
+        }
+
+        // Remove original object from array
+        array.splice(index, 1);
+
         // Continue until no more variations found
         return breakArrayVariationsRecursive(array);
     }
 });
 
-hexo.extend.helper.register('addPriceFromColorOption', function(product){
-    var regex = /(.*)\[\+([\d.]*)\]/
-    var array = product.color.match(regex);
-    if (array && array.length == 3){
-        product.color = array[1];
-        var newPrice = parseFloat(product.price) + parseFloat(array[2]);
-        product.price = newPrice.toFixed(2) + " USD";
+// Function adds front image color variations for windshield banners and sun strips
+hexo.extend.helper.register('addBannerSunStripColorVariationsImageLinks', function(product){
+    // Find "banner" and "sun strip" product (contains "ST_CAR_W_" in id field)
+    if (product.id.includes("ST_CAR_W_")){
+        var suffix = "-" + product.color;
+        suffix = suffix.replaceAll(' ', '-');
+        var suffix = suffix + '.jpg';
+        product.image_link = product.image_link.replace('.jpg', suffix);
     }
+});
+
+// Increase product price from color and pattern variations
+// Also add them to title as demonstrated here: 
+// https://support.google.com/merchants/answer/6324487
+hexo.extend.helper.register('increasePriceAndTweakTitleFromColorAndPatternVariations', function(product){
+
+    // Wipe unit from price
+    var newPrice = parseFloat(product.price);
+
+    // Iterate object properties such as "pattern", "size", "color" and see if any property contains [+#.##] string
+    // Update price and title accordingly
+    for (var key in product) {
+        var value = product[key];
+        var regex = /(.*)\[\+([\d.]*)\]/
+        var array = value.match(regex);
+        if (array && array.length == 3){
+            // Wipe [+#.##] from key value
+            product[key] = array[1];
+            // console.log(array[1]);
+            // console.log(product[key]);
+            // Increase price
+            newPrice += parseFloat(array[2]);
+            // Update title
+            product.title = product.title + " - " + capitalizeFirstLetter(product[key]);
+        }
+    }
+
+    // Update price
+    product.price = newPrice + " USD";
 });
 
 hexo.extend.helper.register('setUniqueIdFromVariations', function(product){
