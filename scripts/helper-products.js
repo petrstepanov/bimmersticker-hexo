@@ -110,7 +110,7 @@ hexo.extend.helper.register('addBannerSunStripColorVariationsImageLinks', functi
     // Find "banner" and "sun strip" product (contains "ST_CAR_W_" in id field)
     if (product.id.includes("ST_CAR_W_")){
         var suffix = "-" + product.color;
-        suffix = suffix.replaceAll(' ', '-');
+        suffix = suffix.replace(/ /g, '-');
         var suffix = suffix + '.jpg';
         product.image_link = product.image_link.replace('.jpg', suffix);
     }
