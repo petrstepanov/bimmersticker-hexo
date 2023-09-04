@@ -8,7 +8,7 @@ tags:
 categories:
 - Roundel
 col_class: col-6 col-md-4 col-xl-3
-product_id: ST_BMW_ROUNDEL_TEXAS
+product_id: ST_BMW_RNDL_TX
 ---
 
 Add Texas flag on your BMW badge!
