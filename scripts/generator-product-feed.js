@@ -5,7 +5,7 @@ var path = require('path');
 
 hexo.extend.generator.register('google-feed-generator', function (locals) {
     const breakArrayVariationsRecursive = hexo.extend.helper.get('breakArrayVariationsRecursive').bind(hexo);
-    const addPriceFromColorOption = hexo.extend.helper.get('addPriceFromColorOption').bind(hexo);
+    const addBannerSunStripColorVariationsImageLinks = hexo.extend.helper.get('addBannerSunStripColorVariationsImageLinks').bind(hexo);
     const setUniqueIdFromVariations = hexo.extend.helper.get('setUniqueIdFromVariations').bind(hexo);
     const setExtraProductAttributes = hexo.extend.helper.get('setExtraProductAttributes').bind(hexo);
 
@@ -32,7 +32,7 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
     breakArrayVariationsRecursive(feedArray);
 
     feedArray.forEach(element => {
-        addPriceFromColorOption(element);
+        addBannerSunStripColorVariationsImageLinks(element);
         setUniqueIdFromVariations(element);
         setExtraProductAttributes(element);
     });
