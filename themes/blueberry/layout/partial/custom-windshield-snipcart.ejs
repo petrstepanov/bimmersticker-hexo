@@ -63,15 +63,15 @@
 											image = "/custom-windshield-banner-sun-strip/index/product-type-banner";
 											alt = "car with windshield banner";
 											break;
-										case "ST_CAR_W_SUNSTRIP":
+										case "ST_CAR_W_SS":
 											image = "/custom-windshield-banner-sun-strip/index/product-type-sunstrip";
 											alt = "car with a plain color sun strip";
 											break;
-										case "ST_CAR_W_SUNSTRIP_CUT":
+										case "ST_CAR_W_SS_CUT":
 											image = "/custom-windshield-banner-sun-strip/index/product-type-cut-sunstrip";
 											alt = "car with a reverse cut sun strip";
 											break;
-										case "ST_CAR_W_SUNSTRIP_TEXT":
+										case "ST_CAR_W_SS_TEXT":
 											image = "/custom-windshield-banner-sun-strip/index/product-type-text-sunstrip";
 											alt = "car with a sun strip with custom text";
 											break;
@@ -98,13 +98,13 @@
 												case "ST_CAR_W_BANNER":
 													description = "Place it on top or bottom."
 													break;
-												case "ST_CAR_W_SUNSTRIP":
+												case "ST_CAR_W_SS":
 													description = "Cut it to fit the windshield."
 													break;
-												case "ST_CAR_W_SUNSTRIP_CUT":
+												case "ST_CAR_W_SS_CUT":
 													description = "Text is cut out of the base layer."
 													break;
-												case "ST_CAR_W_SUNSTRIP_TEXT":
+												case "ST_CAR_W_SS_TEXT":
 													description = "Text layer on top of the base strip."
 													break;
 											}
@@ -292,7 +292,7 @@
 								<% } %>
 
 								<% // Select font %>
-								<% if (product.id != "ST_CAR_W_SUNSTRIP"){ %>
+								<% if (product.id != "ST_CAR_W_SS"){ %>
 									data-item-custom<%- i %>-name="Font"
 									<% 
 										var fontNames = [];
@@ -306,7 +306,7 @@
 
 								<% // Select font color %>
 								<% if (product.id == "ST_CAR_W_BANNER" ||
-									product.id == "ST_CAR_W_SUNSTRIP_TEXT"){ %>
+									product.id == "ST_CAR_W_SS_TEXT"){ %>
 									data-item-custom<%- i %>-name="Text color"
 									<% 
 										var colorTextNames = [];
