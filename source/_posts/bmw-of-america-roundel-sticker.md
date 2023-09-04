@@ -10,7 +10,7 @@ categories:
 - Roundel
 ebay_url: https://www.ebay.com/itm/193742616508
 col_class: col-6 col-md-4 col-xl-3
-product_id: ST_BMW_ROUNDEL
+product_id: ST_BMW_RNDL
 ---
 
 Overlay sticker for your BMW badges. Adds American flag and "BMW of America" lettering.

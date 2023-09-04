@@ -8,7 +8,7 @@ tags:
 categories:
 - Roundel
 col_class: col-6 col-md-4 col-xl-3
-product_id: ST_BMW_ROUNDEL_COLOR
+product_id: ST_BMW_RNDL_COLOR
 ---
 
 Customize your vehicle emblem color. We offer a variety of color options.

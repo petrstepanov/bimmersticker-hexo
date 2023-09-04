@@ -8,7 +8,7 @@ tags:
 categories:
 - Roundel
 col_class: col-6 col-md-4 col-xl-3
-product_id: ST_BMW_ROUNDEL_MARYLAND
+product_id: ST_BMW_RNDL_MD
 ---
 
 For BMW owners from Maryland with love. Complex design made of two separate overlay stickers.
