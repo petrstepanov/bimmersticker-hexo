@@ -57,7 +57,66 @@
                                         <footer class="snipcart__box snipcart-order__box snipcart-order__footer">
                                             <summary-fees class="snipcart-order__fees" :summary-data="summaryFeesProvider"></summary-fees>
                                         </footer>
-                                        <p>{{ cart.email }}</p>
+
+                                        <!-- BEGIN Petr Stepanov customization -->
+                                        <!-- Added Google Survey Module:    https://support.google.com/merchants/answer/7106244 -->
+                                        <!-- Added Badge Code:              https://support.google.com/merchants/answer/7105655 -->
+                                        <!-- TODO - Gather product reviews: https://support.google.com/merchants/answer/7519329 -->
+
+                                        <!-- BEGIN GCR Opt-in Module Code -->
+                                        <script type="application/javascript" src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer>
+                                        </script>
+                                        <script type="application/javascript">
+                                            window.renderOptIn = function () {
+                                                window.gapi.load('surveyoptin', function () {
+                                                    window.gapi.surveyoptin.render({
+                                                        // REQUIRED
+                                                        "merchant_id": 143612887,
+                                                        "order_id": {{ cart.invoiceNumber }},
+                                                        "email": {{ cart.email }},
+                                                        "delivery_country": {{ cart.shippingAddress.country }},
+                                                        "estimated_delivery_date": {{ new Date(parseInt(((new Date()).setDate((new Date()).getDate() + (cart.shippingAddress.country.localeCompare("US")?21:7)).toString()))).toLocaleDateString('en-US').replaceAll('/','-') }}
+                                                        // OPTIONAL
+                                                        // "products": [{ "gtin": "GTIN1" }, { "gtin": "GTIN2" >}],
+                                                        // "opt_in_style": "OPT_IN_STYLE"
+                                                    });
+                                                });
+                                            }
+                                        </script>
+                                        <!-- END GCR Opt-in Module Code -->
+                                        <!-- BEGIN GCR Language Code -->
+                                        <script type="application/javascript">
+                                            window.___gcfg = {
+                                                lang: 'en-US'
+                                            };
+                                        </script>
+                                        <!-- END GCR Language Code -->
+                                        
+                                        <!-- Technically you should place the Survey Module code right before the closing </BODY> tag. -->
+                                        <!-- However when you place the survey module code with the Badge Code, the order does not matter. -->
+                                        <!-- Therefore we include the Badge Code below -->
+
+                                        <!-- BEGIN GCR Badge Code -->
+                                        <script type="application/javascript" src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer>
+                                        </script>
+                                        <script type="application/javascript">
+                                            window.renderBadge = function () {
+                                                var ratingBadgeContainer = document.createElement("div");
+                                                document.body.appendChild(ratingBadgeContainer);
+                                                window.gapi.load('ratingbadge', function () {
+                                                    window.gapi.ratingbadge.render(
+                                                        ratingBadgeContainer, {
+                                                        // REQUIRED
+                                                        "merchant_id": 143612887,
+                                                        // OPTIONAL
+                                                        "position": "INLINE"
+                                                    });
+                                                });
+                                            }
+                                        </script>
+                                        <!-- END GCR Badge Code -->
+
+                                        <!-- END Petr Stepanov customization -->
                                     </div>
                                 </overridable>
                             </div>
