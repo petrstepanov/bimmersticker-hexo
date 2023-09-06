@@ -23,6 +23,18 @@ var VideoFullWidth = require('./modules/video');
 // var FacebookLoadOnScroll = require('./modules/facebook-load-on-scroll');
 var InteractiveBackButton = require('./modules/interactive-back-button');
 
+// Google Customer Reviews
+// Export GCR to be accessed by Vue
+// https://www.mattburkedev.com/export-a-global-to-the-window-object-with-browserify/
+// gcr.init();
+var gcr = require('./modules/gcr');
+gcr.init();
+// window.gcr = gcr; // Not works
+
+// This worked with Browserify and sourcemaps in dev mode
+// https://stackoverflow.com/questions/38104715/browserify-global-variable-is-not-found-in-the-browser
+window['gcr'] = gcr;
+
 $(function() {
   // Handler for .ready() called.
 
@@ -93,4 +105,5 @@ $(function() {
         $(hashtag).tab('show');
     }
   }
+
 });
