@@ -25,3 +25,14 @@
 .snipcart-shipping-completed--titled .snipcart-shipping-completed__step-title {
     margin-bottom: 0.35rem;
 }
+
+// No padding in the Flash Container
+.snipcart-flash-message {
+    margin-top: 1rem;
+    border-radius: 0.3rem;
+}
+
+// Weird margin on the green success badge: Your order has been placed and is currently processing. You will receive a confirmation shortly. 
+.snipcart-flash-message__action-container {
+    margin-top: 0;
+}
