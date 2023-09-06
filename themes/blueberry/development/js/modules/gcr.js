@@ -4,7 +4,7 @@ var nunjucks = require('nunjucks');
 var DOM = {};
 
 function renderGoogleCustomerReviews(invoiceNumber, email, country) {
-    alert(invoiceNumber + " " + email + " " + country);
+    // alert(invoiceNumber + " " + email + " " + country);
 
     // TODO: calculate estimated delivery date here
     // Not in json{}
@@ -22,7 +22,6 @@ function renderGoogleCustomerReviews(invoiceNumber, email, country) {
 
     // Display GCR
     $('#gcr-container').empty();
-
     $('#gcr-container').html(rendered);
 }
 
