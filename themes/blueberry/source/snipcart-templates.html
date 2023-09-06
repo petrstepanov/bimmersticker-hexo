@@ -11,11 +11,10 @@
             <!-- Default component HTML copied from: https://docs.snipcart.com/v3/themes/default/reference#component-order  -->
             <layout class="snipcart-layout--large snipcart-cart__order-container">
                 <overridable name="order" section="header">
-                    <cart-header class="snipcart-checkout__header" :show-items-count="false" :show-summary="false"
-                        :show-account-menu="false">
+                    <cart-header class="snipcart-checkout__header" :show-items-count="false" :show-summary="false" :show-account-menu="false">
                     </cart-header>
                 </overridable>
-
+            
                 <overridable name="order" section="content">
                     <loading-screen message="order.loading" class="snipcart-layout__content">
                         <div v-if="cart">
@@ -23,25 +22,20 @@
                                 <overridable name="order" section="content-header">
                                     <div class="snipcart__box snipcart-order__box snipcart-order__box__header">
                                         <div class="snipcart__box--title">
-                                            <div
-                                                class="snipcart__box--badge snipcart__box--badge snipcart__box--badge-highlight snipcart__font--bold snipcart__font--secondary">
+                                            <div class="snipcart__box--badge snipcart__box--badge snipcart__box--badge-highlight snipcart__font--bold snipcart__font--secondary">
                                                 <icon name="checkmark" class="snipcart__icon"></icon>
                                             </div>
                                             <div>
-                                                <h1 class="snipcart__font--subtitle">{{
-                                                    $localize('confirmation.thank_you_for_your_order') }}</h1>
+                                                <h1 class="snipcart__font--subtitle">{{ $localize('confirmation.thank_you_for_your_order') }}</h1>
                                             </div>
                                         </div>
-                                        <div v-if="isConfirmationAsync"
-                                            class="snipcart-order__async-confirmation-notice">
+                                        <div v-if="isConfirmationAsync" class="snipcart-order__async-confirmation-notice">
                                             <flash-message type="success">
                                                 {{ $localize('confirmation.async_confirmation_notice') }}
                                             </flash-message>
                                         </div>
                                         <div v-else class="snipcart-order__invoice-number">
-                                            {{ $localize('cart.invoice_number') }} : <em
-                                                class="snipcart-order__invoice-number--highlight snipcart__font--black snipcart__font--secondary">{{
-                                                cart.invoiceNumber }}</em>
+                                            {{ $localize('cart.invoice_number') }} : <em class="snipcart-order__invoice-number--highlight snipcart__font--black snipcart__font--secondary">{{ cart.invoiceNumber }}</em>
                                         </div>
                                     </div>
                                 </overridable>
@@ -50,89 +44,81 @@
                                     <div class="snipcart-order__details__content">
                                         <div class="snipcart__box snipcart-order__box">
                                             <div class="snipcart-order__details-title snipcart__box--subtitle">
-                                                <icon name="cart"
-                                                    class="snipcart__icon--left snipcart__icon--blue-dark"></icon>
-                                                <h1 class="snipcart__font--subtitle">{{
-                                                    $localize('header.title_cart_summary') }}</h1>
+                                                <icon name="cart" class="snipcart__icon--left snipcart__icon--blue-dark"></icon>
+                                                <h1 class="snipcart__font--subtitle">{{ $localize('header.title_cart_summary') }}</h1>
                                             </div>
-
-                                            <cart-summary-items-list
-                                                item-template="cart-summary-expanded-item"></cart-summary-items-list>
+            
+                                            <cart-summary-items-list item-template="cart-summary-expanded-item"></cart-summary-items-list>
                                         </div>
-
-                                        <billing-completed context="invoice"
-                                            class="snipcart-billing-completed--titled snipcart-order__box"></billing-completed>
-                                        <shipping-completed context="invoice"
-                                            class="snipcart-shipping-completed--titled snipcart-order__box"
-                                            v-if="cart.shippingDetails.method"></shipping-completed>
+            
+                                        <billing-completed context="invoice" class="snipcart-billing-completed--titled snipcart-order__box"></billing-completed>
+                                        <shipping-completed context="invoice" class="snipcart-shipping-completed--titled snipcart-order__box" v-if="cart.shippingDetails.method"></shipping-completed>
                                         <order-payment-details v-if="showPayment"></order-payment-details>
                                         <footer class="snipcart__box snipcart-order__box snipcart-order__footer">
-                                            <summary-fees class="snipcart-order__fees"
-                                                :summary-data="summaryFeesProvider"></summary-fees>
+                                            <summary-fees class="snipcart-order__fees" :summary-data="summaryFeesProvider"></summary-fees>
                                         </footer>
+                                        
+                                        <!-- BEGIN Petr Stepanov customization -->
+                                        <!-- Added Google Survey Module:    https://support.google.com/merchants/answer/7106244 -->
+                                        <!-- Added Badge Code:              https://support.google.com/merchants/answer/7105655 -->
+                                        <!-- TODO - Gather product reviews: https://support.google.com/merchants/answer/7519329 -->
+
+                                        <!-- BEGIN GCR Opt-in Module Code -->
+                                        <script type="application/javascript" src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
+                                        <script type="application/javascript">
+                                            window.renderOptIn = function () {
+                                                window.gapi.load('surveyoptin', function () {
+                                                    window.gapi.surveyoptin.render({
+                                                        // REQUIRED
+                                                        "merchant_id": 143612887,
+                                                        "order_id": {{ cart.invoiceNumber }},
+                                                        "email": {{ cart.email }},
+                                                        "delivery_country": {{ cart.shippingAddress.country }},
+                                                        "estimated_delivery_date": {{ new Date(parseInt(((new Date()).setDate((new Date()).getDate() + (cart.shippingAddress.country.localeCompare("US")?21:7)).toString()))).toLocaleDateString('en-US').replaceAll('/','-') }}
+                                                        // OPTIONAL
+                                                        // "products": [{ "gtin": "GTIN1" }, { "gtin": "GTIN2" >}],
+                                                        // "opt_in_style": "OPT_IN_STYLE"
+                                                    });
+                                                });
+                                            }
+                                        </script>
+                                        <!-- END GCR Opt-in Module Code -->
+                                        <!-- BEGIN GCR Language Code -->
+                                        <script type="application/javascript">
+                                            window.___gcfg = {
+                                                lang: 'en-US'
+                                            };
+                                        </script>
+                                        <!-- END GCR Language Code -->
+                                        
+                                        <!-- Technically you should place the Survey Module code right before the closing </BODY> tag. -->
+                                        <!-- However when you place the survey module code with the Badge Code, the order does not matter. -->
+                                        <!-- Therefore we include the Badge Code below -->
+
+                                        <!-- BEGIN GCR Badge Code -->
+                                        <script type="application/javascript" src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer>
+                                        </script>
+                                        <script type="application/javascript">
+                                            window.renderBadge = function () {
+                                                var ratingBadgeContainer = document.createElement("div");
+                                                document.body.appendChild(ratingBadgeContainer);
+                                                window.gapi.load('ratingbadge', function () {
+                                                    window.gapi.ratingbadge.render(
+                                                        ratingBadgeContainer, {
+                                                        // REQUIRED
+                                                        "merchant_id": 143612887,
+                                                        // OPTIONAL
+                                                        "position": "INLINE"
+                                                    });
+                                                });
+                                            }
+                                        </script>
+                                        <!-- END GCR Badge Code -->
+
+                                        <!-- END Petr Stepanov customization -->
                                     </div>
                                 </overridable>
                             </div>
-
-                            <!-- BEGIN Petr Stepanov customization -->
-                            <!-- Added Google Survey Module:    https://support.google.com/merchants/answer/7106244 -->
-                            <!-- Added Badge Code:              https://support.google.com/merchants/answer/7105655 -->
-                            <!-- TODO - Gather product reviews: https://support.google.com/merchants/answer/7519329 -->
-
-                            <!-- BEGIN GCR Opt-in Module Code -->
-                            <script src="https://apis.google.com/js/platform.js?onload=renderOptIn" async
-                                defer></script>
-                            <script>
-                                window.renderOptIn = function () {
-                                    window.gapi.load('surveyoptin', function () {
-                                        window.gapi.surveyoptin.render({
-                                            // REQUIRED
-                                            "merchant_id": 143612887,
-                                            "order_id": {{ cart.invoiceNumber }},
-                                            "email": {{ cart.email }},
-                                            "delivery_country": {{ cart.shippingAddress.country }},
-                                            "estimated_delivery_date": {{ new Date(parseInt(((new Date()).setDate((new Date()).getDate() + (cart.shippingAddress.country.localeCompare("US")?21:7)).toString()))).toLocaleDateString('en-US').replaceAll('/','-') }}
-                                            // OPTIONAL
-                                            // "products": [{ "gtin": "GTIN1" }, { "gtin": "GTIN2" >}],
-                                            // "opt_in_style": "OPT_IN_STYLE"
-                                        });
-                                    });
-                                }
-                            </script>
-                            <!-- END GCR Opt-in Module Code -->
-                            <!-- BEGIN GCR Language Code -->
-                            <script>
-                                window.___gcfg = {
-                                    lang: 'en-US'
-                                };
-                            </script>
-                            <!-- END GCR Language Code -->
-                            
-                            <!-- Technically you should place the Survey Module code right before the closing </BODY> tag. -->
-                            <!-- However when you place the survey module code with the Badge Code, the order does not matter. -->
-                            <!-- Therefore we include the Badge Code below -->
-
-                            <!-- BEGIN GCR Badge Code -->
-                            <script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer>
-                            </script>
-                            <script>
-                                window.renderBadge = function () {
-                                    var ratingBadgeContainer = document.createElement("div");
-                                    document.body.appendChild(ratingBadgeContainer);
-                                    window.gapi.load('ratingbadge', function () {
-                                        window.gapi.ratingbadge.render(
-                                            ratingBadgeContainer, {
-                                            // REQUIRED
-                                            "merchant_id": 143612887,
-                                            // OPTIONAL
-                                            "position": "INLINE"
-                                        });
-                                    });
-                                }
-                            </script>
-                            <!-- END GCR Badge Code -->
-
-                            <!-- END Petr Stepanov customization -->
                         </div>
                     </loading-screen>
                 </overridable>
