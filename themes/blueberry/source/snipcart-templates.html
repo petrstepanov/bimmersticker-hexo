@@ -39,7 +39,7 @@
                                         </div>
                                     </div>
                                 </overridable>
-                                    
+
                                 <overridable name="order" section="content-main">
                                     <div class="snipcart-order__details__content">
                                         <div class="snipcart__box snipcart-order__box">
@@ -57,17 +57,15 @@
                                         <footer class="snipcart__box snipcart-order__box snipcart-order__footer">
                                             <summary-fees class="snipcart-order__fees" :summary-data="summaryFeesProvider"></summary-fees>
                                         </footer>
-
+                                        
                                         <!-- BEGIN Petr Stepanov customization -->
                                         <!-- Added Google Survey Module:    https://support.google.com/merchants/answer/7106244 -->
                                         <!-- Added Badge Code:              https://support.google.com/merchants/answer/7105655 -->
                                         <!-- TODO - Gather product reviews: https://support.google.com/merchants/answer/7519329 -->
 
                                         <!-- BEGIN GCR Opt-in Module Code -->
-                                        <script type="application/javascript" src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer>
-                                        </script>
-                                        <!-- Petr Stepanov had to add defer attribute too -->
-                                        <script type="application/javascript" defer>
+                                        <script type="application/javascript" src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
+                                        <script type="application/javascript">
                                             window.renderOptIn = function () {
                                                 window.gapi.load('surveyoptin', function () {
                                                     window.gapi.surveyoptin.render({
@@ -86,8 +84,7 @@
                                         </script>
                                         <!-- END GCR Opt-in Module Code -->
                                         <!-- BEGIN GCR Language Code -->
-                                        <!-- Petr Stepanov had to add defer attribute too -->
-                                        <script type="application/javascript" defer>
+                                        <script type="application/javascript">
                                             window.___gcfg = {
                                                 lang: 'en-US'
                                             };
@@ -99,11 +96,9 @@
                                         <!-- Therefore we include the Badge Code below -->
 
                                         <!-- BEGIN GCR Badge Code -->
-                                        <!-- Petr Stepanov had to add defer attribute too -->
                                         <script type="application/javascript" src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer>
                                         </script>
-                                        <!-- Petr Stepanov had to add defer attribute too -->
-                                        <script type="application/javascript" defer>
+                                        <script type="application/javascript">
                                             window.renderBadge = function () {
                                                 var ratingBadgeContainer = document.createElement("div");
                                                 document.body.appendChild(ratingBadgeContainer);
