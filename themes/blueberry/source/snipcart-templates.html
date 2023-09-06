@@ -66,7 +66,8 @@
                                         <!-- BEGIN GCR Opt-in Module Code -->
                                         <script type="application/javascript" src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer>
                                         </script>
-                                        <script type="application/javascript">
+                                        <!-- Petr Stepanov had to add defer attribute too -->
+                                        <script type="application/javascript" defer>
                                             window.renderOptIn = function () {
                                                 window.gapi.load('surveyoptin', function () {
                                                     window.gapi.surveyoptin.render({
@@ -85,7 +86,8 @@
                                         </script>
                                         <!-- END GCR Opt-in Module Code -->
                                         <!-- BEGIN GCR Language Code -->
-                                        <script type="application/javascript">
+                                        <!-- Petr Stepanov had to add defer attribute too -->
+                                        <script type="application/javascript" defer>
                                             window.___gcfg = {
                                                 lang: 'en-US'
                                             };
@@ -97,9 +99,11 @@
                                         <!-- Therefore we include the Badge Code below -->
 
                                         <!-- BEGIN GCR Badge Code -->
+                                        <!-- Petr Stepanov had to add defer attribute too -->
                                         <script type="application/javascript" src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer>
                                         </script>
-                                        <script type="application/javascript">
+                                        <!-- Petr Stepanov had to add defer attribute too -->
+                                        <script type="application/javascript" defer>
                                             window.renderBadge = function () {
                                                 var ratingBadgeContainer = document.createElement("div");
                                                 document.body.appendChild(ratingBadgeContainer);
