@@ -41,21 +41,14 @@
     <!-- Therefore we include the Badge Code below -->
 
     <!-- BEGIN GCR Badge Code -->
-    <script type="application/javascript" src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer>
-    </script>
-    <script type="application/javascript">
-        window.renderBadge = function () {
-            var ratingBadgeContainer = document.createElement("div");
-            document.body.appendChild(ratingBadgeContainer);
-            window.gapi.load('ratingbadge', function () {
-                window.gapi.ratingbadge.render(
-                    ratingBadgeContainer, {
-                    // REQUIRED
-                    "merchant_id": merchantID,
-                    // OPTIONAL
-                    "position": "INLINE"
-                });
-            });
+    <script src="https://apis.google.com/js/platform.js?onload=renderBadge" async defer></script>
+    <script>
+        window.renderBadge = function() {
+          var ratingBadgeContainer = document.createElement("div");
+          document.body.appendChild(ratingBadgeContainer);
+          window.gapi.load('ratingbadge', function() {
+            window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": merchantID});
+          });
         }
     </script>
     <!-- END GCR Badge Code -->
