@@ -2,7 +2,7 @@
 
 var $ = require('jquery');
 var helpers = require('./helpers');
-var nunjucks = require('nunjucks');
+// var nunjucks = require('nunjucks');
 var events = require('./events');
 
 var DOM = {};
