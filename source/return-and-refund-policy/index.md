@@ -31,9 +31,9 @@ For the purposes of this Return and Refund Policy:
 
 ## Your Order Cancellation Rights
 
-You are entitled to cancel Your Order within 14 days without giving any reason for doing so.
+You are entitled to cancel Your Order within 30 days without giving any reason for doing so.
 
-The deadline for cancelling an Order is 14 days from the date on which You received the Goods or on which a third party you have appointed, who is not the carrier, takes possession of the product delivered.
+The deadline for cancelling an Order is 30 days from the date on which You received the Goods or on which a third party you have appointed, who is not the carrier, takes possession of the product delivered.
 
 In order to exercise Your right of cancellation, You must inform Us of your decision by means of a clear statement. You can inform us of your decision by:
 
@@ -43,11 +43,11 @@ In order to exercise Your right of cancellation, You must inform Us of your deci
 * By mail: 1722 NW Raleigh St Unit 221, Mailbox 420, Portland, OR 97209-1753, United States
 
 
-We will reimburse You no later than 14 days from the day on which We receive the returned Goods. We will use the same means of payment as You used for the Order, and You will not incur any fees for such reimbursement.
+We will reimburse You no later than 30 days from the day on which We receive the returned Goods. We will use the same means of payment as You used for the Order, and You will not incur any fees for such reimbursement.
 
 ## Conditions for Returns
 In order for the Goods to be eligible for a return, please make sure that:
-* The Goods were purchased in the last 14 days.
+* The Goods were purchased in the last 30 days.
 * The Goods are in the original packaging.
 * The Goods are not damadged and were not attempted to be used.
 
