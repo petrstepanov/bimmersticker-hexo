@@ -150,9 +150,15 @@ hexo.extend.helper.register('setExtraProductAttributes', function(product){
 
     // Note: Google does not need the "sku". It matches feed's "id" with schema's "sku"
     // product.sku = product.id;
-    product.brand = 'Bimmer Sticker Store';
+    product.brand = 'Sticker Store LLC';
     product.condition = 'new';
     product.availability = 'in stock';
-    product.google_product_category = 'Vehicles & Parts > Vehicle Parts & Accessories > Vehicle Maintenance, Care & Decor > Vehicle Decor > Bumper Stickers';
-    // product.shipping = 'US::Standard:0 USD';
+    // Full list of categories here:
+    // https://www.google.com/basepages/producttype/taxonomy.en-US.txt
+    if (product.id.includes("ST_CAR_W_") || product.id.includes("ST_WSHIELD_")){
+        product.google_product_category = 'Vehicles & Parts > Vehicle Parts & Accessories > Vehicle Maintenance, Care & Decor > Vehicle Decor > Vehicle Decals';
+    }
+    else {
+        product.google_product_category = 'Vehicles & Parts > Vehicle Parts & Accessories > Vehicle Maintenance, Care & Decor > Vehicle Decor > Bumper Stickers';
+    }
 });
