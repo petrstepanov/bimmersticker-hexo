@@ -15,6 +15,13 @@ hexo.extend.helper.register('lbs_to_g', function(string){
   return g;
 });
 
+
+hexo.extend.helper.register('oz_to_g', function(string){
+  var oz = parseFloat(string);
+  var g = oz*28.3495;
+  return g;
+});
+
 hexo.extend.helper.register('first_image', function(page){
   var image = {};
   var regexp = /<img .*?>/gm;
