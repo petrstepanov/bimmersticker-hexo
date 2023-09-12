@@ -408,7 +408,9 @@ function _updateVehicleType(value) {
 // Updating Snipcart buttons' attributes
 
 function _updateSnipcartButtonsText(value){
-    DOM.$btnBuyBanner.attr('data-item-custom1-value', value);
+    // Use vanilla setAttribute() vs jQuery's attr() because attr() does not allow multiple white spaces
+    // Lol 2
+    DOM.$btnBuyBanner[0].setAttribute('data-item-custom1-value', value);
     DOM.$btnBuyCutSunStrip.attr('data-item-custom1-value', value);
     DOM.$btnBuyTextSunStrip.attr('data-item-custom1-value', value);
 }
