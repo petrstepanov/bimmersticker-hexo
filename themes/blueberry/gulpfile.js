@@ -123,9 +123,8 @@ function beeptask(cb) {
 
 // Build
 
-var development = gulp.series(clean, copyIcons, gulp.parallel(stylesDev, scriptsDev), watch);
-var production = gulp.series(clean, copyIcons, gulp.parallel(styles, scripts), beeptask);
-
+var development = gulp.series(clean, copyIcons, stylesDev, scriptsDev, watch);
+var production = gulp.series(clean, copyIcons, styles, scripts, beeptask);
 
 // Exports
 exports.clean = clean;

@@ -105,41 +105,45 @@ sitemap:
 # Configuration for hexo-image-sizes https://github.com/hexojs/hexo-filter-responsive-images
 # Responsive image breakpoints for 100% width containers are taken from "variables-default.scss" bootstrap override
 responsive_images:
-  - pattern: ['**/custom-text-windshield-banners-order-online.jpg', '**/any-wording-on-your-car-truck-windshield.jpg']
-    sizes:
-      xs-sm:
-        width: 510
-        withoutEnlargement: true
-      xs-sm-2x:
-        width: 1020
-        withoutEnlargement: true
-      md:
-        width: 690
-        withoutEnlargement: true
-      md-2x:
-        width: 1380
-        withoutEnlargement: true
-      lg:
-        width: 930
-        withoutEnlargement: true
-      lg-2x:
-        width: 1860
-        withoutEnlargement: true
-      xl:
-        width: 1110
-        withoutEnlargement: true
-      xl-2x:
-        width: 2220
-        withoutEnlargement: true
-  - pattern: '**/*.+(png|jpg|jpeg)'
-    sizes:
-      small:
-        width: 196
-        height: 196
-      medium:
-        width: 512
-        height: 512
-        quality: 30
+  priority: 8
+  rules:
+    # Here specify all the 100% wide banners
+    - pattern: ['**/custom-text-windshield-banners-order-online.jpg', '**/any-wording-on-your-car-truck-windshield.jpg']
+      sizes:
+        xs-sm:
+          width: 510
+          withoutEnlargement: true
+        xs-sm-2x:
+          width: 1020
+          withoutEnlargement: true
+        md:
+          width: 690
+          withoutEnlargement: true
+        md-2x:
+          width: 1380
+          withoutEnlargement: true
+        lg:
+          width: 930
+          withoutEnlargement: true
+        lg-2x:
+          width: 1860
+          withoutEnlargement: true
+        xl:
+          width: 1110
+          withoutEnlargement: true
+        xl-2x:
+          width: 2220
+          withoutEnlargement: true
+    # Here basic settings for all the images
+    - pattern: '**/*.+(png|jpg|jpeg)'
+      sizes:
+        small:
+          width: 196
+          height: 196
+        medium:
+          width: 512
+          height: 512
+          quality: 30
 
 
 # Data file export
@@ -177,3 +181,6 @@ featured_image:
 
 webp_polyfill:
   enable: true
+
+# Ignore Gulp processed files./ Otherwise filters fire up on Gulp process event
+# https://hexo.io/docs/configuration#Include-x2F-Exclude-Files-or-Folders
