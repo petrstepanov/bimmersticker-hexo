@@ -55,7 +55,7 @@
   color: "white|matte black|black|mint|yellow|orange|pink|red|blue|silver[+14.99]|gold[+14.99]|rainbow[+14.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your sun strip text"
 - id:	ST_CAR_W_SS_TEXT
-  title: "Windshield Banner with Custom Text(Sun Strip, Visor)"
+  title: "Windshield Banner with Custom Text (Sun Strip, Visor)"
   description: "Windshield sun strip (banner) with custom text. Will fit any car or truck. Multiple fonts and colors available. Text layer is overlaid on top of the color background layer. Made from premium outdoor vinyls."
   product_type: Stickers > Banners
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/

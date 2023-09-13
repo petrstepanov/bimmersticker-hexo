@@ -86,9 +86,23 @@
 								</span>
 							</span>
 							<span class="d-block col-8 col-sm-12">
-								<span class="d-block mt-3 text-xs-left text-sm-center">
-									<%= products[product].title.replace('Custom ','') %>
-									<strong>$<%= parseFloat(products[product].price) %>+</strong>
+								<span class="d-block mt-3 text-xs-left text-sm-center"><%
+									var heading = "";
+									switch(products[product].id){
+										case "ST_CAR_W_BANNER":
+											heading = "Windshield Banner";
+											break;
+										case "ST_CAR_W_SS":
+											heading = "Sun Strip (Visor)";
+											break;
+										case "ST_CAR_W_SS_CUT":
+											heading = "Reverse Cut Sun Strip";
+											break;
+										case "ST_CAR_W_SS_TEXT":
+											heading = "Text Sun Strip";
+											break;
+									}
+								%><%- heading %><strong>$<%= parseFloat(products[product].price) %>+</strong>
 								</span>
 								<span class="d-block text-xs-left text-sm-center line-height-13">
 									<small class="text-muted">
@@ -96,16 +110,16 @@
 											var description = "";
 											switch(products[product].id){
 												case "ST_CAR_W_BANNER":
-													description = "Place it on top or bottom."
+													description = "Place it on top or bottom.";
 													break;
 												case "ST_CAR_W_SS":
-													description = "Cut it to fit the windshield."
+													description = "Cut it to fit the windshield.";
 													break;
 												case "ST_CAR_W_SS_CUT":
-													description = "Text is cut out of the base layer."
+													description = "Text is cut out of the base layer.";
 													break;
 												case "ST_CAR_W_SS_TEXT":
-													description = "Text layer on top of the base strip."
+													description = "Text layer on top of the base strip.";
 													break;
 											}
 										%>
