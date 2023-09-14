@@ -1,6 +1,6 @@
 <%- partial('partial/navbar') %>
 
-<% 
+<%
 	// Select products with ids containing "ST_CAR_W_"
 	var products = _.map(site.data.product_list, function(o) {
 		if (o.id.includes("ST_CAR_W_")){
@@ -46,7 +46,7 @@
 				<h2 class="text-center mt-4 mb-3">What type of product are you looking for?</h2>
 				<p class="text-muted text-center mb-4">
 					Please tap on the specific product below that you are interested in.
-				</p>				
+				</p>
 				<div class="row justify-content-center">
 					<% var i = 0; %>
 					<% for (var product in products) { %>
@@ -158,11 +158,11 @@
 									<% // var src = encodeURI(url + query); %>
 									<% var src = '/img/banner-previews/your-banner-' + font; %>
 
-									<picture>
+									<picture class="mt-3 d-inline-block">
 										<!--This is the optional AVIF image-->
-										<source type="image/avif" srcset="<%- src %>.avif" />
+										<source type="image/avif" srcset="<%- src %>.avif" class="js--font-avif" />
 										<!--This is the fallback JPEG image-->
-										<img width="<%- site.data.fonts[font].preview_width %>" height="<%- site.data.fonts[font].preview_height %>" data-src="<%- dataSrc %>" alt="Preview your text in <%- font %> font" class="mt-3 font-image js--font-image" src="<%- src %>.png" />
+										<img width="<%- site.data.fonts[font].preview_width %>" height="<%- site.data.fonts[font].preview_height %>" data-src="<%- dataSrc %>" alt="Preview your text in <%- font %> font" class="font-image js--font-image" src="<%- src %>.png" />
 									</picture>
 									<span class="d-block mt-2 mb-0"><%- site.data.fonts[font].name %></span>
 								</span>
@@ -220,7 +220,7 @@
 				<div class="row justify-content-center mb-4 js--text-width">
 					<p class="col col-md-8 text-muted text-center">
 						Depending on the font used the width of the text is 20 to 30 inches.<br class="d-none d-sm-inline"/> If you want to specify the exact width, please <a href="mailto:<%- theme.email %>">send us an email</a> after you checkout.
-					</p>				
+					</p>
 				</div>
 				<div class="row justify-content-center mb-4">
 					<div class="col col-md-10 col-lg-8">
@@ -261,10 +261,10 @@
 							</div>
 							<p class="js--notice-car text-muted text-center mt-2 mb-3">
 								Regular size cars include all sedans, wagons, smaller SUVs and mini trucks.
-							</p>		
+							</p>
 							<p class="js--notice-truck text-muted text-center mt-2 mb-3" style="display: none">
 								For cars with wider windshields such as large SUVs (Escallade), heavy duty trucks (Ford F-150) and similar. Windshield banners for larger cars require more material and special geometry.
-							</p>		
+							</p>
 						</div>
 						<div class="form-group">
 							<label class="label-blueberry" for="inputQuantity">How many items you need?</label>
@@ -288,12 +288,12 @@
 							<label class="label-blueberry" for="email">Enter your email</label>
 							<input class="form-control form-control-lg js--text-input" type="text" required name="email" placeholder="your@email.com" />
 						</div>
-					</div>				
+					</div>
 					<div class="col-12 col-md-10 col-lg-8 text-center mt-4">
 						<button type="submit" id="submitButton" class="btn btn-primary btn-blueberry btn-lg">Submit Banner Request</button>
 						<br />
 						<% for (var product of products) { %>
-							
+
 							<button class="snipcart-add-item btn invisible"
 								data-item-id="<%- product.id %>"
 								data-item-price="<%- parseFloat(product.price) %>"
@@ -302,7 +302,7 @@
 								data-item-image="<%- get_pathname(product.image_link) %>"
 								data-item-name="<%- product.title %>"
 								data-item-weight="<%- oz_to_g(product.shipping_weight) %>"
-								
+
 								<% var i=1; %>
 
 								<% // Custom text %>
@@ -314,12 +314,12 @@
 								<% // Select font %>
 								<% if (product.id != "ST_CAR_W_SS"){ %>
 									data-item-custom<%- i %>-name="Font"
-									<% 
+									<%
 										var fontNames = [];
 										_.forEach(site.data.fonts, function(value, key) {
 											fontNames.push(value.name);
-										}); 
-									%>							
+										});
+									%>
 									data-item-custom<%- i %>-options="<%- fontNames.join('|') %>"
 									<% i++; %>
 								<% } %>
@@ -328,7 +328,7 @@
 								<% if (product.id == "ST_CAR_W_BANNER" ||
 									product.id == "ST_CAR_W_SS_TEXT"){ %>
 									data-item-custom<%- i %>-name="Text color"
-									<% 
+									<%
 										var colorTextNames = [];
 										_.forEach(site.data.colors_text, function(value, key) {
 											var color = value.name;
@@ -337,10 +337,10 @@
 												color += '[+';
 												color += value.extra;
 												color += ']';
-											} 
+											}
 											colorTextNames.push(color);
-										}); 
-									%>							
+										});
+									%>
 									data-item-custom<%- i %>-options="<%- colorTextNames.join('|') %>"
 									<% i++; %>
 								<% } %>
@@ -348,7 +348,7 @@
 								<% // Select background color %>
 								<% if (product.id != "ST_CAR_W_BANNER"){ %>
 									data-item-custom<%- i %>-name="Base color"
-									<% 
+									<%
 										var colorBackgroundNames = [];
 										_.forEach(site.data.colors_strip, function(value, key) {
 											var color = value.name;
@@ -357,16 +357,16 @@
 												color += '[+';
 												color += value.extra;
 												color += ']';
-											} 
+											}
 											colorBackgroundNames.push(color);
-										}); 
+										});
 									%>
 									data-item-custom<%- i %>-options="<%- colorBackgroundNames.join('|') %>"
 									<% i++; %>
 								<% } %>
 
 								<% // Size option - car or truck %>
-								data-item-custom<%- i %>-name="Vehicle size" 
+								data-item-custom<%- i %>-name="Vehicle size"
 								<% { %>
 									<% var productPattern = product.pattern.replace('regular', 'Regular'); productPattern = productPattern.replace('large', 'Large'); %>
 									data-item-custom<%- i %>-options="<%- productPattern %>"
@@ -384,11 +384,11 @@
 			<hr />
 			<h2 class="text-center my-4">You might also like</h2>
 			<div class="row justify-content-center">
-				<% 
+				<%
 					var featuredProductIds = ['ST_SOCIAL_SC','ST_SOCIAL_FB', 'ST_SOCIAL_YT', 'ST_SOCIAL_IG'];
 					var featuredProducts = _.map(site.data.product_list, function(o) {
 						if (featuredProductIds.includes(o.id)) return o;
-					}); 
+					});
 					featuredProducts = _.without(featuredProducts, undefined);
 				%>
 				<% for (var product of featuredProducts){ %>

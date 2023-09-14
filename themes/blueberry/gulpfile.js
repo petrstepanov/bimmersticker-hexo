@@ -71,7 +71,13 @@ function stylesDev() {
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer())
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(paths.styles.dest)).on('end', function () { beep(); });
+		.pipe(rename(function (path) {
+			// Updates the object in-place
+			// path.dirname += "/ciao";
+			path.basename += "-dev";
+			//path.extname = ".md";
+		  }))
+		.pipe(gulp.dest(paths.styles.dest)); //.on('end', function () { beep(); });
 }
 
 
@@ -100,30 +106,32 @@ function scriptsDev() {
 	});
 
 	return b.bundle()
-		.pipe(source('app.js'))
+		.pipe(source('app-dev.js'))
 		.pipe(buffer())
 		.pipe(sourcemaps.init({loadMaps: true}))
 		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(paths.scripts.dest)).on('end', function () { beep(); });
+		.pipe(gulp.dest(paths.scripts.dest)); //.on('end', function () { beep(); });
 }
 
 
-// Watch Task
-
-function watch() {
-	gulp.watch(paths.scripts.srcWatch, scriptsDev);
-	gulp.watch(paths.styles.srcWatch, stylesDev);
-}
-
-// Beep rask (with callback)
+// Beep task (with callback)
 function beeptask(cb) {
 	beep();
 	cb();
 }
 
+// Watch Task
+
+function watch() {
+	gulp.watch(paths.scripts.srcWatch, gulp.series(scriptsDev, beeptask));
+	gulp.watch(paths.styles.srcWatch, gulp.series(stylesDev, beeptask));
+}
+
 // Build
 
-var development = gulp.series(clean, copyIcons, stylesDev, scriptsDev, watch);
+var all = gulp.series(clean, copyIcons, styles, scripts, stylesDev, scriptsDev, beeptask, watch);
+
+var development = gulp.series(clean, copyIcons, stylesDev, scriptsDev, beeptask, watch);
 var production = gulp.series(clean, copyIcons, styles, scripts, beeptask);
 
 // Exports
@@ -134,8 +142,14 @@ exports.scripts = scripts;
 exports.scriptsDev = scriptsDev;
 
 exports.development = development;
+exports.devel = development;
+exports.dev = development;
+exports.d = development;
 exports.production = production;
+exports.prod = production;
+exports.pro = production;
+exports.p = production;
 
-exports.default = production;
+exports.default = all;
 
 // exports.default = process.env.BUILD_TYPE=='production' ? production : development;

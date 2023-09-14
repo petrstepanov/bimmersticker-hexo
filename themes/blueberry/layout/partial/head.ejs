@@ -74,6 +74,6 @@
     <% if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
       <link rel="stylesheet" href="/css/app.css?t=<%- (new Date()).getTime().toString() %>">
       <% } else { %>
-      <link rel="stylesheet" href="/css/app.css">
+      <link rel="stylesheet" href="/css/app-dev.css">
     <% } %>
   </head>

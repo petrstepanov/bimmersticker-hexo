@@ -25,6 +25,7 @@ function _cacheDom(element) {
 
     DOM.$input = DOM.$el.find('.js--text-input');
     DOM.$fontImages = DOM.$el.find('.js--font-image');
+    DOM.$fontAvifs = DOM.$el.find('.js--font-avif');
 
     DOM.$textWidthNotice = DOM.$el.find('.js--text-width');
 
@@ -104,7 +105,7 @@ function _bindEvents(element) {
         _reflectExtraTruckPrice(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
-            _saveData(); 
+            _saveData();
         }
     });
 
@@ -122,7 +123,15 @@ function _bindEvents(element) {
         else {
             DOM.$fontContainerList.slideDown();
         }
-        
+
+        // Hack - ensure avifs are removed - they cover up actual images
+        DOM.$fontAvifs.remove();
+
+        // Loading animation - add to picture tag because image cant deal with pseudo class animation
+        DOM.$fontImages.each(function () {
+            $(this).parent().addClass('loading');
+        });
+
         // Timeout for updating the font previews
         if (timeoutUpdateImages) clearTimeout(timeoutUpdateImages);
         timeoutUpdateImages = setTimeout(function () {
@@ -133,14 +142,14 @@ function _bindEvents(element) {
             if (!containsNonLatinCharacters){
                 _updateFontPreviews();
             }
-    
+
             _updateBannerImage(containsNonLatinCharacters);
         }, 1500);
 
         _updateSnipcartButtonsText(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
-            _saveData(); 
+            _saveData();
         }
     });
 
@@ -151,7 +160,7 @@ function _bindEvents(element) {
         _updateSnipcartButtonsFont(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
-            _saveData(); 
+            _saveData();
         }
     });
 
@@ -160,7 +169,7 @@ function _bindEvents(element) {
         _updateSnipcartButtonsTextColor(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
-            _saveData(); 
+            _saveData();
         }
     });
 
@@ -169,7 +178,7 @@ function _bindEvents(element) {
         _updateSnipcartButtonsBaseColor(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
-            _saveData(); 
+            _saveData();
         }
     });
 
@@ -178,7 +187,7 @@ function _bindEvents(element) {
         _updateSnipcartButtonsVehicleType(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
-            _saveData(); 
+            _saveData();
         }
     });
 
@@ -187,12 +196,12 @@ function _bindEvents(element) {
         DOM.$btnBuySunStrip.attr('data-item-quantity', this.value);
         DOM.$btnBuyCutSunStrip.attr('data-item-quantity', this.value);
         DOM.$btnBuyTextSunStrip.attr('data-item-quantity', this.value);
-        _saveData(); 
+        _saveData();
     });
 
     DOM.$form.submit(function(event) {
         event.preventDefault();
-        
+
         switch (DOM.$radioProduct.filter(":checked").val()) {
             case 'ST_CAR_W_BANNER':
                 DOM.$btnBuyBanner.click();
@@ -327,6 +336,7 @@ function _updateFontPreviews() {
     DOM.$fontImages.each(function () {
         var url = _buildFontUrl($(this), text);
         $(this).attr('src', url);
+        $(this).parent().removeClass('loading');
         // Remove width and height set on the first page load for Google CLS improvements
         $(this).removeAttr("width");
         $(this).removeAttr("height");
@@ -351,7 +361,7 @@ function _updateBannerImage(hasUnicode = false) {
     // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
     // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
     url = url.replace(/[() '"]/g, '\\$&');
-    
+
     DOM.$banner.css('mask-image', 'url(' + url + ')');
     DOM.$banner.css('-webkit-mask-image', 'url(' + url + ')');
 
