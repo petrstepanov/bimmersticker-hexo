@@ -63,6 +63,14 @@ function _saveData(){
     localStorage.setItem("dataKey", JSON.stringify(data));
 }
 
+function _updateSubmitButtonText(){
+    if (parseInt(DOM.$inputQuantity.val()) == 1){
+        DOM.$submitButton.text("Add Item to Cart");
+        return;
+    }
+    DOM.$submitButton.text("Add Items to Cart");
+}
+
 function _loadData(){
     if (localStorage.getItem("dataKey")) {
         var data = JSON.parse(localStorage.getItem("dataKey"));
@@ -94,14 +102,22 @@ function _loadData(){
 
 function _onLoad() {
     DOM.$noJs.remove();
-    DOM.$submitButton.text("Add Item to Cart");
+    // If JS is enabled - snipcart will load - update button text
+    _updateSubmitButtonText();
+    // Trick with submit button - I want the user to only submit the form on mobile phone once he scrolled all the way to the bottom
+    // and saw all the fields. Otherwise the iPhone displays "Go" button and item automatically added to cart.
+    //DOM.$submitButton.prop("disabled", true);
+    // It seems that iOS only shows the "Go" button when there i9s an action attribute set on the form.
+    // We wipe the action attribute if JS is loaded:
+    // https://github.com/angular/angular.js/issues/13070#issuecomment-151558050
+    DOM.$form.removeAttr("action");
 }
 
 function _bindEvents(element) {
     DOM.$radioProduct.change(function (event) {
         _showHideFormContainers(this.value);
         _showHidePreviewElements(this.value);
-        _enableDisableRadioButtons(this.value);
+        _enableDisableFormInputs(this.value);
         _reflectExtraTruckPrice(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
@@ -196,6 +212,7 @@ function _bindEvents(element) {
         DOM.$btnBuySunStrip.attr('data-item-quantity', this.value);
         DOM.$btnBuyCutSunStrip.attr('data-item-quantity', this.value);
         DOM.$btnBuyTextSunStrip.attr('data-item-quantity', this.value);
+        _updateSubmitButtonText();
         _saveData();
     });
 
@@ -226,25 +243,21 @@ function _getBannerText() {
 function _showHideFormContainers(product) {
     switch (product) {
         case 'ST_CAR_W_BANNER':
-            DOM.$input.prop("disabled", false);
             DOM.$fontContainer.slideDown();
             DOM.$textColorContainer.slideDown();
             DOM.$baseColorContainer.slideUp();
             break;
         case 'ST_CAR_W_SS':
-            DOM.$input.prop("disabled", true);
             DOM.$fontContainer.slideUp();
             DOM.$textColorContainer.slideUp();
             DOM.$baseColorContainer.slideDown();
             break;
         case 'ST_CAR_W_SS_CUT':
-            DOM.$input.prop("disabled", false);
             DOM.$fontContainer.slideDown();
             DOM.$textColorContainer.slideUp();
             DOM.$baseColorContainer.slideDown();
             break;
         case 'ST_CAR_W_SS_TEXT':
-            DOM.$input.prop("disabled", false);
             DOM.$fontContainer.slideDown();
             DOM.$textColorContainer.slideDown();
             DOM.$baseColorContainer.slideDown();
@@ -288,21 +301,25 @@ function _showHidePreviewElements(product) {
     }
 }
 
-function _enableDisableRadioButtons(product) {
+function _enableDisableFormInputs(product) {
     switch (product) {
         case 'ST_CAR_W_BANNER':
+            DOM.$input.prop("disabled", false);
             DOM.$radioTextColor.prop("disabled", false);
             DOM.$radioBaseColor.prop("disabled", true);
             break;
         case 'ST_CAR_W_SS':
+            DOM.$input.prop("disabled", true);
             DOM.$radioTextColor.prop("disabled", true);
             DOM.$radioBaseColor.prop("disabled", false);
             break;
         case 'ST_CAR_W_SS_CUT':
+            DOM.$input.prop("disabled", false);
             DOM.$radioTextColor.prop("disabled", true);
             DOM.$radioBaseColor.prop("disabled", false);
             break;
         case 'ST_CAR_W_SS_TEXT':
+            DOM.$input.prop("disabled", false);
             DOM.$radioTextColor.prop("disabled", false);
             DOM.$radioBaseColor.prop("disabled", false);
             break;

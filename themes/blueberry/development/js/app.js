@@ -14,7 +14,7 @@ var navbarBuyButton = require('./modules/navbar-buy-button');
 var swatches = require('./modules/swatches');
 var postsFilter = require('./modules/posts-filter');
 var formInsideDialog = require('./modules/form-inside-dialog');
-var formValidation = require('./modules/form-validation');
+// var formValidation = require('./modules/form-validation');
 var FormAjaxSubmit = require('./modules/form-ajax-submit');
 var IntegerInput = require('./modules/integer-input');
 var CheckoutButtonFix = require('./modules/checkout-button-fix');
@@ -40,7 +40,7 @@ $(function() {
 
   // Interactive Back Button
   InteractiveBackButton.init(document.querySelector('.js--init-back-button'));
-    
+
   navbarFixer.init(document.querySelector('.js--init-navbar-fixer'));
   // smoothScroll.init();
   // windshieldForm.init(document.querySelector('.js--init-windshield-container'));
@@ -52,7 +52,9 @@ $(function() {
   swatches.init(document.querySelector('.js--init-swatches'));
   postsFilter.init(document.querySelector('.js--init-posts-filter'));
   formInsideDialog.init(document.querySelector('.js--init-form-inside-dialog'));
-  formValidation.init(document.querySelectorAll('form input, form select, form textarea'));
+
+  // Completely moved to HTML5 validation
+  // formValidation.init(document.querySelectorAll('form input, form select, form textarea'));
 
   $('.js--init-integer-input').each(function(){
     // 'new' operator creates object from function: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
@@ -83,7 +85,7 @@ $(function() {
     var videoFullWith = new VideoFullWidth();
     videoFullWith.init(this);
   });
- 
+
   // Load Messenger when start scrolling
   // var facebookLoadOnScroll = new FacebookLoadOnScroll();
   // facebookLoadOnScroll.init();

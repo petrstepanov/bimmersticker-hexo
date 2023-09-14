@@ -8799,7 +8799,7 @@ button:focus {
 .form-control::placeholder {
   color: #97aabf;
 }
-.form-control.invalid {
+.form-control:invalid { /* &.invalid, */
   border-color: #f11a22;
   box-shadow: 0 2px 4px 0 rgba(241, 26, 34, 0.2);
 }
