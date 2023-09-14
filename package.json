@@ -11,7 +11,6 @@
     "avif": "optimizt --avif source && optimizt --avif themes"
   },
   "dependencies": {
-    // "@funboxteam/optimizt": "^5.0.1",
     "bluebird": "^3.7.2",
     "hexo": "^4.2.1",
     "hexo-featured-image": "^0.4.3",
