@@ -145,12 +145,11 @@
 						</div>
 					</div>
 					<div class="row align-items-center js--font-container-list pt-2">
-						<% i = 0; %>
 						<% // var query = '?s={"size":72,"text":"Your Banner","retina":false}'; %>
 						<% for (var font in site.data.fonts){ %>
 						<div class="col-12 col-lg-6">
 							<label class="label-custom d-flex align-items-center">
-								<input class="invisible" type="radio" name="font" value="<%= site.data.fonts[font].name %>" <%= i++ == 0 ? 'checked' : ''; %> />
+								<input class="invisible" type="radio" name="font" value="<%= site.data.fonts[font].name %>" />
 								<span class="input-radio flex-shrink-0 mr-3"></span>
 								<span class="d-block flex-grow-1">
 									<% var dataSrc = site.data.fonts[font].url; %>
@@ -175,10 +174,9 @@
 				<div class="frame js--text-color-container">
 					<div class=frame-name-container><span class="frame-name">Text layer color</span></div>
 					<div class="d-flex flex-wrap justify-content-center">
-						<% i=0; %>
 						<% for (var color in site.data.colors_text){ %>
 						<label class="label-custom d-flex flex-column align-items-center px-2 mx-1">
-							<input class="invisible" type="radio" name="color_text" value="<%= site.data.colors_text[color].name %>" <%= i++ == 0 ? 'checked' : ''; %> />
+							<input class="invisible" type="radio" name="color_text" value="<%= site.data.colors_text[color].name %>" />
 							<div class="input-image">
 								<% var style = site.data.colors_text[color].hex ? 'background-color: ' + site.data.colors_text[color].hex + ';': ''; %>
 								<% style += site.data.colors_text[color].image ? 'background-image: url(' + site.data.colors_text[color].image + ');' : ''; %>
@@ -197,10 +195,9 @@
 				<div class="frame js--base-color-container" style="display: none">
 					<div class=frame-name-container><span class="frame-name">Sun strip base color</span></div>
 					<div class="d-flex flex-wrap justify-content-center">
-						<% i=0; %>
 						<% for (var color in site.data.colors_strip){ %>
 						<label class="label-custom d-flex flex-column align-items-center px-2 mx-1">
-							<input class="invisible flex-shrink-0" disabled type="radio" name="color_base" value="<%= site.data.colors_strip[color].name %>" <%= i++ == 0 ? 'checked' : ''; %> />
+							<input class="invisible flex-shrink-0" disabled type="radio" name="color_base" value="<%= site.data.colors_strip[color].name %>" />
 							<div class="input-image">
 								<% var style = site.data.colors_strip[color].hex ? 'background-color: ' + site.data.colors_strip[color].hex + ';': ''; %>
 								<% style += site.data.colors_strip[color].image ? 'background-image: url(' + site.data.colors_strip[color].image + ');' : ''; %>
@@ -242,8 +239,8 @@
 						<div class="form-group">
 							<label class="label-blueberry">Vehicle type</label>
 							<div class="btn-group btn-group-md btn-group-toggle w-100" data-toggle="buttons">
-								<label class="btn btn-primary btn-blueberry active">
-									<input type="radio" name="pattern" value="Regular" checked>Regular Car
+								<label class="btn btn-primary btn-blueberry">
+									<input type="radio" name="pattern" value="Regular">Regular Car
 								</label>
 								<label class="btn btn-primary btn-blueberry">
 									<input type="radio" name="pattern" value="Large">Large Vehicle&nbsp;&nbsp;|&nbsp;&nbsp;
