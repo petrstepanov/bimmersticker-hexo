@@ -57,7 +57,7 @@ function _cacheDom(element) {
 function _saveData(){
     // Helper parses form data to JSON
     var data = helpers.getFormData(DOM.$form);
-    console.log(data);
+    // console.log(data);
     // Save JSON to local storage
     localStorage.setItem("dataKey", JSON.stringify(data));
 }
@@ -65,7 +65,7 @@ function _saveData(){
 function _loadData(){
     if (localStorage.getItem("dataKey")) {
         var data = JSON.parse(localStorage.getItem("dataKey"));
-        console.log(data);
+        // console.log(data);
         // Update view
         if (data.product){
             DOM.$radioProduct.filter('[value="' + data.product + '"]').attr('checked', true).change();
