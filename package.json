@@ -6,9 +6,12 @@
     "version": "4.2.1"
   },
   "scripts": {
-    "ejslint": "find ./themes/blueberry/layout -type f -iname '*.ejs' -exec bash -c \"./node_modules/.bin/ejslint '{}'\" \\;"
+    "ejslint": "find ./themes/blueberry/layout -type f -iname '*.ejs' -exec bash -c \"./node_modules/.bin/ejslint '{}'\" \\;",
+    "optimize": "find . \\( -name \"*jpg\" -o -name \"*png\" \\)  -exec optimizt {} +",
+    "avif": "optimizt --avif source && optimizt --avif themes"
   },
   "dependencies": {
+    "@funboxteam/optimizt": "^5.0.1",
     "bluebird": "^3.7.2",
     "hexo": "^4.2.1",
     "hexo-featured-image": "^0.4.3",

@@ -1,9 +1,10 @@
 var streamToArray = require('stream-to-array')
 var sharp = require('sharp')
 
+const extensionRegex = /\.(jpeg|jpg|png)$/ig;
+
 function getAvifRoute(route) {
-  const regex = /\.(jpeg|jpg|png)$/ig;
-  return route.replace(regex, ".avif");
+  return route.replace(extensionRegex, ".avif");
 }
 
 function convertToAvifPromise(hexo, originalImageRoute) {
@@ -42,18 +43,21 @@ function myAvif() {
   // Also add only from selective folders for now - 'custom-windshield-banner-sun-strip', 'img'
   var routesToProcess = [];
   for (const route of routes) {
-    const regex1 = /(jpeg|jpg|png)/g;
-    var specificFolders = ['custom-windshield-banner-sun-strip', 'img'];
-    if (route.match(regex1)) {
-      for (folder of specificFolders) {
-        if (route.includes(folder + '/')) {
-          routesToProcess.push(route); ``
-          break;
-        }
+    // Array of regexps for images to be processed as avifs. Add entries manually as needed. If need xs_ sm_ prefixes put .* before filename
+    var pathRegex = ['img\/banner-previews',
+                  // these are too much for AVIF because they are super responsive and it takes crazy ti,e to generate AVIFs for all the sizes...
+                  // 'custom-windshield-banner-sun-strip\/.*any-wording-on-your-car-truck-windshield',
+                  // 'custom-windshield-banner-sun-strip\/.*custom-text-windshield-banners-order-online',
+                     'custom-windshield-banner-sun-strip\/index\/product-type'];
+    if (route.match(extensionRegex)) {
+      // Join regexps from array: https://stackoverflow.com/questions/8207066/creating-array-of-regular-expressions-javascript
+      var re = new RegExp(pathRegex.join("|"), "i");
+      if (re.test(route)){
+        routesToProcess.push(route);
       }
     }
   }
-  // console.log(routesToProcess);
+  console.log(routesToProcess);
 
   // Instead of checking on the actual file system - check if route is set
   // Hexo generates actual files later. Here we only define routes and Promises to generate AVIFs for each route
@@ -65,4 +69,8 @@ function myAvif() {
   });
 }
 
+// Petr Stepanov: ended up adding avif conversion locally as npm task: npm run avif
+//                because too much resourceful operation in Netlify - 15 minutes
+
+// Update: I have to convert AVIFs in Hexo filter because i need xs_ lg_ etc...
 hexo.extend.filter.register('after_generate', myAvif, 9);
