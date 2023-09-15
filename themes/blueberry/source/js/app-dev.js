@@ -1109,11 +1109,19 @@ function _onLoad() {
     _updateSubmitButtonText();
     // Trick with submit button - I want the user to only submit the form on mobile phone once he scrolled all the way to the bottom
     // and saw all the fields. Otherwise the iPhone displays "Go" button and item automatically added to cart.
-    //DOM.$submitButton.prop("disabled", true);
+    // DOM.$submitButton.prop("disabled", true);
+
     // It seems that iOS only shows the "Go" button when there i9s an action attribute set on the form.
     // We wipe the action attribute if JS is loaded:
     // https://github.com/angular/angular.js/issues/13070#issuecomment-151558050
     DOM.$form.removeAttr("action");
+
+    // TODO: test!
+    // Turned out "Go" button disappears and "return" button shows instead.
+    // "return" still submits the form...
+    // Therefore doing everything programmatically via javascript.
+    // If submit and submit button out of viewport - cancel event and unfocus elements to hide keyboard
+
 }
 
 function _bindEvents(element) {
@@ -1221,6 +1229,14 @@ function _bindEvents(element) {
 
     DOM.$form.submit(function(event) {
         event.preventDefault();
+
+        // Hack - prevent submission if "Add to cart" is not in viewport
+        if (!isInViewport(DOM.$submitButton)){
+            // Iphone hide keyboard
+            document.activeElement.blur();
+            // Prevent submit
+            return false;
+        }
 
         switch (DOM.$radioProduct.filter(":checked").val()) {
             case 'ST_CAR_W_BANNER':

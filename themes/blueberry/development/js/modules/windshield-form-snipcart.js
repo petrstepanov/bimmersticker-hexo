@@ -116,7 +116,9 @@ function _onLoad() {
     // TODO: test!
     // Turned out "Go" button disappears and "return" button shows instead.
     // "return" still submits the form...
-    // Therefore doing everything programmatically via
+    // Therefore doing everything programmatically via javascript.
+    // If submit and submit button out of viewport - cancel event and unfocus elements to hide keyboard
+
 }
 
 function _bindEvents(element) {
@@ -224,6 +226,14 @@ function _bindEvents(element) {
 
     DOM.$form.submit(function(event) {
         event.preventDefault();
+
+        // Hack - prevent submission if "Add to cart" is not in viewport
+        if (!isInViewport(DOM.$submitButton)){
+            // Iphone hide keyboard
+            document.activeElement.blur();
+            // Prevent submit
+            return false;
+        }
 
         switch (DOM.$radioProduct.filter(":checked").val()) {
             case 'ST_CAR_W_BANNER':
