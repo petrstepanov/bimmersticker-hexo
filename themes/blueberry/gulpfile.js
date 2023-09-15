@@ -123,8 +123,8 @@ function beeptask(cb) {
 // Watch Task
 
 function watch() {
-	gulp.watch(paths.scripts.srcWatch, gulp.series(scriptsDev, beeptask));
-	gulp.watch(paths.styles.srcWatch, gulp.series(stylesDev, beeptask));
+	gulp.watch(paths.scripts.srcWatch, gulp.series(scripts, scriptsDev, beeptask));
+	gulp.watch(paths.styles.srcWatch, gulp.series(styles, stylesDev, beeptask));
 }
 
 // Build
