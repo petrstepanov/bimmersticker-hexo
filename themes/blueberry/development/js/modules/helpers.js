@@ -11,8 +11,8 @@ function isInViewport($el) {
     viewportTop += $('.js--navbar-blueberry.fixed-top').outerHeight();
   }
   var viewportBottom = viewportTop + $(window).height();
-  // return elementBottom > viewportTop && elementTop < viewportBottom;
-  return elementBottom > viewportTop;
+  return elementBottom > viewportTop && elementTop < viewportBottom;
+  // return elementBottom > viewportTop;
 }
 
 function getViewportSize() {

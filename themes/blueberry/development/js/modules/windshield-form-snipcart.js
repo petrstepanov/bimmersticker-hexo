@@ -25,6 +25,7 @@ function _cacheDom(element) {
 
     DOM.$input = DOM.$el.find('.js--text-input');
     DOM.$fontImages = DOM.$el.find('.js--font-image');
+    DOM.$fontAvifs = DOM.$el.find('.js--font-avif');
 
     DOM.$textWidthNotice = DOM.$el.find('.js--text-width');
 
@@ -57,15 +58,23 @@ function _cacheDom(element) {
 function _saveData(){
     // Helper parses form data to JSON
     var data = helpers.getFormData(DOM.$form);
-    console.log(data);
+    // console.log(data);
     // Save JSON to local storage
     localStorage.setItem("dataKey", JSON.stringify(data));
+}
+
+function _updateSubmitButtonText(){
+    if (parseInt(DOM.$inputQuantity.val()) == 1){
+        DOM.$submitButton.text("Add Item to Cart");
+        return;
+    }
+    DOM.$submitButton.text("Add Items to Cart");
 }
 
 function _loadData(){
     if (localStorage.getItem("dataKey")) {
         var data = JSON.parse(localStorage.getItem("dataKey"));
-        console.log(data);
+        // console.log(data);
         // Update view
         if (data.product){
             DOM.$radioProduct.filter('[value="' + data.product + '"]').attr('checked', true).change();
@@ -93,18 +102,34 @@ function _loadData(){
 
 function _onLoad() {
     DOM.$noJs.remove();
-    DOM.$submitButton.text("Add Item to Cart");
+    // If JS is enabled - snipcart will load - update button text
+    _updateSubmitButtonText();
+    // Trick with submit button - I want the user to only submit the form on mobile phone once he scrolled all the way to the bottom
+    // and saw all the fields. Otherwise the iPhone displays "Go" button and item automatically added to cart.
+    // DOM.$submitButton.prop("disabled", true);
+
+    // It seems that iOS only shows the "Go" button when there i9s an action attribute set on the form.
+    // We wipe the action attribute if JS is loaded:
+    // https://github.com/angular/angular.js/issues/13070#issuecomment-151558050
+    // DOM.$form.removeAttr("action");
+
+    // TODO: test!
+    // Turned out "Go" button disappears and "return" button shows instead.
+    // "return" still submits the form...
+    // Therefore doing everything programmatically via javascript.
+    // If submit and submit button out of viewport - cancel event and unfocus elements to hide keyboard
+
 }
 
 function _bindEvents(element) {
     DOM.$radioProduct.change(function (event) {
         _showHideFormContainers(this.value);
         _showHidePreviewElements(this.value);
-        _enableDisableRadioButtons(this.value);
+        _enableDisableFormInputs(this.value);
         _reflectExtraTruckPrice(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
-            _saveData(); 
+            _saveData();
         }
     });
 
@@ -122,7 +147,15 @@ function _bindEvents(element) {
         else {
             DOM.$fontContainerList.slideDown();
         }
-        
+
+        // Hack - ensure avifs are removed - they cover up actual images
+        DOM.$fontAvifs.remove();
+
+        // Loading animation - add to picture tag because image cant deal with pseudo class animation
+        DOM.$fontImages.each(function () {
+            $(this).parent().addClass('loading');
+        });
+
         // Timeout for updating the font previews
         if (timeoutUpdateImages) clearTimeout(timeoutUpdateImages);
         timeoutUpdateImages = setTimeout(function () {
@@ -133,14 +166,14 @@ function _bindEvents(element) {
             if (!containsNonLatinCharacters){
                 _updateFontPreviews();
             }
-    
+
             _updateBannerImage(containsNonLatinCharacters);
         }, 1500);
 
         _updateSnipcartButtonsText(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
-            _saveData(); 
+            _saveData();
         }
     });
 
@@ -151,7 +184,7 @@ function _bindEvents(element) {
         _updateSnipcartButtonsFont(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
-            _saveData(); 
+            _saveData();
         }
     });
 
@@ -160,7 +193,7 @@ function _bindEvents(element) {
         _updateSnipcartButtonsTextColor(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
-            _saveData(); 
+            _saveData();
         }
     });
 
@@ -169,7 +202,7 @@ function _bindEvents(element) {
         _updateSnipcartButtonsBaseColor(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
-            _saveData(); 
+            _saveData();
         }
     });
 
@@ -178,7 +211,7 @@ function _bindEvents(element) {
         _updateSnipcartButtonsVehicleType(this.value);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
-            _saveData(); 
+            _saveData();
         }
     });
 
@@ -187,12 +220,22 @@ function _bindEvents(element) {
         DOM.$btnBuySunStrip.attr('data-item-quantity', this.value);
         DOM.$btnBuyCutSunStrip.attr('data-item-quantity', this.value);
         DOM.$btnBuyTextSunStrip.attr('data-item-quantity', this.value);
-        _saveData(); 
+        _updateSubmitButtonText();
+        _saveData();
     });
 
     DOM.$form.submit(function(event) {
         event.preventDefault();
-        
+
+        // Hack - prevent submission if "Add to cart" is not in viewport.
+        // Otherwise Snipcart side cart opens up when "Go" on the input field
+        if (!helpers.isInViewport(DOM.$submitButton)){
+            // Iphone hide keyboard
+            document.activeElement.blur();
+            // Prevent submit
+            return false;
+        }
+
         switch (DOM.$radioProduct.filter(":checked").val()) {
             case 'ST_CAR_W_BANNER':
                 DOM.$btnBuyBanner.click();
@@ -217,25 +260,21 @@ function _getBannerText() {
 function _showHideFormContainers(product) {
     switch (product) {
         case 'ST_CAR_W_BANNER':
-            DOM.$input.prop("disabled", false);
             DOM.$fontContainer.slideDown();
             DOM.$textColorContainer.slideDown();
             DOM.$baseColorContainer.slideUp();
             break;
         case 'ST_CAR_W_SS':
-            DOM.$input.prop("disabled", true);
             DOM.$fontContainer.slideUp();
             DOM.$textColorContainer.slideUp();
             DOM.$baseColorContainer.slideDown();
             break;
         case 'ST_CAR_W_SS_CUT':
-            DOM.$input.prop("disabled", false);
             DOM.$fontContainer.slideDown();
             DOM.$textColorContainer.slideUp();
             DOM.$baseColorContainer.slideDown();
             break;
         case 'ST_CAR_W_SS_TEXT':
-            DOM.$input.prop("disabled", false);
             DOM.$fontContainer.slideDown();
             DOM.$textColorContainer.slideDown();
             DOM.$baseColorContainer.slideDown();
@@ -279,21 +318,25 @@ function _showHidePreviewElements(product) {
     }
 }
 
-function _enableDisableRadioButtons(product) {
+function _enableDisableFormInputs(product) {
     switch (product) {
         case 'ST_CAR_W_BANNER':
+            DOM.$input.prop("disabled", false);
             DOM.$radioTextColor.prop("disabled", false);
             DOM.$radioBaseColor.prop("disabled", true);
             break;
         case 'ST_CAR_W_SS':
+            DOM.$input.prop("disabled", true);
             DOM.$radioTextColor.prop("disabled", true);
             DOM.$radioBaseColor.prop("disabled", false);
             break;
         case 'ST_CAR_W_SS_CUT':
+            DOM.$input.prop("disabled", false);
             DOM.$radioTextColor.prop("disabled", true);
             DOM.$radioBaseColor.prop("disabled", false);
             break;
         case 'ST_CAR_W_SS_TEXT':
+            DOM.$input.prop("disabled", false);
             DOM.$radioTextColor.prop("disabled", false);
             DOM.$radioBaseColor.prop("disabled", false);
             break;
@@ -327,6 +370,7 @@ function _updateFontPreviews() {
     DOM.$fontImages.each(function () {
         var url = _buildFontUrl($(this), text);
         $(this).attr('src', url);
+        $(this).parent().removeClass('loading');
         // Remove width and height set on the first page load for Google CLS improvements
         $(this).removeAttr("width");
         $(this).removeAttr("height");
@@ -351,7 +395,7 @@ function _updateBannerImage(hasUnicode = false) {
     // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
     // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
     url = url.replace(/[() '"]/g, '\\$&');
-    
+
     DOM.$banner.css('mask-image', 'url(' + url + ')');
     DOM.$banner.css('-webkit-mask-image', 'url(' + url + ')');
 

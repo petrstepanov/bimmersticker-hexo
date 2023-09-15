@@ -68,29 +68,12 @@
 						<div class="carousel-inner">
 							<div class="carousel-item active">
 								<a class="img-wrapper release-height-md" href="<%- href %>">
-									<picture>
-										<% var iPath = '/custom-windshield-banner-sun-strip/'; %>
-										<% var iName = 'custom-text-windshield-banners-order-online'; %>
-
-										<source srcset="<%- iPath + 'xl_' + iName %>.avif,    <%- iPath + 'xl-2x_' + iName %>.avif 2x" media="(min-width: 1350px)" type="image/avif" />
-										<source srcset="<%- iPath + 'xl_' + iName %>.jpg,     <%- iPath + 'xl-2x_' + iName %>.jpg  2x" media="(min-width: 1350px)" />
-
-										<source srcset="<%- iPath + 'lg_' + iName %>.avif,    <%- iPath + 'lg-2x_' + iName %>.avif 2x" media="(min-width: 992px)" type="image/avif" />
-										<source srcset="<%- iPath + 'lg_' + iName %>.jpg,     <%- iPath + 'lg-2x_' + iName %>.jpg  2x" media="(min-width: 992px)" />
-
-										<source srcset="<%- iPath + 'md_' + iName %>.avif,    <%- iPath + 'md-2x_' + iName %>.avif 2x" media="(min-width: 768px)" type="image/avif" />
-										<source srcset="<%- iPath + 'md_' + iName %>.jpg,     <%- iPath + 'md-2x_' + iName %>.jpg  2x" media="(min-width: 768px)" />
-
-										<source srcset="<%- iPath + 'xs-sm_' + iName %>.avif, <%- iPath + 'xs-sm-2x_' + iName %>.avif 2x" type="image/avif" />
-										<source srcset="<%- iPath + 'xs-sm_' + iName %>.jpg,  <%- iPath + 'xs-sm-2x_' + iName %>.jpg  2x" />
-										
-										<img width="3905" height="1274" loading="lazy"  src="/custom-windshield-banner-sun-strip/custom-text-windshield-banners-order-online.jpg" class="d-block h-auto w-100" alt="Personalized windshield sun strips with custom text">
-									</picture>
+									<%- resp100('/custom-windshield-banner-sun-strip/','custom-text-windshield-banners-order-online', 3905, 1274, "Personalized windshield sun strips with custom text") %>
 								</a>
 							</div>
 							<div class="carousel-item">
 								<a class="img-wrapper release-height-md" href="<%- href %>">
-									<img width="3905" height="1274" loading="lazy"  src="/custom-windshield-banner-sun-strip/any-wording-on-your-car-truck-windshield.jpg" class="d-block h-auto w-100" alt="Custom windshield banners for your car or truck">
+									<%- resp100('/custom-windshield-banner-sun-strip/','any-wording-on-your-car-truck-windshield', 3905, 1274, "Custom windshield banners for your car or truck") %>
 								</a>
 							</div>
 						</div>
@@ -102,7 +85,7 @@
 						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
 						  <span class="sr-only">Next</span>
 						</a>
-					</div>      					
+					</div>
 					<!-- Card body -->
 					<div class="card-body text-center">
 						<div class="row justify-content-md-center">
@@ -131,7 +114,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<figure class="card card-blueberry">      
+				<figure class="card card-blueberry">
 					<div class="row no-gutters align-items-center">
 						<div class="col-md-6">
 							<a class="img-wrapper release-height-md" href="/custom-social-media-stickers/">
@@ -156,7 +139,7 @@
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-12 col-md-8">
-				<figure class="card card-blueberry">      
+				<figure class="card card-blueberry">
 						<a class="" href="/bmw-roundel-overlay-stickers/">
 							<img width="2048" height="956" loading="lazy" class="w-100 h-auto" src="/bmw-roundel-overlay-stickers/emblem-overlay-stickers-for-bmw-cars.jpg" title="Personalize your BMW logo emblem with custom color or state flag" alt="Custom stickers for BMW emblems, roundels">
 						</a>
@@ -171,12 +154,12 @@
 	<%- partial('partial/category-posts-list', {categoryName: 'Bmw Special', order: 'desc'}) %>
 </section>
 <section>
-	<%- partial('partial/heading', {title: 'Stickers for BMW Generations', subtitle: 'We have designed a dedicated sticker for almost every BMW generation.', name: 'series-generations'}) %>	
+	<%- partial('partial/heading', {title: 'Stickers for BMW Generations', subtitle: 'We have designed a dedicated sticker for almost every BMW generation.', name: 'series-generations'}) %>
 
 	<div class="container">
 		<div class="row mb-4">
 			<div class="col-12">
-				<figure class="card card-blueberry">      
+				<figure class="card card-blueberry">
 					<a class="img-wrapper release-height-md" href="/stickers-for-bmw-generations/">
 						<img width="1106" height="395" loading="lazy" class="w-100 h-auto" src="/stickers-for-bmw-generations/generations-banner.jpg" title="Vinyl stickers for BMW generations" alt="Vinyl stickers for BMW generations">
 					</a>
@@ -224,7 +207,7 @@
 					<div class="text-right">
 						<button type="button" class="btn btn-blueberry btn-outline-primary mt-2" data-toggle="modal" data-target="#contactModal">
 							Contact info
-						</button>						
+						</button>
 						<button type="submit" class="btn btn-blueberry btn-primary mt-2 ml-2">Send message</button>
 					</div>
 				</form> -->
@@ -247,7 +230,7 @@
 					<div class="text-right">
 						<button type="button" class="btn btn-blueberry btn-outline-primary mt-2" data-toggle="modal" data-target="#contactModal">
 							Contact info
-						</button>						
+						</button>
 						<button type="submit" class="btn btn-blueberry btn-primary mt-2 ml-2">Send message</button>
 					</div>
 				</form>

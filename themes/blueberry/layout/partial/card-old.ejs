@@ -5,8 +5,6 @@
     <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
     <% if(productIndex >= 0){ %>
       <% var product = Object.assign({}, site.data.product_list[productIndex]); %>
-      <% console.log(product) %>
-      
       <% if (product.additional_image_link == 'undefined'){ %>
         <a itemprop="url" href="/<%- post.path %>">
           <img itemprop="image" class="card-img-top" src="<%- product.image_link ? product.image_link : '' %>" title="<%- product.title ? product.title : '' %>" alt="<%- product.description ? product.description : '' %>">

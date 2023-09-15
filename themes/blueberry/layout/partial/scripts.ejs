@@ -7,7 +7,7 @@
     <% if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
         <script src="/js/app.js?t=<%- (new Date()).getTime().toString() %>"></script>
     <% } else { %>
-        <script src="/js/app.js"></script>
+        <script src="/js/app-dev.js"></script>
     <% } %>
 
     <!-- Snipcart JS - adding new loading script -->
