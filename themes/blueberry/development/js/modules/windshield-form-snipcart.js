@@ -111,7 +111,7 @@ function _onLoad() {
     // It seems that iOS only shows the "Go" button when there i9s an action attribute set on the form.
     // We wipe the action attribute if JS is loaded:
     // https://github.com/angular/angular.js/issues/13070#issuecomment-151558050
-    DOM.$form.removeAttr("action");
+    // DOM.$form.removeAttr("action");
 
     // TODO: test!
     // Turned out "Go" button disappears and "return" button shows instead.
@@ -227,8 +227,9 @@ function _bindEvents(element) {
     DOM.$form.submit(function(event) {
         event.preventDefault();
 
-        // Hack - prevent submission if "Add to cart" is not in viewport
-        if (!isInViewport(DOM.$submitButton)){
+        // Hack - prevent submission if "Add to cart" is not in viewport.
+        // Otherwise Snipcart side cart opens up when "Go" on the input field
+        if (!helpers.isInViewport(DOM.$submitButton)){
             // Iphone hide keyboard
             document.activeElement.blur();
             // Prevent submit
