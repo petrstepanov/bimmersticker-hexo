@@ -443,7 +443,7 @@ function renderGoogleCustomerReviews(invoiceNumber, email, country) {
     var deliveryDate = new Date();
     deliveryDate.setDate(today.getDate() + deliveryDays);
     var year = 1900+deliveryDate.getYear();
-    var month = 1+deliveryDate.getYear();
+    var month = deliveryDate.getMonth() + 1;
     var day = deliveryDate.getDate();
     var deliveryDateString = "" + year + "-" + month + "-" + day;
     // Populate success template with JSON

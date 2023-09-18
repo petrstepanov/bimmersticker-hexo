@@ -17,12 +17,6 @@ svg {
     height: 1.25rem;
     width: auto;
   }
-
-  &.icon-for-nav {
-    @include media-breakpoint-down(sm){
-      margin-left: -2.1rem;
-    }
-  }
 }
 
 .icon-sm {

@@ -1,6 +1,6 @@
-$nb-logo-size:          3rem;
-$nb-logo-size-bigger:   3rem;
-$nb-logo-size-biggest:  3.25rem;
+$nb-logo-size: 3rem;
+$nb-logo-size-bigger: 3rem;
+$nb-logo-size-biggest: 3.25rem;
 
 // Google Cumulative Layout Shift CLS
 
@@ -10,6 +10,7 @@ body {
   @include media-breakpoint-up(sm) {
     padding-top: $nb-logo-size-bigger + 2*$navbar-padding-y;
   }
+
   @include media-breakpoint-up(md) {
     padding-top: $nb-logo-size-biggest + 2*$nb-padding-md;
   }
@@ -37,12 +38,14 @@ body {
     }
   }
 
-  .logo-image, .back-link {
+  .logo-image,
+  .back-link {
     height: $nb-logo-size;
 
     @include media-breakpoint-up(sm) {
       height: $nb-logo-size-bigger;
     }
+
     @include media-breakpoint-up(md) {
       height: $nb-logo-size-biggest;
     }
@@ -74,12 +77,6 @@ body {
       display: none;
     }
 
-    // Crop logo to only letter "b" on md
-    @include media-breakpoint-up(md) {
-      max-width: 2.2rem;
-      overflow-x: hidden;
-    }
-
     @include media-breakpoint-up(lg) {
       max-width: auto;
       overflow-x: visible;
@@ -107,14 +104,13 @@ body {
   }
 
   .navbar-nav {
-    @include media-breakpoint-down(sm) {
-      padding-top: 1.2rem;
-      padding-bottom: 0.5rem;
+    padding-top: 1.2rem;
+    padding-bottom: 0.5rem;
+
+    @include media-breakpoint-up(lg) {
+      padding-top: 0;
+      padding-bottom: 0;
     }
-    //
-    // @include media-breakpoint-up(md) {
-    //    align-items: center;
-    // }
   }
 
   .nav-item {
@@ -130,7 +126,7 @@ body {
     }
 
     // Hide bottom line on md+
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       &.nav-separator {
         border-bottom: 0;
         padding-bottom: 0;
@@ -168,23 +164,27 @@ body {
       color: $link-color;
     }
 
-    @include media-breakpoint-up(sm) {
-      padding-left: $nb-logo-size-bigger;
-    }
-
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       padding-left: $nb-logo-size-biggest + 0.7rem;
     }
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       font-weight: bold; // Native font stack
       margin-left: 3rem;
       padding-left: 0.5rem;
     }
+
+    .icon-for-nav {
+      margin-left: -2.1rem;
+
+      @include media-breakpoint-up(lg) {
+        margin-left: 0;
+      }
+    }
   }
 
-  &.transparent  {
-    @include media-breakpoint-up(lg){
+  &.transparent {
+    @include media-breakpoint-up(lg) {
       box-shadow: none;
       background-color: transparent;
     }
@@ -196,8 +196,8 @@ body {
       }
     }
   }
-}
 
-.fixed-top {
-  z-index: 9;
+  .fixed-top {
+    z-index: 9;
+  }
 }

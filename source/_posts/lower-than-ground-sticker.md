@@ -15,7 +15,7 @@ no_display: true
 categories:
 - Banners
 ebay_url: https://www.ebay.com/itm/192489357995
-col_class: col-6 col-lg-6 col-xl-4
+col_class: col-6 col-lg-4
 product_id: ST_WSHIELD_LOWER
 ---
 

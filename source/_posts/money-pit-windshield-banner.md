@@ -10,7 +10,7 @@ description: Money Pit car front windshield banner. Great addon for your modifie
 categories:
 - Banners
 ebay_url: https://www.ebay.com/itm/192985300443
-col_class: col-6 col-lg-6 col-xl-4
+col_class: col-6 col-lg-4
 product_id: ST_WSHIELD_MONEY
 ---
 

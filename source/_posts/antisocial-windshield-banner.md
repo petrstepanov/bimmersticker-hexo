@@ -9,7 +9,7 @@ tags:
 description: Antisocial windshield banner for cars and trucks. Aggressive font has a broken style, letters look crazy and fall in peices.
 categories:
 - Banners
-col_class: col-6 col-lg-6 col-xl-4
+col_class: col-6 col-lg-4
 product_id: ST_WSHIELD_ANTIS
 ---
 
