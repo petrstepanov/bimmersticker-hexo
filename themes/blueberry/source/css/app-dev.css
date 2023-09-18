@@ -8615,7 +8615,7 @@ body {
     color: white;
   }
 }
-.navbar-blueberry .fixed-top {
+.navbar-blueberry.fixed-top {
   z-index: 9;
 }
 
