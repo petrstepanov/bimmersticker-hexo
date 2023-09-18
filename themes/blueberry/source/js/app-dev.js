@@ -631,30 +631,32 @@ function _renderBackLink(){
 
   // Set label
   DOM.$label.html("Go back");
+  DOM.$label.css("white-space", "nowrap");
 }
 
 function init(element) {
-  var previousHref = Cookies.get('previousUrl');
-  var currentHref = window.location.href;
+  // var previousHref = Cookies.get('previousUrl');
+  // var currentHref = window.location.href;
 
 
-  if (element) {  
+  if (element) {
     _cacheDom(element);
 
     // If page was loaded before then back button acts like back button
     if (Cookies.get('pageLoaded')){
       // If previous url saved in cookies is different from current - navigate there
-      _renderBackLink();    
+      _renderBackLink();
     }
 
     // Make label visible
-    DOM.$label.css("visibility", "visible");     
+    DOM.$label.css("visibility", "visible");
   }
 
   // var date = new Date();
-  // date.setTime(date.getTime() + (5 * 60 * 1000)); // 5 minute expiration 
-  // Expires: takes number of days; 5 minutes is 5/24*60 ~ 0.003 of a day 
-  Cookies.set('pageLoaded', window.location.href, { expires: 0.003, sameSite: 'strict' });
+  // date.setTime(date.getTime() + (5 * 60 * 1000)); // 5 minute expiration
+  // Expires: takes number of days; 5 minutes is 5/24*60 ~ 0.003 of a day
+  // Cookies.set('pageLoaded', window.location.href, { expires: 0.003, sameSite: 'strict' });
+  Cookies.set('pageLoaded', 'true', { expires: 0.003, sameSite: 'strict' });
 }
 
 exports.init = init;
