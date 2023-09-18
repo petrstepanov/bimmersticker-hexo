@@ -11,11 +11,15 @@
     color: lighten($body-color, 50%);
   }
 
-  &:invalid { /* &.invalid, */
+  // Controlled by npm's autovalid
+  // https://codepilotsf.medium.com/html5-form-validation-the-easy-way-8e457049bf04
+  // Why? because HTML5 validation in :invalid at the page load. Which is not desireable.
+  &.invalid {
     border-color: $red;
     box-shadow: 0 2px 4px 0 rgba($red, 0.2);
   }
 }
+
 
 .label-blueberry {
   @extend .my-label;

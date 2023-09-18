@@ -9,31 +9,31 @@
   & a.img-wrapper {
     // background-color: white;
 
-    display: block;
+    // display: flex;
     // Google Cumulative Layout Shift (CLS)
-    height: 160px;
+    // height: 160px;
     overflow: hidden;
 
     img {
       transition: all .3s ease-in-out;
-      object-fit: cover;
-      object-position: center center;
+      // object-fit: cover;
+      // object-position: center center;
 
       // Google Cumulative Layout Shift (CLS)
-      height: 160px;
+      // height: 160px;
     }
 
-    &.release-height-md {
-      @include media-breakpoint-up(md){
-        height: auto;
+    // &.release-height-md {
+    //   @include media-breakpoint-up(md){
+    //     height: auto;
 
-        img {
-          @include media-breakpoint-up(md){
-            height: auto;
-          }
-        }
-      }
-    }
+    //     img {
+    //       @include media-breakpoint-up(md){
+    //         height: auto;
+    //       }
+    //     }
+    //   }
+    // }
 
 
     &:hover {
@@ -45,7 +45,7 @@
 
   .card-body {
     padding: $card-spacer-x*0.7;
-    
+
     p {
       font-size: 0.9rem;
 
@@ -111,5 +111,5 @@
       margin-left: 0.15rem;
       border-bottom: 0.15rem solid $body-color;
     }
-  }  
+  }
 }

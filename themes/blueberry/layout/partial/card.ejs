@@ -3,7 +3,7 @@
   <% // Clone product because we will modify this object %>
   <% var product = Object.assign({}, site.data.product_list[productIndex]); %>
   <div class="<%- post.col_class ? post.col_class : '' %>  js--posts-filter-item" data-groups='["<%- post.data_groups ? post.data_groups : '' %>"]'>
-    <figure class="card card-blueberry">      
+    <figure class="card card-blueberry">
       <!-- Featured image -->
       <% if (product.additional_image_link && product.additional_image_link.length > 0){ %>
         <% var additionalImages = product.additional_image_link.split(','); %>
@@ -13,13 +13,15 @@
             <% var imgClass = product.product_type.includes('Windshield') ? 'tall' : ''; %>
             <div class="carousel-item active">
               <a class="img-wrapper" href="/<%- post.path %>">
-                <img width="160" height="160" loading="lazy"  src="<%- get_pathname(prefix_filename('medium_', product.image_link)) %>" class="d-block w-100 fix-height <%- imgClass %>" alt="<%- product.description %>">
+                <% var imagePath = get_pathname(product.image_link) %>
+                <img <%- widthHeight(imagePath) %> loading="lazy"  src="<%- image_version(imagePath, {prefix: 'medium'}) %>" class="d-block w-100 h-auto fix-height <%- imgClass %>" alt="<%- product.description %>">
               </a>
             </div>
             <% additionalImages.forEach(function(element, index){ %>
               <div class="carousel-item">
                 <a class="img-wrapper" href="/<%- post.path %>">
-                  <img width="160" height="160" loading="lazy"  src="<%- get_pathname(prefix_filename('medium_', element)) %>" class="d-block w-100 fix-height <%- imgClass %>" alt="<%- product.description %>">
+                  <% var imagePath = get_pathname(element) %>
+                  <img <%- widthHeight(imagePath) %> loading="lazy" src="<%- image_version(imagePath, {prefix: 'medium'}) %>" class="d-block w-100 h-auto fix-height <%- imgClass %>" alt="<%- product.description %>">
                 </a>
               </div>
             <% }); %>
@@ -32,11 +34,12 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
-        </div>      
+        </div>
       <% } else { %>
         <!-- if product has one image -->
         <a class="img-wrapper" href="/<%- post.path %>">
-          <img width="160" height="160" loading="lazy" class="w-100 fix-height <%- product.product_type.includes('Windshield') ? 'tall' : ''; %>" src="<%- get_pathname(prefix_filename('medium_', product.image_link)) %>" title="<%- product.title %>" alt="<%- product.description %>">
+          <% var imagePath = get_pathname(product.image_link) %>
+          <img <%- widthHeight(imagePath) %> loading="lazy" class="w-100 h-auto fix-height <%- product.product_type.includes('Windshield') ? 'tall' : ''; %>" src="<%- image_version(imagePath, {prefix: 'medium'}) %>" title="<%- product.title %>" alt="<%- product.description %>">
         </a>
       <% } %>
 

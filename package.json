@@ -22,6 +22,7 @@
     "hexo-renderer-stylus": "^1.1.0",
     "hexo-server": "^1.0.0",
     "hexo-tag-youtube-responsive": "^0.4.2",
+    "image-size": "^1.0.2",
     "parse-path": "^4.0.3",
     "sharp": "^0.27.2",
     "stream-to-array": "^2.3.0",

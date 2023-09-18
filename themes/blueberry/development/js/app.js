@@ -22,6 +22,7 @@ var Carousel = require('./modules/carousel');
 var VideoFullWidth = require('./modules/video');
 // var FacebookLoadOnScroll = require('./modules/facebook-load-on-scroll');
 var InteractiveBackButton = require('./modules/interactive-back-button');
+var autovalid = require('./modules/autovalid');
 
 // Google Customer Reviews
 // Export GCR to be accessed by Vue
@@ -108,4 +109,8 @@ $(function() {
     }
   }
 
+  // Automatic HTML5 validation that is not :invalid at the page load
+  // https://codepilotsf.medium.com/html5-form-validation-the-easy-way-8e457049bf04
+  // Manually converted to Browserify syntax
+  autovalid.autovalid();
 });

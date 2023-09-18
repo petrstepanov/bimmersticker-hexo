@@ -1,3 +1,5 @@
+const sizeOf = require('image-size')
+
 hexo.extend.helper.register('avif100', function (path, name, width, height, alt) {
   return '<picture>' +
     '<source srcset="' + path + 'xl_' + name + '.avif, ' + path + 'xl-2x_' + name + '.avif 2x" media="(min-width: 1350px)" type="image/avif" />' +
@@ -20,4 +22,11 @@ hexo.extend.helper.register('resp100', function (path, name, width, height, alt)
     '<source srcset="' + path + 'sm_' + name + '.jpg,  ' + path + 'sm-2x_' + name + '.jpg  2x" />' +
     '<img width="' + width + '" height="' + height + '" loading="lazy"  src="' + path + name + '.jpg" class="d-block h-auto w-100" alt="' + alt + '"/>' +
     '</picture>';
+});
+
+// Returns width="" height="" ...
+hexo.extend.helper.register('widthHeight', function (imagePath) {
+  imagePath = hexo.base_dir + 'source/_posts' + imagePath;
+  const dimensions = sizeOf(imagePath);
+  return 'width="' + dimensions.width + '" height="' + dimensions.height + '"';
 });

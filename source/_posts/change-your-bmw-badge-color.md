@@ -19,7 +19,7 @@ Please select from black, matte black, red, orange, yellow, gold or silver color
 
 Sticker Store LLC is only selling the overlay sticker and not affiliated with distribution of any BMW parts, in particular original roundels. To purchase a roundel please visit your local BMW dealership.
 
-{% asset_img content-image any-color-for-your-bmw-badge-roundel-emblem.jpg 2048 1536 'We offer variety of colors for your BMW roundel emblem"' %}
+{% asset_img content-image any-color-for-your-bmw-badge-roundel-emblem.jpg 2048 1536 'We offer variety of colors for your BMW roundel emblem"We offer variety of colors for your BMW roundel emblem"' %}
 {% blockquote %}
 We offer variety of colors for your BMW roundel badge.
 {% endblockquote %}

@@ -54,7 +54,7 @@ body {
     // font-family: $font-bold;
     font-weight: bold; // Native font stack
 
-    
+
     span {
       font-size: 0.875rem;
       visibility: hidden;
@@ -72,6 +72,17 @@ body {
       // font-family: $font-bold;
       // font-style: italic;
       display: none;
+    }
+
+    // Crop logo to only letter "b" on md
+    @include media-breakpoint-up(md) {
+      max-width: 2.2rem;
+      overflow-x: hidden;
+    }
+
+    @include media-breakpoint-up(lg) {
+      max-width: auto;
+      overflow-x: visible;
     }
   }
 
@@ -92,7 +103,7 @@ body {
 
     &:hover svg {
       fill: $blue;
-    }    
+    }
   }
 
   .navbar-nav {
@@ -118,7 +129,8 @@ body {
       margin-bottom: 0.75rem;
     }
 
-    @include media-breakpoint-up(lg) {
+    // Hide bottom line on md+
+    @include media-breakpoint-up(md) {
       &.nav-separator {
         border-bottom: 0;
         padding-bottom: 0;
@@ -130,10 +142,10 @@ body {
   .navbar-nav .nav-link {
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
-    padding-left: $nb-logo-size;
+    padding-left: 2.75rem;
     color: $body-color;
     text-decoration: underline;
-   
+
     svg path {
       fill: $body-color;
     }
@@ -143,7 +155,7 @@ body {
 
       svg path {
         fill: $link-color;
-      }      
+      }
     }
 
     &:last-child {
@@ -165,12 +177,9 @@ body {
     }
 
     @include media-breakpoint-up(md) {
-      // font-family: $font-bold;
       font-weight: bold; // Native font stack
-
       margin-left: 3rem;
       padding-left: 0.5rem;
-      // font-size: 0.85rem;
     }
   }
 

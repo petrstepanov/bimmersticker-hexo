@@ -8512,6 +8512,18 @@ body {
 .navbar-blueberry .navbar-brand .logo-text {
   display: none;
 }
+@media (min-width: 768px) {
+  .navbar-blueberry .navbar-brand {
+    max-width: 2.2rem;
+    overflow-x: hidden;
+  }
+}
+@media (min-width: 992px) {
+  .navbar-blueberry .navbar-brand {
+    max-width: auto;
+    overflow-x: visible;
+  }
+}
 .navbar-blueberry .navbar-toggler {
   border-width: 0;
   padding-left: 0;
@@ -8542,7 +8554,7 @@ body {
   padding-bottom: 0.75rem;
   margin-bottom: 0.75rem;
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .navbar-blueberry .nav-item.nav-separator {
     border-bottom: 0;
     padding-bottom: 0;
@@ -8552,7 +8564,7 @@ body {
 .navbar-blueberry .navbar-nav .nav-link {
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
-  padding-left: 3rem;
+  padding-left: 2.75rem;
   color: #212B36;
   text-decoration: underline;
 }
@@ -8664,27 +8676,10 @@ body {
   overflow: hidden;
 }
 .card-blueberry a.img-wrapper {
-  display: block;
-  height: 160px;
   overflow: hidden;
 }
 .card-blueberry a.img-wrapper img {
   transition: all 0.3s ease-in-out;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center center;
-     object-position: center center;
-  height: 160px;
-}
-@media (min-width: 768px) {
-  .card-blueberry a.img-wrapper.release-height-md {
-    height: auto;
-  }
-}
-@media (min-width: 768px) and (min-width: 768px) {
-  .card-blueberry a.img-wrapper.release-height-md img {
-    height: auto;
-  }
 }
 .card-blueberry a.img-wrapper:hover img {
   transform: scale(1.05);
@@ -8799,7 +8794,7 @@ button:focus {
 .form-control::placeholder {
   color: #97aabf;
 }
-.form-control:invalid { /* &.invalid, */
+.form-control.invalid {
   border-color: #f11a22;
   box-shadow: 0 2px 4px 0 rgba(241, 26, 34, 0.2);
 }
@@ -10622,11 +10617,6 @@ button:focus {
   padding: 0 0 0 15px;
 }
 
-html,
-body {
-  overflow-x: hidden;
-}
-
 .section-intro .section-intro-mobile-bg {
   background-image: url(/img/bmw-windshield-banner-on-5series-e39-sm.jpg);
   background-size: cover;
@@ -10793,6 +10783,9 @@ body {
 }
 #post-content p {
   margin-bottom: 1em;
+}
+#post-content blockquote p {
+  margin-bottom: 0;
 }
 
 .content-image {
