@@ -12,10 +12,10 @@
                 window.gapi.surveyoptin.render({
                     // REQUIRED
                     "merchant_id": {{ merchantID }},
-                    "order_id": {{ invoiceNumber }},
-                    "email": {{ email }},
-                    "delivery_country": {{ country }},
-                    "estimated_delivery_date": {{ deliveryDate }}
+                    "order_id": "{{ invoiceNumber }}",
+                    "email": "{{ email }}",
+                    "delivery_country": "{{ country }}",
+                    "estimated_delivery_date": "{{ deliveryDate }}"
                     // OPTIONAL
                     // "products": [{ "gtin": "GTIN1" }, { "gtin": "GTIN2" >}],
                     // "opt_in_style": "OPT_IN_STYLE"
