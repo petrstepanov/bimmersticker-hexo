@@ -15,7 +15,7 @@
             window.gapi.load('surveyoptin', function () {
                 window.gapi.surveyoptin.render({
                     // REQUIRED
-                    "merchant_id": merchantID,
+                    "merchant_id": {{ merchantID }},
                     "order_id": {{ invoiceNumber }},
                     "email": {{ email }},
                     "delivery_country": {{ country }},
