@@ -18,6 +18,7 @@ function renderGoogleCustomerReviews(invoiceNumber, email, country) {
     var deliveryDateString = "" + year + "-" + month + "-" + day;
     // Populate success template with JSON
     var json = {
+        'merchantID': 143612887,
         'invoiceNumber': invoiceNumber,
         'email': email,
         'country': country,

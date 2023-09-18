@@ -4,10 +4,6 @@
     <!-- Added Badge Code:              https://support.google.com/merchants/answer/7105655 -->
     <!-- TODO - Gather product reviews: https://support.google.com/merchants/answer/7519329 -->
 
-    <script type="application/javascript">
-        const merchantID = 143612887;
-    </script>
-
     <!-- BEGIN GCR Opt-in Module Code -->
     <script type="application/javascript" src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
     <script type="application/javascript">
@@ -47,7 +43,7 @@
           var ratingBadgeContainer = document.createElement("div");
           document.body.appendChild(ratingBadgeContainer);
           window.gapi.load('ratingbadge', function() {
-            window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": merchantID});
+            window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": {{ merchantID }}});
           });
         }
     </script>
