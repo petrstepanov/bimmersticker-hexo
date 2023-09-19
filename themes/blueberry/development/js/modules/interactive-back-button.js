@@ -3,46 +3,34 @@ var Cookies = require('js-cookie');
 
 var DOM = {};
 
-function _cacheDom(element) {
-  DOM.$link = $(element);
-  DOM.$label = DOM.$link.find(".js--label");
+function _cacheDom() {
+  DOM.$template = $('#int-back-button');
+  DOM.$container = $('#back-link-container');
+  DOM.$currentBackLink = $('#ejs-back-link');
 }
 
 function _renderBackLink(){
-  // Attach click handler
-  DOM.$link.click(function(event) {
-    event.preventDefault();
-    window.history.back();
-  });
-
-  // Set label
-  DOM.$label.html("Go back");
-  DOM.$label.css("white-space", "nowrap");
+  var rendered = DOM.$template.html();
+  DOM.$currentBackLink.remove();
+  DOM.$container.html(rendered);
 }
 
-function init(element) {
+function init() {
   // var previousHref = Cookies.get('previousUrl');
   // var currentHref = window.location.href;
+  _cacheDom();
 
-
-  if (element) {
-    _cacheDom(element);
-
-    // If page was loaded before then back button acts like back button
-    if (Cookies.get('pageLoaded')){
-      // If previous url saved in cookies is different from current - navigate there
-      _renderBackLink();
-    }
-
-    // Make label visible
-    DOM.$label.css("visibility", "visible");
+  // If page was loaded before then back button acts like back button
+  if (!Cookies.get('wasOnSite')){
+    // If previous url saved in cookies is different from current - navigate there
+    _renderBackLink();
   }
 
   // var date = new Date();
   // date.setTime(date.getTime() + (5 * 60 * 1000)); // 5 minute expiration
   // Expires: takes number of days; 5 minutes is 5/24*60 ~ 0.003 of a day
   // Cookies.set('pageLoaded', window.location.href, { expires: 0.003, sameSite: 'strict' });
-  Cookies.set('pageLoaded', 'true', { expires: 0.003, sameSite: 'strict' });
+  Cookies.set('wasOnSite', 'true', { expires: 0.003, sameSite: 'strict' });
 }
 
 exports.init = init;

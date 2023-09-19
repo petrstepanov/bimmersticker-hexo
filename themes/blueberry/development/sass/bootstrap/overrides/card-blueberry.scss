@@ -54,7 +54,7 @@
       }
     }
 
-    @include media-breakpoint-up(sm){
+    @include media-breakpoint-up(sm) {
       padding: $card-spacer-x;
     }
   }
@@ -69,7 +69,12 @@
 
   .card-title-price {
     background-color: $gray-300;
-    padding: 0.3rem 1.2rem 0.3rem 0.5rem;
+    padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+
+    @include media-breakpoint-up(sm) {
+      padding-right: 1.2rem;
+    }
+
     border-top-left-radius: 0.3rem;
     border-bottom-left-radius: 0.3rem;
     border-top-right-radius: 0.1rem;
@@ -88,17 +93,19 @@
       border-width: math.div($price-tag-height, 2) 0 math.div($price-tag-height, 2) $price-tag-width;
     }
 
-    &:after {
-      content: "";
-      position: absolute;
-      background-color: white;
-      top: 50%;
-      right: 0.2rem;
-      width: 2*$price-tag-radius;
-      height: 2*$price-tag-radius;
-      border-radius: $price-tag-radius;
-      margin-top: -$price-tag-radius;
-      margin-left: -$price-tag-radius;
+    @include media-breakpoint-up(sm) {
+      &:after {
+        content: "";
+        position: absolute;
+        background-color: white;
+        top: 50%;
+        right: 0.2rem;
+        width: 2*$price-tag-radius;
+        height: 2*$price-tag-radius;
+        border-radius: $price-tag-radius;
+        margin-top: -$price-tag-radius;
+        margin-left: -$price-tag-radius;
+      }
     }
 
     white-space: nowrap;

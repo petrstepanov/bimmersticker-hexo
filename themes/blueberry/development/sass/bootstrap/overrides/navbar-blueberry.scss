@@ -41,26 +41,27 @@ body {
   .logo-image,
   .back-link {
     height: $nb-logo-size;
+    line-height: $nb-logo-size;
 
     @include media-breakpoint-up(sm) {
       height: $nb-logo-size-bigger;
+      line-height: $nb-logo-size-bigger;
     }
 
     @include media-breakpoint-up(md) {
       height: $nb-logo-size-biggest;
+      line-height: $nb-logo-size-biggest;
     }
   }
 
   .back-link {
-    display: flex;
-    align-items: center;
     // font-family: $font-bold;
-    font-weight: bold; // Native font stack
-
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     span {
       font-size: 0.875rem;
-      visibility: hidden;
+      font-weight: bold; // Native font stack
     }
   }
 

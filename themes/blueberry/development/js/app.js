@@ -40,7 +40,8 @@ $(function() {
   // Handler for .ready() called.
 
   // Interactive Back Button
-  InteractiveBackButton.init(document.querySelector('.js--init-back-button'));
+  // InteractiveBackButton.init(document.querySelector('.js--init-back-button'));
+  InteractiveBackButton.init();
 
   navbarFixer.init(document.querySelector('.js--init-navbar-fixer'));
   // smoothScroll.init();

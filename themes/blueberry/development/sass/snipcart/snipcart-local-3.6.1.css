@@ -1,8 +1,11 @@
-/* 
- PETR STEPANOV: 
+/*
+ PETR STEPANOV:
  CSS taken from: https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.css
+
  Below we remove remove font loading
  @import "https://fonts.bunny.net/css?family=Montserrat:300,500|Open+Sans:300,600";
+
+ Commment out checkmark SVG: checkmark.svg
 */
 
 .snipcart {
@@ -1754,7 +1757,7 @@
     border: none
 }
 
-.snipcart-subscription-details__plan .snipcart-form-radio.snipcart-form-radio--checked+.snipcart-form__label:after {
+/* .snipcart-subscription-details__plan .snipcart-form-radio.snipcart-form-radio--checked+.snipcart-form__label:after {
     content: url(/themes/v3.6.1/default/assets/icons/checkmark.svg);
     background-repeat: no-repeat;
     background-position: 50%;
@@ -1765,7 +1768,7 @@
     width: 24px;
     height: 24px;
     border: none
-}
+} */
 
 .snipcart-subscription-details {
     max-width: 640px;
@@ -4352,7 +4355,7 @@
     box-shadow: var(--shadow-input-checked, none)
 }
 
-.snipcart-form-radio:checked+label:after {
+/* .snipcart-form-radio:checked+label:after {
     content: url(/themes/v3.6.1/default/assets/icons/checkmark.svg);
     background-repeat: no-repeat;
     background-position: 50%;
@@ -4362,7 +4365,7 @@
     width: 24px;
     height: 24px;
     border: none
-}
+} */
 
 .snipcart-textarea {
     padding: 8px

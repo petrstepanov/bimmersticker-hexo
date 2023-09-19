@@ -1,0 +1,27 @@
+<!-- Interactive back button -->
+<!-- Displayed when customer lands not from website, but from third party internet resource -->
+<template id="int-back-button">
+    <%
+        var href = "/";
+        var label = "Back home";
+
+        post.categories.forEach(function(item){
+          if (item.name.includes("Social")){
+            href = "/custom-social-media-stickers/";
+            label = "All social stickers";
+          }
+          else if (item.name.includes("Series and Generations")){
+            href = "/stickers-for-bmw-generations/";
+            label = "All generation stickers";
+          }
+          else if (item.name.includes("Roundel")){
+            href = "/bmw-roundel-overlay-stickers/";
+            label = "All roundels";
+          }
+        });
+    %>
+    <!-- Back button -->
+    <a class="back-link icon-sm js--init-back-button no-wrap" href="<%- href %>">
+        <%- partial('ionicons/md-arrow-back.svg') %> <span class="ml-1 js--label"><%- label %></span>
+    </a>
+</template>

@@ -8484,27 +8484,29 @@ body {
 .navbar-blueberry .logo-image,
 .navbar-blueberry .back-link {
   height: 3rem;
+  line-height: 3rem;
 }
 @media (min-width: 576px) {
   .navbar-blueberry .logo-image,
   .navbar-blueberry .back-link {
     height: 3rem;
+    line-height: 3rem;
   }
 }
 @media (min-width: 768px) {
   .navbar-blueberry .logo-image,
   .navbar-blueberry .back-link {
     height: 3.25rem;
+    line-height: 3.25rem;
   }
 }
 .navbar-blueberry .back-link {
-  display: flex;
-  align-items: center;
-  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .navbar-blueberry .back-link span {
   font-size: 0.875rem;
-  visibility: hidden;
+  font-weight: bold;
 }
 .navbar-blueberry .navbar-buy-button {
   display: none;
@@ -8709,7 +8711,7 @@ body {
 }
 .card-blueberry .card-title-price {
   background-color: #dee2e6;
-  padding: 0.3rem 1.2rem 0.3rem 0.5rem;
+  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
   border-top-left-radius: 0.3rem;
   border-bottom-left-radius: 0.3rem;
   border-top-right-radius: 0.1rem;
@@ -8717,6 +8719,11 @@ body {
   position: relative;
   white-space: nowrap;
   font-weight: bold;
+}
+@media (min-width: 576px) {
+  .card-blueberry .card-title-price {
+    padding-right: 1.2rem;
+  }
 }
 .card-blueberry .card-title-price:before {
   content: "";
@@ -8729,17 +8736,19 @@ body {
   border-left-color: #dee2e6;
   border-width: 1rem 0 1rem 0.7rem;
 }
-.card-blueberry .card-title-price:after {
-  content: "";
-  position: absolute;
-  background-color: white;
-  top: 50%;
-  right: 0.2rem;
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 0.2rem;
-  margin-top: -0.2rem;
-  margin-left: -0.2rem;
+@media (min-width: 576px) {
+  .card-blueberry .card-title-price:after {
+    content: "";
+    position: absolute;
+    background-color: white;
+    top: 50%;
+    right: 0.2rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 0.2rem;
+    margin-top: -0.2rem;
+    margin-left: -0.2rem;
+  }
 }
 .card-blueberry .card-title-price sup {
   font-size: 60%;
@@ -11415,11 +11424,14 @@ body {
   --bgColor-alt: white;
 }
 
-/* 
- PETR STEPANOV: 
+/*
+ PETR STEPANOV:
  CSS taken from: https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.css
+
  Below we remove remove font loading
  @import "https://fonts.bunny.net/css?family=Montserrat:300,500|Open+Sans:300,600";
+
+ Commment out checkmark SVG: checkmark.svg
 */
 .snipcart {
   font-family: Open Sans, sans-serif;
@@ -13120,19 +13132,18 @@ body {
   border: none;
 }
 
-.snipcart-subscription-details__plan .snipcart-form-radio.snipcart-form-radio--checked + .snipcart-form__label:after {
-  content: url(/themes/v3.6.1/default/assets/icons/checkmark.svg);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  z-index: 99;
-  position: absolute;
-  left: -3px;
-  top: -3px;
-  width: 24px;
-  height: 24px;
-  border: none;
-}
-
+/* .snipcart-subscription-details__plan .snipcart-form-radio.snipcart-form-radio--checked+.snipcart-form__label:after {
+    content: url(/themes/v3.6.1/default/assets/icons/checkmark.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    z-index: 99;
+    position: absolute;
+    left: -3px;
+    top: -3px;
+    width: 24px;
+    height: 24px;
+    border: none
+} */
 .snipcart-subscription-details {
   max-width: 640px;
   margin-left: auto;
@@ -15674,18 +15685,17 @@ body {
   box-shadow: var(--shadow-input-checked, none);
 }
 
-.snipcart-form-radio:checked + label:after {
-  content: url(/themes/v3.6.1/default/assets/icons/checkmark.svg);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  z-index: 99;
-  position: absolute;
-  left: -2px;
-  width: 24px;
-  height: 24px;
-  border: none;
-}
-
+/* .snipcart-form-radio:checked+label:after {
+    content: url(/themes/v3.6.1/default/assets/icons/checkmark.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    z-index: 99;
+    position: absolute;
+    left: -2px;
+    width: 24px;
+    height: 24px;
+    border: none
+} */
 .snipcart-textarea {
   padding: 8px;
 }
