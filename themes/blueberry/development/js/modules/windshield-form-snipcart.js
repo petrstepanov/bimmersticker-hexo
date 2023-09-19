@@ -304,6 +304,7 @@ function _showHidePreviewElements(product) {
             DOM.$banner.hide();
             DOM.$sunstrip.show();
             DOM.$sunstripText.show();
+            DOM.$sunstripText.css('background-image', '');
             DOM.$sunstripText.css('background-color', '#6C6C6C');
             DOM.$textWidthNotice.show();
             break;
