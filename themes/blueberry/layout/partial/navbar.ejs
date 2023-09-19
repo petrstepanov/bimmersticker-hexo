@@ -1,27 +1,11 @@
-<nav class="navbar fixed-top navbar-blueberry navbar-expand-md navbar-light js--init-navbar-fixer <%- typeof className !== 'undefined' ? className : ''; %>" id="navbar-spy" data-max-fixed-width="10000">
-  <div class="container">
+<nav class="navbar fixed-top navbar-blueberry navbar-expand-lg navbar-light js--init-navbar-fixer <%- typeof className !== 'undefined' ? className : ''; %>" id="navbar-spy" data-max-fixed-width="10000">
+  <div class="container" id="back-link-container">
     <% if (is_post()){ %>
-      <% 
-      var href = "/";
-      var label = "Browse all stickers";
-
-      post.categories.forEach(function(item){
-        if (item.name.includes("Social")){ 
-          href = "/custom-social-media-stickers/";
-          label = "Other social stickers";
-        }
-        else if (item.name.includes("Series and Generations")){ 
-          href = "/stickers-for-bmw-generations/";
-          label = "All BMW generations";
-        }
-      });
-
-      %>
       <!-- Back button -->
-      <a class="back-link icon-sm js--init-back-button" href="<%- href %>">
-        <%- partial('ionicons/md-arrow-back.svg') %> <span class="ml-1 js--label"><%- label %></span>
+      <a id="ejs-back-link" class="back-link icon-sm no-wrap" onclick="window.history.back();" href="#">
+        <%- partial('ionicons/md-arrow-back.svg') %> <span class="ml-1">Go back</span>
       </a>
-    <% } else { %>  
+    <% } else { %>
       <a class="navbar-brand" href="/">
         <% if (theme.logo){ %>
           <img src="<%- theme.logo %>" class="logo-image w-auto" width="1086" height="257" alt="Sticker Store LLC (Bimmer Sticker Store) logo">
@@ -29,7 +13,7 @@
           <%- config.title %>
         <% } %>
       </a>
-    <% } %> 
+    <% } %>
     <!-- Grow element -->
     <div class="flex-grow-1 text-right"></div>
     <!-- Buy button -->
@@ -37,7 +21,7 @@
       <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
       <% if (productIndex >= 0){ %>
         <% var product = Object.assign({}, site.data.product_list[productIndex]); %>
-        <div class="form-inline d-lg-none navbar-buy-button js--init-navbar-buy-button">        
+        <div class="form-inline d-lg-none navbar-buy-button js--init-navbar-buy-button">
           <button type="submit" form="cart-form" class="btn btn-sm btn-blueberry btn-primary js--product-submit" data-base-caption="" data-base-price="<%- parseFloat(product.price) %>">$<%- parseFloat(product.price) %></button>
         </div>
       <% } %>
@@ -53,63 +37,70 @@
         </span>
         <span class="icon-md js--icon-close faster" style="display: none">
           <%- partial('ionicons/ios-close.svg') %>
-        </span>        
+        </span>
       </button>
     </div>
     <!-- Cart button -->
-    <button class="btn ml-2 px-0 py-0 snipcart-checkout icon-md d-md-none" aria-label="View Cart">
+    <button class="btn ml-2 px-0 py-0 snipcart-checkout icon-md d-lg-none" aria-label="View Cart">
       <%- partial('ionicons/ios-cart.svg') %>
       <span class="snipcart-items-count"></span>
     </button>
     <!-- Collapse navbar -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item d-md-none d-lg-inline">
-          <a class="nav-link" href="/">All Stickers</a>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="/">
+            <span class="icon-xs mr-2 icon-for-nav d-lg-none"><%- partial('ionicons/md-home.svg') %></span>All Stickers
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/custom-social-media-stickers/"><span class="d-md-none">Custom </span>Social <span class="d-md-none d-lg-inline">Media</span> Stickers</a>
+          <a class="nav-link" href="/custom-social-media-stickers/">
+            <span class="icon-xs mr-2 icon-for-nav d-lg-none"><%- partial('ionicons/logo-instagram.svg') %></span><span class="d-lg-none">Custom </span>Social <span class="d-lg-none d-lg-inline">Media</span> Stickers
+          </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/custom-windshield-banner-sun-strip/">
-            <span class="icon-xs mr-2 icon-for-nav d-md-none"><%- partial('ionicons/md-car.svg') %></span><span class="d-md-none d-xl-inline">Custom </span>Windshield Banners
+            <span class="icon-xs mr-2 icon-for-nav d-lg-none"><%- partial('ionicons/md-car.svg') %></span><span class="d-lg-none d-xl-inline">Custom </span>Windshield Banners
           </a>
         </li>
-        <li class="nav-item nav-separator d-md-none">
-          <a class="nav-link" href="/how-to-apply-windsheild-banner-on-a-car/">
-            <span class="icon-xs mr-2 icon-for-nav d-md-none"><%- partial('ionicons/md-help.svg') %></span>How to Apply Windshield Banner
+        <li class="nav-item nav-separator d-lg-none">
+          <a class="nav-link" href="/how-to-apply-windsheild-banner-on-a-car/">How to Apply Windshield Banner?</a>
+        </li>
+        <li class="nav-item nav-separator">
+          <a class="nav-link" href="/buy-keyring-keychain-with-your-car-vin-number/">
+            <span class="icon-xs mr-2 icon-for-nav d-lg-none"><%- partial('ionicons/ios-key.svg') %></span><span class="d-lg-none">Custom Car</span> Key Chains
           </a>
         </li>
-        <li class="nav-item d-md-none">
+        <li class="nav-item d-lg-none">
           <a class="nav-link" href="/#contact">
             <!--<span class="icon-xs mr-1"><%- partial('ionicons/md-megaphone.svg') %></span>-->Contact us
           </a>
         </li>
 <!--
-        <li class="nav-item d-md-none">
+        <li class="nav-item d-lg-none">
           <a class="nav-link" href="<%- theme.googlereview_url %>">
             <span class="icon-xs mr-1"><%- partial('ionicons/ios-star.svg') %></span>Review us on Google
           </a>
         </li>
 -->
         <% if (theme.instagram_url){ %>
-          <li class="nav-item d-md-none">
+          <li class="nav-item d-lg-none">
             <a class="nav-link" href="<%- theme.instagram_url %>" rel="me">
               Follow us on Instagram
             </a>
           </li>
         <% } %>
         <% if (theme.facebook_url){ %>
-          <li class="nav-item d-md-none">
+          <li class="nav-item d-lg-none">
             <a class="nav-link" href="<%- theme.facebook_url %>" rel="me">
               Like us on Facebook
             </a>
           </li>
         <% } %>
         <% if(config.cart == "snipcart"){ %>
-          <li class="nav-item nav-item-for-cart d-none d-md-inline">
+          <li class="nav-item nav-item-for-cart d-none d-lg-inline">
               <%-partial('partial/snipcart-cart-button') %>
-          </li>  
+          </li>
         <% } %>
       </ul>
     </div>

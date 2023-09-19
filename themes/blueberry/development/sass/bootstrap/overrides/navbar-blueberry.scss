@@ -1,6 +1,6 @@
-$nb-logo-size:          3rem;
-$nb-logo-size-bigger:   3rem;
-$nb-logo-size-biggest:  3.25rem;
+$nb-logo-size: 3rem;
+$nb-logo-size-bigger: 3rem;
+$nb-logo-size-biggest: 3.25rem;
 
 // Google Cumulative Layout Shift CLS
 
@@ -10,6 +10,7 @@ body {
   @include media-breakpoint-up(sm) {
     padding-top: $nb-logo-size-bigger + 2*$navbar-padding-y;
   }
+
   @include media-breakpoint-up(md) {
     padding-top: $nb-logo-size-biggest + 2*$nb-padding-md;
   }
@@ -37,27 +38,30 @@ body {
     }
   }
 
-  .logo-image, .back-link {
+  .logo-image,
+  .back-link {
     height: $nb-logo-size;
+    line-height: $nb-logo-size;
 
     @include media-breakpoint-up(sm) {
       height: $nb-logo-size-bigger;
+      line-height: $nb-logo-size-bigger;
     }
+
     @include media-breakpoint-up(md) {
       height: $nb-logo-size-biggest;
+      line-height: $nb-logo-size-biggest;
     }
   }
 
   .back-link {
-    display: flex;
-    align-items: center;
     // font-family: $font-bold;
-    font-weight: bold; // Native font stack
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-    
     span {
       font-size: 0.875rem;
-      visibility: hidden;
+      font-weight: bold; // Native font stack
     }
   }
 
@@ -72,6 +76,11 @@ body {
       // font-family: $font-bold;
       // font-style: italic;
       display: none;
+    }
+
+    @include media-breakpoint-up(lg) {
+      max-width: auto;
+      overflow-x: visible;
     }
   }
 
@@ -92,18 +101,17 @@ body {
 
     &:hover svg {
       fill: $blue;
-    }    
+    }
   }
 
   .navbar-nav {
-    @include media-breakpoint-down(sm) {
-      padding-top: 1.2rem;
-      padding-bottom: 0.5rem;
+    padding-top: 1.2rem;
+    padding-bottom: 0.5rem;
+
+    @include media-breakpoint-up(lg) {
+      padding-top: 0;
+      padding-bottom: 0;
     }
-    //
-    // @include media-breakpoint-up(md) {
-    //    align-items: center;
-    // }
   }
 
   .nav-item {
@@ -118,6 +126,7 @@ body {
       margin-bottom: 0.75rem;
     }
 
+    // Hide bottom line on md+
     @include media-breakpoint-up(lg) {
       &.nav-separator {
         border-bottom: 0;
@@ -130,10 +139,10 @@ body {
   .navbar-nav .nav-link {
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
-    padding-left: $nb-logo-size;
+    padding-left: 2.75rem;
     color: $body-color;
     text-decoration: underline;
-   
+
     svg path {
       fill: $body-color;
     }
@@ -143,7 +152,7 @@ body {
 
       svg path {
         fill: $link-color;
-      }      
+      }
     }
 
     &:last-child {
@@ -156,26 +165,27 @@ body {
       color: $link-color;
     }
 
-    @include media-breakpoint-up(sm) {
-      padding-left: $nb-logo-size-bigger;
-    }
-
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       padding-left: $nb-logo-size-biggest + 0.7rem;
     }
 
-    @include media-breakpoint-up(md) {
-      // font-family: $font-bold;
+    @include media-breakpoint-up(lg) {
       font-weight: bold; // Native font stack
-
       margin-left: 3rem;
       padding-left: 0.5rem;
-      // font-size: 0.85rem;
+    }
+
+    .icon-for-nav {
+      margin-left: -2.1rem;
+
+      @include media-breakpoint-up(lg) {
+        margin-left: 0;
+      }
     }
   }
 
-  &.transparent  {
-    @include media-breakpoint-up(lg){
+  &.transparent {
+    @include media-breakpoint-up(lg) {
       box-shadow: none;
       background-color: transparent;
     }
@@ -187,8 +197,8 @@ body {
       }
     }
   }
-}
 
-.fixed-top {
-  z-index: 9;
+  &.fixed-top {
+    z-index: 9;
+  }
 }

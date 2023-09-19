@@ -4,10 +4,6 @@
     <!-- Added Badge Code:              https://support.google.com/merchants/answer/7105655 -->
     <!-- TODO - Gather product reviews: https://support.google.com/merchants/answer/7519329 -->
 
-    <script type="application/javascript">
-        const merchantID = 143612887;
-    </script>
-
     <!-- BEGIN GCR Opt-in Module Code -->
     <script type="application/javascript" src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
     <script type="application/javascript">
@@ -15,11 +11,11 @@
             window.gapi.load('surveyoptin', function () {
                 window.gapi.surveyoptin.render({
                     // REQUIRED
-                    "merchant_id": merchantID,
-                    "order_id": {{ invoiceNumber }},
-                    "email": {{ email }},
-                    "delivery_country": {{ country }},
-                    "estimated_delivery_date": {{ deliveryDate }}
+                    "merchant_id": {{ merchantID }},
+                    "order_id": "{{ invoiceNumber }}",
+                    "email": "{{ email }}",
+                    "delivery_country": "{{ country }}",
+                    "estimated_delivery_date": "{{ deliveryDate }}"
                     // OPTIONAL
                     // "products": [{ "gtin": "GTIN1" }, { "gtin": "GTIN2" >}],
                     // "opt_in_style": "OPT_IN_STYLE"
@@ -35,7 +31,7 @@
         };
     </script>
     <!-- END GCR Language Code -->
-    
+
     <!-- Technically you should place the Survey Module code right before the closing </BODY> tag. -->
     <!-- However when you place the survey module code with the Badge Code, the order does not matter. -->
     <!-- Therefore we include the Badge Code below -->
@@ -47,7 +43,7 @@
           var ratingBadgeContainer = document.createElement("div");
           document.body.appendChild(ratingBadgeContainer);
           window.gapi.load('ratingbadge', function() {
-            window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": merchantID});
+            window.gapi.ratingbadge.render(ratingBadgeContainer, {"merchant_id": {{ merchantID }}});
           });
         }
     </script>

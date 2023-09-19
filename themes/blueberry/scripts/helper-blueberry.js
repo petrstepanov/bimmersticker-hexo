@@ -69,13 +69,32 @@ hexo.extend.helper.register('get_variations', function(product){
   return variations;
 });
 
+// Strips https://bimmersticker.store/ from absolute path
 hexo.extend.helper.register('get_pathname', function(url){
   var urlParsed = parsePath(url);
+  console.log (urlParsed);
   return urlParsed.pathname;
 });
 
 hexo.extend.helper.register('is_custom', function(product){
-  return _.keys(product).includes('customization_name');
+  for (const property in product) {
+    if (property.includes('customization_name')){
+      return true;
+    }
+  }
+  return false;
+});
+
+hexo.extend.helper.register('get_custom_fields', function(product){
+  var customizationObject = [];
+  for (const propertyName in product) {
+    if (propertyName.includes('customization_name')){
+      // Create customization entry
+      var placeholderPropertyName = propertyName.replace('customization_name', 'customization_placeholder');
+      customizationObject.push({'name': product[propertyName], 'placeholder': product[placeholderPropertyName]});
+    }
+  }
+  return customizationObject;
 });
 
 hexo.extend.helper.register('my_full_url_for', function(url){
@@ -86,6 +105,7 @@ hexo.extend.helper.register('my_full_url_for', function(url){
   return hexo.config.url + url_for(url);
 });
 
+//
 hexo.extend.helper.register('prefix_filename', function(prefix, url){
   var regex = /(.*)\/(.*)/
   var array = url.match(regex);
@@ -118,7 +138,7 @@ hexo.extend.helper.register('print_size', function(size){
   var temp = size.replace('x', ' × ');
   temp += (' (' + width + ' × ' + height + ' cm)');
   */
-  
+
   // Can't use .replaceAll not supported yet on production
   var temp = size.replace(/x/g, '×');
   temp = temp.replace(/\|/g, ', ');
@@ -128,15 +148,15 @@ hexo.extend.helper.register('print_size', function(size){
 // hexo.extend.helper.register('title_case', function(str){
 //   var splitStr = str.toLowerCase().split(' ');
 //   for (var i = 0; i < splitStr.length; i++) {
-//       splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+//       splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
 //   }
-//   return splitStr.join(' '); 
+//   return splitStr.join(' ');
 // });
 
 hexo.extend.helper.register('parse_variation_value', function(str){
   const capitalize = hexo.extend.helper.get('capitalize').bind(hexo);
   str = str.replace(/\//g, " & ");
-  str = capitalize(str);  
+  str = capitalize(str);
 
   var obj = {
     value: str,

@@ -46,7 +46,7 @@
     margin-right: calc($grid-gutter-width / -2);
     margin-bottom: 1.75em;
     height: 320px;
-    
+
     @include media-breakpoint-up(sm){
       margin-top: 1.75rem;
       margin-left: 0;
@@ -71,7 +71,7 @@
       //   max-height: 24rem;
       // }
     }
-  } 
+  }
 
   .sticker-properties {
     dt {
@@ -79,7 +79,7 @@
       clear: left;
       // font-family: $font-bold;
       font-weight: bold; // Native font stack
-      
+
       margin-bottom: 0.5rem;
     }
 
@@ -100,7 +100,7 @@
     top: -1px;
   }
 
-  @include media-breakpoint-up(xl){  
+  @include media-breakpoint-up(xl){
     padding-left: 5vw;
     padding-right: 5vw;
   }
@@ -136,7 +136,7 @@
 
       // @include media-breakpoint-up(xl){
       //   max-height: 30rem;
-      // }      
+      // }
     }
   }
 
@@ -146,6 +146,10 @@
 
   p {
     margin-bottom: 1em;
+  }
+
+  blockquote p {
+    margin-bottom: 0;
   }
 }
 

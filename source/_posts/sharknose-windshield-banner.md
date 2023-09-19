@@ -10,7 +10,7 @@ description: Buy Sharknose Legend windshield banner for classic BMW cars. Availa
 categories:
 - Banners
 ebay_url: https://www.ebay.com/itm/192679348906
-col_class: col-6 col-lg-6 col-xl-4
+col_class: col-6 col-lg-4
 product_id: ST_WSHIELD_SHARK
 ---
 

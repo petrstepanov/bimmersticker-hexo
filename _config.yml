@@ -142,7 +142,9 @@ responsive_images:
           height: 196
         medium:
           width: 512
-          height: 512
+          quality: 30
+        large:
+          width: 1024
           quality: 30
 
 
@@ -164,11 +166,11 @@ facebook_chat: false
 # Cart: paypal, snipcart, none
 cart: snipcart
 
-# Mailchimp. Undocumented AJAX form subcsribe 
+# Mailchimp. Undocumented AJAX form subcsribe
 # https://stackoverflow.com/questions/21526408/mailchimp-subscribe-using-jquery-ajax
 # https://stackoverflow.com/questions/8425701/ajax-mailchimp-signup-form-integration
 
-mailchimp: 
+mailchimp:
   url: https://store.us7.list-manage.com/subscribe/post-json?u=f9e4fe98566399134546c9006&amp;id=e3386efb18&c=?
   method: GET
   email_name: EMAIL

@@ -8481,27 +8481,32 @@ body {
     max-width: none;
   }
 }
-.navbar-blueberry .logo-image, .navbar-blueberry .back-link {
+.navbar-blueberry .logo-image,
+.navbar-blueberry .back-link {
   height: 3rem;
+  line-height: 3rem;
 }
 @media (min-width: 576px) {
-  .navbar-blueberry .logo-image, .navbar-blueberry .back-link {
+  .navbar-blueberry .logo-image,
+  .navbar-blueberry .back-link {
     height: 3rem;
+    line-height: 3rem;
   }
 }
 @media (min-width: 768px) {
-  .navbar-blueberry .logo-image, .navbar-blueberry .back-link {
+  .navbar-blueberry .logo-image,
+  .navbar-blueberry .back-link {
     height: 3.25rem;
+    line-height: 3.25rem;
   }
 }
 .navbar-blueberry .back-link {
-  display: flex;
-  align-items: center;
-  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .navbar-blueberry .back-link span {
   font-size: 0.875rem;
-  visibility: hidden;
+  font-weight: bold;
 }
 .navbar-blueberry .navbar-buy-button {
   display: none;
@@ -8511,6 +8516,12 @@ body {
 }
 .navbar-blueberry .navbar-brand .logo-text {
   display: none;
+}
+@media (min-width: 992px) {
+  .navbar-blueberry .navbar-brand {
+    max-width: auto;
+    overflow-x: visible;
+  }
 }
 .navbar-blueberry .navbar-toggler {
   border-width: 0;
@@ -8527,10 +8538,14 @@ body {
 .navbar-blueberry .navbar-toggler:hover svg {
   fill: #007CC2;
 }
-@media (max-width: 767.98px) {
+.navbar-blueberry .navbar-nav {
+  padding-top: 1.2rem;
+  padding-bottom: 0.5rem;
+}
+@media (min-width: 992px) {
   .navbar-blueberry .navbar-nav {
-    padding-top: 1.2rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 .navbar-blueberry .nav-item-for-cart {
@@ -8552,7 +8567,7 @@ body {
 .navbar-blueberry .navbar-nav .nav-link {
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
-  padding-left: 3rem;
+  padding-left: 2.75rem;
   color: #212B36;
   text-decoration: underline;
 }
@@ -8571,21 +8586,24 @@ body {
 .navbar-blueberry .navbar-nav .nav-link:hover {
   color: #007CC2;
 }
-@media (min-width: 576px) {
-  .navbar-blueberry .navbar-nav .nav-link {
-    padding-left: 3rem;
-  }
-}
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-blueberry .navbar-nav .nav-link {
     padding-left: 3.95rem;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navbar-blueberry .navbar-nav .nav-link {
     font-weight: bold;
     margin-left: 3rem;
     padding-left: 0.5rem;
+  }
+}
+.navbar-blueberry .navbar-nav .nav-link .icon-for-nav {
+  margin-left: -2.1rem;
+}
+@media (min-width: 992px) {
+  .navbar-blueberry .navbar-nav .nav-link .icon-for-nav {
+    margin-left: 0;
   }
 }
 @media (min-width: 992px) {
@@ -8599,8 +8617,7 @@ body {
     color: white;
   }
 }
-
-.fixed-top {
+.navbar-blueberry.fixed-top {
   z-index: 9;
 }
 
@@ -8664,27 +8681,11 @@ body {
   overflow: hidden;
 }
 .card-blueberry a.img-wrapper {
-  display: block;
-  height: 160px;
+  display: flex;
   overflow: hidden;
 }
 .card-blueberry a.img-wrapper img {
   transition: all 0.3s ease-in-out;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center center;
-     object-position: center center;
-  height: 160px;
-}
-@media (min-width: 768px) {
-  .card-blueberry a.img-wrapper.release-height-md {
-    height: auto;
-  }
-}
-@media (min-width: 768px) and (min-width: 768px) {
-  .card-blueberry a.img-wrapper.release-height-md img {
-    height: auto;
-  }
 }
 .card-blueberry a.img-wrapper:hover img {
   transform: scale(1.05);
@@ -8710,7 +8711,7 @@ body {
 }
 .card-blueberry .card-title-price {
   background-color: #dee2e6;
-  padding: 0.3rem 1.2rem 0.3rem 0.5rem;
+  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
   border-top-left-radius: 0.3rem;
   border-bottom-left-radius: 0.3rem;
   border-top-right-radius: 0.1rem;
@@ -8718,6 +8719,11 @@ body {
   position: relative;
   white-space: nowrap;
   font-weight: bold;
+}
+@media (min-width: 576px) {
+  .card-blueberry .card-title-price {
+    padding-right: 1.2rem;
+  }
 }
 .card-blueberry .card-title-price:before {
   content: "";
@@ -8730,17 +8736,19 @@ body {
   border-left-color: #dee2e6;
   border-width: 1rem 0 1rem 0.7rem;
 }
-.card-blueberry .card-title-price:after {
-  content: "";
-  position: absolute;
-  background-color: white;
-  top: 50%;
-  right: 0.2rem;
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 0.2rem;
-  margin-top: -0.2rem;
-  margin-left: -0.2rem;
+@media (min-width: 576px) {
+  .card-blueberry .card-title-price:after {
+    content: "";
+    position: absolute;
+    background-color: white;
+    top: 50%;
+    right: 0.2rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 0.2rem;
+    margin-top: -0.2rem;
+    margin-left: -0.2rem;
+  }
 }
 .card-blueberry .card-title-price sup {
   font-size: 60%;
@@ -8799,7 +8807,7 @@ button:focus {
 .form-control::placeholder {
   color: #97aabf;
 }
-.form-control:invalid { /* &.invalid, */
+.form-control.invalid {
   border-color: #f11a22;
   box-shadow: 0 2px 4px 0 rgba(241, 26, 34, 0.2);
 }
@@ -10622,11 +10630,6 @@ button:focus {
   padding: 0 0 0 15px;
 }
 
-html,
-body {
-  overflow-x: hidden;
-}
-
 .section-intro .section-intro-mobile-bg {
   background-image: url(/img/bmw-windshield-banner-on-5series-e39-sm.jpg);
   background-size: cover;
@@ -10793,6 +10796,9 @@ body {
 }
 #post-content p {
   margin-bottom: 1em;
+}
+#post-content blockquote p {
+  margin-bottom: 0;
 }
 
 .content-image {
@@ -11122,11 +11128,6 @@ svg {
   height: 1.25rem;
   width: auto;
 }
-@media (max-width: 767.98px) {
-  .icon-xs.icon-for-nav {
-    margin-left: -2.1rem;
-  }
-}
 
 .icon-sm svg, .icon-sm img {
   height: 1.75rem;
@@ -11423,11 +11424,14 @@ body {
   --bgColor-alt: white;
 }
 
-/* 
- PETR STEPANOV: 
+/*
+ PETR STEPANOV:
  CSS taken from: https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.css
+
  Below we remove remove font loading
  @import "https://fonts.bunny.net/css?family=Montserrat:300,500|Open+Sans:300,600";
+
+ Commment out checkmark SVG: checkmark.svg
 */
 .snipcart {
   font-family: Open Sans, sans-serif;
@@ -13128,19 +13132,18 @@ body {
   border: none;
 }
 
-.snipcart-subscription-details__plan .snipcart-form-radio.snipcart-form-radio--checked + .snipcart-form__label:after {
-  content: url(/themes/v3.6.1/default/assets/icons/checkmark.svg);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  z-index: 99;
-  position: absolute;
-  left: -3px;
-  top: -3px;
-  width: 24px;
-  height: 24px;
-  border: none;
-}
-
+/* .snipcart-subscription-details__plan .snipcart-form-radio.snipcart-form-radio--checked+.snipcart-form__label:after {
+    content: url(/themes/v3.6.1/default/assets/icons/checkmark.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    z-index: 99;
+    position: absolute;
+    left: -3px;
+    top: -3px;
+    width: 24px;
+    height: 24px;
+    border: none
+} */
 .snipcart-subscription-details {
   max-width: 640px;
   margin-left: auto;
@@ -15682,18 +15685,17 @@ body {
   box-shadow: var(--shadow-input-checked, none);
 }
 
-.snipcart-form-radio:checked + label:after {
-  content: url(/themes/v3.6.1/default/assets/icons/checkmark.svg);
-  background-repeat: no-repeat;
-  background-position: 50%;
-  z-index: 99;
-  position: absolute;
-  left: -2px;
-  width: 24px;
-  height: 24px;
-  border: none;
-}
-
+/* .snipcart-form-radio:checked+label:after {
+    content: url(/themes/v3.6.1/default/assets/icons/checkmark.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    z-index: 99;
+    position: absolute;
+    left: -2px;
+    width: 24px;
+    height: 24px;
+    border: none
+} */
 .snipcart-textarea {
   padding: 8px;
 }

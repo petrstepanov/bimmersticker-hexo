@@ -2,7 +2,7 @@
   <div class="position-sticky">
     <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
     <% if(productIndex >= 0){ %>
-      <% var product = Object.assign({}, site.data.product_list[productIndex]); %>      
+      <% var product = Object.assign({}, site.data.product_list[productIndex]); %>
       <%- partial('partial/item-navbar', {product: product}) %>
       <div class="container">
         <div class="row">
@@ -35,11 +35,14 @@
                 <% }); %>
               <% } %>
               <% if (is_custom(product)){ %>
-                <div class="form-group">
-                  <input type="hidden" name="on<%- index %>" value="<%- product.customization_name %>">
-                  <label class="label-blueberry" for="customization"><%- product.customization_name %></label>
-                  <input type="text" name="os<%- index %>" class="form-control" required placeholder="<%- product.customization_placeholder %>" maxlength="200"/>
-                </div>
+                <% var customFields = get_custom_fields(product); %>
+                <% for (obj of customFields) { %>
+                  <div class="form-group">
+                    <input type="hidden" name="on<%- index %>" value="<%- obj.name %>">
+                    <label class="label-blueberry" for="customization"><%- obj.name %></label>
+                    <input type="text" name="os<%- index %>" class="form-control" required placeholder="<%- obj.placeholder %>" maxlength="200"/>
+                  </div>
+                <% } %>
               <% } %>
               <input type="hidden" name="encrypted" value="<%- product.paypal_hidden %>">
               <div class="mt-3 js--init-content-buy-button">
@@ -68,7 +71,7 @@
         </div>
       </div>
       <img width="960" height="63" class="w-100 h-auto mt-2 d-lg-none" alt="aside section shape" src="<%- partial('data-uri/wave-aside') %>" />
-      <%- partial('schema/product', {product: product}) %>      
+      <%- partial('schema/product', {product: product}) %>
     <% } %>
   </div>
 </div>

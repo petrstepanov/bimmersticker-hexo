@@ -1,4 +1,5 @@
 html,
 body {
-    overflow-x: hidden;
-} 
+    // Breaks sticky position in posts
+    // overflow-x: hidden;
+}

@@ -6,7 +6,7 @@
   data-item-image="<%- get_pathname(product.image_link) %>"
   data-item-name="<%- product.title %>"
   data-item-weight="<%- oz_to_g(product.shipping_weight) %>"
-  
+
   <% var i=1; %>
   <% if (has_variations(product)){ %>
     <% var variations = get_variations(product); %>
@@ -14,14 +14,17 @@
       <% var options = []; %>
       <% values.forEach(value => { %>
         <% var variation = parse_variation_value(value); %>
-        <% var vaiationSnipcartString = variation.extra != 0 ? variation.value + "[+" + variation.extra + "]" : variation.value; %>
-        <% options.push(vaiationSnipcartString); %>
+        <% var variationSnipcartString = variation.extra != 0 ? variation.value + "[+" + variation.extra + "]" : variation.value; %>
+        <% options.push(variationSnipcartString); %>
       <% });%>
       data-item-custom<%- i %>-name="<%- capitalize(key) %>"
-      data-item-custom<%- i++ %>-options="<%- options.join("|") %>" 
+      data-item-custom<%- i++ %>-options="<%- options.join("|") %>"
     <% }); %>
-  <% } %>  
-  <% if (_.keys(product).includes('customization_name')){ %>
-    data-item-custom<%- i %>-name="<%- product.customization_name %>"
+  <% } %>
+  <% if (is_custom(product)){ %>
+    <% var customFields = get_custom_fields(product); %>
+    <% for (obj of customFields) { %>
+      data-item-custom<%- i++ %>-name="<%- obj['name'].toLowerCase() %>"
+    <% } %>
   <% } %>
 >Add to cart</button>

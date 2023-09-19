@@ -11,7 +11,7 @@ categories:
 - Banners
 ebay_url: https://www.ebay.com/itm/192785163047
 etsy_url: https://www.etsy.com/listing/687741173/street-fighter-windshield-banner
-col_class: col-6 col-lg-6 col-xl-4
+col_class: col-6 col-lg-4
 product_id: ST_WSHIELD_SF
 ---
 

@@ -11,7 +11,7 @@ description: Buy bimmer4life windshield banner designed for BMW cars. Sticker ma
 categories:
 - Banners
 ebay_url: https://www.ebay.com/itm/192488242165
-col_class: col-6 col-lg-6 col-xl-4
+col_class: col-6 col-lg-4
 product_id: ST_WSHIELD_BM4L
 ---
 

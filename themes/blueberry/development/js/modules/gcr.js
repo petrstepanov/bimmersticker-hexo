@@ -8,13 +8,21 @@ function renderGoogleCustomerReviews(invoiceNumber, email, country) {
 
     // TODO: calculate estimated delivery date here
     // Not in json{}
-
+    var deliveryDays = country.localeCompare("US")?21:7;
+    var today = new Date();
+    var deliveryDate = new Date();
+    deliveryDate.setDate(today.getDate() + deliveryDays);
+    var year = 1900+deliveryDate.getYear();
+    var month = deliveryDate.getMonth() + 1;
+    var day = deliveryDate.getDate();
+    var deliveryDateString = "" + year + "-" + month + "-" + day;
     // Populate success template with JSON
     var json = {
+        'merchantID': 143612887,
         'invoiceNumber': invoiceNumber,
         'email': email,
         'country': country,
-        'deliveryDate': new Date(parseInt(((new Date()).setDate((new Date()).getDate() + (country.localeCompare("US")?21:7)).toString()))).toLocaleDateString('en-US').replaceAll('/','-')
+        'deliveryDate': deliveryDateString
     };
     nunjucks.configure({ autoescape: true });
     var template = DOM.$template.html();

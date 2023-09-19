@@ -41,18 +41,21 @@
                 <% }); %>
               <% } %>
               <% if (is_custom(product)){ %>
-                <div class="form-group">
-                  <label class="label-blueberry" for="customization"><%- product.customization_name %></label>
-                  <input id="customization" class="form-control" required placeholder="<%- product.customization_placeholder %>" />
-                </div>
-              <% } %>                          
+                <% var customFields = get_custom_fields(product); %>
+                <% for (obj of customFields) { %>
+                  <div class="form-group">
+                    <label class="label-blueberry" for="<%- obj['name'].toLowerCase() %>"><%- obj['name'] %></label>
+                    <input id="<%- obj['name'].toLowerCase() %>" class="form-control" required placeholder="<%- obj['placeholder'] %>" />
+                  </div>
+                <% } %>
+              <% } %>
               <div class="mt-3 js--init-content-buy-button">
                 <% var caption = 'Add to cart · $' + parseFloat(product.price); %>
                 <button type="submit" class="btn btn-blueberry btn-primary js--product-submit" data-base-caption="Add to cart · " data-base-price="<%- parseFloat(product.price) %>"><%- caption %></button>
                 <%- partial('partial/snipcart-button', {product: product, caption: caption}) %>
               </div>
             </form>
-            <dl class="mt-4  sticker-properties clearfix">
+            <dl class="mt-4 sticker-properties clearfix">
               <% if (product.material){ %>
                 <dt>Material</dt>
                 <dd><%- product.material %></dd>
@@ -84,7 +87,10 @@
       </div>
       <img width="960" height="63" class="w-100 h-auto mt-2 d-lg-none" alt="aside section shape" src="<%- partial('data-uri/wave-aside') %>" />
       <% // Write schema.org product metedata %>
-      <%- partial('schema/products-parser', {products: [product]}) %>      
+      <%- partial('schema/products-parser', {products: [product]}) %>
     <% } %>
   </div>
 </div>
+
+<!-- Interactive back button -->
+<%- partial('partial/interactive-back-button') %>
