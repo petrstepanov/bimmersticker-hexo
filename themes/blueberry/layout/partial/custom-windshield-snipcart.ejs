@@ -1,5 +1,4 @@
 <%- partial('partial/navbar') %>
-
 <%
 	// Select products with ids containing "ST_CAR_W_"
 	const allProducts = site.data.product_list;
@@ -48,16 +47,17 @@
 					</p>
 					<div class="row justify-content-center">
 						<% var i = 0; %>
-						<% for (var product in products) { %>
+						<% for (const product of products) { %>
+
 						<div class="col-12 col-sm-6 col-md-3">
 							<label class="label-custom row align-items-center justify-content-center">
 								<span class="d-block col-4 col-sm-8 col-md-12">
-									<input class="invisible" type="radio" name="product" value="<%= products[product].id %>" <%= i++ == 0 ? 'checked' : ''; %> />
+									<input class="invisible" type="radio" name="product" value="<%= product.id %>" <%= i++ == 0 ? 'checked' : ''; %> />
 									<span class="d-block input-image">
 										<%
 										var image = "";
 										var alt = "";
-										switch(products[product].id){
+										switch(product.id){
 											case "ST_CAR_W_BANNER":
 												image = "/custom-windshield-banner-sun-strip/index/product-type-banner";
 												alt = "car with windshield banner";
@@ -87,7 +87,7 @@
 								<span class="d-block col-8 col-sm-12">
 									<span class="d-block mt-3 text-xs-left text-sm-center"><%
 										var heading = "";
-										switch(products[product].id){
+										switch(product.id){
 											case "ST_CAR_W_BANNER":
 												heading = "Windshield Banner";
 												break;
@@ -101,13 +101,13 @@
 												heading = "Text Sun Strip";
 												break;
 										}
-									%><%- heading %> • <strong>$<%= parseFloat(products[product].price) %>+</strong>
+									%><%- heading %> <span class="d-md-none">• </span><strong>$<%= parseFloat(product.price) %>+</strong>
 									</span>
 									<span class="d-block text-xs-left text-sm-center line-height-13">
 										<small class="text-muted">
 											<%
 												var description = "";
-												switch(products[product].id){
+												switch(product.id){
 													case "ST_CAR_W_BANNER":
 														description = "Place it on top or bottom.";
 														break;
@@ -123,7 +123,7 @@
 												}
 											%>
 											<%- description %>
-											<br class="d-none d-lg-inline" />Size is <%- products[product].id == "ST_CAR_W_BANNER" ? "about" : "" %> <%= products[product].size %>
+											<br class="d-none d-lg-inline" />Size is <%- product.id == "ST_CAR_W_BANNER" ? "about" : "" %> <%= product.size %>
 										</small>
 									</span>
 								</span>
@@ -146,27 +146,27 @@
 						<div class="row align-items-center js--font-container-list pt-2">
 							<% i = 0; %>
 							<% // var query = '?s={"size":72,"text":"Your Banner","retina":false}'; %>
-							<% for (var font in site.data.fonts){ %>
-							<div class="col-12 col-lg-6">
-								<label class="label-custom d-flex align-items-center">
-									<input class="invisible" type="radio" name="font" value="<%= site.data.fonts[font].name %>" <%= i++ == 0 ? 'checked' : ''; %> />
-									<span class="input-radio flex-shrink-0 mr-3"></span>
-									<span class="d-block flex-grow-1">
-										<% var dataSrc = site.data.fonts[font].url; %>
-										<% dataSrc = dataSrc.replace('https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/', '/font/'); %>
-										<% // var src = encodeURI(url + query); %>
-										<% var src = '/img/banner-previews/your-banner-' + font; %>
+							<% for (const font of site.data.fonts){ %>
+								<div class="col-12 col-lg-6">
+									<label class="label-custom d-flex align-items-center">
+										<input class="invisible" type="radio" name="font" value="<%= font.name %>" <%= i++ == 0 ? 'checked' : ''; %> />
+										<span class="input-radio flex-shrink-0 mr-3"></span>
+										<span class="d-block flex-grow-1">
+											<% var dataSrc = font.url; %>
+											<% dataSrc = dataSrc.replace('https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/', '/font/'); %>
+											<% // var src = encodeURI(url + query); %>
+											<% var src = '/img/banner-previews/your-banner-' + font.id; %>
 
-										<picture class="mt-3 d-inline-block">
-											<!--This is the optional AVIF image-->
-											<source type="image/avif" srcset="<%- src %>.avif" class="js--font-avif" />
-											<!--This is the fallback JPEG image-->
-											<img width="<%- site.data.fonts[font].preview_width %>" height="<%- site.data.fonts[font].preview_height %>" data-src="<%- dataSrc %>" alt="Preview your text in <%- font %> font" class="font-image js--font-image" src="<%- src %>.png" />
-										</picture>
-										<span class="d-block mt-2 mb-0"><%- site.data.fonts[font].name %></span>
-									</span>
-								</label>
-							</div>
+											<picture class="mt-3 d-inline-block">
+												<!--This is the optional AVIF image-->
+												<source type="image/avif" srcset="<%- src %>.avif" class="js--font-avif" />
+												<!--This is the fallback JPEG image-->
+												<img width="<%- font.preview_width %>" height="<%- font.preview_height %>" data-src="<%- dataSrc %>" alt="Preview your text in <%- font.name %> font" class="font-image js--font-image" src="<%- src %>.png" />
+											</picture>
+											<span class="d-block mt-2 mb-0"><%- font.name %></span>
+										</span>
+									</label>
+								</div>
 							<% } %>
 						</div>
 					</div>
@@ -175,21 +175,21 @@
 						<div class=frame-name-container><span class="frame-name">Text layer color</span></div>
 						<div class="d-flex flex-wrap justify-content-center">
 							<% i=0; %>
-							<% for (var color in site.data.colors_text){ %>
-							<label class="label-custom d-flex flex-column align-items-center px-2 mx-1">
-								<input class="invisible" type="radio" name="color_text" value="<%= site.data.colors_text[color].name %>" <%= i++ == 0 ? 'checked' : ''; %> />
-								<div class="input-image">
-									<% var style = site.data.colors_text[color].hex ? 'background-color: ' + site.data.colors_text[color].hex + ';': ''; %>
-									<% style += site.data.colors_text[color].image ? 'background-image: url(' + site.data.colors_text[color].image + ');' : ''; %>
-									<div class="color-swatch" style="<%- style %>"></div>
-								</div>
-								<p class="mt-2">
-									<%- site.data.colors_text[color].name %>
-									<% if (site.data.colors_text[color].extra) { %>
-										<strong>+$<%- site.data.colors_text[color].extra %></strong>
-									<% } %>
-								</p>
-							</label>
+							<% for (const color of site.data.colors_text){ %>
+								<label class="label-custom d-flex flex-column align-items-center px-2 mx-1">
+									<input class="invisible" type="radio" name="color_text" value="<%= color.name %>" <%= i++ == 0 ? 'checked' : ''; %> />
+									<div class="input-image">
+										<% var style = color.hex ? 'background-color: ' + color.hex + ';': ''; %>
+										<% style += color.image ? 'background-image: url(' + color.image + ');' : ''; %>
+										<div class="color-swatch" style="<%- style %>"></div>
+									</div>
+									<p class="mt-2">
+										<%- color.name %>
+										<% if (color.extra) { %>
+											<strong>+$<%- color.extra %></strong>
+										<% } %>
+									</p>
+								</label>
 							<% } %>
 						</div>
 					</div>
@@ -197,28 +197,28 @@
 						<div class=frame-name-container><span class="frame-name">Sun strip base color</span></div>
 						<div class="d-flex flex-wrap justify-content-center">
 							<% i=0; %>
-							<% for (var color in site.data.colors_strip){ %>
-							<label class="label-custom d-flex flex-column align-items-center px-2 mx-1">
-								<input class="invisible flex-shrink-0" disabled type="radio" name="color_base" value="<%= site.data.colors_strip[color].name %>" <%= i++ == 0 ? 'checked' : ''; %> />
-								<div class="input-image">
-									<% var style = site.data.colors_strip[color].hex ? 'background-color: ' + site.data.colors_strip[color].hex + ';': ''; %>
-									<% style += site.data.colors_strip[color].image ? 'background-image: url(' + site.data.colors_strip[color].image + ');' : ''; %>
-									<div class="color-swatch" style="<%- style %>"></div>
-								</div>
-								<p class="mt-2">
-									<%- site.data.colors_strip[color].name %>
-									<% if (site.data.colors_strip[color].extra) { %>
-										<strong>+$<%- site.data.colors_strip[color].extra %></strong>
-									<% } %>
-								</p>
-							</label>
+							<% for (const color of site.data.colors_strip){ %>
+								<label class="label-custom d-flex flex-column align-items-center px-2 mx-1">
+									<input class="invisible flex-shrink-0" disabled type="radio" name="color_base" value="<%= color.name %>" <%= i++ == 0 ? 'checked' : ''; %> />
+									<div class="input-image">
+										<% var style = color.hex ? 'background-color: ' + color.hex + ';': ''; %>
+										<% style += color.image ? 'background-image: url(' + color.image + ');' : ''; %>
+										<div class="color-swatch" style="<%- style %>"></div>
+									</div>
+									<p class="mt-2">
+										<%- color.name %>
+										<% if (color.extra) { %>
+											<strong>+$<%- color.extra %></strong>
+										<% } %>
+									</p>
+								</label>
 							<% } %>
 						</div>
 					</div>
 					<h2 class="text-center mt-4 mb-3">Preview</h2>
 					<div class="row justify-content-center mb-4 js--text-width">
 						<p class="col col-md-8 text-muted text-center">
-							Depending on the font used the width of the text is 20 to 30 inches.<br class="d-none d-sm-inline"/> If you want to specify the exact width, please <a href="mailto:<%- theme.email %>">send us an email</a> after you checkout.
+							Depending on the font used the width of the text is 20 to 30 inches.<br class="d-none d-sm-inline d-md-none d-lg-inline"/> If you want to specify the exact width, please <a href="mailto:<%- theme.email %>">send us an email</a> after you checkout.
 						</p>
 					</div>
 					<div class="row justify-content-center mb-4">
@@ -305,7 +305,7 @@
 									<% var i=1; %>
 
 									<% // Custom text %>
-									<% if (_.keys(product).includes('customization_name')){ %>
+									<% if (Object.keys(product).includes('customization_name')){ %>
 										data-item-custom<%- i %>-name="<%- product.customization_name %>"
 										<% i++; %>
 									<% } %>
@@ -315,9 +315,9 @@
 										data-item-custom<%- i %>-name="Font"
 										<%
 											var fontNames = [];
-											_.forEach(site.data.fonts, function(value, key) {
-												fontNames.push(value.name);
-											});
+											for (const font of site.data.fonts) {
+												fontNames.push(font.name);
+											};
 										%>
 										data-item-custom<%- i %>-options="<%- fontNames.join('|') %>"
 										<% i++; %>
@@ -329,16 +329,14 @@
 										data-item-custom<%- i %>-name="Text color"
 										<%
 											var colorTextNames = [];
-											_.forEach(site.data.colors_text, function(value, key) {
-												var color = value.name;
+											for (const color of site.data.colors_text){
+												var string = color.name;
 												// Add [+9.99]
-												if (value.extra){
-													color += '[+';
-													color += value.extra;
-													color += ']';
+												if (color.extra){
+													string += '[+' + color.extra + ']';
 												}
-												colorTextNames.push(color);
-											});
+												colorTextNames.push(string);
+											};
 										%>
 										data-item-custom<%- i %>-options="<%- colorTextNames.join('|') %>"
 										<% i++; %>
@@ -349,16 +347,16 @@
 										data-item-custom<%- i %>-name="Base color"
 										<%
 											var colorBackgroundNames = [];
-											_.forEach(site.data.colors_strip, function(value, key) {
-												var color = value.name;
+											for(const color of site.data.colors_strip) {
+												var string = color.name;
 												// Add [+9.99]
-												if (value.extra){
-													color += '[+';
-													color += value.extra;
-													color += ']';
+												if (color.extra){
+													string += '[+';
+													string += color.extra;
+													string += ']';
 												}
-												colorBackgroundNames.push(color);
-											});
+												colorBackgroundNames.push(string);
+											};
 										%>
 										data-item-custom<%- i %>-options="<%- colorBackgroundNames.join('|') %>"
 										<% i++; %>
@@ -384,11 +382,13 @@
 				<h2 class="text-center my-4">You might also like</h2>
 				<div class="row justify-content-center">
 					<%
-						var featuredProductIds = ['ST_SOCIAL_SC','ST_SOCIAL_FB', 'ST_SOCIAL_YT', 'ST_SOCIAL_IG'];
-						var featuredProducts = _.map(site.data.product_list, function(o) {
-							if (featuredProductIds.includes(o.id)) return o;
-						});
-						featuredProducts = _.without(featuredProducts, undefined);
+						var featuredProductIds = ['ST_SOCIAL_SC','ST_SOCIAL_FB', 'KEY_VIN', 'ST_SOCIAL_IG'];
+						var featuredProducts = [];
+						for (const product of site.data.product_list){
+							if (featuredProductIds.includes(product.id)){
+								featuredProducts.push(product)
+							}
+						}
 					%>
 					<% for (var product of featuredProducts){ %>
 						<div class="col-6 col-sm-4 col-md-3 text-center">

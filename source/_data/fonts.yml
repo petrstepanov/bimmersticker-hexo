@@ -1,34 +1,34 @@
-knight:
+- id: knight
   name: Knight
   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/2029047/0/14
   preview_width: 293
   preview_height: 56
-ulises:
+- id: ulises
   name: Ulises
   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/1634213/4/14
   preview_width: 465
   preview_height: 54
-mentari:
+- id: mentari
   name: Mentari
   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/2347347/0/14
   preview_width: 281
   preview_height: 65
-marsek:
+- id: marsek
   name: Marsek
   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/2635820/2/14
   preview_width: 637
   preview_height: 54
-lakeshore:
+- id: lakeshore
   name: Lakeshore
   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/1405515/0/14
   preview_width: 276
   preview_height: 54
-greycliff:
+- id: greycliff
   name: "Greycliff Heavy"
   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/674046/45/14
   preview_width: 398
   preview_height: 54
-quincy:
+- id: quincy
   name: "Quincy Black"
   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/144395/37/14
   preview_width: 425
@@ -36,33 +36,33 @@ quincy:
 #heritage:
 #  name: Heritage
 #  url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/908638/8/14
-plicata:
+- id: plicata
   name: "Plicata"
   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/940855/0/14
   preview_width: 415
   preview_height: 63
 # bison:
-#   name: Bison 
+#   name: Bison
 #   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/2361604/4/9
 # tokyo:
 #   name: Tokyo Outline
 #   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/1288819/6/14
-bourton:
+- id: bourton
   name: "Bourton Outline"
   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/1222578/42/14
   preview_width: 431
   preview_height: 52
-empera:
-  name: Empera 
+- id: empera
+  name: Empera
   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/1770556/8/14
   preview_width: 378
   preview_height: 54
-argon:
+- id: argon
   name: Argon
   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/443290/0/14
   preview_width: 474
   preview_height: 52
-aurora:
+- id: aurora
   name: "Aurora Script"
   url: https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/1402900/1/14
   preview_width: 465

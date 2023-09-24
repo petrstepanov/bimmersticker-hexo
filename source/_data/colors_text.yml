@@ -1,47 +1,47 @@
-white:
+- id: white
   hex: "#EFEFEF"
   image: /images/swatches/glare.svg
   name: "White"
-matte_black:
+- id: matte_black
   hex: "#2D2D2D"
   name: "Matte black"
-black:
+- id: black
   hex: "#000000"
   image: /images/swatches/glare.svg
   name: "Glossy black"
-mint:
+- id: mint
   hex: "#5EC4B7"
   image: /images/swatches/glare.svg
   name: "Glossy mint"
-orange:
+- id: orange
   hex: "#DA6831"
   image: /images/swatches/glare.svg
-  name: "Glossy orange"  
-pink:
+  name: "Glossy orange"
+- id: pink
   hex: "#F6A6BF"
   image: /images/swatches/glare.svg
   name: "Glossy pink"
-red:
+- id: red
   hex: "#DA3731"
   image: /images/swatches/glare.svg
   name: "Glossy red"
-blue:
+- id: blue
   hex: "#3991c4"
   image: /images/swatches/glare.svg
-  name: "Glossy blue"  
-silver:
+  name: "Glossy blue"
+- id: silver
   image: /images/swatches/silver.svg
   name: "Silver"
   extra: 9.99
-gold:
+- id: gold
   image: /images/swatches/gold.svg
   name: "Gold"
   extra: 9.99
-oilslick:
+- id: oilslick
   image: /images/swatches/oilslick.svg
   name: "Rainbow"
   extra: 9.99
 
 
 
-  
+
