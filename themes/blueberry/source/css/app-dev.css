@@ -11011,7 +11011,7 @@ footer .payment-icon {
   position: absolute;
   left: 30%;
   right: 30%;
-  top: 23%;
+  top: 22%;
   height: 10%;
   -webkit-mask-image: url(/img/banner-previews/your-banner-knight.png);
           mask-image: url(/img/banner-previews/your-banner-knight.png);
@@ -11028,12 +11028,22 @@ footer .payment-icon {
   transform: perspective(400px) rotateX(30deg);
   border: 1px solid #6C6C6C;
 }
+@media (min-width: 576px) {
+  .car-preview-container .banner-text {
+    top: 20%;
+  }
+}
+@media (min-width: 992px) {
+  .car-preview-container .banner-text {
+    top: 21%;
+  }
+}
 .car-preview-container .sunstrip {
   display: none;
   position: absolute;
-  top: 5%;
-  left: 16.4%;
-  right: 16.4%;
+  top: 4.5%;
+  left: 16%;
+  right: 16%;
   height: 14%;
   -webkit-mask-image: url(/custom-windshield-banner-sun-strip/index/banner.svg);
           mask-image: url(/custom-windshield-banner-sun-strip/index/banner.svg);
@@ -11048,12 +11058,18 @@ footer .payment-icon {
   background-position: center center;
   background-repeat: no-repeat;
 }
+@media (min-width: 992px) {
+  .car-preview-container .sunstrip {
+    left: 16.8%;
+    right: 16.8%;
+  }
+}
 .car-preview-container .sunstrip-text {
   display: none;
   position: absolute;
   left: 30%;
   right: 30%;
-  top: 6.5%;
+  top: 5.4%;
   height: 8%;
   -webkit-mask-image: url(/img/banner-previews/your-banner-knight.png);
           mask-image: url(/img/banner-previews/your-banner-knight.png);
@@ -11083,8 +11099,8 @@ footer .payment-icon {
 }
 
 .truck-container {
-  margin-left: -10vw;
-  margin-right: -10vw;
+  margin-left: -11vw;
+  margin-right: -11vw;
   padding-left: 15px;
   padding-right: 15px;
 }
