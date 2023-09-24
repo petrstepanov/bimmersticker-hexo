@@ -2,16 +2,14 @@
 
 <%
 	// Select products with ids containing "ST_CAR_W_"
-	var products = _.map(site.data.product_list, function(o) {
-		if (o.id.includes("ST_CAR_W_")){
-			// Important - clone object because we will modify them later.
-			var clonedObj = Object.assign({}, o);
-			return clonedObj;
+	const allProducts = site.data.product_list;
+	var products = [];
+	for (product of allProducts){
+		if (product.id.includes("ST_CAR_W_")){
+			var clonedProduct = Object.assign({}, product);
+			products.push(clonedProduct);
 		}
-	});
-
-	// Remove undefines from the array
-	products = _.without(products, undefined);
+	}
 %>
 <!-- hidden overflow-x here for the truck image to not go out of bounds -->
 <div style="overflow-x: hidden">
