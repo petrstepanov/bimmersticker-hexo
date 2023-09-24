@@ -14,395 +14,397 @@
 	products = _.without(products, undefined);
 %>
 <!-- hidden overflow-x here for the truck image to not go out of bounds -->
-<div class="container spacer-footer" style="overflow-x: hidden">
-	<div class="row">
-		<div class="col js-container">
-			<div class="row justify-content-center">
-				<div class="col col-md-11 col-lg-10">
-					<h1 class="display-4 font-handwritten text-center mt-5 mb-4">Custom Sun Strips and Windshield Banners</h1>
-					<p class="text-muted text-center mb-4">
-						Use our interactive tool to create a custom <a href="/what-is-a-car-windshield-banner/">windshield banner or sun strip</a> for your car or truck. Please refer to our Instagram to see <a href="<%- theme.instagram_url %>"> some examples of banners</a> we make. Get familiar with the <a href="/how-to-apply-windsheild-banner-on-a-car/">installation instructions here</a>.
-					</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-12 col-sm-6 col-xl-5 col-xl-5 text-center">
-					<div class="icon-xxl mt-sm-1 mb-lg-2"><%- partial('icons/icon-car.svg') %></div>
-					<p class="mb-3">
-						Windshield banners and sun strips will <strong>fit any vehicle make, model and body style</strong>.
-					</p>
-				</div>
-				<div class="col-12 col-sm-6 col-xl-5 offset-xl-1 text-center">
-					<div class="icon-xxl mt-sm-1 mb-lg-2"><%- partial('icons/icon-windshield.svg') %></div>
-					<p class="mb-3 mb-lg-0">
-						Products are made from <strong>opaque adhesive vinyls</strong> and <strong>placed on the outside of the windshield</strong>.
-					</p>
-				</div>
-			</div>
-			<form autocomplete="off" class="js--windshield-form-snipcart" name="windshield" method="POST" data-netlify="true" action="/form-error-banners/index.html">
-				<!-- autocomplete="off" because of Firefox radio buttons bug -->
-				<!-- https://stackoverflow.com/questions/7988729/firefox-remembering-radio-buttons-incorrectly -->
-
-				<h2 class="text-center mt-4 mb-3">What type of product are you looking for?</h2>
-				<p class="text-muted text-center mb-4">
-					Please tap on the specific product below that you are interested in.
-				</p>
+<div style="overflow-x: hidden">
+	<div class="container spacer-footer">
+		<div class="row">
+			<div class="col js-container">
 				<div class="row justify-content-center">
-					<% var i = 0; %>
-					<% for (var product in products) { %>
-					<div class="col-12 col-sm-6 col-md-3">
-						<label class="label-custom row align-items-center justify-content-center">
-							<span class="d-block col-4 col-sm-8 col-md-12">
-								<input class="invisible" type="radio" name="product" value="<%= products[product].id %>" <%= i++ == 0 ? 'checked' : ''; %> />
-								<span class="d-block input-image">
-									<%
-									var image = "";
-									var alt = "";
-									switch(products[product].id){
-										case "ST_CAR_W_BANNER":
-											image = "/custom-windshield-banner-sun-strip/index/product-type-banner";
-											alt = "car with windshield banner";
-											break;
-										case "ST_CAR_W_SS":
-											image = "/custom-windshield-banner-sun-strip/index/product-type-sunstrip";
-											alt = "car with a plain color sun strip";
-											break;
-										case "ST_CAR_W_SS_CUT":
-											image = "/custom-windshield-banner-sun-strip/index/product-type-cut-sunstrip";
-											alt = "car with a reverse cut sun strip";
-											break;
-										case "ST_CAR_W_SS_TEXT":
-											image = "/custom-windshield-banner-sun-strip/index/product-type-text-sunstrip";
-											alt = "car with a sun strip with custom text";
-											break;
-									}
-									%>
-									<picture>
-										<!--This is the optional AVIF image-->
-										<source type="image/avif" srcset="<%- image %>.avif" />
-										<!--This is the fallback JPEG image-->
-										<img class="w-100 h-auto" width="128" height="128" alt="<%- alt %>" src="<%- image %>.jpg" />
-									</picture>
-								</span>
-							</span>
-							<span class="d-block col-8 col-sm-12">
-								<span class="d-block mt-3 text-xs-left text-sm-center"><%
-									var heading = "";
-									switch(products[product].id){
-										case "ST_CAR_W_BANNER":
-											heading = "Windshield Banner";
-											break;
-										case "ST_CAR_W_SS":
-											heading = "Sun Strip (Visor)";
-											break;
-										case "ST_CAR_W_SS_CUT":
-											heading = "Reverse Cut Sun Strip";
-											break;
-										case "ST_CAR_W_SS_TEXT":
-											heading = "Text Sun Strip";
-											break;
-									}
-								%><%- heading %> • <strong>$<%= parseFloat(products[product].price) %>+</strong>
-								</span>
-								<span class="d-block text-xs-left text-sm-center line-height-13">
-									<small class="text-muted">
-										<%
-											var description = "";
-											switch(products[product].id){
-												case "ST_CAR_W_BANNER":
-													description = "Place it on top or bottom.";
-													break;
-												case "ST_CAR_W_SS":
-													description = "Cut it to fit the windshield.";
-													break;
-												case "ST_CAR_W_SS_CUT":
-													description = "Text is cut out of the base layer.";
-													break;
-												case "ST_CAR_W_SS_TEXT":
-													description = "Text layer on top of the color base.";
-													break;
-											}
-										%>
-										<%- description %>
-										<br class="d-none d-lg-inline" />Size is <%- products[product].id == "ST_CAR_W_BANNER" ? "about" : "" %> <%= products[product].size %>
-									</small>
-								</span>
-							</span>
-						</label>
+					<div class="col col-md-11 col-lg-10">
+						<h1 class="display-4 font-handwritten text-center mt-5 mb-4">Custom Sun Strips and Windshield Banners</h1>
+						<p class="text-muted text-center mb-4">
+							Use our interactive tool to create a custom <a href="/what-is-a-car-windshield-banner/">windshield banner or sun strip</a> for your car or truck. Please refer to our Instagram to see <a href="<%- theme.instagram_url %>"> some examples of banners</a> we make. Get familiar with the <a href="/how-to-apply-windsheild-banner-on-a-car/">installation instructions here</a>.
+						</p>
 					</div>
-					<% } %>
 				</div>
-				<div class="js--font-container">
-					<h2 class="text-center mt-4 mb-3">Type your text and select the font you like</h2>
-					<p class="text-muted text-center mb-3">
-						We will use Arial Unicode font to render hieroglyphs 謙虚で and other UTF-8 symbols.
+				<div class="row">
+					<div class="col-12 col-sm-6 col-xl-5 col-xl-5 text-center">
+						<div class="icon-xxl mt-sm-1 mb-lg-2"><%- partial('icons/icon-car.svg') %></div>
+						<p class="mb-3">
+							Windshield banners and sun strips will <strong>fit any vehicle make, model and body style</strong>.
+						</p>
+					</div>
+					<div class="col-12 col-sm-6 col-xl-5 offset-xl-1 text-center">
+						<div class="icon-xxl mt-sm-1 mb-lg-2"><%- partial('icons/icon-windshield.svg') %></div>
+						<p class="mb-3 mb-lg-0">
+							Products are made from <strong>opaque adhesive vinyls</strong> and <strong>placed on the outside of the windshield</strong>.
+						</p>
+					</div>
+				</div>
+				<form autocomplete="off" class="js--windshield-form-snipcart" name="windshield" method="POST" data-netlify="true" action="/form-error-banners/index.html">
+					<!-- autocomplete="off" because of Firefox radio buttons bug -->
+					<!-- https://stackoverflow.com/questions/7988729/firefox-remembering-radio-buttons-incorrectly -->
+
+					<h2 class="text-center mt-4 mb-3">What type of product are you looking for?</h2>
+					<p class="text-muted text-center mb-4">
+						Please tap on the specific product below that you are interested in.
 					</p>
 					<div class="row justify-content-center">
-						<div class="col col-md-8">
-							<div class="form-group mb-2">
-								<input class="form-control form-control-lg js--text-input" type="text" name="text" required placeholder="Type your text here" title="Please type your banner text here">
-							</div>
-						</div>
-					</div>
-					<div class="row align-items-center js--font-container-list pt-2">
-						<% i = 0; %>
-						<% // var query = '?s={"size":72,"text":"Your Banner","retina":false}'; %>
-						<% for (var font in site.data.fonts){ %>
-						<div class="col-12 col-lg-6">
-							<label class="label-custom d-flex align-items-center">
-								<input class="invisible" type="radio" name="font" value="<%= site.data.fonts[font].name %>" <%= i++ == 0 ? 'checked' : ''; %> />
-								<span class="input-radio flex-shrink-0 mr-3"></span>
-								<span class="d-block flex-grow-1">
-									<% var dataSrc = site.data.fonts[font].url; %>
-									<% dataSrc = dataSrc.replace('https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/', '/font/'); %>
-									<% // var src = encodeURI(url + query); %>
-									<% var src = '/img/banner-previews/your-banner-' + font; %>
-
-									<picture class="mt-3 d-inline-block">
-										<!--This is the optional AVIF image-->
-										<source type="image/avif" srcset="<%- src %>.avif" class="js--font-avif" />
-										<!--This is the fallback JPEG image-->
-										<img width="<%- site.data.fonts[font].preview_width %>" height="<%- site.data.fonts[font].preview_height %>" data-src="<%- dataSrc %>" alt="Preview your text in <%- font %> font" class="font-image js--font-image" src="<%- src %>.png" />
-									</picture>
-									<span class="d-block mt-2 mb-0"><%- site.data.fonts[font].name %></span>
+						<% var i = 0; %>
+						<% for (var product in products) { %>
+						<div class="col-12 col-sm-6 col-md-3">
+							<label class="label-custom row align-items-center justify-content-center">
+								<span class="d-block col-4 col-sm-8 col-md-12">
+									<input class="invisible" type="radio" name="product" value="<%= products[product].id %>" <%= i++ == 0 ? 'checked' : ''; %> />
+									<span class="d-block input-image">
+										<%
+										var image = "";
+										var alt = "";
+										switch(products[product].id){
+											case "ST_CAR_W_BANNER":
+												image = "/custom-windshield-banner-sun-strip/index/product-type-banner";
+												alt = "car with windshield banner";
+												break;
+											case "ST_CAR_W_SS":
+												image = "/custom-windshield-banner-sun-strip/index/product-type-sunstrip";
+												alt = "car with a plain color sun strip";
+												break;
+											case "ST_CAR_W_SS_CUT":
+												image = "/custom-windshield-banner-sun-strip/index/product-type-cut-sunstrip";
+												alt = "car with a reverse cut sun strip";
+												break;
+											case "ST_CAR_W_SS_TEXT":
+												image = "/custom-windshield-banner-sun-strip/index/product-type-text-sunstrip";
+												alt = "car with a sun strip with custom text";
+												break;
+										}
+										%>
+										<picture>
+											<!--This is the optional AVIF image-->
+											<source type="image/avif" srcset="<%- image %>.avif" />
+											<!--This is the fallback JPEG image-->
+											<img class="w-100 h-auto" width="128" height="128" alt="<%- alt %>" src="<%- image %>.jpg" />
+										</picture>
+									</span>
+								</span>
+								<span class="d-block col-8 col-sm-12">
+									<span class="d-block mt-3 text-xs-left text-sm-center"><%
+										var heading = "";
+										switch(products[product].id){
+											case "ST_CAR_W_BANNER":
+												heading = "Windshield Banner";
+												break;
+											case "ST_CAR_W_SS":
+												heading = "Sun Strip (Visor)";
+												break;
+											case "ST_CAR_W_SS_CUT":
+												heading = "Reverse Cut Sun Strip";
+												break;
+											case "ST_CAR_W_SS_TEXT":
+												heading = "Text Sun Strip";
+												break;
+										}
+									%><%- heading %> • <strong>$<%= parseFloat(products[product].price) %>+</strong>
+									</span>
+									<span class="d-block text-xs-left text-sm-center line-height-13">
+										<small class="text-muted">
+											<%
+												var description = "";
+												switch(products[product].id){
+													case "ST_CAR_W_BANNER":
+														description = "Place it on top or bottom.";
+														break;
+													case "ST_CAR_W_SS":
+														description = "Cut it to fit the windshield.";
+														break;
+													case "ST_CAR_W_SS_CUT":
+														description = "Text is cut out of the base layer.";
+														break;
+													case "ST_CAR_W_SS_TEXT":
+														description = "Text layer on top of the color base.";
+														break;
+												}
+											%>
+											<%- description %>
+											<br class="d-none d-lg-inline" />Size is <%- products[product].id == "ST_CAR_W_BANNER" ? "about" : "" %> <%= products[product].size %>
+										</small>
+									</span>
 								</span>
 							</label>
 						</div>
 						<% } %>
 					</div>
-				</div>
-				<h2 class="text-center mt-4 mb-3">Select colors</h2>
-				<div class="frame js--text-color-container">
-					<div class=frame-name-container><span class="frame-name">Text layer color</span></div>
-					<div class="d-flex flex-wrap justify-content-center">
-						<% i=0; %>
-						<% for (var color in site.data.colors_text){ %>
-						<label class="label-custom d-flex flex-column align-items-center px-2 mx-1">
-							<input class="invisible" type="radio" name="color_text" value="<%= site.data.colors_text[color].name %>" <%= i++ == 0 ? 'checked' : ''; %> />
-							<div class="input-image">
-								<% var style = site.data.colors_text[color].hex ? 'background-color: ' + site.data.colors_text[color].hex + ';': ''; %>
-								<% style += site.data.colors_text[color].image ? 'background-image: url(' + site.data.colors_text[color].image + ');' : ''; %>
-								<div class="color-swatch" style="<%- style %>"></div>
+					<div class="js--font-container">
+						<h2 class="text-center mt-4 mb-3">Type your text and select the font you like</h2>
+						<p class="text-muted text-center mb-3">
+							We will use Arial Unicode font to render hieroglyphs 謙虚で and other UTF-8 symbols.
+						</p>
+						<div class="row justify-content-center">
+							<div class="col col-md-8">
+								<div class="form-group mb-2">
+									<input class="form-control form-control-lg js--text-input" type="text" name="text" required placeholder="Type your text here" title="Please type your banner text here">
+								</div>
 							</div>
-							<p class="mt-2">
-								<%- site.data.colors_text[color].name %>
-								<% if (site.data.colors_text[color].extra) { %>
-									<strong>+$<%- site.data.colors_text[color].extra %></strong>
-								<% } %>
-							</p>
-						</label>
-						<% } %>
-					</div>
-				</div>
-				<div class="frame js--base-color-container" style="display: none">
-					<div class=frame-name-container><span class="frame-name">Sun strip base color</span></div>
-					<div class="d-flex flex-wrap justify-content-center">
-						<% i=0; %>
-						<% for (var color in site.data.colors_strip){ %>
-						<label class="label-custom d-flex flex-column align-items-center px-2 mx-1">
-							<input class="invisible flex-shrink-0" disabled type="radio" name="color_base" value="<%= site.data.colors_strip[color].name %>" <%= i++ == 0 ? 'checked' : ''; %> />
-							<div class="input-image">
-								<% var style = site.data.colors_strip[color].hex ? 'background-color: ' + site.data.colors_strip[color].hex + ';': ''; %>
-								<% style += site.data.colors_strip[color].image ? 'background-image: url(' + site.data.colors_strip[color].image + ');' : ''; %>
-								<div class="color-swatch" style="<%- style %>"></div>
-							</div>
-							<p class="mt-2">
-								<%- site.data.colors_strip[color].name %>
-								<% if (site.data.colors_strip[color].extra) { %>
-									<strong>+$<%- site.data.colors_strip[color].extra %></strong>
-								<% } %>
-							</p>
-						</label>
-						<% } %>
-					</div>
-				</div>
-				<h2 class="text-center mt-4 mb-3">Preview</h2>
-				<div class="row justify-content-center mb-4 js--text-width">
-					<p class="col col-md-8 text-muted text-center">
-						Depending on the font used the width of the text is 20 to 30 inches.<br class="d-none d-sm-inline"/> If you want to specify the exact width, please <a href="mailto:<%- theme.email %>">send us an email</a> after you checkout.
-					</p>
-				</div>
-				<div class="row justify-content-center mb-4">
-					<div class="col col-md-10 col-lg-8">
-						<div class="car-preview-container">
-							<div class="car-container">
-								<img class="w-100 h-auto car" width="440" height="296" src="index/bmw-car.svg" alt="Preview product on a regular size vehicle"/>
-							</div>
-							<div class="truck-container" style="display: none">
-								<img class="w-100 h-auto truck" width="510" height="311" src="index/truck-preview.svg" alt="Preview banner on a large truck"/>
-							</div>
-							<div class="banner-text"></div>
-							<div class="sunstrip"></div>
-							<div class="sunstrip-text"></div>
 						</div>
-					</div>
-				</div>
-				<div class="row justify-content-center">
-					<div class="col-12 col-md-10 col-lg-8">
-						<div class="form-group">
-							<label class="label-blueberry">Vehicle type</label>
-							<div class="btn-group btn-group-md btn-group-toggle w-100" data-toggle="buttons">
-								<label class="btn btn-primary btn-blueberry active">
-									<input type="radio" name="pattern" value="Regular" checked>Regular Car
-								</label>
-								<label class="btn btn-primary btn-blueberry">
-									<input type="radio" name="pattern" value="Large">Large Vehicle&nbsp;&nbsp;|&nbsp;&nbsp;
-									<% var firstProductFlag = true; %>
-									<span class="js--pattern-price-extra">
-										<% for (var product of products) {
-											var regexpExtraTruckPrice = /\+(.+)\]/gm;
-											const extraTruckPrice = regexpExtraTruckPrice.exec(product.pattern);
-											%>
-											<span class="<%- product.id %>" style="<%- firstProductFlag ? '' : 'display: none' %>">+$<%- extraTruckPrice[1] %></span>
-											<% firstProductFlag = false; %>
-										<% } %>
+						<div class="row align-items-center js--font-container-list pt-2">
+							<% i = 0; %>
+							<% // var query = '?s={"size":72,"text":"Your Banner","retina":false}'; %>
+							<% for (var font in site.data.fonts){ %>
+							<div class="col-12 col-lg-6">
+								<label class="label-custom d-flex align-items-center">
+									<input class="invisible" type="radio" name="font" value="<%= site.data.fonts[font].name %>" <%= i++ == 0 ? 'checked' : ''; %> />
+									<span class="input-radio flex-shrink-0 mr-3"></span>
+									<span class="d-block flex-grow-1">
+										<% var dataSrc = site.data.fonts[font].url; %>
+										<% dataSrc = dataSrc.replace('https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/', '/font/'); %>
+										<% // var src = encodeURI(url + query); %>
+										<% var src = '/img/banner-previews/your-banner-' + font; %>
+
+										<picture class="mt-3 d-inline-block">
+											<!--This is the optional AVIF image-->
+											<source type="image/avif" srcset="<%- src %>.avif" class="js--font-avif" />
+											<!--This is the fallback JPEG image-->
+											<img width="<%- site.data.fonts[font].preview_width %>" height="<%- site.data.fonts[font].preview_height %>" data-src="<%- dataSrc %>" alt="Preview your text in <%- font %> font" class="font-image js--font-image" src="<%- src %>.png" />
+										</picture>
+										<span class="d-block mt-2 mb-0"><%- site.data.fonts[font].name %></span>
 									</span>
 								</label>
 							</div>
-							<p class="js--notice-car text-muted text-center mt-2 mb-3">
-								Regular size cars include all sedans, wagons, smaller SUVs and mini trucks.
-							</p>
-							<p class="js--notice-truck text-muted text-center mt-2 mb-3" style="display: none">
-								For cars with wider windshields such as large SUVs (Escallade), heavy duty trucks (Ford F-150) and similar. Windshield banners for larger cars require more material and special geometry.
-							</p>
+							<% } %>
 						</div>
-						<div class="form-group">
-							<label class="label-blueberry" for="inputQuantity">How many items you need?</label>
-							<div class="input-group js--init-integer-input">
-								<div class="input-group-prepend">
-									<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
+					</div>
+					<h2 class="text-center mt-4 mb-3">Select colors</h2>
+					<div class="frame js--text-color-container">
+						<div class=frame-name-container><span class="frame-name">Text layer color</span></div>
+						<div class="d-flex flex-wrap justify-content-center">
+							<% i=0; %>
+							<% for (var color in site.data.colors_text){ %>
+							<label class="label-custom d-flex flex-column align-items-center px-2 mx-1">
+								<input class="invisible" type="radio" name="color_text" value="<%= site.data.colors_text[color].name %>" <%= i++ == 0 ? 'checked' : ''; %> />
+								<div class="input-image">
+									<% var style = site.data.colors_text[color].hex ? 'background-color: ' + site.data.colors_text[color].hex + ';': ''; %>
+									<% style += site.data.colors_text[color].image ? 'background-image: url(' + site.data.colors_text[color].image + ');' : ''; %>
+									<div class="color-swatch" style="<%- style %>"></div>
 								</div>
-								<input name="quantity" type="number" class="form-control js--input text-center hide-arrows" id="inputQuantity" value="1" min="1" max="999">
-								<div class="input-group-append">
-									<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
+								<p class="mt-2">
+									<%- site.data.colors_text[color].name %>
+									<% if (site.data.colors_text[color].extra) { %>
+										<strong>+$<%- site.data.colors_text[color].extra %></strong>
+									<% } %>
+								</p>
+							</label>
+							<% } %>
+						</div>
+					</div>
+					<div class="frame js--base-color-container" style="display: none">
+						<div class=frame-name-container><span class="frame-name">Sun strip base color</span></div>
+						<div class="d-flex flex-wrap justify-content-center">
+							<% i=0; %>
+							<% for (var color in site.data.colors_strip){ %>
+							<label class="label-custom d-flex flex-column align-items-center px-2 mx-1">
+								<input class="invisible flex-shrink-0" disabled type="radio" name="color_base" value="<%= site.data.colors_strip[color].name %>" <%= i++ == 0 ? 'checked' : ''; %> />
+								<div class="input-image">
+									<% var style = site.data.colors_strip[color].hex ? 'background-color: ' + site.data.colors_strip[color].hex + ';': ''; %>
+									<% style += site.data.colors_strip[color].image ? 'background-image: url(' + site.data.colors_strip[color].image + ');' : ''; %>
+									<div class="color-swatch" style="<%- style %>"></div>
+								</div>
+								<p class="mt-2">
+									<%- site.data.colors_strip[color].name %>
+									<% if (site.data.colors_strip[color].extra) { %>
+										<strong>+$<%- site.data.colors_strip[color].extra %></strong>
+									<% } %>
+								</p>
+							</label>
+							<% } %>
+						</div>
+					</div>
+					<h2 class="text-center mt-4 mb-3">Preview</h2>
+					<div class="row justify-content-center mb-4 js--text-width">
+						<p class="col col-md-8 text-muted text-center">
+							Depending on the font used the width of the text is 20 to 30 inches.<br class="d-none d-sm-inline"/> If you want to specify the exact width, please <a href="mailto:<%- theme.email %>">send us an email</a> after you checkout.
+						</p>
+					</div>
+					<div class="row justify-content-center mb-4">
+						<div class="col col-md-10 col-lg-8">
+							<div class="car-preview-container">
+								<div class="car-container">
+									<img class="w-100 h-auto car" width="440" height="296" src="index/car-preview.svg" alt="Preview product on a regular size vehicle"/>
+								</div>
+								<div class="truck-container" style="display: none">
+									<img class="w-100 h-auto truck" width="510" height="311" src="index/truck-preview.svg" alt="Preview banner on a large truck"/>
+								</div>
+								<div class="banner-text"></div>
+								<div class="sunstrip"></div>
+								<div class="sunstrip-text"></div>
+							</div>
+						</div>
+					</div>
+					<div class="row justify-content-center">
+						<div class="col-12 col-md-10 col-lg-8">
+							<div class="form-group">
+								<label class="label-blueberry">Vehicle type</label>
+								<div class="btn-group btn-group-md btn-group-toggle w-100" data-toggle="buttons">
+									<label class="btn btn-primary btn-blueberry active">
+										<input type="radio" name="pattern" value="Regular" checked>Regular Car
+									</label>
+									<label class="btn btn-primary btn-blueberry">
+										<input type="radio" name="pattern" value="Large">Large Vehicle&nbsp;&nbsp;|&nbsp;&nbsp;
+										<% var firstProductFlag = true; %>
+										<span class="js--pattern-price-extra">
+											<% for (var product of products) {
+												var regexpExtraTruckPrice = /\+(.+)\]/gm;
+												const extraTruckPrice = regexpExtraTruckPrice.exec(product.pattern);
+												%>
+												<span class="<%- product.id %>" style="<%- firstProductFlag ? '' : 'display: none' %>">+$<%- extraTruckPrice[1] %></span>
+												<% firstProductFlag = false; %>
+											<% } %>
+										</span>
+									</label>
+								</div>
+								<p class="js--notice-car text-muted text-center mt-2 mb-3">
+									Regular size cars include all sedans, wagons, smaller SUVs and mini trucks.
+								</p>
+								<p class="js--notice-truck text-muted text-center mt-2 mb-3" style="display: none">
+									For cars with wider windshields such as large SUVs (Escallade), heavy duty trucks (Ford F-150) and similar. Windshield banners for larger cars require more material and special geometry.
+								</p>
+							</div>
+							<div class="form-group">
+								<label class="label-blueberry" for="inputQuantity">How many items you need?</label>
+								<div class="input-group js--init-integer-input">
+									<div class="input-group-prepend">
+										<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
+									</div>
+									<input name="quantity" type="number" class="form-control js--input text-center hide-arrows" id="inputQuantity" value="1" min="1" max="999">
+									<div class="input-group-append">
+										<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
+									</div>
+								</div>
+								<div class="alert alert-success mt-3 text-center animate__delay-1s" role="alert" data-aos="animate__tada">
+									<small>We offer <strong>10% off</strong> for 2+,  <strong>15% off</strong> for 4+ and <strong>20% off</strong> for 10+ same items in your cart!</small>
 								</div>
 							</div>
-							<div class="alert alert-success mt-3 text-center animate__delay-1s" role="alert" data-aos="animate__tada">
-								<small>We offer <strong>10% off</strong> for 2+,  <strong>15% off</strong> for 4+ and <strong>20% off</strong> for 10+ same items in your cart!</small>
+						</div>
+						<!-- Hack: make users without JavaScript fill their email so we can reach oiut back -->
+						<div class="col-12 col-md-10 col-lg-8 js--nojs-only">
+							<div class="form-group">
+								<label class="label-blueberry" for="email">Enter your email</label>
+								<input class="form-control form-control-lg js--text-input" type="text" required name="email" placeholder="your@email.com" />
 							</div>
 						</div>
-					</div>
-					<!-- Hack: make users without JavaScript fill their email so we can reach oiut back -->
-					<div class="col-12 col-md-10 col-lg-8 js--nojs-only">
-						<div class="form-group">
-							<label class="label-blueberry" for="email">Enter your email</label>
-							<input class="form-control form-control-lg js--text-input" type="text" required name="email" placeholder="your@email.com" />
+						<div class="col-12 col-md-10 col-lg-8 text-center mt-4">
+							<button type="submit" id="submitButton" class="btn btn-primary btn-blueberry btn-lg">Submit Banner Request</button>
+							<br />
+							<% for (var product of products) { %>
+
+								<button class="snipcart-add-item btn invisible"
+									data-item-id="<%- product.id %>"
+									data-item-price="<%- parseFloat(product.price) %>"
+									data-item-url="<%- my_full_url_for(page.path) %>"
+									data-item-description="<%- product.description %>"
+									data-item-image="<%- get_pathname(product.image_link) %>"
+									data-item-name="<%- product.title %>"
+									data-item-weight="<%- oz_to_g(product.shipping_weight) %>"
+
+									<% var i=1; %>
+
+									<% // Custom text %>
+									<% if (_.keys(product).includes('customization_name')){ %>
+										data-item-custom<%- i %>-name="<%- product.customization_name %>"
+										<% i++; %>
+									<% } %>
+
+									<% // Select font %>
+									<% if (product.id != "ST_CAR_W_SS"){ %>
+										data-item-custom<%- i %>-name="Font"
+										<%
+											var fontNames = [];
+											_.forEach(site.data.fonts, function(value, key) {
+												fontNames.push(value.name);
+											});
+										%>
+										data-item-custom<%- i %>-options="<%- fontNames.join('|') %>"
+										<% i++; %>
+									<% } %>
+
+									<% // Select font color %>
+									<% if (product.id == "ST_CAR_W_BANNER" ||
+										product.id == "ST_CAR_W_SS_TEXT"){ %>
+										data-item-custom<%- i %>-name="Text color"
+										<%
+											var colorTextNames = [];
+											_.forEach(site.data.colors_text, function(value, key) {
+												var color = value.name;
+												// Add [+9.99]
+												if (value.extra){
+													color += '[+';
+													color += value.extra;
+													color += ']';
+												}
+												colorTextNames.push(color);
+											});
+										%>
+										data-item-custom<%- i %>-options="<%- colorTextNames.join('|') %>"
+										<% i++; %>
+									<% } %>
+
+									<% // Select background color %>
+									<% if (product.id != "ST_CAR_W_BANNER"){ %>
+										data-item-custom<%- i %>-name="Base color"
+										<%
+											var colorBackgroundNames = [];
+											_.forEach(site.data.colors_strip, function(value, key) {
+												var color = value.name;
+												// Add [+9.99]
+												if (value.extra){
+													color += '[+';
+													color += value.extra;
+													color += ']';
+												}
+												colorBackgroundNames.push(color);
+											});
+										%>
+										data-item-custom<%- i %>-options="<%- colorBackgroundNames.join('|') %>"
+										<% i++; %>
+									<% } %>
+
+									<% // Size option - car or truck %>
+									data-item-custom<%- i %>-name="Vehicle size"
+									<% { %>
+										<% var productPattern = product.pattern.replace('regular', 'Regular'); productPattern = productPattern.replace('large', 'Large'); %>
+										data-item-custom<%- i %>-options="<%- productPattern %>"
+									<% } %>
+									<% i++; %>
+
+									<% // Select quantity %>
+									data-item-quantity="1"
+									>
+								</button>
+							<% } %>
 						</div>
 					</div>
-					<div class="col-12 col-md-10 col-lg-8 text-center mt-4">
-						<button type="submit" id="submitButton" class="btn btn-primary btn-blueberry btn-lg">Submit Banner Request</button>
-						<br />
-						<% for (var product of products) { %>
-
-							<button class="snipcart-add-item btn invisible"
-								data-item-id="<%- product.id %>"
-								data-item-price="<%- parseFloat(product.price) %>"
-								data-item-url="<%- my_full_url_for(page.path) %>"
-								data-item-description="<%- product.description %>"
-								data-item-image="<%- get_pathname(product.image_link) %>"
-								data-item-name="<%- product.title %>"
-								data-item-weight="<%- oz_to_g(product.shipping_weight) %>"
-
-								<% var i=1; %>
-
-								<% // Custom text %>
-								<% if (_.keys(product).includes('customization_name')){ %>
-									data-item-custom<%- i %>-name="<%- product.customization_name %>"
-									<% i++; %>
-								<% } %>
-
-								<% // Select font %>
-								<% if (product.id != "ST_CAR_W_SS"){ %>
-									data-item-custom<%- i %>-name="Font"
-									<%
-										var fontNames = [];
-										_.forEach(site.data.fonts, function(value, key) {
-											fontNames.push(value.name);
-										});
-									%>
-									data-item-custom<%- i %>-options="<%- fontNames.join('|') %>"
-									<% i++; %>
-								<% } %>
-
-								<% // Select font color %>
-								<% if (product.id == "ST_CAR_W_BANNER" ||
-									product.id == "ST_CAR_W_SS_TEXT"){ %>
-									data-item-custom<%- i %>-name="Text color"
-									<%
-										var colorTextNames = [];
-										_.forEach(site.data.colors_text, function(value, key) {
-											var color = value.name;
-											// Add [+9.99]
-											if (value.extra){
-												color += '[+';
-												color += value.extra;
-												color += ']';
-											}
-											colorTextNames.push(color);
-										});
-									%>
-									data-item-custom<%- i %>-options="<%- colorTextNames.join('|') %>"
-									<% i++; %>
-								<% } %>
-
-								<% // Select background color %>
-								<% if (product.id != "ST_CAR_W_BANNER"){ %>
-									data-item-custom<%- i %>-name="Base color"
-									<%
-										var colorBackgroundNames = [];
-										_.forEach(site.data.colors_strip, function(value, key) {
-											var color = value.name;
-											// Add [+9.99]
-											if (value.extra){
-												color += '[+';
-												color += value.extra;
-												color += ']';
-											}
-											colorBackgroundNames.push(color);
-										});
-									%>
-									data-item-custom<%- i %>-options="<%- colorBackgroundNames.join('|') %>"
-									<% i++; %>
-								<% } %>
-
-								<% // Size option - car or truck %>
-								data-item-custom<%- i %>-name="Vehicle size"
-								<% { %>
-									<% var productPattern = product.pattern.replace('regular', 'Regular'); productPattern = productPattern.replace('large', 'Large'); %>
-									data-item-custom<%- i %>-options="<%- productPattern %>"
-								<% } %>
-								<% i++; %>
-
-								<% // Select quantity %>
-								data-item-quantity="1"
-								>
-							</button>
-						<% } %>
-					</div>
+				</form>
+				<hr />
+				<h2 class="text-center my-4">You might also like</h2>
+				<div class="row justify-content-center">
+					<%
+						var featuredProductIds = ['ST_SOCIAL_SC','ST_SOCIAL_FB', 'ST_SOCIAL_YT', 'ST_SOCIAL_IG'];
+						var featuredProducts = _.map(site.data.product_list, function(o) {
+							if (featuredProductIds.includes(o.id)) return o;
+						});
+						featuredProducts = _.without(featuredProducts, undefined);
+					%>
+					<% for (var product of featuredProducts){ %>
+						<div class="col-6 col-sm-4 col-md-3 text-center">
+							<a href="<%- get_pathname(product.link) %>">
+								<img width="150" height="150" src="<%- prefix_filename('small_', product.image_link) %>" alt="<%- product.title %>" class="w-75 h-auto rounded-circle" />
+								<p class="mt-2"><%- product.title %></p>
+							</a>
+						</div>
+					<% } %>
 				</div>
-			</form>
-			<hr />
-			<h2 class="text-center my-4">You might also like</h2>
-			<div class="row justify-content-center">
-				<%
-					var featuredProductIds = ['ST_SOCIAL_SC','ST_SOCIAL_FB', 'ST_SOCIAL_YT', 'ST_SOCIAL_IG'];
-					var featuredProducts = _.map(site.data.product_list, function(o) {
-						if (featuredProductIds.includes(o.id)) return o;
-					});
-					featuredProducts = _.without(featuredProducts, undefined);
-				%>
-				<% for (var product of featuredProducts){ %>
-					<div class="col-6 col-sm-4 col-md-3 text-center">
-						<a href="<%- get_pathname(product.link) %>">
-							<img width="150" height="150" src="<%- prefix_filename('small_', product.image_link) %>" alt="<%- product.title %>" class="w-75 h-auto rounded-circle" />
-							<p class="mt-2"><%- product.title %></p>
-						</a>
+				<div class="row justify-content-center">
+					<div class="col-12 col-md-10 col-lg-8 text-center mt-4">
+						<a href="/#featured" title="Explore other vinyl stickers we have" class="btn btn-outline-primary btn-blueberry btn-lg">Click to see more stickers we have</a>
 					</div>
-				<% } %>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-12 col-md-10 col-lg-8 text-center mt-4">
-					<a href="/#featured" title="Explore other vinyl stickers we have" class="btn btn-outline-primary btn-blueberry btn-lg">Click to see more stickers we have</a>
 				</div>
 			</div>
 		</div>

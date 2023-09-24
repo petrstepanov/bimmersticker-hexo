@@ -1,5 +1,9 @@
 $selected-color: $blue;
 
+// body.is-windshield {
+//   overflow-x: hidden;
+// }
+
 .label-custom {
   cursor: pointer;
 
@@ -137,7 +141,7 @@ $selected-color: $blue;
     position: absolute;
     left: 30%;
     right: 30%;
-    top: 23%;
+    top: 22%;
     height: 10%;
     mask-image: url(/img/banner-previews/your-banner-knight.png);
     mask-size: contain;
@@ -150,23 +154,35 @@ $selected-color: $blue;
     transform: perspective(400px) rotateX(30deg);
     // Edges fix: https://stackoverflow.com/questions/9235342/3d-css-transform-jagged-edges-in-firefox
     border: 1px solid #6C6C6C;
+
+    @include media-breakpoint-up(sm) {
+      top: 20%;
+    }
+    @include media-breakpoint-up(lg) {
+      top: 21%;
+    }
   }
 
   .sunstrip {
     display: none;
     position: absolute;
-    top: 5%;
-    left: 16.4%;
-    right: 16.4%;
+    top: 4.5%;
+    left: 16%;
+    right: 16%;
     height: 14%;
     mask-image: url(/custom-windshield-banner-sun-strip/index/banner.svg);
     mask-position: center top;
     mask-size: contain;
     mask-repeat: no-repeat;
-    background-color: #2D2D2D;     
+    background-color: #2D2D2D;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+
+    @include media-breakpoint-up(lg) {
+      left: 16.8%;
+      right: 16.8%;
+    }
   }
 
   .sunstrip-text {
@@ -174,7 +190,7 @@ $selected-color: $blue;
     position: absolute;
     left: 30%;
     right: 30%;
-    top: 6.5%;
+    top: 5.4%;
     height: 8%;
     mask-image: url(/img/banner-previews/your-banner-knight.png);
     mask-size: contain;
@@ -204,8 +220,8 @@ $selected-color: $blue;
 }
 
 .truck-container {
-  margin-left: -10vw;
-  margin-right: -10vw;
+  margin-left: -11vw;
+  margin-right: -11vw;
   padding-left: 15px;
   padding-right: 15px;
 
