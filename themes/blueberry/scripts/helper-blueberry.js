@@ -1,4 +1,3 @@
-var _ = require('lodash');
 const parsePath = require('parse-path');
 
 hexo.extend.helper.register('format_price', function(price){
@@ -50,7 +49,7 @@ hexo.extend.helper.register('first_image', function(page){
 
 hexo.extend.helper.register('has_variations', function(product){
   var hasVariations = false;
-  _.values(product).forEach(value => {
+  Object.values(product).forEach(value => {
     if (value.includes('|')){
       hasVariations = true;
       return false;
@@ -61,11 +60,11 @@ hexo.extend.helper.register('has_variations', function(product){
 
 hexo.extend.helper.register('get_variations', function(product){
   var variations = {};
-  _.forOwn(product, function(value, key) {
+  for (const [key, value] of Object.entries(product)) {
     if (value.includes('|')){
       variations[key] = value.split('|');
     }
-  });
+  };
   return variations;
 });
 

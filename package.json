@@ -1,9 +1,9 @@
 {
   "name": "hexo-site",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "hexo": {
-    "version": "4.2.1"
+    "version": "6.3.0"
   },
   "scripts": {
     "ejslint": "find ./themes/blueberry/layout -type f -iname '*.ejs' -exec bash -c \"./node_modules/.bin/ejslint '{}'\" \\;",
@@ -12,19 +12,18 @@
   },
   "dependencies": {
     "bluebird": "^3.7.2",
-    "hexo": "^4.2.1",
+    "hexo": "^6.3.0",
     "hexo-featured-image": "^0.4.3",
     "hexo-filter-responsive-images": "^1.8.0",
     "hexo-generator-seo-friendly-sitemap": "0.2.1",
     "hexo-list-related-posts": "^0.3.0",
-    "hexo-renderer-ejs": "^1.0.0",
-    "hexo-renderer-marked": "^2.0.0",
-    "hexo-renderer-stylus": "^1.1.0",
-    "hexo-server": "^1.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^6.1.1",
+    "hexo-renderer-stylus": "^3.0.0",
+    "hexo-server": "^3.0.0",
     "image-size": "^1.0.2",
-    "parse-path": "^4.0.3",
-    "sharp": "^0.27.2",
-    "stream-to-array": "^2.3.0",
-    "uuid": "^7.0.3"
+    "parse-path": "^7.0.0",
+    "sharp": "^0.32.6",
+    "stream-to-array": "^2.3.0"
   }
 }

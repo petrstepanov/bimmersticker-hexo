@@ -3,14 +3,14 @@ var pathFn = require('path');
 // var Promise = require('bluebird');
 var nunjucks = require('nunjucks');
 const parsePath = require('parse-path');
-const uuid = require('uuid');
+const cuid = require('cuid');
 
 hexo.extend.helper.register('carousel', function (source) {
   // get the text name we want to use
   var target = {
     images: [],
     alt: "",
-    id: uuid.v4()
+    id: cuid()
   };
 
   source.images.forEach((url, index) => {

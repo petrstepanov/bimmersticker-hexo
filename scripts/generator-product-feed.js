@@ -1,6 +1,5 @@
 var fs = require('hexo-fs');
 var jsYaml = require('js-yaml');
-var _ = require('lodash');
 var path = require('path');
 
 hexo.extend.generator.register('google-feed-generator', function (locals) {
@@ -45,6 +44,7 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
     feedArray.forEach(object => {
         feedTxt += '\n';
         // Lodash's _values not guarantees the alphabetic order of keys
+        // Update - dropped lodash
         // So we sort object keys like the first one https://stackoverflow.com/questions/5467129/sort-javascript-object-by-key
         const objectOrdered = {};
         Object.keys(feedArray[0]).forEach(function(key) {

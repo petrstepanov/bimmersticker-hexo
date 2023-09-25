@@ -1,5 +1,3 @@
-var _ = require('lodash');
-
 // Checks if products array has object with value containing "|"
 
 function findObjectWithVariations(array){
