@@ -57,7 +57,6 @@ function myAvif() {
       }
     }
   }
-  console.log(routesToProcess);
 
   // Instead of checking on the actual file system - check if route is set
   // Hexo generates actual files later. Here we only define routes and Promises to generate AVIFs for each route

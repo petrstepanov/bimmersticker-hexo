@@ -184,5 +184,8 @@ featured_image:
 webp_polyfill:
   enable: true
 
+youtuber:
+  allowfullscreen: yes
+
 # Ignore Gulp processed files./ Otherwise filters fire up on Gulp process event
 # https://hexo.io/docs/configuration#Include-x2F-Exclude-Files-or-Folders
