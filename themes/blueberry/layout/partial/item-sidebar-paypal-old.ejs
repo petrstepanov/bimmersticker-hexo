@@ -1,6 +1,6 @@
 <div id="post-aside">
   <div class="position-sticky">
-    <% var product = getProduct(site.data.product_list, post.product_id); %>
+    <% var product = getProductCopy(site.data.product_list, post.product_id); %>
     <%- partial('partial/item-navbar', {product: product}) %>
     <div class="container">
       <div class="row">

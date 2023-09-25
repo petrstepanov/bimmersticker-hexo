@@ -2,7 +2,7 @@
   <figure class="card card-blueberry" itemscope itemtype="http://schema.org/Product">
     <!-- Featured image -->
 
-    <% var product = getProduct(site.data.product_list, post.product_id); %>
+    <% var product = getProductCopy(site.data.product_list, post.product_id); %>
     <% if (product.additional_image_link == 'undefined'){ %>
       <a itemprop="url" href="/<%- post.path %>">
         <img itemprop="image" class="card-img-top" src="<%- product.image_link ? product.image_link : '' %>" title="<%- product.title ? product.title : '' %>" alt="<%- product.description ? product.description : '' %>">

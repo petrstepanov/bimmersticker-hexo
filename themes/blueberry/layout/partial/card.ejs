@@ -1,4 +1,4 @@
-<% var product = getProduct(site.data.product_list, post.product_id); %>
+<% var product = getProductCopy(site.data.product_list, post.product_id); %>
 <div class="<%- post.col_class ? post.col_class : '' %>  js--posts-filter-item" data-groups='["<%- post.data_groups ? post.data_groups : '' %>"]'>
   <figure class="card card-blueberry">
     <!-- Featured image -->
