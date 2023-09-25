@@ -45,7 +45,7 @@ hexo.extend.helper.register('breakArrayVariationsRecursive', function(array){
         //         processedFirstVariationValue = true;
         //         return firstVariation;
         //     }
-            
+
         //     // For rest of key values keep them same as for the original object
         //     return value;
         // });
@@ -71,7 +71,7 @@ hexo.extend.helper.register('breakArrayVariationsRecursive', function(array){
                     // Update the title of the cloned object as demonstrated here - https://support.google.com/merchants/answer/6324487
                     // Hack - TODO: for banners switch from pattern to size and rename this fields
                     var titleSuffix = ' - ' + capitalizeFirstLetter(variationNoPrice.replace('regular', 'for car').replace('large', 'for truck'));
-                    objectClone['title'] = objectClone['title'] + titleSuffix;                    
+                    objectClone['title'] = objectClone['title'] + titleSuffix;
 
                     // Check if variation contains extra [+#.##] and update price
                     var regex = /(.*)\[\+([\d.]*)\]/
@@ -131,7 +131,7 @@ hexo.extend.helper.register('setUniqueIdFromVariations', function(product){
     if ("item_group_id" in product){
         if ("color" in product){
             product.id = product.id + '_' + variationToId(product.color);
-        }        
+        }
         if ("pattern" in product){
             product.id = product.id + '_' + variationToId(product.pattern);
         }
@@ -158,4 +158,14 @@ hexo.extend.helper.register('setExtraProductAttributes', function(product){
     else {
         product.google_product_category = 'Vehicles & Parts > Vehicle Parts & Accessories > Vehicle Maintenance, Care & Decor > Vehicle Decor > Bumper Stickers';
     }
+});
+
+hexo.extend.helper.register('getProductCopy', function(products, id){
+    for (const product of products){
+        if (product.id == id){
+            var productCopy = Object.assign({}, product);
+            return productCopy;
+        }
+    }
+    log.error("Product with id '" + id + " not found!");
 });

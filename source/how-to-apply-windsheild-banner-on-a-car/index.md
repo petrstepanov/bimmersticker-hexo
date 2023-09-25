@@ -89,8 +89,7 @@ featured_image: sun-strip/05-removing-the-transfer-tape.jpg
   <h3 class="h2 mt-4">Installation Video</h3>
   <p class="mb-3">We find the video below best describing the installation process. Feel free to check it out and hit the 👍 button.</p>
 
-  {% youtuber video MyyoGBdZCp4 %}
-  {% endyoutuber %}
+  {% youtube MyyoGBdZCp4 %}
 
   <p class="mt-3"><small>Images and video on this page are intellectual property of the <a href="https://www.youtube.com/@throtl">@throtl YouTube channel</a>.</small></p>
   <!-- Sun Strip Tab : End -->
@@ -107,7 +106,7 @@ featured_image: sun-strip/05-removing-the-transfer-tape.jpg
     <li class="col-6 col-md-4 my-2 text-center"><span class="align-middle"><img class="icon-xl mx-2 my-1" src="ruler.png"               width="64" height="64" alt="ruler icon"        /><br/>Tape measuer (ruler)</span></li>
     <li class="col-6 col-md-4 my-2 text-center"><span class="align-middle"><img class="icon-xl mx-2 my-1" src="tape.png"                width="64" height="64" alt="masking tape icon" /><br/>Masking tape</span></li>
     <li class="col-6 col-md-4 my-2 text-center"><span class="align-middle"><img class="icon-xl mx-2 my-1" src="spreader.png"            width="64" height="64" alt="spreader icon"     /><br/>Bondo spreader</span></li>
-  </ul>  
+  </ul>
 
   <h3 class="h2 mt-4"><span class="numbered" data-number="01."></span>Clean the Windshield</h3>
   <img class="mb-2 w-100 rounded d-block img-fluid" width="854" height="480" src="banner/01-clean-the-windshield.jpg" alt="Cleaning car windshield"/>
@@ -136,8 +135,7 @@ featured_image: sun-strip/05-removing-the-transfer-tape.jpg
   <h3 class="h2 mt-4">Installation Video</h3>
   <p class="mb-3">We find the video below below best describing the installation process. Feel free to check it out and hit the 👍 button.</p>
 
-  {% youtuber video fphxRSwhTJU %}
-  {% endyoutuber %}
+  {% youtube fphxRSwhTJU %}
 
   <p class="mt-3"><small>Images and video on this page are intellectual property of the <a href="https://www.youtube.com/@SmurfinWRX">@SmurfinWRX YouTube channel</a>.</small></p>
   <!-- Banner Tab : End -->

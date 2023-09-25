@@ -10,7 +10,7 @@
   <% var i=1; %>
   <% if (has_variations(product)){ %>
     <% var variations = get_variations(product); %>
-    <% _.forOwn(variations, function(values, key) { %>
+    <% for (const [key, values] of Object.entries(variations)) { %>
       <% var options = []; %>
       <% values.forEach(value => { %>
         <% var variation = parse_variation_value(value); %>
@@ -19,7 +19,7 @@
       <% });%>
       data-item-custom<%- i %>-name="<%- capitalize(key) %>"
       data-item-custom<%- i++ %>-options="<%- options.join("|") %>"
-    <% }); %>
+    <% }; %>
   <% } %>
   <% if (is_custom(product)){ %>
     <% var customFields = get_custom_fields(product); %>

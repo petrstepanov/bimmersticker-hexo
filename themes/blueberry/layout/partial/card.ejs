@@ -1,61 +1,57 @@
-<% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
-<% if (productIndex >= 0){ %>
-  <% // Clone product because we will modify this object %>
-  <% var product = Object.assign({}, site.data.product_list[productIndex]); %>
-  <div class="<%- post.col_class ? post.col_class : '' %>  js--posts-filter-item" data-groups='["<%- post.data_groups ? post.data_groups : '' %>"]'>
-    <figure class="card card-blueberry">
-      <!-- Featured image -->
-      <% if (product.additional_image_link && product.additional_image_link.length > 0){ %>
-        <% var additionalImages = product.additional_image_link.split(','); %>
-        <% var carouselId = "carousel_" + product.id.toLowerCase(); %>
-        <div id="<%- carouselId %>" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <% var imgClass = product.product_type.includes('Windshield') ? 'tall' : ''; %>
-            <div class="carousel-item active">
+<% var product = getProductCopy(site.data.product_list, post.product_id); %>
+<div class="<%- post.col_class ? post.col_class : '' %>  js--posts-filter-item" data-groups='["<%- post.data_groups ? post.data_groups : '' %>"]'>
+  <figure class="card card-blueberry">
+    <!-- Featured image -->
+    <% if (product.additional_image_link && product.additional_image_link.length > 0){ %>
+      <% var additionalImages = product.additional_image_link.split(','); %>
+      <% var carouselId = "carousel_" + product.id.toLowerCase(); %>
+      <div id="<%- carouselId %>" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <% var imgClass = product.product_type.includes('Windshield') ? 'tall' : ''; %>
+          <div class="carousel-item active">
+            <a class="img-wrapper" href="/<%- post.path %>">
+              <% var imagePath = get_pathname(product.image_link) %>
+              <img <%- widthHeight(imagePath) %> loading="lazy"  src="<%- image_version(imagePath, {prefix: 'medium'}) %>" class="d-block w-100 h-auto fix-height <%- imgClass %>" alt="<%- product.description %>">
+            </a>
+          </div>
+          <% additionalImages.forEach(function(element, index){ %>
+            <div class="carousel-item">
               <a class="img-wrapper" href="/<%- post.path %>">
-                <% var imagePath = get_pathname(product.image_link) %>
-                <img <%- widthHeight(imagePath) %> loading="lazy"  src="<%- image_version(imagePath, {prefix: 'medium'}) %>" class="d-block w-100 h-auto fix-height <%- imgClass %>" alt="<%- product.description %>">
+                <% var imagePath = get_pathname(element) %>
+                <img <%- widthHeight(imagePath) %> loading="lazy" src="<%- image_version(imagePath, {prefix: 'medium'}) %>" class="d-block w-100 h-auto fix-height <%- imgClass %>" alt="<%- product.description %>">
               </a>
             </div>
-            <% additionalImages.forEach(function(element, index){ %>
-              <div class="carousel-item">
-                <a class="img-wrapper" href="/<%- post.path %>">
-                  <% var imagePath = get_pathname(element) %>
-                  <img <%- widthHeight(imagePath) %> loading="lazy" src="<%- image_version(imagePath, {prefix: 'medium'}) %>" class="d-block w-100 h-auto fix-height <%- imgClass %>" alt="<%- product.description %>">
-                </a>
-              </div>
-            <% }); %>
-          </div>
-          <a class="carousel-control-prev" href="#<%- carouselId %>" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#<%- carouselId %>" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
+          <% }); %>
         </div>
-      <% } else { %>
-        <!-- if product has one image -->
-        <a class="img-wrapper" href="/<%- post.path %>">
-          <% var imagePath = get_pathname(product.image_link) %>
-          <img <%- widthHeight(imagePath) %> loading="lazy" class="w-100 h-auto fix-height <%- product.product_type.includes('Windshield') ? 'tall' : ''; %>" src="<%- image_version(imagePath, {prefix: 'medium'}) %>" title="<%- product.title %>" alt="<%- product.description %>">
+        <a class="carousel-control-prev" href="#<%- carouselId %>" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
         </a>
-      <% } %>
-
-      <!-- Card body -->
-      <div class="card-body">
-          <h3 class="card-title font-size-21">
-            <%- product.title %>
-          </h3>
-          <% if (post.excerpt){ %>
-            <p class="mb-2 pb-1"><%- strip_html(post.excerpt) %></p>
-          <% } %>
-          <div class="d-flex align-items-center justify-content-between">
-            <span class="card-title-price">$<%- format_price(parseFloat(product.price)) %></span>
-            <a href="/<%- post.path %>" class="btn btn-blueberry btn-sm btn-primary">View <span class="icon-xs d-none d-sm-inline"><%- partial('ionicons/md-arrow-forward.svg') %></span></a>
-          </div>
+        <a class="carousel-control-next" href="#<%- carouselId %>" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-    </figure>
-  </div>
-<% } %>
+    <% } else { %>
+      <!-- if product has one image -->
+      <a class="img-wrapper" href="/<%- post.path %>">
+        <% var imagePath = get_pathname(product.image_link) %>
+        <img <%- widthHeight(imagePath) %> loading="lazy" class="w-100 h-auto fix-height <%- product.product_type.includes('Windshield') ? 'tall' : ''; %>" src="<%- image_version(imagePath, {prefix: 'medium'}) %>" title="<%- product.title %>" alt="<%- product.description %>">
+      </a>
+    <% } %>
+
+    <!-- Card body -->
+    <div class="card-body">
+        <h3 class="card-title font-size-21">
+          <%- product.title %>
+        </h3>
+        <% if (post.excerpt){ %>
+          <p class="mb-2 pb-1"><%- strip_html(post.excerpt) %></p>
+        <% } %>
+        <div class="d-flex align-items-center justify-content-between">
+          <span class="card-title-price">$<%- format_price(parseFloat(product.price)) %></span>
+          <a href="/<%- post.path %>" class="btn btn-blueberry btn-sm btn-primary">View <span class="icon-xs d-none d-sm-inline"><%- partial('ionicons/md-arrow-forward.svg') %></span></a>
+        </div>
+    </div>
+  </figure>
+</div>

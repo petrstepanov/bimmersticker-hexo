@@ -1,7 +1,7 @@
 <%- partial('partial/navbar') %>
 
 <main class="orientation-container">
-  <% if(config.cart == "snipcart"){ %>   
+  <% if(config.cart == "snipcart"){ %>
     <%- partial('partial/item-sidebar') %>
   <% } else if (config.cart == "paypal") { %>
     <%- partial('partial/item-sidebar-paypal') %>
@@ -13,25 +13,22 @@
       <div class="row">
         <div class="col">
           <section>
-            <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
-            <% if (productIndex >= 0){ %>
-              <% var product = Object.assign({}, site.data.product_list[productIndex]); %>              
-              <div class="post-featured-container">
-                <!-- Featured gallery -->                
-                <% if (product.additional_image_link) { %>
-                  <% var data = {
-                        images: (product.image_link + "," + product.additional_image_link).split(","),
-                        alt: product.description,
-                        width: 400,
-                        height: 400
-                  }; %>
-                  <%- carousel(data); %>
-                <% } else { %>
-                  <!-- Featured image -->
-                  <img class="w-100" width="400" height="400" src="<%- get_pathname(product.image_link) %>" title="<%- product.title %>" alt="<%- product.description %>" />
-                <% } %>
-              </div>
-            <% } %>
+            <% var product = getProductCopy(site.data.product_list, post.product_id); %>
+            <div class="post-featured-container">
+              <!-- Featured gallery -->
+              <% if (product.additional_image_link) { %>
+                <% var data = {
+                      images: (product.image_link + "," + product.additional_image_link).split(","),
+                      alt: product.description,
+                      width: 400,
+                      height: 400
+                }; %>
+                <%- carousel(data); %>
+              <% } else { %>
+                <!-- Featured image -->
+                <img class="w-100" width="400" height="400" src="<%- get_pathname(product.image_link) %>" title="<%- product.title %>" alt="<%- product.description %>" />
+              <% } %>
+            </div>
             <%- page.more %>
           </section>
           <%- partial('partial/item-customize') %>

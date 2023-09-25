@@ -1,53 +1,50 @@
 <div id="post-aside">
   <div class="sidebar-sticky">
-    <% var productIndex = _.findIndex(site.data.product_list, {'id': post.product_id}); %>
-    <% if(productIndex >= 0){ %>
-      <% var product = Object.assign({}, site.data.product_list[productIndex]); %>
-      <%- partial('partial/item-navbar-old', {product: product}) %>
-      <div class="container">
-        <div class="row">
-          <section class="col">
-              <!-- Featured image -->
-              <% var image = first_image(page); %>
-              <% if (image){ %>
-                <img class="featured-image" src="<%- image.src ? image.src : '' %>" title="<%- image.title ? image.title : '' %>" alt="<%- image.alt ? image.alt : '' %>">
+    <% var product = getProductCopy(site.data.product_list, post.product_id); %>
+    <%- partial('partial/item-navbar-old', {product: product}) %>
+    <div class="container">
+      <div class="row">
+        <section class="col">
+            <!-- Featured image -->
+            <% var image = first_image(page); %>
+            <% if (image){ %>
+              <img class="featured-image" src="<%- image.src ? image.src : '' %>" title="<%- image.title ? image.title : '' %>" alt="<%- image.alt ? image.alt : '' %>">
+            <% } %>
+            <h1 class="mb-1 font-size-28"><%- post.title %></h1>
+            <% if (product.description){ %>
+              <p class="my-3"><%- product.description %></p>
+            <% } %>
+            <div class="mt-3 js--init-content-buy-button">
+              <% if (post.ebay_url && post.etsy_url){ %>
+                <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">$<%- parseFloat(product.price) %> on eBay</a>
+                <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-link" role="button">Also on Etsy</a>
+              <% } else if (post.ebay_url){ %>
+                <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">$<%- parseFloat(product.price) %> on eBay</a>
+              <% } else if (post.etsy_url){ %>
+                <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">$<%- parseFloat(product.price) %> on Etsy</a>
               <% } %>
-              <h1 class="mb-1 font-size-28"><%- post.title %></h1>
-              <% if (product.description){ %>
-                <p class="my-3"><%- product.description %></p>
+            </div>
+            <dl class="mt-3 mt-lg-5  sticker-properties clearfix">
+              <% if (product.material){ %>
+                <dt>Material</dt>
+                <dd><%- product.material %></dd>
               <% } %>
-              <div class="mt-3 js--init-content-buy-button">
-                <% if (post.ebay_url && post.etsy_url){ %>
-                  <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">$<%- parseFloat(product.price) %> on eBay</a>
-                  <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-link" role="button">Also on Etsy</a>
-                <% } else if (post.ebay_url){ %>
-                  <a href="<%- post.ebay_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">$<%- parseFloat(product.price) %> on eBay</a>
-                <% } else if (post.etsy_url){ %>
-                  <a href="<%- post.etsy_url %>" target="_blank" class="btn btn-blueberry btn-primary" role="button">$<%- parseFloat(product.price) %> on Etsy</a>
-                <% } %>
-              </div>
-              <dl class="mt-3 mt-lg-5  sticker-properties clearfix">
-                <% if (product.material){ %>
-                  <dt>Material</dt>
-                  <dd><%- product.material %></dd>
-                <% } %>
-                <% if (product.size){ %>
-                  <dt>Size</dt>
-                  <dd><%- print_size(product.size) %></dd>
-                <% } %>
-                <% if (product.color){ %>
-                <dt>Colors</dt>
-                <dd class="text-transparent js--init-swatches"><%- print_colors(product.color) %></dd>
-                <% } %>
-              </dl>
-              <% if (theme.email){ %>
-                <button type="button" class="btn btn-link px-0" href="#" data-toggle="modal" data-target="#customizeModal">Contact us for custom colors, sizes and designs.</button>
+              <% if (product.size){ %>
+                <dt>Size</dt>
+                <dd><%- print_size(product.size) %></dd>
               <% } %>
-          </section>
-        </div>
+              <% if (product.color){ %>
+              <dt>Colors</dt>
+              <dd class="text-transparent js--init-swatches"><%- print_colors(product.color) %></dd>
+              <% } %>
+            </dl>
+            <% if (theme.email){ %>
+              <button type="button" class="btn btn-link px-0" href="#" data-toggle="modal" data-target="#customizeModal">Contact us for custom colors, sizes and designs.</button>
+            <% } %>
+        </section>
       </div>
-      <img width="960" height="63" class="w-100 h-auto mt-2 d-lg-none" alt="aside section shape" src="<%- partial('data-uri/wave-aside') %>" />
-      <%- partial('schema/product', {product: product}) %>  
-    <% } %>
+    </div>
+    <img width="960" height="63" class="w-100 h-auto mt-2 d-lg-none" alt="aside section shape" src="<%- partial('data-uri/wave-aside') %>" />
+    <%- partial('schema/product', {product: product}) %>
   </div>
 </div>
