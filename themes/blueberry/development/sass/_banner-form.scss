@@ -119,23 +119,22 @@ $selected-color: $blue;
 
 .car-preview-container {
   position: relative;
-  min-height: 66vw;
+//  min-height: 66vw;
 
-  @include media-breakpoint-up(sm) {
-    min-height: 26rem;
-  }
+  animation: bumpme 3s;
+  animation-iteration-count: infinite;
 
-  @include media-breakpoint-up(md) {
-    min-height: 29rem;
-  }
-
-  // @include media-breakpoint-up(lg) {
-  //   min-height: 30rem;
+  // @include media-breakpoint-up(sm) {
+  //   min-height: 26rem;
   // }
 
-  @include media-breakpoint-up(xl) {
-    min-height: 32rem;
-  }
+  // @include media-breakpoint-up(md) {
+  //   min-height: 29rem;
+  // }
+
+  // @include media-breakpoint-up(xl) {
+  //   min-height: 32rem;
+  // }
 
   .banner-text {
     position: absolute;
@@ -243,5 +242,41 @@ $selected-color: $blue;
   @include media-breakpoint-up(xl) {
       margin-left: -4.2rem;
       margin-right: -4.2rem;
+  }
+}
+
+.wheels {
+  margin-top: -34vw;
+
+  @include media-breakpoint-up(sm) {
+    margin-top: -12rem;
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-top: -13rem;
+  }
+}
+
+@keyframes bumpme {
+  0% {
+    transform: rotate(0) translateY(0);
+  }
+  1% {
+    transform: rotate(-3deg) translateY(0);
+  }
+  5% {
+    transform: rotate(-3deg) translateY(-0.8rem);
+  }
+  10% {
+    transform: rotate(2deg) translateY(0.4rem);
+  }
+  15% {
+    transform: rotate(-2deg) translateY(-0.2rem);
+  }
+  20% {
+    transform: rotate(1deg) translateY(0.1rem);
+  }
+  25% {
+    transform: rotate(0) translateY(0);
   }
 }

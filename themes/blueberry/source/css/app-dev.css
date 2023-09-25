@@ -11006,22 +11006,8 @@ footer .payment-icon {
 
 .car-preview-container {
   position: relative;
-  min-height: 66vw;
-}
-@media (min-width: 576px) {
-  .car-preview-container {
-    min-height: 26rem;
-  }
-}
-@media (min-width: 768px) {
-  .car-preview-container {
-    min-height: 29rem;
-  }
-}
-@media (min-width: 1350px) {
-  .car-preview-container {
-    min-height: 32rem;
-  }
+  animation: bumpme 3s;
+  animation-iteration-count: infinite;
 }
 .car-preview-container .banner-text {
   position: absolute;
@@ -11145,6 +11131,43 @@ footer .payment-icon {
   }
 }
 
+.wheels {
+  margin-top: -34vw;
+}
+@media (min-width: 576px) {
+  .wheels {
+    margin-top: -12rem;
+  }
+}
+@media (min-width: 768px) {
+  .wheels {
+    margin-top: -13rem;
+  }
+}
+
+@keyframes bumpme {
+  0% {
+    transform: rotate(0) translateY(0);
+  }
+  1% {
+    transform: rotate(-3deg) translateY(0);
+  }
+  5% {
+    transform: rotate(-3deg) translateY(-0.8rem);
+  }
+  10% {
+    transform: rotate(2deg) translateY(0.4rem);
+  }
+  15% {
+    transform: rotate(-2deg) translateY(-0.2rem);
+  }
+  20% {
+    transform: rotate(1deg) translateY(0.1rem);
+  }
+  25% {
+    transform: rotate(0) translateY(0);
+  }
+}
 [class^=icon-] {
   display: inline-block;
 }
