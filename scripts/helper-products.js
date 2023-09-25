@@ -5,7 +5,7 @@ var _ = require('lodash');
 function findObjectWithVariations(array){
     var index = -1;
     array.forEach((element, i) => {
-        _.values(element).forEach(value => {
+        Object.values(element).forEach(value => {
             if (value.includes('|')){
                 index = i;
                 return false;
@@ -32,27 +32,6 @@ hexo.extend.helper.register('breakArrayVariationsRecursive', function(array){
         var object = array[index];
         // Since object has variations we set its 'item_group_id'
         object.item_group_id = object.id;
-
-        // Split one variation object
-        // var processedFirstVariationValue = false;
-        // _.mapValues creates a new object with the same keys of the given object. Values however are generated using the given iteratee function
-        // var variationObject = _.mapValues(object, (value, key) => {
-        //     if (value.includes('|') && !processedFirstVariationValue){
-        //         var variations = value.split('|');
-        //         // Removes the last element from an array and returns that value to the caller
-        //         var firstVariation = variations.pop();
-        //         object[key] = variations.join('|');
-        //         processedFirstVariationValue = true;
-        //         return firstVariation;
-        //     }
-
-        //     // For rest of key values keep them same as for the original object
-        //     return value;
-        // });
-        // Insert variation object after original object
-        // array.splice(index, 0, objectClone);
-
-
 
         // Iterate keys (properties) in original object (product)
         for (const key in object) {

@@ -20,13 +20,13 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
     } // else if add JSON too ?
 
     // Remove all customization fields
-    feedArray.forEach(element => {
-        _.forOwn(element, function(value, key) {
+    for (product of feedArray){
+        for (key of Object.keys(product)){
             if (key.includes('customization')){
-                delete element[key];
+                delete product[key];
             }
-        });
-    });
+        }
+    }
 
     // Iterate through array
     breakArrayVariationsRecursive(feedArray);
@@ -39,7 +39,7 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
 
 
     // Write feed header from 1st item keys
-    var feedTxt = _.keys(feedArray[0]).join('\t');
+    var feedTxt = Object.keys(feedArray[0]).join('\t');
 
     // Export into text file
     feedArray.forEach(object => {
@@ -49,8 +49,8 @@ hexo.extend.generator.register('google-feed-generator', function (locals) {
         const objectOrdered = {};
         Object.keys(feedArray[0]).forEach(function(key) {
             objectOrdered[key] = object[key] ? object[key] : "";
-        });        
-        feedTxt += _.values(objectOrdered).join('\t');
+        });
+        feedTxt += Object.values(objectOrdered).join('\t');
     });
 
     return {
