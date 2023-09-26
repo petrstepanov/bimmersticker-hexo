@@ -1,7 +1,3 @@
-var assign = require('lodash.assign');
-var striptags = require('striptags');
-// var first_image = require('first_image');
-
 function addCount(array, searchProperty, newProperty) {
   return array.reduce(function(newArray, item) {
     var i = objectArrayIndexOf(newArray, item[searchProperty], searchProperty);
@@ -65,16 +61,18 @@ function getProductImageSrc(productId, isThumb){
   return '';
 }
 
-function getRelatedPosts(options) {
-  if (!options) {
-    options = {};
+function getRelatedPosts(_options) {
+  if (!_options) {
+    _options = {};
   }
 
-  options = assign({
+  var defaults = {
     maxCount: 5,
     orderBy: 'date',
     isAscending: false
-  }, options);
+  };
+
+  var options = {...defaults, ..._options};
 
   var orderOption = ['date', 'random'];
   if(orderOption.indexOf(options.orderBy) === -1){

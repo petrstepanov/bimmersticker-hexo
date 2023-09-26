@@ -1,6 +1,5 @@
 var fs = require('hexo-fs');
 var jsYaml = require('js-yaml');
-var _ = require('lodash');
 var path = require('path');
 
 // Checks if products array has object with value containing "|"

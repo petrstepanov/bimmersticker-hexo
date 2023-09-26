@@ -1,5 +1,5 @@
 var streamToArray = require('stream-to-array')
-var sharp = require('sharp')
+var sharp = require('hexo-filter-responsive-images/node_modules/sharp')
 
 const extensionRegex = /\.(jpeg|jpg|png)$/ig;
 
