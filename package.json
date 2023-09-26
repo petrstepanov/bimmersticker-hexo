@@ -23,7 +23,6 @@
     "hexo-server": "^3.0.0",
     "image-size": "^1.0.2",
     "parse-path": "^7.0.0",
-    "sharp": "^0.32.6",
     "stream-to-array": "^2.3.0"
   }
 }
