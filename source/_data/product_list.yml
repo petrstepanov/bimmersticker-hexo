@@ -17,8 +17,8 @@
 # Regarding Car and Truck variations - used Google's "pattern" attribute, not "size".
 # Because "size", "size_system" and "size_type" relate to shoes and clothes and are complicated.
 - id:	ST_CAR_W_BANNER
-  title: "Custom Windshield Banner"
-  description: "Custom windshield banner with your own text. Will fit any car or truck. Variety of fonts and colors available. Made from premium outdoor vinyls."
+  title: "Custom Text Windshield Banner. Select Your Font and Colors. Fits Any Car Make and Model"
+  description: "Custom Windshield banner with your own text. Will fit any car or truck (BMW, VW, Audi, Subaru, Nissan, Toyota, Honda and others). Variety of fonts and colors available. Made from premium outdoor vinyls."
   product_type: Stickers > Banners
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-text-windshield-banner.jpg
@@ -30,7 +30,7 @@
   color: "white|matte black|black|mint|yellow|orange|pink|red|blue|silver[+9.99]|gold[+9.99]|rainbow[+9.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your banner text"
 - id:	ST_CAR_W_SS
-  title: "Universal Windshield Banner (Sun Strip, Visor) made by Sticker Store LLC (bimmersticker.store)"
+  title: "Windshield Banner (Sun Strip, Visor). Multiple Colors Available"
   description: "Windshield banner (sun strip) for any car or truck. Multiple colors available. Will fit any car brand and model. Made from premium outdoor vinyls."
   product_type: Stickers > Banners
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
@@ -42,7 +42,7 @@
   material: "Oracal 651 or TeckWrap vinyls"
   color: "white|matte black|black|mint|yellow|orange|pink|red|blue|silver[+14.99]|gold[+14.99]|rainbow[+14.99]" # for Google only. Real app takes these from colors_strip.yml
 - id:	ST_CAR_W_SS_CUT
-  title: "Custom Reverse Cut Windshield Banner (Sun Strip, Visor)"
+  title: "Reverse Cut Windshield Banner (Sun Strip, Visor) with Custom Text, Fonts and Colors. Fits any Car Make and Model"
   description: "Windshield sun strip (banner) with custom text. Will fit any car or truck. Variety of fonts and colors. Text is cut out of the base vinyl layer. Made from premium outdoor vinyls."
   product_type: Stickers > Banners
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
@@ -55,8 +55,8 @@
   color: "white|matte black|black|mint|yellow|orange|pink|red|blue|silver[+14.99]|gold[+14.99]|rainbow[+14.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your sun strip text"
 - id:	ST_CAR_W_SS_TEXT
-  title: "Windshield Banner with Custom Text (Sun Strip, Visor)"
-  description: "Windshield sun strip (banner) with custom text. Will fit any car or truck. Multiple fonts and colors available. Text layer is overlaid on top of the color background layer. Made from premium outdoor vinyls."
+  title: "Windshield Banner with Custom Text (Sun Strip, Visor). Select Your Font and Colors. Fits any Car Make and Model"
+  description: "Windshield sun strip (banner) with custom text. Will fit any car or truck (BMW, VW, Audi, Subaru, Nissan, Toyota, Honda and others). Multiple fonts and colors available. Text layer is overlaid on top of the color background layer. Made from premium outdoor vinyls."
   product_type: Stickers > Banners
   link: https://bimmersticker.store/custom-windshield-banner-sun-strip/
   image_link: https://bimmersticker.store/custom-windshield-banner-sun-strip/index/car-custom-text-windshield-banner-sun-strip.jpg
