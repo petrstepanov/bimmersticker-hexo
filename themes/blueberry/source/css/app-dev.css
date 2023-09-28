@@ -8770,10 +8770,6 @@ button:focus {
 .btn-blueberry {
   font-weight: bold;
   border-radius: 50rem;
-  box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
-}
-.btn-blueberry.btn-sm, .btn-group-sm > .btn-blueberry.btn {
-  padding: 0.25rem 0.7rem;
 }
 .btn-blueberry.btn-link {
   box-shadow: none;
@@ -8783,6 +8779,35 @@ button:focus {
 }
 .btn-blueberry:hover svg path {
   fill: white;
+}
+.btn-blueberry.btn-primary {
+  color: #fff;
+  background-color: #007CC2;
+  border-color: #007CC2;
+}
+.btn-blueberry.btn-primary:hover {
+  color: #fff;
+  background-color: #0093e6;
+  border-color: #0093e6;
+}
+.btn-blueberry.btn-primary:focus, .btn-blueberry.btn-primary.focus {
+  color: #fff;
+  background-color: #0093e6;
+  border-color: #0093e6;
+  box-shadow: 0 0 0 0.2rem rgba(38, 144, 203, 0.5);
+}
+.btn-blueberry.btn-primary.disabled, .btn-blueberry.btn-primary:disabled {
+  color: #fff;
+  background-color: #007CC2;
+  border-color: #007CC2;
+}
+.btn-blueberry.btn-primary:not(:disabled):not(.disabled):active, .btn-blueberry.btn-primary:not(:disabled):not(.disabled).active, .show > .btn-blueberry.btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #00659e;
+  border-color: #00659e;
+}
+.btn-blueberry.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-blueberry.btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-blueberry.btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(38, 144, 203, 0.5);
 }
 
 .btn-outline-primary.btn-blueberry {
