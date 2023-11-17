@@ -1075,6 +1075,7 @@ function _cacheDom(element) {
     DOM.$baseColorContainer = DOM.$el.find('.js--base-color-container');
 
     DOM.$input = DOM.$el.find('.js--text-input');
+    DOM.$generate = DOM.$el.find('.js--generate');
     DOM.$fontImages = DOM.$el.find('.js--font-image');
     DOM.$fontAvifs = DOM.$el.find('.js--font-avif');
 
@@ -1226,6 +1227,36 @@ function _bindEvents(element) {
             // Save data only of the event was triggered with human
             _saveData();
         }
+    });
+
+    const dummyTexts = ['Abused Daily', 'All Gas No Brakes', 'ALL STOCK', 'Always Broke', 'Antisocial', 'Another Shitbox', 'Almost Running',
+                      'Backyard Mechanics', 'Baby Driver', 'Bad Decisions', 'Because Racecar', 'Beyond Broke', 'Blacklisted', 'Broken Inside', 'Budget Driven', 'Built not Bought', 'But Did You Die?',
+                      "Cant Stop Wont Stop", 'Caught You Lookin', 'Certified Shitbox', 'Checkmate', 'Clapped Out', 'City Limits', 'Classified', 'Clean Culture', 'Cursed',
+                      'Daily Driven', 'DECENT', 'Different', 'Dominate Humbly', 'Done Different', "Don't Quit", 'Dumb Slow', 'Dunkin Donuts',
+                      "East Coastin'", 'Endless Dreams', 'Enough Rice' , 'Essentially Low', 'Euro Crew', 'Eurotrash',
+                      'Fameless Society', 'Family Disappointment', 'Fatal Mistakes', 'Fucking Mint', 'Fear God', 'Financial Mistake', 'Fix Me Please', 'For the Fans', 'Free Your Mind', 'Fuck It Edition', 'Fuck Your Feelings', 'Fucking Decent', 'Full Send',
+                      'Ghetto Builds', 'God is Great', 'Good Vibes',
+                      'Happy Endings', 'Hers not His', 'HOOLIGAN',
+                      'Imperfect', 'It Is What It Is', "It's Okay to Stare",
+                      'Just For Fun', 'Just Fuckin Send It', 'Just Keep Moving',
+                      'Knight Legends',
+                      'Leave Me Alone', 'Legends Never Die', 'Legacy Never Dies', 'Limitless', 'Locally Hated', 'Lonely Driver', 'Love Now Cry Later', 'Low & Slow', 'Low And Slow', 'Low Budget', 'Low Standards', 'Low Tolerance', 'Lowered Standards', 'Lowered Lifestyle', 'Loyalty Royalty', 'Latenight Patrol',
+                      'Made You Look', 'Man Made Problem', 'Metal Up Your Ass', 'Midnight Boys', 'Midnight Runners', 'Midnight Streets', 'Mo Powa Babeh!', 'Money Pit', 'Money Well Wasted', 'Moonlite Runners', 'Murder Hornet',
+                      'Never Satisfied', 'Not Fast', 'Naturally Aspired', 'Never Satisfied', 'Never Stock', 'Next Level', 'Night Ride', 'Night Runner', 'No Fat Bitches', 'No Hard Feelings', 'No Limits', 'Not A Hybrid', 'Not For Sale', 'Not Fast Just Loud', 'Nothing Is True', 'Nothing To See Here', 'Notorious', 'Notta Racecar',
+                      'On Some Shit', 'One Last Ride', 'One More Day', 'Open Your Mind', 'Out of Style',
+                      'ProblemChild', 'Panty Dropper', 'Patience is Key', 'Pay Attention!', 'Peace Maker', 'Permanently Grounded', 'Power Wagon', 'Primitive', 'Public Disturbance', 'Public Enemy',
+                      'Relentless', 'Respect Your Elders', 'Ridin Dirty',
+                      'Screamin Machine', 'Self Made', 'Send Nudes', 'Seriously Filthy', 'Shit We Do', 'Shitbox Aesthetic', 'Show No Love', 'Sittin Pretty', 'Slightly Modified', 'Slow Motion', 'Slow Skidz', 'Social Disturbance', 'Some Kind of Freak', 'Speed is Theraphy', 'Stance Nation', 'Static Rider', 'Stay Classy', 'Stay Humble', 'Stay In Your Lane', 'Still Slow', 'Stock-ish', 'Street Dreamer', 'Street Dreams', 'Street Dreamz', 'Street Legal', 'Strictly Business', 'Strictly Sketchy', 'Super Slow',
+                      'Take It Easy', 'The Devil Himself', 'The Wild Thing', 'The World Is Yours', 'Trash Can',
+                      'Unbothered',
+                      'Vague Intentions',
+                      "West Coastin'", 'Wake Up To Reality', 'Wasted Wages', 'Welcome to Hell', 'Wicked Tunung', 'Why So Serious?',
+                      'Young Dumb & Broke', 'Young Money'];
+
+    DOM.$generate.click(function (event){
+        event.preventDefault();
+        const randomText = dummyTexts[Math.floor(Math.random() * dummyTexts.length)];
+        DOM.$input.val(randomText);
     });
 
     DOM.$radioFont.change(function (event) {
