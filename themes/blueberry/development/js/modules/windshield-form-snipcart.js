@@ -207,6 +207,8 @@ function _bindEvents(element) {
         const randomText = dummyTexts[Math.floor(Math.random() * dummyTexts.length)];
         DOM.$input.val(randomText);
         DOM.$input.trigger( "input" );
+        // Event was not triggered by human - save manually
+        _saveData();
     });
 
     DOM.$radioFont.change(function (event) {
