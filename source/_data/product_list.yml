@@ -16,6 +16,21 @@
 #
 # Regarding Car and Truck variations - used Google's "pattern" attribute, not "size".
 # Because "size", "size_system" and "size_type" relate to shoes and clothes and are complicated.
+- id:	ST_TRUCKVAN_COMMERCIAL
+  title: "Custom Decals For Trucks and Work Van Fleet (Company Name, Contacts, USDOT, MC)"
+  description: "Custom vinyl sticker for business truck or van (NV200, NV2500, Ford Transit Connect, Chevrolet City, Chevy Express, F150, F250, Dodge RAM, Promaster). Variety of fonts and colors available. Made from premium outdoor vinyls."
+  product_type: Stickers > Commercial
+  link: https://bimmersticker.store/custom-truck-van-decals/
+  image_link: https://bimmersticker.store/custom-truck-van-decals/car-custom-text-windshield-banner.jpg
+  price: "29.99 USD"
+  size: "S|M[+20.00]|L[+40.00]|XL[+100.00]"
+  shipping_weight: "12 oz"
+  material: "Oracal 651 vinyl"
+  color: "black|matte black|white|mint|yellow|orange|pink|red|blue|silver[+9.99]|gold[+9.99]" # for Google only. Real app takes these from colors_strip.yml
+  customization_name: "Heading"
+  customization_placeholder: "Your Company Name"
+  customization_name_2: "Content"
+  customization_placeholder_2: "Your Company Information"
 - id:	ST_CAR_W_BANNER
   title: "Custom Text Windshield Banner. Select Your Font and Colors. Fits Any Car Make and Model"
   description: "Custom Windshield banner with your own text. Will fit any car or truck (BMW, VW, Audi, Subaru, Nissan, Toyota, Honda and others). Variety of fonts and colors available. Made from premium outdoor vinyls."

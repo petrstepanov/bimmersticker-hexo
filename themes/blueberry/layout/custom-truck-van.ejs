@@ -1,0 +1,17 @@
+<%
+  // OpenGraph Image Settings - 1200x630 minumum
+  // TODO: update OG Image
+  page.photos = [config.url + '/custom-windshield-banner-sun-strip/og-image-bmw-with-windshield-sun-strip-and-banner.jpg'];
+%>
+<%- partial('partial/navbar') %>
+<%
+	// Select products with ids containing "ST_CAR_W_"
+	const allProducts = site.data.product_list;
+	var products = [];
+	for (product of allProducts){
+		if (product.id.includes("ST_TRUCKVAN_")){
+			var clonedProduct = Object.assign({}, product);
+			products.push(clonedProduct);
+		}
+	}
+%>
