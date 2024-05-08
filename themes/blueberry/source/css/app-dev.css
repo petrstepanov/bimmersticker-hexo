@@ -11487,7 +11487,7 @@ body {
 }
 @media (min-width: 992px) {
   #preview-truck-van {
-    border-width: 4rem;
+    border-width: 3.5rem;
   }
 }
 #preview-truck-van:after {
@@ -11505,6 +11505,9 @@ body {
   position: relative;
 }
 
+#truck-van-preview-heading {
+  margin-top: -1.2rem;
+}
 #truck-van-preview-heading:after {
   content: "";
   background-color: red;
@@ -11528,6 +11531,107 @@ body {
   bottom: 0;
   left: 0;
   mix-blend-mode: lighten;
+}
+
+.ruler-x {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 125%;
+  height: 1rem;
+  text-align: center;
+  line-height: 1rem;
+}
+@media (min-width: 576px) {
+  .ruler-x {
+    top: 132%;
+  }
+}
+@media (min-width: 768px) {
+  .ruler-x {
+    top: 142%;
+  }
+}
+@media (min-width: 992px) {
+  .ruler-x {
+    top: 148%;
+  }
+}
+.ruler-x span {
+  background-color: white;
+  position: relative;
+  font-weight: bold;
+  color: #6c757d;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 0.8em;
+}
+.ruler-x:before {
+  content: "";
+  background-color: #d8dbdd;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 2px;
+}
+
+.ruler-y {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 102%;
+  width: 4rem;
+  text-align: center;
+}
+@media (min-width: 576px) {
+  .ruler-y {
+    left: 108%;
+  }
+}
+@media (min-width: 768px) {
+  .ruler-y {
+    left: 111%;
+  }
+}
+@media (min-width: 992px) {
+  .ruler-y {
+    left: 114%;
+  }
+}
+.ruler-y span {
+  background-color: white;
+  position: relative;
+  top: 50%;
+  display: block;
+  white-space: nowrap;
+  font-weight: bold;
+  color: #6c757d;
+  font-size: 0.8em;
+}
+@media (max-width: 767.98px) {
+  .ruler-y span {
+    transform: rotate(-90deg);
+    margin-top: -0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .ruler-y span {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-top: -0.9rem;
+  }
+}
+.ruler-y:before {
+  content: "";
+  background-color: #d8dbdd;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
 }
 
 #disqus_thread {
