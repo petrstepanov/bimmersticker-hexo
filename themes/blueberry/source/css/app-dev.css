@@ -8817,7 +8817,7 @@ button:focus {
   background-color: #007CC2;
 }
 
-.form-control {
+.form-control, .custom-select-blueberry {
   color: #212B36;
   box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
   border: 1px solid #dceaf9;
@@ -8826,13 +8826,13 @@ button:focus {
   /* Fixing safari zom-in isssue */
   font-size: 16px !important;
 }
-.form-control::-moz-placeholder {
+.form-control::-moz-placeholder, .custom-select-blueberry::-moz-placeholder {
   color: #97aabf;
 }
-.form-control::placeholder {
+.form-control::placeholder, .custom-select-blueberry::placeholder {
   color: #97aabf;
 }
-.form-control.invalid {
+.form-control.invalid, .custom-select-blueberry.invalid {
   border-color: #f11a22;
   box-shadow: 0 2px 4px 0 rgba(241, 26, 34, 0.2);
 }
@@ -11431,7 +11431,7 @@ body {
 .jumbotron-truck-van {
   /* prevent x scrollbar for truck van */
   overflow-x: hidden;
-  background-image: url("/custom-truck-van-decals/jumbotron-background-small.jpg");
+  background-image: url("/custom-truck-van-decals/jumbotron-background.jpg");
 }
 .jumbotron-truck-van .img-truck-van {
   width: 300%;
@@ -11440,6 +11440,25 @@ body {
   animation: swingme 8s;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
+}
+@media (min-width: 576px) {
+  .jumbotron-truck-van .img-truck-van {
+    width: 200%;
+    margin-left: -83%;
+  }
+}
+@media (min-width: 768px) {
+  .jumbotron-truck-van .img-truck-van {
+    width: 150%;
+    margin-left: -26%;
+    animation: none;
+  }
+}
+@media (min-width: 1350px) {
+  .jumbotron-truck-van .img-truck-van {
+    width: 125%;
+    margin-left: -16%;
+  }
 }
 
 @keyframes swingme {
@@ -11450,6 +11469,67 @@ body {
     transform: translateX(30%);
   }
 }
+#preview-truck-van {
+  background-color: #f2f3f7;
+  border: 1.5rem solid #f2f3f7;
+  border-radius: 1rem;
+  position: relative;
+}
+@media (min-width: 576px) {
+  #preview-truck-van {
+    border-width: 2rem;
+  }
+}
+@media (min-width: 768px) {
+  #preview-truck-van {
+    border-width: 3rem;
+  }
+}
+@media (min-width: 992px) {
+  #preview-truck-van {
+    border-width: 4rem;
+  }
+}
+#preview-truck-van:after {
+  content: "";
+  outline: 1px grey dotted;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#truck-van-preview-heading, #truck-van-preview-content {
+  mix-blend-mode: multiply;
+  position: relative;
+}
+
+#truck-van-preview-heading:after {
+  content: "";
+  background-color: red;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  mix-blend-mode: lighten;
+}
+
+#truck-van-preview-content {
+  width: 90%;
+}
+#truck-van-preview-content:after {
+  content: "";
+  background-color: black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  mix-blend-mode: lighten;
+}
+
 #disqus_thread {
   position: relative;
 }
