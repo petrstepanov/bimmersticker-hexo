@@ -11454,10 +11454,16 @@ body {
     animation: none;
   }
 }
-@media (min-width: 1350px) {
+@media (min-width: 992px) {
   .jumbotron-truck-van .img-truck-van {
     width: 125%;
-    margin-left: -16%;
+    margin-left: -14%;
+  }
+}
+@media (min-width: 1350px) {
+  .jumbotron-truck-van .img-truck-van {
+    width: 89%;
+    margin-left: 5%;
   }
 }
 
@@ -11632,6 +11638,11 @@ body {
   top: 0;
   bottom: 0;
   width: 2px;
+}
+
+.match-input-height {
+  height: calc(1.5em + 1.2rem + 4px);
+  line-height: calc(1.5em + 1.2rem + 4px);
 }
 
 #disqus_thread {

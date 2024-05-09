@@ -13,16 +13,20 @@ var del = require('del');
 var log = require('gulplog');
 var replace = require('gulp-replace');
 var beep = require('beepbeep');
+const browsersync = require('browser-sync').create();
 
 var paths = {
+	htmls: {
+		srcWatch: './layout/**/*.ejs'
+	},
 	styles: {
 		src: ['./development/sass/app.scss'],
-		srcWatch: './development/sass/**/*.scss',
+		srcWatch: './development/**/*.scss',
 		dest: './source/css'
 	},
 	scripts: {
 		src: ['./development/js/app.js'],  // Only entry point for browserify
-		srcWatch: './development/js/**/*.js',
+		srcWatch: './development/**/*.js',
 		dest: './source/js'
 	},
 	fonts: {
@@ -115,24 +119,50 @@ function scriptsDev() {
 
 
 // Beep task (with callback)
-function beeptask(cb) {
+function beepTask(cb) {
 	beep();
 	cb();
 }
 
-// Watch Task
-
-function watch() {
-	gulp.watch(paths.scripts.srcWatch, gulp.series(scripts, scriptsDev, beeptask));
-	gulp.watch(paths.styles.srcWatch, gulp.series(styles, stylesDev, beeptask));
+// BrowserSync Serve (init) and Reload tasks
+// https://coder-coder.com/quick-guide-to-browsersync-gulp-4/
+function browsersyncServe(cb){
+	browsersync.init({
+		proxy: "localhost:4000",
+		ui: false,
+		notify:false
+	});
+	cb();
 }
 
+function browsersyncReload(cb){
+	browsersync.reload();
+	cb();
+}
+
+// Watch Task
+// now does both - production and development! slower but never forget prod before pushing
+// website pulls right scripts and styles from the environment vars
+
+function watch(cb) {
+	gulp.watch(paths.htmls.srcWatch, gulp.series(beepTask, browsersyncReload));
+	gulp.watch(paths.scripts.srcWatch, gulp.series(scripts, scriptsDev, beepTask, browsersyncReload));
+	gulp.watch(paths.styles.srcWatch, gulp.series(styles, stylesDev, beepTask, browsersyncReload));
+
+	// Old code - no browsersync
+	// gulp.watch(paths.scripts.srcWatch, gulp.series(scripts, scriptsDev, beepTask));
+	// gulp.watch(paths.styles.srcWatch, gulp.series(styles, stylesDev, beepTask));
+	cb();
+};
+
+
 // Build
+// now does both - production and development! slower but never forget prod before pushing
+// website pulls right scripts and styles from the environment vars
+var all = gulp.series(clean, copyIcons, styles, stylesDev, scripts, scriptsDev, beepTask, browsersyncServe, watch);
 
-var all = gulp.series(clean, copyIcons, styles, scripts, stylesDev, scriptsDev, beeptask, watch);
-
-var development = gulp.series(clean, copyIcons, stylesDev, scriptsDev, beeptask, watch);
-var production = gulp.series(clean, copyIcons, styles, scripts, beeptask);
+// var development = gulp.series(clean, copyIcons, stylesDev, scriptsDev, beepTask, browsersyncServe, watch);
+// var production =  gulp.series(clean, copyIcons, styles,    scripts,    beepTask);
 
 // Exports
 exports.clean = clean;
@@ -141,14 +171,14 @@ exports.stylesDev = stylesDev;
 exports.scripts = scripts;
 exports.scriptsDev = scriptsDev;
 
-exports.development = development;
-exports.devel = development;
-exports.dev = development;
-exports.d = development;
-exports.production = production;
-exports.prod = production;
-exports.pro = production;
-exports.p = production;
+//exports.development = development;
+//exports.devel = development;
+//exports.dev = development;
+//exports.d = development;
+//exports.production = production;
+//exports.prod = production;
+//exports.pro = production;
+//exports.p = production;
 
 exports.default = all;
 
