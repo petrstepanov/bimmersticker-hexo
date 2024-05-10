@@ -11651,6 +11651,23 @@ body {
   line-height: calc(1.5em + 1.2rem + 4px);
 }
 
+.select-reflect {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.select-reflect .select-reflect-item {
+  animation: background-color 200ms;
+  background: #f3f4f5;
+  border-radius: 0.5rem;
+  text-align: center;
+  flex-grow: 2;
+  padding: 1rem;
+}
+.select-reflect .sr-selected {
+  background: #c2e9ff;
+}
+
 #disqus_thread {
   position: relative;
 }

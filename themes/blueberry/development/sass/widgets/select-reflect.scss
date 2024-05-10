@@ -1,0 +1,18 @@
+.select-reflect {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    .select-reflect-item {
+        animation: background-color 200ms;
+        background: lighten($secondary, 50%);
+        border-radius: 0.5rem;
+        text-align: center;
+        flex-grow: 2;
+        padding: 1rem;
+    }
+
+    .sr-selected {
+        background: lighten($blue, 50%);
+    }
+}

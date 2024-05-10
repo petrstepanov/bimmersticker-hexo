@@ -174,7 +174,7 @@
 				</div>
 				<div class="col-2 col-sm-1 col col-md-1 col-lg-1 text-center">
 					<div class="match-input-height pt-3 mb-4">
-						<span class="d-inline-block font-size-28">×</span>
+						<span class="d-inline-block font-size-28 text-muted">×</span>
 					</div>
 				</div>
 				<div class="col-4 col-sm-3 col-md-2 col-md-2">
@@ -183,7 +183,7 @@
 				</div>
 				<div class="col-2 col-sm-1 col-md-1 col-lg-1 text-center">
 					<div class="match-input-height pt-3">
-						<span class="d-inline-block font-size-28">=</span>
+						<span class="d-inline-block font-size-28 text-muted">=</span>
 					</div>
 				</div>
 				<div class="col-4 col-sm-3 col-md-3 col-lg-2">
@@ -196,21 +196,58 @@
 		<!-- 04. CART -->
 
 		<div class="container">
-			<h2 class="text-center mt-4 mb-3 numbered" data-number="5.">Add items to cart</h2>
-			<p class="text-muted text-center mb-4">
+			<h2 class="text-center mt-4 mb-3 numbered" data-number="5.">Add Items to Cart</h2>
+			<p class="text-muted text-center mb-2">
 				Decals are priced each. Please add 2 items to your cart to decorate both sides of the vehicle.
 			</p>
 
+			<select name="inputSize" id="inputSize" style="visibility: hidden;">
+				<option value="s">S • &lt;2 sq ft</option>
+				<option value="m" selected>M • 2-4 sq ft</option>
+				<option value="l">L • 4-8 sq ft</option>
+				<option value="xl">XL • 8+ sq ft</option>
+			</select>
+
 			<div class="row justify-content-center">
+				<div class="col col-lg-9 col-xl-9">
+					<div class="js--select-reflect select-reflect" data-for="inputSize">
+						<div class="select-reflect-item">
+							<div>S • &lt;2 sq ft</div>
+							<div><strong>$39.99</strong></div>
+						</div>
+						<div class="select-reflect-item sr-selected">
+							<div>M • 2-4 sq ft</div>
+							<div><strong>$59.99</strong></div>
+						</div>
+						<div class="select-reflect-item">
+							<div>L • 4-8 sq ft</div>
+							<div><strong>$99.99</strong></div>
+						</div>
+						<div class="select-reflect-item">
+							<div>XL • 8+ sq ft</div>
+							<div><strong>$149.99</strong></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col col-md-6 mt-4">
+					<div class="form-group text-center">
+						<label class="label-blueberry" for="inputQuantity">How many items you need?</label>
+						<div class="input-group js--init-integer-input">
+							<div class="input-group-prepend">
+								<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
+							</div>
+							<input name="quantity" type="number" class="form-control js--input text-center hide-arrows" id="inputQuantity" value="2" min="1" max="999">
+							<div class="input-group-append">
+								<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
+							</div>
+						</div>
+						<div class="alert alert-success mt-3 text-center animate__delay-1s" role="alert" data-aos="animate__tada">
+							<small>We offer <strong>10% off</strong> for 2+,  <strong>15% off</strong> for 4+ and <strong>20% off</strong> for 10+ same items in your cart!</small>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-
-
-		<div class="form-group">
-			<div class="alert alert-success mt-3 text-center animate__delay-1s aos-init animate__animated animate__tada" role="alert" data-aos="animate__tada">
-				<small>We offer <strong>10% off</strong> for 2+,  <strong>15% off</strong> for 4+ and <strong>20% off</strong> for 10+ same items in your cart!</small>
-			</div>
-		</div>
-
 	</form>
 </section>
