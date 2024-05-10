@@ -8770,6 +8770,7 @@ button:focus {
 .btn-blueberry {
   font-weight: bold;
   border-radius: 50rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
 }
 .btn-blueberry.btn-link {
   box-shadow: none;
@@ -8835,6 +8836,11 @@ button:focus {
 .form-control.invalid, .custom-select-blueberry.invalid {
   border-color: #f11a22;
   box-shadow: 0 2px 4px 0 rgba(241, 26, 34, 0.2);
+}
+
+.form-control:disabled, .form-control[readonly] {
+  background-color: #f5fbff;
+  color: #5b7795;
 }
 
 .select-blueberry {

@@ -20,6 +20,11 @@
   }
 }
 
+.form-control:disabled, .form-control[readonly] {
+  background-color: lighten($primary, 60%);
+  color: lighten($body-color, 30%);
+}
+
 
 .label-blueberry {
   @extend .my-label;
