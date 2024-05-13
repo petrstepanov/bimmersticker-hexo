@@ -16,6 +16,7 @@ var postsFilter = require('./modules/posts-filter');
 var formInsideDialog = require('./modules/form-inside-dialog');
 // var formValidation = require('./modules/form-validation');
 var FormAjaxSubmit = require('./modules/form-ajax-submit');
+var SelectWithImage = require('./modules/select-with-image');
 var IntegerInput = require('./modules/integer-input');
 var CheckoutButtonFix = require('./modules/checkout-button-fix');
 var Carousel = require('./modules/carousel');
@@ -67,6 +68,12 @@ $(function() {
   $('.js--init-ajax-submit').each(function(){
     var formAjaxSubmit = new FormAjaxSubmit();
     formAjaxSubmit.init(this);
+  });
+
+  // Select with image custom plugin (Truck Van page)
+  $('.js--init-select-with-image').each(function(){
+    var selectWithImage = new SelectWithImage();
+    selectWithImage.init(this);
   });
 
   // Autosize textareas

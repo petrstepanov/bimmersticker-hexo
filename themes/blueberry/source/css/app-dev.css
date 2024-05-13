@@ -11668,6 +11668,46 @@ body {
   background: #c2e9ff;
 }
 
+.zero-size-invisible {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.select-with-image {
+  box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  border: 1px solid #dceaf9;
+  padding: 0.35rem 0.5rem;
+}
+.select-with-image .select-with-image-item {
+  height: 3rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 0.2rem;
+  overflow: hidden;
+  background-position-x: 0.5rem;
+}
+.select-with-image .select-with-image-item.selected {
+  position: relative;
+}
+.select-with-image .select-with-image-item.selected:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #c2e9ff;
+  mix-blend-mode: multiply;
+}
+
 #disqus_thread {
   position: relative;
 }

@@ -126,13 +126,12 @@ function beepTask(cb) {
 
 // BrowserSync Serve (init) and Reload tasks
 // https://coder-coder.com/quick-guide-to-browsersync-gulp-4/
-function browsersyncServe(cb){
+function browsersyncServe(){
 	browsersync.init({
 		proxy: "localhost:4000",
 		ui: false,
 		notify:false
 	});
-	cb();
 }
 
 function browsersyncReload(cb){
@@ -144,42 +143,30 @@ function browsersyncReload(cb){
 // now does both - production and development! slower but never forget prod before pushing
 // website pulls right scripts and styles from the environment vars
 
-function watch(cb) {
-	gulp.watch(paths.htmls.srcWatch, gulp.series(beepTask, browsersyncReload));
-	gulp.watch(paths.scripts.srcWatch, gulp.series(scripts, scriptsDev, beepTask, browsersyncReload));
-	gulp.watch(paths.styles.srcWatch, gulp.series(styles, stylesDev, beepTask, browsersyncReload));
+// function watch(cb) {
+
 
 	// Old code - no browsersync
 	// gulp.watch(paths.scripts.srcWatch, gulp.series(scripts, scriptsDev, beepTask));
 	// gulp.watch(paths.styles.srcWatch, gulp.series(styles, stylesDev, beepTask));
-	cb();
-};
+	// cb();
+// };
 
 
 // Build
 // now does both - production and development! slower but never forget prod before pushing
 // website pulls right scripts and styles from the environment vars
-var all = gulp.series(clean, copyIcons, styles, stylesDev, scripts, scriptsDev, beepTask, browsersyncServe, watch);
 
 // var development = gulp.series(clean, copyIcons, stylesDev, scriptsDev, beepTask, browsersyncServe, watch);
 // var production =  gulp.series(clean, copyIcons, styles,    scripts,    beepTask);
 
-// Exports
-exports.clean = clean;
-exports.styles = styles;
-exports.stylesDev = stylesDev;
-exports.scripts = scripts;
-exports.scriptsDev = scriptsDev;
+exports.default = function(){
+	// gulp.series(clean, copyIcons, styles, stylesDev, scripts, scriptsDev, beepTask, browsersyncServe);
+	browsersyncServe();
 
-//exports.development = development;
-//exports.devel = development;
-//exports.dev = development;
-//exports.d = development;
-//exports.production = production;
-//exports.prod = production;
-//exports.pro = production;
-//exports.p = production;
-
-exports.default = all;
+	gulp.watch(paths.htmls.srcWatch, gulp.series(beepTask, browsersyncReload));
+	gulp.watch(paths.scripts.srcWatch, gulp.series(beepTask, scripts, scriptsDev, beepTask, browsersyncReload));
+	gulp.watch(paths.styles.srcWatch, gulp.series(beepTask, styles, stylesDev, beepTask, browsersyncReload));
+}
 
 // exports.default = process.env.BUILD_TYPE=='production' ? production : development;

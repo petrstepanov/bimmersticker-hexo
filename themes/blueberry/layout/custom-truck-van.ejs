@@ -66,10 +66,10 @@
 				<div class="col-12 col-md-6">
 					<label class="label-blueberry" for="inputHeadingFont">Heading Font</label>
 					<div class="input-group mb-3">
-						<select id="inputHeadingFont" class="custom-select custom-select-blueberry">
-							<option value="midkaiser">Midkaiser</option>
-							<option value="joyride">Joyride</option>
-							<option value="marsek">Marsek</option>
+						<select id="inputHeadingFont" class="custom-select custom-select-blueberry js--init-select-with-image">
+							<% for (const font of site.data.fonts_heading){ %>
+								<option data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.id %>"><%- font.name %></option>
+							<% } %>
 						</select>
 					</div>
 					<label class="label-blueberry" for="inputHeadingColor">Heading Color</label>
@@ -98,15 +98,16 @@
 				<div class="col-12 col-md-6">
 					<label class="label-blueberry" for="inputContent">Input Content</label>
 					<div class="input-group mb-2">
-						<textarea class="form-control" id="inputContent" rows="3" placeholder="Use as many lines as you need" title="Please enter your business information - slogan, phone, email"></textarea>
+						<textarea class="form-control js--init-autosize" id="inputContent" rows="3" placeholder="Use as many lines as you need" title="Please enter your business information - slogan, phone, email"></textarea>
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
 					<label class="label-blueberry" for="inputContentFont">Content Font</label>
 					<div class="input-group mb-3">
-						<select id="inputContentFont" class="custom-select custom-select-blueberry">
-							<option value="marsek">Marsek</option>
-							<option value="sharp">Sharp</option>
+						<select id="inputContentFont" class="custom-select custom-select-blueberry js--init-select-with-image">
+							<% for (const font of site.data.fonts_content){ %>
+								<option data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.id %>"><%- font.name %></option>
+							<% } %>
 						</select>
 					</div>
 					<label class="label-blueberry" for="inputContentColor">Content Color</label>
