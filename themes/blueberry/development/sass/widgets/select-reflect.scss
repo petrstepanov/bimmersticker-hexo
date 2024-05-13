@@ -10,9 +10,14 @@
         text-align: center;
         flex-grow: 2;
         padding: 1rem;
-    }
 
-    .sr-selected {
-        background: lighten($blue, 50%);
+        span {
+            font-weight: bold;
+            display: block;
+        }
+
+        &.selected {
+              background: lighten($blue, 50%);
+        }
     }
 }

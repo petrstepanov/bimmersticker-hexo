@@ -202,35 +202,17 @@
 				Decals are priced each. Please add 2 items to your cart to decorate both sides of the vehicle.
 			</p>
 
-			<select name="inputSize" id="inputSize" style="visibility: hidden;">
-				<option value="s">S • &lt;2 sq ft</option>
-				<option value="m" selected>M • 2-4 sq ft</option>
-				<option value="l">L • 4-8 sq ft</option>
-				<option value="xl">XL • 8+ sq ft</option>
-			</select>
-
 			<div class="row justify-content-center">
 				<div class="col col-lg-9 col-xl-9">
-					<div class="js--select-reflect select-reflect" data-for="inputSize">
-						<div class="select-reflect-item">
-							<div>S • &lt;2 sq ft</div>
-							<div><strong>$39.99</strong></div>
-						</div>
-						<div class="select-reflect-item sr-selected">
-							<div>M • 2-4 sq ft</div>
-							<div><strong>$59.99</strong></div>
-						</div>
-						<div class="select-reflect-item">
-							<div>L • 4-8 sq ft</div>
-							<div><strong>$99.99</strong></div>
-						</div>
-						<div class="select-reflect-item">
-							<div>XL • 8+ sq ft</div>
-							<div><strong>$149.99</strong></div>
-						</div>
-					</div>
+					<select name="inputSize" id="inputSize" class="js--init-select-reflect">
+						<option value="s"  data-price="39.99">S • &lt;2 sq ft</option>
+						<option value="m"  data-price="59.99" selected>M • 2-4 sq ft</option>
+						<option value="l"  data-price="99.99">L • 4-8 sq ft</option>
+						<option value="xl" data-price="149.99">XL • 8+ sq ft</option>
+					</select>
 				</div>
-
+			</div>
+			<div class="row justify-content-center">
 				<div class="col col-md-6 mt-4">
 					<div class="form-group text-center">
 						<label class="label-blueberry" for="inputQuantity">How many items you need?</label>

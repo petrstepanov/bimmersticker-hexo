@@ -17,6 +17,7 @@ var formInsideDialog = require('./modules/form-inside-dialog');
 // var formValidation = require('./modules/form-validation');
 var FormAjaxSubmit = require('./modules/form-ajax-submit');
 var SelectWithImage = require('./modules/select-with-image');
+var SelectReflect = require('./modules/select-reflect');
 var IntegerInput = require('./modules/integer-input');
 var CheckoutButtonFix = require('./modules/checkout-button-fix');
 var Carousel = require('./modules/carousel');
@@ -74,6 +75,10 @@ $(function() {
   $('.js--init-select-with-image').each(function(){
     var selectWithImage = new SelectWithImage();
     selectWithImage.init(this);
+  });
+  $('.js--init-select-reflect').each(function(){
+    var selectReflect = new SelectReflect();
+    selectReflect.init(this);
   });
 
   // Autosize textareas

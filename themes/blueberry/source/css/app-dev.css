@@ -11664,7 +11664,11 @@ body {
   flex-grow: 2;
   padding: 1rem;
 }
-.select-reflect .sr-selected {
+.select-reflect .select-reflect-item span {
+  font-weight: bold;
+  display: block;
+}
+.select-reflect .select-reflect-item.selected {
   background: #c2e9ff;
 }
 

@@ -12,7 +12,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var del = require('del');
 var log = require('gulplog');
 var replace = require('gulp-replace');
-var beep = require('beepbeep');
 const browsersync = require('browser-sync').create();
 
 var paths = {
@@ -120,7 +119,6 @@ function scriptsDev() {
 
 // Beep task (with callback)
 function beepTask(cb) {
-	beep();
 	cb();
 }
 
@@ -161,7 +159,7 @@ function browsersyncReload(cb){
 // var production =  gulp.series(clean, copyIcons, styles,    scripts,    beepTask);
 
 exports.default = function(){
-	// gulp.series(clean, copyIcons, styles, stylesDev, scripts, scriptsDev, beepTask, browsersyncServe);
+	gulp.series(clean, copyIcons, styles, stylesDev, scripts, scriptsDev, beepTask, browsersyncServe);
 	browsersyncServe();
 
 	gulp.watch(paths.htmls.srcWatch, gulp.series(beepTask, browsersyncReload));
