@@ -21,6 +21,7 @@ var SelectReflect = require('./modules/select-reflect');
 var IntegerInput = require('./modules/integer-input');
 var CheckoutButtonFix = require('./modules/checkout-button-fix');
 var Carousel = require('./modules/carousel');
+var WidgetArea = require('./modules/widget-area');
 var VideoFullWidth = require('./modules/video');
 // var FacebookLoadOnScroll = require('./modules/facebook-load-on-scroll');
 var InteractiveBackButton = require('./modules/interactive-back-button');
@@ -76,6 +77,7 @@ $(function() {
     var selectWithImage = new SelectWithImage();
     selectWithImage.init(this);
   });
+
   $('.js--init-select-reflect').each(function(){
     var selectReflect = new SelectReflect();
     selectReflect.init(this);
@@ -89,6 +91,9 @@ $(function() {
 
   // Connect color dropdowns and carousels
   Carousel.init();
+
+  // Truck van page area calculation
+  WidgetArea.init();
 
   // Fix checkout button caption
   var checkoutButtonFix = new CheckoutButtonFix();

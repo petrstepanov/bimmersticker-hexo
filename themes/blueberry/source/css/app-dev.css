@@ -11569,7 +11569,7 @@ body {
     top: 148%;
   }
 }
-.ruler-x span {
+.ruler-x .val {
   background-color: white;
   position: relative;
   font-weight: bold;
@@ -11611,7 +11611,7 @@ body {
     left: 114%;
   }
 }
-.ruler-y span {
+.ruler-y .val {
   background-color: white;
   position: relative;
   top: 50%;
@@ -11622,7 +11622,7 @@ body {
   font-size: 0.8em;
 }
 @media (max-width: 767.98px) {
-  .ruler-y span {
+  .ruler-y .val {
     transform: rotate(-90deg);
     margin-top: -0.5rem;
     padding-left: 0.5rem;
@@ -11630,7 +11630,7 @@ body {
   }
 }
 @media (min-width: 768px) {
-  .ruler-y span {
+  .ruler-y .val {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     margin-top: -0.9rem;

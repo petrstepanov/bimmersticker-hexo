@@ -106,7 +106,7 @@
 					<div class="input-group mb-3">
 						<select id="inputContentFont" class="custom-select custom-select-blueberry js--init-select-with-image">
 							<% for (const font of site.data.fonts_content){ %>
-								<option data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.id %>"><%- font.name %></option>
+								<option data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.id %>" <%- font.id=='italic'?'selected':'' %>><%- font.name %></option>
 							<% } %>
 						</select>
 					</div>
@@ -137,15 +137,15 @@
 			<div class="container pt-4">
 				<div class="row justify-content-center">
 					<div class="col-11 col-md-10 col-lg-8 mb-5">
-						<div id="preview-truck-van">
+						<div id="preview-truck-van" class="js--widget-area-preview">
 							<div id="truck-van-preview-heading">
 								<img width="919" height="197" class="w-100 h-auto" src="default-heading.png" />
 							</div>
 							<div id="truck-van-preview-content">
 								<img width="1566" height="298" class="w-100 h-auto" src="default-content.png" />
 							</div>
-							<div class="ruler-x"><span>28 in</span></div>
-							<div class="ruler-y"><span>16 in</span></div>
+							<div class="ruler-x"><span class="val"><span class="js--length-ruler">38</span> in</span></div>
+							<div class="ruler-y"><span class="val"><span class="js--height-ruler">13.3</span> in</span></div>
 						</div>
 					</div>
 				</div>
@@ -167,7 +167,7 @@
 						<div class="input-group-prepend">
 							<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
 						</div>
-						<input name="inputLength" type="number" class="px-0 form-control js--input text-center hide-arrows" id="inputLength" value="38" min="6" max="999">
+						<input name="inputLength" type="number" class="px-0 form-control js--input js--widget-area-length text-center hide-arrows" id="inputLength" value="38" min="6" max="999">
 						<div class="input-group-append">
 							<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
 						</div>
@@ -180,7 +180,7 @@
 				</div>
 				<div class="col-4 col-sm-3 col-md-2 col-md-2">
 					<label class="label-blueberry" for="inputLength">height, in</label>
-					<input readonly name="inputHeight" type="number" class="form-control js--input text-center hide-arrows" id="inputHeight" value="16">
+					<input readonly name="inputHeight" type="number" class="form-control js--widget-area-height text-center hide-arrows" id="inputHeight" value="14">
 				</div>
 				<div class="col-2 col-sm-1 col-md-1 col-lg-1 text-center">
 					<div class="match-input-height pt-3">
@@ -189,7 +189,7 @@
 				</div>
 				<div class="col-4 col-sm-3 col-md-3 col-lg-2">
 					<label class="label-blueberry" for="inputLength">Area, sq. ft.</label>
-					<input readonly name="inputHeight" type="number" class="form-control js--input text-center hide-arrows" id="inputHeight" value="3.7">
+					<input readonly name="inputHeight" type="number" class="form-control js--widget-area-area text-center hide-arrows" id="inputHeight" value="3.7">
 				</div>
 			</div>
 		</div>
@@ -198,13 +198,13 @@
 
 		<div class="container">
 			<h2 class="text-center mt-4 mb-3 numbered" data-number="5.">Add Items to Cart</h2>
-			<p class="text-muted text-center mb-2">
+			<p class="text-muted text-center mb-4">
 				Decals are priced each. Please add 2 items to your cart to decorate both sides of the vehicle.
 			</p>
 
 			<div class="row justify-content-center">
 				<div class="col col-lg-9 col-xl-9">
-					<select name="inputSize" id="inputSize" class="js--init-select-reflect">
+					<select name="inputSize" id="inputSize" class="js--init-select-reflect js--widget-area-select">
 						<option value="s"  data-price="39.99">S • &lt;2 sq ft</option>
 						<option value="m"  data-price="59.99" selected>M • 2-4 sq ft</option>
 						<option value="l"  data-price="99.99">L • 4-8 sq ft</option>
