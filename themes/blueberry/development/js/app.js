@@ -5,8 +5,9 @@ var AOS = require('aos');
 
 var navbarFixer = require('./modules/navbar-fixer');
 // var smoothScroll = require('./modules/smooth-scroll');
-// var windshieldForm = require('./modules/windshield-form');
-var windshieldFormSnipcart = require('./modules/windshield-form-snipcart');
+
+var windshieldForm = require('./modules/windshield-form-snipcart'); // require('./modules/windshield-form');
+var truckVanForm = require('./modules/truck-van-form');
 var snipcartForm = require('./modules/snipcart-form');
 var contentBuyButton = require('./modules/content-buy-button');
 var navbarBuyButton = require('./modules/navbar-buy-button');
@@ -49,7 +50,8 @@ $(function() {
   navbarFixer.init(document.querySelector('.js--init-navbar-fixer'));
   // smoothScroll.init();
   // windshieldForm.init(document.querySelector('.js--init-windshield-container'));
-  windshieldFormSnipcart.init(document.querySelector('.js--windshield-form-snipcart'));
+  windshieldForm.init(document.querySelector('.js--windshield-form-snipcart'));
+  truckVanForm.init(document.querySelector('.js--truck-van-form'));
   snipcartForm.init(document.querySelector('.js--init-snipcart-form'));
   contentBuyButton.init(document.querySelector('.js--init-content-buy-button'));
   navbarBuyButton.init(document.querySelector('.js--init-navbar-buy-button'));

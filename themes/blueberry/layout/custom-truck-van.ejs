@@ -7,11 +7,10 @@
 <%
 	// Select products with ids containing "ST_TRUCKVAN_"
 	const allProducts = site.data.product_list;
-	var products = [];
-	for (product of allProducts){
-		if (product.id.includes("ST_TRUCKVAN_")){
-			var clonedProduct = Object.assign({}, product);
-			products.push(clonedProduct);
+	var product
+	for (p of allProducts){
+		if (p.id.includes("ST_TRUCKVAN_")){
+			product = Object.assign({}, p);
 		}
 	}
 %>
@@ -60,28 +59,24 @@
 				<div class="col-12 col-md-6">
 					<label class="label-blueberry" for="inputHeading">Type your Heading</label>
 					<div class="input-group mb-2">
-						<input id="inputHeading" class="form-control js--text-input" type="text" placeholder="Business name or services" title="Please enter your business name or services you offer">
+						<input id="inputHeading" name="heading" class="form-control" type="text" placeholder="Business name or services" title="Please enter your business name or services you offer">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
-					<label class="label-blueberry" for="inputHeadingFont">Heading Font</label>
+					<label class="label-blueberry" for="selectHeadingFont">Heading Font</label>
 					<div class="input-group mb-3">
-						<select id="inputHeadingFont" class="custom-select custom-select-blueberry js--init-select-with-image">
+						<select id="selectHeadingFont" name="heading_font" class="custom-select custom-select-blueberry js--init-select-with-image">
 							<% for (const font of site.data.fonts_heading){ %>
-								<option data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.id %>"><%- font.name %></option>
+								<option data-font-url="<%- font.url %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.id %>"><%- font.name %></option>
 							<% } %>
 						</select>
 					</div>
-					<label class="label-blueberry" for="inputHeadingColor">Heading Color</label>
+					<label class="label-blueberry" for="selectHeadingColor">Heading Color</label>
 					<div class="input-group mb-3">
-						<select id="inputHeadingColor" class="custom-select custom-select-blueberry">
-							<option value="black" >⬛️ Black</option>
-							<option value="red" selected>🟥 Red</option> <!-- TODO: remove selected -->
-							<option value="orange">🟧 Orange</option>
-							<option value="yellow">🟨 Yellow</option>
-							<option value="green" >🟩 Green</option>
-							<option value="blue"  >🟦 Blue</option>
-							<option value="purple">🟪 Purple</option>
+						<select id="selectHeadingColor" name="heading_color" class="custom-select custom-select-blueberry">
+							<% for (const color of site.data.colors_truckvan){ %>
+								<option data-hex="<%- color.hex %>" value="<%- color.id %>" <%- color.id=="red"?"selected":"" %>><%- color.name %></option>
+							<% } %>
 						</select>
 					</div>
 				</div>
@@ -96,31 +91,27 @@
 
 			<div class="row justify-content-center">
 				<div class="col-12 col-md-6">
-					<label class="label-blueberry" for="inputContent">Input Content</label>
+					<label class="label-blueberry" for="textareaContent">Input Content</label>
 					<div class="input-group mb-2">
-						<textarea class="form-control js--init-autosize" id="inputContent" rows="3" placeholder="Use as many lines as you need" title="Please enter your business information - slogan, phone, email"></textarea>
+						<textarea class="form-control js--init-autosize" id="textareaContent" name="content" rows="3" placeholder="Use as many lines as you need" title="Please enter your business information - slogan, phone, email"></textarea>
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
-					<label class="label-blueberry" for="inputContentFont">Content Font</label>
+					<label class="label-blueberry" for="selectContentFont">Content Font</label>
 					<div class="input-group mb-3">
-						<select id="inputContentFont" class="custom-select custom-select-blueberry js--init-select-with-image">
+						<select id="selectContentFont" name="content_font" class="custom-select custom-select-blueberry js--init-select-with-image">
 							<% for (const font of site.data.fonts_content){ %>
-								<option data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.id %>" <%- font.id=='italic'?'selected':'' %>><%- font.name %></option>
+								<option data-font-url="<%- font.url %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.id %>" <%- font.id=='italic'?'selected':'' %>><%- font.name %></option>
 							<% } %>
 						</select>
 					</div>
-					<label class="label-blueberry" for="inputContentColor">Content Color</label>
+					<label class="label-blueberry" for="selectContentColor">Content Color</label>
 					<div class="input-group mb-3">
-						<select id="inputContentColor" class="custom-select custom-select-blueberry">
-							<option value="black" >⬛️ Black</option>
-							<option value="white" >⬜️ White</option>
-							<option value="red"   >🟥 Red</option>
-							<option value="orange">🟧 Orange</option>
-							<option value="yellow">🟨 Yellow</option>
-							<option value="green" >🟩 Green</option>
-							<option value="blue"  >🟦 Blue</option>
-							<option value="purple">🟪 Purple</option>
+						<select id="selectContentColor" name="content_color" class="custom-select custom-select-blueberry">
+							<% for (const color of site.data.colors_truckvan){ %>
+								<option data-hex="<%- color.hex %>" value="<%- color.id %>" <%- color.id=="black"?"selected":"" %>><%- color.name %></option>
+							<% } %>
+
 						</select>
 					</div>
 				</div>
@@ -167,7 +158,7 @@
 						<div class="input-group-prepend">
 							<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
 						</div>
-						<input name="inputLength" type="number" class="px-0 form-control js--input js--widget-area-length text-center hide-arrows" id="inputLength" value="38" min="6" max="999">
+						<input id="inputLength" name="length" type="number" class="px-0 form-control js--input js--widget-area-length text-center hide-arrows" value="38" min="6" max="999">
 						<div class="input-group-append">
 							<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
 						</div>
@@ -179,8 +170,8 @@
 					</div>
 				</div>
 				<div class="col-4 col-sm-3 col-md-2 col-md-2">
-					<label class="label-blueberry" for="inputLength">height, in</label>
-					<input readonly name="inputHeight" type="number" class="form-control js--widget-area-height text-center hide-arrows" id="inputHeight" value="14">
+					<label class="label-blueberry" for="inputHeight">height, in</label>
+					<input readonly id="inputHeight" name="height" type="number" class="form-control js--widget-area-height text-center hide-arrows" value="14">
 				</div>
 				<div class="col-2 col-sm-1 col-md-1 col-lg-1 text-center">
 					<div class="match-input-height pt-3">
@@ -188,8 +179,8 @@
 					</div>
 				</div>
 				<div class="col-4 col-sm-3 col-md-3 col-lg-2">
-					<label class="label-blueberry" for="inputLength">Area, sq. ft.</label>
-					<input readonly name="inputHeight" type="number" class="form-control js--widget-area-area text-center hide-arrows" id="inputHeight" value="3.7">
+					<label class="label-blueberry" for="inputArea">Area, sq. ft.</label>
+					<input readonly id="inputArea" name="area" type="number" class="form-control js--widget-area-area text-center hide-arrows" value="3.7">
 				</div>
 			</div>
 		</div>
@@ -204,7 +195,7 @@
 
 			<div class="row justify-content-center">
 				<div class="col col-lg-9 col-xl-9">
-					<select name="inputSize" id="inputSize" class="js--init-select-reflect js--widget-area-select">
+					<select id="selectSize" name="size" class="js--init-select-reflect js--widget-area-select">
 						<option value="s"  data-price="39.99">S • &lt;2 sq ft</option>
 						<option value="m"  data-price="59.99" selected>M • 2-4 sq ft</option>
 						<option value="l"  data-price="99.99">L • 4-8 sq ft</option>
@@ -220,7 +211,7 @@
 							<div class="input-group-prepend">
 								<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
 							</div>
-							<input name="quantity" type="number" class="form-control js--input text-center hide-arrows" id="inputQuantity" value="2" min="1" max="999">
+							<input id="inputQuantity" name="quantity" type="number" class="form-control js--input text-center hide-arrows" value="2" min="1" max="999">
 							<div class="input-group-append">
 								<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
 							</div>
@@ -229,6 +220,90 @@
 							<small>We offer <strong>10% off</strong> for 2+,  <strong>15% off</strong> for 4+ and <strong>20% off</strong> for 10+ same items in your cart!</small>
 						</div>
 					</div>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<!-- Hack: make users without JavaScript fill their email so we can reach out back -->
+				<div class="col-12 col-md-10 col-lg-8 js--nojs-only">
+					<div class="form-group">
+						<label class="label-blueberry" for="inputEmail">Enter your email</label>
+						<input class="form-control form-control-lg" type="text" required id="inputEmail" name="email" placeholder="your@email.com" />
+					</div>
+				</div>
+				<div class="col-12 col-md-10 col-lg-8 text-center mt-4">
+					<button type="submit" id="buttonSubmit" class="btn btn-primary btn-blueberry btn-lg">Submit Banner Request</button>
+					<br />
+					<button class="snipcart-add-item btn invisible"
+						data-item-id="<%- product.id %>"
+						data-item-price="<%- parseFloat(product.price) %>"
+						data-item-url="<%- my_full_url_for(page.path) %>"
+						data-item-description="<%- product.description %>"
+						data-item-image="<%- get_pathname(product.image_link) %>"
+						data-item-name="<%- product.title %>"
+						data-item-weight="<%- oz_to_g(product.shipping_weight) %>"
+
+						<% var i=1; %>
+
+						<% // Heading text %>
+						data-item-custom<%- i %>-name="<%- product.customization_name %>"
+						<% i++; %>
+
+						<% // Heading font %>
+						data-item-custom<%- i %>-name="Heading font"
+						<%
+							var hFontNames = [];
+							for (const font of site.data.fonts_heading) {
+								hFontNames.push(font.name);
+							};
+						%>
+						data-item-custom<%- i %>-options="<%- hFontNames.join('|') %>"
+						<% i++; %>
+
+						<% // Select heading color %>
+						<% var colorTextNames = []; %>
+						data-item-custom<%- i %>-name="Heading color"
+						<%
+							for (const color of site.data.colors_truckvan){
+								var string = color.name;
+								// Add [+9.99]
+								// if (color.extra){
+								// 	string += '[+' + color.extra + ']';
+								// }
+								colorTextNames.push(string);
+							};
+						%>
+						data-item-custom<%- i %>-options="<%- colorTextNames.join('|') %>"
+						<% i++; %>
+
+						<% // Content text %>
+						data-item-custom<%- i %>-name="<%- product.customization_name_2 %>"
+						<% i++; %>
+
+						<% // Content font %>
+						data-item-custom<%- i %>-name="Content font"
+						<%
+							var cFontNames = [];
+							for (const font of site.data.fonts_content) {
+								cFontNames.push(font.name);
+							};
+						%>
+						data-item-custom<%- i %>-options="<%- cFontNames.join('|') %>"
+						<% i++; %>
+
+						<% // Select content color %>
+						data-item-custom<%- i %>-name="Content color"
+						data-item-custom<%- i %>-options="<%- colorTextNames.join('|') %>"
+						<% i++; %>
+
+						<% // Size option - S, M, L, XL %>
+						data-item-custom<%- i %>-name="Decal size"
+						data-item-custom<%- i %>-options="<%- product.size %>"
+						<% i++; %>
+
+						<% // Select quantity %>
+						data-item-quantity="2"
+						>
+					</button>
 				</div>
 			</div>
 		</div>

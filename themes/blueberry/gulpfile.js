@@ -119,6 +119,7 @@ function scriptsDev() {
 
 // Beep task (with callback)
 function beepTask(cb) {
+	console.log('\x07');
 	cb();
 }
 
