@@ -1,32 +1,35 @@
-#preview-truck-van {
-    animation: spinme 4s;
-    animation-iteration-count: infinite;
+#truck-van-preview {
+    overflow: hidden;
 
-    background-color: #f2f3f7;
-    border: 1.5rem solid #f2f3f7;
-    border-radius: 1rem;
-    position: relative;
+    #truck-van-preview-bg {
+        animation: spinme 4s;
+        animation-iteration-count: infinite;
+        background-color: #f2f3f7;
+        border: 1.5rem solid #f2f3f7;
+        border-radius: 1rem;
+        position: relative;
 
-    @include media-breakpoint-up(sm) {
-        border-width: 2rem;
-    }
+        @include media-breakpoint-up(sm) {
+            border-width: 2rem;
+        }
 
-    @include media-breakpoint-up(md) {
-        border-width: 3rem;
-    }
+        @include media-breakpoint-up(md) {
+            border-width: 3rem;
+        }
 
-    @include media-breakpoint-up(lg) {
-        border-width: 3.50rem;
-    }
+        @include media-breakpoint-up(lg) {
+            border-width: 3.50rem;
+        }
 
-    &:after{
-        content: "";
-        outline: 1px grey dotted;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        &:after{
+            content: "";
+            outline: 1px grey dotted;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
     }
 }
 

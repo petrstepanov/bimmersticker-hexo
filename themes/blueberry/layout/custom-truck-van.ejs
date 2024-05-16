@@ -70,7 +70,7 @@
 					<div class="input-group mb-3">
 						<select id="selectHeadingFont" name="heading_font" class="custom-select custom-select-blueberry js--init-select-with-image">
 							<% for (const font of site.data.fonts_heading){ %>
-								<option data-font-url="<%- font.url %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.id %>"><%- font.name %></option>
+								<option data-font-id="<%- font.url %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.name %>"><%- font.name %></option>
 							<% } %>
 						</select>
 					</div>
@@ -104,7 +104,7 @@
 					<div class="input-group mb-3">
 						<select id="selectContentFont" name="content_font" class="custom-select custom-select-blueberry js--init-select-with-image">
 							<% for (const font of site.data.fonts_content){ %>
-								<option data-font-url="<%- font.url %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.id %>" <%- font.id=='italic'?'selected':'' %>><%- font.name %></option>
+								<option data-font-url="<%- font.url %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.name %>" <%- font.id=='italic'?'selected':'' %>><%- font.name %></option>
 							<% } %>
 						</select>
 					</div>
@@ -127,11 +127,11 @@
 				Here decal is displayed on `grey` background. Actual sticker background is transparent - you will see your vehicle color.
 			</p>
 		</div>
-		<div style="overflow-x: hidden">
-			<div class="container pt-4">
+		<div id="truck-van-preview">
+			<div class="container pt-4 pb-4">
 				<div class="row justify-content-center">
-					<div class="col-11 col-md-10 col-lg-8 mb-5">
-						<div id="preview-truck-van" class="js--widget-area-preview">
+					<div class="col-11 col-md-10 col-lg-8 mb-4">
+						<div id="truck-van-preview-bg" class="js--widget-area-preview">
 							<div id="truck-van-preview-heading">
 								<img width="919" height="197" class="w-100 h-auto" src="default-heading.png" />
 							</div>
@@ -149,7 +149,7 @@
 		<!-- 04. DECAL SIZE -->
 
 		<div class="container">
-			<h2 class="text-center mt-4 mb-3 numbered" data-number="4.">Adjust Decal Size</h2>
+			<h2 class="text-center mb-3 numbered" data-number="4.">Adjust Decal Size</h2>
 			<p class="text-muted text-center mb-4">
 				Please input the decal length. Height is calculated automatically depending on the number of lines and fonts used.
 			</p>
@@ -260,6 +260,7 @@
 							};
 						%>
 						data-item-custom<%- i %>-options="<%- hFontNames.join('|') %>"
+						data-item-custom<%- i %>-value="Midjourney"
 						<% i++; %>
 
 						<% // Select heading color %>
@@ -267,7 +268,7 @@
 						data-item-custom<%- i %>-name="Heading color"
 						<%
 							for (const color of site.data.colors_truckvan){
-								var string = color.name;
+								var string = color.id;
 								// Add [+9.99]
 								// if (color.extra){
 								// 	string += '[+' + color.extra + ']';
@@ -301,13 +302,13 @@
 
 						<% // Width %>
 						data-item-custom<%- i %>-name="Decal width"
-						data-item-custom1-value="24 in"
+						data-item-custom<%- i %>-value="24 in"
 						data-item-custom<%- i %>-type="readonly"
 						<% i++; %>
 
 						<% // Height %>
 						data-item-custom<%- i %>-name="Decal height"
-						data-item-custom1-value="8 ¼ in"
+						data-item-custom<%- i %>-value="8 ¼ in"
 						data-item-custom<%- i %>-type="readonly"
 						<% i++; %>
 

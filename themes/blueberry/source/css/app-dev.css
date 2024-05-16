@@ -11481,7 +11481,10 @@ body {
     transform: translateX(30%);
   }
 }
-#preview-truck-van {
+#truck-van-preview {
+  overflow: hidden;
+}
+#truck-van-preview #truck-van-preview-bg {
   animation: spinme 4s;
   animation-iteration-count: infinite;
   background-color: #f2f3f7;
@@ -11490,21 +11493,21 @@ body {
   position: relative;
 }
 @media (min-width: 576px) {
-  #preview-truck-van {
+  #truck-van-preview #truck-van-preview-bg {
     border-width: 2rem;
   }
 }
 @media (min-width: 768px) {
-  #preview-truck-van {
+  #truck-van-preview #truck-van-preview-bg {
     border-width: 3rem;
   }
 }
 @media (min-width: 992px) {
-  #preview-truck-van {
+  #truck-van-preview #truck-van-preview-bg {
     border-width: 3.5rem;
   }
 }
-#preview-truck-van:after {
+#truck-van-preview #truck-van-preview-bg:after {
   content: "";
   outline: 1px grey dotted;
   position: absolute;

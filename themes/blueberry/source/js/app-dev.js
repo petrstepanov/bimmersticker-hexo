@@ -1183,10 +1183,12 @@ function _cacheDom(element) {
     DOM.$selectContentFont = DOM.$el.find('#selectContentFont');
     DOM.$selectContentColor = DOM.$el.find('#selectContentColor');
 
-    DOM.$previewHeadingContainer = DOM.$el.find('truck-van-preview-heading');
-    DOM.$previewContentContainer = DOM.$el.find('truck-van-preview-content');
+    DOM.$previewContainer = DOM.$el.find('#truck-van-preview');
+    DOM.$previewHeadingContainer = DOM.$el.find('#truck-van-preview-heading');
+    DOM.$previewContentContainer = DOM.$el.find('#truck-van-preview-content');
 
     DOM.$inputLength = DOM.$el.find('#inputLength');
+    DOM.$inputHeight = DOM.$el.find('#inputHeight');
 
     DOM.$selectSize = DOM.$el.find('#selectSize');
 
@@ -1268,15 +1270,10 @@ function _bindEvents(element) {
     DOM.$inputHeading.on('input', function (event) {
         var text = _getHeadingText();
 
-        // Check string has non-latin characters and show/hide font selection panel
-        // This should happen instantly unlike the delayed request for updating font previews
-        // https://stackoverflow.com/questions/147824/how-to-find-whether-a-particular-string-has-unicode-characters-esp-double-byte
-        var containsNonLatinCharacters = /[^\u0000-\u00ff]/.test(text);
-
         // Timeout for updating the font previews
         if (timeoutUpdateHeadingImage) clearTimeout(timeoutUpdateHeadingImage);
         timeoutUpdateHeadingImage = setTimeout(function () {
-            _updateHeadingImage(containsNonLatinCharacters);
+            _updateHeadingImage();
         }, 1500);
 
         _updateSnipcartButtonHeadingText(this.value);
@@ -1289,6 +1286,7 @@ function _bindEvents(element) {
     DOM.$selectHeadingFont.change(function (event) {
         var text = _getHeadingText();
         var containsNonLatinCharacters = /[^\u0000-\u00ff]/.test(text);
+        clearTimeout(timeoutUpdateHeadingImage);
         _updateHeadingImage(containsNonLatinCharacters);
         var valueSelected  = $(this).find("option:selected").val();
         _updateSnipcartButtonHeadingFont(valueSelected);
@@ -1332,6 +1330,7 @@ function _bindEvents(element) {
     DOM.$selectContentFont.change(function (event) {
         var text = _getContentText();
         var containsNonLatinCharacters = /[^\u0000-\u00ff]/.test(text);
+        clearTimeout(timeoutUpdateContentImage);
         _updateContentImage(containsNonLatinCharacters);
         var valueSelected  = $(this).find("option:selected").val();
         _updateSnipcartButtonContentFont(valueSelected);
@@ -1352,7 +1351,8 @@ function _bindEvents(element) {
     });
 
     DOM.$selectSize.change(function (event) {
-        _updateSnipcartButtonSize();
+        var valueSelected  = $(this).find("option:selected").val();
+        _updateSnipcartButtonSize(valueSelected);
         _saveData();
     });
 
@@ -1379,88 +1379,43 @@ function _bindEvents(element) {
 }
 
 function _getHeadingText() {
-    return DOM.$inputHeading.val().length ? DOM.$input.val() : "Your Company Name";
+    return DOM.$inputHeading.val().length ? DOM.$inputHeading.val() : "Your Company Name";
 }
 
 function _getContentText() {
-    return DOM.$textareaContent.val().length ? DOM.$input.val() : "+1 650 253 0000\nmy-company@email.com";
+    return DOM.$textareaContent.val().length ? DOM.$textareaContent.val() : "+1 650 253 0000\nmy-company@email.com";
 }
 
-function _getSelectedSwatch(radioName) {
-    return $('input[name=' + radioName + ']:checked').parent().find('.color-swatch');
+function _buildMyFontUrl(url, text) {
+    text = encodeURIComponent(text);
+    return url + '&rt=#&w=0&sc=2'.replace("#", text);
 }
 
-function _reflectExtraTruckPrice(product){
-    DOM.$truckExtraContainer.children().hide();
-    const productClass= "." + product;
-    DOM.$truckExtraContainer.find(productClass).show();
-}
-
-function _buildFontUrl($fontImage, text) {
-    var url = $fontImage.data().src;
-    var query = '{"size":72,"text":"#","retina":false}'.replace("#", text);
-    return url + '?s=' + encodeURIComponent(query);
-}
-
-function _buildFontUnicodeUrl(text) {
-    var url = "/font-unicode/" + encodeURIComponent(text);
-    return url;
-}
-
-function _updateFontPreviews() {
+function _updateHeadingImage() {
     // On testing environment do nothing (no font url rewrite implemented)
-    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
-
-    // Update radio font images to reflect custom text
-    var text = _getHeadingText();
-
-    DOM.$fontImages.each(function () {
-        var url = _buildFontUrl($(this), text);
-        $(this).attr('src', url);
-        $(this).parent().removeClass('loading');
-        // Remove width and height set on the first page load for Google CLS improvements
-        $(this).removeAttr("width");
-        $(this).removeAttr("height");
-    });
-}
-
-function _updateHeadingImage(hasUnicode = false) {
-    // On testing environment do nothing (no font url rewrite implemented)
-    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
+    // if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
 
     // Update car banner and sun strip images
     var text = _getHeadingText();
-    var url = '';
-    var maskMode = '';
-    if (!hasUnicode){
-        var $fontImage = $('input[name=font]:checked').parent().find('img');
-        url = _buildFontUrl($fontImage, text);
-    } else {
-        url = _buildFontUnicodeUrl(text);
-        maskMode = 'luminance';
-    }
+    var fontId = DOM.$selectHeadingFont.find("option:selected").data("fontId");
+    url = _buildMyFontUrl(fontId, text);
+    // url="https://render.myfonts.net/fonts/font_rend.php?id=62d429961e1b6efde0ff607536aa5a12&rt=Ginzaw&rs=48&w=0&rbe=&sc=2&nie=true&fg=000000&bg=FFFFFF&ft=&nf=1";
+
     // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
     // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
     url = url.replace(/[() '"]/g, '\\$&');
 
-    // DOM.$banner.css('mask-image', 'url(' + url + ')');
-    // DOM.$banner.css('-webkit-mask-image', 'url(' + url + ')');
-
-    // DOM.$sunstripText.css('mask-image', 'url(' + url + ')');
-    // DOM.$sunstripText.css('-webkit-mask-image', 'url(' + url + ')');
-
-    // // CSS tweaks that account on discrepancy between creativemarket.com and myfonts.net
-    // if (hasUnicode){
-    //     DOM.$banner.addClass('unicode-on');
-    //     DOM.$sunstripText.addClass('unicode-on');
-    // } else {
-    //     DOM.$banner.removeClass('unicode-on');
-    //     DOM.$sunstripText.removeClass('unicode-on');
-    // }
+    DOM.$previewContainer.addClass("loading");
+    $('<img>', {"class": "w-100 h-auto"}).on('load', function () {
+        DOM.$previewHeadingContainer.empty();
+        $(this).appendTo(DOM.$previewHeadingContainer);
+        // TODO: throw event to update rulers, height and area field
+        DOM.$previewContainer.removeClass("loading");
+    }).attr({ src: url });
 }
 
 function _updateHeadingColor() {
-    var $swatch = _getSelectedSwatch('color_text');
+    // var $swatch = _getSelectedSwatch('color_text');
     // Change banner text
     // DOM.$banner.css('background-color', $swatch.css('background-color'));
     // DOM.$banner.css('background-image', $swatch.css('background-image'));
@@ -1469,11 +1424,11 @@ function _updateHeadingColor() {
     // DOM.$sunstripText.css('background-image', $swatch.css('background-image'));
 }
 
-function _updateContentImage(hasUnicode = false) {
+function _updateContentImage() {
 }
 
 function _updateContentColor() {
-    var $swatch = _getSelectedSwatch('color_base');
+    // var $swatch = _getSelectedSwatch('color_base');
     // Change sun strip base color
     // DOM.$sunstrip.css('background-color', $swatch.css('background-color'));
     // DOM.$sunstrip.css('background-image', $swatch.css('background-image'));
@@ -1508,7 +1463,11 @@ function _updateSnipcartButtonContentColor(value){
 }
 
 function _updateSnipcartButtonSize(value){
-    DOM.$buttonBuy.attr('data-item-custom7-value', value);
+    var length = DOM.$inputLength.val() + " in";
+    var height = DOM.$inputHeight.val() + " in";
+    DOM.$buttonBuy.attr('data-item-custom7-value', length);
+    DOM.$buttonBuy.attr('data-item-custom8-value', height);
+    DOM.$buttonBuy.attr('data-item-custom9-value', value);
 }
 
 function init(element) {
