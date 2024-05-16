@@ -27,11 +27,23 @@ function _updateWidthHeightArea(){
     // Get aspect ratio
     var ratio = DOM.$previewContainer.width()/DOM.$previewContainer.height();
     var height = width/ratio;
-    var heightRound = _roundOne(width/ratio);
+    var heightInteger = Math.floor(height);
+    var heightDecimal = height % 1;
+
+    var heightString = heightInteger + ' ';
+    if (heightDecimal < 0.375){
+        heightString += "¼";
+    }
+    else if (heightDecimal < 0.625){
+        heightString += "½";
+    }
+    else {
+        heightString += "¾";
+    }
     // Set width and height to elements
     DOM.$lengthRuler.html(width);
-    DOM.$heightRuler.html(heightRound);
-    DOM.$heightInput.val(heightRound);
+    DOM.$heightRuler.html(heightString);
+    DOM.$heightInput.val(heightString);
 
     var area = width*height/12./12.22
     var areaRound = _roundOne(area);

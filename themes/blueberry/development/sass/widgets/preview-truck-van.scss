@@ -1,4 +1,7 @@
 #preview-truck-van {
+    animation: spinme 4s;
+    animation-iteration-count: infinite;
+
     background-color: #f2f3f7;
     border: 1.5rem solid #f2f3f7;
     border-radius: 1rem;
@@ -26,6 +29,28 @@
         left: 0;
     }
 }
+
+@keyframes spinme {
+    0% {
+        transform: perspective(28rem) rotateY(0deg);
+    }
+    2% {
+        transform: perspective(28rem) rotateY(5deg);
+    }
+    4% {
+        transform: perspective(28rem) rotateY(-5deg);
+    }
+    8% {
+        transform: perspective(28rem) rotateY(5deg);
+    }
+    16% {
+        transform: perspective(28rem) rotateY(-5deg);
+    }
+    32% {
+        transform: perspective(28rem) rotateY(0deg);
+    }
+  }
+
 
 #truck-van-preview-heading, #truck-van-preview-content {
     mix-blend-mode: multiply;

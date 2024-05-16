@@ -50,8 +50,8 @@ $(function() {
   navbarFixer.init(document.querySelector('.js--init-navbar-fixer'));
   // smoothScroll.init();
   // windshieldForm.init(document.querySelector('.js--init-windshield-container'));
+
   windshieldForm.init(document.querySelector('.js--windshield-form-snipcart'));
-  truckVanForm.init(document.querySelector('.js--truck-van-form'));
   snipcartForm.init(document.querySelector('.js--init-snipcart-form'));
   contentBuyButton.init(document.querySelector('.js--init-content-buy-button'));
   navbarBuyButton.init(document.querySelector('.js--init-navbar-buy-button'));
@@ -59,6 +59,19 @@ $(function() {
   swatches.init(document.querySelector('.js--init-swatches'));
   postsFilter.init(document.querySelector('.js--init-posts-filter'));
   formInsideDialog.init(document.querySelector('.js--init-form-inside-dialog'));
+
+  // Truck van page area calculation
+  $('.js--init-select-with-image').each(function(){
+    var selectWithImage = new SelectWithImage();
+    selectWithImage.init(this);
+  });
+
+  $('.js--init-select-reflect').each(function(){
+    var selectReflect = new SelectReflect();
+    selectReflect.init(this);
+  });
+  WidgetArea.init();
+  truckVanForm.init(document.querySelector('.js--truck-van-form'));
 
   // Completely moved to HTML5 validation
   // formValidation.init(document.querySelectorAll('form input, form select, form textarea'));
@@ -74,17 +87,6 @@ $(function() {
     formAjaxSubmit.init(this);
   });
 
-  // Select with image custom plugin (Truck Van page)
-  $('.js--init-select-with-image').each(function(){
-    var selectWithImage = new SelectWithImage();
-    selectWithImage.init(this);
-  });
-
-  $('.js--init-select-reflect').each(function(){
-    var selectReflect = new SelectReflect();
-    selectReflect.init(this);
-  });
-
   // Autosize textareas
   autosize(document.querySelectorAll('.js--init-autosize'));
 
@@ -93,9 +95,6 @@ $(function() {
 
   // Connect color dropdowns and carousels
   Carousel.init();
-
-  // Truck van page area calculation
-  WidgetArea.init();
 
   // Fix checkout button caption
   var checkoutButtonFix = new CheckoutButtonFix();

@@ -51,8 +51,8 @@ $(function() {
   navbarFixer.init(document.querySelector('.js--init-navbar-fixer'));
   // smoothScroll.init();
   // windshieldForm.init(document.querySelector('.js--init-windshield-container'));
+
   windshieldForm.init(document.querySelector('.js--windshield-form-snipcart'));
-  truckVanForm.init(document.querySelector('.js--truck-van-form'));
   snipcartForm.init(document.querySelector('.js--init-snipcart-form'));
   contentBuyButton.init(document.querySelector('.js--init-content-buy-button'));
   navbarBuyButton.init(document.querySelector('.js--init-navbar-buy-button'));
@@ -60,6 +60,19 @@ $(function() {
   swatches.init(document.querySelector('.js--init-swatches'));
   postsFilter.init(document.querySelector('.js--init-posts-filter'));
   formInsideDialog.init(document.querySelector('.js--init-form-inside-dialog'));
+
+  // Truck van page area calculation
+  $('.js--init-select-with-image').each(function(){
+    var selectWithImage = new SelectWithImage();
+    selectWithImage.init(this);
+  });
+
+  $('.js--init-select-reflect').each(function(){
+    var selectReflect = new SelectReflect();
+    selectReflect.init(this);
+  });
+  WidgetArea.init();
+  truckVanForm.init(document.querySelector('.js--truck-van-form'));
 
   // Completely moved to HTML5 validation
   // formValidation.init(document.querySelectorAll('form input, form select, form textarea'));
@@ -75,17 +88,6 @@ $(function() {
     formAjaxSubmit.init(this);
   });
 
-  // Select with image custom plugin (Truck Van page)
-  $('.js--init-select-with-image').each(function(){
-    var selectWithImage = new SelectWithImage();
-    selectWithImage.init(this);
-  });
-
-  $('.js--init-select-reflect').each(function(){
-    var selectReflect = new SelectReflect();
-    selectReflect.init(this);
-  });
-
   // Autosize textareas
   autosize(document.querySelectorAll('.js--init-autosize'));
 
@@ -94,9 +96,6 @@ $(function() {
 
   // Connect color dropdowns and carousels
   Carousel.init();
-
-  // Truck van page area calculation
-  WidgetArea.init();
 
   // Fix checkout button caption
   var checkoutButtonFix = new CheckoutButtonFix();
@@ -1248,14 +1247,9 @@ function _loadData(){
         if (data.content_color){
             DOM.$selectContentColor.val(data.content_color).change();
         }
-        // if (data.height){
-        //     DOM.$inputHeight.val(data.height); //.change();
-        // }
-        // if (data.area){
-        //     DOM.$inputArea.val(data.area); //.change();
-        // }
-        if (data.size){
-            DOM.$selectSize.val(data.length); //.change();
+        // ruler values, height and area are updated via "widget-area.js" module. Ensure it loads before this module.
+        if (data.length){
+            DOM.$inputLength.val(data.length).change();
         }
         if (data.quantity){
             DOM.$inputQuantity.val(data.quantity) //.change();
@@ -1267,6 +1261,7 @@ function _onLoad() {
     DOM.$noJs.remove();
     // If JS is enabled - snipcart will load - update button text
     _updateSubmitButtonText();
+    _loadData();
 }
 
 function _bindEvents(element) {
@@ -1448,57 +1443,40 @@ function _updateHeadingImage(hasUnicode = false) {
     // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
     url = url.replace(/[() '"]/g, '\\$&');
 
-    DOM.$banner.css('mask-image', 'url(' + url + ')');
-    DOM.$banner.css('-webkit-mask-image', 'url(' + url + ')');
+    // DOM.$banner.css('mask-image', 'url(' + url + ')');
+    // DOM.$banner.css('-webkit-mask-image', 'url(' + url + ')');
 
-    DOM.$sunstripText.css('mask-image', 'url(' + url + ')');
-    DOM.$sunstripText.css('-webkit-mask-image', 'url(' + url + ')');
+    // DOM.$sunstripText.css('mask-image', 'url(' + url + ')');
+    // DOM.$sunstripText.css('-webkit-mask-image', 'url(' + url + ')');
 
-    // CSS tweaks that account on discrepancy between creativemarket.com and myfonts.net
-    if (hasUnicode){
-        DOM.$banner.addClass('unicode-on');
-        DOM.$sunstripText.addClass('unicode-on');
-    } else {
-        DOM.$banner.removeClass('unicode-on');
-        DOM.$sunstripText.removeClass('unicode-on');
-    }
+    // // CSS tweaks that account on discrepancy between creativemarket.com and myfonts.net
+    // if (hasUnicode){
+    //     DOM.$banner.addClass('unicode-on');
+    //     DOM.$sunstripText.addClass('unicode-on');
+    // } else {
+    //     DOM.$banner.removeClass('unicode-on');
+    //     DOM.$sunstripText.removeClass('unicode-on');
+    // }
 }
 
 function _updateHeadingColor() {
     var $swatch = _getSelectedSwatch('color_text');
     // Change banner text
-    DOM.$banner.css('background-color', $swatch.css('background-color'));
-    DOM.$banner.css('background-image', $swatch.css('background-image'));
+    // DOM.$banner.css('background-color', $swatch.css('background-color'));
+    // DOM.$banner.css('background-image', $swatch.css('background-image'));
     // Change sun strip text color
-    DOM.$sunstripText.css('background-color', $swatch.css('background-color'));
-    DOM.$sunstripText.css('background-image', $swatch.css('background-image'));
+    // DOM.$sunstripText.css('background-color', $swatch.css('background-color'));
+    // DOM.$sunstripText.css('background-image', $swatch.css('background-image'));
+}
+
+function _updateContentImage(hasUnicode = false) {
 }
 
 function _updateContentColor() {
     var $swatch = _getSelectedSwatch('color_base');
     // Change sun strip base color
-    DOM.$sunstrip.css('background-color', $swatch.css('background-color'));
-    DOM.$sunstrip.css('background-image', $swatch.css('background-image'));
-}
-
-// Visual updates for selecting vehicle type (car/truck)
-function _updateVehicleType(value) {
-    // Reflect Bootstrap button appearance
-    DOM.$radioVehicleType.parent().removeClass('active');
-    DOM.$radioVehicleType.filter('[value='+value+']').parent().addClass('active');
-
-    if (value == 'Regular'){
-        DOM.$car.show();
-        DOM.$noticeCar.show();
-        DOM.$truck.hide();
-        DOM.$noticeTruck.hide();
-    }
-    else {
-        DOM.$car.hide();
-        DOM.$noticeCar.hide();
-        DOM.$truck.show();
-        DOM.$noticeTruck.show();
-    }
+    // DOM.$sunstrip.css('background-color', $swatch.css('background-color'));
+    // DOM.$sunstrip.css('background-image', $swatch.css('background-image'));
 }
 
 // Updating Snipcart buttons' attributes
@@ -1540,7 +1518,6 @@ function init(element) {
         _bindEvents();
         _onLoad();
         // _showHideFormContainers(DOM.$radioProduct.val());
-        _loadData();
     }
 }
 
@@ -1618,11 +1595,23 @@ function _updateWidthHeightArea(){
     // Get aspect ratio
     var ratio = DOM.$previewContainer.width()/DOM.$previewContainer.height();
     var height = width/ratio;
-    var heightRound = _roundOne(width/ratio);
+    var heightInteger = Math.floor(height);
+    var heightDecimal = height % 1;
+
+    var heightString = heightInteger + ' ';
+    if (heightDecimal < 0.375){
+        heightString += "¼";
+    }
+    else if (heightDecimal < 0.625){
+        heightString += "½";
+    }
+    else {
+        heightString += "¾";
+    }
     // Set width and height to elements
     DOM.$lengthRuler.html(width);
-    DOM.$heightRuler.html(heightRound);
-    DOM.$heightInput.val(heightRound);
+    DOM.$heightRuler.html(heightString);
+    DOM.$heightInput.val(heightString);
 
     var area = width*height/12./12.22
     var areaRound = _roundOne(area);

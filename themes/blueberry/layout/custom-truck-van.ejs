@@ -1,7 +1,10 @@
+<!-- TODO: update opengraph image -->
+<!-- TODO: add rotating animation -->
+<!-- TODO: check snipcart button data-item-image -->
+<!-- TODO: use ¼ ½ ¾ for height -->
 <%
   // OpenGraph Image Settings - 1200x630 minimum
-  // TODO: update OG Image
-  page.photos = [config.url + '/custom-truck-van-decals/....jpg'];
+  page.photos = [config.url + '/custom-truck-van-decals/van-truck-company-sticker-business-fleet-og.jpg'];
 %>
 <%- partial('partial/navbar') %>
 <%
@@ -135,8 +138,8 @@
 							<div id="truck-van-preview-content">
 								<img width="1566" height="298" class="w-100 h-auto" src="default-content.png" />
 							</div>
-							<div class="ruler-x"><span class="val"><span class="js--length-ruler">38</span> in</span></div>
-							<div class="ruler-y"><span class="val"><span class="js--height-ruler">13.3</span> in</span></div>
+							<div class="ruler-x"><span class="val"><span class="js--length-ruler">24</span> in</span></div>
+							<div class="ruler-y"><span class="val"><span class="js--height-ruler">8 ¼</span> in</span></div>
 						</div>
 					</div>
 				</div>
@@ -158,7 +161,7 @@
 						<div class="input-group-prepend">
 							<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
 						</div>
-						<input id="inputLength" name="length" type="number" class="px-0 form-control js--input js--widget-area-length text-center hide-arrows" value="38" min="6" max="999">
+						<input id="inputLength" name="length" type="number" class="px-0 form-control js--input js--widget-area-length text-center hide-arrows" value="24" min="6" max="999">
 						<div class="input-group-append">
 							<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
 						</div>
@@ -171,7 +174,7 @@
 				</div>
 				<div class="col-4 col-sm-3 col-md-2 col-md-2">
 					<label class="label-blueberry" for="inputHeight">height, in</label>
-					<input readonly id="inputHeight" name="height" type="number" class="form-control js--widget-area-height text-center hide-arrows" value="14">
+					<input readonly id="inputHeight" name="height" type="text" class="form-control js--widget-area-height text-center hide-arrows" value="8 ¼">
 				</div>
 				<div class="col-2 col-sm-1 col-md-1 col-lg-1 text-center">
 					<div class="match-input-height pt-3">
@@ -180,7 +183,7 @@
 				</div>
 				<div class="col-4 col-sm-3 col-md-3 col-lg-2">
 					<label class="label-blueberry" for="inputArea">Area, sq. ft.</label>
-					<input readonly id="inputArea" name="area" type="number" class="form-control js--widget-area-area text-center hide-arrows" value="3.7">
+					<input readonly id="inputArea" name="area" type="number" class="form-control js--widget-area-area text-center hide-arrows" value="1.4">
 				</div>
 			</div>
 		</div>
@@ -196,8 +199,8 @@
 			<div class="row justify-content-center">
 				<div class="col col-lg-9 col-xl-9">
 					<select id="selectSize" name="size" class="js--init-select-reflect js--widget-area-select">
-						<option value="s"  data-price="39.99">S • &lt;2 sq ft</option>
-						<option value="m"  data-price="59.99" selected>M • 2-4 sq ft</option>
+						<option value="s"  data-price="39.99" selected>S • &lt;2 sq ft</option>
+						<option value="m"  data-price="59.99">M • 2-4 sq ft</option>
 						<option value="l"  data-price="99.99">L • 4-8 sq ft</option>
 						<option value="xl" data-price="149.99">XL • 8+ sq ft</option>
 					</select>
@@ -277,6 +280,7 @@
 
 						<% // Content text %>
 						data-item-custom<%- i %>-name="<%- product.customization_name_2 %>"
+						data-item-custom<%- i %>-type="textarea"
 						<% i++; %>
 
 						<% // Content font %>
@@ -295,9 +299,23 @@
 						data-item-custom<%- i %>-options="<%- colorTextNames.join('|') %>"
 						<% i++; %>
 
+						<% // Width %>
+						data-item-custom<%- i %>-name="Decal width"
+						data-item-custom1-value="24 in"
+						data-item-custom<%- i %>-type="readonly"
+						<% i++; %>
+
+						<% // Height %>
+						data-item-custom<%- i %>-name="Decal height"
+						data-item-custom1-value="8 ¼ in"
+						data-item-custom<%- i %>-type="readonly"
+						<% i++; %>
+
 						<% // Size option - S, M, L, XL %>
 						data-item-custom<%- i %>-name="Decal size"
 						data-item-custom<%- i %>-options="<%- product.size %>"
+						data-item-custom<%- i %>-type="hidden"
+						data-item-custom<%- i %>-value="S"
 						<% i++; %>
 
 						<% // Select quantity %>
