@@ -4328,6 +4328,33 @@ a.badge-dark:focus, a.badge-dark.focus {
   color: #040505;
 }
 
+.close {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.5;
+}
+.close:hover {
+  color: #000;
+  text-decoration: none;
+}
+.close:not(:disabled):not(.disabled):hover, .close:not(:disabled):not(.disabled):focus {
+  opacity: 0.75;
+}
+
+button.close {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+}
+
+a.close.disabled {
+  pointer-events: none;
+}
+
 .modal-open {
   overflow: hidden;
 }
@@ -8814,6 +8841,12 @@ button:focus {
 .btn-outline-primary.btn-blueberry {
   background-color: white;
 }
+.btn-outline-primary.btn-blueberry svg path {
+  fill: #007CC2;
+}
+.btn-outline-primary.btn-blueberry:hover svg path {
+  fill: white;
+}
 .btn-outline-primary.btn-blueberry:hover {
   background-color: #007CC2;
 }
@@ -11487,8 +11520,8 @@ body {
 #truck-van-preview #truck-van-preview-bg {
   animation: spinme 4s;
   animation-iteration-count: infinite;
-  background-color: #f2f3f7;
-  border: 1.5rem solid #f2f3f7;
+  background-color: #dfdfdf;
+  border: 1.5rem solid #dfdfdf;
   border-radius: 1rem;
   position: relative;
 }
@@ -11538,60 +11571,39 @@ body {
   }
 }
 #truck-van-preview-heading, #truck-van-preview-content {
-  mix-blend-mode: multiply;
   position: relative;
 }
 
 #truck-van-preview-heading {
-  margin-top: -1.2rem;
-}
-#truck-van-preview-heading:after {
-  content: "";
-  background-color: red;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  mix-blend-mode: lighten;
+  margin-top: -0.25rem;
 }
 
 #truck-van-preview-content {
-  width: 90%;
-}
-#truck-van-preview-content:after {
-  content: "";
-  background-color: black;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  mix-blend-mode: lighten;
+  width: 85%;
 }
 
 .ruler-x {
   position: absolute;
   left: 0;
   right: 0;
-  top: 125%;
+  bottom: -3rem;
   height: 1rem;
   text-align: center;
   line-height: 1rem;
 }
 @media (min-width: 576px) {
   .ruler-x {
-    top: 132%;
+    bottom: -4.4rem;
   }
 }
 @media (min-width: 768px) {
   .ruler-x {
-    top: 142%;
+    bottom: -5.5rem;
   }
 }
 @media (min-width: 992px) {
   .ruler-x {
-    top: 148%;
+    bottom: -6.4rem;
   }
 }
 .ruler-x .val {
@@ -11617,23 +11629,23 @@ body {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 102%;
+  right: -4.5rem;
   width: 4rem;
   text-align: center;
 }
 @media (min-width: 576px) {
   .ruler-y {
-    left: 108%;
+    right: -6rem;
   }
 }
 @media (min-width: 768px) {
   .ruler-y {
-    left: 111%;
+    right: -8rem;
   }
 }
 @media (min-width: 992px) {
   .ruler-y {
-    left: 114%;
+    right: -9rem;
   }
 }
 .ruler-y .val {
@@ -11687,7 +11699,7 @@ body {
   border-radius: 0.5rem;
   text-align: center;
   flex-grow: 2;
-  padding: 1rem;
+  padding: 1rem 0.25rem;
 }
 .select-reflect .select-reflect-item span {
   font-weight: bold;

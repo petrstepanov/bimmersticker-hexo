@@ -104,7 +104,7 @@
 					<div class="input-group mb-3">
 						<select id="selectContentFont" name="content_font" class="custom-select custom-select-blueberry js--init-select-with-image">
 							<% for (const font of site.data.fonts_content){ %>
-								<option data-font-url="<%- font.url %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.name %>" <%- font.id=='italic'?'selected':'' %>><%- font.name %></option>
+								<option data-font-id="<%- font.url %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.name %>" <%- font.id=='italic'?'selected':'' %>><%- font.name %></option>
 							<% } %>
 						</select>
 					</div>
@@ -128,15 +128,15 @@
 			</p>
 		</div>
 		<div id="truck-van-preview">
-			<div class="container pt-4 pb-4">
+			<div class="container pt-3 pt-md-4 pb-3 pb-mb-4">
 				<div class="row justify-content-center">
 					<div class="col-11 col-md-10 col-lg-8 mb-4">
 						<div id="truck-van-preview-bg" class="js--widget-area-preview">
-							<div id="truck-van-preview-heading">
-								<img width="919" height="197" class="w-100 h-auto" src="default-heading.png" />
+							<div id="truck-van-preview-heading" data-hex="red">
+								<img width="919" height="197" class="w-100 h-auto" src="default-heading.webp" />
 							</div>
-							<div id="truck-van-preview-content">
-								<img width="1566" height="298" class="w-100 h-auto" src="default-content.png" />
+							<div id="truck-van-preview-content" data-hex="black">
+								<img width="1566" height="298" class="w-100 h-auto" src="default-content.webp" />
 							</div>
 							<div class="ruler-x"><span class="val"><span class="js--length-ruler">24</span> in</span></div>
 							<div class="ruler-y"><span class="val"><span class="js--height-ruler">8 ¼</span> in</span></div>
@@ -151,7 +151,7 @@
 		<div class="container">
 			<h2 class="text-center mb-3 numbered" data-number="4.">Adjust Decal Size</h2>
 			<p class="text-muted text-center mb-4">
-				Please input the decal length. Height is calculated automatically depending on the number of lines and fonts used.
+				Please input the decal length. Height is calculated automatically depending on the content and fonts used.
 			</p>
 
 			<div class="row justify-content-end justify-content-sm-center">
@@ -172,18 +172,29 @@
 						<span class="d-inline-block font-size-28 text-muted">×</span>
 					</div>
 				</div>
-				<div class="col-4 col-sm-3 col-md-2 col-md-2">
+				<div class="col-4 col-sm-3 col-md-2 col-md-2 text-center">
 					<label class="label-blueberry" for="inputHeight">height, in</label>
 					<input readonly id="inputHeight" name="height" type="text" class="form-control js--widget-area-height text-center hide-arrows" value="8 ¼">
 				</div>
-				<div class="col-2 col-sm-1 col-md-1 col-lg-1 text-center">
+				<div class="d-none col-2 col-sm-1 col-md-1 col-lg-1 text-center">
 					<div class="match-input-height pt-3">
 						<span class="d-inline-block font-size-28 text-muted">=</span>
 					</div>
 				</div>
-				<div class="col-4 col-sm-3 col-md-3 col-lg-2">
-					<label class="label-blueberry" for="inputArea">Area, sq. ft.</label>
+				<div class="d-none col-4 col-sm-3 col-md-3 col-lg-2 text-center">
+					<label class="label-blueberry" for="inputArea">Area, sq ft</label>
 					<input readonly id="inputArea" name="area" type="number" class="form-control js--widget-area-area text-center hide-arrows" value="1.4">
+				</div>
+			</div>
+			<div class="row justify-content-center mt-3 pb-2">
+				<div class="col col-md-9 col-lg-8 text-center">
+					<label class="label-blueberry mb-2" for="inputArea">Decal size</label>
+					<select id="selectSize" name="size" class="js--init-select-reflect js--widget-area-select">
+						<option value="s"  data-price="39.99" selected>S • &lt;2 ft²</option>
+						<option value="m"  data-price="59.99">M • 2-4 ft²</option>
+						<option value="l"  data-price="99.99">L • 4-8 ft²</option>
+						<option value="xl" data-price="149.99">XL • 8+ ft²</option>
+					</select>
 				</div>
 			</div>
 		</div>
@@ -195,19 +206,8 @@
 			<p class="text-muted text-center mb-4">
 				Decals are priced each. Please add 2 items to your cart to decorate both sides of the vehicle.
 			</p>
-
 			<div class="row justify-content-center">
-				<div class="col col-lg-9 col-xl-9">
-					<select id="selectSize" name="size" class="js--init-select-reflect js--widget-area-select">
-						<option value="s"  data-price="39.99" selected>S • &lt;2 sq ft</option>
-						<option value="m"  data-price="59.99">M • 2-4 sq ft</option>
-						<option value="l"  data-price="99.99">L • 4-8 sq ft</option>
-						<option value="xl" data-price="149.99">XL • 8+ sq ft</option>
-					</select>
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col col-md-6 mt-4">
+				<div class="col-12 col-md-8">
 					<div class="form-group text-center">
 						<label class="label-blueberry" for="inputQuantity">How many items you need?</label>
 						<div class="input-group js--init-integer-input">
@@ -225,17 +225,30 @@
 					</div>
 				</div>
 			</div>
-			<div class="row justify-content-center">
-				<!-- Hack: make users without JavaScript fill their email so we can reach out back -->
-				<div class="col-12 col-md-10 col-lg-8 js--nojs-only">
+			<!-- Hack: make users without JavaScript fill their email so we can reach out back -->
+			<div class="row justify-content-center js--nojs-only">
+				<div class="col-12 col-md-8">
 					<div class="form-group">
 						<label class="label-blueberry" for="inputEmail">Enter your email</label>
 						<input class="form-control form-control-lg" type="text" required id="inputEmail" name="email" placeholder="your@email.com" />
 					</div>
 				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-12 col-sm-6 col-md-5 text-center">
+					<% if (theme.email){ %>
+						<button type="button" class="btn btn-outline-primary btn-blueberry btn-lg mt-3" href="#" data-toggle="modal" data-target="#customizeModal">
+							<span class="icon-sm"><%- partial('ionicons/ios-mail.svg') %></span>
+							Got Questions?
+						</button>
+					<% } %>
+				</div>
+				<div class="col-12 col-sm-6 col-md-5 text-center">
+					<button type="submit" id="buttonSubmit" class="btn btn-primary btn-blueberry btn-lg mt-3">Submit Banner Request</button>
+				</div>
+			</div>
+			<div class="row justify-content-center">
 				<div class="col-12 col-md-10 col-lg-8 text-center mt-4">
-					<button type="submit" id="buttonSubmit" class="btn btn-primary btn-blueberry btn-lg">Submit Banner Request</button>
-					<br />
 					<button class="snipcart-add-item btn invisible"
 						data-item-id="<%- product.id %>"
 						data-item-price="<%- parseFloat(product.price) %>"
@@ -328,3 +341,5 @@
 		</div>
 	</form>
 </section>
+
+<%- partial('partial/item-customize') %>

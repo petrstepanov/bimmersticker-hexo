@@ -124,10 +124,9 @@ function _bindEvents(element) {
     });
 
     DOM.$selectHeadingFont.change(function (event) {
-        var text = _getHeadingText();
-        var containsNonLatinCharacters = /[^\u0000-\u00ff]/.test(text);
         clearTimeout(timeoutUpdateHeadingImage);
-        _updateHeadingImage(containsNonLatinCharacters);
+        _updateHeadingImage();
+
         var valueSelected  = $(this).find("option:selected").val();
         _updateSnipcartButtonHeadingFont(valueSelected);
         if (event.originalEvent && event.originalEvent.isTrusted){
@@ -137,7 +136,9 @@ function _bindEvents(element) {
     });
 
     DOM.$selectHeadingColor.change(function (event) {
-        _updateHeadingColor();
+        clearTimeout(timeoutUpdateHeadingImage);
+        _updateHeadingImage();
+
         var valueSelected  = $(this).find("option:selected").val();
         _updateSnipcartButtonHeadingColor(valueSelected);
         if (event.originalEvent && event.originalEvent.isTrusted){
@@ -149,15 +150,10 @@ function _bindEvents(element) {
     DOM.$textareaContent.on('input', function (event) {
         var text = _getContentText();
 
-        // Check string has non-latin characters and show/hide font selection panel
-        // This should happen instantly unlike the delayed request for updating font previews
-        // https://stackoverflow.com/questions/147824/how-to-find-whether-a-particular-string-has-unicode-characters-esp-double-byte
-        var containsNonLatinCharacters = /[^\u0000-\u00ff]/.test(text);
-
         // Timeout for updating the font previews
         if (timeoutUpdateContentImage) clearTimeout(timeoutUpdateContentImage);
         timeoutUpdateContentImage = setTimeout(function () {
-            _updateContentImage(containsNonLatinCharacters);
+            _updateContentImage();
         }, 1500);
 
         _updateSnipcartButtonContentText(this.value);
@@ -168,10 +164,9 @@ function _bindEvents(element) {
     });
 
     DOM.$selectContentFont.change(function (event) {
-        var text = _getContentText();
-        var containsNonLatinCharacters = /[^\u0000-\u00ff]/.test(text);
         clearTimeout(timeoutUpdateContentImage);
-        _updateContentImage(containsNonLatinCharacters);
+        _updateContentImage();
+
         var valueSelected  = $(this).find("option:selected").val();
         _updateSnipcartButtonContentFont(valueSelected);
         if (event.originalEvent && event.originalEvent.isTrusted){
@@ -181,7 +176,9 @@ function _bindEvents(element) {
     });
 
     DOM.$selectContentColor.change(function (event) {
-        _updateContentColor();
+        clearTimeout(timeoutUpdateContentImage);
+        _updateContentImage();
+
         var valueSelected  = $(this).find("option:selected").val();
         _updateSnipcartButtonContentColor(valueSelected);
         if (event.originalEvent && event.originalEvent.isTrusted){
@@ -226,9 +223,12 @@ function _getContentText() {
     return DOM.$textareaContent.val().length ? DOM.$textareaContent.val() : "+1 650 253 0000\nmy-company@email.com";
 }
 
-function _buildMyFontUrl(url, text) {
+function _buildMyFontUrl(url, text, color) {
     text = encodeURIComponent(text);
-    return url + '&rt=#&w=0&sc=2'.replace("#", text);
+    url += '&rt=#&w=0&sc=2&bg=dfdfdf'.replace("#", text);
+    url += '&fg=';
+    url += color;
+    return url;
 }
 
 function _updateHeadingImage() {
@@ -238,7 +238,8 @@ function _updateHeadingImage() {
     // Update car banner and sun strip images
     var text = _getHeadingText();
     var fontId = DOM.$selectHeadingFont.find("option:selected").data("fontId");
-    url = _buildMyFontUrl(fontId, text);
+    var color = DOM.$selectHeadingColor.find("option:selected").data('hex').replace('#','');
+    url = _buildMyFontUrl(fontId, text, color);
     // url="https://render.myfonts.net/fonts/font_rend.php?id=62d429961e1b6efde0ff607536aa5a12&rt=Ginzaw&rs=48&w=0&rbe=&sc=2&nie=true&fg=000000&bg=FFFFFF&ft=&nf=1";
 
     // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
@@ -254,25 +255,41 @@ function _updateHeadingImage() {
     }).attr({ src: url });
 }
 
-function _updateHeadingColor() {
-    // var $swatch = _getSelectedSwatch('color_text');
-    // Change banner text
-    // DOM.$banner.css('background-color', $swatch.css('background-color'));
-    // DOM.$banner.css('background-image', $swatch.css('background-image'));
-    // Change sun strip text color
-    // DOM.$sunstripText.css('background-color', $swatch.css('background-color'));
-    // DOM.$sunstripText.css('background-image', $swatch.css('background-image'));
-}
+// function _updateHeadingColor() {
+//     var hex = DOM.$selectHeadingColor.find("option:selected").data('hex');
+//     // https://css-tricks.com/css-attr-function-got-nothin-custom-properties/
+//     DOM.$previewHeadingContainer.css('--my-color', hex);
+// }
 
 function _updateContentImage() {
+    // On testing environment do nothing (no font url rewrite implemented)
+    // if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
+
+    // Update car banner and sun strip images
+    var text = _getContentText();
+    var fontId = DOM.$selectContentFont.find("option:selected").data("fontId");
+    var color = DOM.$selectContentColor.find("option:selected").data('hex').replace('#','');
+    url = _buildMyFontUrl(fontId, text, color);
+    // url="https://render.myfonts.net/fonts/font_rend.php?id=62d429961e1b6efde0ff607536aa5a12&rt=Ginzaw&rs=48&w=0&rbe=&sc=2&nie=true&fg=000000&bg=FFFFFF&ft=&nf=1";
+
+    // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
+    // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
+    // url = url.replace(/[() '"]/g, '\\$&');
+
+    DOM.$previewContainer.addClass("loading");
+    $('<img>', {"class": "w-100 h-auto"}).on('load', function () {
+        DOM.$previewContentContainer.empty();
+        $(this).appendTo(DOM.$previewContentContainer);
+        // TODO: throw event to update rulers, height and area field
+        DOM.$previewContainer.removeClass("loading");
+    }).attr({ src: url });
 }
 
-function _updateContentColor() {
-    // var $swatch = _getSelectedSwatch('color_base');
-    // Change sun strip base color
-    // DOM.$sunstrip.css('background-color', $swatch.css('background-color'));
-    // DOM.$sunstrip.css('background-image', $swatch.css('background-image'));
-}
+// function _updateContentColor() {
+//     var hex = DOM.$selectContentColor.find("option:selected").data('hex');
+//     // https://css-tricks.com/css-attr-function-got-nothin-custom-properties/
+//     DOM.$previewContentContainer.css('--my-color', hex);
+// }
 
 // Updating Snipcart buttons' attributes
 

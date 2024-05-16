@@ -67,6 +67,16 @@ button:focus {
   background-color: white;
   // box-shadow: 0 2px 4px 0 rgba(0, 158, 230, 0.2), 0 0 0 1px $blue, inset 0 0 0 1px $blue;
 
+  svg path {
+    fill: $blue;
+  }
+
+  &:hover {
+    svg path {
+      fill: white;
+    }
+  }
+
   &:hover {
     background-color: $blue;
   }

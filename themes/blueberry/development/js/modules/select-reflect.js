@@ -16,7 +16,10 @@ var SelectReflect = function(){
       // Iterate all <option /> elements
       $optionReflect = $("<div>", {"class": "select-reflect-item", "data-value": $(this).attr("value")});
       DOM.$selectReflect.append($optionReflect);
-      var html = $(this).html() + "<span>$" + $(this).data('price') + "</span>";
+      var html = $(this).html()
+      html = html.replace('•','<span class="d-none d-sm-inline">•</span><br class="d-inline d-sm-none" />')
+      html += "<span>$" + $(this).data('price') + "</span>";
+      html = html.replace('.99','⁹⁹');
       $optionReflect.html(html);
 
       // Reflect selected option

@@ -4,8 +4,8 @@
     #truck-van-preview-bg {
         animation: spinme 4s;
         animation-iteration-count: infinite;
-        background-color: #f2f3f7;
-        border: 1.5rem solid #f2f3f7;
+        background-color: #dfdfdf;
+        border: 1.5rem solid #dfdfdf;
         border-radius: 1rem;
         position: relative;
 
@@ -56,57 +56,59 @@
 
 
 #truck-van-preview-heading, #truck-van-preview-content {
-    mix-blend-mode: multiply;
+    // mix-blend-mode: multiply;
     position: relative;
 }
 
 #truck-van-preview-heading {
-    margin-top: -1.2rem;
+    margin-top: -0.25rem;
+    // --my-color: red;
 
-    &:after{
-        content: "";
-        background-color: red;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        mix-blend-mode: lighten;
-    }
+    // &:after{
+    //     content: "";
+    //     background-color: var(--my-color);
+    //     position: absolute;
+    //     top: 0;
+    //     right: 0;
+    //     bottom: 0;
+    //     left: 0;
+    //      mix-blend-mode: lighten;
+    // }
 }
 
 #truck-van-preview-content {
-    width: 90%;
+    width: 85%;
+    // --my-color: black;
 
-    &:after{
-        content: "";
-        background-color: black;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        mix-blend-mode: lighten;
-    }
+    // &:after{
+    //     content: "";
+    //     background-color: var(--my-color);
+    //     position: absolute;
+    //     top: 0;
+    //     right: 0;
+    //     bottom: 0;
+    //     left: 0;
+    //     // mix-blend-mode: lighten;
+    // }
 }
 
 .ruler-x {
     position: absolute;
     left: 0;
     right: 0;
-    top: 125%;
+    bottom: -3rem;
     height: 1rem;
     text-align: center;
     line-height: 1rem;
 
     @include media-breakpoint-up(sm) {
-        top: 132%;
+        bottom: -4.4rem;
     }
     @include media-breakpoint-up(md) {
-        top: 142%;
+        bottom: -5.5rem;
     }
     @include media-breakpoint-up(lg) {
-        top: 148%;
+        bottom: -6.4rem;
     }
 
     .val {
@@ -134,18 +136,18 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 102%;
+    right: -4.5rem;
     width: 4rem;
     text-align: center;
 
     @include media-breakpoint-up(sm) {
-        left: 108%;
+        right: -6rem;
     }
     @include media-breakpoint-up(md) {
-        left: 111%;
+        right: -8rem;
     }
     @include media-breakpoint-up(lg) {
-        left: 114%;
+        right: -9rem;
     }
 
     .val {
