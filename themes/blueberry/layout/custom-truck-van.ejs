@@ -15,6 +15,18 @@
 		}
 	}
 %>
+<!-- Default variable values to share between server and client -->
+<% var defaultHeadingFontName = "Midjourney"; %>
+<% var defaultHeadingColor = "Red"; %>
+<% var defaultContentText = "+1 650 253 0000\nmy-company@email.com"; %>
+<% var defaultContentFontName = "Italic"; %>
+<% var defaultContentColor = "Black"; %>
+<% var defaultVehicleColor = "#DFDFDF"; %>
+<% var defaultLength = "24"; %>
+<% var defaultHeight = "8 ¼"; %>
+<% var defaultArea = "1.4"; %>
+<% var defaultSize = "S"; %>
+
 <section>
 	<%- partial('partial/navbar') %>
 	<div class="jumbotron jumbotron-fluid jumbotron-blueberry-page jumbotron-truck-van pb-0">
@@ -49,7 +61,7 @@
 				</div>
 			</div>
 
-			<!-- 01. TITLE -->
+			<!-- 01. HEADING -->
 
 			<h2 class="text-center mt-4 mb-3 numbered" data-number="1.">Design the Heading</h2>
 			<p class="text-muted text-center mb-4">
@@ -58,25 +70,28 @@
 
 			<div class="row justify-content-center">
 				<div class="col-12 col-md-6">
+					<!-- TEXT -->
 					<label class="label-blueberry" for="inputHeading">Type your Heading</label>
 					<div class="input-group mb-2">
 						<input id="inputHeading" name="heading" required class="form-control" type="text" placeholder="Business name or services" title="Please enter your business name or services you offer">
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
+					<!-- FONT -->
 					<label class="label-blueberry" for="selectHeadingFont">Heading Font</label>
 					<div class="input-group mb-3">
 						<select id="selectHeadingFont" name="heading_font" class="custom-select custom-select-blueberry js--init-select-with-image">
 							<% for (const font of site.data.fonts_heading){ %>
-								<option data-font-id="<%- font.font_id %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.name %>"><%- font.name %></option>
+								<option data-font-id="<%- font.font_id %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.name %>" <%- font.name==defaultHeadingFontName?'selected':'' %>><%- font.name %></option>
 							<% } %>
 						</select>
 					</div>
+					<!-- COLOR -->
 					<label class="label-blueberry" for="selectHeadingColor">Heading Color</label>
 					<div class="input-group mb-3">
 						<select id="selectHeadingColor" name="heading_color" class="custom-select custom-select-blueberry">
 							<% for (const color of site.data.colors_truckvan){ %>
-								<option data-hex="<%- color.hex %>" value="<%- color.id %>" <%- color.id=="red"?"selected":"" %>><%- color.name %></option>
+								<option data-hex="<%- color.hex %>" value="<%- color.id %>" <%- color.id==defaultHeadingColor?"selected":"" %>><%- color.name %></option>
 							<% } %>
 						</select>
 					</div>
@@ -92,35 +107,35 @@
 
 			<div class="row justify-content-center">
 				<div class="col-12 col-md-6">
+					<!-- TEXT -->
 					<label class="label-blueberry" for="textareaContent">Input Content</label>
 					<div class="input-group mb-2">
-						<textarea class="form-control js--init-autosize" id="textareaContent" name="content" rows="3" placeholder="Use as many lines as you need or leave empty" title="Please enter your business information - slogan, phone, email">
-+1 650 253 0000
-my-company@email.com
-						</textarea>
+						<textarea class="form-control js--init-autosize" id="textareaContent" name="content" rows="3" placeholder="Use as many lines as you need or leave empty" title="Please enter your business information - slogan, phone, email"><%- defaultContentText %></textarea>
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
+					<!-- FONT -->
 					<label class="label-blueberry" for="selectContentFont">Content Font</label>
 					<div class="input-group mb-3">
 						<select id="selectContentFont" name="content_font" class="custom-select custom-select-blueberry js--init-select-with-image">
 							<% for (const font of site.data.fonts_content){ %>
-								<option data-font-id="<%- font.font_id %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.name %>" <%- font.id=='italic'?'selected':'' %>><%- font.name %></option>
+								<option data-font-id="<%- font.font_id %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.name %>" <%- font.name==defaultContentFontName?'selected':'' %>><%- font.name %></option>
 							<% } %>
 						</select>
 					</div>
+					<!-- COLOR -->
 					<label class="label-blueberry" for="selectContentColor">Content Color</label>
 					<div class="input-group mb-3">
 						<select id="selectContentColor" name="content_color" class="custom-select custom-select-blueberry">
 							<% for (const color of site.data.colors_truckvan){ %>
-								<option data-hex="<%- color.hex %>" value="<%- color.id %>" <%- color.id=="black"?"selected":"" %>><%- color.name %></option>
+								<option data-hex="<%- color.hex %>" value="<%- color.id %>" <%- color.id==defaultContentColor?"selected":"" %>><%- color.name %></option>
 							<% } %>
 						</select>
 					</div>
 				</div>
 			</div>
 
-			<!-- 02. PREVIEW -->
+			<!-- 03. PREVIEW -->
 
 			<h2 class="text-center mt-4 mb-3 numbered" data-number="3.">Preview Your Design</h2>
 			<p class="text-muted text-center">
@@ -132,10 +147,12 @@ my-company@email.com
 				<div class="row justify-content-center">
 					<div class="col-12 text-center mb-3" id="inputBgColorContainer">
 						<div id="inputBgColorLine"></div>
+						<!-- VEHICLE COLOR -->
 						<label class="d-block label-blueberry" id="labelInputBgColor" for="inputBgColor">Set Vehicle Color</label>
-						<input type="color" id="inputBgColor" name="bg_color" value="#dfdfdf" />
+						<input type="color" id="inputBgColor" name="bg_color" value="<%- defaultVehicleColor %>" />
 					</div>
 					<div class="col-11 col-md-10 col-lg-8 mb-4">
+						<!-- PREVIEW CONTAINER -->
 						<div id="truck-van-preview-bg" class="js--widget-area-preview">
 							<div id="truck-van-preview-heading" data-hex="red">
 								<img width="919" height="197" class="w-100 h-auto" src="default-heading.webp" />
@@ -143,8 +160,8 @@ my-company@email.com
 							<div id="truck-van-preview-content" data-hex="black">
 								<img width="1566" height="298" class="w-100 h-auto" src="default-content.webp" />
 							</div>
-							<div class="ruler-x"><span class="val"><span class="js--length-ruler">24</span> in</span></div>
-							<div class="ruler-y"><span class="val"><span class="js--height-ruler">8 ¼</span> in</span></div>
+							<div class="ruler-x"><span class="val"><span class="js--length-ruler"><%- defaultLength %></span> in</span></div>
+							<div class="ruler-y"><span class="val"><span class="js--height-ruler"><%- defaultHeight %></span> in</span></div>
 						</div>
 					</div>
 				</div>
@@ -161,12 +178,13 @@ my-company@email.com
 
 			<div class="row justify-content-end justify-content-sm-center">
 				<div class="col-6 col-sm-4 col-md-4 col-lg-3">
+					<!-- LENGTH -->
 					<label class="label-blueberry" for="inputLength">Decal length, in</label>
 					<div class="input-group js--init-integer-input">
 						<div class="input-group-prepend">
 							<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
 						</div>
-						<input id="inputLength" name="length" type="number" class="px-0 form-control js--input js--widget-area-length text-center hide-arrows" value="24" min="6" max="999">
+						<input id="inputLength" name="length" type="number" class="px-0 form-control js--input js--widget-area-length text-center hide-arrows" value="<%- defaultLength %>" min="6" max="999">
 						<div class="input-group-append">
 							<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
 						</div>
@@ -178,22 +196,27 @@ my-company@email.com
 					</div>
 				</div>
 				<div class="col-4 col-sm-3 col-md-2 col-md-2 text-center">
+					<!-- HEIGHT -->
 					<label class="label-blueberry" for="inputHeight">height, in</label>
-					<input readonly id="inputHeight" name="height" type="text" class="form-control js--widget-area-height text-center hide-arrows" value="8 ¼">
+					<input readonly id="inputHeight" name="height" type="text" class="form-control js--widget-area-height text-center hide-arrows" value="<%- defaultHeight %>">
 				</div>
-				<div class="d-none col-2 col-sm-1 col-md-1 col-lg-1 text-center">
-					<div class="match-input-height pt-3">
-						<span class="d-inline-block font-size-28 text-muted">=</span>
+				<!-- BEGIN: HIDDEN NOW -->
+					<div class="d-none col-2 col-sm-1 col-md-1 col-lg-1 text-center">
+						<div class="match-input-height pt-3">
+							<span class="d-inline-block font-size-28 text-muted">=</span>
+						</div>
 					</div>
-				</div>
-				<div class="d-none col-4 col-sm-3 col-md-3 col-lg-2 text-center">
-					<label class="label-blueberry" for="inputArea">Area, sq ft</label>
-					<input readonly id="inputArea" name="area" type="number" class="form-control js--widget-area-area text-center hide-arrows" value="1.4">
-				</div>
+					<div class="d-none col-4 col-sm-3 col-md-3 col-lg-2 text-center">
+						<!-- AREA -->
+						<label class="label-blueberry" for="inputArea">Area, sq ft</label>
+						<input readonly id="inputArea" name="area" type="number" class="form-control js--widget-area-area text-center hide-arrows" value="<%- defaultArea %>">
+					</div>
+				<!-- END: HIDDEN NOW -->
 			</div>
 			<div class="row justify-content-center mt-3 pb-2">
 				<div class="col col-md-9 col-lg-8 text-center">
-					<label class="label-blueberry mb-2" for="inputArea">Decal size</label>
+					<!-- SIZE -->
+					<label class="label-blueberry mb-2" for="selectSize">Decal size</label>
 					<select id="selectSize" name="size" class="js--init-select-reflect js--widget-area-select">
 						<option value="S"  data-price="39.99" selected>S • &lt;2 ft²</option>
 						<option value="M"  data-price="59.99">M • 2-4 ft²</option>
@@ -278,7 +301,7 @@ my-company@email.com
 							};
 						%>
 						data-item-custom<%- i %>-options="<%- hFontNames.join('|') %>"
-						data-item-custom<%- i %>-value="Midjourney"
+						data-item-custom<%- i %>-value="<%- defaultHeadingFontName %>"
 						<% i++; %>
 
 						<% // Select heading color %>
@@ -295,14 +318,13 @@ my-company@email.com
 							};
 						%>
 						data-item-custom<%- i %>-options="<%- colorTextNames.join('|') %>"
+						data-item-custom<%- i %>-value="<%- defaultHeadingColor %>"
 						<% i++; %>
 
 						<% // Content text %>
 						data-item-custom<%- i %>-name="<%- product.customization_name_2 %>"
 						data-item-custom<%- i %>-type="textarea"
-						data-item-custom<%- i %>-value="+1 650 253 0000
-my-company@email.com"
-
+						data-item-custom<%- i %>-value="<%- defaultContentText %>"
 						<% i++; %>
 
 						<% // Content font %>
@@ -314,22 +336,24 @@ my-company@email.com"
 							};
 						%>
 						data-item-custom<%- i %>-options="<%- cFontNames.join('|') %>"
+						data-item-custom<%- i %>-value="<%- defaultContentFontName %>"
 						<% i++; %>
 
-						<% // Select content color %>
+						<% // Content color %>
 						data-item-custom<%- i %>-name="Content color"
 						data-item-custom<%- i %>-options="<%- colorTextNames.join('|') %>"
+						data-item-custom<%- i %>-value="<%- defaultContentColor %>"
 						<% i++; %>
 
 						<% // Width %>
 						data-item-custom<%- i %>-name="Decal width"
-						data-item-custom<%- i %>-value="24 in"
+						data-item-custom<%- i %>-value="<%- defaultLength %> in"
 						data-item-custom<%- i %>-type="readonly"
 						<% i++; %>
 
 						<% // Height %>
 						data-item-custom<%- i %>-name="Decal height"
-						data-item-custom<%- i %>-value="8 ¼ in"
+						data-item-custom<%- i %>-value="<%- defaultHeight %> in"
 						data-item-custom<%- i %>-type="readonly"
 						<% i++; %>
 
@@ -337,7 +361,7 @@ my-company@email.com"
 						data-item-custom<%- i %>-name="Decal size"
 						data-item-custom<%- i %>-options="<%- product.size %>"
 						data-item-custom<%- i %>-type="hidden"
-						data-item-custom<%- i %>-value="S"
+						data-item-custom<%- i %>-value="<%- defaultSize %>"
 						<% i++; %>
 
 						<% // Select quantity %>

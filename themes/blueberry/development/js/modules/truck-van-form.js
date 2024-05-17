@@ -314,15 +314,20 @@ function _getContentText() {
 
 function _buildMyFontUrl(id, text, fgColor) {
     // text = encodeURIComponent(text);
-    var bgColor=DOM.$inputBgColor.val().replace('#','');
-    var url = '&id=[fontId]&rt=[text]&bg=[bgColor]&fg=[fgColor]'.replace("[fontId]", id).replace("[text]", encodeURIComponent(text)).replace('[bgColor]', bgColor).replace("[fgColor]", fgColor);
     // url = encodeURIComponent(url);
-    url = "/font-myfont/" + url;
-
     // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
     // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
     // url = url.replace(/[() '"]/g, '\\$&');
-    return url;
+
+    var bgColor=DOM.$inputBgColor.val().replace('#','');
+    var urlTail = '&id=[fontId]&rt=[text]&bg=[bgColor]&fg=[fgColor]'.replace("[fontId]", id).replace("[text]", encodeURIComponent(text)).replace('[bgColor]', bgColor).replace("[fgColor]", fgColor);
+
+    // If local development
+    if (document.location.href.includes("localhost")){
+        return "https://render.myfonts.net/fonts/font_rend.php?rs=48&w=0&sc=2&nie=true" + urlTail;
+    }
+    // If test/production
+    return "/font-myfont/" + urlTail;
 }
 
 function _updateHeadingImage(resolveCallback) {
