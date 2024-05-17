@@ -1,4 +1,5 @@
 var $ = require('jquery');
+var events = require('./events');
 
 var DOM = {};
 
@@ -18,6 +19,9 @@ function _cacheDom(element){
 
 function _bindEvents(){
     DOM.$lengthInput.on("change", function() {
+        _updateWidthHeightArea();
+    });
+    events.on('truckVanPreviewContainerSizeChanged', function (data) {
         _updateWidthHeightArea();
     });
 }

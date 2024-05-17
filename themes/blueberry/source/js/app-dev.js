@@ -1474,6 +1474,7 @@ function _updateHeadingImage(promise) {
         // TODO: throw event to update rulers, height and area field
         if (typeof promise != undefined) promise.resolve();
         DOM.$previewContainer.removeClass("loading");
+        events.emit('truckVanPreviewContainerSizeChanged');
     }).attr({ src: url });
 }
 
@@ -1504,6 +1505,7 @@ function _updateContentImage(promise) {
         // TODO: throw event to update rulers, height and area field
         if (typeof promise != undefined) promise.resolve();
         DOM.$previewContainer.removeClass("loading");
+        events.emit('truckVanPreviewContainerSizeChanged');
     }).attr({ src: url });
 }
 
@@ -1605,6 +1607,7 @@ var VideoFullWidth = function(){
 module.exports = VideoFullWidth;
 },{"jquery":28}],23:[function(require,module,exports){
 var $ = require('jquery');
+var events = require('./events');
 
 var DOM = {};
 
@@ -1624,6 +1627,9 @@ function _cacheDom(element){
 
 function _bindEvents(){
     DOM.$lengthInput.on("change", function() {
+        _updateWidthHeightArea();
+    });
+    events.on('truckVanPreviewContainerSizeChanged', function (data) {
         _updateWidthHeightArea();
     });
 }
@@ -1679,7 +1685,7 @@ function init(){
 
 exports.init = init;
 
-},{"jquery":28}],24:[function(require,module,exports){
+},{"./events":6,"jquery":28}],24:[function(require,module,exports){
 // Custom banner and sun strip form interactions
 
 var $ = require('jquery');

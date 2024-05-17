@@ -311,6 +311,7 @@ function _updateHeadingImage(promise) {
         // TODO: throw event to update rulers, height and area field
         if (typeof promise != undefined) promise.resolve();
         DOM.$previewContainer.removeClass("loading");
+        events.emit('truckVanPreviewContainerSizeChanged');
     }).attr({ src: url });
 }
 
@@ -341,6 +342,7 @@ function _updateContentImage(promise) {
         // TODO: throw event to update rulers, height and area field
         if (typeof promise != undefined) promise.resolve();
         DOM.$previewContainer.removeClass("loading");
+        events.emit('truckVanPreviewContainerSizeChanged');
     }).attr({ src: url });
 }
 
