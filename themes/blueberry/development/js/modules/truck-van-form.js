@@ -273,7 +273,6 @@ function _updateHeadingImage() {
     var fontId = DOM.$selectHeadingFont.find("option:selected").data("fontId");
     var color = DOM.$selectHeadingColor.find("option:selected").data('hex');
     url = _buildMyFontUrl(fontId, text, color);
-    // url="https://render.myfonts.net/fonts/font_rend.php?id=62d429961e1b6efde0ff607536aa5a12&rt=Ginzaw&rs=48&w=0&rbe=&sc=2&nie=true&fg=000000&bg=FFFFFF&ft=&nf=1";
 
     DOM.$previewContainer.addClass("loading");
     $('<img>', {"class": "w-100 h-auto"}).on('load', function () {
@@ -299,7 +298,7 @@ function _updateContentImage() {
     var fontId = DOM.$selectContentFont.find("option:selected").data("fontId");
     var color = DOM.$selectContentColor.find("option:selected").data('hex');
     url = _buildMyFontUrl(fontId, text, color);
-    // url="https://render.myfonts.net/fonts/font_rend.php?id=62d429961e1b6efde0ff607536aa5a12&rt=Ginzaw&rs=48&w=0&rbe=&sc=2&nie=true&fg=000000&bg=FFFFFF&ft=&nf=1";
+    url = url.replace(/[ '"]/g, '\\$&');
 
     // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
     // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
