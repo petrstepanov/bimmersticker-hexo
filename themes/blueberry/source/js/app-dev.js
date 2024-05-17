@@ -1336,6 +1336,17 @@ function _bindEvents(element) {
 
     DOM.$textareaContent.on('input', function (event) {
         var text = _getContentText();
+
+        _updateSnipcartButtonContentText(this.value);
+        if (event.originalEvent && event.originalEvent.isTrusted){
+            // Save data only of the event was triggered with human
+            _saveData();
+        }
+
+        if (text.length == 0) {
+            DOM.$previewContentContainer.empty();
+            return;
+        }
         // Set loading animation
         DOM.$previewContainer.addClass("loading");
 
@@ -1344,12 +1355,6 @@ function _bindEvents(element) {
         timeoutUpdateContentImage = setTimeout(function () {
             _updateContentImage();
         }, 1500);
-
-        _updateSnipcartButtonContentText(this.value);
-        if (event.originalEvent && event.originalEvent.isTrusted){
-            // Save data only of the event was triggered with human
-            _saveData();
-        }
     });
 
     DOM.$selectContentFont.change(function (event) {
@@ -1467,7 +1472,7 @@ function _getHeadingText() {
 }
 
 function _getContentText() {
-    return DOM.$textareaContent.val().length ? DOM.$textareaContent.val() : "+1 650 253 0000\nmy-company@email.com";
+    return DOM.$textareaContent.val();
 }
 
 function _buildMyFontUrl(id, text, fgColor) {

@@ -1,7 +1,4 @@
-<!-- TODO: Reflect total price 150 x 2 = 300 ? -->
-<!-- TODO: Double check aspect ratio calculation!! after image update - throw event!! -->
-<!-- TODO: Add items to cart not work  -->
-<!-- TODO: callback for changing vehicle background color -->
+<!-- TODO: support empty content -->
 
 <%
   // OpenGraph Image Settings - 1200x630 minimum
@@ -97,7 +94,10 @@
 				<div class="col-12 col-md-6">
 					<label class="label-blueberry" for="textareaContent">Input Content</label>
 					<div class="input-group mb-2">
-						<textarea class="form-control js--init-autosize" id="textareaContent" name="content" rows="3" placeholder="Use as many lines as you need" title="Please enter your business information - slogan, phone, email"></textarea>
+						<textarea class="form-control js--init-autosize" id="textareaContent" name="content" rows="3" placeholder="Use as many lines as you need or leave empty" title="Please enter your business information - slogan, phone, email">
++1 650 253 0000
+my-company@email.com
+						</textarea>
 					</div>
 				</div>
 				<div class="col-12 col-md-6">
@@ -300,6 +300,9 @@
 						<% // Content text %>
 						data-item-custom<%- i %>-name="<%- product.customization_name_2 %>"
 						data-item-custom<%- i %>-type="textarea"
+						data-item-custom<%- i %>-value="+1 650 253 0000
+my-company@email.com"
+
 						<% i++; %>
 
 						<% // Content font %>
