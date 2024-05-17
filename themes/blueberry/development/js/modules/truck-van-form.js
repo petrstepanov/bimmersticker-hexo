@@ -133,7 +133,9 @@ function _bindEvents(element) {
 
     DOM.$selectHeadingFont.change(function (event) {
         clearTimeout(timeoutUpdateHeadingImage);
-        _updateHeadingImage();
+        timeoutUpdateHeadingImage = setTimeout(function () {
+            _updateHeadingImage();
+        }, 1500);
 
         var valueSelected  = $(this).find("option:selected").val();
         _updateSnipcartButtonHeadingFont(valueSelected);
@@ -145,7 +147,9 @@ function _bindEvents(element) {
 
     DOM.$selectHeadingColor.change(function (event) {
         clearTimeout(timeoutUpdateHeadingImage);
-        _updateHeadingImage();
+        timeoutUpdateHeadingImage = setTimeout(function () {
+            _updateHeadingImage();
+        }, 1500);
 
         var valueSelected  = $(this).find("option:selected").val();
         _updateSnipcartButtonHeadingColor(valueSelected);
@@ -173,7 +177,9 @@ function _bindEvents(element) {
 
     DOM.$selectContentFont.change(function (event) {
         clearTimeout(timeoutUpdateContentImage);
-        _updateContentImage();
+        timeoutUpdateContentImage = setTimeout(function () {
+            _updateContentImage();
+        }, 1500);
 
         var valueSelected  = $(this).find("option:selected").val();
         _updateSnipcartButtonContentFont(valueSelected);
@@ -185,7 +191,9 @@ function _bindEvents(element) {
 
     DOM.$selectContentColor.change(function (event) {
         clearTimeout(timeoutUpdateContentImage);
-        _updateContentImage();
+        timeoutUpdateContentImage = setTimeout(function () {
+            _updateContentImage();
+        }, 1500);
 
         var valueSelected  = $(this).find("option:selected").val();
         _updateSnipcartButtonContentColor(valueSelected);
@@ -210,9 +218,13 @@ function _bindEvents(element) {
         DOM.$inputBgColorLine.css('background-color', valueSelected);
 
         if (timeoutUpdateHeadingImage) clearTimeout(timeoutUpdateHeadingImage);
+        timeoutUpdateHeadingImage = setTimeout(function () {
+            _updateHeadingImage();
+        }, 1500);
         if (timeoutUpdateContentImage) clearTimeout(timeoutUpdateContentImage);
-        _updateHeadingImage();
-        _updateContentImage();
+        timeoutUpdateContentImage = setTimeout(function () {
+            _updateContentImage();
+        }, 1500);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
             _saveData();
