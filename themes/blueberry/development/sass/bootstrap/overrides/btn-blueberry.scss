@@ -23,7 +23,8 @@ button:focus {
   // font-family: $font-bold;
   font-weight: bold; // Native font stack
   border-radius: 50rem;
-  // box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
+  box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
+
   // font-size: $font-size-12;
   // text-transform: uppercase;
   // letter-spacing: 1px;
@@ -65,6 +66,16 @@ button:focus {
   // border: 0px;
   background-color: white;
   // box-shadow: 0 2px 4px 0 rgba(0, 158, 230, 0.2), 0 0 0 1px $blue, inset 0 0 0 1px $blue;
+
+  svg path {
+    fill: $blue;
+  }
+
+  &:hover {
+    svg path {
+      fill: white;
+    }
+  }
 
   &:hover {
     background-color: $blue;

@@ -1,0 +1,25 @@
+- id: regular
+  name: Regular
+  url: https://render.myfonts.net/fonts/font_rend.php?id=1a1c2c769bb1a94529f507e96d6985ac
+  preview_width: 252
+  preview_height: 85
+  vendor_url: https://www.myfonts.com/collections/avenir-next-pro-font-linotype
+- id: italic
+  name: Italic
+  url: https://render.myfonts.net/fonts/font_rend.php?id=da0ecba3a0e82f1e0592b5f567b61c19
+  preview_width: 161
+  preview_height: 85
+  vendor_url: https://www.myfonts.com/collections/avenir-next-pro-font-linotype
+- id: condensed
+  name: Condensed
+  url: https://render.myfonts.net/fonts/font_rend.php?id=c1f2f2c278a3a3d256ab97e632e796be
+  preview_width: 293
+  preview_height: 85
+  vendor_url: https://www.myfonts.com/collections/avenir-next-pro-font-linotype
+- id: condensed-italic
+  name: Condensed Italic
+  url: https://render.myfonts.net/fonts/font_rend.php?id=4e0ed1b7c494d010d6b0b7a89ff06d62
+  preview_width: 416
+  preview_height: 85
+  vendor_url: https://www.myfonts.com/collections/avenir-next-pro-font-linotype
+  #+1 650 253 0000%0Dmy-company@email.com

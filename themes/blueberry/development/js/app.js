@@ -5,8 +5,9 @@ var AOS = require('aos');
 
 var navbarFixer = require('./modules/navbar-fixer');
 // var smoothScroll = require('./modules/smooth-scroll');
-// var windshieldForm = require('./modules/windshield-form');
-var windshieldFormSnipcart = require('./modules/windshield-form-snipcart');
+
+var windshieldForm = require('./modules/windshield-form-snipcart'); // require('./modules/windshield-form');
+var truckVanForm = require('./modules/truck-van-form');
 var snipcartForm = require('./modules/snipcart-form');
 var contentBuyButton = require('./modules/content-buy-button');
 var navbarBuyButton = require('./modules/navbar-buy-button');
@@ -16,9 +17,12 @@ var postsFilter = require('./modules/posts-filter');
 var formInsideDialog = require('./modules/form-inside-dialog');
 // var formValidation = require('./modules/form-validation');
 var FormAjaxSubmit = require('./modules/form-ajax-submit');
+var SelectWithImage = require('./modules/select-with-image');
+var SelectReflect = require('./modules/select-reflect');
 var IntegerInput = require('./modules/integer-input');
 var CheckoutButtonFix = require('./modules/checkout-button-fix');
 var Carousel = require('./modules/carousel');
+var WidgetArea = require('./modules/widget-area');
 var VideoFullWidth = require('./modules/video');
 // var FacebookLoadOnScroll = require('./modules/facebook-load-on-scroll');
 var InteractiveBackButton = require('./modules/interactive-back-button');
@@ -46,7 +50,8 @@ $(function() {
   navbarFixer.init(document.querySelector('.js--init-navbar-fixer'));
   // smoothScroll.init();
   // windshieldForm.init(document.querySelector('.js--init-windshield-container'));
-  windshieldFormSnipcart.init(document.querySelector('.js--windshield-form-snipcart'));
+
+  windshieldForm.init(document.querySelector('.js--windshield-form-snipcart'));
   snipcartForm.init(document.querySelector('.js--init-snipcart-form'));
   contentBuyButton.init(document.querySelector('.js--init-content-buy-button'));
   navbarBuyButton.init(document.querySelector('.js--init-navbar-buy-button'));
@@ -54,6 +59,19 @@ $(function() {
   swatches.init(document.querySelector('.js--init-swatches'));
   postsFilter.init(document.querySelector('.js--init-posts-filter'));
   formInsideDialog.init(document.querySelector('.js--init-form-inside-dialog'));
+
+  // Truck van page area calculation
+  $('.js--init-select-with-image').each(function(){
+    var selectWithImage = new SelectWithImage();
+    selectWithImage.init(this);
+  });
+
+  $('.js--init-select-reflect').each(function(){
+    var selectReflect = new SelectReflect();
+    selectReflect.init(this);
+  });
+  WidgetArea.init();
+  truckVanForm.init(document.querySelector('.js--truck-van-form'));
 
   // Completely moved to HTML5 validation
   // formValidation.init(document.querySelectorAll('form input, form select, form textarea'));

@@ -1,0 +1,345 @@
+<!-- TODO: check snipcart button data-item-image -->
+<!-- TODO: Add "Have Questions?" button -->
+<!-- TODO: Reflect total price 150 x 2 = 300 -->
+
+<%
+  // OpenGraph Image Settings - 1200x630 minimum
+  page.photos = [config.url + '/custom-truck-van-decals/van-truck-company-sticker-business-fleet-og.jpg'];
+%>
+<%- partial('partial/navbar') %>
+<%
+	// Select products with ids containing "ST_TRUCKVAN_"
+	const allProducts = site.data.product_list;
+	var product
+	for (p of allProducts){
+		if (p.id.includes("ST_TRUCKVAN_")){
+			product = Object.assign({}, p);
+		}
+	}
+%>
+<section>
+	<%- partial('partial/navbar') %>
+	<div class="jumbotron jumbotron-fluid jumbotron-blueberry-page jumbotron-truck-van pb-0">
+		<div class="container">
+			<div class="row justify-content-center">
+				<h1 class="col-12 col-lg-10 display-4 font-handwritten text-center mt-3 text-white">
+					Custom Business Decals for Trucks and Work Vans
+				</h1>
+				<p class="col-12 col-lg-10 text-center lead pt-4"><strong>We make vinyl stickers for your company trucks and vans.</strong></p>
+				<p class="col-12 col-lg-10 text-center mb-5">Add your company name, phone number, business email or US DOT, MC numbers on your fleet vehicles.</p>
+			</div>
+		</div>
+		<img width="2404" height="487" class="img-truck-van" alt="We offer vinyl stickers and decals for work vans, delivery trucks and other commercial vehicles" src="jumbotron-decals-for-truck-van.svg">
+	</div>
+	<form autocomplete="off" class="js--truck-van-form spacer-footer" name="truckvan" method="POST" data-netlify="true" action="/form-error-banners/index.html">
+	<!-- autocomplete="off" because of Firefox radio buttons bug -->
+	<!-- https://stackoverflow.com/questions/7988729/firefox-remembering-radio-buttons-incorrectly -->
+
+		<div class="container pt-4">
+			<div class="row">
+				<div class="col-12 col-sm-6 col-xl-5 col-xl-5 text-center">
+					<div class="icon-xxl mt-sm-1 mb-lg-2"><%- partial('icons/icon-design-sketch.svg') %></div>
+					<p class="mb-3">
+						Select from <strong>variety of font styles</strong>, <strong>colors</strong>, and <strong></strong>specify the wording for your truck or van stickers</strong> below.
+					</p>
+				</div>
+				<div class="col-12 col-sm-6 col-xl-5 offset-xl-1 text-center">
+					<div class="icon-xxl mt-sm-1 mb-lg-2"><%- partial('icons/icon-truck-shipping.svg') %></div>
+					<p class="mb-3 mb-lg-0">
+						Decals are made from <strong>premium outdoor adhesive vinyls</strong>. We manufacture stickers within 1-3 business days.
+					</p>
+				</div>
+			</div>
+
+			<!-- 01. TITLE -->
+
+			<h2 class="text-center mt-4 mb-3 numbered" data-number="1.">Design the Heading</h2>
+			<p class="text-muted text-center mb-4">
+				"Heading" is the first line of text on the decal. Heading font and color can be unique - different from the rest of the text.
+			</p>
+
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-6">
+					<label class="label-blueberry" for="inputHeading">Type your Heading</label>
+					<div class="input-group mb-2">
+						<input id="inputHeading" name="heading" class="form-control" type="text" placeholder="Business name or services" title="Please enter your business name or services you offer">
+					</div>
+				</div>
+				<div class="col-12 col-md-6">
+					<label class="label-blueberry" for="selectHeadingFont">Heading Font</label>
+					<div class="input-group mb-3">
+						<select id="selectHeadingFont" name="heading_font" class="custom-select custom-select-blueberry js--init-select-with-image">
+							<% for (const font of site.data.fonts_heading){ %>
+								<option data-font-id="<%- font.url %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.name %>"><%- font.name %></option>
+							<% } %>
+						</select>
+					</div>
+					<label class="label-blueberry" for="selectHeadingColor">Heading Color</label>
+					<div class="input-group mb-3">
+						<select id="selectHeadingColor" name="heading_color" class="custom-select custom-select-blueberry">
+							<% for (const color of site.data.colors_truckvan){ %>
+								<option data-hex="<%- color.hex %>" value="<%- color.id %>" <%- color.id=="red"?"selected":"" %>><%- color.name %></option>
+							<% } %>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<!-- 02. CONTENT -->
+
+			<h2 class="text-center mt-4 mb-3 numbered" data-number="2.">Add Content</h2>
+			<p class="text-muted text-center mb-4">
+				"Content" is whatever you use under the heading - your company slogan, contact details, DOT or MC numbers.
+			</p>
+
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-6">
+					<label class="label-blueberry" for="textareaContent">Input Content</label>
+					<div class="input-group mb-2">
+						<textarea class="form-control js--init-autosize" id="textareaContent" name="content" rows="3" placeholder="Use as many lines as you need" title="Please enter your business information - slogan, phone, email"></textarea>
+					</div>
+				</div>
+				<div class="col-12 col-md-6">
+					<label class="label-blueberry" for="selectContentFont">Content Font</label>
+					<div class="input-group mb-3">
+						<select id="selectContentFont" name="content_font" class="custom-select custom-select-blueberry js--init-select-with-image">
+							<% for (const font of site.data.fonts_content){ %>
+								<option data-font-id="<%- font.url %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.name %>" <%- font.id=='italic'?'selected':'' %>><%- font.name %></option>
+							<% } %>
+						</select>
+					</div>
+					<label class="label-blueberry" for="selectContentColor">Content Color</label>
+					<div class="input-group mb-3">
+						<select id="selectContentColor" name="content_color" class="custom-select custom-select-blueberry">
+							<% for (const color of site.data.colors_truckvan){ %>
+								<option data-hex="<%- color.hex %>" value="<%- color.id %>" <%- color.id=="black"?"selected":"" %>><%- color.name %></option>
+							<% } %>
+
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<!-- 02. PREVIEW -->
+
+			<h2 class="text-center mt-4 mb-3 numbered" data-number="3.">Preview Your Design</h2>
+			<p class="text-muted text-center mb-4">
+				Here decal is displayed on `grey` background. Actual sticker background is transparent - you will see your vehicle color.
+			</p>
+		</div>
+		<div id="truck-van-preview">
+			<div class="container pt-3 pt-md-4 pb-3 pb-mb-4">
+				<div class="row justify-content-center">
+					<div class="col-11 col-md-10 col-lg-8 mb-4">
+						<div id="truck-van-preview-bg" class="js--widget-area-preview">
+							<div id="truck-van-preview-heading" data-hex="red">
+								<img width="919" height="197" class="w-100 h-auto" src="default-heading.webp" />
+							</div>
+							<div id="truck-van-preview-content" data-hex="black">
+								<img width="1566" height="298" class="w-100 h-auto" src="default-content.webp" />
+							</div>
+							<div class="ruler-x"><span class="val"><span class="js--length-ruler">24</span> in</span></div>
+							<div class="ruler-y"><span class="val"><span class="js--height-ruler">8 ¼</span> in</span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 04. DECAL SIZE -->
+
+		<div class="container">
+			<h2 class="text-center mb-3 numbered" data-number="4.">Adjust Decal Size</h2>
+			<p class="text-muted text-center mb-4">
+				Please input the decal length. Height is calculated automatically depending on the content and fonts used.
+			</p>
+
+			<div class="row justify-content-end justify-content-sm-center">
+				<div class="col-6 col-sm-4 col-md-4 col-lg-3">
+					<label class="label-blueberry" for="inputLength">Decal length, in</label>
+					<div class="input-group js--init-integer-input">
+						<div class="input-group-prepend">
+							<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
+						</div>
+						<input id="inputLength" name="length" type="number" class="px-0 form-control js--input js--widget-area-length text-center hide-arrows" value="24" min="6" max="999">
+						<div class="input-group-append">
+							<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
+						</div>
+					</div>
+				</div>
+				<div class="col-2 col-sm-1 col col-md-1 col-lg-1 text-center">
+					<div class="match-input-height pt-3 mb-4">
+						<span class="d-inline-block font-size-28 text-muted">×</span>
+					</div>
+				</div>
+				<div class="col-4 col-sm-3 col-md-2 col-md-2 text-center">
+					<label class="label-blueberry" for="inputHeight">height, in</label>
+					<input readonly id="inputHeight" name="height" type="text" class="form-control js--widget-area-height text-center hide-arrows" value="8 ¼">
+				</div>
+				<div class="d-none col-2 col-sm-1 col-md-1 col-lg-1 text-center">
+					<div class="match-input-height pt-3">
+						<span class="d-inline-block font-size-28 text-muted">=</span>
+					</div>
+				</div>
+				<div class="d-none col-4 col-sm-3 col-md-3 col-lg-2 text-center">
+					<label class="label-blueberry" for="inputArea">Area, sq ft</label>
+					<input readonly id="inputArea" name="area" type="number" class="form-control js--widget-area-area text-center hide-arrows" value="1.4">
+				</div>
+			</div>
+			<div class="row justify-content-center mt-3 pb-2">
+				<div class="col col-md-9 col-lg-8 text-center">
+					<label class="label-blueberry mb-2" for="inputArea">Decal size</label>
+					<select id="selectSize" name="size" class="js--init-select-reflect js--widget-area-select">
+						<option value="s"  data-price="39.99" selected>S • &lt;2 ft²</option>
+						<option value="m"  data-price="59.99">M • 2-4 ft²</option>
+						<option value="l"  data-price="99.99">L • 4-8 ft²</option>
+						<option value="xl" data-price="149.99">XL • 8+ ft²</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<!-- 04. CART -->
+
+		<div class="container">
+			<h2 class="text-center mt-4 mb-3 numbered" data-number="5.">Add Items to Cart</h2>
+			<p class="text-muted text-center mb-4">
+				Decals are priced each. Please add 2 items to your cart to decorate both sides of the vehicle.
+			</p>
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-8">
+					<div class="form-group text-center">
+						<label class="label-blueberry" for="inputQuantity">How many items you need?</label>
+						<div class="input-group js--init-integer-input">
+							<div class="input-group-prepend">
+								<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
+							</div>
+							<input id="inputQuantity" name="quantity" type="number" class="form-control js--input text-center hide-arrows" value="2" min="1" max="999">
+							<div class="input-group-append">
+								<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
+							</div>
+						</div>
+						<div class="alert alert-success mt-3 text-center animate__delay-1s" role="alert" data-aos="animate__tada">
+							<small>We offer <strong>10% off</strong> for 2+,  <strong>15% off</strong> for 4+ and <strong>20% off</strong> for 10+ same items in your cart!</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Hack: make users without JavaScript fill their email so we can reach out back -->
+			<div class="row justify-content-center js--nojs-only">
+				<div class="col-12 col-md-8">
+					<div class="form-group">
+						<label class="label-blueberry" for="inputEmail">Enter your email</label>
+						<input class="form-control form-control-lg" type="text" required id="inputEmail" name="email" placeholder="your@email.com" />
+					</div>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-12 col-sm-6 col-md-5 text-center">
+					<% if (theme.email){ %>
+						<button type="button" class="btn btn-outline-primary btn-blueberry btn-lg mt-3" href="#" data-toggle="modal" data-target="#customizeModal">
+							<span class="icon-sm"><%- partial('ionicons/ios-mail.svg') %></span>
+							Got Questions?
+						</button>
+					<% } %>
+				</div>
+				<div class="col-12 col-sm-6 col-md-5 text-center">
+					<button type="submit" id="buttonSubmit" class="btn btn-primary btn-blueberry btn-lg mt-3">Submit Banner Request</button>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-10 col-lg-8 text-center mt-4">
+					<button class="snipcart-add-item btn invisible"
+						data-item-id="<%- product.id %>"
+						data-item-price="<%- parseFloat(product.price) %>"
+						data-item-url="<%- my_full_url_for(page.path) %>"
+						data-item-description="<%- product.description %>"
+						data-item-image="<%- get_pathname(product.image_link) %>"
+						data-item-name="<%- product.title %>"
+						data-item-weight="<%- oz_to_g(product.shipping_weight) %>"
+
+						<% var i=1; %>
+
+						<% // Heading text %>
+						data-item-custom<%- i %>-name="<%- product.customization_name %>"
+						<% i++; %>
+
+						<% // Heading font %>
+						data-item-custom<%- i %>-name="Heading font"
+						<%
+							var hFontNames = [];
+							for (const font of site.data.fonts_heading) {
+								hFontNames.push(font.name);
+							};
+						%>
+						data-item-custom<%- i %>-options="<%- hFontNames.join('|') %>"
+						data-item-custom<%- i %>-value="Midjourney"
+						<% i++; %>
+
+						<% // Select heading color %>
+						<% var colorTextNames = []; %>
+						data-item-custom<%- i %>-name="Heading color"
+						<%
+							for (const color of site.data.colors_truckvan){
+								var string = color.id;
+								// Add [+9.99]
+								// if (color.extra){
+								// 	string += '[+' + color.extra + ']';
+								// }
+								colorTextNames.push(string);
+							};
+						%>
+						data-item-custom<%- i %>-options="<%- colorTextNames.join('|') %>"
+						<% i++; %>
+
+						<% // Content text %>
+						data-item-custom<%- i %>-name="<%- product.customization_name_2 %>"
+						data-item-custom<%- i %>-type="textarea"
+						<% i++; %>
+
+						<% // Content font %>
+						data-item-custom<%- i %>-name="Content font"
+						<%
+							var cFontNames = [];
+							for (const font of site.data.fonts_content) {
+								cFontNames.push(font.name);
+							};
+						%>
+						data-item-custom<%- i %>-options="<%- cFontNames.join('|') %>"
+						<% i++; %>
+
+						<% // Select content color %>
+						data-item-custom<%- i %>-name="Content color"
+						data-item-custom<%- i %>-options="<%- colorTextNames.join('|') %>"
+						<% i++; %>
+
+						<% // Width %>
+						data-item-custom<%- i %>-name="Decal width"
+						data-item-custom<%- i %>-value="24 in"
+						data-item-custom<%- i %>-type="readonly"
+						<% i++; %>
+
+						<% // Height %>
+						data-item-custom<%- i %>-name="Decal height"
+						data-item-custom<%- i %>-value="8 ¼ in"
+						data-item-custom<%- i %>-type="readonly"
+						<% i++; %>
+
+						<% // Size option - S, M, L, XL %>
+						data-item-custom<%- i %>-name="Decal size"
+						data-item-custom<%- i %>-options="<%- product.size %>"
+						data-item-custom<%- i %>-type="hidden"
+						data-item-custom<%- i %>-value="S"
+						<% i++; %>
+
+						<% // Select quantity %>
+						data-item-quantity="2"
+						>
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</section>
+
+<%- partial('partial/item-customize') %>

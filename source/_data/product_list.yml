@@ -7,7 +7,7 @@
 # Snipcart instructions:
 # In .ejs detect attributes with "|".
 # Set data-item-custom1-name="Frame color" to key name
-# Set data-item-custom1-options="black|Brown|gold" to value
+# Set data-item-custom1-options="black|brown|gold" to value
 # for items with customization, define data-item-custom2-name="Your instagram name"
 #
 # SKU: Stock Keeping Unit - numbers and letters (can be id without dashes)
@@ -16,6 +16,21 @@
 #
 # Regarding Car and Truck variations - used Google's "pattern" attribute, not "size".
 # Because "size", "size_system" and "size_type" relate to shoes and clothes and are complicated.
+- id:	ST_TRUCKVAN_COMMERCIAL
+  title: "Custom Decals For Commercial Trucks and Work Vans (Your Company Name, Business phone number, USDOT, MC)"
+  description: "Custom vinyl sticker for the fleet of business trucks, vans or box trucks (NV200, NV2500, Ford Transit Connect, Chevrolet City, Chevy Express, F150, F250, Dodge RAM, Promaster). Buy company decals with custom font, logo and colors. Stickers are made from premium outdoor vinyls."
+  product_type: Stickers > Commercial
+  link: https://bimmersticker.store/custom-truck-van-decals/
+  image_link: https://bimmersticker.store/custom-truck-van-decals/van-truck-company-sticker-business-fleet.jpg
+  price: "39.99 USD"
+  size: "S|M[+20.00]|L[+40.00]|XL[+110.00]"
+  shipping_weight: "12 oz"
+  material: "Oracal 651 vinyl"
+  color: "black|white|red|orange|yellow|green|blue|purple|silver|gold" # for Google only. Real app takes these from colors_truckvan.yml
+  customization_name: "Heading"
+  customization_placeholder: "Your company name"
+  customization_name_2: "Content"
+  customization_placeholder_2: "Your business information"
 - id:	ST_CAR_W_BANNER
   title: "Custom Text Windshield Banner. Select Your Font and Colors. Fits Any Car Make and Model"
   description: "Custom Windshield banner with your own text. Will fit any car or truck (BMW, VW, Audi, Subaru, Nissan, Toyota, Honda and others). Variety of fonts and colors available. Made from premium outdoor vinyls."
