@@ -1417,7 +1417,7 @@ function _getContentText() {
 function _buildMyFontUrl(id, text, fgColor) {
     // text = encodeURIComponent(text);
     var bgColor=DOM.$inputBgColor.val().replace('#','');
-    var url = '&id=[fontId]&rt=[text]&bg=[bgColor]&fg=[fgColor]'.replace("[fontId]", id).replace("[text]", text).replace('[bgColor]', bgColor).replace("[fgColor]", fgColor);
+    var url = '&id=[fontId]&rt=[text]&bg=[bgColor]&fg=[fgColor]'.replace("[fontId]", id).replace("[text]", encodeURIComponent(text)).replace('[bgColor]', bgColor).replace("[fgColor]", fgColor);
     // url = encodeURIComponent(url);
     url = "/font-myfont/" + url;
 
@@ -1461,7 +1461,6 @@ function _updateContentImage() {
     var fontId = DOM.$selectContentFont.find("option:selected").data("fontId");
     var color = DOM.$selectContentColor.find("option:selected").data('hex');
     url = _buildMyFontUrl(fontId, text, color);
-    url = url.replace(/[ '"]/g, '\\$&');
 
     // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
     // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
