@@ -199,7 +199,7 @@ function _bindEvents(element) {
         event.preventDefault();
         // Trigger click on HTML 5 color picker with jQuery
         // https://stackoverflow.com/questions/17729165/trigger-click-on-html-5-color-picker-with-jquery
-        DOM.$inputBgColor.trigger("click");
+        DOM.$inputBgColor[0].click();
     });
 
     DOM.$inputBgColor.change(function (event) {
