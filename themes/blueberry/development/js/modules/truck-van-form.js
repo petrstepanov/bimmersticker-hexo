@@ -197,7 +197,7 @@ function _bindEvents(element) {
 
     DOM.$anchorInputBgColor.click(function (event){
         event.preventDefault();
-        DOM.$inputBgColor.click();
+        DOM.$inputBgColor.trigger("click");
     });
 
     DOM.$inputBgColor.change(function (event) {
@@ -207,7 +207,9 @@ function _bindEvents(element) {
         DOM.$previewContainerBg.css('background-color', valueSelected);
         DOM.$inputBgColorLine.css('background-color', valueSelected);
 
+        if (timeoutUpdateHeadingImage) clearTimeout(timeoutUpdateHeadingImage);
         _updateHeadingImage();
+        if (timeoutUpdateContentImage) clearTimeout(timeoutUpdateContentImage);
         _updateContentImage();
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human

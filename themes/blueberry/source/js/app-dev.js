@@ -1322,7 +1322,7 @@ function _bindEvents(element) {
         var text = _getContentText();
 
         // Timeout for updating the font previews
-        if (timeoutUpdateContentImage) clearTimeout(timeoutUpdateContentImage);
+vv
         timeoutUpdateContentImage = setTimeout(function () {
             _updateContentImage();
         }, 1500);
@@ -1370,6 +1370,8 @@ function _bindEvents(element) {
         DOM.$previewContainerBg.css('background-color', valueSelected);
         DOM.$inputBgColorLine.css('background-color', valueSelected);
 
+        if (timeoutUpdateHeadingImage) clearTimeout(timeoutUpdateHeadingImage);
+        if (timeoutUpdateContentImage) clearTimeout(timeoutUpdateContentImage);
         _updateHeadingImage();
         _updateContentImage();
         if (event.originalEvent && event.originalEvent.isTrusted){
