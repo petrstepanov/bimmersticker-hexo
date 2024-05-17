@@ -1186,7 +1186,12 @@ function _cacheDom(element) {
     DOM.$selectContentFont = DOM.$el.find('#selectContentFont');
     DOM.$selectContentColor = DOM.$el.find('#selectContentColor');
 
+    DOM.$anchorInputBgColor = DOM.$el.find('#anchorInputBgColor');
+    DOM.$inputBgColorLine = DOM.$el.find('#inputBgColorLine');
+    DOM.$inputBgColor = DOM.$el.find('#inputBgColor');
+
     DOM.$previewContainer = DOM.$el.find('#truck-van-preview');
+    DOM.$previewContainerBg = DOM.$el.find('#truck-van-preview-bg');
     DOM.$previewHeadingContainer = DOM.$el.find('#truck-van-preview-heading');
     DOM.$previewContentContainer = DOM.$el.find('#truck-van-preview-content');
 
@@ -1251,6 +1256,9 @@ function _loadData(){
         }
         if (data.content_color){
             DOM.$selectContentColor.val(data.content_color).change();
+        }
+        if (data.bg_color){
+            DOM.$inputBgColor.val(data.bg_color).change();
         }
         // ruler values, height and area are updated via "widget-area.js" module. Ensure it loads before this module.
         if (data.length){
@@ -1350,6 +1358,26 @@ function _bindEvents(element) {
         }
     });
 
+    DOM.$anchorInputBgColor.click(function (event){
+        event.preventDefault();
+        DOM.$inputBgColor.click();
+    });
+
+    DOM.$inputBgColor.change(function (event) {
+        // Reflect container background
+        var valueSelected  = $(this).val();
+        DOM.$previewContainerBg.css('border-color', valueSelected);
+        DOM.$previewContainerBg.css('background-color', valueSelected);
+        DOM.$inputBgColorLine.css('background-color', valueSelected);
+
+        _updateHeadingImage();
+        _updateContentImage();
+        if (event.originalEvent && event.originalEvent.isTrusted){
+            // Save data only of the event was triggered with human
+            _saveData();
+        }
+    });
+
     DOM.$selectSize.change(function (event) {
         var valueSelected  = $(this).find("option:selected").val();
         _updateSnipcartButtonSize(valueSelected);
@@ -1386,9 +1414,10 @@ function _getContentText() {
     return DOM.$textareaContent.val().length ? DOM.$textareaContent.val() : "+1 650 253 0000\nmy-company@email.com";
 }
 
-function _buildMyFontUrl(id, text, color) {
+function _buildMyFontUrl(id, text, fgColor) {
     // text = encodeURIComponent(text);
-    var url = '&id=[fontId]&rt=[text]&bg=dfdfdf&fg=[fgColor]'.replace("[fontId]", id).replace("[text]", text).replace("[fgColor]", color);
+    var bgColor=DOM.$inputBgColor.val().replace('#','');
+    var url = '&id=[fontId]&rt=[text]&bg=[bgColor]&fg=[fgColor]'.replace("[fontId]", id).replace("[text]", text).replace('[bgColor]', bgColor).replace("[fgColor]", fgColor);
     // url = encodeURIComponent(url);
     url = "/font-myfont/" + url;
 

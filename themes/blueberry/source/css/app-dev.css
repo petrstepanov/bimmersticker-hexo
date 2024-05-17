@@ -11514,6 +11514,22 @@ body {
     transform: translateX(30%);
   }
 }
+#inputBgColorContainer {
+  position: relative;
+}
+#inputBgColorContainer #inputBgColor {
+  position: relative;
+}
+#inputBgColorContainer #inputBgColorLine {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 5rem;
+  margin-left: -2px;
+  width: 4px;
+  background-color: #dfdfdf;
+}
+
 #truck-van-preview {
   overflow: hidden;
 }

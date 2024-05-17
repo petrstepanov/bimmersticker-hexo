@@ -1,4 +1,4 @@
-<!-- TODO: check snipcart button data-item-image -->
+<!-- TODO: select vehicle color -->
 <!-- TODO: Reflect total price 150 x 2 = 300 -->
 
 <%
@@ -113,7 +113,6 @@
 							<% for (const color of site.data.colors_truckvan){ %>
 								<option data-hex="<%- color.hex %>" value="<%- color.id %>" <%- color.id=="black"?"selected":"" %>><%- color.name %></option>
 							<% } %>
-
 						</select>
 					</div>
 				</div>
@@ -122,13 +121,17 @@
 			<!-- 02. PREVIEW -->
 
 			<h2 class="text-center mt-4 mb-3 numbered" data-number="3.">Preview Your Design</h2>
-			<p class="text-muted text-center mb-4">
-				Here decal is displayed on `grey` background. Actual sticker background is transparent - you will see your vehicle color.
+			<p class="text-muted text-center">
+				Decals are contour-cut and have no background color. Click the color picker below to <a href="#" id="anchorInputBgColor">select your vehicle color</a>.
 			</p>
 		</div>
 		<div id="truck-van-preview">
 			<div class="container pt-3 pt-md-4 pb-3 pb-mb-4">
 				<div class="row justify-content-center">
+					<div class="text-center mb-3" id="inputBgColorContainer">
+						<div id="inputBgColorLine"></div>
+						<input type="color" id="inputBgColor" name="bg_color" value="#dfdfdf" />
+					</div>
 					<div class="col-11 col-md-10 col-lg-8 mb-4">
 						<div id="truck-van-preview-bg" class="js--widget-area-preview">
 							<div id="truck-van-preview-heading" data-hex="red">
