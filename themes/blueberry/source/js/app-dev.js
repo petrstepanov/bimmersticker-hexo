@@ -1423,7 +1423,7 @@ function _buildMyFontUrl(id, text, fgColor) {
 
     // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
     // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
-    url = url.replace(/[() '"]/g, '\\$&');
+    // url = url.replace(/[() '"]/g, '\\$&');
     return url;
 }
 
