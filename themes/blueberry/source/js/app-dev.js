@@ -1282,8 +1282,11 @@ function _bindEvents(element) {
     DOM.$inputHeading.on('input', function (event) {
         var text = _getHeadingText();
 
+        // Set loading animation
+        DOM.$previewContainer.addClass("loading");
+
         // Timeout for updating the font previews
-        if (timeoutUpdateHeadingImage) clearTimeout(timeoutUpdateHeadingImage);
+        clearTimeout(timeoutUpdateHeadingImage);
         timeoutUpdateHeadingImage = setTimeout(function () {
             _updateHeadingImage();
         }, 1500);
@@ -1296,6 +1299,10 @@ function _bindEvents(element) {
     });
 
     DOM.$selectHeadingFont.change(function (event) {
+        // Set loading animation
+        DOM.$previewContainer.addClass("loading");
+
+        // Timeout for updating the font previews
         clearTimeout(timeoutUpdateHeadingImage);
         timeoutUpdateHeadingImage = setTimeout(function () {
             _updateHeadingImage();
@@ -1310,6 +1317,10 @@ function _bindEvents(element) {
     });
 
     DOM.$selectHeadingColor.change(function (event) {
+        // Set loading animation
+        DOM.$previewContainer.addClass("loading");
+
+        // Timeout for updating the font previews
         clearTimeout(timeoutUpdateHeadingImage);
         timeoutUpdateHeadingImage = setTimeout(function () {
             _updateHeadingImage();
@@ -1325,9 +1336,11 @@ function _bindEvents(element) {
 
     DOM.$textareaContent.on('input', function (event) {
         var text = _getContentText();
+        // Set loading animation
+        DOM.$previewContainer.addClass("loading");
 
         // Timeout for updating the font previews
-        if (timeoutUpdateContentImage) clearTimeout(timeoutUpdateContentImage);
+        clearTimeout(timeoutUpdateContentImage);
         timeoutUpdateContentImage = setTimeout(function () {
             _updateContentImage();
         }, 1500);
@@ -1340,6 +1353,10 @@ function _bindEvents(element) {
     });
 
     DOM.$selectContentFont.change(function (event) {
+        // Set loading animation
+        DOM.$previewContainer.addClass("loading");
+
+        // Timeout for updating the font previews
         clearTimeout(timeoutUpdateContentImage);
         timeoutUpdateContentImage = setTimeout(function () {
             _updateContentImage();
@@ -1354,6 +1371,10 @@ function _bindEvents(element) {
     });
 
     DOM.$selectContentColor.change(function (event) {
+        // Set loading animation
+        DOM.$previewContainer.addClass("loading");
+
+        // Timeout for updating the font previews
         clearTimeout(timeoutUpdateContentImage);
         timeoutUpdateContentImage = setTimeout(function () {
             _updateContentImage();
@@ -1377,6 +1398,9 @@ function _bindEvents(element) {
     DOM.$inputBgColor.change(function (event) {
         // Reflect container background
         var valueSelected  = $(this).val();
+
+        // Set loading animation
+        DOM.$previewContainer.addClass("loading");
 
         // Declare promises in order to update the container background after
         // heading and content images were uploaded
@@ -1469,7 +1493,7 @@ function _updateHeadingImage(resolveCallback) {
     var color = DOM.$selectHeadingColor.find("option:selected").data('hex');
     url = _buildMyFontUrl(fontId, text, color);
 
-    DOM.$previewContainer.addClass("loading");
+    // DOM.$previewContainer.addClass("loading");
     $('<img>', {"class": "w-100 h-auto"}).on('load', function () {
         DOM.$previewHeadingContainer.empty();
         $(this).appendTo(DOM.$previewHeadingContainer);
@@ -1501,7 +1525,7 @@ function _updateContentImage(resolveCallback) {
     // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
     // url = url.replace(/[() '"]/g, '\\$&');
 
-    DOM.$previewContainer.addClass("loading");
+    // DOM.$previewContainer.addClass("loading");
     $('<img>', {"class": "w-100 h-auto"}).on('load', function () {
         DOM.$previewContentContainer.empty();
         $(this).appendTo(DOM.$previewContentContainer);
