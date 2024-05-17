@@ -324,7 +324,7 @@ function _updateHeadingImage(resolveCallback) {
 //     DOM.$previewHeadingContainer.css('--my-color', hex);
 // }
 
-function _updateContentImage(promise) {
+function _updateContentImage(resolveCallback) {
     // On testing environment do nothing (no font url rewrite implemented)
     // if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
 
