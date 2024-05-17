@@ -238,7 +238,7 @@ function _updateHeadingImage() {
     // Update car banner and sun strip images
     var text = _getHeadingText();
     var fontId = DOM.$selectHeadingFont.find("option:selected").data("fontId");
-    var color = DOM.$selectHeadingColor.find("option:selected").data('hex').replace('#','');
+    var color = DOM.$selectHeadingColor.find("option:selected").data('hex');
     url = _buildMyFontUrl(fontId, text, color);
     // url="https://render.myfonts.net/fonts/font_rend.php?id=62d429961e1b6efde0ff607536aa5a12&rt=Ginzaw&rs=48&w=0&rbe=&sc=2&nie=true&fg=000000&bg=FFFFFF&ft=&nf=1";
 
@@ -268,7 +268,7 @@ function _updateContentImage() {
     // Update car banner and sun strip images
     var text = _getContentText();
     var fontId = DOM.$selectContentFont.find("option:selected").data("fontId");
-    var color = DOM.$selectContentColor.find("option:selected").data('hex').replace('#','');
+    var color = DOM.$selectContentColor.find("option:selected").data('hex');
     url = _buildMyFontUrl(fontId, text, color);
     // url="https://render.myfonts.net/fonts/font_rend.php?id=62d429961e1b6efde0ff607536aa5a12&rt=Ginzaw&rs=48&w=0&rbe=&sc=2&nie=true&fg=000000&bg=FFFFFF&ft=&nf=1";
 
