@@ -69,7 +69,7 @@
 					<div class="input-group mb-3">
 						<select id="selectHeadingFont" name="heading_font" class="custom-select custom-select-blueberry js--init-select-with-image">
 							<% for (const font of site.data.fonts_heading){ %>
-								<option data-font-id="<%- font.id %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.name %>"><%- font.name %></option>
+								<option data-font-id="<%- font.font_id %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.name %>"><%- font.name %></option>
 							<% } %>
 						</select>
 					</div>
@@ -103,7 +103,7 @@
 					<div class="input-group mb-3">
 						<select id="selectContentFont" name="content_font" class="custom-select custom-select-blueberry js--init-select-with-image">
 							<% for (const font of site.data.fonts_content){ %>
-								<option data-font-id="<%- font.id %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.name %>" <%- font.id=='italic'?'selected':'' %>><%- font.name %></option>
+								<option data-font-id="<%- font.font_id %>" data-bg-image="font-previews/<%- font.id %>.png" value="<%- font.name %>" <%- font.id=='italic'?'selected':'' %>><%- font.name %></option>
 							<% } %>
 						</select>
 					</div>
