@@ -1188,6 +1188,7 @@ function _cacheDom(element) {
 
     DOM.$anchorInputBgColor = DOM.$el.find('#anchorInputBgColor');
     DOM.$inputBgColorLine = DOM.$el.find('#inputBgColorLine');
+    DOM.$labelInputBgColor = DOM.$el.find('#labelInputBgColor');
     DOM.$inputBgColor = DOM.$el.find('#inputBgColor');
 
     DOM.$previewContainer = DOM.$el.find('#truck-van-preview');
@@ -1369,8 +1370,8 @@ function _bindEvents(element) {
     DOM.$anchorInputBgColor.click(function (event){
         event.preventDefault();
         // Trigger click on HTML 5 color picker with jQuery
-        // https://stackoverflow.com/questions/17729165/trigger-click-on-html-5-color-picker-with-jquery
-        DOM.$inputBgColor[0].click();
+        // https://stackoverflow.com/questions/74511391/open-input-color-programatically-in-ios
+        DOM.$labelInputBgColor.click();
     });
 
     DOM.$inputBgColor.change(function (event) {
