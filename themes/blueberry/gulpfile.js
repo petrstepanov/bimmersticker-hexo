@@ -159,7 +159,11 @@ function browsersyncReload(cb){
 // var development = gulp.series(clean, copyIcons, stylesDev, scriptsDev, beepTask, browsersyncServe, watch);
 // var production =  gulp.series(clean, copyIcons, styles,    scripts,    beepTask);
 
-exports.default = function(){
+// https://www.npmjs.com/package/gulp
+
+var build = gulp.series(clean, copyIcons, styles, stylesDev, scripts, scriptsDev);
+
+function watch(){
 	gulp.series(clean, copyIcons, styles, stylesDev, scripts, scriptsDev, beepTask, browsersyncServe);
 	browsersyncServe();
 
@@ -167,5 +171,9 @@ exports.default = function(){
 	gulp.watch(paths.scripts.srcWatch, gulp.series(beepTask, scripts, scriptsDev, beepTask, browsersyncReload));
 	gulp.watch(paths.styles.srcWatch, gulp.series(beepTask, styles, stylesDev, beepTask, browsersyncReload));
 }
+
+exports.default = build;
+exports.build = build;
+exports.watch = watch;
 
 // exports.default = process.env.BUILD_TYPE=='production' ? production : development;

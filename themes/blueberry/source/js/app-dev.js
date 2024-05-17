@@ -1389,13 +1389,17 @@ function _getContentText() {
 function _buildMyFontUrl(id, text, color) {
     // text = encodeURIComponent(text);
     var url = '&id=[fontId]&rt=[text]&bg=dfdfdf&fg=[fgColor]'.replace("[fontId]", id).replace("[text]", text).replace("[fgColor]", color);
-    url = encodeURIComponent(url);
+    // url = encodeURIComponent(url);
     url = "/font-myfont/" + url;
+
+    // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
+    // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
+    url = url.replace(/[() '"]/g, '\\$&');
     return url;
 }
 
 function _updateHeadingImage() {
-    // On testing environment do nothing (no font url rewrite implemented)
+    // On testing environment do  nothing (no font url rewrite implemented)
     // if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
 
     // Update car banner and sun strip images
@@ -1404,10 +1408,6 @@ function _updateHeadingImage() {
     var color = DOM.$selectHeadingColor.find("option:selected").data('hex');
     url = _buildMyFontUrl(fontId, text, color);
     // url="https://render.myfonts.net/fonts/font_rend.php?id=62d429961e1b6efde0ff607536aa5a12&rt=Ginzaw&rs=48&w=0&rbe=&sc=2&nie=true&fg=000000&bg=FFFFFF&ft=&nf=1";
-
-    // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
-    // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
-    url = url.replace(/[() '"]/g, '\\$&');
 
     DOM.$previewContainer.addClass("loading");
     $('<img>', {"class": "w-100 h-auto"}).on('load', function () {
