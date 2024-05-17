@@ -9,7 +9,7 @@
 # Example: https://render.myfonts.net/fonts/font_rend.php?id=de892884133a0eff8a4920ea421a18c2&rt=%E8%99%9A%E3%81%A7&rs=25&w=0&rbe=&sc=2&nie=true&fg=FFFFFF&bg=000000&ft=&nf=1
 # Important - set &w=0 then image generates with no margin!
 /font-unicode/*  https://render.myfonts.net/fonts/font_rend.php?id=de892884133a0eff8a4920ea421a18c2&rs=25&w=0&rbe=&sc=2&nie=true&fg=FFFFFF&bg=000000&ft=&nf=1&rt=:splat  200!
-/font-myfont/*  https://render.myfonts.net/fonts/font_rend.php?&rs=48&w=0&rbe=&sc=2&nie=true&fg=000000&bg=FFFFFF&ft=&nf=1:splat  200!
+/font-myfont/*  https://render.myfonts.net/fonts/font_rend.php?rs=48&w=0&sc=2&nie=true:splat  200!
 
 # Redirect facebook
 # /fb/*  https://connect.facebook.net/:splat  200!

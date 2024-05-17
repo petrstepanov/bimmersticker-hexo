@@ -223,11 +223,11 @@ function _getContentText() {
     return DOM.$textareaContent.val().length ? DOM.$textareaContent.val() : "+1 650 253 0000\nmy-company@email.com";
 }
 
-function _buildMyFontUrl(url, text, color) {
-    text = encodeURIComponent(text);
-    url += '&rt=#&w=0&sc=2&bg=dfdfdf'.replace("#", text);
-    url += '&fg=';
-    url += color;
+function _buildMyFontUrl(id, text, color) {
+    // text = encodeURIComponent(text);
+    var url = '&id=[fontId]&rt=[text]&bg=dfdfdf&fg=[fgColor]'.replace("[fontId]", id).replace("[text]", text).replace("[fgColor]", color);
+    url = encodeURIComponent(url);
+    url = "/font-myfont/" + url;
     return url;
 }
 

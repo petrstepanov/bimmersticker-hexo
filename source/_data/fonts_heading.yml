@@ -1,36 +1,36 @@
 - id: midjourney
   name: Midjourney
-  url: https://render.myfonts.net/fonts/font_rend.php?id=7dfc0c7b5b4d8d3bbdbd2e9404e95ec5
-  vendor_url: https://www.myfonts.com/collections/midkaiser-font-konstantinestudio
+  font_id: 7dfc0c7b5b4d8d3bbdbd2e9404e95ec5
+  vendor_font_id: https://www.myfonts.com/collections/midkaiser-font-konstantinestudio
 - id: sharpie
   name: Sharpie
-  url: https://render.myfonts.net/fonts/font_rend.php?id=b8b991fe6fc9266add6aa2844a8e6b47
-  vendor_url: https://www.myfonts.com/collections/sharp-grotesk-latin-font-monotype-imaging
+  font_id: b8b991fe6fc9266add6aa2844a8e6b47
+  vendor_font_id: https://www.myfonts.com/collections/sharp-grotesk-latin-font-monotype-imaging
 - id: emperor
   name: Emperor
-  url: https://render.myfonts.net/fonts/font_rend.php?id=62d429961e1b6efde0ff607536aa5a12
-  vendor_url: https://www.myfonts.com/collections/empera-font-boxtube-labs
+  font_id: 62d429961e1b6efde0ff607536aa5a12
+  vendor_font_id: https://www.myfonts.com/collections/empera-font-boxtube-labs
 - id: angels
   name: Angels
-  url: https://render.myfonts.net/fonts/font_rend.php?id=ee79006cfb6f874d6916b18ad6813fae
-  vendor_url: https://www.myfonts.com/collections/angelos-font-letterara
+  font_id: ee79006cfb6f874d6916b18ad6813fae
+  vendor_font_id: https://www.myfonts.com/collections/angelos-font-letterara
 - id: compton
   name: Compton
-  url: https://render.myfonts.net/fonts/font_rend.php?id=e82ff6f6b9c704f10b923847b02aeb4d
-  vendor_url: https://www.myfonts.com/collections/campton-font-rene-bieder
+  font_id: e82ff6f6b9c704f10b923847b02aeb4d
+  vendor_font_id: https://www.myfonts.com/collections/campton-font-rene-bieder
 - id: kaleodiscope
   name: Kaleidoscope
-  url: https://render.myfonts.net/fonts/font_rend.php?id=76707f0a52a04107de969fd0ac774298
-  vendor_url: https://www.myfonts.com/collections/kaleidos-font-mika-melvas
+  font_id: 76707f0a52a04107de969fd0ac774298
+  vendor_font_id: https://www.myfonts.com/collections/kaleidos-font-mika-melvas
 - id: outlaw
   name: Outlaw
-  url: https://render.myfonts.net/fonts/font_rend.php?id=c3392d200551da40600e8ed4abc7e288
-  vendor_url: https://www.myfonts.com/collections/outline-style-font-sensatype-studio
+  font_id: c3392d200551da40600e8ed4abc7e288
+  vendor_font_id: https://www.myfonts.com/collections/outline-style-font-sensatype-studio
 - id: gonzo
   name: Gonzo
-  url: https://render.myfonts.net/fonts/font_rend.php?id=92df313f416e4dd719d054cbbc43d364
-  vendor_url: https://www.myfonts.com/collections/ginza-narrow-font-positype
+  font_id: 92df313f416e4dd719d054cbbc43d364
+  vendor_font_id: https://www.myfonts.com/collections/ginza-narrow-font-positype
 - id: hoverboard
   name: Hoverboard
-  url: https://render.myfonts.net/fonts/font_rend.php?id=e753a19e7cc55251895da8a108b9cc04
-  vendor_url: https://www.myfonts.com/collections/tt-hoves-font-typetype
+  font_id: e753a19e7cc55251895da8a108b9cc04
+  vendor_font_id: https://www.myfonts.com/collections/tt-hoves-font-typetype
