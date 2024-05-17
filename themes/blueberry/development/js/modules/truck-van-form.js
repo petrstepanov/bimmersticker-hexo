@@ -197,6 +197,8 @@ function _bindEvents(element) {
 
     DOM.$anchorInputBgColor.click(function (event){
         event.preventDefault();
+        // Trigger click on HTML 5 color picker with jQuery
+        // https://stackoverflow.com/questions/17729165/trigger-click-on-html-5-color-picker-with-jquery
         DOM.$inputBgColor.trigger("click");
     });
 
@@ -208,8 +210,8 @@ function _bindEvents(element) {
         DOM.$inputBgColorLine.css('background-color', valueSelected);
 
         if (timeoutUpdateHeadingImage) clearTimeout(timeoutUpdateHeadingImage);
-        _updateHeadingImage();
         if (timeoutUpdateContentImage) clearTimeout(timeoutUpdateContentImage);
+        _updateHeadingImage();
         _updateContentImage();
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human

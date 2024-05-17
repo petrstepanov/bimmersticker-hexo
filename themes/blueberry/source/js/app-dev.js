@@ -1322,7 +1322,7 @@ function _bindEvents(element) {
         var text = _getContentText();
 
         // Timeout for updating the font previews
-vv
+        if (timeoutUpdateContentImage) clearTimeout(timeoutUpdateContentImage);
         timeoutUpdateContentImage = setTimeout(function () {
             _updateContentImage();
         }, 1500);
@@ -1360,7 +1360,9 @@ vv
 
     DOM.$anchorInputBgColor.click(function (event){
         event.preventDefault();
-        DOM.$inputBgColor.click();
+        // Trigger click on HTML 5 color picker with jQuery
+        // https://stackoverflow.com/questions/17729165/trigger-click-on-html-5-color-picker-with-jquery
+        DOM.$inputBgColor.trigger("click");
     });
 
     DOM.$inputBgColor.change(function (event) {
