@@ -1377,20 +1377,33 @@ function _bindEvents(element) {
     DOM.$inputBgColor.change(function (event) {
         // Reflect container background
         var valueSelected  = $(this).val();
-        DOM.$previewContainerBg.css('border-color', valueSelected);
-        DOM.$previewContainerBg.css('background-color', valueSelected);
-        DOM.$inputBgColorLine.css('background-color', valueSelected);
 
+        // Declare promises in order to update the container background after
+        // heading and content images were uploaded
+        const headingImageUpdatedPromise = new Promise();
+        const contentImageUpdatedPromise = new Promise();
+
+        // 03. Update background in the end
+        Promise.all([p1, p2, p3]).then(function(){
+            DOM.$previewContainerBg.css('border-color', valueSelected);
+            DOM.$previewContainerBg.css('background-color', valueSelected);
+            DOM.$inputBgColorLine.css('background-color', valueSelected);
+        });
+
+        // 01. Update heading image
         if (timeoutUpdateHeadingImage) clearTimeout(timeoutUpdateHeadingImage);
         timeoutUpdateHeadingImage = setTimeout(function () {
-            _updateHeadingImage();
+            _updateHeadingImage(headingImageUpdatedPromise);
         }, 1500);
+
+        // 02. Update content image
         if (timeoutUpdateContentImage) clearTimeout(timeoutUpdateContentImage);
         timeoutUpdateContentImage = setTimeout(function () {
-            _updateContentImage();
+            _updateContentImage(contentImageUpdatedPromise);
         }, 1500);
+
+        // Save data only of the event was triggered with human
         if (event.originalEvent && event.originalEvent.isTrusted){
-            // Save data only of the event was triggered with human
             _saveData();
         }
     });
@@ -1444,7 +1457,7 @@ function _buildMyFontUrl(id, text, fgColor) {
     return url;
 }
 
-function _updateHeadingImage() {
+function _updateHeadingImage(promise) {
     // On testing environment do  nothing (no font url rewrite implemented)
     // if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
 
@@ -1459,6 +1472,7 @@ function _updateHeadingImage() {
         DOM.$previewHeadingContainer.empty();
         $(this).appendTo(DOM.$previewHeadingContainer);
         // TODO: throw event to update rulers, height and area field
+        if (typeof promise != undefined) promise.resolve();
         DOM.$previewContainer.removeClass("loading");
     }).attr({ src: url });
 }
@@ -1469,7 +1483,7 @@ function _updateHeadingImage() {
 //     DOM.$previewHeadingContainer.css('--my-color', hex);
 // }
 
-function _updateContentImage() {
+function _updateContentImage(promise) {
     // On testing environment do nothing (no font url rewrite implemented)
     // if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
 
@@ -1488,6 +1502,7 @@ function _updateContentImage() {
         DOM.$previewContentContainer.empty();
         $(this).appendTo(DOM.$previewContentContainer);
         // TODO: throw event to update rulers, height and area field
+        if (typeof promise != undefined) promise.resolve();
         DOM.$previewContainer.removeClass("loading");
     }).attr({ src: url });
 }
