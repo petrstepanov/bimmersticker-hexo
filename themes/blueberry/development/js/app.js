@@ -19,6 +19,7 @@ var formInsideDialog = require('./modules/form-inside-dialog');
 var FormAjaxSubmit = require('./modules/form-ajax-submit');
 var SelectWithImage = require('./modules/select-with-image');
 var SelectReflect = require('./modules/select-reflect');
+var SelectColor = require('./modules/select-color');
 var IntegerInput = require('./modules/integer-input');
 var CheckoutButtonFix = require('./modules/checkout-button-fix');
 var Carousel = require('./modules/carousel');
@@ -70,6 +71,12 @@ $(function() {
     var selectReflect = new SelectReflect();
     selectReflect.init(this);
   });
+
+  $('.js--init-select-color').each(function(){
+    var selectColor = new SelectColor();
+    selectColor.init(this);
+  });
+
   WidgetArea.init();
   truckVanForm.init(document.querySelector('.js--truck-van-form'));
 

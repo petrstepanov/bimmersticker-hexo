@@ -1,0 +1,70 @@
+.select-color {
+    color: $body-color;
+    box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
+    border: 1px solid #dceaf9;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+    background-color: white;
+    /* Fixing safari zom-in isssue */
+    font-size: 16px !important;
+
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.select-color-pill {
+    display: inline-block;
+    line-height: 1.875rem;
+
+    .select-color-pill-color {
+        margin-left: -1rem;
+        height: 1.875rem;
+        width: 1.875rem;
+        border-radius: 2rem;
+        display: inline-block;
+        border: 2px solid white;
+
+        // TODO: add realistic ORACAL HEX colors
+
+        &.red {
+            background-color: Red;
+        }
+        &.burgundy {
+            background-color: DarkRed;
+        }
+        &.orange {
+            background-color: Orange;
+        }
+        &.yellow {
+            background-color: Yellow;
+        }
+        &.mint {
+            background-color: Aquamarine;
+        }
+        &.green {
+            background-color: ForestGreen;
+        }
+        &.blue {
+            background-color: DodgerBlue;
+        }
+        &.darkblue {
+            background-color: Navy;
+        }
+        &.darkblue {
+            background-color: Navy;
+        }
+        &.holographic {
+            // background-color: Navy;
+        }
+        &.silver {
+            // background-color: Navy;
+        }
+        &.gold {
+            // background-color: Navy;
+        }
+        &.rainbow {
+            // background-color: Navy;
+        }
+    }
+}

@@ -26,13 +26,16 @@
           <form autocomplete="off" class="js--init-snipcart-form" id="cart-form">
             <% if (has_variations(product)){ %>
               <% var variations = get_variations(product); %>
+              <% var firstFlag = true; %>
               <% for (const [key, values] of Object.entries(variations)) { %>
                 <div class="form-group">
                   <label class="label-blueberry" for="<%- key %>"><%- capitalize(key) %></label>
-                  <select class="select-blueberry form-control" id="<%- key %>">
+                  <select class="select-blueberry form-control <%- key==='color'?'js--init-select-color':'' %>" id="<%- key %>">
+
                     <% values.forEach(value => { %>
                       <% var val = parse_variation_value(value); %>
-                      <option value="<%- val.value %>" data-extra="<%- val.extra %>"><%- val.text %></option>
+                      <option value="<%- val.value %>" data-extra="<%- val.extra %>" <%- firstFlag===true?'selected':'' %>><%- val.text %></option>
+                      <% firstFlag = false; %>
                     <% });%>
                   </select>
                 </div>

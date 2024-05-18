@@ -1,5 +1,8 @@
 // Custom banner and sun strip form interactions
 
+// Netlify CORS!
+// https://answers.netlify.com/t/support-guide-handling-cors-on-netlify/107739
+
 var $ = require('jquery');
 var helpers = require('./helpers');
 // var nunjucks = require('nunjucks');

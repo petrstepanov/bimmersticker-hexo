@@ -11725,6 +11725,59 @@ body {
   background: #c2e9ff;
 }
 
+.select-color {
+  color: #212B36;
+  box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
+  border: 1px solid #dceaf9;
+  padding-left: 1.1rem;
+  padding-right: 1.1rem;
+  background-color: white;
+  /* Fixing safari zom-in isssue */
+  font-size: 16px !important;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.select-color-pill {
+  display: inline-block;
+  line-height: 1.875rem;
+}
+.select-color-pill .select-color-pill-color {
+  margin-left: -1rem;
+  height: 1.875rem;
+  width: 1.875rem;
+  border-radius: 2rem;
+  display: inline-block;
+  border: 2px solid white;
+}
+.select-color-pill .select-color-pill-color.red {
+  background-color: Red;
+}
+.select-color-pill .select-color-pill-color.burgundy {
+  background-color: DarkRed;
+}
+.select-color-pill .select-color-pill-color.orange {
+  background-color: Orange;
+}
+.select-color-pill .select-color-pill-color.yellow {
+  background-color: Yellow;
+}
+.select-color-pill .select-color-pill-color.mint {
+  background-color: Aquamarine;
+}
+.select-color-pill .select-color-pill-color.green {
+  background-color: ForestGreen;
+}
+.select-color-pill .select-color-pill-color.blue {
+  background-color: DodgerBlue;
+}
+.select-color-pill .select-color-pill-color.darkblue {
+  background-color: Navy;
+}
+.select-color-pill .select-color-pill-color.darkblue {
+  background-color: Navy;
+}
 .zero-size-invisible {
   width: 0;
   height: 0;
