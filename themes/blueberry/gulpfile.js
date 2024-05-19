@@ -12,17 +12,20 @@ var autoprefixer = require('gulp-autoprefixer');
 var del = require('del');
 var log = require('gulplog');
 var replace = require('gulp-replace');
-var beep = require('beepbeep');
+const browsersync = require('browser-sync').create();
 
 var paths = {
+	htmls: {
+		srcWatch: './layout/**/*.ejs'
+	},
 	styles: {
 		src: ['./development/sass/app.scss'],
-		srcWatch: './development/sass/**/*.scss',
+		srcWatch: './development/**/*.scss',
 		dest: './source/css'
 	},
 	scripts: {
 		src: ['./development/js/app.js'],  // Only entry point for browserify
-		srcWatch: './development/js/**/*.js',
+		srcWatch: './development/**/*.js',
 		dest: './source/js'
 	},
 	fonts: {
@@ -115,41 +118,62 @@ function scriptsDev() {
 
 
 // Beep task (with callback)
-function beeptask(cb) {
-	beep();
+function beepTask(cb) {
+	console.log('\x07');
+	cb();
+}
+
+// BrowserSync Serve (init) and Reload tasks
+// https://coder-coder.com/quick-guide-to-browsersync-gulp-4/
+function browsersyncServe(){
+	browsersync.init({
+		proxy: "localhost:4000",
+		ui: false,
+		notify:false
+	});
+}
+
+function browsersyncReload(cb){
+	browsersync.reload();
 	cb();
 }
 
 // Watch Task
+// now does both - production and development! slower but never forget prod before pushing
+// website pulls right scripts and styles from the environment vars
 
-function watch() {
-	gulp.watch(paths.scripts.srcWatch, gulp.series(scripts, scriptsDev, beeptask));
-	gulp.watch(paths.styles.srcWatch, gulp.series(styles, stylesDev, beeptask));
-}
+// function watch(cb) {
+
+
+	// Old code - no browsersync
+	// gulp.watch(paths.scripts.srcWatch, gulp.series(scripts, scriptsDev, beepTask));
+	// gulp.watch(paths.styles.srcWatch, gulp.series(styles, stylesDev, beepTask));
+	// cb();
+// };
+
 
 // Build
+// now does both - production and development! slower but never forget prod before pushing
+// website pulls right scripts and styles from the environment vars
 
-var all = gulp.series(clean, copyIcons, styles, scripts, stylesDev, scriptsDev, beeptask, watch);
+// var development = gulp.series(clean, copyIcons, stylesDev, scriptsDev, beepTask, browsersyncServe, watch);
+// var production =  gulp.series(clean, copyIcons, styles,    scripts,    beepTask);
 
-var development = gulp.series(clean, copyIcons, stylesDev, scriptsDev, beeptask, watch);
-var production = gulp.series(clean, copyIcons, styles, scripts, beeptask);
+// https://www.npmjs.com/package/gulp
 
-// Exports
-exports.clean = clean;
-exports.styles = styles;
-exports.stylesDev = stylesDev;
-exports.scripts = scripts;
-exports.scriptsDev = scriptsDev;
+var build = gulp.series(clean, copyIcons, styles, stylesDev, scripts, scriptsDev);
 
-exports.development = development;
-exports.devel = development;
-exports.dev = development;
-exports.d = development;
-exports.production = production;
-exports.prod = production;
-exports.pro = production;
-exports.p = production;
+function watch(){
+	gulp.series(clean, copyIcons, styles, stylesDev, scripts, scriptsDev, beepTask, browsersyncServe);
+	browsersyncServe();
 
-exports.default = all;
+	gulp.watch(paths.htmls.srcWatch, gulp.series(beepTask, browsersyncReload));
+	gulp.watch(paths.scripts.srcWatch, gulp.series(beepTask, scripts, scriptsDev, beepTask, browsersyncReload));
+	gulp.watch(paths.styles.srcWatch, gulp.series(beepTask, styles, stylesDev, beepTask, browsersyncReload));
+}
+
+exports.default = build;
+exports.build = build;
+exports.watch = watch;
 
 // exports.default = process.env.BUILD_TYPE=='production' ? production : development;

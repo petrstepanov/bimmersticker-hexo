@@ -1,0 +1,16 @@
+- id: regular
+  name: Regular
+  font_id: 1a1c2c769bb1a94529f507e96d6985ac
+  vendor_font_id: https://www.myfonts.com/collections/avenir-next-pro-font-linotype
+- id: italic
+  name: Italic
+  font_id: da0ecba3a0e82f1e0592b5f567b61c19
+  vendor_font_id: https://www.myfonts.com/collections/avenir-next-pro-font-linotype
+- id: condensed
+  name: Condensed
+  font_id: c1f2f2c278a3a3d256ab97e632e796be
+  vendor_font_id: https://www.myfonts.com/collections/avenir-next-pro-font-linotype
+- id: condensed-italic
+  name: Condensed Italic
+  font_id: 4e0ed1b7c494d010d6b0b7a89ff06d62
+  vendor_font_id: https://www.myfonts.com/collections/avenir-next-pro-font-linotype

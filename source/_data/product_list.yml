@@ -7,7 +7,7 @@
 # Snipcart instructions:
 # In .ejs detect attributes with "|".
 # Set data-item-custom1-name="Frame color" to key name
-# Set data-item-custom1-options="black|Brown|gold" to value
+# Set data-item-custom1-options="black|brown|gold" to value
 # for items with customization, define data-item-custom2-name="Your instagram name"
 #
 # SKU: Stock Keeping Unit - numbers and letters (can be id without dashes)
@@ -16,6 +16,21 @@
 #
 # Regarding Car and Truck variations - used Google's "pattern" attribute, not "size".
 # Because "size", "size_system" and "size_type" relate to shoes and clothes and are complicated.
+- id:	ST_TRUCKVAN_COMMERCIAL
+  title: "Custom Decals For Commercial Trucks and Work Vans (Your Company Name, Business phone number, USDOT, MC)"
+  description: "Custom vinyl sticker for the fleet of business trucks, vans or box trucks (NV200, NV2500, Ford Transit Connect, Chevrolet City, Chevy Express, F150, F250, Dodge RAM, Promaster). Buy company decals with custom font, logo and colors. Stickers are made from premium outdoor vinyls."
+  product_type: Stickers > Commercial
+  link: https://bimmersticker.store/custom-truck-van-decals/
+  image_link: https://bimmersticker.store/custom-truck-van-decals/van-truck-company-sticker-business-fleet.jpg
+  price: "39.99 USD"
+  size: "S|M[+20.00]|L[+40.00]|XL[+110.00]"
+  shipping_weight: "12 oz"
+  material: "Oracal 651 vinyl"
+  color: "black|white|red|orange|yellow|green|blue|purple|silver|gold" # for Google only. Real app takes these from colors_truckvan.yml
+  customization_name: "Heading"
+  customization_placeholder: "Your company name"
+  customization_name_2: "Content"
+  customization_placeholder_2: "Your business information"
 - id:	ST_CAR_W_BANNER
   title: "Custom Text Windshield Banner. Select Your Font and Colors. Fits Any Car Make and Model"
   description: "Custom Windshield banner with your own text. Will fit any car or truck (BMW, VW, Audi, Subaru, Nissan, Toyota, Honda and others). Variety of fonts and colors available. Made from premium outdoor vinyls."
@@ -26,7 +41,7 @@
   pattern: "regular|large[+4.99]"
   size: "28x6 in"
   shipping_weight: "3.5 oz"
-  material: "Oracal and TeckWrap vinyls"
+  material: "Oracal 651 and TeckWrap vinyls"
   color: "white|matte black|black|mint|yellow|orange|pink|red|blue|silver[+9.99]|gold[+9.99]|rainbow[+9.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your banner text"
 - id:	ST_CAR_W_SS
@@ -73,11 +88,11 @@
   product_type: Stickers > Keychains
   link: https://bimmersticker.store/buy-keyring-keychain-with-your-car-vin-number/
   image_link: https://bimmersticker.store/buy-keyring-keychain-with-your-car-vin-number/your-vehicle-vin-number-make-model-on-a-keychain.jpg
-  price: "14.99 USD"
+  price: "19.99 USD"
   size: "7x3 cm"
   shipping_weight: "2 oz"
-  material: "Acrylic Sheet, Vinyl Overlay"
-  color: "red|blue|green|black"
+  material: "Acrylic Sheet, Epoxy Overlay"
+  color: "red|brilliant blue|green|black"
   customization_name: "Year"
   customization_placeholder: "Input manufacturing year"
   customization_name_2: "Make"
@@ -238,7 +253,7 @@
   size: "82x82 mm|74x74 mm"
   shipping_weight: "0.4 oz"
   material: "Oracal 651 vinyl"
-  color: "black|matte black|red|orange|yellow|gold|silver"
+  color: "black|matte black|burgundy|red|orange|yellow|gold|silver"
 - id:	ST_CAR_INLINE6
   title: "Inline Six Power sticker"
   description: "Sticker for cars with inline six cylinder engine displacement. "
@@ -341,7 +356,7 @@
   price: "9.99 USD"
   size: "6x3.5 in"
   shipping_weight: "0.4 oz"
-  material: "TECKWRAP outdoor vinyls"
+  material: "ORACAL 651 and TeckWrap vinyls"
   color: "white|rainbow[+1.00]"
 - id:	ST_CAR_RUNCOILS
   title: "Run Coils sticker"
@@ -408,7 +423,7 @@
   link: https://bimmersticker.store/custom-tiktok-name-sticker/
   image_link: https://bimmersticker.store/custom-tiktok-name-sticker/custom-tiktok-account-vinyl-sticker-black.jpg
   additional_image_link: https://bimmersticker.store/custom-tiktok-name-sticker/custom-tiktok-account-vinyl-sticker-white.jpg
-  price: "8.99 USD"
+  price: "9.99 USD"
   size: "7.5x2 in"
   shipping_weight: "0.4 oz"
   material: "Oracal 651 vinyls"
@@ -422,11 +437,11 @@
   link: https://bimmersticker.store/instagram-username-sticker/
   image_link: https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-white-color.jpg
   additional_image_link: https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-holographic-color.jpg,https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-oil-slick-color.jpg,https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-silver-color.jpg,https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-gold-color.jpg
-  price: "9.99 USD"
+  price: "10.99 USD"
   size: "7.5x2 in"
   shipping_weight: "0.4 oz"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|holographic[+1.00]|rainbow[+1.00]|silver[+1.00]|gold[+1.00]"
+  color: "white|holographic[+2]|rainbow[+2]|silver[+2]|gold[+2]|black"
   customization_name: "Your instagram name"
   customization_placeholder: "Use '@' with your handle if you want"
 - id:	ST_SOCIAL_YT
@@ -435,11 +450,11 @@
   product_type: Stickers > Social
   link: https://bimmersticker.store/youtube-channel-stickers/
   image_link: https://bimmersticker.store/youtube-channel-stickers/custom-personal-youtube-channel-name-sticker-square.jpg
-  price: "12.99 USD"
+  price: "14.99 USD"
   size: "7.5x2 in"
   shipping_weight: "0.4 oz"
   material: "Oracal 651 vinyl"
-  color: "white/red|black/red"
+  color: "red/white|red/black"
   customization_name: "Your channel name"
   customization_placeholder: "My Awesome Channel"
 - id:	ST_SOCIAL_FB
@@ -448,11 +463,11 @@
   product_type: Stickers > Social
   link: https://bimmersticker.store/facebook-name-profile-stickers/
   image_link: https://bimmersticker.store/facebook-name-profile-stickers/custom-personal-facebook-profile-page-sticker-square.jpg
-  price: "12.99 USD"
+  price: "14.99 USD"
   size: "7.5x2 in"
   shipping_weight: "0.4 oz"
   material: "Oracal 651 vinyl"
-  color: "white/blue|black/blue"
+  color: "brilliant blue/white|brilliant blue/black"
   customization_name: "Profile, page or group name"
   customization_placeholder: "My Facebook Page"
 - id:	ST_SOCIAL_SC
@@ -461,11 +476,11 @@
   product_type: Stickers > Social
   link: https://bimmersticker.store/snapchat-name-stickers/
   image_link: https://bimmersticker.store/snapchat-name-stickers/custom-personal-snapchat-name-sticker-square.jpg
-  price: "12.99 USD"
+  price: "14.99 USD"
   size: "7.5x2 in"
   shipping_weight: "0.4 oz"
   material: "Oracal 651 vinyl"
-  color: "white/yellow|black/yellow"
+  color: "brimstone yellow/white|brimstone yellow/black"
   customization_name: "Your Snapchat name"
   customization_placeholder: "My Snapchat"
 - id:	ST_SOCIAL_SO
@@ -474,11 +489,11 @@
   product_type: Stickers > Social
   link: https://bimmersticker.store/custom-soundcloud-profile-stickers/
   image_link: https://bimmersticker.store/custom-soundcloud-profile-stickers/custom-personal-soundcloud-profile-sticker.jpg
-  price: "10.99 USD"
+  price: "12.99 USD"
   size: "7.5x2 in"
   shipping_weight: "0.4 oz"
   material: "Oracal 651 vinyl"
-  color: "white/orange|black/orange"
+  color: "orange/white|orange/black"
   customization_name: "Your SoundCloud Profile"
   customization_placeholder: "My Profile"
 - id:	ST_WSHIELD_AMERICA
@@ -491,8 +506,8 @@
   price: "21.99 USD"
   size: "32x3 in"
   shipping_weight: "3.5 oz"
-  material: "Oracal 651 vinyl, TECKWRAP holographic vinyl"
-  color: "white|matte black|rainbow[+5]"
+  material: "Oracal 651 and TeckWrap vinyls"
+  color: "white|matte black|rainbow[+4.99]"
 - id:	ST_WSHIELD_HARDTUNED
   title: "HARD Tuned windshield banner"
   description: "HARD Tuned windshield banner for cars and trucks. Has a nice lettering. Will fit any stanced, drift, lowered or modified vehicle. Available in white and red and gold and red colors."
@@ -515,7 +530,7 @@
   price: "21.99 USD"
   size: "28x7 in"
   shipping_weight: "3.5 oz"
-  material: "Oracal 651 vinyls, TECKWRAP vinyl"
+  material: "Oracal 651 vinyls, TeckWrap vinyl"
   color: "white|black|holographic[+5]"
 - id:	ST_WSHIELD_MONEY
   title: "Money Pit windshield banner"
@@ -582,7 +597,7 @@
   size: "30x5 in"
   shipping_weight: "3.5 oz"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|matte black|rainbow[+6]"
+  color: "white/red|matte black/red|rainbow/red[+6]"
 - id:	ST_WSHIELD_SHARK
   title: "Sharknose Legend windshield banner"
   description: "Sharknose Legend car windshield banner. Great for and oldschool BMW project like e28 or e30. Available in different colors. Banner comes with installation instructions."

@@ -156,7 +156,7 @@
 										<span class="input-radio flex-shrink-0 mr-3"></span>
 										<span class="d-block flex-grow-1">
 											<% var dataSrc = font.url; %>
-											<% dataSrc = dataSrc.replace('https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/', '/font/'); %>
+											<% // dataSrc = dataSrc.replace('https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/', '/font/'); %>
 											<% // var src = encodeURI(url + query); %>
 											<% var src = '/img/banner-previews/your-banner-' + font.id; %>
 
@@ -285,11 +285,11 @@
 								</div>
 							</div>
 						</div>
-						<!-- Hack: make users without JavaScript fill their email so we can reach oiut back -->
+						<!-- Hack: make users without JavaScript fill their email so we can reach out back -->
 						<div class="col-12 col-md-10 col-lg-8 js--nojs-only">
 							<div class="form-group">
 								<label class="label-blueberry" for="email">Enter your email</label>
-								<input class="form-control form-control-lg js--text-input" type="text" required name="email" placeholder="your@email.com" />
+								<input class="form-control form-control-lg" type="text" required name="email" placeholder="your@email.com" />
 							</div>
 						</div>
 						<div class="col-12 col-md-10 col-lg-8 text-center mt-4">
@@ -396,8 +396,8 @@
 					%>
 					<% for (var product of featuredProducts){ %>
 						<div class="col-6 col-sm-4 col-md-3 text-center">
-							<a href="<%- get_pathname(product.link) %>">
-								<img width="150" height="150" src="<%- prefix_filename('small_', product.image_link) %>" alt="<%- product.title %>" class="w-75 h-auto rounded-circle" />
+							<a href="<%- get_pathname(product.link) %>" class="related-post-link">
+								<img width="150" height="150" src="<%- prefix_filename('small_', product.image_link) %>" alt="<%- product.title %>" class="w-75 h-auto related-post-image" />
 								<p class="mt-2"><%- product.title %></p>
 							</a>
 						</div>

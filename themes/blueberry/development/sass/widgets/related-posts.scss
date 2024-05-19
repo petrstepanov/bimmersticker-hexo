@@ -1,0 +1,10 @@
+.related-post-image {
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: transform 300ms;
+    box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
+}
+
+.related-post-link:hover .related-post-image {
+    transform: scale(1.075);
+}

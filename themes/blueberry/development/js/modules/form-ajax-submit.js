@@ -36,7 +36,7 @@ var FormAjaxSubmit = function(){
       // By default we use jQuery's serialize() to create URL-encoded form string
       var data = DOM.$form.serialize();
 
-      // However, if form contains file field, it must be 
+      // However, if form contains file field, it must be
       if (DOM.$form.find('file').length){
         // See: https://docs.netlify.com/forms/setup/#file-uploads
         // This was not tested yet. Because Netlify has 10 MB monthly upload limit!
@@ -78,7 +78,7 @@ var FormAjaxSubmit = function(){
             events.emit(options.successEvent, data);
           }
           // Reset form fields
-          DOM.$form.trigger('reset');          
+          DOM.$form.trigger('reset');
         }
       })
       .fail(function(data) {
@@ -88,7 +88,7 @@ var FormAjaxSubmit = function(){
         // Enable submit button
         DOM.$submitButton.prop("disabled", false);
         DOM.$submitButton.removeClass("loading");
-      });      
+      });
     });
   }
 
@@ -102,7 +102,7 @@ var FormAjaxSubmit = function(){
 
   return {
     init: init
-  };  
+  };
 };
 
 module.exports = FormAjaxSubmit;

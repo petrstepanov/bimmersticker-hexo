@@ -1,0 +1,24 @@
+- id: Black
+  hex: "000000"
+  name: "⬛️ Black"
+- id: White
+  hex: "FFFFFF"
+  name: "⬜️ White"
+- id: Red
+  hex: "CC0000"
+  name: "🟥 Red"
+- id: Orange
+  hex: "CC6633"
+  name: "🟧 Orange"
+- id: Yellow
+  hex: "FFCC33"
+  name: "🟨 Yellow"
+- id: Green
+  hex: "009933"
+  name: "🟩 Green"
+- id: Blue
+  hex: "000099"
+  name: "🟦 Blue"
+- id: Purple
+  hex: "660099"
+  name: "🟪 Purple"

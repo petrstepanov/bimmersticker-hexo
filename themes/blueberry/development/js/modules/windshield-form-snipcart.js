@@ -1,5 +1,8 @@
 // Custom banner and sun strip form interactions
 
+// Netlify CORS!
+// https://answers.netlify.com/t/support-guide-handling-cors-on-netlify/107739
+
 var $ = require('jquery');
 var helpers = require('./helpers');
 // var nunjucks = require('nunjucks');
@@ -385,19 +388,30 @@ function _reflectExtraTruckPrice(product){
 }
 
 function _buildFontUrl($fontImage, text) {
-    var url = $fontImage.data().src;
+    var fontId = $fontImage.data().src;
     var query = '{"size":72,"text":"#","retina":false}'.replace("#", text);
-    return url + '?s=' + encodeURIComponent(query);
+
+    // If localhost
+    if (document.location.href.includes("localhost")){
+        return "https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/" + fontId + "?s=" + query;
+    }
+    // If production
+    return "/font/" + fontId + '?s=' + encodeURIComponent(query);
 }
 
 function _buildFontUnicodeUrl(text) {
-    var url = "/font-unicode/" + encodeURIComponent(text);
-    return url;
+    // If localhost
+    if (document.location.href.includes("localhost")){
+        return "https://render.myfonts.net/fonts/font_rend.php?id=de892884133a0eff8a4920ea421a18c2&rs=25&w=0&rbe=&sc=2&nie=true&fg=FFFFFF&bg=000000&ft=&nf=1&rt=" + encodeURIComponent(text);
+    }
+    // If production
+    return "/font-unicode/" + encodeURIComponent(text);
 }
 
 function _updateFontPreviews() {
+    // SOLUTION for testing: Install CORS firefox extension
     // On testing environment do nothing (no font url rewrite implemented)
-    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
+    // if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
 
     // Update radio font images to reflect custom text
     var text = _getBannerText();
@@ -413,9 +427,6 @@ function _updateFontPreviews() {
 }
 
 function _updateBannerImage(hasUnicode = false) {
-    // On testing environment do nothing (no font url rewrite implemented)
-    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
-
     // Update car banner and sun strip images
     var text = _getBannerText();
     var url = '';
