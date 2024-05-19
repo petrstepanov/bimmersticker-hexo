@@ -44,7 +44,7 @@ function getProductImageSrc(productId, isThumb){
   // Find product with specific id property
   var products = this.site.data.product_list;
   function isMyProduct(product) { return product.id === productId; } // predicate
-  var product = products.find(isMyProduct) 
+  var product = products.find(isMyProduct)
 
   // If product found
   if (typeof product !== "undefined"){
@@ -55,7 +55,7 @@ function getProductImageSrc(productId, isThumb){
       const image_version = hexo.extend.helper.get('image_version').bind(this);
       src = image_version(src, {prefix: 'small'});
     }
-    
+
     return src;
   }
   return '';
@@ -113,7 +113,7 @@ function getRelatedPosts(_options) {
   for (var i = 0; i < count; i++) {
     var item = {
       image_src: get_pathname(get_product_image_src(postList[i].product_id, true)),
-      url:       get_pathname(root + postList[i].path),
+      url:       root + postList[i].path,
       title:     postList[i].title
     }
     items.push(item);
