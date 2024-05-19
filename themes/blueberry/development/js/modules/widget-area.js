@@ -54,16 +54,16 @@ function _updateWidthHeightArea(){
     DOM.$areaInput.val(areaRound);
 
     if (area < 2){
-        DOM.$sizeSelect.val("s");
+        DOM.$sizeSelect.val("S");
     }
     else if (area < 4){
-        DOM.$sizeSelect.val("m");
+        DOM.$sizeSelect.val("M");
     }
     else if (area < 8){
-        DOM.$sizeSelect.val("l");
+        DOM.$sizeSelect.val("L");
     }
     else {
-        DOM.$sizeSelect.val("xl");
+        DOM.$sizeSelect.val("XL");
     }
     DOM.$sizeSelect.change();
 }

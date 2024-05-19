@@ -11439,7 +11439,7 @@ body {
   background-color: #363433;
 }
 .swatch.orange {
-  background-color: #ff8a47;
+  background-color: #fd7424;
 }
 .swatch.pink {
   background-color: #f6a6bf;
@@ -11728,56 +11728,152 @@ body {
 .select-color {
   color: #212B36;
   box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
+  border-radius: 0.4rem;
   border: 1px solid #dceaf9;
-  padding-left: 1.1rem;
-  padding-right: 1.1rem;
   background-color: white;
   /* Fixing safari zom-in isssue */
   font-size: 16px !important;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+}
+
+.select-color {
+  position: relative;
+}
+.select-color:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  right: 1.4rem;
+  top: 1.3rem;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid black;
+  opacity: 1;
+  transition: all 250ms;
+}
+
+.select-color.is-Open:after {
+  opacity: 0;
+}
+
+.is-Closed .select-color-pill {
+  transition: max-height 0.3s, opacity 0.3s;
+  transition-delay: 0s, 0.3s;
+}
+.is-Closed .select-color-pill::before {
+  border-bottom-width: 0px;
+}
+
+.is-Open .select-color-pill {
+  transition: opacity 0.3s, max-height 0.3s;
+  transition-delay: 0s, 0.3s;
 }
 
 .select-color-pill {
-  display: inline-block;
-  line-height: 1.875rem;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  align-items: center;
+  cursor: default;
+  max-height: 3rem;
+  opacity: 1;
+  position: relative;
+}
+.select-color-pill.pill-hidden {
+  max-height: 0;
+  opacity: 0;
+}
+.select-color-pill::before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0;
+  border-bottom: 1px dashed lightgray;
+}
+.select-color-pill:last-child::before {
+  border-bottom-width: 0px;
 }
 .select-color-pill .select-color-pill-color {
+  flex-shrink: 0;
   margin-left: -1rem;
-  height: 1.875rem;
-  width: 1.875rem;
-  border-radius: 2rem;
+  width: 2.4rem;
+  height: 1.85rem;
+  border-radius: 0.925rem;
   display: inline-block;
   border: 2px solid white;
+  vertical-align: middle;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.select-color-pill .select-color-pill-color:first-child {
+  margin-left: 0.6rem;
+}
+.select-color-pill .select-color-pill-color.black {
+  background-color: black;
+}
+.select-color-pill .select-color-pill-color.white {
+  background-color: whitesmoke;
+  box-shadow: inset 0 0 0 2px lightgray;
+}
+.select-color-pill .select-color-pill-color.matte-black {
+  background-color: rgb(34, 34, 34);
 }
 .select-color-pill .select-color-pill-color.red {
-  background-color: Red;
+  background-color: crimson;
 }
 .select-color-pill .select-color-pill-color.burgundy {
   background-color: DarkRed;
 }
 .select-color-pill .select-color-pill-color.orange {
-  background-color: Orange;
+  background-color: DarkOrange;
 }
 .select-color-pill .select-color-pill-color.yellow {
-  background-color: Yellow;
+  background-color: Gold;
 }
 .select-color-pill .select-color-pill-color.mint {
-  background-color: Aquamarine;
+  background-color: MediumSpringGreen;
 }
 .select-color-pill .select-color-pill-color.green {
   background-color: ForestGreen;
 }
 .select-color-pill .select-color-pill-color.blue {
-  background-color: DodgerBlue;
+  background-color: DeepSkyBlue;
 }
 .select-color-pill .select-color-pill-color.darkblue {
   background-color: Navy;
 }
-.select-color-pill .select-color-pill-color.darkblue {
-  background-color: Navy;
+.select-color-pill .select-color-pill-color.silver {
+  background: radial-gradient(ellipse farthest-corner at left top, #dcdcdc 10%, #a8a8a8 50%, #E7EBEE 90%);
 }
+.select-color-pill .select-color-pill-color.gold {
+  background: radial-gradient(ellipse farthest-corner at left top, #FFF3C5 10%, #DFBE60 50%, #ffc975 90%);
+}
+.select-color-pill .select-color-pill-color.holographic {
+  background: linear-gradient(135deg, rgb(65, 127, 208) 10%, rgb(172, 80, 200) 50%, rgb(255, 222, 112) 90%);
+}
+.select-color-pill .select-color-pill-color.rainbow {
+  background: linear-gradient(135deg, rgb(255, 255, 255) 10%, rgb(255, 235, 157) 30%, rgb(174, 190, 255) 50%, rgb(177, 253, 171) 70%, rgb(255, 186, 186) 90%);
+}
+.select-color-pill .select-color-pill-text {
+  flex-grow: 1;
+  margin-left: 0.5rem;
+}
+
+.checkbox {
+  color: #007CC2;
+  opacity: 0;
+  transition: opacity 250ms;
+  font-size: 1.7rem;
+  margin-right: 0.6rem;
+}
+
+.is-Open .selected .checkbox {
+  opacity: 1;
+}
+
 .zero-size-invisible {
   width: 0;
   height: 0;

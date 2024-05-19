@@ -44,7 +44,8 @@ var SelectReflect = function(){
     // Forward events - may not need?
     DOM.$select.on('change', function() {
       DOM.$optionsReflect.removeClass("selected");
-      DOM.$selectReflect.find("[data-value='" + this.value + "']").addClass("selected");
+      // TODO: test if this works!!!
+      DOM.$optionsReflect.filter("[data-value='" + this.value + "']").addClass("selected");
     });
   }
 

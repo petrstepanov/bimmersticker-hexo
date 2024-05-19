@@ -5,6 +5,7 @@ var $ = require('jquery');
 var SelectColor = function(){
   var DOM = {};
   var options = {};
+  const delayDelta = 150;
 
   const States = {
     Open: 0,
@@ -14,23 +15,12 @@ var SelectColor = function(){
 
   var state = States.Closed;
 
-  function _createColorPillElement(colorValue){
-    // Value can be "Black & red" - show 2 circles in the pill!
-    var colorsArray = colorValue.split('&');
-    var $pill = $("<div>", {"class": "select-color-pill", "data-value": colorValue});
-    for (color of colorsArray){
-      $("<div>", {"class": "select-color-pill-color " + color.toLowerCase()}).appendTo($pill);
-    }
-    $("<span>" + colorValue + "</span>", {"class": "select-color-pill-text"}).appendTo($pill);
-    return $pill;
-  }
-
   function _cacheDom(element) {
     DOM.$select = $(element);
     DOM.$options = DOM.$select.find("option");
 
     // Create new DOM elements
-    DOM.$selectColor = $("<div>", {"class": "select-color"});
+    DOM.$selectColor = $("<div>", {"class": "select-color is-Closed"});
 
     // Iterate all <option /> elements
     DOM.$options.each(function(){
@@ -42,9 +32,16 @@ var SelectColor = function(){
       if ($(this).is(':selected')){
         $pill.addClass("selected");
       }
+      else {
+        $pill.addClass("pill-hidden");
+      }
+
+      // Add icon
+      $('<span class="checkbox">✓</span>').appendTo($pill);
 
       DOM.$selectColor.append($pill);
     });
+
 
     // Append new widget
     DOM.$selectColor.insertAfter(DOM.$select);
@@ -58,27 +55,30 @@ var SelectColor = function(){
     $invisible.append(DOM.$select);
   }
 
-  function _hidePillsAnimated(){
-    if (state != States.Open){
-      return;
+  function setState(value){
+    state = value;
+
+    // Tweak parent container class name for proper open close pill transitions
+    if (value === States.Open){
+      DOM.$selectColor.removeClass("is-Closed");
+      DOM.$selectColor.addClass("is-Open");
     }
+    else if (value === States.Closed){
+      DOM.$selectColor.removeClass("is-Open");
+      DOM.$selectColor.addClass("is-Closed");
+    }
+  }
 
-    // Do if only OPEN
-    state = States.Transition;
-
-    var delay = 0;
-    var delayDelta = 100;
-
-    DOM.$pills.each(function(){
-      if (!$pill.hasClass("selected")){
-        $pill.delay(delay).hide('fast');
-      }
-      delay+=delayDelta;
-    });
-
-    setTimeout(function(){
-      state = States.Closed;
-    }, delay);
+  function _createColorPillElement(colorValue){
+    // Value can be "Black & red" - show 2 circles in the pill!
+    var colorsArray = colorValue.split('&');
+    var $pill = $("<div>", {"class": "select-color-pill", "data-value": colorValue});
+    for (color of colorsArray){
+      color = color.trim().toLowerCase().replace(' ','-');
+      $("<div>", {"class": "select-color-pill-color " + color}).appendTo($pill);
+    }
+    $("<span class='select-color-pill-text'>" + colorValue + "</span>").appendTo($pill);
+    return $pill;
   }
 
   function _showPillsAnimated(){
@@ -87,20 +87,47 @@ var SelectColor = function(){
     }
 
     // Do if only CLOSED
-    state = States.Transition;
+    setState(States.Transition);
 
     var delay = 0;
-    var delayDelta = 100;
 
     DOM.$pills.each(function(){
-      if (!$pill.hasClass("selected")){
-        $pill.delay(delay).show('fast');
+      if (!$(this).hasClass("selected")){
+        const $pill = $(this);
+        setTimeout(function(){
+          $pill.removeClass('pill-hidden'); // .hide('fast');
+        }, delay);
+        delay+=delayDelta;
       }
-      delay+=delayDelta;
     });
 
     setTimeout(function(){
-      state = States.Open;
+      setState(States.Open);
+    }, delay);
+  }
+
+  function _hidePillsAnimated(){
+    if (state != States.Open){
+      return;
+    }
+
+    // Do if only OPEN
+    setState(States.Transition);
+
+    var delay = 0;
+
+    DOM.$pills.each(function(){
+      if (!$(this).hasClass("selected")){
+        const $pill = $(this);
+        setTimeout(function(){
+          $pill.addClass('pill-hidden'); // .hide('fast');
+        }, delay);
+        delay+=delayDelta;
+      }
+    });
+
+    setTimeout(function(){
+      setState(States.Closed);
     }, delay);
   }
 
@@ -108,7 +135,8 @@ var SelectColor = function(){
     // Forward events - may not need?
     DOM.$select.on('change', function() {
       DOM.$pills.removeClass("selected");
-      DOM.$selectColor.find("[data-value='" + this.value + "']").addClass("selected");
+      DOM.$pills.filter("[data-value='" + this.value + "']").addClass("selected");
+      DOM.$pills.filter(":not([data-value='" + this.value + "'])").addClass("pill-hidden");
 
       // Hide pills with Delay
       _hidePillsAnimated();
@@ -116,21 +144,22 @@ var SelectColor = function(){
 
     // Backward select event
     DOM.$pills.each(function(){
-      $(this).on( "click", function() {
-        if (state == States.Open){
+      $(this).on("click", function(event) {
+        if (state === States.Open){
+          event.stopPropagation();
           var v = $(this).data("value");
           DOM.$select.val(v).change();
-        }
-
-        if (state === States.Open){
-          _hidePillsAnimated();
         }
       });
     });
 
     DOM.$selectColor.on('click', function() {
-      if (state === States.Closed) _showPillsAnimated();
-      else if (state === States.Open) _hidePillsAnimated();
+      if (state === States.Closed){
+        _showPillsAnimated();
+      }
+      else if (state === States.Open){
+        _hidePillsAnimated();
+      }
     });
   }
 
