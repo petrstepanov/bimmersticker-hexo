@@ -11922,14 +11922,15 @@ body {
   mix-blend-mode: multiply;
 }
 
-.related-posts-image {
+.related-post-image {
   border-radius: 50%;
-  transition: all 300ms;
-  box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0);
+  border: 2px solid white;
+  transition: transform 300ms;
+  box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
 }
 
-.related-posts-link:hover .related-posts-image {
-  box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
+.related-post-link:hover .related-post-image {
+  transform: scale(1.075);
 }
 
 #disqus_thread {

@@ -92,7 +92,7 @@
   size: "7x3 cm"
   shipping_weight: "2 oz"
   material: "Acrylic Sheet, Vinyl Overlay"
-  color: "red|blue|green|black"
+  color: "red|brilliant blue|green|black"
   customization_name: "Year"
   customization_placeholder: "Input manufacturing year"
   customization_name_2: "Make"
@@ -441,7 +441,7 @@
   size: "7.5x2 in"
   shipping_weight: "0.4 oz"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|holographic[+1.99]|rainbow[+1.99]|silver[+1.99]|gold[+1.99]|black"
+  color: "white|holographic[+2]|rainbow[+2]|silver[+2]|gold[+2]|black"
   customization_name: "Your instagram name"
   customization_placeholder: "Use '@' with your handle if you want"
 - id:	ST_SOCIAL_YT
@@ -597,7 +597,7 @@
   size: "30x5 in"
   shipping_weight: "3.5 oz"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|matte black|rainbow[+6]"
+  color: "white/red|matte black/red|rainbow/red[+6]"
 - id:	ST_WSHIELD_SHARK
   title: "Sharknose Legend windshield banner"
   description: "Sharknose Legend car windshield banner. Great for and oldschool BMW project like e28 or e30. Available in different colors. Banner comes with installation instructions."
