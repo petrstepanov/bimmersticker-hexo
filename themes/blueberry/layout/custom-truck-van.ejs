@@ -89,7 +89,7 @@
 					<!-- COLOR -->
 					<label class="label-blueberry" for="selectHeadingColor">Heading Color</label>
 					<div class="input-group mb-3">
-						<select id="selectHeadingColor" name="heading_color" class="custom-select custom-select-blueberry">
+						<select id="selectHeadingColor" name="heading_color" class="custom-select custom-select-blueberry js--init-select-color">
 							<% for (const color of site.data.colors_truckvan){ %>
 								<option data-hex="<%- color.hex %>" value="<%- color.id %>" <%- color.id==defaultHeadingColor?"selected":"" %>><%- color.name %></option>
 							<% } %>
@@ -126,7 +126,7 @@
 					<!-- COLOR -->
 					<label class="label-blueberry" for="selectContentColor">Content Color</label>
 					<div class="input-group mb-3">
-						<select id="selectContentColor" name="content_color" class="custom-select custom-select-blueberry">
+						<select id="selectContentColor" name="content_color" class="custom-select custom-select-blueberry js--init-select-color">
 							<% for (const color of site.data.colors_truckvan){ %>
 								<option data-hex="<%- color.hex %>" value="<%- color.id %>" <%- color.id==defaultContentColor?"selected":"" %>><%- color.name %></option>
 							<% } %>
