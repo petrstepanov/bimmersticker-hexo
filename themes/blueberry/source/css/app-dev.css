@@ -11749,7 +11749,7 @@ body {
   border-right: 6px solid transparent;
   border-top: 6px solid black;
   opacity: 1;
-  transition: all 250ms;
+  transition: all 0.3s;
 }
 
 .select-color.is-Open:after {
@@ -11809,7 +11809,7 @@ body {
   margin-bottom: 0.5rem;
 }
 .select-color-pill .select-color-pill-color:first-child {
-  margin-left: 0.6rem;
+  margin-left: 1.1rem;
 }
 .select-color-pill .select-color-pill-color.black {
   background-color: black;
@@ -11828,10 +11828,14 @@ body {
   background-color: DarkRed;
 }
 .select-color-pill .select-color-pill-color.orange {
-  background-color: DarkOrange;
+  background-color: OrangeRed;
 }
 .select-color-pill .select-color-pill-color.yellow {
   background-color: Gold;
+}
+.select-color-pill .select-color-pill-color.brimstone-yellow {
+  background-color: Yellow;
+  box-shadow: inset 0 0 0 2px lightgray;
 }
 .select-color-pill .select-color-pill-color.mint {
   background-color: MediumSpringGreen;
@@ -11842,8 +11846,8 @@ body {
 .select-color-pill .select-color-pill-color.blue {
   background-color: DeepSkyBlue;
 }
-.select-color-pill .select-color-pill-color.darkblue {
-  background-color: Navy;
+.select-color-pill .select-color-pill-color.brilliant-blue {
+  background-color: MediumBlue;
 }
 .select-color-pill .select-color-pill-color.silver {
   background: radial-gradient(ellipse farthest-corner at left top, #dcdcdc 10%, #a8a8a8 50%, #E7EBEE 90%);
@@ -11861,13 +11865,17 @@ body {
   flex-grow: 1;
   margin-left: 0.5rem;
 }
+.select-color-pill .select-color-pill-extra {
+  margin-right: 1rem;
+  color: #97aabf;
+}
 
 .checkbox {
   color: #007CC2;
   opacity: 0;
   transition: opacity 250ms;
   font-size: 1.7rem;
-  margin-right: 0.6rem;
+  margin-right: 1.1rem;
 }
 
 .is-Open .selected .checkbox {
@@ -11912,6 +11920,16 @@ body {
   right: 0;
   background-color: #c2e9ff;
   mix-blend-mode: multiply;
+}
+
+.related-posts-image {
+  border-radius: 50%;
+  transition: all 300ms;
+  box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0);
+}
+
+.related-posts-link:hover .related-posts-image {
+  box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
 }
 
 #disqus_thread {

@@ -2,6 +2,7 @@ $pill-color-width: 2.4rem;
 $pill-color-height: 1.85rem;
 $pill-color-padding-y: 0.5rem;
 $pill-color-shift: 1rem;
+$display-delay: 0.3s;
 
 .select-color {
     color: $body-color;
@@ -33,7 +34,7 @@ $pill-color-shift: 1rem;
         border-right: 6px solid transparent;
         border-top: 6px solid black;
         opacity: 1;
-        transition: all 250ms;
+        transition: all $display-delay;
     }
 }
 
@@ -44,10 +45,8 @@ $pill-color-shift: 1rem;
 }
 
 .is-Closed .select-color-pill {
-    // transition: max-width 0.5s, max-height 0.5s, opacity 0.5s;
-    // transition-delay: 0s, 0s, 0.5s;
-    transition: max-height 0.3s, opacity 0.3s;
-    transition-delay: 0s, 0.3s;
+    transition: max-height $display-delay, opacity $display-delay;
+    transition-delay: 0s, $display-delay;
 
     &::before {
         border-bottom-width: 0px;
@@ -55,15 +54,11 @@ $pill-color-shift: 1rem;
 }
 
 .is-Open .select-color-pill {
-    // transition: opacity 0.5s, max-width 0.5s, max-height 0.5s;
-    // transition-delay: 0s, 0.5s, 0.5s;
-    transition: opacity 0.3s, max-height 0.3s;
-    transition-delay: 0s, 0.3s;
+    transition: opacity $display-delay, max-height $display-delay;
+    transition-delay: 0s, $display-delay;
 }
 
 .select-color-pill {
-    // flex-shrink: 0;
-
     display: flex;
     flex-wrap: nowrap;
     overflow: hidden;
@@ -74,7 +69,6 @@ $pill-color-shift: 1rem;
     opacity: 1;
 
     &.pill-hidden {
-        // max-width: 0;
         max-height: 0;
         opacity: 0;
     }
@@ -133,10 +127,14 @@ $pill-color-shift: 1rem;
             background-color: DarkRed;
         }
         &.orange {
-            background-color: DarkOrange;
+            background-color: OrangeRed;
         }
         &.yellow {
             background-color: Gold;
+        }
+        &.brimstone-yellow {
+            background-color: Yellow;
+            box-shadow: inset 0 0 0 2px lightgray;
         }
         &.mint {
             background-color: MediumSpringGreen;
@@ -147,8 +145,8 @@ $pill-color-shift: 1rem;
         &.blue {
             background-color: DeepSkyBlue;
         }
-        &.darkblue {
-            background-color: Navy;
+        &.brilliant-blue {
+            background-color: MediumBlue;
         }
         &.silver {
             background: radial-gradient(ellipse farthest-corner at left top, #dcdcdc 10%, #a8a8a8 50%, #E7EBEE 90%);
@@ -168,13 +166,13 @@ $pill-color-shift: 1rem;
     }
 
     .select-color-pill-text {
-        // flex-shrink: 0;
         flex-grow: 1;
         margin-left: 0.5rem;
-        // margin-right: $input-padding-x;
-        // transform: translateY(1px);
-        // position: relative;
-        // display: inline-block;
+    }
+
+    .select-color-pill-extra {
+        margin-right: 1rem;
+        color: lighten($body-color,50);
     }
 }
 

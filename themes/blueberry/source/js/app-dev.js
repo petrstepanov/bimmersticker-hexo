@@ -4,6 +4,8 @@ var bootstrap = require('bootstrap');
 var autosize = require('autosize');
 var AOS = require('aos');
 
+var events = require('./modules/events');
+
 var navbarFixer = require('./modules/navbar-fixer');
 // var smoothScroll = require('./modules/smooth-scroll');
 
@@ -140,9 +142,13 @@ $(function() {
   // https://codepilotsf.medium.com/html5-form-validation-the-easy-way-8e457049bf04
   // Manually converted to Browserify syntax
   autovalid.autovalid();
+
+  $(document).on('click', function(){
+    events.emit('documentClick');
+  });
 });
 
-},{"./modules/autovalid":2,"./modules/carousel":3,"./modules/checkout-button-fix":4,"./modules/content-buy-button":5,"./modules/form-ajax-submit":7,"./modules/form-inside-dialog":8,"./modules/gcr":9,"./modules/integer-input":11,"./modules/interactive-back-button":12,"./modules/navbar-buy-button":13,"./modules/navbar-fixer":14,"./modules/posts-filter":16,"./modules/select-color":17,"./modules/select-reflect":18,"./modules/select-with-image":19,"./modules/snipcart-form":20,"./modules/swatches":21,"./modules/truck-van-form":22,"./modules/video":23,"./modules/widget-area":24,"./modules/windshield-form-snipcart":25,"aos":26,"autosize":27,"bootstrap":28,"jquery":29}],2:[function(require,module,exports){
+},{"./modules/autovalid":2,"./modules/carousel":3,"./modules/checkout-button-fix":4,"./modules/content-buy-button":5,"./modules/events":6,"./modules/form-ajax-submit":7,"./modules/form-inside-dialog":8,"./modules/gcr":9,"./modules/integer-input":11,"./modules/interactive-back-button":12,"./modules/navbar-buy-button":13,"./modules/navbar-fixer":14,"./modules/posts-filter":16,"./modules/select-color":17,"./modules/select-reflect":18,"./modules/select-with-image":19,"./modules/snipcart-form":20,"./modules/swatches":21,"./modules/truck-van-form":22,"./modules/video":23,"./modules/widget-area":24,"./modules/windshield-form-snipcart":25,"aos":26,"autosize":27,"bootstrap":28,"jquery":29}],2:[function(require,module,exports){
 function autovalid(options = {}) {
     const scope = options.scope || document;
     // const fields = scope.querySelectorAll("input, select, textarea");
@@ -357,7 +363,7 @@ var FormAjaxSubmit = function(){
       // By default we use jQuery's serialize() to create URL-encoded form string
       var data = DOM.$form.serialize();
 
-      // However, if form contains file field, it must be 
+      // However, if form contains file field, it must be
       if (DOM.$form.find('file').length){
         // See: https://docs.netlify.com/forms/setup/#file-uploads
         // This was not tested yet. Because Netlify has 10 MB monthly upload limit!
@@ -399,7 +405,7 @@ var FormAjaxSubmit = function(){
             events.emit(options.successEvent, data);
           }
           // Reset form fields
-          DOM.$form.trigger('reset');          
+          DOM.$form.trigger('reset');
         }
       })
       .fail(function(data) {
@@ -409,7 +415,7 @@ var FormAjaxSubmit = function(){
         // Enable submit button
         DOM.$submitButton.prop("disabled", false);
         DOM.$submitButton.removeClass("loading");
-      });      
+      });
     });
   }
 
@@ -423,7 +429,7 @@ var FormAjaxSubmit = function(){
 
   return {
     init: init
-  };  
+  };
 };
 
 module.exports = FormAjaxSubmit;
@@ -925,11 +931,12 @@ exports.init = init;
 // Ajax form submission logic
 
 var $ = require('jquery');
+var events = require('./events');
 
 var SelectColor = function(){
   var DOM = {};
   var options = {};
-  const delayDelta = 150;
+  const delayDelta = 100;
 
   const States = {
     Open: 0,
@@ -958,6 +965,11 @@ var SelectColor = function(){
       }
       else {
         $pill.addClass("pill-hidden");
+      }
+
+      // Add extra text
+      if ($(this).data("extraText")){
+        $('<span class="select-color-pill-extra">' + $(this).data("extraText") + ' </span>').appendTo($pill);
       }
 
       // Add icon
@@ -1077,11 +1089,19 @@ var SelectColor = function(){
       });
     });
 
-    DOM.$selectColor.on('click', function() {
+    DOM.$selectColor.on('click', function(event) {
+      event.preventDefault();
+
       if (state === States.Closed){
         _showPillsAnimated();
       }
       else if (state === States.Open){
+        _hidePillsAnimated();
+      }
+    });
+
+    events.on('documentClick', function(){
+      if (state === States.Open){
         _hidePillsAnimated();
       }
     });
@@ -1101,7 +1121,7 @@ var SelectColor = function(){
 };
 
 module.exports = SelectColor;
-},{"jquery":29}],18:[function(require,module,exports){
+},{"./events":6,"jquery":29}],18:[function(require,module,exports){
 // Ajax form submission logic
 
 var $ = require('jquery');

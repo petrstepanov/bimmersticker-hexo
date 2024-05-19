@@ -3,6 +3,8 @@ var bootstrap = require('bootstrap');
 var autosize = require('autosize');
 var AOS = require('aos');
 
+var events = require('./modules/events');
+
 var navbarFixer = require('./modules/navbar-fixer');
 // var smoothScroll = require('./modules/smooth-scroll');
 
@@ -139,4 +141,8 @@ $(function() {
   // https://codepilotsf.medium.com/html5-form-validation-the-easy-way-8e457049bf04
   // Manually converted to Browserify syntax
   autovalid.autovalid();
+
+  $(document).on('click', function(){
+    events.emit('documentClick');
+  });
 });

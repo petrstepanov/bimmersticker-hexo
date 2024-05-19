@@ -1,11 +1,11 @@
-$input-padding-y: 1.1rem;
+$input-padding-x: 1.1rem;
 
 .form-control, .custom-select-blueberry {
   color: $body-color;
   box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
   border: 1px solid #dceaf9;
-  padding-left: $input-padding-y;
-  padding-right: $input-padding-y;
+  padding-left: $input-padding-x;
+  padding-right: $input-padding-x;
   /* Fixing safari zom-in isssue */
   font-size: 16px !important;
 

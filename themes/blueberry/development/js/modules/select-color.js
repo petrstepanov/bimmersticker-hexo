@@ -1,11 +1,12 @@
 // Ajax form submission logic
 
 var $ = require('jquery');
+var events = require('./events');
 
 var SelectColor = function(){
   var DOM = {};
   var options = {};
-  const delayDelta = 150;
+  const delayDelta = 100;
 
   const States = {
     Open: 0,
@@ -34,6 +35,11 @@ var SelectColor = function(){
       }
       else {
         $pill.addClass("pill-hidden");
+      }
+
+      // Add extra text
+      if ($(this).data("extraText")){
+        $('<span class="select-color-pill-extra">' + $(this).data("extraText") + ' </span>').appendTo($pill);
       }
 
       // Add icon
@@ -153,11 +159,19 @@ var SelectColor = function(){
       });
     });
 
-    DOM.$selectColor.on('click', function() {
+    DOM.$selectColor.on('click', function(event) {
+      event.preventDefault();
+
       if (state === States.Closed){
         _showPillsAnimated();
       }
       else if (state === States.Open){
+        _hidePillsAnimated();
+      }
+    });
+
+    events.on('documentClick', function(){
+      if (state === States.Open){
         _hidePillsAnimated();
       }
     });

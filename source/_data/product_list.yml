@@ -423,7 +423,7 @@
   link: https://bimmersticker.store/custom-tiktok-name-sticker/
   image_link: https://bimmersticker.store/custom-tiktok-name-sticker/custom-tiktok-account-vinyl-sticker-black.jpg
   additional_image_link: https://bimmersticker.store/custom-tiktok-name-sticker/custom-tiktok-account-vinyl-sticker-white.jpg
-  price: "8.99 USD"
+  price: "9.99 USD"
   size: "7.5x2 in"
   shipping_weight: "0.4 oz"
   material: "Oracal 651 vinyls"
@@ -437,11 +437,11 @@
   link: https://bimmersticker.store/instagram-username-sticker/
   image_link: https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-white-color.jpg
   additional_image_link: https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-holographic-color.jpg,https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-oil-slick-color.jpg,https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-silver-color.jpg,https://bimmersticker.store/instagram-username-sticker/instagram-custom-name-stickers-gold-color.jpg
-  price: "9.99 USD"
+  price: "10.99 USD"
   size: "7.5x2 in"
   shipping_weight: "0.4 oz"
   material: "Oracal, Cricut and TeckWrap vinyls"
-  color: "white|holographic[+1.00]|rainbow[+1.00]|silver[+1.00]|gold[+1.00]"
+  color: "white|holographic[+1.99]|rainbow[+1.99]|silver[+1.99]|gold[+1.99]|black"
   customization_name: "Your instagram name"
   customization_placeholder: "Use '@' with your handle if you want"
 - id:	ST_SOCIAL_YT
@@ -450,11 +450,11 @@
   product_type: Stickers > Social
   link: https://bimmersticker.store/youtube-channel-stickers/
   image_link: https://bimmersticker.store/youtube-channel-stickers/custom-personal-youtube-channel-name-sticker-square.jpg
-  price: "12.99 USD"
+  price: "14.99 USD"
   size: "7.5x2 in"
   shipping_weight: "0.4 oz"
   material: "Oracal 651 vinyl"
-  color: "white/red|black/red"
+  color: "red/white|red/black"
   customization_name: "Your channel name"
   customization_placeholder: "My Awesome Channel"
 - id:	ST_SOCIAL_FB
@@ -463,11 +463,11 @@
   product_type: Stickers > Social
   link: https://bimmersticker.store/facebook-name-profile-stickers/
   image_link: https://bimmersticker.store/facebook-name-profile-stickers/custom-personal-facebook-profile-page-sticker-square.jpg
-  price: "12.99 USD"
+  price: "14.99 USD"
   size: "7.5x2 in"
   shipping_weight: "0.4 oz"
   material: "Oracal 651 vinyl"
-  color: "white/blue|black/blue"
+  color: "brilliant blue/white|brilliant blue/black"
   customization_name: "Profile, page or group name"
   customization_placeholder: "My Facebook Page"
 - id:	ST_SOCIAL_SC
@@ -476,11 +476,11 @@
   product_type: Stickers > Social
   link: https://bimmersticker.store/snapchat-name-stickers/
   image_link: https://bimmersticker.store/snapchat-name-stickers/custom-personal-snapchat-name-sticker-square.jpg
-  price: "12.99 USD"
+  price: "14.99 USD"
   size: "7.5x2 in"
   shipping_weight: "0.4 oz"
   material: "Oracal 651 vinyl"
-  color: "white/yellow|black/yellow"
+  color: "brimstone yellow/white|brimstone yellow/black"
   customization_name: "Your Snapchat name"
   customization_placeholder: "My Snapchat"
 - id:	ST_SOCIAL_SO
@@ -489,11 +489,11 @@
   product_type: Stickers > Social
   link: https://bimmersticker.store/custom-soundcloud-profile-stickers/
   image_link: https://bimmersticker.store/custom-soundcloud-profile-stickers/custom-personal-soundcloud-profile-sticker.jpg
-  price: "10.99 USD"
+  price: "12.99 USD"
   size: "7.5x2 in"
   shipping_weight: "0.4 oz"
   material: "Oracal 651 vinyl"
-  color: "white/orange|black/orange"
+  color: "orange/white|orange/black"
   customization_name: "Your SoundCloud Profile"
   customization_placeholder: "My Profile"
 - id:	ST_WSHIELD_AMERICA
@@ -507,7 +507,7 @@
   size: "32x3 in"
   shipping_weight: "3.5 oz"
   material: "Oracal 651 vinyl, TECKWRAP holographic vinyl"
-  color: "white|matte black|rainbow[+5]"
+  color: "white|matte black|rainbow[+4.99]"
 - id:	ST_WSHIELD_HARDTUNED
   title: "HARD Tuned windshield banner"
   description: "HARD Tuned windshield banner for cars and trucks. Has a nice lettering. Will fit any stanced, drift, lowered or modified vehicle. Available in white and red and gold and red colors."

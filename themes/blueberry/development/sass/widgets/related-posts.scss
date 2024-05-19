@@ -1,0 +1,9 @@
+.related-posts-image {
+    border-radius: 50%;
+    transition: all 300ms;
+    box-shadow: 0 2px 4px 0 rgba($blue, 0);
+}
+
+.related-posts-link:hover .related-posts-image {
+    box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
+}

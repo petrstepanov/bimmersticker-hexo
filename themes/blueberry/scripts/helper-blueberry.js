@@ -160,6 +160,7 @@ hexo.extend.helper.register('parse_variation_value', function(str){
   var obj = {
     value: str,
     text: str,
+    extra_text: '',
     extra: 0
   };
 
@@ -168,7 +169,8 @@ hexo.extend.helper.register('parse_variation_value', function(str){
     var array = pattern.exec(str);
     obj.value = capitalize(array[1]); //capitalize(array[0]);
     obj.extra = parseFloat(array[2]).toFixed(2);
-    obj.text = capitalize(array[1]) + " • $" + parseFloat(array[2]) + " extra";
+    obj.extra_text = "+$" + parseFloat(array[2]);
+    obj.text = capitalize(array[1]) + " • " + obj.extra_text;
   }
   return obj;
 });
