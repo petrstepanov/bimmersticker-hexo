@@ -7,7 +7,7 @@
     <% for (var item of relatedPosts){ %>
         <div class="col-6 col-sm-4 col-md-3 text-center">
             <a href="<%- item.url %>" class="related-post-link">
-                <img width="150" height="150" src="<%- prefix_filename('small_', item_image) %>" alt="<%- item.title %>" class="w-75 h-auto related-post-image" />
+                <img width="150" height="150" src="<%- prefix_filename('small_', item.image_src) %>" alt="<%- item.title %>" class="w-75 h-auto related-post-image" />
                 <p class="mt-2"><%- item.title %></p>
             </a>
         </div>
