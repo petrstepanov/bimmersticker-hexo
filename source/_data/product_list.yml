@@ -26,7 +26,7 @@
   size: "S|M[+20.00]|L[+40.00]|XL[+110.00]"
   shipping_weight: "12 oz"
   material: "Oracal 651 vinyl"
-  color: "black|white|red|orange|yellow|green|blue|purple|silver|gold" # for Google only. Real app takes these from colors_truckvan.yml
+  color: "black|white|red|orange|yellow|green|blue|pink" # for Google only. Real app takes these from colors_truckvan.yml
   customization_name: "Heading"
   customization_placeholder: "Your company name"
   customization_name_2: "Content"

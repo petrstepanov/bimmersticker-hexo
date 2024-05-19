@@ -11731,6 +11731,7 @@ body {
   border-radius: 0.4rem;
   border: 1px solid #dceaf9;
   background-color: white;
+  width: 100%;
   /* Fixing safari zom-in isssue */
   font-size: 16px !important;
 }
@@ -11822,7 +11823,7 @@ body {
   background-color: rgb(34, 34, 34);
 }
 .select-color-pill .select-color-pill-color.red {
-  background-color: crimson;
+  background-color: red;
 }
 .select-color-pill .select-color-pill-color.burgundy {
   background-color: DarkRed;
@@ -11832,6 +11833,9 @@ body {
 }
 .select-color-pill .select-color-pill-color.yellow {
   background-color: Gold;
+}
+.select-color-pill .select-color-pill-color.pink {
+  background-color: HotPink;
 }
 .select-color-pill .select-color-pill-color.brimstone-yellow {
   background-color: Yellow;

@@ -13,12 +13,18 @@
 - id: Yellow
   hex: "FFCC33"
   name: "🟨 Yellow"
+- id: Brimstone Yellow
+  hex: "FFFF00"
+  name: "🟨 Brimstone Yellow"
 - id: Green
   hex: "009933"
   name: "🟩 Green"
 - id: Blue
   hex: "000099"
   name: "🟦 Blue"
-- id: Purple
-  hex: "660099"
-  name: "🟪 Purple"
+- id: Brilliant Blue
+  hex: "0000CD"
+  name: "🟦 Brilliant Blue"
+- id: Pink
+  hex: "FF69B4"
+  name: "🟪 Pink"
