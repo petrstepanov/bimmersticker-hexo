@@ -55,7 +55,6 @@ $(function() {
   // windshieldForm.init(document.querySelector('.js--init-windshield-container'));
 
   windshieldForm.init(document.querySelector('.js--windshield-form-snipcart'));
-  snipcartForm.init(document.querySelector('.js--init-snipcart-form'));
   contentBuyButton.init(document.querySelector('.js--init-content-buy-button'));
   navbarBuyButton.init(document.querySelector('.js--init-navbar-buy-button'));
   // stickyContainer.init(document.querySelector('.js--init-sticky-container'));
@@ -118,6 +117,9 @@ $(function() {
   // Load Messenger when start scrolling
   // var facebookLoadOnScroll = new FacebookLoadOnScroll();
   // facebookLoadOnScroll.init();
+
+  snipcartForm.init(document.querySelector('.js--init-snipcart-form'));
+
 
   // Viewport animations
   AOS.init({

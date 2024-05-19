@@ -56,7 +56,6 @@ $(function() {
   // windshieldForm.init(document.querySelector('.js--init-windshield-container'));
 
   windshieldForm.init(document.querySelector('.js--windshield-form-snipcart'));
-  snipcartForm.init(document.querySelector('.js--init-snipcart-form'));
   contentBuyButton.init(document.querySelector('.js--init-content-buy-button'));
   navbarBuyButton.init(document.querySelector('.js--init-navbar-buy-button'));
   // stickyContainer.init(document.querySelector('.js--init-sticky-container'));
@@ -119,6 +118,9 @@ $(function() {
   // Load Messenger when start scrolling
   // var facebookLoadOnScroll = new FacebookLoadOnScroll();
   // facebookLoadOnScroll.init();
+
+  snipcartForm.init(document.querySelector('.js--init-snipcart-form'));
+
 
   // Viewport animations
   AOS.init({
@@ -935,7 +937,7 @@ var events = require('./events');
 
 var SelectColor = function(){
   var DOM = {};
-  var options = {};
+  // var options = {};
   const delayDelta = 100;
 
   const States = {
@@ -1070,9 +1072,9 @@ var SelectColor = function(){
   function _bindEvents(){
     // Forward events - may not need?
     DOM.$select.on('change', function() {
-      DOM.$pills.removeClass("selected");
-      DOM.$pills.filter("[data-value='" + this.value + "']").addClass("selected");
-      DOM.$pills.filter(":not([data-value='" + this.value + "'])").addClass("pill-hidden");
+      DOM.$pills.removeClass("selected").addClass("pill-hidden");
+      DOM.$pills.filter("[data-value='" + $(this).val() + "']").addClass("selected").removeClass("pill-hidden");
+      DOM.$pills.filter(":not([data-value='" + $(this).val() + "'])").addClass("pill-hidden");
 
       // Hide pills with Delay
       _hidePillsAnimated();
@@ -1080,11 +1082,11 @@ var SelectColor = function(){
 
     // Backward select event
     DOM.$pills.each(function(){
-      $(this).on("click", function(event) {
+      $(this).on('click', function(event) {
         if (state === States.Open){
           event.stopPropagation();
           var v = $(this).data("value");
-          DOM.$select.val(v).change();
+          DOM.$select.val(v).trigger( "change" );
         }
       });
     });
@@ -1109,7 +1111,7 @@ var SelectColor = function(){
 
   function init(element){
     if (element){
-      options = $.extend(options, element.dataset);
+      // options = $.extend(options, element.dataset);
       _cacheDom(element);
       _bindEvents();
     }
@@ -1269,7 +1271,7 @@ var events = require('./events')
 
 function _cacheDom(element) {
   DOM.$form = $(element);
-  DOM.$inputs = DOM.$form.find('select, input');
+  DOM.$inputsAndSelects = DOM.$form.find('select, input');
   DOM.$selects = DOM.$form.find('select');
   DOM.$selectColor = DOM.$form.find('select#color')
   DOM.$snipcartButton = DOM.$form.find('.js--snipcart-add-item');
@@ -1277,8 +1279,8 @@ function _cacheDom(element) {
 }
 
 function _bindEvents(element) {
-  DOM.$inputs.on('change, input', function () {
-    var i = DOM.$inputs.index(this) + 1;
+  DOM.$inputsAndSelects.on('change input', function () {
+    var i = DOM.$inputsAndSelects.index(this) + 1;
     var customAttrName = 'item-custom' + i + '-value';
     // DOM.$button.data(customAttrName, $(this).val());
     DOM.$snipcartButton.attr('data-' + customAttrName, $(this).val());
@@ -1286,6 +1288,7 @@ function _bindEvents(element) {
 
   // Update price on button when selecting variations with extra price
   DOM.$selects.on('change', function () {
+    // Calculate total extra price
     var extraTotal = 0;
     DOM.$selects.each(function () {
       var $option = $(this).find('option:selected');
@@ -1293,6 +1296,7 @@ function _bindEvents(element) {
         extraTotal += parseFloat($option.data().extra);
       }
     });
+    // Reflect total in the submit button
     DOM.$submitButtons.each(function () {
       var price = parseFloat($(this).data().basePrice);
       price += extraTotal;

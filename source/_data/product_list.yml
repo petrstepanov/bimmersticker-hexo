@@ -41,7 +41,7 @@
   pattern: "regular|large[+4.99]"
   size: "28x6 in"
   shipping_weight: "3.5 oz"
-  material: "Oracal and TeckWrap vinyls"
+  material: "Oracal 651 and TeckWrap vinyls"
   color: "white|matte black|black|mint|yellow|orange|pink|red|blue|silver[+9.99]|gold[+9.99]|rainbow[+9.99]" # for Google only. Real app takes these from colors_strip.yml
   customization_name: "Your banner text"
 - id:	ST_CAR_W_SS
@@ -356,7 +356,7 @@
   price: "9.99 USD"
   size: "6x3.5 in"
   shipping_weight: "0.4 oz"
-  material: "TECKWRAP outdoor vinyls"
+  material: "ORACAL 651 and TeckWrap vinyls"
   color: "white|rainbow[+1.00]"
 - id:	ST_CAR_RUNCOILS
   title: "Run Coils sticker"
@@ -506,7 +506,7 @@
   price: "21.99 USD"
   size: "32x3 in"
   shipping_weight: "3.5 oz"
-  material: "Oracal 651 vinyl, TECKWRAP holographic vinyl"
+  material: "Oracal 651 and TeckWrap vinyls"
   color: "white|matte black|rainbow[+4.99]"
 - id:	ST_WSHIELD_HARDTUNED
   title: "HARD Tuned windshield banner"
@@ -530,7 +530,7 @@
   price: "21.99 USD"
   size: "28x7 in"
   shipping_weight: "3.5 oz"
-  material: "Oracal 651 vinyls, TECKWRAP vinyl"
+  material: "Oracal 651 vinyls, TeckWrap vinyl"
   color: "white|black|holographic[+5]"
 - id:	ST_WSHIELD_MONEY
   title: "Money Pit windshield banner"

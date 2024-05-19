@@ -5,7 +5,7 @@ var events = require('./events');
 
 var SelectColor = function(){
   var DOM = {};
-  var options = {};
+  // var options = {};
   const delayDelta = 100;
 
   const States = {
@@ -140,9 +140,9 @@ var SelectColor = function(){
   function _bindEvents(){
     // Forward events - may not need?
     DOM.$select.on('change', function() {
-      DOM.$pills.removeClass("selected");
-      DOM.$pills.filter("[data-value='" + this.value + "']").addClass("selected");
-      DOM.$pills.filter(":not([data-value='" + this.value + "'])").addClass("pill-hidden");
+      DOM.$pills.removeClass("selected").addClass("pill-hidden");
+      DOM.$pills.filter("[data-value='" + $(this).val() + "']").addClass("selected").removeClass("pill-hidden");
+      DOM.$pills.filter(":not([data-value='" + $(this).val() + "'])").addClass("pill-hidden");
 
       // Hide pills with Delay
       _hidePillsAnimated();
@@ -150,11 +150,11 @@ var SelectColor = function(){
 
     // Backward select event
     DOM.$pills.each(function(){
-      $(this).on("click", function(event) {
+      $(this).on('click', function(event) {
         if (state === States.Open){
           event.stopPropagation();
           var v = $(this).data("value");
-          DOM.$select.val(v).change();
+          DOM.$select.val(v).trigger( "change" );
         }
       });
     });
@@ -179,7 +179,7 @@ var SelectColor = function(){
 
   function init(element){
     if (element){
-      options = $.extend(options, element.dataset);
+      // options = $.extend(options, element.dataset);
       _cacheDom(element);
       _bindEvents();
     }
