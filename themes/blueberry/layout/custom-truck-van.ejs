@@ -216,9 +216,9 @@
 			<div class="row justify-content-center mt-3 pb-2">
 				<div class="col col-md-9 col-lg-8 text-center">
 					<!-- SIZE -->
-					const arr=[product];
+					<% // This is a dirty way to get price with increments %>
+					<% // Only works for product with one variation %>
 					<% const priceArray = getProductPriceArrayByKey(product, 'size'); %>
-					<% console.log(priceArray); %>
 					<label class="label-blueberry mb-2" for="selectSize">Decal size</label>
 					<select id="selectSize" name="size" class="js--init-select-reflect js--widget-area-select">
 						<option value="S"  data-price="<%- priceArray[0] %>" selected>S • &lt;2 ft²</option>
