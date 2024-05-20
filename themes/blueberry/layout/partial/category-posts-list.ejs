@@ -4,7 +4,7 @@
     <% // can be 'date', 'title' %>
     <% site.categories.findOne({name: categoryName}).posts.sort(sortOrder, (typeof order == 'string' && order == 'desc') ? -1 : 1).each(function(post, i){ %>
       <% if (!post.no_display || (post.no_display && post.no_display == false)){ %>
-        <%- partial('partial/card', { post: post }) %>
+        <%- partial('partial/card-with-carousel', { post: post }) %>
       <% } %>
     <% }) %>
   </div>
