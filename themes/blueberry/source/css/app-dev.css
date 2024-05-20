@@ -11405,7 +11405,6 @@ body {
 .container-horizontal {
   overflow-x: scroll;
   outline: 0 !important;
-  scroll-behavior: smooth;
 }
 
 .container-horizontal-inner {
