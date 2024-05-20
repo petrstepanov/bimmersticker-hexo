@@ -8,7 +8,7 @@
 <%
 	// Select products with ids containing "ST_TRUCKVAN_"
 	const allProducts = site.data.product_list;
-	var product
+	var product;
 	for (p of allProducts){
 		if (p.id.includes("ST_TRUCKVAN_")){
 			product = Object.assign({}, p);
@@ -216,12 +216,15 @@
 			<div class="row justify-content-center mt-3 pb-2">
 				<div class="col col-md-9 col-lg-8 text-center">
 					<!-- SIZE -->
+					const arr=[product];
+					<% const priceArray = getProductPriceArrayByKey(product, 'size'); %>
+					<% console.log(priceArray); %>
 					<label class="label-blueberry mb-2" for="selectSize">Decal size</label>
 					<select id="selectSize" name="size" class="js--init-select-reflect js--widget-area-select">
-						<option value="S"  data-price="39.99" selected>S • &lt;2 ft²</option>
-						<option value="M"  data-price="59.99">M • 2-4 ft²</option>
-						<option value="L"  data-price="99.99">L • 4-8 ft²</option>
-						<option value="XL" data-price="149.99">XL • 8+ ft²</option>
+						<option value="S"  data-price="<%- priceArray[0] %>" selected>S • &lt;2 ft²</option>
+						<option value="M"  data-price="<%- priceArray[1] %>">M • 2-4 ft²</option>
+						<option value="L"  data-price="<%- priceArray[2] %>">L • 4-8 ft²</option>
+						<option value="XL" data-price="<%- priceArray[3] %>">XL • 8+ ft²</option>
 					</select>
 				</div>
 			</div>

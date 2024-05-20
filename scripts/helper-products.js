@@ -1,5 +1,23 @@
-// Checks if products array has object with value containing "|"
+hexo.extend.helper.register('getProductPriceArrayByKey', function(product, key){
+    const tokens = product[key].split('|');
+    const originalPrice=parseFloat(product.price);
+    var priceArray=[];
 
+    for (token of tokens){
+        var regex = /.*\[(.+)\]/
+        var array = token.match(regex);
+        var priceExtra = 0;
+        if (array && array.length == 2){
+            priceExtra = parseFloat(array[1]);
+        }
+        priceTotal = (originalPrice + priceExtra).toFixed(2);
+        priceArray.push(priceTotal);
+    }
+
+    return priceArray;
+});
+
+// Checks if products array has object with value containing "|"
 function findObjectWithVariations(array){
     var index = -1;
     array.forEach((element, i) => {

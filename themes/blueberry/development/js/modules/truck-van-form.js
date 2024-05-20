@@ -62,11 +62,11 @@ function _saveData(){
 }
 
 function _updateSubmitButtonTextPrice(){
-    const price = DOM.$selectSize.find("option:selected").data("price");
+    const price = parseFloat(DOM.$selectSize.find("option:selected").data("price"));
     const quantity = parseInt(DOM.$inputQuantity.val());
     const total = price*quantity;
 
-    const html = "Add item" + (quantity == 1?'':'s') + ' to Cart • $' + total.toFixed(2);
+    const html = "Add Item" + (quantity == 1?'':'s') + ' to Cart • $' + total.toFixed(2);
     DOM.$buttonSubmit.html(html);
 }
 
