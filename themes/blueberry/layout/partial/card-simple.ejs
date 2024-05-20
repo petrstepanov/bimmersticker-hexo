@@ -1,0 +1,21 @@
+<% var product = getProductCopy(site.data.product_list, post.product_id); %>
+<figure class="card card-blueberry">
+  <!-- In horizontal scroll carousel is too much - show just one image -->
+  <a class="img-wrapper" href="/<%- post.path %>">
+    <% var imagePath = get_pathname(product.image_link) %>
+    <img <%- widthHeight(imagePath) %> loading="lazy" class="w-100 h-auto fix-height <%- product.product_type.includes('Windshield') ? 'tall' : ''; %>" src="<%- image_version(imagePath, {prefix: 'medium'}) %>" title="<%- product.title %>" alt="<%- product.description %>">
+  </a>
+  <!-- Card body -->
+  <div class="card-body">
+      <h3 class="card-title font-size-21">
+        <%- product.title %>
+      </h3>
+      <% if (post.excerpt){ %>
+        <p class="mb-2 pb-1"><%- strip_html(post.excerpt) %></p>
+      <% } %>
+      <div class="d-flex align-items-center justify-content-between">
+        <span class="card-title-price">$<%- format_price(parseFloat(product.price)) %></span>
+        <a href="/<%- post.path %>" class="btn btn-blueberry btn-sm btn-primary">View <span class="icon-xs d-none d-sm-inline"><%- partial('ionicons/md-arrow-forward.svg') %></span></a>
+      </div>
+  </div>
+</figure>
