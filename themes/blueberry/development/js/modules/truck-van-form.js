@@ -46,6 +46,8 @@ function _cacheDom(element) {
 
     DOM.$buttonSubmit = DOM.$el.find('#buttonSubmit');
 
+    DOM.$totalPrice = DOM.$el.find('#totalPrice');
+
     DOM.$buttonBuy = DOM.$el.find('.snipcart-add-item');  // Snipcart button
 
     // TODO: add no-js
@@ -55,17 +57,17 @@ function _cacheDom(element) {
 function _saveData(){
     // Helper parses form data to JSON
     var data = helpers.getFormData(DOM.$form);
-    // console.log(data);
     // Save JSON to local storage
     localStorage.setItem("dataKeyVanTruck", JSON.stringify(data));
 }
 
-function _updateSubmitButtonText(){
-    if (parseInt(DOM.$inputQuantity.val()) == 1){
-        DOM.$buttonSubmit.text("Add Item to Cart");
-        return;
-    }
-    DOM.$buttonSubmit.text("Add Items to Cart");
+function _updateSubmitButtonTextPrice(){
+    const price = parseFloat(DOM.$selectSize.find("option:selected").data("price"));
+    const quantity = parseInt(DOM.$inputQuantity.val());
+    const total = price*quantity;
+
+    const html = "Add Item" + (quantity == 1?'':'s') + ' to Cart • $' + total.toFixed(2);
+    DOM.$buttonSubmit.html(html);
 }
 
 function _loadData(){
@@ -111,7 +113,7 @@ function _loadData(){
 function _onLoad() {
     DOM.$noJs.remove();
     // If JS is enabled - snipcart will load - update button text
-    _updateSubmitButtonText();
+    _updateSubmitButtonTextPrice();
     _loadData();
 }
 
@@ -145,7 +147,7 @@ function _bindEvents(element) {
             _updateHeadingImage();
         }, 1500);
 
-        var valueSelected  = $(this).find("option:selected").val();
+        var valueSelected  = $(this).val(); //find("option:selected").val();
         _updateSnipcartButtonHeadingFont(valueSelected);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
@@ -163,7 +165,7 @@ function _bindEvents(element) {
             _updateHeadingImage();
         }, 1500);
 
-        var valueSelected  = $(this).find("option:selected").val();
+        var valueSelected  = $(this).val(); // $(this).find("option:selected").val();
         _updateSnipcartButtonHeadingColor(valueSelected);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
@@ -204,7 +206,7 @@ function _bindEvents(element) {
             _updateContentImage();
         }, 1500);
 
-        var valueSelected  = $(this).find("option:selected").val();
+        var valueSelected  = $(this).val(); //$(this).find("option:selected").val();
         _updateSnipcartButtonContentFont(valueSelected);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
@@ -222,7 +224,7 @@ function _bindEvents(element) {
             _updateContentImage();
         }, 1500);
 
-        var valueSelected  = $(this).find("option:selected").val();
+        var valueSelected  = $(this).val(); // $(this).find("option:selected").val();
         _updateSnipcartButtonContentColor(valueSelected);
         if (event.originalEvent && event.originalEvent.isTrusted){
             // Save data only of the event was triggered with human
@@ -277,14 +279,15 @@ function _bindEvents(element) {
     });
 
     DOM.$selectSize.change(function (event) {
-        var valueSelected  = $(this).find("option:selected").val();
+        var valueSelected  = $(this).val(); // find("option:selected").val();
+        _updateSubmitButtonTextPrice();
         _updateSnipcartButtonSize(valueSelected);
         _saveData();
     });
 
     DOM.$inputQuantity.change(function (event) {
         DOM.$buttonBuy.attr('data-item-quantity', this.value);
-        _updateSubmitButtonText();
+        _updateSubmitButtonTextPrice();
         _saveData();
     });
 
