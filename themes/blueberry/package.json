@@ -36,6 +36,7 @@
     "gulplog": "^1.0.0",
     "ionicons": "4.6",
     "jquery": "^3.7.0",
+    "jquery.kinetic": "^2.2.4",
     "js-cookie": "^3.0.5",
     "nunjucks": "^3.2.4",
     "sass": "^1.62.1",

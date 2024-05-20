@@ -30,6 +30,9 @@ var VideoFullWidth = require('./modules/video');
 // var FacebookLoadOnScroll = require('./modules/facebook-load-on-scroll');
 var InteractiveBackButton = require('./modules/interactive-back-button');
 var autovalid = require('./modules/autovalid');
+var ContainerHorizontal = require('./modules/container-horizontal');
+
+// var TouchEmulator = require('hammer-touchemulator');
 
 // Google Customer Reviews
 // Export GCR to be accessed by Vue
@@ -45,6 +48,8 @@ window['gcr'] = gcr;
 
 $(function() {
   // Handler for .ready() called.
+
+  // TouchEmulator();
 
   // Interactive Back Button
   // InteractiveBackButton.init(document.querySelector('.js--init-back-button'));
@@ -143,6 +148,11 @@ $(function() {
   // https://codepilotsf.medium.com/html5-form-validation-the-easy-way-8e457049bf04
   // Manually converted to Browserify syntax
   autovalid.autovalid();
+
+  $('.js--container-horizontal').each(function(){
+    var cH = new ContainerHorizontal();
+    cH.init(this);
+  });
 
   $(document).on('click', function(){
     events.emit('documentClick');

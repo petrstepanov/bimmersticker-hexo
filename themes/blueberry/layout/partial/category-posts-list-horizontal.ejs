@@ -1,11 +1,13 @@
-<div class="container-horizontal js--posts-filter-container">
-  <% var sortOrder = (typeof sortBy !== 'undefined') ? sortBy : 'date'; %>
-  <% // can be 'date', 'title' %>
-  <% site.categories.findOne({name: categoryName}).posts.sort(sortOrder, (typeof order == 'string' && order == 'desc') ? -1 : 1).each(function(post, i){ %>
-    <% if (!post.no_display || (post.no_display && post.no_display == false)){ %>
-      <div class="container-horizontal-card">
-        <%- partial('partial/card-simple', { post: post }) %>
-      </div>
-    <% } %>
-  <% }) %>
+<div class="container-horizontal js--container-horizontal">
+  <div class="container-horizontal-inner">
+    <% var sortOrder = (typeof sortBy !== 'undefined') ? sortBy : 'date'; %>
+    <% // can be 'date', 'title' %>
+    <% site.categories.findOne({name: categoryName}).posts.sort(sortOrder, (typeof order == 'string' && order == 'desc') ? -1 : 1).each(function(post, i){ %>
+      <% if (!post.no_display || (post.no_display && post.no_display == false)){ %>
+        <div class="container-horizontal-card">
+          <%- partial('partial/card-simple', { post: post }) %>
+        </div>
+      <% } %>
+    <% }) %>
+  </div>
 </div>

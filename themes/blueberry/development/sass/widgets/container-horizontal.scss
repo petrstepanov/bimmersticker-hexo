@@ -3,14 +3,20 @@
 $cards-gap: 2rem;
 
 .container-horizontal {
+    overflow-x: scroll;
+    outline: 0 !important;
+    scroll-behavior: smooth;
+}
+
+.container-horizontal-inner {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     gap: $cards-gap;
+    width: min-content;
 
     // Scrolling
-    overflow-x: scroll;
-    scroll-behavior: smooth;
+    // scroll-behavior: smooth;
     // scroll-snap-type: x mandatory;
 
     // Left Margin for first card
@@ -34,7 +40,7 @@ $cards-gap: 2rem;
         }
 
         &:last-child{
-            margin-left: 15px;
+            margin-right: 15px;
             @include media-breakpoint-up(sm) {
                 margin-right: calc((100vw - map.get($container-max-widths, "sm"))*0.5); // 15px is bootstrap crap
             }
