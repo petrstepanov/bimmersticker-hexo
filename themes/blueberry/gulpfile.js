@@ -119,7 +119,7 @@ function scriptsDev() {
 
 // Beep task (with callback)
 function beepTask(cb) {
-	console.log('\x07');
+	console.log('\u0007');
 	cb();
 }
 

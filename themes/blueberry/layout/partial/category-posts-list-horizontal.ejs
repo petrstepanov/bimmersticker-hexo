@@ -1,5 +1,4 @@
-<div class="container-horizontal js--container-horizontal">
-  <div class="container-horizontal-inner">
+  <div class="container-horizontal js--container-horizontal">
     <% var sortOrder = (typeof sortBy !== 'undefined') ? sortBy : 'date'; %>
     <% // can be 'date', 'title' %>
     <% site.categories.findOne({name: categoryName}).posts.sort(sortOrder, (typeof order == 'string' && order == 'desc') ? -1 : 1).each(function(post, i){ %>
@@ -10,4 +9,3 @@
       <% } %>
     <% }) %>
   </div>
-</div>
