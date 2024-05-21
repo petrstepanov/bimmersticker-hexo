@@ -8,52 +8,68 @@ $cards-gap: 2rem;
     // Override kinetic.js settings
     outline: 0 !important;
     cursor: ew-resize !important;
-
     overflow-x: scroll;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: $cards-gap;
-    // That was for when there was an inner container
-    // width: min-content;
 
-    // This Kills Chrome kinetic scroll
+    // This Kills kinetic scroll in Chrome
     // scroll-behavior: smooth;
 
-    // Left Margin for first and right margin for last card
-    .container-horizontal-card {
-        min-width: 15rem;
+    .container-horizontal-inner {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: $cards-gap;
 
-        &:first-child{
-            margin-left: 15px;
-            @include media-breakpoint-up(sm) {
-                margin-left: calc((100vw - map.get($container-max-widths, "sm"))*0.5 + 15px); // 15px is bootstrap row margin
+        // Needed to layout the inner container
+        width: min-content;
+
+        // Left Margin for first and right margin for last card
+        .container-horizontal-card {
+            min-width: 15rem;
+
+            &:first-child{
+                margin-left: 15px;
+                @include media-breakpoint-up(sm) {
+                    margin-left: calc((100vw - map.get($container-max-widths, "sm"))*0.5 + 15px); // 15px is bootstrap row margin
+                }
+                @include media-breakpoint-up(md) {
+                    margin-left: calc((100vw - map.get($container-max-widths, "md"))*0.5 + 15px); // 15px is bootstrap row margin
+                }
+                @include media-breakpoint-up(lg) {
+                    margin-left: calc((100vw - map.get($container-max-widths, "lg"))*0.5 + 15px); // 15px is bootstrap row margin
+                }
+                @include media-breakpoint-up(xl) {
+                    margin-left: calc((100vw - map.get($container-max-widths, "xl"))*0.5 + 15px); // 15px is bootstrap row margin
+                }
             }
-            @include media-breakpoint-up(md) {
-                margin-left: calc((100vw - map.get($container-max-widths, "md"))*0.5 + 15px); // 15px is bootstrap row margin
-            }
-            @include media-breakpoint-up(lg) {
-                margin-left: calc((100vw - map.get($container-max-widths, "lg"))*0.5 + 15px); // 15px is bootstrap row margin
-            }
-            @include media-breakpoint-up(xl) {
-                margin-left: calc((100vw - map.get($container-max-widths, "xl"))*0.5 + 15px); // 15px is bootstrap row margin
+
+            &:last-child{
+                margin-right: 15px;
+                @include media-breakpoint-up(sm) {
+                    margin-right: calc((100vw - map.get($container-max-widths, "sm"))*0.5 + 15px); // 15px is bootstrap row margin
+                }
+                @include media-breakpoint-up(md) {
+                    margin-right: calc((100vw - map.get($container-max-widths, "md"))*0.5 + 15px); // 15px is bootstrap row margin
+                }
+                @include media-breakpoint-up(lg) {
+                    margin-right: calc((100vw - map.get($container-max-widths, "lg"))*0.5 + 15px); // 15px is bootstrap row margin
+                }
+                @include media-breakpoint-up(xl) {
+                    margin-right: calc((100vw - map.get($container-max-widths, "xl"))*0.5 + 15px); // 15px is bootstrap row margin
+                }
             }
         }
+    }
 
-        &:last-child{
-            margin-right: 15px;
-            @include media-breakpoint-up(sm) {
-                margin-right: calc((100vw - map.get($container-max-widths, "sm"))*0.5 + 15px); // 15px is bootstrap row margin
-            }
-            @include media-breakpoint-up(md) {
-                margin-right: calc((100vw - map.get($container-max-widths, "md"))*0.5 + 15px); // 15px is bootstrap row margin
-            }
-            @include media-breakpoint-up(lg) {
-                margin-right: calc((100vw - map.get($container-max-widths, "lg"))*0.5 + 15px); // 15px is bootstrap row margin
-            }
-            @include media-breakpoint-up(xl) {
-                margin-right: calc((100vw - map.get($container-max-widths, "xl"))*0.5 + 15px); // 15px is bootstrap row margin
-            }
+    .swipe-hint {
+        position: sticky;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        height: 4rem;
+        text-align: center;
+
+        svg {
+            fill: grey !important;
         }
     }
 }
