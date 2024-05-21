@@ -8374,22 +8374,6 @@ h6 {
   letter-spacing: 0.05rem;
 }
 
-a {
-  transition: color 0.15s ease-in-out;
-}
-a svg {
-  transition: all 0.15s ease-in-out;
-  fill: #007CC2;
-  color: #007CC2;
-}
-a:hover {
-  text-decoration: none;
-}
-a:hover svg {
-  fill: #004b76;
-  color: #004b76;
-}
-
 .btn-link:hover, .btn-link:focus, .btn-link.focus {
   text-decoration: none;
 }
@@ -8562,12 +8546,10 @@ body {
 }
 .navbar-blueberry .navbar-toggler svg {
   fill: #212B36;
-  color: #212B36;
   transition: 250ms fill ease-out;
 }
 .navbar-blueberry .navbar-toggler:hover svg {
   fill: #007CC2;
-  color: #007CC2;
 }
 .navbar-blueberry .navbar-nav {
   padding-top: 1.2rem;
@@ -8602,13 +8584,13 @@ body {
   color: #212B36;
   text-decoration: underline;
 }
-.navbar-blueberry .navbar-nav .nav-link svg path {
+.navbar-blueberry .navbar-nav .nav-link svg {
   fill: #212B36;
 }
 .navbar-blueberry .navbar-nav .nav-link:hover {
   color: #007CC2;
 }
-.navbar-blueberry .navbar-nav .nav-link:hover svg path {
+.navbar-blueberry .navbar-nav .nav-link:hover svg {
   fill: #007CC2;
 }
 .navbar-blueberry .navbar-nav .nav-link:last-child .nav-link {
@@ -8791,10 +8773,29 @@ button:focus {
   outline: none;
 }
 
-.btn-link svg path {
+.btn-link {
+  transition: color 150ms;
+}
+.btn-link svg {
+  transition: fill 150ms;
   fill: #007CC2;
 }
-.btn-link:hover svg path {
+.btn-link:hover svg {
+  fill: #004b76;
+}
+
+a {
+  transition: color 150ms;
+}
+a:hover {
+  text-decoration: none;
+}
+
+a.link-blueberry svg svg {
+  transition: fill 150ms;
+  fill: #007CC2;
+}
+a.link-blueberry svg:hover svg {
   fill: #004b76;
 }
 
@@ -8803,13 +8804,10 @@ button:focus {
   border-radius: 50rem;
   box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
 }
-.btn-blueberry.btn-link {
-  box-shadow: none;
-}
-.btn-blueberry svg path {
+.btn-blueberry svg {
   fill: white;
 }
-.btn-blueberry:hover svg path {
+.btn-blueberry:hover svg {
   fill: white;
 }
 .btn-blueberry.btn-primary {
@@ -8845,10 +8843,10 @@ button:focus {
 .btn-outline-primary.btn-blueberry {
   background-color: white;
 }
-.btn-outline-primary.btn-blueberry svg path {
+.btn-outline-primary.btn-blueberry svg {
   fill: #007CC2;
 }
-.btn-outline-primary.btn-blueberry:hover svg path {
+.btn-outline-primary.btn-blueberry:hover svg {
   fill: white;
 }
 .btn-outline-primary.btn-blueberry:hover {
@@ -11282,11 +11280,11 @@ svg {
   height: auto;
 }
 
-.nav-link svg path {
+.nav-link svg {
   fill: #007CC2;
 }
 
-.nav-link.active svg path {
+.nav-link.active svg {
   fill: white;
 }
 
