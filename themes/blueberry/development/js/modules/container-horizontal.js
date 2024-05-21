@@ -10,17 +10,17 @@ var ContainerHorizontal = function(){
     DOM.$el = $(element);
   }
 
-  function _isTouchScreen(){
+  // function _isTouchScreen(){
     // https://stackoverflow.com/questions/4817029/whats-the-best-way-to-detect-a-touch-screen-device-using-javascript
-    return window.matchMedia("(pointer: coarse)").matches;
-  }
+    // return window.matchMedia("(pointer: coarse)").matches;
+  // }
 
   function _bindEvents(){
     // If not touchscreen device - fallback to kinetic scroll plugin
-    if (!_isTouchScreen()){
+    // if (!_isTouchScreen()){
       DOM.$el.css('overflow-x', 'hidden');
       DOM.$el.kinetic();
-    }
+    // }
   }
 
   function init(element){
