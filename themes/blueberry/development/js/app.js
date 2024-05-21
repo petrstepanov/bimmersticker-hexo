@@ -49,8 +49,6 @@ window['gcr'] = gcr;
 $(function() {
   // Handler for .ready() called.
 
-  // TouchEmulator();
-
   // Interactive Back Button
   // InteractiveBackButton.init(document.querySelector('.js--init-back-button'));
   InteractiveBackButton.init();

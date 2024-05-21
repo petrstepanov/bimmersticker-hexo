@@ -32,16 +32,21 @@ var paths = {
 		src: [''],
 		dest: './fonts'
 	},
-	icons: {
-		src: ['./node_modules/ionicons/dist/ionicons/svg/*.svg'],
+	ionicons: {
+		src: ['./node_modules/ionicons/dist/svg/*.svg'],
 		dest: './layout/ionicons'
+	},
+	svg: {
+		source: './development/svg/*.svg',
+		dest: './layout/svg'
 	}
+
 };
 
 // Clean Task
 
 function clean() {
-	return del([paths.styles.dest, paths.scripts.dest, paths.fonts.dest, paths.icons.dest]);
+	return del([paths.styles.dest, paths.scripts.dest, paths.fonts.dest, paths.ionicons.dest, paths.svg.dest]);
 }
 
 // Copy resources
@@ -51,13 +56,20 @@ function clean() {
 // 		.pipe(gulp.dest(paths.fonts.dest));
 // }
 
-function copyIcons() {
-	return gulp.src(paths.icons.src)
+function copyIonicons() {
+	return gulp.src(paths.ionicons.src)
 		.pipe(replace('<svg', '<svg width="512" height="512"'))
-		.pipe(gulp.dest(paths.icons.dest));
+		.pipe(gulp.dest(paths.ionicons.dest));
 }
 
-// var copy = gulp.series(copyFonts, copyIcons);
+function cleanupSVG() {
+	return gulp.src(paths.svg.source)
+		.pipe(replace(/fill=\"\S+\"/g, ''))
+		.pipe(replace(/stroke=\"\S+\"/, ''))
+		.pipe(gulp.dest(paths.svg.dest));
+}
+
+// var copy = gulp.series(copyFonts, copyIonicons);
 
 // Styles Task
 
@@ -156,24 +168,41 @@ function browsersyncReload(cb){
 // now does both - production and development! slower but never forget prod before pushing
 // website pulls right scripts and styles from the environment vars
 
-// var development = gulp.series(clean, copyIcons, stylesDev, scriptsDev, beepTask, browsersyncServe, watch);
-// var production =  gulp.series(clean, copyIcons, styles,    scripts,    beepTask);
+// var development = gulp.series(clean, copyIonicons, stylesDev, scriptsDev, beepTask, browsersyncServe, watch);
+// var production =  gulp.series(clean, copyIonicons, styles,    scripts,    beepTask);
 
 // https://www.npmjs.com/package/gulp
 
-var build = gulp.series(clean, copyIcons, styles, stylesDev, scripts, scriptsDev);
+// https://gulpjs.com/docs/en/getting-started/creating-tasks
+// Every task should be a function with callback
 
-function watch(){
-	gulp.series(clean, copyIcons, styles, stylesDev, scripts, scriptsDev, beepTask, browsersyncServe);
-	browsersyncServe();
+// BUILD
 
-	gulp.watch(paths.htmls.srcWatch, gulp.series(beepTask, browsersyncReload));
-	gulp.watch(paths.scripts.srcWatch, gulp.series(beepTask, scripts, scriptsDev, beepTask, browsersyncReload));
-	gulp.watch(paths.styles.srcWatch, gulp.series(beepTask, styles, stylesDev, beepTask, browsersyncReload));
+const build = gulp.series(clean, copyIonicons, cleanupSVG, styles, stylesDev, scripts, scriptsDev, beepTask);
+
+// WATCH
+
+const initWatch = function(cb){
+	gulp.watch(paths.scripts.srcWatch, { ignoreInitial: false }, gulp.series(beepTask, scripts, scriptsDev, beepTask));
+	gulp.watch(paths.styles.srcWatch,  { ignoreInitial: false }, gulp.series(beepTask, styles, stylesDev, beepTask));
+	cb();
 }
+
+const watch = gulp.series(clean, copyIonicons, cleanupSVG, initWatch);
+
+// SYNC
+
+// const sync =
+// 	browsersyncServe();
+// 	gulp.watch(paths.htmls.srcWatch, gulp.series(beepTask, browsersyncReload));
+// 	gulp.watch(paths.scripts.srcWatch, gulp.series(beepTask, scripts, scriptsDev, beepTask, browsersyncReload));
+// 	gulp.watch(paths.styles.srcWatch, gulp.series(beepTask, styles, stylesDev, beepTask, browsersyncReload));
+// }
 
 exports.default = build;
 exports.build = build;
+// exports.sync = sync;
 exports.watch = watch;
+exports.clean = clean;
 
 // exports.default = process.env.BUILD_TYPE=='production' ? production : development;

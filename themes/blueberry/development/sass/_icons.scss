@@ -61,10 +61,10 @@ svg {
   }
 }
 
-.nav-link svg path {
-  fill: $primary;
+.nav-link svg {
+  fill: $link-color;
 }
 
-.nav-link.active svg path {
+.nav-link.active svg {
   fill: white;
 }

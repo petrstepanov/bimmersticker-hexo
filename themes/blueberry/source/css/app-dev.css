@@ -8374,20 +8374,6 @@ h6 {
   letter-spacing: 0.05rem;
 }
 
-a {
-  transition: color 0.15s ease-in-out;
-}
-a svg path {
-  transition: fill 0.15s ease-in-out;
-  fill: #007CC2;
-}
-a:hover {
-  text-decoration: none;
-}
-a:hover svg path {
-  fill: #004b76;
-}
-
 .btn-link:hover, .btn-link:focus, .btn-link.focus {
   text-decoration: none;
 }
@@ -8598,13 +8584,13 @@ body {
   color: #212B36;
   text-decoration: underline;
 }
-.navbar-blueberry .navbar-nav .nav-link svg path {
+.navbar-blueberry .navbar-nav .nav-link svg {
   fill: #212B36;
 }
 .navbar-blueberry .navbar-nav .nav-link:hover {
   color: #007CC2;
 }
-.navbar-blueberry .navbar-nav .nav-link:hover svg path {
+.navbar-blueberry .navbar-nav .nav-link:hover svg {
   fill: #007CC2;
 }
 .navbar-blueberry .navbar-nav .nav-link:last-child .nav-link {
@@ -8787,10 +8773,29 @@ button:focus {
   outline: none;
 }
 
-.btn-link svg path {
+.btn-link {
+  transition: color 150ms;
+}
+.btn-link svg {
+  transition: fill 150ms;
   fill: #007CC2;
 }
-.btn-link:hover svg path {
+.btn-link:hover svg {
+  fill: #004b76;
+}
+
+a {
+  transition: color 150ms;
+}
+a:hover {
+  text-decoration: none;
+}
+
+a.link-blueberry svg svg {
+  transition: fill 150ms;
+  fill: #007CC2;
+}
+a.link-blueberry svg:hover svg {
   fill: #004b76;
 }
 
@@ -8799,13 +8804,10 @@ button:focus {
   border-radius: 50rem;
   box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
 }
-.btn-blueberry.btn-link {
-  box-shadow: none;
-}
-.btn-blueberry svg path {
+.btn-blueberry svg {
   fill: white;
 }
-.btn-blueberry:hover svg path {
+.btn-blueberry:hover svg {
   fill: white;
 }
 .btn-blueberry.btn-primary {
@@ -8841,10 +8843,10 @@ button:focus {
 .btn-outline-primary.btn-blueberry {
   background-color: white;
 }
-.btn-outline-primary.btn-blueberry svg path {
+.btn-outline-primary.btn-blueberry svg {
   fill: #007CC2;
 }
-.btn-outline-primary.btn-blueberry:hover svg path {
+.btn-outline-primary.btn-blueberry:hover svg {
   fill: white;
 }
 .btn-outline-primary.btn-blueberry:hover {
@@ -11278,11 +11280,11 @@ svg {
   height: auto;
 }
 
-.nav-link svg path {
+.nav-link svg {
   fill: #007CC2;
 }
 
-.nav-link.active svg path {
+.nav-link.active svg {
   fill: white;
 }
 
@@ -11406,59 +11408,74 @@ body {
   outline: 0 !important;
   cursor: ew-resize !important;
   overflow-x: scroll;
+}
+.container-horizontal .container-horizontal-inner {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   gap: 2rem;
+  width: -moz-min-content;
+  width: min-content;
 }
-.container-horizontal .container-horizontal-card {
+.container-horizontal .container-horizontal-inner .container-horizontal-card {
   min-width: 15rem;
 }
-.container-horizontal .container-horizontal-card:first-child {
+.container-horizontal .container-horizontal-inner .container-horizontal-card:first-child {
   margin-left: 15px;
 }
 @media (min-width: 576px) {
-  .container-horizontal .container-horizontal-card:first-child {
+  .container-horizontal .container-horizontal-inner .container-horizontal-card:first-child {
     margin-left: calc((100vw - 540px) * 0.5 + 15px);
   }
 }
 @media (min-width: 768px) {
-  .container-horizontal .container-horizontal-card:first-child {
+  .container-horizontal .container-horizontal-inner .container-horizontal-card:first-child {
     margin-left: calc((100vw - 720px) * 0.5 + 15px);
   }
 }
 @media (min-width: 992px) {
-  .container-horizontal .container-horizontal-card:first-child {
+  .container-horizontal .container-horizontal-inner .container-horizontal-card:first-child {
     margin-left: calc((100vw - 960px) * 0.5 + 15px);
   }
 }
 @media (min-width: 1350px) {
-  .container-horizontal .container-horizontal-card:first-child {
+  .container-horizontal .container-horizontal-inner .container-horizontal-card:first-child {
     margin-left: calc((100vw - 1140px) * 0.5 + 15px);
   }
 }
-.container-horizontal .container-horizontal-card:last-child {
+.container-horizontal .container-horizontal-inner .container-horizontal-card:last-child {
   margin-right: 15px;
 }
 @media (min-width: 576px) {
-  .container-horizontal .container-horizontal-card:last-child {
+  .container-horizontal .container-horizontal-inner .container-horizontal-card:last-child {
     margin-right: calc((100vw - 540px) * 0.5 + 15px);
   }
 }
 @media (min-width: 768px) {
-  .container-horizontal .container-horizontal-card:last-child {
+  .container-horizontal .container-horizontal-inner .container-horizontal-card:last-child {
     margin-right: calc((100vw - 720px) * 0.5 + 15px);
   }
 }
 @media (min-width: 992px) {
-  .container-horizontal .container-horizontal-card:last-child {
+  .container-horizontal .container-horizontal-inner .container-horizontal-card:last-child {
     margin-right: calc((100vw - 960px) * 0.5 + 15px);
   }
 }
 @media (min-width: 1350px) {
-  .container-horizontal .container-horizontal-card:last-child {
+  .container-horizontal .container-horizontal-inner .container-horizontal-card:last-child {
     margin-right: calc((100vw - 1140px) * 0.5 + 15px);
   }
+}
+.container-horizontal .swipe-hint {
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 4rem;
+  text-align: center;
+}
+.container-horizontal .swipe-hint svg {
+  fill: grey !important;
 }
 
 .widget-contact-form {

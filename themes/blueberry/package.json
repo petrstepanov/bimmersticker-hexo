@@ -34,7 +34,7 @@
     "gulp-uglify": "^3.0.2",
     "gulp-version-number": "^0.2.4",
     "gulplog": "^1.0.0",
-    "ionicons": "4.6",
+    "ionicons": "^7.4.0",
     "jquery": "^3.7.0",
     "jquery.kinetic": "^2.2.4",
     "js-cookie": "^3.0.5",

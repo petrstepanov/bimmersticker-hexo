@@ -89,7 +89,6 @@ body {
     padding-left: 0;
     padding-right: 0;
 
-
     [class^="icon-"] {
       --animate-duration: 350ms;
     }
@@ -143,14 +142,14 @@ body {
     color: $body-color;
     text-decoration: underline;
 
-    svg path {
+    svg {
       fill: $body-color;
     }
 
     &:hover {
       color: $link-color;
 
-      svg path {
+      svg {
         fill: $link-color;
       }
     }

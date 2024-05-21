@@ -86,23 +86,6 @@ h6 {
 //   font-weight: normal;
 // }
 
-a {
-  transition: color .15s ease-in-out;
-
-  svg path {
-    transition: fill .15s ease-in-out;
-    fill: $link-color;
-  }
-
-  &:hover {
-    text-decoration: none;
-
-    svg path {
-      fill: $link-hover-color;
-    }
-  }
-}
-
 .btn-link:hover, .btn-link:focus, .btn-link.focus {
   text-decoration: none;
 }

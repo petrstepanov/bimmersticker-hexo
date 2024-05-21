@@ -12,6 +12,9 @@ function convertToAvifPromise(hexo, originalImageRoute) {
     // Ensure to process route for original image (otherwise no file exist)
     var stream = hexo.route.get(originalImageRoute);
 
+    console.log("Processing AVIF for:");
+    console.log(originalImageRoute);
+
     // Not sure why we use this?
     streamToArray(stream).then(function (arr) {
       if (typeof arr[0] === 'string') {
@@ -20,12 +23,9 @@ function convertToAvifPromise(hexo, originalImageRoute) {
         return Buffer.concat(arr);
       }
     }).then(function (buffer) {
-      console.log("Processing AVIF for:");
-      console.log(originalImageRoute);
       var img = sharp(buffer).rotate();
       var avifImageBuffer = img.toFormat('avif', { quality: 50 }).toBuffer();
       console.log("Done.");
-
       resolve(avifImageBuffer);
     });
   });
@@ -45,7 +45,7 @@ function myAvif() {
   for (const route of routes) {
     // Array of regexps for images to be processed as avifs. Add entries manually as needed. If need xs_ sm_ prefixes put .* before filename
     var pathRegex = ['img\/banner-previews',
-                  // these are too much for AVIF because they are super responsive and it takes crazy ti,e to generate AVIFs for all the sizes...
+                  // these are too much for AVIF because they are super responsive and it takes crazy time to generate AVIFs for all the sizes...
                   // 'custom-windshield-banner-sun-strip\/.*any-wording-on-your-car-truck-windshield',
                   // 'custom-windshield-banner-sun-strip\/.*custom-text-windshield-banners-order-online',
                      'custom-windshield-banner-sun-strip\/index\/product-type'];
@@ -66,6 +66,7 @@ function myAvif() {
       hexo.route.set(avifRoute, function () { return convertToAvifPromise(hexo, route); });
     }
   });
+  this.log.info('Finish creating AVIF routes');
 }
 
 // Petr Stepanov: ended up adding avif conversion locally as npm task: npm run avif
