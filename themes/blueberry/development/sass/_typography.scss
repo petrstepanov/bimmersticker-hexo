@@ -89,16 +89,18 @@ h6 {
 a {
   transition: color .15s ease-in-out;
 
-  svg path {
-    transition: fill .15s ease-in-out;
+  svg {
+    transition: all .15s ease-in-out;
     fill: $link-color;
+    color: $link-color;
   }
 
   &:hover {
     text-decoration: none;
 
-    svg path {
+    svg {
       fill: $link-hover-color;
+      color: $link-hover-color;
     }
   }
 }

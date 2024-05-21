@@ -8377,15 +8377,17 @@ h6 {
 a {
   transition: color 0.15s ease-in-out;
 }
-a svg path {
-  transition: fill 0.15s ease-in-out;
+a svg {
+  transition: all 0.15s ease-in-out;
   fill: #007CC2;
+  color: #007CC2;
 }
 a:hover {
   text-decoration: none;
 }
-a:hover svg path {
+a:hover svg {
   fill: #004b76;
+  color: #004b76;
 }
 
 .btn-link:hover, .btn-link:focus, .btn-link.focus {
@@ -8560,10 +8562,12 @@ body {
 }
 .navbar-blueberry .navbar-toggler svg {
   fill: #212B36;
+  color: #212B36;
   transition: 250ms fill ease-out;
 }
 .navbar-blueberry .navbar-toggler:hover svg {
   fill: #007CC2;
+  color: #007CC2;
 }
 .navbar-blueberry .navbar-nav {
   padding-top: 1.2rem;

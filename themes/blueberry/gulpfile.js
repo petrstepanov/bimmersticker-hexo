@@ -33,7 +33,7 @@ var paths = {
 		dest: './fonts'
 	},
 	icons: {
-		src: ['./node_modules/ionicons/dist/ionicons/svg/*.svg'],
+		src: ['./node_modules/ionicons/dist/svg/*.svg'],
 		dest: './layout/ionicons'
 	}
 };
@@ -161,12 +161,15 @@ function browsersyncReload(cb){
 
 // https://www.npmjs.com/package/gulp
 
-var build = gulp.series(clean, copyIcons, styles, stylesDev, scripts, scriptsDev);
+var build = gulp.series(clean, copyIcons, styles, stylesDev, scripts, scriptsDev, beepTask);
 
 function watch(){
-	gulp.series(clean, copyIcons, styles, stylesDev, scripts, scriptsDev, beepTask, browsersyncServe);
-	browsersyncServe();
+	gulp.watch(paths.scripts.srcWatch, gulp.series(beepTask, scripts, scriptsDev, beepTask));
+	gulp.watch(paths.styles.srcWatch, gulp.series(beepTask, styles, stylesDev, beepTask));
+}
 
+function sync(){
+	browsersyncServe();
 	gulp.watch(paths.htmls.srcWatch, gulp.series(beepTask, browsersyncReload));
 	gulp.watch(paths.scripts.srcWatch, gulp.series(beepTask, scripts, scriptsDev, beepTask, browsersyncReload));
 	gulp.watch(paths.styles.srcWatch, gulp.series(beepTask, styles, stylesDev, beepTask, browsersyncReload));
@@ -174,6 +177,8 @@ function watch(){
 
 exports.default = build;
 exports.build = build;
+exports.sync = sync;
 exports.watch = watch;
+exports.clean = clean;
 
 // exports.default = process.env.BUILD_TYPE=='production' ? production : development;

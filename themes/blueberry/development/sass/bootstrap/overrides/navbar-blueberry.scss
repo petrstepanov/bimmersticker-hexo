@@ -96,11 +96,13 @@ body {
 
     svg {
       fill: $body-color;
+      color: $body-color;
       transition: 250ms fill ease-out;
     }
 
     &:hover svg {
       fill: $blue;
+      color: $blue;
     }
   }
 

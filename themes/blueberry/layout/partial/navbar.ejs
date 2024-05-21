@@ -3,7 +3,7 @@
     <% if (is_post()){ %>
       <!-- Back button -->
       <a id="ejs-back-link" class="back-link icon-sm no-wrap" onclick="window.history.back();" href="#">
-        <%- partial('ionicons/md-arrow-back.svg') %> <span class="ml-1">Go back</span>
+        <%- partial('ionicons/arrow-back.svg') %> <span class="ml-1">Go back</span>
       </a>
     <% } else { %>
       <a class="navbar-brand" href="/">
@@ -30,16 +30,16 @@
       <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <!-- <span class="navbar-toggler-icon"></span> -->
         <span class="icon-md js--icon-open faster">
-          <%- partial('ionicons/ios-menu.svg') %>
+          <%- partial('ionicons/menu.svg') %>
         </span>
         <span class="icon-md js--icon-close faster" style="display: none">
-          <%- partial('ionicons/ios-close.svg') %>
+          <%- partial('ionicons/close.svg') %>
         </span>
       </button>
     </div>
     <!-- Cart button -->
     <button class="btn ml-2 px-0 py-0 snipcart-checkout icon-md d-lg-none" aria-label="View Cart">
-      <%- partial('ionicons/ios-cart.svg') %>
+      <%- partial('ionicons/cart.svg') %>
       <span class="snipcart-items-count"></span>
     </button>
     <!-- Collapse navbar -->
@@ -47,7 +47,7 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item d-lg-none">
           <a class="nav-link" href="/">
-            <span class="icon-xs mr-2 icon-for-nav d-lg-none"><%- partial('ionicons/md-home.svg') %></span>All Stickers
+            <span class="icon-xs mr-2 icon-for-nav d-lg-none"><%- partial('ionicons/home.svg') %></span>All Stickers
           </a>
         </li>
         <li class="nav-item">
@@ -57,7 +57,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/custom-windshield-banner-sun-strip/">
-            <span class="icon-xs mr-2 icon-for-nav d-lg-none"><%- partial('ionicons/md-car.svg') %></span><span class="d-lg-none d-xl-inline">Custom </span>Windshield Banners
+            <span class="icon-xs mr-2 icon-for-nav d-lg-none"><%- partial('ionicons/car.svg') %></span><span class="d-lg-none d-xl-inline">Custom </span>Windshield Banners
           </a>
         </li>
         <li class="nav-item nav-separator d-lg-none">
@@ -70,21 +70,28 @@
         </li>
         <li class="nav-item nav-separator d-lg-none">
           <a class="nav-link" href="/buy-keyring-keychain-with-your-car-vin-number/">
-            <span class="icon-xs mr-2 icon-for-nav d-lg-none"><%- partial('ionicons/ios-key.svg') %></span><span class="d-lg-none">Custom Car</span> Key Chains
+            <span class="icon-xs mr-2 icon-for-nav d-lg-none"><%- partial('ionicons/key.svg') %></span><span class="d-lg-none">Custom Car</span> Key Chains
           </a>
         </li>
         <li class="nav-item d-lg-none">
           <a class="nav-link" href="/#contact">
-            <!--<span class="icon-xs mr-1"><%- partial('ionicons/md-megaphone.svg') %></span>-->Contact us
+            Contact us
           </a>
         </li>
 <!--
         <li class="nav-item d-lg-none">
           <a class="nav-link" href="<%- theme.googlereview_url %>">
-            <span class="icon-xs mr-1"><%- partial('ionicons/ios-star.svg') %></span>Review us on Google
+            <span class="icon-xs mr-1"><%- partial('ionicons/star.svg') %></span>Review us on Google
           </a>
         </li>
 -->
+        <% if (theme.etsy_url){ %>
+          <li class="nav-item d-lg-none">
+            <a class="nav-link" href="<%- theme.etsy_url %>" rel="me">
+              <span class="icon-xs mr-2 icon-for-nav d-lg-none"><%- partial('ionicons/storefront.svg') %></span>Visit our Etsy Store
+            </a>
+          </li>
+        <% } %>
         <% if (theme.instagram_url){ %>
           <li class="nav-item d-lg-none">
             <a class="nav-link" href="<%- theme.instagram_url %>" rel="me">

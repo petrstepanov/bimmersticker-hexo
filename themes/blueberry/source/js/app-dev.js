@@ -284,7 +284,9 @@ var ContainerHorizontal = function(){
   }
 
   function _bindEvents(){
+    // If not touchscreen device - fallback to kinetic scroll plugin
     if (!_isTouchScreen()){
+      DOM.$el.css('overflow-x', 'hidden');
       DOM.$el.kinetic();
     }
   }
