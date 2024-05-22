@@ -1,62 +1,31 @@
-// Stealed from: https://stackoverflow.com/questions/10744645/detect-touchpad-vs-mouse-in-javascript/31191250#31191250
-
 var events = require('./events');
 
-var DetectTrackpadMouse = function(){
+var DetectTrackpadMouse = function () {
 
-    let oldTime = 0;
-    let newTime = 0;
-    let isTrackPad;
-    let eventCount = 0;
-    let eventCountStart;
-
-    // const updateText = message => (text.textContent = message);
-
-    const resetDetection = () => {
-        oldTime = 0;
-        newTime = 0;
-        isTrackPad = undefined;
-        eventCount = 0;
-        eventCountStart = undefined;
-        // updateText("Scroll here");
-    };
-
-    const detectTrackpad = evt => {
-        const isTrackPadDefined = isTrackPad || typeof isTrackPad !== "undefined";
-
-        if (isTrackPadDefined) return;
-
-        if (eventCount === 0) {
-            eventCountStart = performance.now();
+    function _wheelListener(event){
+        var delta = Math.abs(event.deltaY);
+        if (delta % 1 > 0){
+            console.log("Trackpad detected");
+            events.emit('usingTrackpadOrMouseEvent', 'trackpad');
         }
-
-        eventCount++;
-
-        if (performance.now() - eventCountStart > 66) {
-            if (eventCount > 5) {
-                isTrackPad = true;
-                // updateText("Using trackpad");
-            } else {
-                isTrackPad = false;
-                events.emit('usingMouseEvent');
-                // updateText("Using mouse");
-            }
-            isTrackPadDefined = true;
-            setTimeout(resetDetection, 2000);
+        else {
+            console.log("Mouse detected");
+            events.emit('usingTrackpadOrMouseEvent', 'mouse');
         }
-    };
-
-    function _bindEvents(){
-        document.addEventListener("wheel", detectTrackpad);
+        document.removeEventListener("wheel", _wheelListener);
     }
 
-    function init(){
+    function _bindEvents() {
+        document.addEventListener("wheel", _wheelListener);
+    }
+
+    function init() {
         _bindEvents();
     }
 
     return {
         init: init
-      };
+    };
 };
 
 module.exports = DetectTrackpadMouse;

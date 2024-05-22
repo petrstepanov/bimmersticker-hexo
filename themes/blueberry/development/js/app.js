@@ -31,6 +31,7 @@ var VideoFullWidth = require('./modules/video');
 var InteractiveBackButton = require('./modules/interactive-back-button');
 var autovalid = require('./modules/autovalid');
 var ContainerHorizontal = require('./modules/container-horizontal');
+var DetectTrackpadMouse = require('./modules/detect-trackpad-mouse');
 
 // var TouchEmulator = require('hammer-touchemulator');
 
@@ -123,7 +124,6 @@ $(function() {
 
   snipcartForm.init(document.querySelector('.js--init-snipcart-form'));
 
-
   // Viewport animations
   AOS.init({
     useClassNames: true,
@@ -151,6 +151,10 @@ $(function() {
     var cH = new ContainerHorizontal();
     cH.init(this);
   });
+  var dTM = new DetectTrackpadMouse()
+  dTM.init();
+
+
 
   $(document).on('click', function(){
     events.emit('documentClick');

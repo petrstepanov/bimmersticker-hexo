@@ -11471,11 +11471,11 @@ body {
   width: 100%;
   bottom: 0;
   left: 0;
-  height: 4rem;
   text-align: center;
 }
 .container-horizontal .swipe-hint svg {
-  fill: grey !important;
+  stroke: gray;
+  fill: whitesmoke;
 }
 
 .widget-contact-form {
