@@ -1,29 +1,35 @@
 // Ajax form submission logic
-
 var $ = window.$ = window.jQuery = require('jquery');
 var kinetic = require('jquery.kinetic');
+var events = require('./events');
 
 var ContainerHorizontal = function(){
   var DOM = {};
 
   function _cacheDom(element) {
     DOM.$el = $(element);
+    DOM.$iconTrackpad = DOM.$el.find('.js--trackpad');
+    DOM.$iconMouse = DOM.$el.find('.js--mouse');
+    DOM.$icons = DOM.$el.find('span');
   }
 
-  function _isTouchScreen(){
-    // https://stackoverflow.com/questions/4817029/whats-the-best-way-to-detect-a-touch-screen-device-using-javascript
-    return window.matchMedia("(pointer: coarse)").matches;
+  function _bindEvents(state) {
+    events.on('usingTrackpadOrMouseEvent', function(device){
+      if (device === 'trackpad'){
+        DOM.$icons.hide();
+        DOM.$iconTrackpad.show();
+      }
+      else if (device === 'mouse'){
+        DOM.$icons.hide();
+        DOM.$iconMouse.show();
+
+        DOM.$el.css('overflow-x', 'hidden');
+        DOM.$el.kinetic();
+      }
+    });
   }
 
-  function _bindEvents(){
-    // If not touchscreen device - fallback to kinetic scroll plugin
-    if (!_isTouchScreen()){
-      DOM.$el.css('overflow-x', 'hidden');
-      DOM.$el.kinetic();
-    }
-  }
-
-  function init(element){
+  function init(element, state){
     if (element){
       // options = $.extend(options, element.dataset);
       _cacheDom(element);

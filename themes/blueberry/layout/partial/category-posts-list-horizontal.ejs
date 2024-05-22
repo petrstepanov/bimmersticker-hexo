@@ -10,5 +10,9 @@
         <% } %>
       <% }); %>
     </div>
-    <div class="swipe-hint"><span class="icon-lg"><%- partial('svg/icon-swipe') %></span></div>
+    <div class="swipe-hint">
+      <span class="icon-xxl"><%- partial('svg/icon-swipe') %></span>
+      <span class="icon-xxl js--trackpad" style="display: none"><%- partial('svg/icon-swipe-touchpad') %></span>
+      <span class="icon-xxl js--mouse" style="display: none"><%- partial('svg/icon-swipe-mouse') %></span>
+    </div>
   </div>

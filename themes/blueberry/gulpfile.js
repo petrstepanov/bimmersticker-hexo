@@ -20,12 +20,12 @@ var paths = {
 	},
 	styles: {
 		src: ['./development/sass/app.scss'],
-		srcWatch: './development/**/*.scss',
+		srcWatch: './development/sass/**/*.scss',
 		dest: './source/css'
 	},
 	scripts: {
 		src: ['./development/js/app.js'],  // Only entry point for browserify
-		srcWatch: './development/**/*.js',
+		srcWatch: './development/js/**/*.js',
 		dest: './source/js'
 	},
 	fonts: {
@@ -37,10 +37,10 @@ var paths = {
 		dest: './layout/ionicons'
 	},
 	svg: {
-		source: './development/svg/*.svg',
+		src: './development/svg/*.svg',
+		srcWatch: './development/svg/**/*.svg',
 		dest: './layout/svg'
 	}
-
 };
 
 // Clean Task
@@ -63,7 +63,7 @@ function copyIonicons() {
 }
 
 function cleanupSVG() {
-	return gulp.src(paths.svg.source)
+	return gulp.src(paths.svg.src)
 		.pipe(replace(/fill=\"\S+\"/g, ''))
 		.pipe(replace(/stroke=\"\S+\"/, ''))
 		.pipe(gulp.dest(paths.svg.dest));
@@ -178,31 +178,32 @@ function browsersyncReload(cb){
 
 // BUILD
 
-const build = gulp.series(clean, copyIonicons, cleanupSVG, styles, stylesDev, scripts, scriptsDev, beepTask);
+const build = gulp.series(clean, copyIonicons, cleanupSVG, styles, stylesDev, scripts, scriptsDev);
 
 // WATCH
 
 const initWatch = function(cb){
-	gulp.watch(paths.scripts.srcWatch, { ignoreInitial: false }, gulp.series(beepTask, scripts, scriptsDev, beepTask));
-	gulp.watch(paths.styles.srcWatch,  { ignoreInitial: false }, gulp.series(beepTask, styles, stylesDev, beepTask));
+	gulp.watch(paths.scripts.srcWatch, gulp.series(scripts, scriptsDev, beepTask));
+	gulp.watch(paths.styles.srcWatch,  gulp.series(styles, stylesDev, beepTask));
+	gulp.watch(paths.svg.srcWatch, gulp.series(cleanupSVG, beepTask));
 	cb();
 }
 
-const watch = gulp.series(clean, copyIonicons, cleanupSVG, initWatch);
+const watch = gulp.series(build, initWatch);
 
 // SYNC
 
-// const sync =
-// 	browsersyncServe();
-// 	gulp.watch(paths.htmls.srcWatch, gulp.series(beepTask, browsersyncReload));
-// 	gulp.watch(paths.scripts.srcWatch, gulp.series(beepTask, scripts, scriptsDev, beepTask, browsersyncReload));
-// 	gulp.watch(paths.styles.srcWatch, gulp.series(beepTask, styles, stylesDev, beepTask, browsersyncReload));
-// }
+const sync = function(){
+	browsersyncServe();
+	gulp.watch(paths.htmls.srcWatch, gulp.series(beepTask, browsersyncReload));
+	gulp.watch(paths.scripts.srcWatch, gulp.series(beepTask, scripts, scriptsDev, beepTask, browsersyncReload));
+	gulp.watch(paths.styles.srcWatch, gulp.series(beepTask, styles, stylesDev, beepTask, browsersyncReload));
+}
 
-exports.default = build;
-exports.build = build;
-// exports.sync = sync;
-exports.watch = watch;
+exports.default = gulp.series(build, beepTask);
+exports.build = gulp.series(build, beepTask);
+exports.sync = sync;
+exports.watch = gulp.series(watch, beepTask);
 exports.clean = clean;
 
 // exports.default = process.env.BUILD_TYPE=='production' ? production : development;
