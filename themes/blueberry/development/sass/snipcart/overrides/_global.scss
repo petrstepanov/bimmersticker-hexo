@@ -93,7 +93,7 @@
 }
 
 .snipcart__font--subtitle {
-    font-family: $font-display;
+    @include font-display;
     font-size: $font-size-21;
 }
 
@@ -112,7 +112,7 @@
     .snipcart-base-button__icon .snipcart__icon {
         width: 1.75rem;
         height: 1.75rem;
-    } 
+    }
 }
 
 // Apply mixin
@@ -291,7 +291,7 @@
     .snipcart-form__label:not(.snipcart-form__label--checkbox):not(.snipcart-form-radio__label) {
         @extend .my-label;
         margin-top: 0.75rem;
-        
+
         text-overflow: ellipsis;
         overflow: hidden;
         display: block;

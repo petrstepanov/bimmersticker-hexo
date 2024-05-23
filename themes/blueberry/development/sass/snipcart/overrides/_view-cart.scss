@@ -26,7 +26,7 @@
         margin-bottom: 0.5rem;
     }
 
-    // Remove excess padding and margin 
+    // Remove excess padding and margin
     .snipcart-item-line__container {
         padding: 0;
         margin: 0;
@@ -37,7 +37,7 @@
 
             // Set display font for the item heading
             .snipcart-item-line__title {
-                font-family: $font-display;
+                @include font-display;
                 line-height: 1.1;
                 margin: 0 1rem;
             }
@@ -47,7 +47,7 @@
                 border: 0;
             }
         }
-        
+
         // Hide item description
         .snipcart-item-line__info {
             display: none;
@@ -56,14 +56,14 @@
         // Item variations
         .snipcart-item-line__variants {
             padding-top: 0;
-        }     
+        }
     }
 }
 
 // QUANTITY FIELD AND LABEL
 .snipcart-item-quantity__quantity {
     height: auto;
-    @extend %input-field; 
+    @extend %input-field;
 }
 
 .snipcart .snipcart-item-quantity__label { // ? uff
@@ -80,7 +80,7 @@
         background-color: $gray-300;
     }
 
-    .snipcart-form { 
+    .snipcart-form {
         background-color: transparent;
         box-shadow: none;
     }
@@ -232,7 +232,7 @@
         }
 
         h1 {
-            font-family: $font-display !important;
+            @include font-display;
         }
 
         .snipcart__icon {
@@ -284,7 +284,7 @@
 
         .snipcart__box--badge {
             background: $indigo;
-            font-family: $font-display;
+            @include font-display;
             font-size: $font-size-21;
             color: $body-color;
             margin: 0 0.75rem 0 0;
@@ -325,7 +325,7 @@
     //     color: $link-color;
 
     //     &::before{
-    //         display: none;                
+    //         display: none;
     //     }
     // }
 }
@@ -408,7 +408,7 @@
     background: $blue;
 }
 
-// Fix checkbox 
+// Fix checkbox
 .snipcart-form-radio:checked+label:after {
     margin-top: -12px;
     top: 50%;
@@ -453,7 +453,7 @@
 .snipcart-payment-methods-list-item__button {
     @extend %snipcart-button;
     background-color: $blue;
-    border-color: $blue;    
+    border-color: $blue;
     height: auto;
     box-shadow: var(--shadow-default);
     justify-content: center;
@@ -463,7 +463,7 @@
 
     &:hover {
         background-color: $primary-color-hover;
-        border-color: $primary-color-hover; 
+        border-color: $primary-color-hover;
     }
 
     .snipcart-payment-methods-list-item__label, .new-label {

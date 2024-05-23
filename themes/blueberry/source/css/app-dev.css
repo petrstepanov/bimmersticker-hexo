@@ -358,7 +358,6 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.825rem;
-  font-family: "config_condensedbold", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 500;
   line-height: 1.2;
 }
@@ -8348,13 +8347,6 @@ body {
 }
 
 @font-face {
-  font-family: "config_condensedbold";
-  src: url("/fonts/configcondensed-bold-webfont.woff2") format("woff2"), url("/fonts/configcondensed-bold-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
   font-family: "letrista_script";
   src: url("/fonts/letristascript-webfont.woff2") format("woff2"), url("/fonts/letristascript-webfont.woff") format("woff");
   font-weight: normal;
@@ -8365,13 +8357,18 @@ body {
   font-family: "letrista_script", Helvetica, sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-stretch: 65% !important;
+  font-weight: 700 !important;
+}
+
 h2 {
   margin-top: 2rem;
 }
 
 h6 {
   text-transform: uppercase;
-  letter-spacing: 0.05rem;
 }
 
 .btn-link:hover, .btn-link:focus, .btn-link.focus {
@@ -11948,6 +11945,13 @@ body {
 .select-color-pill .select-color-pill-extra {
   margin-right: 1rem;
   color: #97aabf;
+}
+
+.select-color.for-picker:after {
+  display: none;
+}
+.select-color.for-picker .select-color-pill-extra {
+  text-transform: uppercase;
 }
 
 .checkbox {
@@ -17111,7 +17115,8 @@ body {
 }
 
 .snipcart__font--subtitle {
-  font-family: "config_condensedbold", Helvetica, sans-serif;
+  font-stretch: 65% !important;
+  font-weight: 700 !important;
   font-size: 1.3125em;
 }
 
@@ -17290,7 +17295,8 @@ body {
   margin-bottom: 0.5rem;
 }
 .snipcart-item-line .snipcart-item-line__container .snipcart-item-line__header .snipcart-item-line__title {
-  font-family: "config_condensedbold", Helvetica, sans-serif;
+  font-stretch: 65% !important;
+  font-weight: 700 !important;
   line-height: 1.1;
   margin: 0 1rem;
 }
@@ -17441,7 +17447,8 @@ body {
   }
 }
 .snipcart-cart-summary--edit .snipcart-cart__secondary-header h1 {
-  font-family: "config_condensedbold", Helvetica, sans-serif !important;
+  font-stretch: 65% !important;
+  font-weight: 700 !important;
 }
 .snipcart-cart-summary--edit .snipcart-cart__secondary-header .snipcart__icon {
   width: 2.5rem;
@@ -17484,7 +17491,8 @@ body {
 }
 .snipcart__box .snipcart__box--title .snipcart__box--badge {
   background: #E5F3F9;
-  font-family: "config_condensedbold", Helvetica, sans-serif;
+  font-stretch: 65% !important;
+  font-weight: 700 !important;
   font-size: 1.3125em;
   color: #212B36;
   margin: 0 0.75rem 0 0;

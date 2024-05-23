@@ -22,6 +22,7 @@ var FormAjaxSubmit = require('./modules/form-ajax-submit');
 var SelectWithImage = require('./modules/select-with-image');
 var SelectReflect = require('./modules/select-reflect');
 var SelectColor = require('./modules/select-color');
+var InputColor = require('./modules/input-color');
 var IntegerInput = require('./modules/integer-input');
 var CheckoutButtonFix = require('./modules/checkout-button-fix');
 var Carousel = require('./modules/carousel');
@@ -123,6 +124,11 @@ $(function() {
   // facebookLoadOnScroll.init();
 
   snipcartForm.init(document.querySelector('.js--init-snipcart-form'));
+
+  $('.js--init-input-color').each(function(){
+    var inputColor = new InputColor();
+    inputColor.init(this);
+  });
 
   // Viewport animations
   AOS.init({

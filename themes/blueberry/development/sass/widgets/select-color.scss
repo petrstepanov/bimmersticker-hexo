@@ -180,6 +180,17 @@ $display-delay: 0.3s;
     }
 }
 
+// For Color picker (input not select)
+.select-color.for-picker {
+    &:after {
+        display: none;
+    }
+
+    .select-color-pill-extra {
+        text-transform: uppercase;
+    }
+}
+
 .checkbox {
     color: $primary;
     opacity: 0;

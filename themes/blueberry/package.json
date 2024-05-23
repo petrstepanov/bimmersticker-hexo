@@ -38,6 +38,7 @@
     "jquery": "^3.7.0",
     "jquery.kinetic": "^2.2.4",
     "js-cookie": "^3.0.5",
+    "named-web-colors": "^1.4.3",
     "nunjucks": "^3.2.4",
     "sass": "1.62.1",
     "sticky-kit": "^1.1.3",
