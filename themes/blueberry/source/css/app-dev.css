@@ -61,7 +61,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #212B36;
   text-align: left;
   background-color: #fff;
@@ -1429,11 +1429,11 @@ mark,
 .form-control {
   display: block;
   width: 100%;
-  height: calc(1.5em + 1.2rem + 4px);
+  height: calc(1.45em + 1.2rem + 4px);
   padding: 0.6rem 0.6rem;
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
@@ -1499,7 +1499,7 @@ select.form-control:focus::-ms-value {
   padding-bottom: calc(0.6rem + 2px);
   margin-bottom: 0;
   font-size: inherit;
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 .col-form-label-lg {
@@ -1522,7 +1522,7 @@ select.form-control:focus::-ms-value {
   padding: 0.6rem 0;
   margin-bottom: 0;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #212B36;
   background-color: transparent;
   border: solid transparent;
@@ -1628,7 +1628,7 @@ textarea.form-control {
   padding: 0.25rem 0.5rem;
   margin-top: 0.1rem;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #212B36;
   background-color: rgba(96, 197, 186, 0.9);
   border-radius: 0.4rem;
@@ -1646,11 +1646,11 @@ textarea.form-control {
 
 .was-validated .form-control:valid, .form-control.is-valid {
   border-color: #60c5ba;
-  padding-right: calc(1.5em + 1.2rem) !important;
+  padding-right: calc(1.45em + 1.2rem) !important;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2360c5ba' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
-  background-position: right calc(0.375em + 0.3rem) center;
-  background-size: calc(0.75em + 0.6rem) calc(0.75em + 0.6rem);
+  background-position: right calc(0.3625em + 0.3rem) center;
+  background-size: calc(0.725em + 0.6rem) calc(0.725em + 0.6rem);
 }
 .was-validated .form-control:valid:focus, .form-control.is-valid:focus {
   border-color: #60c5ba;
@@ -1663,14 +1663,14 @@ textarea.form-control {
 }
 
 .was-validated textarea.form-control:valid, textarea.form-control.is-valid {
-  padding-right: calc(1.5em + 1.2rem);
-  background-position: top calc(0.375em + 0.3rem) right calc(0.375em + 0.3rem);
+  padding-right: calc(1.45em + 1.2rem);
+  background-position: top calc(0.3625em + 0.3rem) right calc(0.3625em + 0.3rem);
 }
 
 .was-validated .custom-select:valid, .custom-select.is-valid {
   border-color: #60c5ba;
   padding-right: calc(0.75em + 2.5rem) !important;
-  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 0.6rem center/8px 10px no-repeat, #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2360c5ba' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") center right 1.6rem/calc(0.75em + 0.6rem) calc(0.75em + 0.6rem) no-repeat;
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 0.6rem center/8px 10px no-repeat, #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2360c5ba' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") center right 1.6rem/calc(0.725em + 0.6rem) calc(0.725em + 0.6rem) no-repeat;
 }
 .was-validated .custom-select:valid:focus, .custom-select.is-valid:focus {
   border-color: #60c5ba;
@@ -1729,7 +1729,7 @@ textarea.form-control {
   padding: 0.25rem 0.5rem;
   margin-top: 0.1rem;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #fff;
   background-color: rgba(241, 26, 34, 0.9);
   border-radius: 0.4rem;
@@ -1747,11 +1747,11 @@ textarea.form-control {
 
 .was-validated .form-control:invalid, .form-control.is-invalid {
   border-color: #f11a22;
-  padding-right: calc(1.5em + 1.2rem) !important;
+  padding-right: calc(1.45em + 1.2rem) !important;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23f11a22' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23f11a22' stroke='none'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
-  background-position: right calc(0.375em + 0.3rem) center;
-  background-size: calc(0.75em + 0.6rem) calc(0.75em + 0.6rem);
+  background-position: right calc(0.3625em + 0.3rem) center;
+  background-size: calc(0.725em + 0.6rem) calc(0.725em + 0.6rem);
 }
 .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
   border-color: #f11a22;
@@ -1764,14 +1764,14 @@ textarea.form-control {
 }
 
 .was-validated textarea.form-control:invalid, textarea.form-control.is-invalid {
-  padding-right: calc(1.5em + 1.2rem);
-  background-position: top calc(0.375em + 0.3rem) right calc(0.375em + 0.3rem);
+  padding-right: calc(1.45em + 1.2rem);
+  background-position: top calc(0.3625em + 0.3rem) right calc(0.3625em + 0.3rem);
 }
 
 .was-validated .custom-select:invalid, .custom-select.is-invalid {
   border-color: #f11a22;
   padding-right: calc(0.75em + 2.5rem) !important;
-  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 0.6rem center/8px 10px no-repeat, #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23f11a22' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23f11a22' stroke='none'/%3e%3c/svg%3e") center right 1.6rem/calc(0.75em + 0.6rem) calc(0.75em + 0.6rem) no-repeat;
+  background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 0.6rem center/8px 10px no-repeat, #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23f11a22' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23f11a22' stroke='none'/%3e%3c/svg%3e") center right 1.6rem/calc(0.725em + 0.6rem) calc(0.725em + 0.6rem) no-repeat;
 }
 .was-validated .custom-select:invalid:focus, .custom-select.is-invalid:focus {
   border-color: #f11a22;
@@ -1882,7 +1882,7 @@ textarea.form-control {
   border: 2px solid transparent;
   padding: 0.5rem 1.1rem;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.45;
   border-radius: 3rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -2876,7 +2876,7 @@ input[type=button].btn-block {
   margin-bottom: 0;
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #495057;
   text-align: center;
   white-space: nowrap;
@@ -2954,7 +2954,7 @@ input[type=button].btn-block {
   position: relative;
   z-index: 1;
   display: block;
-  min-height: 1.5rem;
+  min-height: 1.45rem;
   padding-left: 1.5rem;
   -webkit-print-color-adjust: exact;
           print-color-adjust: exact;
@@ -2970,7 +2970,7 @@ input[type=button].btn-block {
   left: 0;
   z-index: -1;
   width: 1rem;
-  height: 1.25rem;
+  height: 1.225rem;
   opacity: 0;
 }
 .custom-control-input:checked ~ .custom-control-label::before {
@@ -3003,7 +3003,7 @@ input[type=button].btn-block {
 }
 .custom-control-label::before {
   position: absolute;
-  top: 0.25rem;
+  top: 0.225rem;
   left: -1.5rem;
   display: block;
   width: 1rem;
@@ -3015,7 +3015,7 @@ input[type=button].btn-block {
 }
 .custom-control-label::after {
   position: absolute;
-  top: 0.25rem;
+  top: 0.225rem;
   left: -1.5rem;
   display: block;
   width: 1rem;
@@ -3064,7 +3064,7 @@ input[type=button].btn-block {
   border-radius: 0.5rem;
 }
 .custom-switch .custom-control-label::after {
-  top: calc(0.25rem + 4px);
+  top: calc(0.225rem + 4px);
   left: calc(-2.25rem + 4px);
   width: calc(1rem - 8px);
   height: calc(1rem - 8px);
@@ -3088,11 +3088,11 @@ input[type=button].btn-block {
 .custom-select {
   display: inline-block;
   width: 100%;
-  height: calc(1.5em + 1.2rem + 4px);
+  height: calc(1.45em + 1.2rem + 4px);
   padding: 0.6rem 1.6rem 0.6rem 0.6rem;
   font-size: 1rem;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #495057;
   vertical-align: middle;
   background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 0.6rem center/8px 10px no-repeat;
@@ -3148,7 +3148,7 @@ input[type=button].btn-block {
   position: relative;
   display: inline-block;
   width: 100%;
-  height: calc(1.5em + 1.2rem + 4px);
+  height: calc(1.45em + 1.2rem + 4px);
   margin-bottom: 0;
 }
 
@@ -3156,7 +3156,7 @@ input[type=button].btn-block {
   position: relative;
   z-index: 2;
   width: 100%;
-  height: calc(1.5em + 1.2rem + 4px);
+  height: calc(1.45em + 1.2rem + 4px);
   margin: 0;
   overflow: hidden;
   opacity: 0;
@@ -3181,11 +3181,11 @@ input[type=button].btn-block {
   right: 0;
   left: 0;
   z-index: 1;
-  height: calc(1.5em + 1.2rem + 4px);
+  height: calc(1.45em + 1.2rem + 4px);
   padding: 0.6rem 0.6rem;
   overflow: hidden;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #495057;
   background-color: #fff;
   border: 2px solid #e1e1e1;
@@ -3198,9 +3198,9 @@ input[type=button].btn-block {
   bottom: 0;
   z-index: 3;
   display: block;
-  height: calc(1.5em + 1.2rem);
+  height: calc(1.45em + 1.2rem);
   padding: 0.6rem 0.6rem;
-  line-height: 1.5;
+  line-height: 1.45;
   color: #495057;
   content: "Browse";
   background-color: #e9ecef;
@@ -3464,8 +3464,8 @@ input[type=button].btn-block {
 }
 .navbar-brand {
   display: inline-block;
-  padding-top: 0.3125rem;
-  padding-bottom: 0.3125rem;
+  padding-top: 0.31875rem;
+  padding-bottom: 0.31875rem;
   margin-right: 1rem;
   font-size: 1.25rem;
   line-height: inherit;
@@ -4481,7 +4481,7 @@ a.close.disabled {
 
 .modal-title {
   margin-bottom: 0;
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 .modal-body {
@@ -4554,7 +4554,7 @@ a.close.disabled {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.45;
   text-align: left;
   text-align: start;
   text-decoration: none;
@@ -4656,7 +4656,7 @@ a.close.disabled {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.45;
   text-align: left;
   text-align: start;
   text-decoration: none;
@@ -8357,8 +8357,8 @@ body {
   font-family: "letrista_script", Helvetica, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+h2, h3, h4, h5, h6,
+.h2, .h3, .h4, .h5, .h6 {
   font-stretch: 65% !important;
   font-weight: 700 !important;
 }
@@ -11773,8 +11773,8 @@ body {
 }
 
 .match-input-height {
-  height: calc(1.5em + 1.2rem + 4px);
-  line-height: calc(1.5em + 1.2rem + 4px);
+  height: calc(1.45em + 1.2rem + 4px);
+  line-height: calc(1.45em + 1.2rem + 4px);
 }
 
 .select-reflect {

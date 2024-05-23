@@ -67,7 +67,7 @@ $font-handwrtten: "letrista_script", Helvetica, sans-serif;
 
 @mixin font-display {
   font-stretch: 65% !important;
-  font-weight: 700 !important;
+  font-weight: $font-weight-bold !important;
 }
 
 // $font-display:    "config_condensedbold", Helvetica, sans-serif;
@@ -78,8 +78,8 @@ $font-handwrtten: "letrista_script", Helvetica, sans-serif;
   font-family: $font-handwrtten;
 }
 
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+h2, h3, h4, h5, h6,
+.h2, .h3, .h4, .h5, .h6 {
   @include font-display;
 }
 
