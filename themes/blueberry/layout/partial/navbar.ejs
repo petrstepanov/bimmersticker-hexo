@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-blueberry navbar-expand-lg navbar-light js--init-navbar-fixer <%- typeof className !== 'undefined' ? className : ''; %>" id="navbar-spy" data-max-fixed-width="10000">
+<nav class="navbar fixed-top navbar-blueberry navbar-expand-lg js--init-navbar-fixer <%- typeof className !== 'undefined' ? className : ''; %>" id="navbar-spy">
   <div class="container" id="back-link-container">
     <% if (is_post()){ %>
       <!-- Back button -->
@@ -7,11 +7,8 @@
       </a>
     <% } else { %>
       <a class="navbar-brand" href="/">
-        <% if (theme.logo){ %>
-          <img src="<%- theme.logo %>" class="logo-image w-auto" width="1086" height="257" alt="Sticker Store LLC (Bimmer Sticker Store) logo">
-        <% } else { %>
-          <%- config.title %>
-        <% } %>
+        <img src="<%- theme.logo %>" class="logo-image w-auto" width="222" height="55" alt="Sticker Store LLC (Bimmer Sticker Store) logo">
+        <img src="<%- theme.logo_dark %>" class="logo-image w-auto" width="222" height="55" alt="Sticker Store LLC (Bimmer Sticker Store) logo dark">
       </a>
     <% } %>
     <!-- Grow element -->

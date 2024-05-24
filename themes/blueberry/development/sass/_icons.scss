@@ -2,9 +2,25 @@
   display: inline-block;
 
   svg {
-    transform: translateY(-0.08rem);
+    fill: var(--bs-secondary-color);
   }
 }
+
+.icon-padded {
+  padding: 0.5rem;
+  border-radius: 1rem;
+
+  &.blue {
+    background: rgba(var(--bs-primary-rgb), 0.1);
+
+    svg {
+      fill: var(--bs-blue);
+    }
+  }
+
+}
+
+
 
 // Firefox do not aspect svg by default??
 // https://developer.mozilla.org/en-US/docs/Web/Media/images/aspect_ratio_mapping

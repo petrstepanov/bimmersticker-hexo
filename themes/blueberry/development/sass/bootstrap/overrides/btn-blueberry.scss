@@ -1,38 +1,12 @@
-button:focus {
-  outline: none;
+p a {
+  text-decoration: none;
 }
 
-// Bootstrap overrides
-// $btn-active-box-shadow: 0 0 0 $primary-dark;
-// $btn-focus-box-shadow: inset 0 0.2rem 0 $primary-light, 0 0 0 $primary-dark;
-
-.btn-link {
-  // box-shadow: none;
-  transition: color 150ms;
+.link-blueberry, .btn-link {
+  // transition: color .15s;
 
   svg {
-    transition: fill 150ms;
-    fill: $link-color;
-  }
-
-  &:hover {
-    svg {
-      fill: $link-hover-color;
-    }
-  }
-}
-
-a {
-  transition: color 150ms;
-
-  &:hover {
-    text-decoration: none;
-  }
-}
-
-a.link-blueberry svg {
- svg {
-   transition: fill 150ms;
+   // transition: fill .15s;
    fill: $link-color;
  }
 
@@ -45,26 +19,10 @@ a.link-blueberry svg {
 
 
 .btn-blueberry {
-  // font-family: $font-bold;
-  font-weight: bold; // Native font stack
+  font-weight: bold;
   border-radius: 50rem;
   box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
-
-  // font-size: $font-size-12;
-  // text-transform: uppercase;
-
-  // For icons centering
-  // display: inline-flex;
-  // align-items: center;
-
-  // https://codepen.io/myacode/pen/PoqQQNM
-  // transition: 0.3s ease;
-
-  // box-shadow: 0 0.2rem 0 $primary-dark;
-
-  // &.btn-sm {
-  //   padding: 0.25rem 0.7rem;
-  // }
+  text-transform: capitalize;
 
   svg {
     fill: white;
@@ -76,10 +34,10 @@ a.link-blueberry svg {
     }
   }
 
-  &.btn-primary {
-    //                      background-color, border-color, hover-background,   hover-border,       active-background, active-border
-    @include button-variant($blue,            $blue,        lighten($blue, 7%), lighten($blue, 7%), darken($blue, 7%), darken($blue, 7%));
-  }
+  // &.btn-primary {
+  //   //                      background-color, border-color, hover-background,   hover-border,       active-background, active-border
+  //   @include button-variant($blue,            $blue,        lighten($blue, 7%), lighten($blue, 7%), darken($blue, 7%), darken($blue, 7%));
+  // }
 }
 
 .btn-outline-primary.btn-blueberry {

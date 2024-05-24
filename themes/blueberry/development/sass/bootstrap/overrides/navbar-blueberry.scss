@@ -14,12 +14,6 @@ body {
   @include media-breakpoint-up(md) {
     padding-top: $nb-logo-size-biggest + 2*$nb-padding-md;
   }
-
-  // &.is-post {
-  //   @include media-breakpoint-up(lg) {
-  //     padding-top: 0;
-  //   }
-  // }
 }
 
 
@@ -27,6 +21,7 @@ body {
 
 .navbar-blueberry {
   @extend .navbar-extend;
+  background: $blue;
 
   .is-post & {
     @include media-breakpoint-up(lg) {
@@ -35,6 +30,21 @@ body {
         padding-right: 5vw !important;
         max-width: none;
       }
+    }
+  }
+
+  // Appearance of the logo in dark / light mode
+  .navbar-brand img:last-child {
+    display: none;
+  }
+
+  @include color-mode(dark){
+    .navbar-brand img:first-child {
+      display: none;
+    }
+
+    .navbar-brand img:last-child {
+      display: inline-block;
     }
   }
 

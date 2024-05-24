@@ -33,7 +33,7 @@ var InteractiveBackButton = require('./modules/interactive-back-button');
 var autovalid = require('./modules/autovalid');
 var ContainerHorizontal = require('./modules/container-horizontal');
 var DetectTrackpadMouse = require('./modules/detect-trackpad-mouse');
-
+var DarkMode = require('./modules/dark-mode');
 // var TouchEmulator = require('hammer-touchemulator');
 
 // Google Customer Reviews
@@ -49,6 +49,7 @@ gcr.init();
 window['gcr'] = gcr;
 
 $(function() {
+  DarkMode.init();
   // Handler for .ready() called.
 
   // Interactive Back Button
@@ -104,7 +105,9 @@ $(function() {
   autosize(document.querySelectorAll('.js--init-autosize'));
 
   // Bootstrap's popovers
-  $('[data-toggle="popover"]').popover();
+  $('[data-toggle="popover"]').each(function (){
+    const popover = new bootstrap.Popover($(this)[0]);
+  });
 
   // Connect color dropdowns and carousels
   Carousel.init();
@@ -160,9 +163,9 @@ $(function() {
   var dTM = new DetectTrackpadMouse()
   dTM.init();
 
-
-
+  // Helper event to close other widgets
   $(document).on('click', function(){
     events.emit('documentClick');
   });
+
 });

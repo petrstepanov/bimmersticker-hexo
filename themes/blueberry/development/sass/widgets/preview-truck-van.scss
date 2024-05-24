@@ -141,7 +141,7 @@
 
     &:before{
         content: "";
-        background-color: lighten($text-muted,40%);
+        background-color: $gray-500;
         position: absolute;
         top: 50%;
         right: 0;
@@ -195,7 +195,7 @@
 
     &:before{
         content: "";
-        background-color: lighten($text-muted,40%);
+        background-color: $gray-500;
         position: absolute;
         left: 50%;
         top: 0;

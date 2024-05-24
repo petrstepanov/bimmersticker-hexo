@@ -5,8 +5,6 @@ var helpers = require('./helpers');
 
 var DOM = {};
 var options = {};
-// var fixed = false;
-// var height = 0;
 
 function _cacheDom(element) {
   DOM.$navbar = $(element);
@@ -17,11 +15,6 @@ function _cacheDom(element) {
 }
 
 function _bindEvents(element) {
-  // $(window).resize(function () {
-    // _saveNavbarHeight();
-    // _fixReleaseNavbar();
-  // });
-
   // Close navbar when clicking outside of tha navbar
   $('body').on('click', function (event) {
     // if click was coming not from navbar - hide navbar
@@ -42,56 +35,19 @@ function _bindEvents(element) {
       DOM.$iconClose.show();
       helpers.animateCSS(DOM.$iconClose.get(0), 'rotateIn');
     });
-    // DOM.$iconClose.fadeOut('fast', function(){
-    //   DOM.$iconOpen.fadeIn('fast');
-    // });
   });
   DOM.$navbarCollapse.on('hide.bs.collapse', function () {
     helpers.animateCSS(DOM.$iconClose.get(0), 'rotateOut', function(){
       DOM.$iconClose.hide();
       DOM.$iconOpen.show();
       helpers.animateCSS(DOM.$iconOpen.get(0), 'bounceIn');
-    });      
-    // DOM.$iconOpen.fadeOut('fast', function(){
-    //   DOM.$iconClose.fadeIn('fast');
-    // });
+    });
   });
 }
-
-// function _fixReleaseNavbar() {
-//   if (_checkNeedsFixed()) {
-//     DOM.$navbar.addClass('fixed-top');
-//     $('body').removeClass('no-top-padding');
-//     fixed = true;
-//   } else {
-//     DOM.$navbar.removeClass('fixed-top');
-//     $('body').addClass('no-top-padding');
-//     fixed = false;
-//   }
-// }
-
-// function _saveNavbarHeight() {
-//   _collapseNavbar();
-//   if (!DOM.$navbarCollapse.hasClass('show')) {
-//     height = DOM.$navbar.outerHeight();
-//   }
-// }
 
 function _collapseNavbar() {
   DOM.$navbarCollapse.collapse('hide');
 }
-
-// function _checkNeedsFixed() {
-//   if (helpers.getViewportSize().width < options.maxFixedWidth) {
-//     return true;
-//   }
-//   return false;
-// }
-
-// function _render() {
-  // _saveNavbarHeight();
-  // _fixReleaseNavbar();
-//}
 
 function init(element) {
   if (element) {
@@ -102,15 +58,4 @@ function init(element) {
   }
 }
 
-// function isFixed() {
-//   return fixed;
-// }
-
-// function getNavbarHeight() {
-//   return height;
-// }
-
-
 exports.init = init;
-// exports.isFixed = isFixed;
-// exports.getNavbarHeight = getNavbarHeight;

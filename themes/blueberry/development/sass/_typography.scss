@@ -66,7 +66,7 @@ body {
 $font-handwrtten: "letrista_script", Helvetica, sans-serif;
 
 @mixin font-display {
-  font-stretch: 65% !important;
+  font-stretch: condensed !important;
   font-weight: $font-weight-bold !important;
 }
 
@@ -109,7 +109,7 @@ h6 {
     content: '';
     width: 5rem;
     height: 0.1875rem;
-    background: $blue;
+    background: var(--bs-link-color);
     position: absolute;
     left: 50%;
     margin-left: -2.5rem;
