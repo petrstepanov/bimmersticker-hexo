@@ -58,7 +58,7 @@
 						<div class="col-12 col-lg-6">
 							<label class="label-custom d-flex align-items-center">
 								<input class="invisible" type="radio" name="font" value="<%= font %>" <%= i++ == 0 ? 'checked' : ''; %> />
-								<span class="input-radio flex-shrink-0 mr-3"></span>
+								<span class="input-radio flex-shrink-0 me-3"></span>
 								<span class="d-block flex-grow-1">
 									<% var dataSrc = site.data.fonts[font].url; %>
 									<% dataSrc = dataSrc.replace('https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/', '/font/'); %>
@@ -220,7 +220,7 @@
 							<th scope="row">Product:</th>
 							<td>{{product}}</td>
 						</tr>
-						{% if product !== 'sunstrip' %}						
+						{% if product !== 'sunstrip' %}
 							<tr>
 								<th scope="row">Text:</th>
 								<td>{{text}}</td>

@@ -11,8 +11,6 @@
 @import "mixins";
 
 @import "bootstrap/overrides/navbar-blueberry";
-@import "bootstrap/overrides/jumbotron-blueberry";
-@import "bootstrap/overrides/jumbotron-blueberry-page";
 @import "bootstrap/overrides/card-blueberry";
 @import "bootstrap/overrides/btn-blueberry";
 @import "bootstrap/overrides/forms-blueberry";
@@ -41,7 +39,9 @@
 @import "widgets/container-horizontal";
 @import "widgets/form-email";
 @import "widgets/swatches";
-@import "widgets/jumbotron-truck-van";
+@import "widgets/widget-jumbotron";
+@import "widgets/widget-jumbotron-page";
+@import "widgets/widget-jumbotron-truck-van";
 @import "widgets/preview-truck-van";
 @import "widgets/select-reflect";
 @import "widgets/select-color";

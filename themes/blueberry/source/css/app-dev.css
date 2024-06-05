@@ -10302,10 +10302,6 @@ html {
   }
 }
 
-body {
-  -webkit-font-smoothing: antialiased;
-}
-
 @font-face {
   font-family: "letrista_script";
   src: url("/fonts/letristascript-webfont.woff2") format("woff2"), url("/fonts/letristascript-webfont.woff") format("woff");
@@ -10400,7 +10396,7 @@ h6, .h6 {
 }
 
 .white-text {
-  color: white;
+  color: var(--bs-body-color);
 }
 
 .numbered::before {
@@ -10409,7 +10405,7 @@ h6, .h6 {
 
 .navbar-extend, .navbar-blueberry {
   box-shadow: 0 0.125rem 2rem 0 rgba(0, 0, 0, 0.1);
-  background-color: white;
+  background-color: var(--bs-body-bg);
   padding: 0.825rem 0;
 }
 @media (min-width: 768px) {
@@ -10420,6 +10416,10 @@ h6, .h6 {
 .navbar-extend .container, .navbar-blueberry .container {
   padding-left: 0.75rem !important;
   padding-right: 0.75rem !important;
+}
+
+[data-bs-theme=dark] .navbar-extend, [data-bs-theme=dark] .navbar-blueberry {
+  box-shadow: 0 0.125rem 2rem 0 rgba(0, 0, 0, 0.3);
 }
 
 .my-label, .snipcart .snipcart-item-quantity__label, .snipcart .snipcart-form__label:not(.snipcart-form__label--checkbox):not(.snipcart-form-radio__label), .label-blueberry {
@@ -10444,9 +10444,6 @@ body {
   }
 }
 
-.navbar-blueberry {
-  background: #007CC2;
-}
 @media (min-width: 992px) {
   .is-post .navbar-blueberry .container {
     padding-left: 5vw !important;
@@ -10456,12 +10453,6 @@ body {
 }
 .navbar-blueberry .navbar-brand img:last-child {
   display: none;
-}
-.navbar-blueberry [data-bs-theme=dark] .navbar-brand img:first-child {
-  display: none;
-}
-.navbar-blueberry [data-bs-theme=dark] .navbar-brand img:last-child {
-  display: inline-block;
 }
 .navbar-blueberry .logo-image,
 .navbar-blueberry .back-link {
@@ -10514,7 +10505,7 @@ body {
   --animate-duration: 350ms;
 }
 .navbar-blueberry .navbar-toggler svg {
-  fill: #212B36;
+  fill: var(--bs-body-color);
   transition: 250ms fill ease-out;
 }
 .navbar-blueberry .navbar-toggler:hover svg {
@@ -10550,11 +10541,11 @@ body {
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
   padding-left: 2.75rem;
-  color: #212B36;
+  color: var(--bs-body-color);
   text-decoration: underline;
 }
 .navbar-blueberry .navbar-nav .nav-link svg {
-  fill: #212B36;
+  fill: var(--bs-body-color);
 }
 .navbar-blueberry .navbar-nav .nav-link:hover {
   color: #007CC2;
@@ -10603,57 +10594,11 @@ body {
   z-index: 9;
 }
 
-.jumbotron-blueberry {
-  background-color: transparent;
-  padding-top: 3rem;
-  padding-bottom: 0;
-  margin-bottom: 0;
+[data-bs-theme=dark] .navbar-blueberry .navbar-brand img:first-child {
+  display: none;
 }
-.jumbotron-blueberry h1, .jumbotron-blueberry .h1 {
-  font-family: "letrista_script", Helvetica, sans-serif;
-  color: white;
-  text-shadow: 0px 4px 0px rgba(0, 0, 0, 0.2);
-}
-@media (min-width: 992px) {
-  .jumbotron-blueberry h1, .jumbotron-blueberry .h1 {
-    color: #212B36;
-    font-size: 3.5rem;
-    text-shadow: none;
-  }
-}
-@media (min-width: 1200px) {
-  .jumbotron-blueberry h1, .jumbotron-blueberry .h1 {
-    color: #212B36;
-  }
-}
-.jumbotron-blueberry .front-paragraph {
-  font-weight: bold;
-  color: white;
-  text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.2);
-}
-@media (min-width: 576px) {
-  .jumbotron-blueberry .front-paragraph {
-    font-size: 1.25rem;
-  }
-}
-@media (min-width: 992px) {
-  .jumbotron-blueberry .front-paragraph {
-    color: var(--bs-secondary-color);
-    font-weight: 400;
-    text-shadow: none;
-  }
-}
-@media (max-width: 767.98px) {
-  .jumbotron-blueberry .fix-link-underline a {
-    color: white;
-    text-decoration: underline !important;
-  }
-}
-
-.jumbotron-blueberry-page {
-  background-position: center center;
-  background-size: cover;
-  color: white;
+[data-bs-theme=dark] .navbar-blueberry .navbar-brand img:last-child {
+  display: inline-block;
 }
 
 .card-blueberry {
@@ -10735,7 +10680,11 @@ body {
 .card-blueberry .card-title-price sup {
   font-size: 60%;
   margin-left: 0.15rem;
-  border-bottom: 0.15rem solid #212B36;
+  border-bottom: 0.15rem solid var(--bs-body-color);
+}
+
+[data-bs-theme=dark] .card-blueberry {
+  background-color: #2b3846;
 }
 
 p a {
@@ -10776,7 +10725,7 @@ p a {
 }
 
 .form-control, .custom-select-blueberry {
-  color: #212B36;
+  color: var(--bs-body-color);
   box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
   border: 1px solid #dceaf9;
   padding-left: 1.1rem;
@@ -10785,10 +10734,12 @@ p a {
   font-size: 16px !important;
 }
 .form-control::-moz-placeholder, .custom-select-blueberry::-moz-placeholder {
-  color: #97aabf;
+  --bs-text-opacity: 0.5;
+  color: rgba(var(--bs-body-color), var(--bs-text-opacity)) !important;
 }
 .form-control::placeholder, .custom-select-blueberry::placeholder {
-  color: #97aabf;
+  --bs-text-opacity: 0.5;
+  color: rgba(var(--bs-body-color), var(--bs-text-opacity)) !important;
 }
 .form-control.invalid, .custom-select-blueberry.invalid {
   border-color: #f11a22;
@@ -10797,7 +10748,8 @@ p a {
 
 .form-control:disabled, .form-control[readonly] {
   background-color: #f5fbff;
-  color: #5b7795;
+  --bs-text-opacity: 0.5;
+  color: rgba(var(--bs-body-color), var(--bs-text-opacity)) !important;
 }
 
 .select-blueberry {
@@ -12619,28 +12571,8 @@ p a {
 }
 
 .section-intro .section-intro-mobile-bg {
-  background-image: url(/img/bmw-windshield-banner-on-5series-e39-sm.jpg);
   background-size: cover;
-  background-position: center 69%;
-}
-@media (min-width: 768px) {
-  .section-intro .section-intro-mobile-bg {
-    background-image: url(/img/bmw-windshield-banner-on-5series-e39-md.jpg);
-  }
-}
-@media (min-width: 992px) {
-  .section-intro .section-intro-mobile-bg {
-    background-color: transparent;
-    background-image: none;
-  }
-}
-@media (min-width: 992px) {
-  .section-intro {
-    background-image: url(/img/bmw-windshield-banner-on-5series-e39.jpg);
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-  }
+  background-image: url(/img/bmw-windshield-banner-on-5series-e39-sm.jpg);
 }
 
 .section-whitesmoke {
@@ -13340,7 +13272,7 @@ body {
 }
 
 .wave-header {
-  margin-bottom: -1px;
+  transform: translateY(1px);
 }
 .wave-header svg {
   width: 100%;
@@ -13487,12 +13419,45 @@ body {
   background: linear-gradient(to right, #C1C1C1, #EB9AB0, #F8ED69, #5FE0F6, #C1C1C1);
 }
 
-.jumbotron-truck-van {
+.widget-jumbotron h1, .widget-jumbotron .h1 {
+  font-family: "letrista_script", Helvetica, sans-serif;
+}
+.widget-jumbotron .front-paragraph {
+  font-weight: bold;
+  color: var(--bs-body-color);
+  text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.2);
+}
+@media (min-width: 576px) {
+  .widget-jumbotron .front-paragraph {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 992px) {
+  .widget-jumbotron .front-paragraph {
+    color: var(--bs-secondary-color);
+    font-weight: 400;
+    text-shadow: none;
+  }
+}
+@media (max-width: 767.98px) {
+  .widget-jumbotron .fix-link-underline a {
+    color: white;
+    text-decoration: underline !important;
+  }
+}
+
+.widget-jumbotron-page {
+  background-position: center center;
+  background-size: cover;
+  color: white;
+}
+
+.widget-jumbotron-truck-van {
   /* prevent x scrollbar for truck van */
   overflow-x: hidden;
   background-image: url("/custom-truck-van-decals/jumbotron-background.jpg");
 }
-.jumbotron-truck-van .img-truck-van {
+.widget-jumbotron-truck-van .img-truck-van {
   width: 300%;
   height: auto;
   margin-left: -150%;
@@ -13501,26 +13466,26 @@ body {
   animation-timing-function: ease-in-out;
 }
 @media (min-width: 576px) {
-  .jumbotron-truck-van .img-truck-van {
+  .widget-jumbotron-truck-van .img-truck-van {
     width: 200%;
     margin-left: -83%;
   }
 }
 @media (min-width: 768px) {
-  .jumbotron-truck-van .img-truck-van {
+  .widget-jumbotron-truck-van .img-truck-van {
     width: 150%;
     margin-left: -26%;
     animation: none;
   }
 }
 @media (min-width: 992px) {
-  .jumbotron-truck-van .img-truck-van {
+  .widget-jumbotron-truck-van .img-truck-van {
     width: 125%;
     margin-left: -14%;
   }
 }
 @media (min-width: 1200px) {
-  .jumbotron-truck-van .img-truck-van {
+  .widget-jumbotron-truck-van .img-truck-van {
     width: 89%;
     margin-left: 5%;
   }
@@ -13746,7 +13711,7 @@ body {
 }
 
 .select-color {
-  color: #212B36;
+  color: var(--bs-body-color);
   box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
   border-radius: var(--bs-border-radius);
   border: 1px solid #dceaf9;
@@ -13891,7 +13856,8 @@ body {
 }
 .select-color-pill .select-color-pill-extra {
   margin-right: 1rem;
-  color: #97aabf;
+  --bs-text-opacity: 0.5;
+  color: rgba(var(--bs-body-color), var(--bs-text-opacity)) !important;
 }
 
 .select-color.for-picker:after {
@@ -13981,19 +13947,19 @@ body {
   position: relative;
 }
 .snipcart-checkout svg {
-  fill: #007CC2;
+  fill: var(--bs-body-color);
 }
 .snipcart-checkout .snipcart-items-count {
   position: absolute;
   top: -0.0625rem;
   right: -0.2rem;
-  background-color: #212B36;
-  color: white;
+  background-color: #007CC2;
+  color: #007CC2;
   font-weight: bolder;
   font-size: 0.75em;
   padding: 0 0.3rem;
   border-radius: 2rem;
-  box-shadow: 0 0 0 0.125rem white;
+  box-shadow: 0 0 0 0.125rem var(--bs-body-bg);
   height: 1.2rem;
   line-height: 1.35rem;
   min-width: 1.2rem;
@@ -14007,7 +13973,7 @@ body {
 /*! Snipcart Theming: https://docs.snipcart.com/v3/setup/theming */
 /* Syntax to integrate SASS variables into CSS variables: https://sass-lang.com/documentation/breaking-changes/css-vars */
 #snipcart {
-  --color-default: #212B36;
+  --color-default: var(--bs-body-color);
   --bgColor-default: white;
   --borderColor-default: #e3e6e8;
   --color-buttonPrimary: #FFFFFF;
@@ -14031,10 +13997,10 @@ body {
   --borderColor-input-focus: #007CC2;
   --shadow-input-focus: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
   --shadow-input-error: 0 2px 4px 0 rgba(241, 26, 34, 0.2);
-  --color-icon: #212B36;
+  --color-icon: var(--bs-body-color);
   --color-link: #007CC2;
   --color-link-hover: #00639b;
-  --color-badge: #212B36;
+  --color-badge: var(--bs-body-color);
   --bgColor-modal: transparent;
   --bgColor-modalVeil: rgba(0,0,0,0.4);
   --bgColor-alt: white;
@@ -19322,7 +19288,7 @@ body {
   font-size: 0.75em;
 }
 .snipcart-featured-payment-methods__title a svg.snipcart__icon path {
-  fill: #212B36;
+  fill: var(--bs-body-color);
 }
 
 .snipcart-featured-payment-methods--no-background {
@@ -19442,7 +19408,7 @@ body {
   font-stretch: condensed !important;
   font-weight: 700 !important;
   font-size: 1.3125em;
-  color: #212B36;
+  color: var(--bs-body-color);
   margin: 0 0.75rem 0 0;
   border: 0;
 }

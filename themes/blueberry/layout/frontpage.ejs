@@ -3,40 +3,33 @@
   page.photos = [config.url + '/img/sticker-store-llc-bimmer-sticker-store.jpg'];
 %>
 
-<section class="section-intro">
-	<div class="section-intro-mobile-bg">
-		<%- // partial('partial/navbar', {className: 'transparent'}) %>
-		<%- partial('partial/navbar') %>
-		<div class="jumbotron jumbotron-fluid jumbotron-blueberry">
-			<div class="container">
-				<div class="row fix-link-underline">
-					<div class="col-11 col-sm-8 col-md-12 col-lg-5">
-						<h1 class="display-4 mt-lg-3"><%- theme.slogan ? theme.slogan : "" %></h1>
-					</div>
+<section class="section-intro mb-3">
+	<%- partial('partial/navbar') %>
+	<div class="widget-jumbotron bg-dark-subtle">
+		<div class="container">
+			<div class="row">
+				<h1 class="display-4 mt-3 col-11 col-sm-8 col-md-12 col-lg-5"><%- theme.slogan ? theme.slogan : "" %></h1>
+				<div class="col col-md-8 col-lg-6 col-xl-5 mb-3">
+					<p class="front-paragraph mt-5"><%- theme.lead1 ? theme.lead1 : "" %></p>
+					<p class="front-paragraph"><%- theme.lead2 ? theme.lead2 : "" %></p>
 				</div>
-				<div class="row fix-link-underline">
-					<div class="col col-md-8 col-lg-6 col-xl-5 mb-3">
-						<p class="front-paragraph mt-5"><%- theme.lead1 ? theme.lead1 : "" %></p>
-						<p class="front-paragraph"><%- theme.lead2 ? theme.lead2 : "" %></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col mb-4 mb-md-5">
-						<div class="d-flex align-items-center">
-							<!-- <button type="button" class="btn btn-lg btn-primary rounded-pill mr-2" data-toggle="modal" data-target="#subscribeModal">
-								Subscribe to newsletter
-							</button>
-							<span class="d-none d-sm-inline front-paragraph">and get new sticker alerts.</span> -->
-							<a href="mailto:info@stickerstore.llc" class="btn btn-lg btn-primary btn-blueberry mr-2">
-								Send us an Email
-							</a>
-							<span class="d-none d-sm-inline front-paragraph">for custom orders.</span>
-						</div>
+			</div>
+			<div class="row">
+				<div class="col mb-4 mb-md-5">
+					<div class="d-flex align-items-center">
+						<!-- <button type="button" class="btn btn-lg btn-primary rounded-pill me-2" data-toggle="modal" data-target="#subscribeModal">
+							Subscribe to newsletter
+						</button>
+						<span class="d-none d-sm-inline front-paragraph">and get new sticker alerts.</span> -->
+						<a href="mailto:info@stickerstore.llc" class="btn btn-lg btn-primary btn-blueberry me-2">
+							Send us an Email
+						</a>
+						<span class="d-none d-sm-inline front-paragraph">for custom orders.</span>
 					</div>
 				</div>
 			</div>
-			<div class="wave-header"><%- partial('svg/wave-header.svg') %></div>
 		</div>
+		<div class="wave-header"><%- partial('svg/wave-header.svg') %></div>
 	</div>
 	<div class="container">
 		<div class="row">
@@ -236,7 +229,7 @@
 						<button type="button" class="btn btn-blueberry btn-outline-primary mt-2" data-toggle="modal" data-target="#contactModal">
 							Contact info
 						</button>
-						<button type="submit" class="btn btn-blueberry btn-primary mt-2 ml-2">Send message</button>
+						<button type="submit" class="btn btn-blueberry btn-primary mt-2 ms-2">Send message</button>
 					</div>
 				</form>
 			</div>

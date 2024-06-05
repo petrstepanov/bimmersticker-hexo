@@ -1,22 +1,17 @@
-.jumbotron-blueberry {
-  background-color: transparent;
-  padding-top: 3rem;
-
-  padding-bottom: 0;
-  margin-bottom: 0;
+.widget-jumbotron {
 
   h1 {
-    font-family: $font-handwrtten;
-    color: white;
-    text-shadow: 0px 4px 0px rgba(0, 0, 0, 0.2);
+    font-family: $font-handwritten;
+    // color: white;
+    // text-shadow: 0px 4px 0px rgba(0, 0, 0, 0.2);
 
     @include media-breakpoint-up(lg) {
-      color: $body-color;
-      font-size: 3.5rem;
-      text-shadow: none;
+      // color: var(--bs-body-color);
+      // font-size: 3.5rem;
+      // text-shadow: none;
     }
     @include media-breakpoint-up(xl) {
-      color: $body-color;
+      // color: var(--bs-body-color);
     }
   }
 
@@ -24,7 +19,7 @@
     // font-family: $font-bold;
     font-weight: bold;  // Native font stack
 
-    color: white;
+    color: var(--bs-body-color);
     text-shadow: 0px 2px 0px rgba(0, 0, 0, 0.2);
 
     @include media-breakpoint-up(sm) {
@@ -33,7 +28,7 @@
 
     @include media-breakpoint-up(lg) {
       color: $text-muted;
-      // font-family: $font-regular; 
+      // font-family: $font-regular;
       font-weight: 400; // Native font stack
 
       text-shadow: none;

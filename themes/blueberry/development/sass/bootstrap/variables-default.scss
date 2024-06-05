@@ -81,3 +81,7 @@ $navbar-padding-x: 1rem;
 // Cards
 $card-spacer-x: 1.4rem;
 $card-spacer-y: 1rem;
+
+@use 'sass:color';
+
+$body-bg-darker: color.adjust(#212B36, $lightness: +5%);;

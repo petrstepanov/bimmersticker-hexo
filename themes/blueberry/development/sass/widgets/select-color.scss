@@ -5,7 +5,7 @@ $pill-color-shift: 1rem;
 $display-delay: 0.3s;
 
 .select-color {
-    color: $body-color;
+    color: var(--bs-body-color);
     box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
     @include border-radius($input-border-radius, 0);
     border: 1px solid #dceaf9;
@@ -176,7 +176,8 @@ $display-delay: 0.3s;
 
     .select-color-pill-extra {
         margin-right: 1rem;
-        color: lighten($body-color,50);
+        --bs-text-opacity: 0.5;
+        color: rgba(var(--bs-body-color), var(--bs-text-opacity)) !important;
     }
 }
 

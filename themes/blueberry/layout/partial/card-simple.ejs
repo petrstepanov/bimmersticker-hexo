@@ -7,11 +7,9 @@
   </a>
   <!-- Card body -->
   <div class="card-body">
-      <h3 class="card-title font-size-21">
-        <%- product.title %>
-      </h3>
+      <h3 class="card-title font-size-21"><%- product.title %></h3>
       <% if (post.excerpt){ %>
-        <p class="mb-2 pb-1"><%- strip_html(post.excerpt) %></p>
+        <p class="card-text mb-2 pb-1"><%- strip_html(post.excerpt) %></p>
       <% } %>
       <div class="d-flex align-items-center justify-content-between">
         <span class="card-title-price">$<%- format_price(parseFloat(product.price)) %></span>

@@ -2,57 +2,17 @@
 html {
   font-size: 15px;
 
-  // @include media-breakpoint-up(lg) {
-  //   font-size: 15px;
-  // }
-
   @include media-breakpoint-up(xl) {
     font-size: 16px;
   }
 }
 
 // General
-body {
-  -webkit-font-smoothing: antialiased;
-}
-
-// Font faces
-// @font-face {
-//     font-family: 'aristotelicasmallcaps-bold';
-//     src: url('/fonts/aristotelicasmallcaps-bold-webfont.woff2') format('woff2'),
-//          url('/fonts/aristotelicasmallcaps-bold-webfont.woff') format('woff');
-//     font-weight: normal;
-//     font-style: normal;
-//     font-display: swap;
+// body {
+  // -webkit-font-smoothing: antialiased;
 // }
 
-// Replaced condensed font by CSS font-stretch
-// @font-face {
-//   font-family: 'config_condensedbold';
-//   src: url('/fonts/configcondensed-bold-webfont.woff2') format('woff2'),
-//        url('/fonts/configcondensed-bold-webfont.woff') format('woff');
-//   font-weight: normal;
-//   font-style: normal;
-//   font-display: swap;
-// }
-
-// @font-face {
-//     font-family: 'sf_pro_textregular';
-//     src: url('/fonts/sf-pro-text-regular-webfont.woff2') format('woff2'),
-//          url('/fonts/sf-pro-text-regular-webfont.woff') format('woff');
-//     font-weight: normal;
-//     font-style: normal;
-//     font-display: swap;
-// }
-
-// @font-face {
-//     font-family: 'sf_pro_textbold';
-//     src: url('/fonts/sf-pro-text-bold-webfont.woff2') format('woff2'),
-//          url('/fonts/sf-pro-text-bold-webfont.woff') format('woff');
-//     font-weight: normal;
-//     font-style: normal;
-//     font-display: swap;
-// }
+// Font faces - Moved almost all to native font stack
 
 @font-face {
     font-family: 'letrista_script';
@@ -63,19 +23,15 @@ body {
     font-display: swap;
 }
 
-$font-handwrtten: "letrista_script", Helvetica, sans-serif;
+$font-handwritten: "letrista_script", Helvetica, sans-serif;
 
 @mixin font-display {
   font-stretch: condensed !important;
   font-weight: $font-weight-bold !important;
 }
 
-// $font-display:    "config_condensedbold", Helvetica, sans-serif;
-// $font-regular:    "sf_pro_textregular", Helvetica, sans-serif;
-// $font-bold:       "sf_pro_textbold", Helvetica, sans-serif;
-
 .font-handwritten {
-  font-family: $font-handwrtten;
+  font-family: $font-handwritten;
 }
 
 h2, h3, h4, h5, h6,
@@ -170,7 +126,7 @@ $font-size-89: 5.5625em;
 }
 
 .white-text {
-  color: white;
+  color: var(--bs-body-color);
 }
 
 .numbered::before {

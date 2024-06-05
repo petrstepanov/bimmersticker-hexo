@@ -1,7 +1,7 @@
 $input-padding-x: 1.1rem;
 
 .form-control, .custom-select-blueberry {
-  color: $body-color;
+  color: var(--bs-body-color);
   box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
   border: 1px solid #dceaf9;
   padding-left: $input-padding-x;
@@ -10,7 +10,9 @@ $input-padding-x: 1.1rem;
   font-size: 16px !important;
 
   &::placeholder {
-    color: lighten($body-color, 50%);
+    // https://getbootstrap.com/docs/5.3/utilities/colors/#how-it-works
+    --bs-text-opacity: 0.5;
+    color: rgba(var(--bs-body-color), var(--bs-text-opacity)) !important;
   }
 
   // Controlled by npm's autovalid
@@ -24,7 +26,8 @@ $input-padding-x: 1.1rem;
 
 .form-control:disabled, .form-control[readonly] {
   background-color: lighten($primary, 60%);
-  color: lighten($body-color, 30%);
+  --bs-text-opacity: 0.5;
+  color: rgba(var(--bs-body-color), var(--bs-text-opacity)) !important;
 }
 
 

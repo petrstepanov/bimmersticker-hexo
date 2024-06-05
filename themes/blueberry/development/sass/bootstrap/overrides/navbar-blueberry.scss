@@ -21,7 +21,6 @@ body {
 
 .navbar-blueberry {
   @extend .navbar-extend;
-  background: $blue;
 
   .is-post & {
     @include media-breakpoint-up(lg) {
@@ -36,16 +35,6 @@ body {
   // Appearance of the logo in dark / light mode
   .navbar-brand img:last-child {
     display: none;
-  }
-
-  @include color-mode(dark){
-    .navbar-brand img:first-child {
-      display: none;
-    }
-
-    .navbar-brand img:last-child {
-      display: inline-block;
-    }
   }
 
   .logo-image,
@@ -104,7 +93,7 @@ body {
     }
 
     svg {
-      fill: $body-color;
+      fill: var(--bs-body-color);
       transition: 250ms fill ease-out;
     }
 
@@ -149,11 +138,11 @@ body {
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
     padding-left: 2.75rem;
-    color: $body-color;
+    color: var(--bs-body-color);
     text-decoration: underline;
 
     svg {
-      fill: $body-color;
+      fill: var(--bs-body-color);
     }
 
     &:hover {
@@ -209,5 +198,15 @@ body {
 
   &.fixed-top {
     z-index: 9;
+  }
+}
+
+@include color-mode(dark){
+  .navbar-blueberry .navbar-brand img:first-child {
+    display: none;
+  }
+
+  .navbar-blueberry .navbar-brand img:last-child {
+    display: inline-block;
   }
 }

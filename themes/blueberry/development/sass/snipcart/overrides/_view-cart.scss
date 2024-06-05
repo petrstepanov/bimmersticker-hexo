@@ -146,7 +146,7 @@
     font-size: $font-size-12;
 
     a svg.snipcart__icon path {
-        fill: $body-color;
+        fill: var(--bs-body-color);
     }
 }
 
@@ -286,7 +286,7 @@
             background: $indigo;
             @include font-display;
             font-size: $font-size-21;
-            color: $body-color;
+            color: var(--bs-body-color);
             margin: 0 0.75rem 0 0;
             border: 0;
 

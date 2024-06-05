@@ -2,22 +2,22 @@
     position: relative;
 
     svg {
-        fill: $blue;
+        fill: var(--bs-body-color);
     }
 
     .snipcart-items-count {
         position: absolute;
         top: -0.0625rem;
         right: -0.2rem;
-        background-color: #212B36;
-        color: white;
+        background-color: $primary;
+        color: $primary;
         // font-family: $font-bold;
         font-weight: bolder; // Native font stack
-        
+
         font-size: $font-size-12;
         padding: 0 0.3rem;
         border-radius: 2rem;
-        box-shadow: 0 0 0 0.125rem white;
+        box-shadow: 0 0 0 0.125rem var(--bs-body-bg);
         height: 1.2rem;
         line-height: 1.35rem;
         min-width: 1.2rem;
