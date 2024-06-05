@@ -5,9 +5,6 @@ var AOS = require('aos');
 
 var events = require('./modules/events');
 
-var navbarFixer = require('./modules/navbar-fixer');
-// var smoothScroll = require('./modules/smooth-scroll');
-
 var windshieldForm = require('./modules/windshield-form-snipcart'); // require('./modules/windshield-form');
 var truckVanForm = require('./modules/truck-van-form');
 var snipcartForm = require('./modules/snipcart-form');
@@ -56,7 +53,6 @@ $(function() {
   // InteractiveBackButton.init(document.querySelector('.js--init-back-button'));
   InteractiveBackButton.init();
 
-  navbarFixer.init(document.querySelector('.js--init-navbar-fixer'));
   // smoothScroll.init();
   // windshieldForm.init(document.querySelector('.js--init-windshield-container'));
 

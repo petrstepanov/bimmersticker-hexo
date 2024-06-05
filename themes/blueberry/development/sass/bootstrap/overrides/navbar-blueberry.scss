@@ -88,10 +88,6 @@ body {
     padding-left: 0;
     padding-right: 0;
 
-    [class^="icon-"] {
-      --animate-duration: 350ms;
-    }
-
     svg {
       fill: var(--bs-body-color);
       transition: 250ms fill ease-out;

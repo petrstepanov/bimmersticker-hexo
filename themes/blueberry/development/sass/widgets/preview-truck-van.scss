@@ -133,7 +133,7 @@
         background-color: white;
         position: relative;
         font-weight: bold;
-        color: $text-muted;
+        color: $body-secondary-color;
         padding-left: 1rem;
         padding-right: 1rem;
         font-size: 0.8em;
@@ -175,7 +175,7 @@
         display: block;
         white-space: nowrap;
         font-weight: bold;
-        color: $text-muted;
+        color: $body-secondary-color;
         font-size: 0.8em;
 
         @include media-breakpoint-down(sm) {
