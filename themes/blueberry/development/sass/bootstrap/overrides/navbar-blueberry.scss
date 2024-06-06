@@ -1,26 +1,35 @@
-$nb-logo-size: 3rem;
-$nb-logo-size-bigger: 3rem;
-$nb-logo-size-biggest: 3.25rem;
+:root{
+  --nb-padding: 0.825rem;
+  --nb-logo-size: 3rem;
+}
 
-// Google Cumulative Layout Shift CLS
+@include media-breakpoint-up(md) {
+  :root{
+    --nb-padding: 1rem;
+    --nb-logo-size: 3.25rem;
+  }
+}
 
+:root{
+  --nb-height: calc(var(--nb-padding)*2 + var(--nb-logo-size))
+}
+
+// Set body padding to the navbar height
 body {
-  padding-top: $nb-logo-size + 2*$navbar-padding-y;
-
-  @include media-breakpoint-up(sm) {
-    padding-top: $nb-logo-size-bigger + 2*$navbar-padding-y;
-  }
-
-  @include media-breakpoint-up(md) {
-    padding-top: $nb-logo-size-biggest + 2*$nb-padding-md;
-  }
+  padding-top: var(--nb-height);
 }
 
 
 // Navbar sizes
-
 .navbar-blueberry {
-  @extend .navbar-extend;
+  box-shadow: var(--box-shadow-blueberry);
+  background-color: var(--bs-body-bg);
+  padding: var(--nb-padding) 0;
+
+  // .container {
+  //   padding-left: math.div($grid-gutter-width, 2) !important;
+  //   padding-right: math.div($grid-gutter-width, 2) !important;
+  // }
 
   .is-post & {
     @include media-breakpoint-up(lg) {
@@ -32,35 +41,20 @@ body {
     }
   }
 
-  // Appearance of the logo in dark / light mode
-  .navbar-brand img:last-child {
-    display: none;
-  }
 
   .logo-image,
   .back-link {
-    height: $nb-logo-size;
-    line-height: $nb-logo-size;
-
-    @include media-breakpoint-up(sm) {
-      height: $nb-logo-size-bigger;
-      line-height: $nb-logo-size-bigger;
-    }
-
-    @include media-breakpoint-up(md) {
-      height: $nb-logo-size-biggest;
-      line-height: $nb-logo-size-biggest;
-    }
+    height: --nb-logo-size;
+    line-height: --nb-logo-size;
   }
 
   .back-link {
-    // font-family: $font-bold;
     overflow: hidden;
     text-overflow: ellipsis;
 
     span {
       font-size: 0.875rem;
-      font-weight: bold; // Native font stack
+      font-weight: bold;
     }
   }
 
@@ -72,8 +66,6 @@ body {
     padding: 0;
 
     .logo-text {
-      // font-family: $font-bold;
-      // font-style: italic;
       display: none;
     }
 
@@ -195,6 +187,11 @@ body {
   &.fixed-top {
     z-index: 9;
   }
+}
+
+// Appearance of the logo in dark / light mode
+.navbar-blueberry .navbar-brand img:last-child {
+  display: none;
 }
 
 @include color-mode(dark){
