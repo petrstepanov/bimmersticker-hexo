@@ -36,14 +36,7 @@ footer {
 
   .logo-circ,
   .logo-text {
-    height: $nb-logo-size;
-
-    @include media-breakpoint-up(sm) {
-      height: $nb-logo-size-bigger;
-    }
-    @include media-breakpoint-up(md) {
-      height: $nb-logo-size-biggest;
-    }
+    height: var(--nb-logo-size);
   }
 
   a {

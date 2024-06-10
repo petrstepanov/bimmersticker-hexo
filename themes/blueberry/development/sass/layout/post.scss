@@ -12,23 +12,10 @@
 }
 
 .sidebar-sticky {
-  // @include media-breakpoint-up(sm) {
-  //   padding-bottom: 6em;
-  // }
-
   @include media-breakpoint-up(lg) {
     padding-bottom: 7em;
     position: sticky;
-
-    // TODO - equal top to navbar height
-    top: $nb-logo-size + 2*$navbar-padding-y;
-
-    @include media-breakpoint-up(sm) {
-      top: $nb-logo-size-bigger + 2*$navbar-padding-y;
-    }
-    @include media-breakpoint-up(md) {
-      top: $nb-logo-size-biggest + 2*$nb-padding-md;
-    }
+    top: calc(var(--nb-logo-size) + 2*var(--nb-padding));
   }
 
   @include media-breakpoint-up(xl) {

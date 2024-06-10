@@ -1,7 +1,7 @@
 @use 'sass:math';
 
 .card-blueberry {
-  box-shadow: $box-shadow-blueberry;
+  box-shadow: var(--box-shadow-blueberry);
   border: 0;
   margin-bottom: 1.75rem;
   overflow: hidden;

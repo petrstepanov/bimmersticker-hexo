@@ -190,3 +190,8 @@ youtuber:
 
 # Ignore Gulp processed files./ Otherwise filters fire up on Gulp process event
 # https://hexo.io/docs/configuration#Include-x2F-Exclude-Files-or-Folders
+
+ignore:
+  - "/**/node_modules"
+  - "**/themes/*/development"
+  - "**/themes/*/node_modules"
