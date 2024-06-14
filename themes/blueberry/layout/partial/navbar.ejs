@@ -74,13 +74,13 @@
             Contact us
           </a>
         </li>
-<!--
-        <li class="nav-item d-lg-none">
-          <a class="nav-link" href="<%- theme.googlereview_url %>">
-            <span class="icon-xs me-1"><%- partial('ionicons/star.svg') %></span>Review us on Google
-          </a>
-        </li>
--->
+        <% if (theme.googlereview_url){ %>
+          <li class="nav-item d-lg-none">
+            <a class="nav-link" href="<%- theme.googlereview_url %>">
+              <span class="icon-xs me-2 icon-for-nav"><%- partial('ionicons/star.svg') %></span>Review us on Google
+            </a>
+          </li>
+        <% } %>
         <% if (theme.etsy_url){ %>
           <li class="nav-item d-lg-none">
             <a class="nav-link" href="<%- theme.etsy_url %>" rel="me">

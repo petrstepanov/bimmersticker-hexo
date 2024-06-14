@@ -108,7 +108,7 @@ $(function() {
   });
 
   // Connect color dropdowns and carousels
-  Carousel.init();
+  // Carousel.init();
 
   // Fix checkout button caption
   var checkoutButtonFix = new CheckoutButtonFix();

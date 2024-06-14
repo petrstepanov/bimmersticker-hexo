@@ -3,15 +3,10 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title font-size-28" id="customizeModalLabel">Any questions? We are here to help!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<!-- Begin Custom Request Form -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <!-- Begin Custom Request Form -->
       <form name="<%- typeof post!=='undefined'?post.path:page.path %>" data-netlify="true" data-success-event="formSuccessEvent" class="js--init-ajax-submit" method="POST" data-success-notification="Thanks for submitting your question. We will email you back soon!">
-      <!--
-        <form class="js--init-ajax-submit" data-success-event="formSuccessEvent" action="<%- theme.formcarry_url %>" method="POST" accept-charset="UTF-8" data-success-notification="Thanks for submitting the request. We will email you back soon!">
-      -->
         <div class="modal-body">
           <label for="input-page" class="d-none">Source page</label>
           <input type="hidden" name="page" value="<%- typeof post!=='undefined'?post.title:page.title %>" id="input-page" />
@@ -33,7 +28,7 @@
           </div>
         </div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-blueberry btn-outline-primary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-blueberry btn-outline-primary" data-bs-dismiss="modal">Close</button>
 					<button type="submit" class="btn btn-blueberry btn-primary">Send message</button>
 				</div>
       </form>

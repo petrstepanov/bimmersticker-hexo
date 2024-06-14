@@ -63,6 +63,27 @@ h6 {
   text-decoration: none;
 }
 
+
+// Links in paragraphs
+p a {
+  text-decoration: none;
+
+  [class^=icon-]{
+    transform: translateY(-1px);
+
+    svg {
+      transition: fill .15s;
+      fill: var(--bs-link-color);
+    }
+  }
+
+  &:hover {
+    svg {
+      fill: var(--bs-link-hover-color);
+    }
+  }
+}
+
 .bar {
   position: relative;
   padding-bottom: 1rem;

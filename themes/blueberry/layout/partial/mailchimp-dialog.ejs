@@ -3,9 +3,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title font-size-28" id="subscribeModalLabel">Subscribe to newsletter</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<!-- Begin Mailchimp Signup Form -->
 			<form class="js--init-ajax-submit" data-data-type="json" data-success-event="formSuccessEvent" data-success-notification="" action="<%- config.mailchimp.url %>" method="<%- config.mailchimp.method %>">
@@ -29,7 +27,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-blueberry btn-outline-primary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-blueberry btn-outline-primary" data-bs-dismiss="modal">Close</button>
 					<button type="submit" class="btn btn-blueberry btn-primary">Subscribe now</button>
 				</div>
 			</form>

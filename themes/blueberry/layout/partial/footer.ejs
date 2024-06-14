@@ -8,29 +8,32 @@
           <a class="mx-3" href="/">All Stickers</a>
           <a class="mx-3" href="/custom-windshield-banner-sun-strip/">Custom Sun Strips and Banners</a>
           <a class="mx-3" href="/custom-social-media-stickers/">Custom Social Media Stickers</a>
+          <a class="mx-3" href="/custom-truck-van-decals/">Business Decals for Trucks and Vans</a>
           <a class="mx-3" href="/terms-and-conditions">Terms and Conditions</a>
           <a class="mx-3" href="/privacy-policy">Privacy Policy</a>
           <a class="mx-3" href="/return-and-refund-policy">Return and Refund Policy</a>
-          <a class="mx-3" href="/#contact">Contact us</a>
-          <a class="mx-3" href="<%- theme.googlereview_url %>">Review us on Google</a>
+          <a class="mx-3" href="/#contact">Contact Us</a>
+          <% if (theme.googlereview_url){ %>
+            <a class="mx-3" href="<%- theme.googlereview_url %>">Review Us on Google</a>
+          <% } %>
         </nav>
         <nav class="col-12 text-center">
           <!-- <a href="/about">About</a>
           <a href="/how-to-apply">How to apply</a>
           <a href="#">Image attributions</a> -->
           <% if (theme.instagram_url){ %>
-            <a class="mx-2" href="<%- theme.instagram_url %>" rel="me">
-              <span class="icon-sm me-1"><%- partial('ionicons/logo-instagram.svg') %></span> Instagram
+            <a class="mx-2 d-inline-block" href="<%- theme.instagram_url %>" rel="me">
+              <span class="icon-sm"><%- partial('ionicons/logo-instagram.svg') %></span><span class="d-none">Instagram</span>
             </a>
           <% } %>
           <% if (theme.facebook_url){ %>
-            <a class="mx-2" href="<%- theme.twitter_url %>" rel="me">
-              <span class="icon-sm me-1"><%- partial('ionicons/logo-twitter.svg') %></span> Twitter
+            <a class="mx-2 d-inline-block" href="<%- theme.twitter_url %>" rel="me">
+              <span class="icon-sm"><%- partial('ionicons/logo-twitter.svg') %></span><span class="d-none">Twitter</span>
             </a>
           <% } %>
           <% if (theme.facebook_url){ %>
-            <a class="mx-2" href="<%- theme.facebook_url %>" rel="me">
-              <span class="icon-sm me-1"><%- partial('ionicons/logo-facebook.svg') %></span> Facebook
+            <a class="mx-2 d-inline-block" href="<%- theme.facebook_url %>" rel="me">
+              <span class="icon-sm"><%- partial('ionicons/logo-facebook.svg') %></span><span class="d-none">Facebook</span>
             </a>
           <% } %>
         </nav>

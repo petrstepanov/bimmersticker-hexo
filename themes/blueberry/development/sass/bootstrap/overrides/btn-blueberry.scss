@@ -1,7 +1,3 @@
-p a {
-  text-decoration: none;
-}
-
 .link-blueberry, .btn-link {
   // transition: color .15s;
 
@@ -17,12 +13,12 @@ p a {
  }
 }
 
-
 .btn-blueberry {
   font-weight: bold;
-  border-radius: 50rem;
+  border-radius: 5rem;
   box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
   text-transform: capitalize;
+  border-width: 2px;
 
   svg {
     fill: white;
@@ -33,17 +29,10 @@ p a {
       fill: white;
     }
   }
-
-  // &.btn-primary {
-  //   //                      background-color, border-color, hover-background,   hover-border,       active-background, active-border
-  //   @include button-variant($blue,            $blue,        lighten($blue, 7%), lighten($blue, 7%), darken($blue, 7%), darken($blue, 7%));
-  // }
 }
 
 .btn-outline-primary.btn-blueberry {
-  // border: 0px;
-  background-color: white;
-  // box-shadow: 0 2px 4px 0 rgba(0, 158, 230, 0.2), 0 0 0 1px $blue, inset 0 0 0 1px $blue;
+  background-color: var(--bs-body-bg);
 
   svg {
     fill: $blue;
@@ -56,6 +45,6 @@ p a {
   }
 
   &:hover {
-    background-color: $blue;
+    background-color: var(--bs-blue);
   }
 }

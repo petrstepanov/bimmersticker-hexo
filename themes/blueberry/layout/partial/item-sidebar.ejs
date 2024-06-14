@@ -75,10 +75,10 @@
           </dl>
           <% if (theme.email){ %>
             <p>
-              <button type="button" class="btn btn-link px-0 text-left" href="#" data-toggle="modal" data-target="#customizeModal">
+              <a href="#" data-bs-toggle="modal" data-bs-target="#customizeModal">
                 <span class="icon-xs"><%- partial('ionicons/mail.svg') %></span>
-                Contact us for custom colors and sizes
-              </button>
+                Need custom colors or sizes?
+              </a>
             </p>
           <% } %>
           <% if (theme.googlereview_url){ %>
@@ -91,7 +91,7 @@
         </section>
       </div>
     </div>
-    <img width="960" height="63" class="w-100 h-auto mt-2 d-lg-none" alt="aside section shape" src="<%- partial('data-uri/wave-aside') %>" />
+    <div class="wave-sidebar d-lg-none"><%- partial('svg/wave-sidebar.svg') %></div>
     <% // Write schema.org product metedata %>
     <%- partial('schema/products-parser', {products: [product]}) %>
   </div>

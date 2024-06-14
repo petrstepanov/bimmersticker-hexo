@@ -10840,6 +10840,20 @@ h6, .h6 {
   text-decoration: none;
 }
 
+p a {
+  text-decoration: none;
+}
+p a [class^=icon-] {
+  transform: translateY(-1px);
+}
+p a [class^=icon-] svg {
+  transition: fill 0.15s;
+  fill: var(--bs-link-color);
+}
+p a:hover svg {
+  fill: var(--bs-link-hover-color);
+}
+
 .bar {
   position: relative;
   padding-bottom: 1rem;
@@ -11172,10 +11186,6 @@ body {
   border-bottom: 0.15rem solid var(--bs-body-color);
 }
 
-p a {
-  text-decoration: none;
-}
-
 .link-blueberry svg, .btn-link svg {
   fill: var(--bs-link-color);
 }
@@ -11185,9 +11195,10 @@ p a {
 
 .btn-blueberry {
   font-weight: bold;
-  border-radius: 50rem;
+  border-radius: 5rem;
   box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
   text-transform: capitalize;
+  border-width: 2px;
 }
 .btn-blueberry svg {
   fill: white;
@@ -11197,7 +11208,7 @@ p a {
 }
 
 .btn-outline-primary.btn-blueberry {
-  background-color: white;
+  background-color: var(--bs-body-bg);
 }
 .btn-outline-primary.btn-blueberry svg {
   fill: #007CC2;
@@ -11206,21 +11217,21 @@ p a {
   fill: white;
 }
 .btn-outline-primary.btn-blueberry:hover {
-  background-color: #007CC2;
+  background-color: var(--bs-blue);
 }
 
-.form-control {
-  --form-control-shadow: 0 2px 4px 0 rgba($blue, 0.2);
+:root {
+  --ui-shadow: 0 2px 4px 0 rgba($blue, 0.2);
 }
 
 @media (prefers-color-scheme: dark) {
-  .form-control {
-    --form-control-shadow: 0 2px 4px 0 rgba(0,0,0, 0.3);
+  :root {
+    --ui-shadow: 0 2px 4px 0 rgba(0,0,0, 0.3);
   }
 }
 .form-control, .custom-select-blueberry {
   color: var(--bs-body-color);
-  box-shadow: var(--form-control-shadow);
+  box-shadow: var(--ui-shadow);
   /* Fixing safari zom-in isssue */
   font-size: 16px !important;
 }
@@ -13552,9 +13563,6 @@ footer .payment-icon {
 [class^=icon-] {
   display: inline-block;
 }
-[class^=icon-] svg {
-  fill: var(--bs-secondary-color);
-}
 
 .icon-padded {
   padding: 0.5rem;
@@ -13730,10 +13738,7 @@ body {
   position: relative;
 }
 
-.wave-header {
-  transform: translateY(1px);
-}
-.wave-header svg {
+.wave-sidebar svg {
   width: 100%;
   height: auto;
   fill: var(--bs-body-bg);
@@ -14372,13 +14377,13 @@ body {
 
 .related-post-image {
   border-radius: 50%;
-  border: 2px solid white;
-  transition: transform 300ms;
-  box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
+  border: 2px solid var(--bs-secondary-bg);
+  transition: transform 150ms;
+  box-shadow: var(--ui-shadow);
 }
 
 .related-post-link:hover .related-post-image {
-  transform: scale(1.075);
+  transform: scale(1.05);
 }
 
 #disqus_thread {
