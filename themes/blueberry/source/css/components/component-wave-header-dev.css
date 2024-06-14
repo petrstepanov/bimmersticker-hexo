@@ -1,0 +1,9 @@
+.component-wave-header {
+  transform: translateY(1px);
+}
+.component-wave-header svg {
+  width: 100%;
+  height: auto;
+  fill: var(--bs-body-bg);
+}
+/*# sourceMappingURL=component-wave-header.css.map */
