@@ -1,0 +1,178 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+.orientation-container {
+  display: flex;
+  flex-direction: column;
+
+  @include media-breakpoint-up(lg){
+    flex-direction: row;
+  }
+}
+
+.my-container {
+  @include make-container();
+}
+
+.sidebar-sticky {
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 7em;
+    position: sticky;
+    top: calc(var(--nb-logo-size) + 2*var(--nb-padding));
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding-bottom: 9em;
+  }
+}
+
+#post-aside {
+  background-color: var(--bs-dark-bg-subtle);
+
+  .sidebar-featured-container {
+    // Calc in SASS https://stackoverflow.com/questions/17982111/sass-variable-in-css-calc-function
+    width: calc(100% + #{$grid-gutter-width});
+    margin-left: calc($grid-gutter-width / -2);
+    margin-right: calc($grid-gutter-width / -2);
+    margin-bottom: 1.75em;
+    height: 320px;
+
+    @include media-breakpoint-up(sm){
+      margin-top: 1.75rem;
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+      border-radius: $border-radius;
+      overflow: hidden;
+    }
+
+    @include media-breakpoint-up(lg){
+      display: none;
+    }
+
+    // Crop featured image and gallery images
+    img {
+      // PS: Google CLS - set fixed height
+      height: 320px;
+      // max-height: 20rem;
+      object-fit: cover;
+
+      // @include media-breakpoint-up(sm){
+      //   max-height: 24rem;
+      // }
+    }
+  }
+
+  .sticker-properties {
+    dt {
+      float: left;
+      clear: left;
+      // font-family: $font-bold;
+      font-weight: bold; // Native font stack
+
+      margin-bottom: 0.5rem;
+    }
+
+    dd {
+      float: right;
+      clear: right;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  @include media-breakpoint-up(lg){
+    box-shadow: inset -1px 0 0 0 var(--bs-dark-border-subtle);
+    width: 40%;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    position: relative;
+    // padding-top: 1px;
+    top: -1px;
+  }
+
+  @include media-breakpoint-up(xl){
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+}
+
+#post-content {
+  padding-top: 2em;
+
+  @include media-breakpoint-up(lg){
+    width: 60%;
+    // font-size: $font-size-21;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-top: 2.475rem;
+  }
+
+  .post-featured-container {
+    border-radius: $border-radius;
+    overflow: hidden;
+    margin: 1em 0 1.75em 0;
+    display: none;
+
+    @include media-breakpoint-up(lg){
+      display: block;
+      margin-top: 0;
+    }
+
+    // Crop featured image or gallery in content
+    img {
+      height: 400px;
+      object-fit: cover;
+      // max-height: 25rem;
+
+      // @include media-breakpoint-up(xl){
+      //   max-height: 30rem;
+      // }
+    }
+  }
+
+  h2 {
+    margin-top: 2em;
+  }
+
+  p {
+    margin-bottom: 1em;
+  }
+
+  blockquote p {
+    margin-bottom: 0;
+  }
+}
+
+.content-image {
+  width: 100%;
+  height: auto;
+  border-radius: $border-radius;
+  margin: 1em 0 1.75em 0;
+  // For Google CLS
+  // Browsers add this themselves
+  // aspect-ratio: attr(width) / attr(height);
+}
+
+.content-image+blockquote, p+blockquote {
+  // font-size: 0.9em; // $font-size-12; - fix text too small ?
+  margin-top: -3em;
+  margin-bottom: 2em;
+  background-color: $indigo;
+  padding: 2em 1em 1em 1em;
+  border-bottom-left-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  // Fix Lighthouse contrast because of the background little bit darkened
+  a {
+    color: darken($blue, 10%);
+  }
+
+  br {
+    display: none;
+  }
+}

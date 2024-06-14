@@ -1,0 +1,22 @@
+.component-select-reflect {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.component-select-reflect .select-reflect-item {
+  animation: background-color 200ms;
+  background: var(--bs-secondary-bg);
+  border-radius: 0.5rem;
+  text-align: center;
+  flex-grow: 2;
+  padding: 1rem 0.25rem;
+}
+.component-select-reflect .select-reflect-item span {
+  font-weight: bold;
+  display: block;
+}
+.component-select-reflect .select-reflect-item.selected {
+  color: #212529;
+  background-color: var(--bs-primary);
+}
+/*# sourceMappingURL=component-select-reflect.css.map */

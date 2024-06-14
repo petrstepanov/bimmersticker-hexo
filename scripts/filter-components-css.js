@@ -8,8 +8,10 @@ hexo.extend.filter.register('after_render:html', (html) => {
   var matches = html.matchAll(re);
   var componentClasses = [];
   for (const match of matches) {
-    componentClasses.push(match[1]);
+    if (!componentClasses.includes(match[1])) componentClasses.push(match[1]);
   }
+
+  // console.log(componentClasses);
 
   // Find corresponding css file on filesystem
   var css="";

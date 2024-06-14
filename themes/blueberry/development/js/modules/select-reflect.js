@@ -11,7 +11,7 @@ var SelectReflect = function(){
     DOM.$options = DOM.$select.find("option");
 
     // Create new DOM elements
-    DOM.$selectReflect = $("<div>", {"class": "select-reflect"});
+    DOM.$selectReflect = $("<div>", {"class": "component-select-reflect"});
     DOM.$options.each(function(){
       // Iterate all <option /> elements
       $optionReflect = $("<div>", {"class": "select-reflect-item", "data-value": $(this).attr("value")});

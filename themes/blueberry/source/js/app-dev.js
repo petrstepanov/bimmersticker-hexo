@@ -1090,7 +1090,7 @@ var SelectColor = function(){
     DOM.$options = DOM.$select.find("option");
 
     // Create new DOM elements
-    DOM.$selectColor = $("<div>", {"class": "select-color is-Closed"});
+    DOM.$selectColor = $("<div>", {"class": "component-select-color is-Closed"});
 
     // Iterate all <option /> elements
     DOM.$options.each(function(){
@@ -1119,7 +1119,7 @@ var SelectColor = function(){
 
 
     // Append new widget
-    DOM.$selectColor.insertAfter(DOM.$select);
+    DOM.$selectColor.insertBefore(DOM.$select);
 
     // Remember options with image
     DOM.$pills = DOM.$selectColor.find(".select-color-pill");
@@ -1274,7 +1274,7 @@ var SelectReflect = function(){
     DOM.$options = DOM.$select.find("option");
 
     // Create new DOM elements
-    DOM.$selectReflect = $("<div>", {"class": "select-reflect"});
+    DOM.$selectReflect = $("<div>", {"class": "component-select-reflect"});
     DOM.$options.each(function(){
       // Iterate all <option /> elements
       $optionReflect = $("<div>", {"class": "select-reflect-item", "data-value": $(this).attr("value")});
@@ -1340,7 +1340,7 @@ var SelectWithImage = function(){
     DOM.$options = DOM.$select.find("option");
 
     // Create new DOM elements
-    DOM.$selectWithImage = $("<div>", {"class": "select-with-image"});
+    DOM.$selectWithImage = $("<div>", {"class": "component-select-with-image"});
     DOM.$options.each(function(){
       // Iterate all <option /> elements
       $optionWithImage = $("<div>", {"class": "select-with-image-item", "data-value": $(this).attr("value")});
@@ -1355,7 +1355,7 @@ var SelectWithImage = function(){
     });
 
     // Append new widget
-    DOM.$selectWithImage.insertAfter(DOM.$select);
+    DOM.$selectWithImage.insertBefore(DOM.$select);
 
     // Remember options with image
     DOM.$optionsWithImage = DOM.$selectWithImage.find(".select-with-image-item");

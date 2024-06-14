@@ -1,9 +1,9 @@
 [class^=icon-]{
   display: inline-block;
 
-  // svg {
-    // fill: var(--bs-secondary-color);
-  // }
+  svg {
+    fill: var(--bs-body-color);
+  }
 }
 
 .icon-padded {
@@ -81,6 +81,6 @@ svg {
   fill: var(--bs-link-color);
 }
 
-.nav-link.active svg {
-  fill: white;
-}
+// .nav-link.active svg {
+//   fill: white;
+// }

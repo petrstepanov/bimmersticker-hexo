@@ -32,11 +32,11 @@
 }
 
 .cryptedmail:after {
-  content: attr(data-name) "@" attr(data-domain) "." attr(data-com); 
+  content: attr(data-name) "@" attr(data-domain) "." attr(data-com);
 }
 
 .cryptedphone:after {
-  content: attr(data-country) " (" attr(data-area) ") " attr(data-local); 
+  content: attr(data-country) " (" attr(data-area) ") " attr(data-local);
 }
 
 .transform-scale-85 {

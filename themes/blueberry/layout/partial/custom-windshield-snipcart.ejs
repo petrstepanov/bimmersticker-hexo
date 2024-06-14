@@ -11,7 +11,7 @@
 	}
 %>
 <!-- hidden overflow-x here for the truck image to not go out of bounds -->
-<div style="overflow-x: hidden">
+<div class="component-banner-form">
 	<div class="container spacer-footer">
 		<div class="row">
 			<div class="col js-container">
@@ -160,7 +160,7 @@
 											<% // var src = encodeURI(url + query); %>
 											<% var src = '/img/banner-previews/your-banner-' + font.id; %>
 
-											<picture class="mt-3 d-inline-block">
+											<picture class="mt-3 d-inline-block invert-in-dark">
 												<!--This is the optional AVIF image-->
 												<source type="image/avif" srcset="<%- src %>.avif" class="js--font-avif" />
 												<!--This is the fallback JPEG image-->
@@ -245,11 +245,11 @@
 							<div class="form-group">
 								<label class="label-blueberry">Vehicle type</label>
 								<div class="btn-group btn-group-md btn-group-toggle w-100" data-bs-toggle="buttons">
-									<label class="btn btn-primary btn-blueberry active">
-										<input type="radio" name="pattern" value="Regular" checked>Regular Car
-									</label>
-									<label class="btn btn-primary btn-blueberry">
-										<input type="radio" name="pattern" value="Large">Large Vehicle&nbsp;&nbsp;|&nbsp;&nbsp;
+									<input id="car-regular" type="radio" class="btn-check" name="pattern" value="Regular" checked>
+									<label for="car-regular" class="btn btn-primary btn-blueberry active">Regular Car</label>
+
+									<input id="car-large" type="radio" class="btn-check" name="pattern" value="Large">
+									<label for="car-large" class="btn btn-primary btn-blueberry">Large Vehicle&nbsp;&nbsp;|&nbsp;&nbsp;
 										<% var firstProductFlag = true; %>
 										<span class="js--pattern-price-extra">
 											<% for (var product of products) {
@@ -272,13 +272,9 @@
 							<div class="form-group">
 								<label class="label-blueberry" for="inputQuantity">How many items you need?</label>
 								<div class="input-group js--init-integer-input">
-									<div class="input-group-prepend">
-										<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
-									</div>
+									<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
 									<input name="quantity" type="number" class="form-control js--input text-center hide-arrows" id="inputQuantity" value="1" min="1" max="999">
-									<div class="input-group-append">
-										<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
-									</div>
+									<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
 								</div>
 								<div class="alert alert-success mt-3 text-center animate__delay-1s" role="alert" data-aos="animate__tada">
 									<small>We offer <strong>10% off</strong> for 2+,  <strong>15% off</strong> for 4+ and <strong>20% off</strong> for 10+ same items in your cart!</small>
@@ -384,7 +380,7 @@
 				</form>
 				<hr />
 				<h2 class="text-center my-4">You might also like</h2>
-				<div class="row justify-content-center">
+				<div class="row justify-content-center component-related-posts">
 					<%
 						var featuredProductIds = ['ST_SOCIAL_SC','ST_SOCIAL_FB', 'KEY_VIN', 'ST_SOCIAL_IG'];
 						var featuredProducts = [];

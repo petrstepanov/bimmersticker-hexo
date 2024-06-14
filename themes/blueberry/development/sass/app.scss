@@ -22,30 +22,12 @@
  @import "./../../node_modules/toastify-js/src/toastify";
  @import "toastify-overrides";
 
- @import "layout/post";
- @import "layout/footer";
- @import "layout/youtube";
-
- @import "banner-form";
+ @import "footer";
 
  @import "icons";
  @import "utilities";
  @import "loading";
  @import "scrollspy";
-
- @import "widgets/wave-sidebar";
- @import "widgets/container-horizontal";
- @import "widgets/swatches";
- @import "widgets/widget-jumbotron-frontpage";
- @import "widgets/widget-jumbotron-page";
- @import "widgets/widget-jumbotron-truck-van";
- @import "widgets/preview-truck-van";
- @import "widgets/select-reflect";
- @import "widgets/select-color";
- @import "widgets/select-with-image";
- @import "widgets/related-posts";
-
- @import "disqus/disqus-overrides";
 
  // Top Menu styling for cart button
  @import "snipcart/snipcart";
@@ -63,6 +45,3 @@
  @import "snipcart/overrides/view-complete";
 
  @import "print";
-
- // TODO: implement dark mode
- // @import "dark";

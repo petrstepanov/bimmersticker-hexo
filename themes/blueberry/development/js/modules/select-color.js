@@ -21,7 +21,7 @@ var SelectColor = function(){
     DOM.$options = DOM.$select.find("option");
 
     // Create new DOM elements
-    DOM.$selectColor = $("<div>", {"class": "select-color is-Closed"});
+    DOM.$selectColor = $("<div>", {"class": "component-select-color is-Closed"});
 
     // Iterate all <option /> elements
     DOM.$options.each(function(){
@@ -50,7 +50,7 @@ var SelectColor = function(){
 
 
     // Append new widget
-    DOM.$selectColor.insertAfter(DOM.$select);
+    DOM.$selectColor.insertBefore(DOM.$select);
 
     // Remember options with image
     DOM.$pills = DOM.$selectColor.find(".select-color-pill");

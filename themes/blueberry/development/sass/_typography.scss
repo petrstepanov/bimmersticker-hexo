@@ -33,6 +33,12 @@
 
 $font-handwritten: "letrista_script", Helvetica, sans-serif;
 
+// Convert SASS variable into CSS Variable to be used in components
+// https://dev.to/nicm42/combining-sass-variables-with-css-custom-properties-5hj7
+:root {
+  --font-handwritten: #{$font-handwritten};
+}
+
 @mixin font-display {
   font-stretch: condensed !important;
   font-weight: $font-weight-bold !important;
