@@ -1,4 +1,8 @@
 .widget-jumbotron-truck-van {
+    background-position: center center;
+    background-size: cover;
+    color: white;
+
     /* prevent x scrollbar for truck van */
     overflow-x: hidden;
     background-image: url('/custom-truck-van-decals/jumbotron-background.jpg');

@@ -22,7 +22,6 @@
  @import "./../../node_modules/toastify-js/src/toastify";
  @import "toastify-overrides";
 
- @import "layout/frontpage";
  @import "layout/post";
  @import "layout/footer";
  @import "layout/youtube";
@@ -38,7 +37,7 @@
  @import "widgets/wave-header";
  @import "widgets/container-horizontal";
  @import "widgets/swatches";
- @import "widgets/widget-jumbotron";
+ @import "widgets/widget-jumbotron-frontpage";
  @import "widgets/widget-jumbotron-page";
  @import "widgets/widget-jumbotron-truck-van";
  @import "widgets/preview-truck-van";

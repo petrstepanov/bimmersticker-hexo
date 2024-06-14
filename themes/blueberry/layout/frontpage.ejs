@@ -3,26 +3,22 @@
   page.photos = [config.url + '/img/sticker-store-llc-bimmer-sticker-store.jpg'];
 %>
 
-<section class="section-intro mb-3">
+<section class="mb-3">
 	<%- partial('partial/navbar') %>
-	<div class="widget-jumbotron bg-dark-subtle">
+	<div class="widget-jumbotron-frontpage bg-dark-subtle">
 		<div class="container">
 			<div class="row">
-				<h1 class="col-11 col-md-12 col-lg-9 display-4 mt-4 mt-md-5"><%- theme.slogan ? theme.slogan : "" %></h1>
+				<h1 class="col-11 col-md-12 col-lg-9 col-xl-8 display-4       mt-4 mt-lg-5      mb-5 mb-md-0"><%- theme.slogan ? theme.slogan : "" %></h1>
 			</div>
 			<div class="row">
-					<div class="col-12 col-md-8 col-lg-7 col-xl-5 mb-3">
+				<div class="col-12 col-md-7 col-xl-5 mb-3   mt-5 mt-md-2">
 					<p class="fs-4 my-3"><%- theme.lead1 ? theme.lead1 : "" %></p>
 					<p class="fs-6"><%- theme.lead2 ? theme.lead2 : "" %></p>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col mb-4 mb-md-5">
+				<div class="col mb-4 mb-lg-5">
 					<div class="d-flex align-items-center">
-						<!-- <button type="button" class="btn btn-lg btn-primary rounded-pill me-2" data-toggle="modal" data-target="#subscribeModal">
-							Subscribe to newsletter
-						</button>
-						<span class="d-none d-sm-inline front-paragraph">and get new sticker alerts.</span> -->
 						<a href="mailto:info@stickerstore.llc" class="btn btn-lg btn-primary btn-blueberry me-2">
 							Send us an Email
 						</a>
