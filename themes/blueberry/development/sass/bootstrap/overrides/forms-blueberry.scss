@@ -1,11 +1,21 @@
-$input-padding-x: 1.1rem;
+// $input-padding-x: 1.1rem;
+
+.form-control {
+  --form-control-shadow: 0 2px 4px 0 rgba($blue, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  .form-control {
+    --form-control-shadow: 0 2px 4px 0 rgba(0,0,0, 0.3);
+  }
+}
 
 .form-control, .custom-select-blueberry {
   color: var(--bs-body-color);
-  box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
-  border: 1px solid #dceaf9;
-  padding-left: $input-padding-x;
-  padding-right: $input-padding-x;
+  box-shadow: var(--form-control-shadow);
+  // border: 1px solid #dceaf9;
+  // padding-left: $input-padding-x;
+  // padding-right: $input-padding-x;
   /* Fixing safari zom-in isssue */
   font-size: 16px !important;
 
@@ -33,6 +43,7 @@ $input-padding-x: 1.1rem;
 
 .label-blueberry {
   @extend .my-label;
+  display: block;
 }
 
 .select-blueberry {

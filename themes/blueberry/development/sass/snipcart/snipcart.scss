@@ -3,28 +3,29 @@
 
     svg {
         fill: var(--bs-body-color);
+        transition: fill 0.15s ease-in-out;
     }
 
     .snipcart-items-count {
         position: absolute;
-        top: -0.0625rem;
-        right: -0.2rem;
-        background-color: $primary;
-        color: $primary;
-        // font-family: $font-bold;
+        top: -3px;
+        left: 1rem;
+        background-color: var(--bs-blue);
+        color: var(--bs-white);
         font-weight: bolder; // Native font stack
-
         font-size: $font-size-12;
         padding: 0 0.3rem;
-        border-radius: 2rem;
-        box-shadow: 0 0 0 0.125rem var(--bs-body-bg);
+        border-radius: 0.6rem;
+        box-shadow: 0 0 0 2px var(--bs-body-bg);
         height: 1.2rem;
-        line-height: 1.35rem;
+        line-height: 1.25rem;
         min-width: 1.2rem;
         text-align: center;
+    }
 
-        .transparent & {
-            box-shadow: 0 0 0 0.125rem $indigo;
+    &:hover {
+        svg {
+          fill: var(--bs-link-color);
         }
     }
 }

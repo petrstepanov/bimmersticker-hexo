@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-blueberry navbar-expand-lg <%- typeof className !== 'undefined' ? className : ''; %>" id="navbar-spy">
+<nav class="navbar fixed-top navbar-blueberry navbar-expand-lg js--init-navbar-collapse <%- typeof className !== 'undefined' ? className : ''; %>">
   <div class="container" id="back-link-container">
     <% if (is_post()){ %>
       <!-- Back button -->
@@ -7,12 +7,12 @@
       </a>
     <% } else { %>
       <a class="navbar-brand" href="/">
-        <img src="<%- theme.logo %>" class="logo-image w-auto" width="222" height="55" alt="Sticker Store LLC (Bimmer Sticker Store) logo">
-        <img src="<%- theme.logo_dark %>" class="logo-image w-auto" width="222" height="55" alt="Sticker Store LLC (Bimmer Sticker Store) logo dark">
+          <img src="<%- theme.logo %>" class="logo-image" width="1086" height="257" alt="Sticker Store LLC (Bimmer Sticker Store) logo">
+          <img src="<%- theme.logo_dark %>" class="logo-image" width="1086" height="257" alt="Sticker Store LLC (Bimmer Sticker Store) dark logo">
       </a>
     <% } %>
     <!-- Grow element -->
-    <div class="flex-grow-1 text-right"></div>
+    <div class="flex-grow-1 text-end"></div>
     <!-- Buy button -->
     <% if (is_post()){ %>
       <% var product = getProductCopy(site.data.product_list, post.product_id); %>
@@ -21,88 +21,93 @@
       </div>
     <% } %>
     <!-- Grow element -->
-    <div class="flex-grow-1 text-right"></div>
+    <div class="flex-grow-1 text-end"></div>
     <!-- Menu hamburger -->
-    <div class="text-right">
-      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-        <span class="icon-md">
-          <%- partial('ionicons/menu.svg') %>
+    <div class="text-end">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="icon-md js--icon-open faster">
+          <%- partial('svg/icon-menu.svg') %>
+        </span>
+        <span class="icon-md js--icon-close faster" style="display: none">
+          <%- partial('svg/icon-close.svg') %>
         </span>
       </button>
     </div>
     <!-- Cart button -->
-    <% if(config.cart == "snipcart"){ %><%-partial('partial/snipcart-cart-button') %><% } %>
+    <button class="btn ms-2 px-0 py-0 snipcart-checkout icon-md d-lg-none" aria-label="View Cart">
+      <%- partial('ionicons/cart.svg') %>
+      <span class="snipcart-items-count"></span>
+    </button>
+    <!-- Collapse navbar -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="/">
+            <span class="icon-xs me-2 icon-for-nav"><%- partial('ionicons/home.svg') %></span>All Stickers
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/custom-social-media-stickers/">
+            <span class="icon-xs me-2 icon-for-nav"><%- partial('ionicons/logo-instagram.svg') %></span><span class="d-lg-none">Custom </span>Social <span class="d-lg-none d-lg-inline">Media</span> Stickers
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/custom-windshield-banner-sun-strip/">
+            <span class="icon-xs me-2 icon-for-nav"><%- partial('ionicons/car.svg') %></span><span class="d-lg-none d-xl-inline">Custom Windshield </span>Banners
+          </a>
+        </li>
+        <li class="nav-item nav-separator d-lg-none">
+          <a class="nav-link" href="/how-to-apply-windsheild-banner-on-a-car/">How to Apply Windshield Banner?</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/custom-truck-van-decals/">
+            <span class="icon-xs me-2 icon-for-nav"><%- partial('svg/icon-mini-van.svg') %></span>Truck & Van <span class="d-lg-none">Business</span> Decals
+          </a>
+        </li>
+        <li class="nav-item nav-separator d-lg-none">
+          <a class="nav-link" href="/buy-keyring-keychain-with-your-car-vin-number/">
+            <span class="icon-xs me-2 icon-for-nav"><%- partial('ionicons/key.svg') %></span><span class="d-lg-none">Custom Car</span> Key Chains
+          </a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="/#contact">
+            Contact us
+          </a>
+        </li>
+<!--
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="<%- theme.googlereview_url %>">
+            <span class="icon-xs me-1"><%- partial('ionicons/star.svg') %></span>Review us on Google
+          </a>
+        </li>
+-->
+        <% if (theme.etsy_url){ %>
+          <li class="nav-item d-lg-none">
+            <a class="nav-link" href="<%- theme.etsy_url %>" rel="me">
+              <span class="icon-xs me-2 icon-for-nav"><%- partial('ionicons/storefront.svg') %></span>Visit our Etsy Store
+            </a>
+          </li>
+        <% } %>
+        <% if (theme.instagram_url){ %>
+          <li class="nav-item d-lg-none">
+            <a class="nav-link" href="<%- theme.instagram_url %>" rel="me">
+              Follow us on Instagram
+            </a>
+          </li>
+        <% } %>
+        <% if (theme.facebook_url){ %>
+          <li class="nav-item d-lg-none">
+            <a class="nav-link" href="<%- theme.facebook_url %>" rel="me">
+              Like us on Facebook
+            </a>
+          </li>
+        <% } %>
+        <% if(config.cart == "snipcart"){ %>
+          <li class="nav-item nav-item-for-cart d-none d-lg-inline">
+              <%-partial('partial/snipcart-cart-button') %>
+          </li>
+        <% } %>
+      </ul>
+    </div>
   </div>
 </nav>
-
-<div class="offcanvas offcanvas-blueberry offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-  <div class="offcanvas-header">
-    <!-- <h5 class="offcanvas-title" id="offcanvasTopLabel">Offcanvas top</h5> -->
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <ul class="navbar-nav ms-auto">
-      <li class="nav-item d-lg-none">
-        <a class="nav-link" href="/">
-          <span class="icon-xs me-2 icon-for-nav d-lg-none"><%- partial('ionicons/home.svg') %></span>All Stickers
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/custom-social-media-stickers/">
-          <span class="icon-xs me-2 icon-for-nav d-lg-none"><%- partial('ionicons/logo-instagram.svg') %></span><span class="d-lg-none">Custom </span>Social <span class="d-lg-none d-lg-inline">Media</span> Stickers
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/custom-windshield-banner-sun-strip/">
-          <span class="icon-xs me-2 icon-for-nav d-lg-none"><%- partial('ionicons/car.svg') %></span><span class="d-lg-none d-xl-inline">Custom </span>Windshield Banners
-        </a>
-      </li>
-      <li class="nav-item nav-separator d-lg-none">
-        <a class="nav-link" href="/how-to-apply-windsheild-banner-on-a-car/">How to Apply Windshield Banner?</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/custom-truck-van-decals/">
-          <span class="icon-xs me-2 icon-for-nav d-lg-none"><%- partial('svg/icon-mini-van.svg') %></span>Truck & Van <span class="d-lg-none">Business</span> Decals
-        </a>
-      </li>
-      <li class="nav-item nav-separator d-lg-none">
-        <a class="nav-link" href="/buy-keyring-keychain-with-your-car-vin-number/">
-          <span class="icon-xs me-2 icon-for-nav d-lg-none"><%- partial('ionicons/key.svg') %></span><span class="d-lg-none">Custom Car</span> Key Chains
-        </a>
-      </li>
-      <li class="nav-item d-lg-none">
-        <a class="nav-link" href="/#contact">
-          Contact us
-        </a>
-      </li>
-<!--
-      <li class="nav-item d-lg-none">
-        <a class="nav-link" href="<%- theme.googlereview_url %>">
-          <span class="icon-xs me-1"><%- partial('ionicons/star.svg') %></span>Review us on Google
-        </a>
-      </li>
--->
-      <% if (theme.etsy_url){ %>
-        <li>
-          <a class="nav-link" href="<%- theme.etsy_url %>" rel="me">
-            <span class="icon-xs me-2 icon-for-nav d-lg-none"><%- partial('ionicons/storefront.svg') %></span>Visit our Etsy Store
-          </a>
-        </li>
-      <% } %>
-      <% if (theme.instagram_url){ %>
-        <li>
-          <a class="nav-link" href="<%- theme.instagram_url %>" rel="me">
-            Follow us on Instagram
-          </a>
-        </li>
-      <% } %>
-      <% if (theme.facebook_url){ %>
-        <li>
-          <a class="nav-link" href="<%- theme.facebook_url %>" rel="me">
-            Like us on Facebook
-          </a>
-        </li>
-      <% } %>
-    </ul>
-  </div>
-</div>

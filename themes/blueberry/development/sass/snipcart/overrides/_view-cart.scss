@@ -86,7 +86,7 @@
     }
 
     .snipcart-discount-box__form-container button {
-        color: $link-color;
+        color: var(--bs-link-color);
     }
 
     .snipcart-discount-box__form {
@@ -322,7 +322,7 @@
     // Make "I don't see my address" checkbox look like a link
     // label[for="addressNotFound"] {
     //     float: right;
-    //     color: $link-color;
+    //     color: var(--bs-link-color);
 
     //     &::before{
     //         display: none;

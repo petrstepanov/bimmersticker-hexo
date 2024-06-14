@@ -74,10 +74,12 @@
             <% } %>
           </dl>
           <% if (theme.email){ %>
-            <button type="button" class="btn btn-link px-0 text-left" href="#" data-toggle="modal" data-target="#customizeModal">
-              <span class="icon-xs"><%- partial('ionicons/mail.svg') %></span>
-              Contact us for custom colors and sizes
-            </button>
+            <p>
+              <button type="button" class="btn btn-link px-0 text-left" href="#" data-toggle="modal" data-target="#customizeModal">
+                <span class="icon-xs"><%- partial('ionicons/mail.svg') %></span>
+                Contact us for custom colors and sizes
+              </button>
+            </p>
           <% } %>
           <% if (theme.googlereview_url){ %>
             <br/>

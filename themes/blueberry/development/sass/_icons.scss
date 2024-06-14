@@ -78,7 +78,7 @@ svg {
 }
 
 .nav-link svg {
-  fill: $link-color;
+  fill: var(--bs-link-color);
 }
 
 .nav-link.active svg {

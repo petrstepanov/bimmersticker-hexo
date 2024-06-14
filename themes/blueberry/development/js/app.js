@@ -5,6 +5,7 @@ var AOS = require('aos');
 
 var events = require('./modules/events');
 
+var navbarCollapse = require('./modules/navbar-collapse');
 var windshieldForm = require('./modules/windshield-form-snipcart'); // require('./modules/windshield-form');
 var truckVanForm = require('./modules/truck-van-form');
 var snipcartForm = require('./modules/snipcart-form');
@@ -30,7 +31,7 @@ var InteractiveBackButton = require('./modules/interactive-back-button');
 var autovalid = require('./modules/autovalid');
 var ContainerHorizontal = require('./modules/container-horizontal');
 var DetectTrackpadMouse = require('./modules/detect-trackpad-mouse');
-var DarkMode = require('./modules/dark-mode');
+// var DarkMode = require('./modules/dark-mode');
 // var TouchEmulator = require('hammer-touchemulator');
 
 // Google Customer Reviews
@@ -46,13 +47,13 @@ gcr.init();
 window['gcr'] = gcr;
 
 $(function() {
-  DarkMode.init();
+  // DarkMode.init();
   // Handler for .ready() called.
 
   // Interactive Back Button
   // InteractiveBackButton.init(document.querySelector('.js--init-back-button'));
   InteractiveBackButton.init();
-
+  navbarCollapse.init(document.querySelector('.js--init-navbar-collapse'));
   // smoothScroll.init();
   // windshieldForm.init(document.querySelector('.js--init-windshield-container'));
 

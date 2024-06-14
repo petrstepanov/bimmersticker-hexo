@@ -68,8 +68,7 @@ $cards-gap: 2rem;
         text-align: center;
 
         svg {
-            stroke: gray;
-            fill: whitesmoke;
+            fill: var(--bs-tertiary-color)
         }
     }
 }

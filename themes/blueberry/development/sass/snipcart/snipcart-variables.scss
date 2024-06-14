@@ -50,8 +50,8 @@ $ui-element-shadow-red: 0 2px 4px 0 #{rgba($red, 0.2)};
     --color-icon: #{var(--bs-body-color)};
 
     // Link colors
-    --color-link: #{$link-color};
-    --color-link-hover: #{$link-hover-color};
+    --color-link: #{var(--bs-link-color)};
+    --color-link-hover: #{var(--bs-link-hover-color)};
 
     // Last Payment icon (turned out to be a Snipcart "badge", not icon?) on order complete page was blue
     --color-badge: #{var(--bs-body-color)};

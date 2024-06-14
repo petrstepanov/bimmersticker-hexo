@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
 
 <head>
   <!-- Consent  - do not need! Screw it. -->
@@ -14,13 +14,33 @@
 
     gtag('config', 'AW-780568854');
   </script>
+  <!-- BEGIN: Dark Mode Switcher -->
+  <script>
+    // Stolen from here
+    // https://stackoverflow.com/a/75065536/885400
+
+    function _updateTheme() {
+        const colorMode = window.matchMedia("(prefers-color-scheme: dark)").matches ?
+            "dark" :
+            "light";
+        document.querySelector("html").setAttribute("data-bs-theme", colorMode);
+    }
+
+    function _bindEvents(){
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', _updateTheme)
+    }
+
+    _updateTheme();
+    _bindEvents();
+  </script>
+  <!-- END: Dark Mode Switcher -->
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>
     <%= page.title ? page.title : config.title %>
   </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Favicon begin: https://realfavicongenerator.net/ -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">

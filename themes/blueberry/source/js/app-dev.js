@@ -6,6 +6,7 @@ var AOS = require('aos');
 
 var events = require('./modules/events');
 
+var navbarCollapse = require('./modules/navbar-collapse');
 var windshieldForm = require('./modules/windshield-form-snipcart'); // require('./modules/windshield-form');
 var truckVanForm = require('./modules/truck-van-form');
 var snipcartForm = require('./modules/snipcart-form');
@@ -31,7 +32,7 @@ var InteractiveBackButton = require('./modules/interactive-back-button');
 var autovalid = require('./modules/autovalid');
 var ContainerHorizontal = require('./modules/container-horizontal');
 var DetectTrackpadMouse = require('./modules/detect-trackpad-mouse');
-var DarkMode = require('./modules/dark-mode');
+// var DarkMode = require('./modules/dark-mode');
 // var TouchEmulator = require('hammer-touchemulator');
 
 // Google Customer Reviews
@@ -47,13 +48,13 @@ gcr.init();
 window['gcr'] = gcr;
 
 $(function() {
-  DarkMode.init();
+  // DarkMode.init();
   // Handler for .ready() called.
 
   // Interactive Back Button
   // InteractiveBackButton.init(document.querySelector('.js--init-back-button'));
   InteractiveBackButton.init();
-
+  navbarCollapse.init(document.querySelector('.js--init-navbar-collapse'));
   // smoothScroll.init();
   // windshieldForm.init(document.querySelector('.js--init-windshield-container'));
 
@@ -167,7 +168,7 @@ $(function() {
 
 });
 
-},{"./modules/autovalid":2,"./modules/carousel":3,"./modules/checkout-button-fix":4,"./modules/container-horizontal":5,"./modules/content-buy-button":6,"./modules/dark-mode":7,"./modules/detect-trackpad-mouse":8,"./modules/events":9,"./modules/form-ajax-submit":10,"./modules/form-inside-dialog":11,"./modules/gcr":12,"./modules/input-color":14,"./modules/integer-input":15,"./modules/interactive-back-button":16,"./modules/navbar-buy-button":17,"./modules/posts-filter":19,"./modules/select-color":20,"./modules/select-reflect":21,"./modules/select-with-image":22,"./modules/snipcart-form":23,"./modules/swatches":24,"./modules/truck-van-form":25,"./modules/video":26,"./modules/widget-area":27,"./modules/windshield-form-snipcart":28,"aos":30,"autosize":31,"bootstrap":32,"jquery":34}],2:[function(require,module,exports){
+},{"./modules/autovalid":2,"./modules/carousel":3,"./modules/checkout-button-fix":4,"./modules/container-horizontal":5,"./modules/content-buy-button":6,"./modules/detect-trackpad-mouse":7,"./modules/events":8,"./modules/form-ajax-submit":9,"./modules/form-inside-dialog":10,"./modules/gcr":11,"./modules/input-color":13,"./modules/integer-input":14,"./modules/interactive-back-button":15,"./modules/navbar-buy-button":16,"./modules/navbar-collapse":17,"./modules/posts-filter":19,"./modules/select-color":20,"./modules/select-reflect":21,"./modules/select-with-image":22,"./modules/snipcart-form":23,"./modules/swatches":24,"./modules/truck-van-form":25,"./modules/video":26,"./modules/widget-area":27,"./modules/windshield-form-snipcart":28,"aos":30,"autosize":31,"bootstrap":32,"jquery":34}],2:[function(require,module,exports){
 function autovalid(options = {}) {
     const scope = options.scope || document;
     // const fields = scope.querySelectorAll("input, select, textarea");
@@ -230,7 +231,7 @@ function init(element) {
 
 exports.init = init;
 
-},{"./events":9,"jquery":34}],4:[function(require,module,exports){
+},{"./events":8,"jquery":34}],4:[function(require,module,exports){
 var $ = require('jquery');
 
 var CheckoutButtonFix = function(){
@@ -318,7 +319,7 @@ var ContainerHorizontal = function(){
 };
 
 module.exports = ContainerHorizontal;
-},{"./events":9,"jquery":34,"jquery.kinetic":33}],6:[function(require,module,exports){
+},{"./events":8,"jquery":34,"jquery.kinetic":33}],6:[function(require,module,exports){
 // Emit event when 'Buy' button on the post's page goes out of viewport
 
 var $ = require('jquery');
@@ -356,28 +357,7 @@ function init(element) {
 }
 
 exports.init = init;
-},{"./events":9,"./helpers":13,"jquery":34}],7:[function(require,module,exports){
-// Stolen from here
-// https://stackoverflow.com/a/75065536/885400
-
-function _updateTheme() {
-    const colorMode = window.matchMedia("(prefers-color-scheme: dark)").matches ?
-        "dark" :
-        "light";
-    document.querySelector("html").setAttribute("data-bs-theme", colorMode);
-    }
-
-function _bindEvents(){
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', _updateTheme)
-}
-
-function init(){
-    _updateTheme();
-    _bindEvents();
-}
-
-exports.init = init;
-},{}],8:[function(require,module,exports){
+},{"./events":8,"./helpers":12,"jquery":34}],7:[function(require,module,exports){
 var events = require('./events');
 
 var DetectTrackpadMouse = function () {
@@ -409,7 +389,7 @@ var DetectTrackpadMouse = function () {
 };
 
 module.exports = DetectTrackpadMouse;
-},{"./events":9}],9:[function(require,module,exports){
+},{"./events":8}],8:[function(require,module,exports){
 // Simple event bus
 // https://gist.github.com/learncodeacademy/777349747d8382bfb722
 
@@ -442,7 +422,7 @@ function emit(eventName, data) {
 exports.on = on;
 exports.off = off;
 exports.emit = emit;
-},{}],10:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 // Ajax form submission logic
 
 var $ = require('jquery');
@@ -551,7 +531,7 @@ var FormAjaxSubmit = function(){
 };
 
 module.exports = FormAjaxSubmit;
-},{"./events":9,"./notification-center":18,"jquery":34}],11:[function(require,module,exports){
+},{"./events":8,"./notification-center":18,"jquery":34}],10:[function(require,module,exports){
 // Hide Bootstrap dialog that contains mailchimp form
 
 var $ = require('jquery');
@@ -577,7 +557,7 @@ function init(element) {
 }
 
 exports.init = init;
-},{"./events":9,"jquery":34}],12:[function(require,module,exports){
+},{"./events":8,"jquery":34}],11:[function(require,module,exports){
 var $ = require('jquery');
 var nunjucks = require('nunjucks');
 
@@ -624,7 +604,7 @@ function init() {
 
 exports.init = init;
 exports.renderGoogleCustomerReviews = renderGoogleCustomerReviews;
-},{"jquery":34,"nunjucks":37}],13:[function(require,module,exports){
+},{"jquery":34,"nunjucks":37}],12:[function(require,module,exports){
 // Helper module
 
 var $ = require('jquery');
@@ -679,6 +659,7 @@ function parseFirstLastName(string){
 }
 
 function animateCSS(node, animationName, callback) {
+  node.classList.add('animate__faster');
   var prefix = 'animate__';
   node.classList.add(prefix+'animated', prefix+animationName);
 
@@ -709,7 +690,7 @@ exports.objectifyForm = objectifyForm;
 exports.parseFirstLastName = parseFirstLastName;
 exports.animateCSS = animateCSS;
 exports.getFormData = getFormData;
-},{"jquery":34}],14:[function(require,module,exports){
+},{"jquery":34}],13:[function(require,module,exports){
 // Ajax form submission logic
 
 const $ = require('jquery');
@@ -778,7 +759,7 @@ var InputColor = function(){
 };
 
 module.exports = InputColor;
-},{"jquery":34,"named-web-colors":36}],15:[function(require,module,exports){
+},{"jquery":34,"named-web-colors":36}],14:[function(require,module,exports){
 // HTML5 form validation
 // https://pageclip.co/blog/2018-02-20-you-should-use-html5-form-validation.html
 
@@ -830,7 +811,7 @@ var IntegerInput = function(){
 };
 
 module.exports = IntegerInput;
-},{"jquery":34}],16:[function(require,module,exports){
+},{"jquery":34}],15:[function(require,module,exports){
 var $ = require('jquery');
 var Cookies = require('js-cookie');
 
@@ -867,7 +848,7 @@ function init() {
 }
 
 exports.init = init;
-},{"jquery":34,"js-cookie":35}],17:[function(require,module,exports){
+},{"jquery":34,"js-cookie":35}],16:[function(require,module,exports){
 // Show or hide 'Buy' button on navbar product page
 
 var $ = require('jquery');
@@ -902,7 +883,95 @@ function init(element) {
 
 exports.init = init;
 
-},{"./events":9,"jquery":34}],18:[function(require,module,exports){
+},{"./events":8,"jquery":34}],17:[function(require,module,exports){
+// Fixes Navbar for vieport width less than a set threshold
+
+var $ = require('jquery');
+var helpers = require('./helpers');
+var events = require('./events');
+var bootstrap = require('bootstrap');
+
+var DOM = {};
+var options = {};
+// var fixed = false;
+// var height = 0;
+
+function _cacheDom(element) {
+  DOM.$navbar = $(element);
+  DOM.$navbarToggler = DOM.$navbar.find('.navbar-toggler');
+  DOM.$navbarCollapse = DOM.$navbar.find('.navbar-collapse');
+  DOM.$iconOpen = DOM.$navbar.find('.js--icon-open');
+  DOM.$iconClose = DOM.$navbar.find('.js--icon-close');
+}
+
+function _bindEvents(element) {
+  // Close navbar when clicking outside of tha navbar
+  events.on('documentClick', function (event) {
+      _collapseNavbar();
+  });
+
+  // Collapse navbar after clicking on navbar link
+  DOM.$navbar.on('click', '.nav-link', function (event) {
+    _collapseNavbar();
+  });
+
+  DOM.$navbar.on('click', function (event) {
+    event.stopPropagation();
+  });
+
+  // Swap navbar icons hamburger and close
+  DOM.$navbarCollapse.on('show.bs.collapse', function () {
+    helpers.animateCSS(DOM.$iconOpen.get(0), 'bounceOut', function () {
+      DOM.$iconOpen.hide();
+      DOM.$iconClose.show();
+      helpers.animateCSS(DOM.$iconClose.get(0), 'rotateIn');
+    });
+  });
+
+  DOM.$navbarCollapse.on('hide.bs.collapse', function () {
+    helpers.animateCSS(DOM.$iconClose.get(0), 'rotateOut', function () {
+      DOM.$iconClose.hide();
+      DOM.$iconOpen.show();
+      helpers.animateCSS(DOM.$iconOpen.get(0), 'bounceIn');
+    });
+  });
+}
+
+function _collapseNavbar() {
+  // BS5 Collapse plugin: https://stackoverflow.com/a/74738412
+  let element = DOM.$navbarCollapse[0]
+  let bsCollapse = bootstrap.Collapse.getInstance(element);
+  // if the instance is not yet initialized then create new collapse
+  if (bsCollapse === null) {
+      bsCollapse = new bootstrap.Collapse(element, {
+          toggle: false   // this parameter is important!
+      })
+  }
+  bsCollapse.hide();
+}
+
+function init(element) {
+  if (element) {
+    options = $.extend(options, $(element).data());
+    _cacheDom(element);
+    _bindEvents();
+    // _render();
+  }
+}
+
+// function isFixed() {
+//   return fixed;
+// }
+
+// function getNavbarHeight() {
+//   return height;
+// }
+
+
+exports.init = init;
+// exports.isFixed = isFixed;
+// exports.getNavbarHeight = getNavbarHeight;
+},{"./events":8,"./helpers":12,"bootstrap":32,"jquery":34}],18:[function(require,module,exports){
 
 // Popup notifications based on noty.js
 var Toastify = require('toastify-js')
@@ -1191,7 +1260,7 @@ var SelectColor = function(){
 };
 
 module.exports = SelectColor;
-},{"./events":9,"jquery":34}],21:[function(require,module,exports){
+},{"./events":8,"jquery":34}],21:[function(require,module,exports){
 // Ajax form submission logic
 
 var $ = require('jquery');
@@ -1397,7 +1466,7 @@ function init(element) {
 }
 
 exports.init = init;
-},{"./events":9,"jquery":34}],24:[function(require,module,exports){
+},{"./events":8,"jquery":34}],24:[function(require,module,exports){
 // Displays comma-separated color names as swatches
 
 var $ = require('jquery');
@@ -1883,7 +1952,7 @@ function init(element) {
 }
 
 exports.init = init;
-},{"./events":9,"./helpers":13,"jquery":34}],26:[function(require,module,exports){
+},{"./events":8,"./helpers":12,"jquery":34}],26:[function(require,module,exports){
 var $ = require('jquery');
 
 var VideoFullWidth = function(){
@@ -2006,7 +2075,7 @@ function init(){
 
 exports.init = init;
 
-},{"./events":9,"jquery":34}],28:[function(require,module,exports){
+},{"./events":8,"jquery":34}],28:[function(require,module,exports){
 // Custom banner and sun strip form interactions
 
 // Netlify CORS!
@@ -2549,7 +2618,7 @@ function init(element) {
 }
 
 exports.init = init;
-},{"./events":9,"./helpers":13,"jquery":34}],29:[function(require,module,exports){
+},{"./events":8,"./helpers":12,"jquery":34}],29:[function(require,module,exports){
 /**
  * @popperjs/core v2.11.8 - MIT License
  */

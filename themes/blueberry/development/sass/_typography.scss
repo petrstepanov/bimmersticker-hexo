@@ -1,15 +1,23 @@
 // Responsive typography
-html {
-  font-size: 15px;
+:root {
+  --bs-body-font-size: 0.9375rem; // 15/16
+}
 
-  @include media-breakpoint-up(xl) {
-    font-size: 16px;
+@include media-breakpoint-up(md) {
+  :root {
+    --bs-body-font-size: 1rem;
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  :root {
+    --bs-body-font-size: 1.1rem;
   }
 }
 
 // General
 // body {
-  // -webkit-font-smoothing: antialiased;
+//   -webkit-font-smoothing: antialiased;
 // }
 
 // Font faces - Moved almost all to native font stack
@@ -39,19 +47,17 @@ h2, h3, h4, h5, h6,
   @include font-display;
 }
 
+.is-post h1 {
+  @include font-display;
+}
+
 h2 {
-  margin-top: 2rem;
+  margin-top: 2rem !important;
 }
 
 h6 {
   text-transform: uppercase;
-  // letter-spacing: 0.05rem;
 }
-
-// b, strong, .strong {
-//   font-family: 'sf_pro_textbold';
-//   font-weight: normal;
-// }
 
 .btn-link:hover, .btn-link:focus, .btn-link.focus {
   text-decoration: none;

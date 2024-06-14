@@ -1,61 +1,40 @@
 @use 'sass:math';
 
+.card {
+  --bs-card-title-spacer-y: 1rem;
+  --box-shadow-card: inset 0 0 0px 1px rgba(0, 0, 0, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  .card{
+    --box-shadow-card: inset 0 0 0px 1px rgba(255, 255, 255, 0.05);
+  }
+}
+
 .card-blueberry {
-  box-shadow: var(--box-shadow-blueberry);
-  border: 0;
   margin-bottom: 1.75rem;
   overflow: hidden;
+
+  // Override BS border with inset box-shadow
+  border: 0;
+  box-shadow: var(--box-shadow-blueberry), var(--box-shadow-card);
 
   & a.img-wrapper {
     // background-color: white;
 
-    display: flex;
+    display: block;
     // Google Cumulative Layout Shift (CLS)
     // height: 160px;
     overflow: hidden;
 
     img {
       transition: all .3s ease-in-out;
-      // object-fit: cover;
-      // object-position: center center;
-
-      // Google Cumulative Layout Shift (CLS)
-      // height: 160px;
     }
-
-    // &.release-height-md {
-    //   @include media-breakpoint-up(md){
-    //     height: auto;
-
-    //     img {
-    //       @include media-breakpoint-up(md){
-    //         height: auto;
-    //       }
-    //     }
-    //   }
-    // }
-
 
     &:hover {
       img {
         transform: scale(1.05);
       }
-    }
-  }
-
-  .card-body {
-    padding: $card-spacer-x*0.7;
-
-    p {
-      font-size: 0.9rem;
-
-      @include media-breakpoint-up(sm) {
-        font-size: 1rem
-      }
-    }
-
-    @include media-breakpoint-up(sm) {
-      padding: $card-spacer-x;
     }
   }
 
@@ -121,8 +100,8 @@
   }
 }
 
-@include color-mode(dark){
-  .card-blueberry {
-    background-color: $body-bg-darker;
-  }
-}
+// @include color-mode(dark){
+//   .card-blueberry {
+//     background-color: $body-bg-darker;
+//   }
+// }

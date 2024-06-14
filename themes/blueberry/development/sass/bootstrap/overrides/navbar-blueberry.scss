@@ -1,36 +1,40 @@
-:root{
-  --nb-padding: 0.825rem;
-  --nb-logo-size: 3rem;
+// Override bs variables
+:root, .navbar {
+  --bs-navbar-padding-x: 0;
+  --bs-navbar-padding-y: 0.825rem;
+  --nb-logo-height: 3rem;
 }
 
 @include media-breakpoint-up(md) {
-  :root{
-    --nb-padding: 1rem;
-    --nb-logo-size: 3.25rem;
+  :root, .navbar {
+    --bs-navbar-padding-y: 1rem;
+    --nb-logo-height: 3.25rem;
   }
 }
 
+// Calculate navbar height - via CSS variables
 :root{
-  --nb-height: calc(var(--nb-padding)*2 + var(--nb-logo-size))
+  --nb-height: calc(var(--bs-navbar-padding-y)*2 + var(--nb-logo-height))
 }
+
+// Override default BS navbar variables
+.navbar {
+  // Outline width
+  --bs-navbar-toggler-focus-width: 0;
+}
+
 
 // Set body padding to the navbar height
 body {
   padding-top: var(--nb-height);
 }
 
-
 // Navbar sizes
 .navbar-blueberry {
   box-shadow: var(--box-shadow-blueberry);
   background-color: var(--bs-body-bg);
-  padding: var(--nb-padding) 0;
 
-  // .container {
-  //   padding-left: math.div($grid-gutter-width, 2) !important;
-  //   padding-right: math.div($grid-gutter-width, 2) !important;
-  // }
-
+  // This is because post is defined to have 5vw padding in post.scss
   .is-post & {
     @include media-breakpoint-up(lg) {
       .container {
@@ -41,16 +45,19 @@ body {
     }
   }
 
-
-  .logo-image,
-  .back-link {
-    height: --nb-logo-size;
-    line-height: --nb-logo-size;
+  // Logo height
+  .logo-image {
+    height: var(--nb-logo-height);
+    width: auto;
   }
 
+  // Back link
   .back-link {
+    height: var(--nb-logo-height);
+    line-height: var(--nb-logo-height);
     overflow: hidden;
     text-overflow: ellipsis;
+    text-decoration: none;
 
     span {
       font-size: 0.875rem;
@@ -58,12 +65,15 @@ body {
     }
   }
 
+  // TODO: why this?
   .navbar-buy-button {
     display: none;
   }
 
   .navbar-brand {
-    padding: 0;
+    // Override BS paddings
+    padding-top: 0;
+    padding-bottom: 0;
 
     .logo-text {
       display: none;
@@ -75,6 +85,7 @@ body {
     }
   }
 
+  // Style navbar-toggler with hamburger icon
   .navbar-toggler {
     border-width: 0;
     padding-left: 0;
@@ -82,11 +93,11 @@ body {
 
     svg {
       fill: var(--bs-body-color);
-      transition: 250ms fill ease-out;
+      transition: fill .15s ease-in-out;
     }
 
     &:hover svg {
-      fill: $blue;
+      fill: var(--bs-link-color); // thats BS var
     }
   }
 
@@ -107,7 +118,7 @@ body {
     }
 
     &.nav-separator {
-      border-bottom: 1px solid $gray-200;
+      border-bottom: 1px solid var(--bs-border-color);
       padding-bottom: 0.75rem;
       margin-bottom: 0.75rem;
     }
@@ -129,15 +140,17 @@ body {
     color: var(--bs-body-color);
     text-decoration: underline;
 
+    // By default, svgs in BS .nav-links have no transition. Copied.
     svg {
+      transition: fill 0.15s ease-in-out;
       fill: var(--bs-body-color);
     }
 
     &:hover {
-      color: $link-color;
+      color: var(--bs-link-color);
 
       svg {
-        fill: $link-color;
+        fill: var(--bs-link-color);
       }
     }
 
@@ -145,10 +158,6 @@ body {
       .nav-link {
         padding-right: 0;
       }
-    }
-
-    &:hover {
-      color: $link-color;
     }
 
     @include media-breakpoint-up(lg) {
@@ -159,6 +168,7 @@ body {
 
     .icon-for-nav {
       margin-left: -2.1rem;
+      transform: translateY(-1px);
 
       @include media-breakpoint-up(lg) {
         margin-left: 0;
@@ -174,8 +184,7 @@ body {
 
     .nav-link {
       @include media-breakpoint-up(lg) {
-        color: white;
-        // text-decoration: underline;
+        color: var(--bs-body-bg);
       }
     }
   }

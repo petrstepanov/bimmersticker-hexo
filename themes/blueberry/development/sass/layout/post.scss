@@ -24,7 +24,7 @@
 }
 
 #post-aside {
-  background-color: $indigo;
+  background-color: var(--bs-dark-bg-subtle);
 
   .sidebar-featured-container {
     // Calc in SASS https://stackoverflow.com/questions/17982111/sass-variable-in-css-calc-function
@@ -78,7 +78,7 @@
   }
 
   @include media-breakpoint-up(lg){
-    box-shadow: inset -1px 0 0 0 darken($indigo, 5%);
+    box-shadow: inset -1px 0 0 0 var(--bs-dark-border-subtle);
     width: 40%;
     padding-left: 4vw;
     padding-right: 4vw;

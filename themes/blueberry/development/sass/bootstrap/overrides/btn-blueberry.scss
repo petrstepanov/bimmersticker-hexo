@@ -7,12 +7,12 @@ p a {
 
   svg {
    // transition: fill .15s;
-   fill: $link-color;
+   fill: var(--bs-link-color);
  }
 
  &:hover {
    svg {
-     fill: $link-hover-color;
+     fill: var(--bs-link-hover-color);
    }
  }
 }
