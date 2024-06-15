@@ -36,7 +36,7 @@ var SnipcartForm = function($, events){
         var price = parseFloat($(this).data().basePrice);
         price += extraTotal;
         var baseCaption = $(this).data().baseCaption;
-        $(this).html(baseCaption + '$' + price.toFixed(2).toString());
+        $(this).html(baseCaption + '&dollar;' + price.toFixed(2).toString());
       });
     });
 
@@ -70,6 +70,6 @@ var SnipcartForm = function($, events){
 
 $(function(){
   var form = document.querySelector('.js--component-snipcart-form');
-  snipcartForm = new snipcartForm(window.$, window.events);
+  snipcartForm = new SnipcartForm(window.$, window.events);
   snipcartForm.init(form);
 });

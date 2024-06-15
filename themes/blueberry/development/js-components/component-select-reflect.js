@@ -16,7 +16,7 @@ var SelectReflect = function($){
       DOM.$selectReflect.append($optionReflect);
       var html = $(this).html()
       html = html.replace('•','<span class="d-none d-sm-inline">•</span><br class="d-inline d-sm-none" />')
-      html += "<span>$" + $(this).data('price') + "</span>";
+      html += "<span>&dollar;" + $(this).data('price') + "</span>";
       html = html.replace('.99','⁹⁹');
       $optionReflect.html(html);
 
