@@ -5,7 +5,7 @@
 
 $pill-color-width: 2.4rem;
 $pill-color-height: 1.6rem;
-$pill-color-padding-y: 0.5rem;
+$pill-color-padding-y: 0.51rem;
 $pill-color-shift: 1rem;
 $display-delay: 0.3s;
 
@@ -15,6 +15,7 @@ $display-delay: 0.3s;
     box-shadow: var(--ui-shadow);
     @include border-radius($input-border-radius, 0);
     width: 100%;
+    background-color: var(--bs-body-bg);
 
     /* Fixing safari zom-in isssue */
     font-size: 16px !important;

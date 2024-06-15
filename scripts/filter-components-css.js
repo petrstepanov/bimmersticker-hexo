@@ -11,8 +11,6 @@ hexo.extend.filter.register('after_render:html', (html) => {
     if (!componentClasses.includes(match[1])) componentClasses.push(match[1]);
   }
 
-  // console.log(componentClasses);
-
   // Find corresponding css file on filesystem
   var css="";
   var cssDev = "";

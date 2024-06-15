@@ -24,8 +24,6 @@ hexo.extend.filter.register('after_render:html', (html) => {
     if (fs.existsSync(pathDev)) jsDev += fs.readFileSync(pathDev);
   }
 
-  console.log(pathDev);
-
   // Inject CSS into the HTML
   html = html.replace('//-hexo-will-embed-scripts-here', js);
   html = html.replace('//-hexo-will-embed-dev-scripts-here', jsDev);

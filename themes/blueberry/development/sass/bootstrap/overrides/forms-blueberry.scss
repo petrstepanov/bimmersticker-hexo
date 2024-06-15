@@ -11,8 +11,9 @@
 }
 
 .form-control, .custom-select-blueberry {
-  color: var(--bs-body-color);
+  // color: var(--bs-body-color);
   box-shadow: var(--ui-shadow);
+  background-color: var(--bs-body-bg);
   // border: 1px solid #dceaf9;
   // padding-left: $input-padding-x;
   // padding-right: $input-padding-x;
@@ -46,14 +47,14 @@
   display: block;
 }
 
-.select-blueberry {
-  appearance: none;
-  background: url(/img/md-arrow-dropdown.svg);
-  background-position: right 1em top 50%;
-  background-repeat: no-repeat;
-  background-color: white;
-  background-size: 1.5em;
-}
+// .select-blueberry {
+  // appearance: none;
+  // background: url(/img/md-arrow-dropdown.svg);
+  // background-position: right 1em top 50%;
+  // background-repeat: no-repeat;
+  // background-color: white;
+  // background-size: 1.5em;
+// }
 
 .input-group-button-text {
   transform: scale(1.5) translateY(-1px);

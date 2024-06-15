@@ -8,13 +8,14 @@
       <!-- Begin Custom Request Form -->
       <form name="<%- typeof post!=='undefined'?post.path:page.path %>" data-netlify="true" data-success-event="formSuccessEvent" class="js--init-ajax-submit" method="POST" data-success-notification="Thanks for submitting your question. We will email you back soon!">
         <div class="modal-body">
-          <label for="input-page" class="d-none">Source page</label>
+          <!-- <label for="input-page" class="d-none">Source page</label> -->
           <input type="hidden" name="page" value="<%- typeof post!=='undefined'?post.title:page.title %>" id="input-page" />
+
           <label class="label-blueberry" for="input-email">Your name</label>
-          <input type="email" name="name" class="form-control" id="input-name">
+          <input type="email" name="name" class="form-control" id="input-name" autocomplete="on">
 
           <label class="label-blueberry" for="input-email">Your email</label>
-          <input type="email" required name="email" class="form-control" id="input-email">
+          <input type="email" required name="email" class="form-control" id="input-email" autocomplete="on">
           <small class="form-text text-body-secondary">We will never share your email with anyone.</small>
 
           <label class="label-blueberry" for="input-message">Your question</label>

@@ -11,7 +11,8 @@
                     images: (product.image_link + "," + product.additional_image_link).split(","),
                     alt: product.description,
                     width: 320,
-                    height: 320
+                    height: 320,
+                    className: 'js--component-color-carousel-select'
               }; %>
               <%- carousel(data); %>
             <% } else { %>
@@ -19,7 +20,6 @@
               <img width="320" height="320" class="w-100" src="<%- get_pathname(product.image_link) %>" title="<%- product.title %>" alt="<%- product.description %>" />
             <% } %>
           </div>
-          <!-- Featured gallery -->
           <h1 class="mb-3 mt-lg-4 font-size-28 line-height-1"><%- post.title %></h1>
           <form autocomplete="off" class="js--init-snipcart-form" id="cart-form">
             <% if (has_variations(product)){ %>
@@ -39,7 +39,7 @@
             <% if (is_custom(product)){ %>
               <% var customFields = get_custom_fields(product); %>
               <% for (obj of customFields) { %>
-                <div class="mb-2 <%- obj['name'].toLowerCase() === 'color'?'js--init-input-color':'' %>">
+                <div class="<%- obj['name'].toLowerCase() === 'color'?'js--init-input-color':'' %>">
                   <label class="label-blueberry" for="<%- obj['name'].toLowerCase() %>"><%- obj['name'] %></label>
                   <% if (obj['name'].toLowerCase() === 'color'){ %>
                     <input id="<%- obj['name'].toLowerCase() %>" type="color" class="form-control component-select-color" value="#ff0000" required %> />

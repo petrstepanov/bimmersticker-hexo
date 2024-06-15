@@ -1,12 +1,12 @@
-<div id="carousel_{{ id }}" class="carousel slide" data-bs-ride="carousel">
+<div id="carousel_{{ id }}" class="carousel slide {{ className }}" data-bs-ride="carousel">
   <div class="carousel-indicators">
     {% for image in images %}
-      <button type="button" data-bs-target="#carousel_{{ id }}" data-bs-slide-to="{{ loop.index0 }}" {{ 'class="active" aria-current="true"' if loop.index0==0 else '' }} aria-label="Slide {{ loop.index0 }}"></button>
+      <button type="button" data-bs-target="#carousel_{{ id }}" data-bs-slide-to="{{ loop.index0 }}" {% if loop.index0==0 %} class="active" aria-current="true" {% endif %} aria-label="Slide {{ loop.index0 }}"></button>
     {% endfor %}
   </div>
   <div class="carousel-inner">
     {% for image in images %}
-      <div class="carousel-item {{ 'active' if loop.index0==0 else "" }}">
+      <div class="carousel-item {% if loop.index0==0 %} active {% endif %}">
           <img width="{{ width }}" height="{{ height }}" src="{{ image }}" class="d-block w-100" alt="{{ alt }}">
       </div>
     {% endfor %}

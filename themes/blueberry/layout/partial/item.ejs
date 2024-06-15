@@ -21,7 +21,8 @@
                       images: (product.image_link + "," + product.additional_image_link).split(","),
                       alt: product.description,
                       width: 400,
-                      height: 400
+                      height: 400,
+                      className: 'js--component-color-carousel-select'
                 }; %>
                 <%- carousel(data); %>
               <% } else { %>

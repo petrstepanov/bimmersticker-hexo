@@ -27,7 +27,7 @@ var SelectColor = require('./modules/select-color');
 var InputColor = require('./modules/input-color');
 var IntegerInput = require('./modules/integer-input');
 var CheckoutButtonFix = require('./modules/checkout-button-fix');
-var Carousel = require('./modules/carousel');
+// var ColorCarouselSelect = require('../js-components/component-color-carousel-select');
 var WidgetArea = require('./modules/widget-area');
 var VideoFullWidth = require('./modules/video');
 // var FacebookLoadOnScroll = require('./modules/facebook-load-on-scroll');
@@ -109,7 +109,10 @@ $(function() {
   });
 
   // Connect color dropdowns and carousels
-  Carousel.init();
+  // $('.is-post [id^=carousel]').each(function(){
+  //   var colorCarouselSelect = new ColorCarouselSelect();
+  //   colorCarouselSelect.init(this);
+  // });
 
   // Fix checkout button caption
   var checkoutButtonFix = new CheckoutButtonFix();

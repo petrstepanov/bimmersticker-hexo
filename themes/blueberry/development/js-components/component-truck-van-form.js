@@ -1,6 +1,6 @@
 // Custom banner and sun strip form interactions
 
-var ComponentBannerForm = function ($, helpers, events) {
+var ComponentTruckVanForm = function ($, helpers, events) {
     var DOM = {};
     // var options = {};
     var timeoutUpdateHeadingImage;
