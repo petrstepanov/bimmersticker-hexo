@@ -11145,8 +11145,8 @@ body {
   line-height: 1;
 }
 .card-blueberry .card-title-price {
-  background-color: #dee2e6;
-  padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+  background-color: var(--bs-secondary-bg);
+  padding: 0.3rem 0.5rem;
   border-top-left-radius: 0.3rem;
   border-bottom-left-radius: 0.3rem;
   border-top-right-radius: 0.1rem;
@@ -11168,14 +11168,14 @@ body {
   margin-top: -1rem;
   border-style: solid;
   border-color: transparent;
-  border-left-color: #dee2e6;
+  border-left-color: var(--bs-secondary-bg);
   border-width: 1rem 0 1rem 0.7rem;
 }
 @media (min-width: 576px) {
   .card-blueberry .card-title-price:after {
     content: "";
     position: absolute;
-    background-color: white;
+    background-color: var(--bs-body-bg);
     top: 50%;
     right: 0.2rem;
     width: 0.4rem;

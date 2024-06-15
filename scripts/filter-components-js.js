@@ -13,18 +13,23 @@ hexo.extend.filter.register('after_render:html', (html) => {
     if (!componentClasses.includes(m)) componentClasses.push(m);
   }
 
+  // console.log(componentClasses);
+
   // Find corresponding css file on filesystem
-  var js="";
-  var jsDev = "";
+  // var componentClass = componentClasses[0];
+  var js ="";
+  var jsDev="";
   for(componentClass of componentClasses){
     var path = "./themes/blueberry/source/js/components/" + componentClass + ".js";
-    if (fs.existsSync(path)) js += fs.readFileSync(path);
+    if (fs.existsSync(path)){
+      js += fs.readFileSync(path);
+    }
 
     var pathDev = "./themes/blueberry/source/js/components/" + componentClass + "-dev.js";
-    if (fs.existsSync(pathDev)) jsDev += fs.readFileSync(pathDev);
+    if (fs.existsSync(pathDev)){
+      jsDev += fs.readFileSync(pathDev);
+    }
   }
-
-  // Inject CSS into the HTML
   html = html.replace('//-hexo-will-embed-scripts-here', js);
   html = html.replace('//-hexo-will-embed-dev-scripts-here', jsDev);
 

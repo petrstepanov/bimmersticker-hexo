@@ -1,5 +1,3 @@
-// Custom banner and sun strip form interactions
-
 var ComponentTruckVanForm = function ($, helpers, events) {
     var DOM = {};
     // var options = {};
@@ -34,10 +32,6 @@ var ComponentTruckVanForm = function ($, helpers, events) {
 
         DOM.$selectSize = DOM.$el.find('#selectSize');
 
-        // TODO: ensure onload ruler numbers and height, area show reasonable values
-        // DOM.$inputHeight = DOM.$el.find('#inputHeight');
-        // DOM.$inputArea = DOM.$el.find('#inputArea');
-
         DOM.$inputQuantity = DOM.$el.find('#inputQuantity');
 
         DOM.$buttonSubmit = DOM.$el.find('#buttonSubmit');
@@ -62,14 +56,14 @@ var ComponentTruckVanForm = function ($, helpers, events) {
         const quantity = parseInt(DOM.$inputQuantity.val());
         const total = price * quantity;
 
-        const html = "Add Item" + (quantity == 1 ? '' : 's') + ' to Cart • $' + total.toFixed(2);
+        const html = "Add Item" + (quantity == 1 ? '' : 's') + ' to Cart • &#36;' + total.toFixed(2);
         DOM.$buttonSubmit.html(html);
     }
 
     function _loadData() {
         if (localStorage.getItem("dataKeyVanTruck")) {
             var data = JSON.parse(localStorage.getItem("dataKeyVanTruck"));
-            // console.log(data);
+
             // Update view
             if (data.length) {
                 DOM.$inputLength.val(data.length); //.change();
@@ -101,7 +95,7 @@ var ComponentTruckVanForm = function ($, helpers, events) {
                 DOM.$inputLength.val(data.length).change();
             }
             if (data.quantity) {
-                DOM.$inputQuantity.val(data.quantity) //.change();
+                DOM.$inputQuantity.val(data.quantity)
             }
         }
     }
@@ -437,7 +431,7 @@ var ComponentTruckVanForm = function ($, helpers, events) {
     return {
         init: init
     };
-}
+};
 
 $(function() {
     var componentTruckVanForm = new ComponentTruckVanForm(window.$, window.helpers, window.events);

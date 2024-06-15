@@ -50,13 +50,13 @@ featured_image: sun-strip/05-removing-the-transfer-tape.jpg
   <p>You will need to have a following set of <strong>basic tools</strong> to apply a sun strip on your car:</p>
 
   <ul class="list-unstyled row justify-content-center my-2">
-    <li class="col-6 col-md-4 my-2 text-center"><span class="align-middle"><img class="icon-xl mx-2 my-1" src="ruler.png"               width="64" height="64" alt="ruler icon"        /><br/>Tape measuer or ruler</span></li>
-    <li class="col-6 col-md-4 my-2 text-center"><span class="align-middle"><img class="icon-xl mx-2 my-1" src="tape.png"                width="64" height="64" alt="masking tape icon" /><br/>Masking tape</span></li>
-    <li class="col-6 col-md-4 my-2 text-center"><span class="align-middle"><img class="icon-xl mx-2 my-1" src="car-wash.png"            width="64" height="64" alt="car wash icon" /><br/>Window cleaner or rubbing alcohol</span></li>
-    <li class="col-6 col-md-4 my-2 text-center"><span class="align-middle"><img class="icon-xl mx-2 my-1" src="spray.png"               width="64" height="64" alt="spray bottle icon" /><br/>Spray bottle for soapy water</span></li>
-    <li class="col-6 col-md-4 my-2 text-center"><span class="align-middle"><img class="icon-xl mx-2 my-1" src="spreader.png"            width="64" height="64" alt="spreader icon"     /><br/>Bondo spreader</span></li>
-    <li class="col-6 col-md-4 my-2 text-center"><span class="align-middle"><img class="icon-xl mx-2 my-1" src="utility-knife.png"       width="64" height="64" alt="utility knife icon"/><br/>Knife or blade</span></li>
-    <li class="col-6 col-md-4 my-2 text-center"><span class="align-middle"><img class="icon-xl mx-2 my-1" src="paper-towel.png"         width="64" height="64" alt="paper towel icon"  /><br/>Paper towel roll</span></li>
+    <li class="col-6 col-md-4 my-2 text-center"><span class="align-middle"><img class="invert-me icon-xl mx-2 my-1" src="ruler.png"               width="64" height="64" alt="ruler icon"        /><br/>Tape measuer or ruler</span></li>
+    <li class="col-6 col-md-4 my-2 text-center"><span class="align-middle"><img class="invert-me icon-xl mx-2 my-1" src="tape.png"                width="64" height="64" alt="masking tape icon" /><br/>Masking tape</span></li>
+    <li class="col-6 col-md-4 my-2 text-center"><span class="align-middle"><img class="invert-me icon-xl mx-2 my-1" src="car-wash.png"            width="64" height="64" alt="car wash icon" /><br/>Window cleaner or rubbing alcohol</span></li>
+    <li class="col-6 col-md-4 my-2 text-center"><span class="align-middle"><img class="invert-me icon-xl mx-2 my-1" src="spray.png"               width="64" height="64" alt="spray bottle icon" /><br/>Spray bottle for soapy water</span></li>
+    <li class="col-6 col-md-4 my-2 text-center"><span class="align-middle"><img class="invert-me icon-xl mx-2 my-1" src="spreader.png"            width="64" height="64" alt="spreader icon"     /><br/>Bondo spreader</span></li>
+    <li class="col-6 col-md-4 my-2 text-center"><span class="align-middle"><img class="invert-me icon-xl mx-2 my-1" src="utility-knife.png"       width="64" height="64" alt="utility knife icon"/><br/>Knife or blade</span></li>
+    <li class="col-6 col-md-4 my-2 text-center"><span class="align-middle"><img class="invert-me icon-xl mx-2 my-1" src="paper-towel.png"         width="64" height="64" alt="paper towel icon"  /><br/>Paper towel roll</span></li>
   </ul>
 
   <h3 class="h2 mt-4"><span class="numbered" data-number="01."></span>Before you Start</h3>

@@ -47,8 +47,8 @@
   $price-tag-radius: 0.2rem;
 
   .card-title-price {
-    background-color: $gray-300;
-    padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+    background-color: var(--bs-secondary-bg);
+    padding: 0.3rem 0.5rem;
 
     @include media-breakpoint-up(sm) {
       padding-right: 1.2rem;
@@ -68,7 +68,7 @@
       margin-top: math.div(-$price-tag-height, 2);
       border-style: solid;
       border-color: transparent;
-      border-left-color: $gray-300;
+      border-left-color: var(--bs-secondary-bg);
       border-width: math.div($price-tag-height, 2) 0 math.div($price-tag-height, 2) $price-tag-width;
     }
 
@@ -76,7 +76,7 @@
       &:after {
         content: "";
         position: absolute;
-        background-color: white;
+        background-color: var(--bs-body-bg);
         top: 50%;
         right: 0.2rem;
         width: 2*$price-tag-radius;

@@ -1,1 +1,0 @@
-var $=require("jquery"),events=require("../js/modules/events"),bootstrap=require("bootstrap"),ColorCarouselSelect=function(){var o,r=[];return{init:function(e){e&&(r.$el=$(e),e="#"+r.$el.attr("id"),o=new bootstrap.Carousel(e),events.on("colorIndexSelectedEvent",function(e){e=e.index;o.pause(),o.to(e)}))}}};module.exports=ColorCarouselSelect;
