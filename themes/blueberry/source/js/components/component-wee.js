@@ -1,0 +1,1 @@
+var $=window.$,ComponentWee=function(){};$(function(){(new ComponentWee).init()});

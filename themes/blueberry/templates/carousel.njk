@@ -3,7 +3,7 @@
     {% for image in images %}
       <button type="button" data-bs-target="#carousel_{{ id }}" data-bs-slide-to="{{ loop.index0 }}" {{ 'class="active" aria-current="true"' if loop.index0==0 else '' }} aria-label="Slide {{ loop.index0 }}"></button>
     {% endfor %}
-  </ol>
+  </div>
   <div class="carousel-inner">
     {% for image in images %}
       <div class="carousel-item {{ 'active' if loop.index0==0 else "" }}">

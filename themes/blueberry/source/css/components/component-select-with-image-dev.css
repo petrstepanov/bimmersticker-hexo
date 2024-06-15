@@ -20,14 +20,6 @@
   background-color: var(--bs-primary);
 }
 
-.zero-size-invisible {
-  width: 0;
-  height: 0;
-  visibility: hidden;
-  pointer-events: none;
-  overflow: hidden;
-}
-
 [data-bs-theme=dark] .component-select-with-image .select-with-image-item {
   filter: invert(1);
 }

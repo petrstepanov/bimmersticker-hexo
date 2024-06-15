@@ -1,18 +1,22 @@
-var $ = require('jquery');
-var bootstrap = require('bootstrap');
+// Originally $ is required by `kinetic` in container-horizontal.
+// However with introduction of component specific css,
+// I moved some of the scripts to globals
+
+var $ = window.$ = window.jQuery = require('jquery');
+var bootstrap = window.bootstrap = require('bootstrap');
+var helpers = window.helpers = require('./modules/helpers');
+var events = window.events = require('./modules/events');
+
 var autosize = require('autosize');
 var AOS = require('aos');
 
-var events = require('./modules/events');
-
 var navbarCollapse = require('./modules/navbar-collapse');
-var windshieldForm = require('./modules/windshield-form-snipcart'); // require('./modules/windshield-form');
-var truckVanForm = require('./modules/truck-van-form');
+// var truckVanForm = require('../js-components/truck-van-form');
 var snipcartForm = require('./modules/snipcart-form');
 var contentBuyButton = require('./modules/content-buy-button');
 var navbarBuyButton = require('./modules/navbar-buy-button');
 // var stickyContainer = require('./modules/sticky-container');
-var swatches = require('./modules/swatches');
+// var swatches = require('./modules/swatches');
 var postsFilter = require('./modules/posts-filter');
 var formInsideDialog = require('./modules/form-inside-dialog');
 // var formValidation = require('./modules/form-validation');
@@ -31,8 +35,6 @@ var InteractiveBackButton = require('./modules/interactive-back-button');
 var autovalid = require('./modules/autovalid');
 var ContainerHorizontal = require('./modules/container-horizontal');
 var DetectTrackpadMouse = require('./modules/detect-trackpad-mouse');
-// var DarkMode = require('./modules/dark-mode');
-// var TouchEmulator = require('hammer-touchemulator');
 
 // Google Customer Reviews
 // Export GCR to be accessed by Vue
@@ -57,11 +59,11 @@ $(function() {
   // smoothScroll.init();
   // windshieldForm.init(document.querySelector('.js--init-windshield-container'));
 
-  windshieldForm.init(document.querySelector('.js--windshield-form-snipcart'));
+  // windshieldForm.init(document.querySelector('.js--windshield-form-snipcart'));
   contentBuyButton.init(document.querySelector('.js--init-content-buy-button'));
   navbarBuyButton.init(document.querySelector('.js--init-navbar-buy-button'));
   // stickyContainer.init(document.querySelector('.js--init-sticky-container'));
-  swatches.init(document.querySelector('.js--init-swatches'));
+  // swatches.init(document.querySelector('.js--init-swatches'));
   postsFilter.init(document.querySelector('.js--init-posts-filter'));
   formInsideDialog.init(document.querySelector('.js--init-form-inside-dialog'));
 
@@ -82,7 +84,7 @@ $(function() {
   });
 
   WidgetArea.init();
-  truckVanForm.init(document.querySelector('.js--truck-van-form'));
+  // truckVanForm.init(document.querySelector('.js--truck-van-form'));
 
   // Completely moved to HTML5 validation
   // formValidation.init(document.querySelectorAll('form input, form select, form textarea'));
@@ -107,7 +109,7 @@ $(function() {
   });
 
   // Connect color dropdowns and carousels
-  // Carousel.init();
+  Carousel.init();
 
   // Fix checkout button caption
   var checkoutButtonFix = new CheckoutButtonFix();

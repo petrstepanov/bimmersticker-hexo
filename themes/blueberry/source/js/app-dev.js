@@ -1,19 +1,23 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-var $ = require('jquery');
-var bootstrap = require('bootstrap');
+// Originally $ is required by `kinetic` in container-horizontal.
+// However with introduction of component specific css,
+// I moved some of the scripts to globals
+
+var $ = window.$ = window.jQuery = require('jquery');
+var bootstrap = window.bootstrap = require('bootstrap');
+var helpers = window.helpers = require('./modules/helpers');
+var events = window.events = require('./modules/events');
+
 var autosize = require('autosize');
 var AOS = require('aos');
 
-var events = require('./modules/events');
-
 var navbarCollapse = require('./modules/navbar-collapse');
-var windshieldForm = require('./modules/windshield-form-snipcart'); // require('./modules/windshield-form');
-var truckVanForm = require('./modules/truck-van-form');
+// var truckVanForm = require('../js-components/truck-van-form');
 var snipcartForm = require('./modules/snipcart-form');
 var contentBuyButton = require('./modules/content-buy-button');
 var navbarBuyButton = require('./modules/navbar-buy-button');
 // var stickyContainer = require('./modules/sticky-container');
-var swatches = require('./modules/swatches');
+// var swatches = require('./modules/swatches');
 var postsFilter = require('./modules/posts-filter');
 var formInsideDialog = require('./modules/form-inside-dialog');
 // var formValidation = require('./modules/form-validation');
@@ -32,8 +36,6 @@ var InteractiveBackButton = require('./modules/interactive-back-button');
 var autovalid = require('./modules/autovalid');
 var ContainerHorizontal = require('./modules/container-horizontal');
 var DetectTrackpadMouse = require('./modules/detect-trackpad-mouse');
-// var DarkMode = require('./modules/dark-mode');
-// var TouchEmulator = require('hammer-touchemulator');
 
 // Google Customer Reviews
 // Export GCR to be accessed by Vue
@@ -58,11 +60,11 @@ $(function() {
   // smoothScroll.init();
   // windshieldForm.init(document.querySelector('.js--init-windshield-container'));
 
-  windshieldForm.init(document.querySelector('.js--windshield-form-snipcart'));
+  // windshieldForm.init(document.querySelector('.js--windshield-form-snipcart'));
   contentBuyButton.init(document.querySelector('.js--init-content-buy-button'));
   navbarBuyButton.init(document.querySelector('.js--init-navbar-buy-button'));
   // stickyContainer.init(document.querySelector('.js--init-sticky-container'));
-  swatches.init(document.querySelector('.js--init-swatches'));
+  // swatches.init(document.querySelector('.js--init-swatches'));
   postsFilter.init(document.querySelector('.js--init-posts-filter'));
   formInsideDialog.init(document.querySelector('.js--init-form-inside-dialog'));
 
@@ -83,7 +85,7 @@ $(function() {
   });
 
   WidgetArea.init();
-  truckVanForm.init(document.querySelector('.js--truck-van-form'));
+  // truckVanForm.init(document.querySelector('.js--truck-van-form'));
 
   // Completely moved to HTML5 validation
   // formValidation.init(document.querySelectorAll('form input, form select, form textarea'));
@@ -108,7 +110,7 @@ $(function() {
   });
 
   // Connect color dropdowns and carousels
-  // Carousel.init();
+  Carousel.init();
 
   // Fix checkout button caption
   var checkoutButtonFix = new CheckoutButtonFix();
@@ -168,7 +170,7 @@ $(function() {
 
 });
 
-},{"./modules/autovalid":2,"./modules/carousel":3,"./modules/checkout-button-fix":4,"./modules/container-horizontal":5,"./modules/content-buy-button":6,"./modules/detect-trackpad-mouse":7,"./modules/events":8,"./modules/form-ajax-submit":9,"./modules/form-inside-dialog":10,"./modules/gcr":11,"./modules/input-color":13,"./modules/integer-input":14,"./modules/interactive-back-button":15,"./modules/navbar-buy-button":16,"./modules/navbar-collapse":17,"./modules/posts-filter":19,"./modules/select-color":20,"./modules/select-reflect":21,"./modules/select-with-image":22,"./modules/snipcart-form":23,"./modules/swatches":24,"./modules/truck-van-form":25,"./modules/video":26,"./modules/widget-area":27,"./modules/windshield-form-snipcart":28,"aos":30,"autosize":31,"bootstrap":32,"jquery":34}],2:[function(require,module,exports){
+},{"./modules/autovalid":2,"./modules/carousel":3,"./modules/checkout-button-fix":4,"./modules/container-horizontal":5,"./modules/content-buy-button":6,"./modules/detect-trackpad-mouse":7,"./modules/events":8,"./modules/form-ajax-submit":9,"./modules/form-inside-dialog":10,"./modules/gcr":11,"./modules/helpers":12,"./modules/input-color":13,"./modules/integer-input":14,"./modules/interactive-back-button":15,"./modules/navbar-buy-button":16,"./modules/navbar-collapse":17,"./modules/posts-filter":19,"./modules/select-color":20,"./modules/select-reflect":21,"./modules/select-with-image":22,"./modules/snipcart-form":23,"./modules/video":24,"./modules/widget-area":25,"aos":27,"autosize":28,"bootstrap":29,"jquery":31}],2:[function(require,module,exports){
 function autovalid(options = {}) {
     const scope = options.scope || document;
     // const fields = scope.querySelectorAll("input, select, textarea");
@@ -216,22 +218,28 @@ exports.autovalid = autovalid;
 // Select item of a specific index in the carousel when user picked color from dropdown
 var $ = require('jquery');
 var events = require('./events');
+var bootstrap = require('bootstrap');
+
+var bsCarousel;
 
 function _bindEvents(){
     events.on('colorIndexSelectedEvent', function(data){
         var index = data.index;
-        $('.carousel').carousel('pause');
-        $('.carousel').carousel(index);
+        if (bsCarousel === null) {
+            bsCarousel = new bootstrap.Carousel('.carousel');
+        }
+        bsCarousel.pause();
+        bsCarousel.to(index);
     });
 }
 
-function init(element) {
+function init() {
     _bindEvents();
 }
 
 exports.init = init;
 
-},{"./events":8,"jquery":34}],4:[function(require,module,exports){
+},{"./events":8,"bootstrap":29,"jquery":31}],4:[function(require,module,exports){
 var $ = require('jquery');
 
 var CheckoutButtonFix = function(){
@@ -273,9 +281,9 @@ var CheckoutButtonFix = function(){
 };
 
 module.exports = CheckoutButtonFix;
-},{"jquery":34}],5:[function(require,module,exports){
+},{"jquery":31}],5:[function(require,module,exports){
 // Ajax form submission logic
-var $ = window.$ = window.jQuery = require('jquery');
+var $ = require('jquery');
 var kinetic = require('jquery.kinetic');
 var events = require('./events');
 
@@ -319,7 +327,7 @@ var ContainerHorizontal = function(){
 };
 
 module.exports = ContainerHorizontal;
-},{"./events":8,"jquery":34,"jquery.kinetic":33}],6:[function(require,module,exports){
+},{"./events":8,"jquery":31,"jquery.kinetic":30}],6:[function(require,module,exports){
 // Emit event when 'Buy' button on the post's page goes out of viewport
 
 var $ = require('jquery');
@@ -357,7 +365,7 @@ function init(element) {
 }
 
 exports.init = init;
-},{"./events":8,"./helpers":12,"jquery":34}],7:[function(require,module,exports){
+},{"./events":8,"./helpers":12,"jquery":31}],7:[function(require,module,exports){
 var events = require('./events');
 
 var DetectTrackpadMouse = function () {
@@ -531,7 +539,7 @@ var FormAjaxSubmit = function(){
 };
 
 module.exports = FormAjaxSubmit;
-},{"./events":8,"./notification-center":18,"jquery":34}],10:[function(require,module,exports){
+},{"./events":8,"./notification-center":18,"jquery":31}],10:[function(require,module,exports){
 // Hide Bootstrap dialog that contains mailchimp form
 
 var $ = require('jquery');
@@ -557,7 +565,7 @@ function init(element) {
 }
 
 exports.init = init;
-},{"./events":8,"jquery":34}],11:[function(require,module,exports){
+},{"./events":8,"jquery":31}],11:[function(require,module,exports){
 var $ = require('jquery');
 var nunjucks = require('nunjucks');
 
@@ -604,7 +612,7 @@ function init() {
 
 exports.init = init;
 exports.renderGoogleCustomerReviews = renderGoogleCustomerReviews;
-},{"jquery":34,"nunjucks":37}],12:[function(require,module,exports){
+},{"jquery":31,"nunjucks":34}],12:[function(require,module,exports){
 // Helper module
 
 var $ = require('jquery');
@@ -690,7 +698,7 @@ exports.objectifyForm = objectifyForm;
 exports.parseFirstLastName = parseFirstLastName;
 exports.animateCSS = animateCSS;
 exports.getFormData = getFormData;
-},{"jquery":34}],13:[function(require,module,exports){
+},{"jquery":31}],13:[function(require,module,exports){
 // Ajax form submission logic
 
 const $ = require('jquery');
@@ -759,7 +767,7 @@ var InputColor = function(){
 };
 
 module.exports = InputColor;
-},{"jquery":34,"named-web-colors":36}],14:[function(require,module,exports){
+},{"jquery":31,"named-web-colors":33}],14:[function(require,module,exports){
 // HTML5 form validation
 // https://pageclip.co/blog/2018-02-20-you-should-use-html5-form-validation.html
 
@@ -811,7 +819,7 @@ var IntegerInput = function(){
 };
 
 module.exports = IntegerInput;
-},{"jquery":34}],15:[function(require,module,exports){
+},{"jquery":31}],15:[function(require,module,exports){
 var $ = require('jquery');
 var Cookies = require('js-cookie');
 
@@ -848,7 +856,7 @@ function init() {
 }
 
 exports.init = init;
-},{"jquery":34,"js-cookie":35}],16:[function(require,module,exports){
+},{"jquery":31,"js-cookie":32}],16:[function(require,module,exports){
 // Show or hide 'Buy' button on navbar product page
 
 var $ = require('jquery');
@@ -883,7 +891,7 @@ function init(element) {
 
 exports.init = init;
 
-},{"./events":8,"jquery":34}],17:[function(require,module,exports){
+},{"./events":8,"jquery":31}],17:[function(require,module,exports){
 // Fixes Navbar for vieport width less than a set threshold
 
 var $ = require('jquery');
@@ -971,7 +979,7 @@ function init(element) {
 exports.init = init;
 // exports.isFixed = isFixed;
 // exports.getNavbarHeight = getNavbarHeight;
-},{"./events":8,"./helpers":12,"bootstrap":32,"jquery":34}],18:[function(require,module,exports){
+},{"./events":8,"./helpers":12,"bootstrap":29,"jquery":31}],18:[function(require,module,exports){
 
 // Popup notifications based on noty.js
 var Toastify = require('toastify-js')
@@ -1006,7 +1014,7 @@ function notify(type, message, timeout) {
 }
 
 exports.notify = notify;
-},{"toastify-js":40}],19:[function(require,module,exports){
+},{"toastify-js":37}],19:[function(require,module,exports){
 // Filtering cards on the main page
 
 var $ = require('jquery');
@@ -1066,7 +1074,7 @@ function init(element) {
 }
 
 exports.init = init;
-},{"jquery":34}],20:[function(require,module,exports){
+},{"jquery":31}],20:[function(require,module,exports){
 // Ajax form submission logic
 
 var $ = require('jquery');
@@ -1260,7 +1268,7 @@ var SelectColor = function(){
 };
 
 module.exports = SelectColor;
-},{"./events":8,"jquery":34}],21:[function(require,module,exports){
+},{"./events":8,"jquery":31}],21:[function(require,module,exports){
 // Ajax form submission logic
 
 var $ = require('jquery');
@@ -1326,7 +1334,7 @@ var SelectReflect = function(){
 };
 
 module.exports = SelectReflect;
-},{"jquery":34}],22:[function(require,module,exports){
+},{"jquery":31}],22:[function(require,module,exports){
 // Ajax form submission logic
 
 var $ = require('jquery');
@@ -1398,7 +1406,7 @@ var SelectWithImage = function(){
 };
 
 module.exports = SelectWithImage;
-},{"jquery":34}],23:[function(require,module,exports){
+},{"jquery":31}],23:[function(require,module,exports){
 // Interactions between product form and Snipcart Buy button:
 // changing variation options, updating price
 
@@ -1466,493 +1474,7 @@ function init(element) {
 }
 
 exports.init = init;
-},{"./events":8,"jquery":34}],24:[function(require,module,exports){
-// Displays comma-separated color names as swatches
-
-var $ = require('jquery');
-
-var DOM = {};
-// var options = {};
-
-function _cacheDom(element) {
-  DOM.$el = $(element);
-}
-
-// function _bindEvents(element) {
-// }
-
-function _render() {
-  var swatches = DOM.$el.text().split(", ");
-  DOM.$el.html('');
-  swatches.forEach(function (color) {
-    colorClass = color.toLowerCase();
-    var $s = $('<span class="swatch ' + colorClass + '">' + '</span>');
-    DOM.$el.append($s);
-    $s.popover({
-      animation: false,
-      container: 'body',
-      placement: 'top',
-      trigger: 'hover',
-      content: color,
-      offset: "0, 6"
-    });
-  });
-}
-
-function init(element) {
-  if (element) {
-    // options = $.extend(options, $(element).data());
-    _cacheDom(element);
-    // _bindEvents();
-    _render();
-  }
-}
-
-exports.init = init;
-},{"jquery":34}],25:[function(require,module,exports){
-// Custom banner and sun strip form interactions
-
-var $ = require('jquery');
-var helpers = require('./helpers');
-// var nunjucks = require('nunjucks');
-var events = require('./events');
-
-var DOM = {};
-// var options = {};
-var timeoutUpdateHeadingImage;
-var timeoutUpdateContentImage;
-var timestamp = Math.floor(Date.now() / 1000);
-
-function _cacheDom(element) {
-    DOM.$el = $(element);
-    DOM.$form = DOM.$el;
-
-    DOM.$inputHeading = DOM.$el.find('#inputHeading');
-    DOM.$selectHeadingFont = DOM.$el.find('#selectHeadingFont');
-    DOM.$selectHeadingColor = DOM.$el.find('#selectHeadingColor');
-
-    DOM.$textareaContent = DOM.$el.find('#textareaContent');
-    DOM.$selectContentFont = DOM.$el.find('#selectContentFont');
-    DOM.$selectContentColor = DOM.$el.find('#selectContentColor');
-
-    DOM.$anchorInputBgColor = DOM.$el.find('#anchorInputBgColor');
-    DOM.$inputBgColorLine = DOM.$el.find('#inputBgColorLine');
-    DOM.$labelInputBgColor = DOM.$el.find('#labelInputBgColor');
-    DOM.$inputBgColor = DOM.$el.find('#inputBgColor');
-
-    DOM.$previewContainer = DOM.$el.find('#truck-van-preview');
-    DOM.$previewContainerBg = DOM.$el.find('#truck-van-preview-bg');
-    DOM.$previewHeadingContainer = DOM.$el.find('#truck-van-preview-heading');
-    DOM.$previewContentContainer = DOM.$el.find('#truck-van-preview-content');
-
-    DOM.$inputLength = DOM.$el.find('#inputLength');
-    DOM.$inputHeight = DOM.$el.find('#inputHeight');
-
-    DOM.$selectSize = DOM.$el.find('#selectSize');
-
-    // TODO: ensure onload ruler numbers and height, area show reasonable values
-    // DOM.$inputHeight = DOM.$el.find('#inputHeight');
-    // DOM.$inputArea = DOM.$el.find('#inputArea');
-
-    DOM.$inputQuantity = DOM.$el.find('#inputQuantity');
-
-    DOM.$buttonSubmit = DOM.$el.find('#buttonSubmit');
-
-    DOM.$totalPrice = DOM.$el.find('#totalPrice');
-
-    DOM.$buttonBuy = DOM.$el.find('.snipcart-add-item');  // Snipcart button
-
-    // TODO: add no-js
-    DOM.$noJs = DOM.$el.find('.js--nojs-only');
-}
-
-function _saveData(){
-    // Helper parses form data to JSON
-    var data = helpers.getFormData(DOM.$form);
-    // Save JSON to local storage
-    localStorage.setItem("dataKeyVanTruck", JSON.stringify(data));
-}
-
-function _updateSubmitButtonTextPrice(){
-    const price = parseFloat(DOM.$selectSize.find("option:selected").data("price"));
-    const quantity = parseInt(DOM.$inputQuantity.val());
-    const total = price*quantity;
-
-    const html = "Add Item" + (quantity == 1?'':'s') + ' to Cart • $' + total.toFixed(2);
-    DOM.$buttonSubmit.html(html);
-}
-
-function _loadData(){
-    if (localStorage.getItem("dataKeyVanTruck")) {
-        var data = JSON.parse(localStorage.getItem("dataKeyVanTruck"));
-        // console.log(data);
-        // Update view
-        if (data.length){
-            DOM.$inputLength.val(data.length); //.change();
-        }
-
-        if (data.heading){
-            DOM.$inputHeading.val(data.heading).trigger("input");
-        }
-        if (data.heading_font){
-            DOM.$selectHeadingFont.val(data.heading_font).change();
-        }
-        if (data.heading_color){
-            DOM.$selectHeadingColor.val(data.heading_color).change();
-        }
-        if (data.content){
-            DOM.$textareaContent.val(data.content).trigger("input");
-        }
-        if (data.content_font){
-            DOM.$selectContentFont.val(data.content_font).change();
-        }
-        if (data.content_color){
-            DOM.$selectContentColor.val(data.content_color).change();
-        }
-        if (data.bg_color){
-            DOM.$inputBgColor.val(data.bg_color).change();
-        }
-        // ruler values, height and area are updated via "widget-area.js" module. Ensure it loads before this module.
-        if (data.length){
-            DOM.$inputLength.val(data.length).change();
-        }
-        if (data.quantity){
-            DOM.$inputQuantity.val(data.quantity) //.change();
-        }
-    }
-}
-
-function _onLoad() {
-    DOM.$noJs.remove();
-    // If JS is enabled - snipcart will load - update button text
-    _updateSubmitButtonTextPrice();
-    _loadData();
-}
-
-function _bindEvents(element) {
-    DOM.$inputHeading.on('input', function (event) {
-        var text = _getHeadingText();
-
-        // Set loading animation
-        DOM.$previewContainer.addClass("loading");
-
-        // Timeout for updating the font previews
-        clearTimeout(timeoutUpdateHeadingImage);
-        timeoutUpdateHeadingImage = setTimeout(function () {
-            _updateHeadingImage();
-        }, 1500);
-
-        _updateSnipcartButtonHeadingText(this.value);
-        if (event.originalEvent && event.originalEvent.isTrusted){
-            // Save data only of the event was triggered with human
-            _saveData();
-        }
-    });
-
-    DOM.$selectHeadingFont.change(function (event) {
-        // Set loading animation
-        DOM.$previewContainer.addClass("loading");
-
-        // Timeout for updating the font previews
-        clearTimeout(timeoutUpdateHeadingImage);
-        timeoutUpdateHeadingImage = setTimeout(function () {
-            _updateHeadingImage();
-        }, 1500);
-
-        var valueSelected  = $(this).val(); //find("option:selected").val();
-        _updateSnipcartButtonHeadingFont(valueSelected);
-        if (event.originalEvent && event.originalEvent.isTrusted){
-            // Save data only of the event was triggered with human
-            _saveData();
-        }
-    });
-
-    DOM.$selectHeadingColor.change(function (event) {
-        // Set loading animation
-        DOM.$previewContainer.addClass("loading");
-
-        // Timeout for updating the font previews
-        clearTimeout(timeoutUpdateHeadingImage);
-        timeoutUpdateHeadingImage = setTimeout(function () {
-            _updateHeadingImage();
-        }, 1500);
-
-        var valueSelected  = $(this).val(); // $(this).find("option:selected").val();
-        _updateSnipcartButtonHeadingColor(valueSelected);
-        if (event.originalEvent && event.originalEvent.isTrusted){
-            // Save data only of the event was triggered with human
-            _saveData();
-        }
-    });
-
-    DOM.$textareaContent.on('input', function (event) {
-        var text = _getContentText();
-
-        _updateSnipcartButtonContentText(this.value);
-        if (event.originalEvent && event.originalEvent.isTrusted){
-            // Save data only of the event was triggered with human
-            _saveData();
-        }
-
-        if (text.length == 0) {
-            DOM.$previewContentContainer.empty();
-            return;
-        }
-        // Set loading animation
-        DOM.$previewContainer.addClass("loading");
-
-        // Timeout for updating the font previews
-        clearTimeout(timeoutUpdateContentImage);
-        timeoutUpdateContentImage = setTimeout(function () {
-            _updateContentImage();
-        }, 1500);
-    });
-
-    DOM.$selectContentFont.change(function (event) {
-        // Set loading animation
-        DOM.$previewContainer.addClass("loading");
-
-        // Timeout for updating the font previews
-        clearTimeout(timeoutUpdateContentImage);
-        timeoutUpdateContentImage = setTimeout(function () {
-            _updateContentImage();
-        }, 1500);
-
-        var valueSelected  = $(this).val(); //$(this).find("option:selected").val();
-        _updateSnipcartButtonContentFont(valueSelected);
-        if (event.originalEvent && event.originalEvent.isTrusted){
-            // Save data only of the event was triggered with human
-            _saveData();
-        }
-    });
-
-    DOM.$selectContentColor.change(function (event) {
-        // Set loading animation
-        DOM.$previewContainer.addClass("loading");
-
-        // Timeout for updating the font previews
-        clearTimeout(timeoutUpdateContentImage);
-        timeoutUpdateContentImage = setTimeout(function () {
-            _updateContentImage();
-        }, 1500);
-
-        var valueSelected  = $(this).val(); // $(this).find("option:selected").val();
-        _updateSnipcartButtonContentColor(valueSelected);
-        if (event.originalEvent && event.originalEvent.isTrusted){
-            // Save data only of the event was triggered with human
-            _saveData();
-        }
-    });
-
-    DOM.$anchorInputBgColor.click(function (event){
-        event.preventDefault();
-        // Trigger click on HTML 5 color picker with jQuery
-        // https://stackoverflow.com/questions/74511391/open-input-color-programatically-in-ios
-        DOM.$labelInputBgColor.click();
-    });
-
-    DOM.$inputBgColor.change(function (event) {
-        // Reflect container background
-        var valueSelected  = $(this).val();
-
-        // Set loading animation
-        DOM.$previewContainer.addClass("loading");
-
-        // Declare promises in order to update the container background after
-        // heading and content images were uploaded
-
-        // 01. Update heading image
-        const headingImageUpdatedPromise = new Promise(function(resolve) {
-            if (timeoutUpdateHeadingImage) clearTimeout(timeoutUpdateHeadingImage);
-            timeoutUpdateHeadingImage = setTimeout(function () {
-                _updateHeadingImage(resolve);
-            }, 1500);
-        });
-
-        // 02. Update content image
-        const contentImageUpdatedPromise = new Promise(function(resolve) {
-            if (timeoutUpdateContentImage) clearTimeout(timeoutUpdateContentImage);
-            timeoutUpdateContentImage = setTimeout(function () {
-                _updateContentImage(resolve);
-            }, 1500);
-        });
-
-        // 03. Update background in the end
-        Promise.all([headingImageUpdatedPromise, contentImageUpdatedPromise]).then(function(){
-            DOM.$previewContainerBg.css('border-color', valueSelected);
-            DOM.$previewContainerBg.css('background-color', valueSelected);
-            DOM.$inputBgColorLine.css('background-color', valueSelected);
-        });
-
-        // Save data only of the event was triggered with human
-        if (event.originalEvent && event.originalEvent.isTrusted){
-            _saveData();
-        }
-    });
-
-    DOM.$selectSize.change(function (event) {
-        var valueSelected  = $(this).val(); // find("option:selected").val();
-        _updateSubmitButtonTextPrice();
-        _updateSnipcartButtonSize(valueSelected);
-        _saveData();
-    });
-
-    DOM.$inputQuantity.change(function (event) {
-        DOM.$buttonBuy.attr('data-item-quantity', this.value);
-        _updateSubmitButtonTextPrice();
-        _saveData();
-    });
-
-    DOM.$form.submit(function(event) {
-        event.preventDefault();
-
-        // Hack - prevent submission if "Add to cart" is not in viewport.
-        // Otherwise Snipcart side cart opens up when "Go" on the input field
-        if (!helpers.isInViewport(DOM.$buttonSubmit)){
-            // Iphone hide keyboard
-            document.activeElement.blur();
-            // Prevent submit
-            return false;
-        }
-
-        DOM.$buttonBuy.click();
-    });
-}
-
-function _getHeadingText() {
-    return DOM.$inputHeading.val().length ? DOM.$inputHeading.val() : "Your Company Name";
-}
-
-function _getContentText() {
-    return DOM.$textareaContent.val();
-}
-
-function _buildMyFontUrl(id, text, fgColor) {
-    // text = encodeURIComponent(text);
-    // url = encodeURIComponent(url);
-    // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
-    // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
-    // url = url.replace(/[() '"]/g, '\\$&');
-
-    var bgColor=DOM.$inputBgColor.val().replace('#','');
-    var urlTail = '&id=[fontId]&rt=[text]&bg=[bgColor]&fg=[fgColor]'.replace("[fontId]", id).replace("[text]", encodeURIComponent(text)).replace('[bgColor]', bgColor).replace("[fgColor]", fgColor);
-
-    // If local development
-    if (document.location.href.includes("localhost")){
-        return "https://render.myfonts.net/fonts/font_rend.php?rs=48&w=0&sc=2&nie=true" + urlTail;
-    }
-    // If test/production
-    return "/font-myfont/" + urlTail;
-}
-
-function _updateHeadingImage(resolveCallback) {
-    // On testing environment do  nothing (no font url rewrite implemented)
-    // if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
-
-    // Update car banner and sun strip images
-    var text = _getHeadingText();
-    var fontId = DOM.$selectHeadingFont.find("option:selected").data("fontId");
-    var color = DOM.$selectHeadingColor.find("option:selected").data('hex');
-    url = _buildMyFontUrl(fontId, text, color);
-
-    // DOM.$previewContainer.addClass("loading");
-    $('<img>', {"class": "w-100 h-auto"}).on('load', function () {
-        DOM.$previewHeadingContainer.empty();
-        $(this).appendTo(DOM.$previewHeadingContainer);
-        if(resolveCallback && typeof resolveCallback === "function"){
-            resolveCallback();
-        }
-        DOM.$previewContainer.removeClass("loading");
-        events.emit('truckVanPreviewContainerSizeChanged');
-    }).attr({ src: url });
-}
-
-// function _updateHeadingColor() {
-//     var hex = DOM.$selectHeadingColor.find("option:selected").data('hex');
-//     // https://css-tricks.com/css-attr-function-got-nothin-custom-properties/
-//     DOM.$previewHeadingContainer.css('--my-color', hex);
-// }
-
-function _updateContentImage(resolveCallback) {
-    // On testing environment do nothing (no font url rewrite implemented)
-    // if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
-
-    // Update car banner and sun strip images
-    var text = _getContentText();
-    var fontId = DOM.$selectContentFont.find("option:selected").data("fontId");
-    var color = DOM.$selectContentColor.find("option:selected").data('hex');
-    url = _buildMyFontUrl(fontId, text, color);
-
-    // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
-    // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
-    // url = url.replace(/[() '"]/g, '\\$&');
-
-    // DOM.$previewContainer.addClass("loading");
-    $('<img>', {"class": "w-100 h-auto"}).on('load', function () {
-        DOM.$previewContentContainer.empty();
-        $(this).appendTo(DOM.$previewContentContainer);
-        if(resolveCallback && typeof resolveCallback === "function"){
-            resolveCallback();
-        }
-        DOM.$previewContainer.removeClass("loading");
-        events.emit('truckVanPreviewContainerSizeChanged');
-    }).attr({ src: url });
-}
-
-// function _updateContentColor() {
-//     var hex = DOM.$selectContentColor.find("option:selected").data('hex');
-//     // https://css-tricks.com/css-attr-function-got-nothin-custom-properties/
-//     DOM.$previewContentContainer.css('--my-color', hex);
-// }
-
-// Updating Snipcart buttons' attributes
-
-function _updateSnipcartButtonHeadingText(value){
-    // set atribute with multiple spaces in between
-    DOM.$buttonBuy.attr('data-item-custom1-value', value.replace(/\s/g, '\u00A0'));
-}
-
-function _updateSnipcartButtonHeadingFont(value){
-    DOM.$buttonBuy.attr('data-item-custom2-value', value);
-}
-
-function _updateSnipcartButtonHeadingColor(value){
-    DOM.$buttonBuy.attr('data-item-custom3-value', value);
-}
-
-function _updateSnipcartButtonContentText(value){
-    // set atribute with multiple spaces in between
-    DOM.$buttonBuy.attr('data-item-custom4-value', value.replace(/\s/g, '\u00A0'));
-}
-
-function _updateSnipcartButtonContentFont(value){
-    DOM.$buttonBuy.attr('data-item-custom5-value', value);
-}
-
-function _updateSnipcartButtonContentColor(value){
-    DOM.$buttonBuy.attr('data-item-custom6-value', value);
-}
-
-function _updateSnipcartButtonSize(value){
-    var length = DOM.$inputLength.val() + " in";
-    var height = DOM.$inputHeight.val() + " in";
-    DOM.$buttonBuy.attr('data-item-custom7-value', length);
-    DOM.$buttonBuy.attr('data-item-custom8-value', height);
-    DOM.$buttonBuy.attr('data-item-custom9-value', value);
-}
-
-function init(element) {
-    if (element) {
-        // options = $.extend(options, $(element).data());
-        _cacheDom(element);
-        _bindEvents();
-        _onLoad();
-        // _showHideFormContainers(DOM.$radioProduct.val());
-    }
-}
-
-exports.init = init;
-},{"./events":8,"./helpers":12,"jquery":34}],26:[function(require,module,exports){
+},{"./events":8,"jquery":31}],24:[function(require,module,exports){
 var $ = require('jquery');
 
 var VideoFullWidth = function(){
@@ -1995,7 +1517,7 @@ var VideoFullWidth = function(){
 };
 
 module.exports = VideoFullWidth;
-},{"jquery":34}],27:[function(require,module,exports){
+},{"jquery":31}],25:[function(require,module,exports){
 var $ = require('jquery');
 var events = require('./events');
 
@@ -2075,550 +1597,7 @@ function init(){
 
 exports.init = init;
 
-},{"./events":8,"jquery":34}],28:[function(require,module,exports){
-// Custom banner and sun strip form interactions
-
-// Netlify CORS!
-// https://answers.netlify.com/t/support-guide-handling-cors-on-netlify/107739
-
-var $ = require('jquery');
-var helpers = require('./helpers');
-// var nunjucks = require('nunjucks');
-var events = require('./events');
-
-var DOM = {};
-// var options = {};
-var timeoutUpdateImages;
-var timestamp = Math.floor(Date.now() / 1000);
-
-function _cacheDom(element) {
-    DOM.$el = $(element);
-    DOM.$form = DOM.$el;
-    DOM.$mailchimpForm = DOM.$el.find('.js--mailchimp-form');
-    DOM.$radioProduct = DOM.$el.find('input[name=product]');
-    DOM.$radioTextColor = DOM.$el.find('input[name=color_text]');
-    DOM.$radioBaseColor = DOM.$el.find('input[name=color_base]');
-    DOM.$radioFont = DOM.$el.find('input[name=font]');
-    DOM.$fontContainer = DOM.$el.find('.js--font-container');
-    DOM.$fontContainerList = DOM.$el.find('.js--font-container-list');
-    DOM.$textColorContainer = DOM.$el.find('.js--text-color-container');
-    DOM.$baseColorContainer = DOM.$el.find('.js--base-color-container');
-
-    DOM.$input = DOM.$el.find('.js--text-input');
-    DOM.$generate = DOM.$el.find('.js--generate');
-    DOM.$fontImages = DOM.$el.find('.js--font-image');
-    DOM.$fontAvifs = DOM.$el.find('.js--font-avif');
-
-    DOM.$textWidthNotice = DOM.$el.find('.js--text-width');
-
-    DOM.$banner = DOM.$el.find('.banner-text');
-    DOM.$sunstrip = DOM.$el.find('.sunstrip');
-    DOM.$sunstripText = DOM.$el.find('.sunstrip-text');
-
-    // Car/Truck selection
-    DOM.$car = DOM.$el.find('.car-preview-container .car-container');
-    DOM.$truck = DOM.$el.find('.car-preview-container .truck-container');
-    DOM.$radioVehicleType = DOM.$el.find('input[name=pattern]');
-    DOM.$noticeCar = DOM.$el.find('.js--notice-car');
-    DOM.$noticeTruck = DOM.$el.find('.js--notice-truck');
-    DOM.$truckExtraContainer = DOM.$el.find('.js--pattern-price-extra');
-
-    // Quantity control
-    DOM.$inputQuantity = DOM.$el.find('input[name=quantity]');
-
-    // Snipcart buttons
-    DOM.$btnBuyBanner = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_W_BANNER]');
-    DOM.$btnBuySunStrip = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_W_SS]');
-    DOM.$btnBuyCutSunStrip = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_W_SS_CUT]');
-    DOM.$btnBuyTextSunStrip = DOM.$el.find('.snipcart-add-item[data-item-id=ST_CAR_W_SS_TEXT]');
-
-    // Find elements displayed for users with JavaScript not loaded
-    DOM.$noJs = DOM.$el.find('.js--nojs-only');
-    DOM.$submitButton = DOM.$el.find('#submitButton');
-}
-
-function _saveData(){
-    // Helper parses form data to JSON
-    var data = helpers.getFormData(DOM.$form);
-    // console.log(data);
-    // Save JSON to local storage
-    localStorage.setItem("dataKey", JSON.stringify(data));
-}
-
-function _updateSubmitButtonText(){
-    if (parseInt(DOM.$inputQuantity.val()) == 1){
-        DOM.$submitButton.text("Add Item to Cart");
-        return;
-    }
-    DOM.$submitButton.text("Add Items to Cart");
-}
-
-function _loadData(){
-    if (localStorage.getItem("dataKey")) {
-        var data = JSON.parse(localStorage.getItem("dataKey"));
-        // console.log(data);
-        // Update view
-        if (data.product){
-            DOM.$radioProduct.filter('[value="' + data.product + '"]').attr('checked', true).change();
-        }
-        if (data.text){
-            DOM.$input.val(data.text).trigger("input");
-        }
-        if (data.font){
-            DOM.$radioFont.filter('[value="' + data.font + '"]').attr('checked', true).change();
-        }
-        if (data.color_text){
-            DOM.$radioTextColor.filter('[value="' + data.color_text + '"]').attr('checked', true).change();
-        }
-        if (data.color_base){
-            DOM.$radioBaseColor.filter('[value="' + data.color_base + '"]').attr('checked', true).change();
-        }
-        if (data.pattern){
-            DOM.$radioVehicleType.filter('[value="' + data.pattern + '"]').attr('checked', true).change();
-        }
-        if (data.quantity){
-            DOM.$inputQuantity.val(data.quantity).change();
-        }
-    }
-}
-
-function _onLoad() {
-    DOM.$noJs.remove();
-    // If JS is enabled - snipcart will load - update button text
-    _updateSubmitButtonText();
-    // Trick with submit button - I want the user to only submit the form on mobile phone once he scrolled all the way to the bottom
-    // and saw all the fields. Otherwise the iPhone displays "Go" button and item automatically added to cart.
-    // DOM.$submitButton.prop("disabled", true);
-
-    // It seems that iOS only shows the "Go" button when there i9s an action attribute set on the form.
-    // We wipe the action attribute if JS is loaded:
-    // https://github.com/angular/angular.js/issues/13070#issuecomment-151558050
-    // DOM.$form.removeAttr("action");
-
-    // TODO: test!
-    // Turned out "Go" button disappears and "return" button shows instead.
-    // "return" still submits the form...
-    // Therefore doing everything programmatically via javascript.
-    // If submit and submit button out of viewport - cancel event and unfocus elements to hide keyboard
-
-}
-
-function _bindEvents(element) {
-    DOM.$radioProduct.change(function (event) {
-        _showHideFormContainers(this.value);
-        _showHidePreviewElements(this.value);
-        _enableDisableFormInputs(this.value);
-        _reflectExtraTruckPrice(this.value);
-        if (event.originalEvent && event.originalEvent.isTrusted){
-            // Save data only of the event was triggered with human
-            _saveData();
-        }
-    });
-
-    DOM.$input.on('input', function (event) {
-
-        var text = _getBannerText();
-
-        // Check string has non-latin characters and show/hide font selection panel
-        // This should happen instantly unlike the delayed request for updating font previews
-        // https://stackoverflow.com/questions/147824/how-to-find-whether-a-particular-string-has-unicode-characters-esp-double-byte
-        var containsNonLatinCharacters = /[^\u0000-\u00ff]/.test(text);
-        if (containsNonLatinCharacters){
-            DOM.$fontContainerList.slideUp();
-        }
-        else {
-            DOM.$fontContainerList.slideDown();
-        }
-
-        // Hack - ensure avifs are removed - they cover up actual images
-        DOM.$fontAvifs.remove();
-
-        // Loading animation - add to picture tag because image cant deal with pseudo class animation
-        DOM.$fontImages.each(function () {
-            $(this).parent().addClass('loading');
-        });
-
-        // Timeout for updating the font previews
-        if (timeoutUpdateImages) clearTimeout(timeoutUpdateImages);
-        timeoutUpdateImages = setTimeout(function () {
-            // Update radio font images to reflect custom text
-            var text = _getBannerText();
-            var containsNonLatinCharacters = /[^\u0000-\u00ff]/.test(text);
-
-            if (!containsNonLatinCharacters){
-                _updateFontPreviews();
-            }
-
-            _updateBannerImage(containsNonLatinCharacters);
-        }, 1500);
-
-        _updateSnipcartButtonsText(this.value);
-        if (event.originalEvent && event.originalEvent.isTrusted){
-            // Save data only of the event was triggered with human
-            _saveData();
-        }
-    });
-
-    const dummyTexts = ['Abused Daily', 'All Gas No Brakes', 'ALL STOCK', 'Always Broke', 'Antisocial', 'Another Shitbox', 'Almost Running',
-                      'Backyard Mechanics', 'Baby Driver', 'Bad Decisions', 'Because Racecar', 'Beyond Broke', 'Blacklisted', 'Broken Inside', 'Budget Driven', 'Built not Bought', 'But Did You Die?',
-                      "Cant Stop Wont Stop", 'Caught You Lookin', 'Certified Shitbox', 'Checkmate', 'Clapped Out', 'City Limits', 'Classified', 'Clean Culture', 'Cursed',
-                      'Daily Driven', 'DECENT', 'Different', 'Dominate Humbly', 'Done Different', "Don't Quit", 'Dumb Slow', 'Dunkin Donuts',
-                      "East Coastin'", 'Endless Dreams', 'Enough Rice' , 'Essentially Low', 'Euro Crew', 'Eurotrash',
-                      'Fameless Society', 'Family Disappointment', 'Fatal Mistakes', 'Fucking Mint', 'Fear God', 'Financial Mistake', 'Fix Me Please', 'For the Fans', 'Free Your Mind', 'Fuck It Edition', 'Fuck Your Feelings', 'Fucking Decent', 'Full Send',
-                      'Ghetto Builds', 'God is Great', 'Good Vibes',
-                      'Happy Endings', 'Hers not His', 'HOOLIGAN',
-                      'Imperfect', 'It Is What It Is', "It's Okay to Stare",
-                      'Just For Fun', 'Just Fuckin Send It', 'Just Keep Moving',
-                      'Knight Legends',
-                      'Leave Me Alone', 'Legends Never Die', 'Legacy Never Dies', 'Limitless', 'Locally Hated', 'Lonely Driver', 'Love Now Cry Later', 'Low & Slow', 'Low And Slow', 'Low Budget', 'Low Standards', 'Low Tolerance', 'Lowered Standards', 'Lowered Lifestyle', 'Loyalty Royalty', 'Latenight Patrol',
-                      'Made You Look', 'Man Made Problem', 'Metal Up Your Ass', 'Midnight Boys', 'Midnight Runners', 'Midnight Streets', 'Mo Powa Babeh!', 'Money Pit', 'Money Well Wasted', 'Moonlite Runners', 'Murder Hornet',
-                      'Never Satisfied', 'Not Fast', 'Naturally Aspired', 'Never Satisfied', 'Never Stock', 'Next Level', 'Night Ride', 'Night Runner', 'No Fat Bitches', 'No Hard Feelings', 'No Limits', 'Not A Hybrid', 'Not For Sale', 'Not Fast Just Loud', 'Nothing Is True', 'Nothing To See Here', 'Notorious', 'Notta Racecar',
-                      'On Some Shit', 'One Last Ride', 'One More Day', 'Open Your Mind', 'Out of Style',
-                      'ProblemChild', 'Panty Dropper', 'Patience is Key', 'Pay Attention!', 'Peace Maker', 'Permanently Grounded', 'Power Wagon', 'Primitive', 'Public Disturbance', 'Public Enemy',
-                      'Relentless', 'Respect Your Elders', 'Ridin Dirty',
-                      'Screamin Machine', 'Self Made', 'Send Nudes', 'Seriously Filthy', 'Shit We Do', 'Shitbox Aesthetic', 'Show No Love', 'Sittin Pretty', 'Slightly Modified', 'Slow Motion', 'Slow Skidz', 'Social Disturbance', 'Some Kind of Freak', 'Speed is Theraphy', 'Stance Nation', 'Static Rider', 'Stay Classy', 'Stay Humble', 'Stay In Your Lane', 'Still Slow', 'Stock-ish', 'Street Dreamer', 'Street Dreams', 'Street Dreamz', 'Street Legal', 'Strictly Business', 'Strictly Sketchy', 'Super Slow',
-                      'Take It Easy', 'The Devil Himself', 'The Wild Thing', 'The World Is Yours', 'Trash Can',
-                      'Unbothered',
-                      'Vague Intentions',
-                      "West Coastin'", 'Wake Up To Reality', 'Wasted Wages', 'Welcome to Hell', 'Wicked Tunung', 'Why So Serious?',
-                      'Young Dumb & Broke', 'Young Money'];
-
-    DOM.$generate.click(function (event){
-        event.preventDefault();
-        const randomText = dummyTexts[Math.floor(Math.random() * dummyTexts.length)];
-        DOM.$input.val(randomText);
-        DOM.$input.trigger( "input" );
-        // Event was not triggered by human - save manually
-        _saveData();
-    });
-
-    DOM.$radioFont.change(function (event) {
-        var text = _getBannerText();
-        var containsNonLatinCharacters = /[^\u0000-\u00ff]/.test(text);
-        _updateBannerImage(containsNonLatinCharacters);
-        _updateSnipcartButtonsFont(this.value);
-        if (event.originalEvent && event.originalEvent.isTrusted){
-            // Save data only of the event was triggered with human
-            _saveData();
-        }
-    });
-
-    DOM.$radioTextColor.change(function (event) {
-        _updateBannerSunstripTextColors();
-        _updateSnipcartButtonsTextColor(this.value);
-        if (event.originalEvent && event.originalEvent.isTrusted){
-            // Save data only of the event was triggered with human
-            _saveData();
-        }
-    });
-
-    DOM.$radioBaseColor.change(function (event) {
-        _updateSunstripBaseColor();
-        _updateSnipcartButtonsBaseColor(this.value);
-        if (event.originalEvent && event.originalEvent.isTrusted){
-            // Save data only of the event was triggered with human
-            _saveData();
-        }
-    });
-
-    DOM.$radioVehicleType.change(function (event) {
-        _updateVehicleType(this.value);
-        _updateSnipcartButtonsVehicleType(this.value);
-        if (event.originalEvent && event.originalEvent.isTrusted){
-            // Save data only of the event was triggered with human
-            _saveData();
-        }
-    });
-
-    DOM.$inputQuantity.change(function (event) {
-        DOM.$btnBuyBanner.attr('data-item-quantity', this.value);
-        DOM.$btnBuySunStrip.attr('data-item-quantity', this.value);
-        DOM.$btnBuyCutSunStrip.attr('data-item-quantity', this.value);
-        DOM.$btnBuyTextSunStrip.attr('data-item-quantity', this.value);
-        _updateSubmitButtonText();
-        _saveData();
-    });
-
-    DOM.$form.submit(function(event) {
-        event.preventDefault();
-
-        // Hack - prevent submission if "Add to cart" is not in viewport.
-        // Otherwise Snipcart side cart opens up when "Go" on the input field
-        if (!helpers.isInViewport(DOM.$submitButton)){
-            // Iphone hide keyboard
-            document.activeElement.blur();
-            // Prevent submit
-            return false;
-        }
-
-        switch (DOM.$radioProduct.filter(":checked").val()) {
-            case 'ST_CAR_W_BANNER':
-                DOM.$btnBuyBanner.click();
-                break;
-            case 'ST_CAR_W_SS':
-                DOM.$btnBuySunStrip.click();
-                break;
-            case 'ST_CAR_W_SS_CUT':
-                DOM.$btnBuyCutSunStrip.click();
-                break;
-            case 'ST_CAR_W_SS_TEXT':
-                DOM.$btnBuyTextSunStrip.click();
-                break;
-        }
-    });
-}
-
-function _getBannerText() {
-    return DOM.$input.val().length ? DOM.$input.val() : "Your Banner";
-}
-
-function _showHideFormContainers(product) {
-    switch (product) {
-        case 'ST_CAR_W_BANNER':
-            DOM.$fontContainer.slideDown();
-            DOM.$textColorContainer.slideDown();
-            DOM.$baseColorContainer.slideUp();
-            break;
-        case 'ST_CAR_W_SS':
-            DOM.$fontContainer.slideUp();
-            DOM.$textColorContainer.slideUp();
-            DOM.$baseColorContainer.slideDown();
-            break;
-        case 'ST_CAR_W_SS_CUT':
-            DOM.$fontContainer.slideDown();
-            DOM.$textColorContainer.slideUp();
-            DOM.$baseColorContainer.slideDown();
-            break;
-        case 'ST_CAR_W_SS_TEXT':
-            DOM.$fontContainer.slideDown();
-            DOM.$textColorContainer.slideDown();
-            DOM.$baseColorContainer.slideDown();
-            break;
-    }
-}
-
-function _getSelectedSwatch(radioName) {
-    return $('input[name=' + radioName + ']:checked').parent().find('.color-swatch');
-}
-
-function _showHidePreviewElements(product) {
-    switch (product) {
-        case 'ST_CAR_W_BANNER':
-            DOM.$banner.show();
-            DOM.$sunstrip.hide();
-            DOM.$sunstripText.hide();
-            DOM.$textWidthNotice.show();
-            break;
-        case 'ST_CAR_W_SS':
-            DOM.$banner.hide();
-            DOM.$sunstrip.show();
-            DOM.$sunstripText.hide();
-            DOM.$textWidthNotice.hide();
-            break;
-        case 'ST_CAR_W_SS_CUT':
-            DOM.$banner.hide();
-            DOM.$sunstrip.show();
-            DOM.$sunstripText.show();
-            DOM.$sunstripText.css('background-image', '');
-            DOM.$sunstripText.css('background-color', '#6C6C6C');
-            DOM.$textWidthNotice.show();
-            break;
-        case 'ST_CAR_W_SS_TEXT':
-            DOM.$banner.hide();
-            DOM.$sunstrip.show();
-            DOM.$sunstripText.show();
-            var color = _getSelectedSwatch('color_text').css('background-color');
-            DOM.$sunstripText.css('background-color', color);
-            DOM.$textWidthNotice.show();
-            break;
-    }
-}
-
-function _enableDisableFormInputs(product) {
-    switch (product) {
-        case 'ST_CAR_W_BANNER':
-            DOM.$input.prop("disabled", false);
-            DOM.$radioTextColor.prop("disabled", false);
-            DOM.$radioBaseColor.prop("disabled", true);
-            break;
-        case 'ST_CAR_W_SS':
-            DOM.$input.prop("disabled", true);
-            DOM.$radioTextColor.prop("disabled", true);
-            DOM.$radioBaseColor.prop("disabled", false);
-            break;
-        case 'ST_CAR_W_SS_CUT':
-            DOM.$input.prop("disabled", false);
-            DOM.$radioTextColor.prop("disabled", true);
-            DOM.$radioBaseColor.prop("disabled", false);
-            break;
-        case 'ST_CAR_W_SS_TEXT':
-            DOM.$input.prop("disabled", false);
-            DOM.$radioTextColor.prop("disabled", false);
-            DOM.$radioBaseColor.prop("disabled", false);
-            break;
-    }
-}
-
-function _reflectExtraTruckPrice(product){
-    DOM.$truckExtraContainer.children().hide();
-    const productClass= "." + product;
-    DOM.$truckExtraContainer.find(productClass).show();
-}
-
-function _buildFontUrl($fontImage, text) {
-    var fontId = $fontImage.data().src;
-    var query = '{"size":72,"text":"#","retina":false}'.replace("#", text);
-
-    // If localhost
-    if (document.location.href.includes("localhost")){
-        return "https://d3ui957tjb5bqd.cloudfront.net/op/font-preview/" + fontId + "?s=" + query;
-    }
-    // If production
-    return "/font/" + fontId + '?s=' + encodeURIComponent(query);
-}
-
-function _buildFontUnicodeUrl(text) {
-    // If localhost
-    if (document.location.href.includes("localhost")){
-        return "https://render.myfonts.net/fonts/font_rend.php?id=de892884133a0eff8a4920ea421a18c2&rs=25&w=0&rbe=&sc=2&nie=true&fg=FFFFFF&bg=000000&ft=&nf=1&rt=" + encodeURIComponent(text);
-    }
-    // If production
-    return "/font-unicode/" + encodeURIComponent(text);
-}
-
-function _updateFontPreviews() {
-    // SOLUTION for testing: Install CORS firefox extension
-    // On testing environment do nothing (no font url rewrite implemented)
-    // if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
-
-    // Update radio font images to reflect custom text
-    var text = _getBannerText();
-
-    DOM.$fontImages.each(function () {
-        var url = _buildFontUrl($(this), text);
-        $(this).attr('src', url);
-        $(this).parent().removeClass('loading');
-        // Remove width and height set on the first page load for Google CLS improvements
-        $(this).removeAttr("width");
-        $(this).removeAttr("height");
-    });
-}
-
-function _updateBannerImage(hasUnicode = false) {
-    // Update car banner and sun strip images
-    var text = _getBannerText();
-    var url = '';
-    var maskMode = '';
-    if (!hasUnicode){
-        var $fontImage = $('input[name=font]:checked').parent().find('img');
-        url = _buildFontUrl($fontImage, text);
-    } else {
-        url = _buildFontUnicodeUrl(text);
-        maskMode = 'luminance';
-    }
-    // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
-    // https://www.w3.org/TR/CSS2/syndata.html#value-def-uri
-    url = url.replace(/[() '"]/g, '\\$&');
-
-    DOM.$banner.css('mask-image', 'url(' + url + ')');
-    DOM.$banner.css('-webkit-mask-image', 'url(' + url + ')');
-
-    DOM.$sunstripText.css('mask-image', 'url(' + url + ')');
-    DOM.$sunstripText.css('-webkit-mask-image', 'url(' + url + ')');
-
-    // CSS tweaks that account on discrepancy between creativemarket.com and myfonts.net
-    if (hasUnicode){
-        DOM.$banner.addClass('unicode-on');
-        DOM.$sunstripText.addClass('unicode-on');
-    } else {
-        DOM.$banner.removeClass('unicode-on');
-        DOM.$sunstripText.removeClass('unicode-on');
-    }
-}
-
-function _updateBannerSunstripTextColors() {
-    var $swatch = _getSelectedSwatch('color_text');
-    // Change banner text
-    DOM.$banner.css('background-color', $swatch.css('background-color'));
-    DOM.$banner.css('background-image', $swatch.css('background-image'));
-    // Change sun strip text color
-    DOM.$sunstripText.css('background-color', $swatch.css('background-color'));
-    DOM.$sunstripText.css('background-image', $swatch.css('background-image'));
-}
-
-function _updateSunstripBaseColor() {
-    var $swatch = _getSelectedSwatch('color_base');
-    // Change sun strip base color
-    DOM.$sunstrip.css('background-color', $swatch.css('background-color'));
-    DOM.$sunstrip.css('background-image', $swatch.css('background-image'));
-}
-
-// Visual updates for selecting vehicle type (car/truck)
-function _updateVehicleType(value) {
-    // Reflect Bootstrap button appearance
-    DOM.$radioVehicleType.parent().removeClass('active');
-    DOM.$radioVehicleType.filter('[value='+value+']').parent().addClass('active');
-
-    if (value == 'Regular'){
-        DOM.$car.show();
-        DOM.$noticeCar.show();
-        DOM.$truck.hide();
-        DOM.$noticeTruck.hide();
-    }
-    else {
-        DOM.$car.hide();
-        DOM.$noticeCar.hide();
-        DOM.$truck.show();
-        DOM.$noticeTruck.show();
-    }
-}
-
-// Updating Snipcart buttons' attributes
-
-function _updateSnipcartButtonsText(value){
-    // set atribute with multiple spaces in between
-    DOM.$btnBuyBanner.attr('data-item-custom1-value', value.replace(/\s/g, '\u00A0'));
-    DOM.$btnBuyCutSunStrip.attr('data-item-custom1-value', value.replace(/\s/g, '\u00A0'));
-    DOM.$btnBuyTextSunStrip.attr('data-item-custom1-value', value.replace(/\s/g, '\u00A0'));
-}
-
-function _updateSnipcartButtonsFont(value){
-    DOM.$btnBuyBanner.attr('data-item-custom2-value', value);
-    DOM.$btnBuyCutSunStrip.attr('data-item-custom2-value', value);
-    DOM.$btnBuyTextSunStrip.attr('data-item-custom2-value', value);
-}
-
-function _updateSnipcartButtonsTextColor(value){
-    DOM.$btnBuyBanner.attr('data-item-custom3-value', value);
-    DOM.$btnBuyTextSunStrip.attr('data-item-custom3-value', value);
-}
-
-function _updateSnipcartButtonsBaseColor(value){
-    DOM.$btnBuySunStrip.attr('data-item-custom1-value', value);
-    DOM.$btnBuyCutSunStrip.attr('data-item-custom3-value', value);
-    DOM.$btnBuyTextSunStrip.attr('data-item-custom4-value', value);
-}
-
-function _updateSnipcartButtonsVehicleType(value){
-    DOM.$btnBuyBanner.attr('data-item-custom4-value', value);
-    DOM.$btnBuySunStrip.attr('data-item-custom2-value', value);
-    DOM.$btnBuyCutSunStrip.attr('data-item-custom4-value', value);
-    DOM.$btnBuyTextSunStrip.attr('data-item-custom5-value', value);
-}
-
-function init(element) {
-    if (element) {
-        // options = $.extend(options, $(element).data());
-        _cacheDom(element);
-        _bindEvents();
-        _onLoad();
-        // _showHideFormContainers(DOM.$radioProduct.val());
-        _loadData();
-    }
-}
-
-exports.init = init;
-},{"./events":8,"./helpers":12,"jquery":34}],29:[function(require,module,exports){
+},{"./events":8,"jquery":31}],26:[function(require,module,exports){
 /**
  * @popperjs/core v2.11.8 - MIT License
  */
@@ -4439,13 +3418,13 @@ exports.popperOffsets = popperOffsets$1;
 exports.preventOverflow = preventOverflow$1;
 
 
-},{}],30:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 (function (global){(function (){
 !function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):e.AOS=t()}(this,function(){"use strict";var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:{},t="Expected a function",n=NaN,o="[object Symbol]",i=/^\s+|\s+$/g,a=/^[-+]0x[0-9a-f]+$/i,r=/^0b[01]+$/i,c=/^0o[0-7]+$/i,s=parseInt,u="object"==typeof e&&e&&e.Object===Object&&e,d="object"==typeof self&&self&&self.Object===Object&&self,l=u||d||Function("return this")(),f=Object.prototype.toString,m=Math.max,p=Math.min,b=function(){return l.Date.now()};function v(e,n,o){var i,a,r,c,s,u,d=0,l=!1,f=!1,v=!0;if("function"!=typeof e)throw new TypeError(t);function y(t){var n=i,o=a;return i=a=void 0,d=t,c=e.apply(o,n)}function h(e){var t=e-u;return void 0===u||t>=n||t<0||f&&e-d>=r}function k(){var e=b();if(h(e))return x(e);s=setTimeout(k,function(e){var t=n-(e-u);return f?p(t,r-(e-d)):t}(e))}function x(e){return s=void 0,v&&i?y(e):(i=a=void 0,c)}function O(){var e=b(),t=h(e);if(i=arguments,a=this,u=e,t){if(void 0===s)return function(e){return d=e,s=setTimeout(k,n),l?y(e):c}(u);if(f)return s=setTimeout(k,n),y(u)}return void 0===s&&(s=setTimeout(k,n)),c}return n=w(n)||0,g(o)&&(l=!!o.leading,r=(f="maxWait"in o)?m(w(o.maxWait)||0,n):r,v="trailing"in o?!!o.trailing:v),O.cancel=function(){void 0!==s&&clearTimeout(s),d=0,i=u=a=s=void 0},O.flush=function(){return void 0===s?c:x(b())},O}function g(e){var t=typeof e;return!!e&&("object"==t||"function"==t)}function w(e){if("number"==typeof e)return e;if(function(e){return"symbol"==typeof e||function(e){return!!e&&"object"==typeof e}(e)&&f.call(e)==o}(e))return n;if(g(e)){var t="function"==typeof e.valueOf?e.valueOf():e;e=g(t)?t+"":t}if("string"!=typeof e)return 0===e?e:+e;e=e.replace(i,"");var u=r.test(e);return u||c.test(e)?s(e.slice(2),u?2:8):a.test(e)?n:+e}var y=function(e,n,o){var i=!0,a=!0;if("function"!=typeof e)throw new TypeError(t);return g(o)&&(i="leading"in o?!!o.leading:i,a="trailing"in o?!!o.trailing:a),v(e,n,{leading:i,maxWait:n,trailing:a})},h="Expected a function",k=NaN,x="[object Symbol]",O=/^\s+|\s+$/g,j=/^[-+]0x[0-9a-f]+$/i,E=/^0b[01]+$/i,N=/^0o[0-7]+$/i,z=parseInt,C="object"==typeof e&&e&&e.Object===Object&&e,A="object"==typeof self&&self&&self.Object===Object&&self,q=C||A||Function("return this")(),L=Object.prototype.toString,T=Math.max,M=Math.min,S=function(){return q.Date.now()};function D(e){var t=typeof e;return!!e&&("object"==t||"function"==t)}function H(e){if("number"==typeof e)return e;if(function(e){return"symbol"==typeof e||function(e){return!!e&&"object"==typeof e}(e)&&L.call(e)==x}(e))return k;if(D(e)){var t="function"==typeof e.valueOf?e.valueOf():e;e=D(t)?t+"":t}if("string"!=typeof e)return 0===e?e:+e;e=e.replace(O,"");var n=E.test(e);return n||N.test(e)?z(e.slice(2),n?2:8):j.test(e)?k:+e}var $=function(e,t,n){var o,i,a,r,c,s,u=0,d=!1,l=!1,f=!0;if("function"!=typeof e)throw new TypeError(h);function m(t){var n=o,a=i;return o=i=void 0,u=t,r=e.apply(a,n)}function p(e){var n=e-s;return void 0===s||n>=t||n<0||l&&e-u>=a}function b(){var e=S();if(p(e))return v(e);c=setTimeout(b,function(e){var n=t-(e-s);return l?M(n,a-(e-u)):n}(e))}function v(e){return c=void 0,f&&o?m(e):(o=i=void 0,r)}function g(){var e=S(),n=p(e);if(o=arguments,i=this,s=e,n){if(void 0===c)return function(e){return u=e,c=setTimeout(b,t),d?m(e):r}(s);if(l)return c=setTimeout(b,t),m(s)}return void 0===c&&(c=setTimeout(b,t)),r}return t=H(t)||0,D(n)&&(d=!!n.leading,a=(l="maxWait"in n)?T(H(n.maxWait)||0,t):a,f="trailing"in n?!!n.trailing:f),g.cancel=function(){void 0!==c&&clearTimeout(c),u=0,o=s=i=c=void 0},g.flush=function(){return void 0===c?r:v(S())},g},W=function(){};function P(e){e&&e.forEach(function(e){var t=Array.prototype.slice.call(e.addedNodes),n=Array.prototype.slice.call(e.removedNodes);if(function e(t){var n=void 0,o=void 0;for(n=0;n<t.length;n+=1){if((o=t[n]).dataset&&o.dataset.aos)return!0;if(o.children&&e(o.children))return!0}return!1}(t.concat(n)))return W()})}function Y(){return window.MutationObserver||window.WebKitMutationObserver||window.MozMutationObserver}var _={isSupported:function(){return!!Y()},ready:function(e,t){var n=window.document,o=new(Y())(P);W=t,o.observe(n.documentElement,{childList:!0,subtree:!0,removedNodes:!0})}},B=function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")},F=function(){function e(e,t){for(var n=0;n<t.length;n++){var o=t[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,o.key,o)}}return function(t,n,o){return n&&e(t.prototype,n),o&&e(t,o),t}}(),I=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)Object.prototype.hasOwnProperty.call(n,o)&&(e[o]=n[o])}return e},K=/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i,G=/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i,J=/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i,Q=/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i;function R(){return navigator.userAgent||navigator.vendor||window.opera||""}var U=new(function(){function e(){B(this,e)}return F(e,[{key:"phone",value:function(){var e=R();return!(!K.test(e)&&!G.test(e.substr(0,4)))}},{key:"mobile",value:function(){var e=R();return!(!J.test(e)&&!Q.test(e.substr(0,4)))}},{key:"tablet",value:function(){return this.mobile()&&!this.phone()}},{key:"ie11",value:function(){return"-ms-scroll-limit"in document.documentElement.style&&"-ms-ime-align"in document.documentElement.style}}]),e}()),V=function(e,t){var n=void 0;return U.ie11()?(n=document.createEvent("CustomEvent")).initCustomEvent(e,!0,!0,{detail:t}):n=new CustomEvent(e,{detail:t}),document.dispatchEvent(n)},X=function(e){return e.forEach(function(e,t){return function(e,t){var n=e.options,o=e.position,i=e.node,a=(e.data,function(){e.animated&&(function(e,t){t&&t.forEach(function(t){return e.classList.remove(t)})}(i,n.animatedClassNames),V("aos:out",i),e.options.id&&V("aos:in:"+e.options.id,i),e.animated=!1)});n.mirror&&t>=o.out&&!n.once?a():t>=o.in?e.animated||(function(e,t){t&&t.forEach(function(t){return e.classList.add(t)})}(i,n.animatedClassNames),V("aos:in",i),e.options.id&&V("aos:in:"+e.options.id,i),e.animated=!0):e.animated&&!n.once&&a()}(e,window.pageYOffset)})},Z=function(e){for(var t=0,n=0;e&&!isNaN(e.offsetLeft)&&!isNaN(e.offsetTop);)t+=e.offsetLeft-("BODY"!=e.tagName?e.scrollLeft:0),n+=e.offsetTop-("BODY"!=e.tagName?e.scrollTop:0),e=e.offsetParent;return{top:n,left:t}},ee=function(e,t,n){var o=e.getAttribute("data-aos-"+t);if(void 0!==o){if("true"===o)return!0;if("false"===o)return!1}return o||n},te=function(e,t){return e.forEach(function(e,n){var o=ee(e.node,"mirror",t.mirror),i=ee(e.node,"once",t.once),a=ee(e.node,"id"),r=t.useClassNames&&e.node.getAttribute("data-aos"),c=[t.animatedClassName].concat(r?r.split(" "):[]).filter(function(e){return"string"==typeof e});t.initClassName&&e.node.classList.add(t.initClassName),e.position={in:function(e,t,n){var o=window.innerHeight,i=ee(e,"anchor"),a=ee(e,"anchor-placement"),r=Number(ee(e,"offset",a?0:t)),c=a||n,s=e;i&&document.querySelectorAll(i)&&(s=document.querySelectorAll(i)[0]);var u=Z(s).top-o;switch(c){case"top-bottom":break;case"center-bottom":u+=s.offsetHeight/2;break;case"bottom-bottom":u+=s.offsetHeight;break;case"top-center":u+=o/2;break;case"center-center":u+=o/2+s.offsetHeight/2;break;case"bottom-center":u+=o/2+s.offsetHeight;break;case"top-top":u+=o;break;case"bottom-top":u+=o+s.offsetHeight;break;case"center-top":u+=o+s.offsetHeight/2}return u+r}(e.node,t.offset,t.anchorPlacement),out:o&&function(e,t){window.innerHeight;var n=ee(e,"anchor"),o=ee(e,"offset",t),i=e;return n&&document.querySelectorAll(n)&&(i=document.querySelectorAll(n)[0]),Z(i).top+i.offsetHeight-o}(e.node,t.offset)},e.options={once:i,mirror:o,animatedClassNames:c,id:a}}),e},ne=function(){var e=document.querySelectorAll("[data-aos]");return Array.prototype.map.call(e,function(e){return{node:e}})},oe=[],ie=!1,ae={offset:120,delay:0,easing:"ease",duration:400,disable:!1,once:!1,mirror:!1,anchorPlacement:"top-bottom",startEvent:"DOMContentLoaded",animatedClassName:"aos-animate",initClassName:"aos-init",useClassNames:!1,disableMutationObserver:!1,throttleDelay:99,debounceDelay:50},re=function(){return document.all&&!window.atob},ce=function(){arguments.length>0&&void 0!==arguments[0]&&arguments[0]&&(ie=!0),ie&&(oe=te(oe,ae),X(oe),window.addEventListener("scroll",y(function(){X(oe,ae.once)},ae.throttleDelay)))},se=function(){if(oe=ne(),de(ae.disable)||re())return ue();ce()},ue=function(){oe.forEach(function(e,t){e.node.removeAttribute("data-aos"),e.node.removeAttribute("data-aos-easing"),e.node.removeAttribute("data-aos-duration"),e.node.removeAttribute("data-aos-delay"),ae.initClassName&&e.node.classList.remove(ae.initClassName),ae.animatedClassName&&e.node.classList.remove(ae.animatedClassName)})},de=function(e){return!0===e||"mobile"===e&&U.mobile()||"phone"===e&&U.phone()||"tablet"===e&&U.tablet()||"function"==typeof e&&!0===e()};return{init:function(e){return ae=I(ae,e),oe=ne(),ae.disableMutationObserver||_.isSupported()||(console.info('\n      aos: MutationObserver is not supported on this browser,\n      code mutations observing has been disabled.\n      You may have to call "refreshHard()" by yourself.\n    '),ae.disableMutationObserver=!0),ae.disableMutationObserver||_.ready("[data-aos]",se),de(ae.disable)||re()?ue():(document.querySelector("body").setAttribute("data-aos-easing",ae.easing),document.querySelector("body").setAttribute("data-aos-duration",ae.duration),document.querySelector("body").setAttribute("data-aos-delay",ae.delay),-1===["DOMContentLoaded","load"].indexOf(ae.startEvent)?document.addEventListener(ae.startEvent,function(){ce(!0)}):window.addEventListener("load",function(){ce(!0)}),"DOMContentLoaded"===ae.startEvent&&["complete","interactive"].indexOf(document.readyState)>-1&&ce(!0),window.addEventListener("resize",$(ce,ae.debounceDelay,!0)),window.addEventListener("orientationchange",$(ce,ae.debounceDelay,!0)),oe)},refresh:ce,refreshHard:se}});
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],31:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -4718,7 +3697,7 @@ exports.preventOverflow = preventOverflow$1;
 
 })));
 
-},{}],32:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 /*!
   * Bootstrap v5.3.3 (https://getbootstrap.com/)
   * Copyright 2011-2024 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
@@ -9214,7 +8193,7 @@ exports.preventOverflow = preventOverflow$1;
 }));
 
 
-},{"@popperjs/core":29}],33:[function(require,module,exports){
+},{"@popperjs/core":26}],30:[function(require,module,exports){
 /**
  jQuery.kinetic v2.2.4
  Dave Taylor http://davetayls.me
@@ -9764,7 +8743,7 @@ exports.preventOverflow = preventOverflow$1;
 }(window.jQuery || window.Zepto));
 
 
-},{}],34:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.7.1
  * https://jquery.com/
@@ -20482,7 +19461,7 @@ if ( typeof noGlobal === "undefined" ) {
 return jQuery;
 } );
 
-},{}],35:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 /*! js-cookie v3.0.5 | MIT */
 ;
 (function (global, factory) {
@@ -20631,7 +19610,7 @@ return jQuery;
 
 }));
 
-},{}],36:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 /*!
  * named-web-colors v1.4.2
  * https://github.com/davidfq/named-web-colors
@@ -20822,7 +19801,7 @@ eval("module.exports = JSON.parse('{\"252024\":\"Ink Black\",\"383867\":\"China 
 /******/ })()
 ;
 });
-},{}],37:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 (function (process,setImmediate){(function (){
 /*! Browser bundle of nunjucks 3.2.4  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -27847,7 +26826,7 @@ module.exports = installCompat;
 
 }).call(this)}).call(this,require('_process'),require("timers").setImmediate)
 
-},{"_process":38,"timers":39}],38:[function(require,module,exports){
+},{"_process":35,"timers":36}],35:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -28033,7 +27012,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],39:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 (function (setImmediate,clearImmediate){(function (){
 var nextTick = require('process/browser.js').nextTick;
 var apply = Function.prototype.apply;
@@ -28113,7 +27092,7 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
 };
 }).call(this)}).call(this,require("timers").setImmediate,require("timers").clearImmediate)
 
-},{"process/browser.js":38,"timers":39}],40:[function(require,module,exports){
+},{"process/browser.js":35,"timers":36}],37:[function(require,module,exports){
 /*!
  * Toastify js 1.12.0
  * https://github.com/apvarun/toastify-js

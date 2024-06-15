@@ -37,7 +37,7 @@
 						</p>
 					</div>
 				</div>
-				<form autocomplete="off" class="js--windshield-form-snipcart" name="windshield" method="POST" data-netlify="true" action="/form-error-banners/index.html">
+				<form autocomplete="off" class="js--component-banner-form" name="windshield" method="POST" data-netlify="true" action="/form-error-banners/index.html">
 					<!-- autocomplete="off" because of Firefox radio buttons bug -->
 					<!-- https://stackoverflow.com/questions/7988729/firefox-remembering-radio-buttons-incorrectly -->
 
@@ -242,51 +242,46 @@
 					</div>
 					<div class="row justify-content-center">
 						<div class="col-12 col-md-10 col-lg-8">
-							<div class="form-group">
-								<label class="label-blueberry">Vehicle type</label>
-								<div class="btn-group btn-group-md btn-group-toggle w-100" data-bs-toggle="buttons">
-									<input id="car-regular" type="radio" class="btn-check" name="pattern" value="Regular" checked>
-									<label for="car-regular" class="btn btn-primary btn-blueberry active">Regular Car</label>
+							<label class="label-blueberry">Vehicle type</label>
+							<div class="btn-group btn-group-md btn-group-toggle w-100" data-bs-toggle="buttons">
+								<input id="car-regular" type="radio" class="btn-check" name="pattern" value="Regular" checked>
+								<label for="car-regular" class="btn btn-primary btn-blueberry active">Regular Car</label>
 
-									<input id="car-large" type="radio" class="btn-check" name="pattern" value="Large">
-									<label for="car-large" class="btn btn-primary btn-blueberry">Large Vehicle&nbsp;&nbsp;|&nbsp;&nbsp;
-										<% var firstProductFlag = true; %>
-										<span class="js--pattern-price-extra">
-											<% for (var product of products) {
-												var regexpExtraTruckPrice = /\+(.+)\]/gm;
-												const extraTruckPrice = regexpExtraTruckPrice.exec(product.pattern);
-												%>
-												<span class="<%- product.id %>" style="<%- firstProductFlag ? '' : 'display: none' %>">+$<%- extraTruckPrice[1] %></span>
-												<% firstProductFlag = false; %>
-											<% } %>
-										</span>
-									</label>
-								</div>
-								<p class="js--notice-car text-body-secondary text-center mt-2 mb-3">
-									Regular size cars include all sedans, wagons, smaller SUVs and mini trucks.
-								</p>
-								<p class="js--notice-truck text-body-secondary text-center mt-2 mb-3" style="display: none">
-									For cars with wider windshields such as large SUVs (Escallade), heavy duty trucks (Ford F-150) and similar. Windshield banners for larger cars require more material and special geometry.
-								</p>
+								<input id="car-large" type="radio" class="btn-check" name="pattern" value="Large">
+								<label for="car-large" class="btn btn-primary btn-blueberry">Large Vehicle&nbsp;&nbsp;|&nbsp;&nbsp;
+									<% var firstProductFlag = true; %>
+									<span class="js--pattern-price-extra">
+										<% for (var product of products) {
+											var regexpExtraTruckPrice = /\+(.+)\]/gm;
+											const extraTruckPrice = regexpExtraTruckPrice.exec(product.pattern);
+											%>
+											<span class="<%- product.id %>" style="<%- firstProductFlag ? '' : 'display: none' %>">+$<%- extraTruckPrice[1] %></span>
+											<% firstProductFlag = false; %>
+										<% } %>
+									</span>
+								</label>
 							</div>
-							<div class="form-group">
-								<label class="label-blueberry" for="inputQuantity">How many items you need?</label>
-								<div class="input-group js--init-integer-input">
-									<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
-									<input name="quantity" type="number" class="form-control js--input text-center hide-arrows" id="inputQuantity" value="1" min="1" max="999">
-									<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
-								</div>
-								<div class="alert alert-success mt-3 text-center animate__delay-1s" role="alert" data-aos="animate__tada">
-									<small>We offer <strong>10% off</strong> for 2+,  <strong>15% off</strong> for 4+ and <strong>20% off</strong> for 10+ same items in your cart!</small>
-								</div>
+							<p class="js--notice-car text-body-secondary text-center mt-2 mb-3">
+								Regular size cars include all sedans, wagons, smaller SUVs and mini trucks.
+							</p>
+							<p class="js--notice-truck text-body-secondary text-center mt-2 mb-3" style="display: none">
+								For cars with wider windshields such as large SUVs (Escallade), heavy duty trucks (Ford F-150) and similar. Windshield banners for larger cars require more material and special geometry.
+							</p>
+
+							<label class="label-blueberry" for="inputQuantity">How many items you need?</label>
+							<div class="input-group js--init-integer-input">
+								<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
+								<input name="quantity" type="number" class="form-control js--input text-center hide-arrows" id="inputQuantity" value="1" min="1" max="999">
+								<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
+							</div>
+							<div class="alert alert-success mt-3 text-center animate__delay-1s" role="alert" data-aos="animate__tada">
+								<small>We offer <strong>10% off</strong> for 2+,  <strong>15% off</strong> for 4+ and <strong>20% off</strong> for 10+ same items in your cart!</small>
 							</div>
 						</div>
 						<!-- Hack: make users without JavaScript fill their email so we can reach out back -->
 						<div class="col-12 col-md-10 col-lg-8 js--nojs-only">
-							<div class="form-group">
-								<label class="label-blueberry" for="email">Enter your email</label>
-								<input class="form-control form-control-lg" type="text" required name="email" placeholder="your@email.com" />
-							</div>
+							<label class="label-blueberry" for="email">Enter your email</label>
+							<input class="form-control form-control-lg" type="text" required name="email" placeholder="your@email.com" />
 						</div>
 						<div class="col-12 col-md-10 col-lg-8 text-center mt-4">
 							<button type="submit" id="submitButton" class="btn btn-primary btn-blueberry btn-lg">Submit Banner Request</button>

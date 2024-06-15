@@ -19,31 +19,30 @@
               <img width="320" height="320" class="w-100" src="<%- get_pathname(product.image_link) %>" title="<%- product.title %>" alt="<%- product.description %>" />
             <% } %>
           </div>
+          <!-- Featured gallery -->
           <h1 class="mb-3 mt-lg-4 font-size-28 line-height-1"><%- post.title %></h1>
           <form autocomplete="off" class="js--init-snipcart-form" id="cart-form">
             <% if (has_variations(product)){ %>
               <% var variations = get_variations(product); %>
               <% var firstFlag = true; %>
               <% for (const [key, values] of Object.entries(variations)) { %>
-                <div class="form-group">
                   <label class="label-blueberry" for="<%- key %>"><%- capitalize(key) %></label>
-                  <select class="select-blueberry form-control <%- key==='color'?'js--init-select-color':'' %>" id="<%- key %>">
+                  <select class="select-blueberry form-control <%- key==='color'?'component-select-color js--init-select-color':'' %>" id="<%- key %>">
                     <% values.forEach(value => { %>
                       <% var val = parse_variation_value(value); %>
                       <option value="<%- val.value %>" data-extra-text="<%- val.extra_text %>" data-extra="<%- val.extra %>" <%- firstFlag===true?'selected':'' %>><%- val.text %></option>
                       <% firstFlag = false; %>
                     <% });%>
                   </select>
-                </div>
               <% }; %>
             <% } %>
             <% if (is_custom(product)){ %>
               <% var customFields = get_custom_fields(product); %>
               <% for (obj of customFields) { %>
-                <div class="form-group <%- obj['name'].toLowerCase() === 'color'?'js--init-input-color':'' %>">
+                <div class="mb-2 <%- obj['name'].toLowerCase() === 'color'?'js--init-input-color':'' %>">
                   <label class="label-blueberry" for="<%- obj['name'].toLowerCase() %>"><%- obj['name'] %></label>
                   <% if (obj['name'].toLowerCase() === 'color'){ %>
-                    <input id="<%- obj['name'].toLowerCase() %>" type="color" class="form-control" value="#ff0000" required %> />
+                    <input id="<%- obj['name'].toLowerCase() %>" type="color" class="form-control component-select-color" value="#ff0000" required %> />
                   <% } else { %>
                     <input id="<%- obj['name'].toLowerCase() %>" type="text"  class="form-control" required placeholder="<%- obj['placeholder'] %>" />
                   <% } %>

@@ -1,0 +1,42 @@
+<!-- Lazy Loading Scripts -->
+<!-- https://gist.github.com/LionsAd/d6d490161e5d07bfa6d14cd711bc528e -->
+
+<template id="lazy-scripts">
+    <!-- Main App JS -->
+    <% // For production environment add ?t= timestamp for javascript %>
+    <% if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
+        <script src="/js/app.js?t=<%- (new Date()).getTime().toString() %>"></script>
+    <% } else { %>
+        <script src="/js/app.js"></script>
+    <% } %>
+
+    <!-- Snipcart JS - adding new loading script -->
+    <% if(config.cart == "snipcart"){ %>    
+        <% if (process && process.env && process.env.SNIPCART_API_KEY){ %>
+            <script async src="https://cdn.snipcart.com/themes/v3.0.22/default/snipcart.js"></script>
+        <% } %>
+    <% } %>
+</template>
+
+<template id="lazy-scripts-facebook">
+    <!-- FB Fabebook Chat Was here -->
+</template>
+
+<script>
+    function loadLazyScripts() {
+        var lazyScripts = document.getElementById('lazy-scripts');
+
+        var scripts = lazyScripts.content.querySelectorAll('script');
+        for (var index = 0; index < scripts.length; index++) {
+            var script = scripts[index];
+            if (script.getAttribute('async') === null) {
+                script.async = false;
+            }
+        }
+
+        lazyScripts.parentNode.append(lazyScripts.content);
+    }
+
+    // Let's wait till the page is loaded for true progressive enhancement.
+    window.addEventListener("load", loadLazyScripts);
+</script>

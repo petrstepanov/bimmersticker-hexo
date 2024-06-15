@@ -41,7 +41,7 @@
 		</div>
 		<img width="2404" height="487" class="img-truck-van" alt="We offer vinyl stickers and decals for work vans, delivery trucks and other commercial vehicles" src="jumbotron-decals-for-truck-van.svg">
 	</div>
-	<form autocomplete="off" class="js--truck-van-form spacer-footer" name="truckvan" method="POST" data-netlify="true" action="/form-error-banners/index.html">
+	<form autocomplete="off" class="js--component-truck-van-form spacer-footer" name="truckvan" method="POST" data-netlify="true" action="/form-error-banners/index.html">
 	<!-- autocomplete="off" because of Firefox radio buttons bug -->
 	<!-- https://stackoverflow.com/questions/7988729/firefox-remembering-radio-buttons-incorrectly -->
 
@@ -235,7 +235,7 @@
 			</p>
 			<div class="row justify-content-center">
 				<div class="col-12 col-md-8">
-					<div class="form-group text-center">
+					<div class="text-center">
 						<label class="label-blueberry" for="inputQuantity">How many items you need?</label>
 						<div class="input-group js--init-integer-input">
 							<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
@@ -251,7 +251,7 @@
 			<!-- Hack: make users without JavaScript fill their email so we can reach out back -->
 			<div class="row justify-content-center js--nojs-only">
 				<div class="col-12 col-md-8">
-					<div class="form-group">
+					<div class="mb-2">
 						<label class="label-blueberry" for="inputEmail">Enter your email</label>
 						<input class="form-control form-control-lg" type="text" required id="inputEmail" name="email" placeholder="your@email.com" />
 					</div>

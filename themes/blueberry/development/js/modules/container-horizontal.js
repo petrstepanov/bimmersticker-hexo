@@ -1,5 +1,5 @@
 // Ajax form submission logic
-var $ = window.$ = window.jQuery = require('jquery');
+var $ = require('jquery');
 var kinetic = require('jquery.kinetic');
 var events = require('./events');
 

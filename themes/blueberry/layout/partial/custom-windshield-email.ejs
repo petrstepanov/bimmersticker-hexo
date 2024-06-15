@@ -46,7 +46,7 @@
 					<h2 class="text-center mt-4 mb-3">Select text style</h2>
 					<div class="row justify-content-center">
 						<div class="col col-md-8">
-							<div class="form-group mb-4">
+							<div class="mb-4">
 								<input class="form-control form-control-lg js--text-input" type="text" name="text" required placeholder="Type your text here">
 							</div>
 						</div>
@@ -134,50 +134,40 @@
 						<p class="text-body-secondary text-center mb-3">
 							In order to share an invoice we need to ask you for your email address. Additionally a valid shipping information is required. Our website does not have a server side so we do not store any of your information.
 						</p>
-						<div class="form-group">
-							<label class="label-blueberry" for="inputEmail">Your email address</label>
-							<input name="email" type="email" class="form-control" id="inputEmail" placeholder="name@example.com" required autocomplete="email" />
-							<small id="emailHelp" class="form-text text-body-secondary">We will send a PayPal invoice to this email.</small>
-						</div>
-						<div class="form-group">
-							<label class="label-blueberry" for="inputName">First and last name</label>
-							<input name="name" type="text" class="form-control" id="inputName" required autocomplete="name" />
-						</div>
-						<div class="form-group">
-							<label class="label-blueberry" for="inputAddress">Address</label>
-							<input name="address" type="text" class="form-control" id="inputAddress" placeholder="123 Any Street" required autocomplete="street-address" />
-						</div>
-						<div class="form-group">
-							<label class="label-blueberry" for="inputCity">City</label>
-							<input name="city" type="text" class="form-control" id="inputCity" placeholder="Miami" required autocomplete="address-level2" />
-						</div>
-						<div class="form-group">
-							<label class="label-blueberry" for="inputState">State</label>
-							<input name="state" type="text" class="form-control" id="inputState" placeholder="FL" required autocomplete="address-level1" />
-						</div>
-						<div class="form-group">
-							<label class="label-blueberry" for="inputZip">Zip</label>
-							<input name="zip" type="text" class="form-control" id="inputZip" placeholder="10011" required autocomplete="postal-code" />
-						</div>
-						<div class="form-group">
-							<label class="label-blueberry" for="inputCountry">Country</label>
-							<input name="country" type="text" class="form-control" id="inputCountry" placeholder="USA" required autocomplete="country" />
-							<small id="emailHelp" class="form-text text-body-secondary">Shipping outside US is $13.54 extra.</small>
-						</div>
+						<label class="label-blueberry" for="inputEmail">Your email address</label>
+						<input name="email" type="email" class="form-control" id="inputEmail" placeholder="name@example.com" required autocomplete="email" />
+						<small id="emailHelp" class="form-text text-body-secondary">We will send a PayPal invoice to this email.</small>
+
+						<label class="label-blueberry" for="inputName">First and last name</label>
+						<input name="name" type="text" class="form-control" id="inputName" required autocomplete="name" />
+
+						<label class="label-blueberry" for="inputAddress">Address</label>
+						<input name="address" type="text" class="form-control" id="inputAddress" placeholder="123 Any Street" required autocomplete="street-address" />
+
+						<label class="label-blueberry" for="inputCity">City</label>
+						<input name="city" type="text" class="form-control" id="inputCity" placeholder="Miami" required autocomplete="address-level2" />
+
+						<label class="label-blueberry" for="inputState">State</label>
+						<input name="state" type="text" class="form-control" id="inputState" placeholder="FL" required autocomplete="address-level1" />
+
+						<label class="label-blueberry" for="inputZip">Zip</label>
+						<input name="zip" type="text" class="form-control" id="inputZip" placeholder="10011" required autocomplete="postal-code" />
+
+						<label class="label-blueberry" for="inputCountry">Country</label>
+						<input name="country" type="text" class="form-control" id="inputCountry" placeholder="USA" required autocomplete="country" />
+						<small id="emailHelp" class="form-text text-body-secondary">Shipping outside US is $13.54 extra.</small>
 					</div>
 				</div>
 				<hr />
 				<div class="row align-items-center justify-content-center">
 					<div class="col-12 col-md-10 col-lg-8">
-						<div class="form-group">
-							<label class="label-blueberry" for="inputQuantity">How many items you need?</label>
-							<div class="input-group js--init-integer-input">
-								<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
-								<input name="quantity" type="number" class="form-control js--input text-center hide-arrows" id="inputQuantity" value="1" min="1" max="999">
-								<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
-							</div>
-							<small id="emailHelp" class="form-text text-body-secondary">We offer 10% off for orders with 10+ items</small>
+						<label class="label-blueberry" for="inputQuantity">How many items you need?</label>
+						<div class="input-group js--init-integer-input">
+							<button class="btn btn-outline-primary btn-blueberry js--decrease" type="button" id="button-addon1"><span class="input-group-button-text">&nbsp;−</span></button>
+							<input name="quantity" type="number" class="form-control js--input text-center hide-arrows" id="inputQuantity" value="1" min="1" max="999">
+							<button class="btn btn-outline-primary btn-blueberry js--increase" type="button" id="button-addon2"><span class="input-group-button-text">+&nbsp;</span></button>
 						</div>
+						<small id="emailHelp" class="form-text text-body-secondary">We offer 10% off for orders with 10+ items</small>
 					</div>
 					<div class="col-12 col-md-8 text-center text-md-left">
 						<p class="my-2 my-md-3"><strong>You won’t get billed right away</strong>. We will follow up and email you the PayPal invoice as soon as possible.</p>

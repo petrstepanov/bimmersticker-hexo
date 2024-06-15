@@ -19,27 +19,23 @@
               <% var variations = get_variations(product); %>
               <% var index = 0; %>
               <% for (const [key, values] of Object.entries(variations)) { %>
-                <div class="form-group">
-                  <input type="hidden" name="on<%- index %>" value="<%- capitalize(key) %>">
-                  <label class="label-blueberry" for="<%- key %>"><%- capitalize(key) %></label>
-                  <select name="os<%- index %>" class="select-blueberry form-control">
-                    <% values.forEach(value => { %>
-                      <% var val = parse_variation_value(value); %>
-                      <option value="<%- val.value %>" data-extra="<%- val.extra %>"><%- val.text %></option>
-                    <% });%>
-                  </select>
-                </div>
+                <input type="hidden" name="on<%- index %>" value="<%- capitalize(key) %>">
+                <label class="label-blueberry" for="<%- key %>"><%- capitalize(key) %></label>
+                <select name="os<%- index %>" class="select-blueberry form-control">
+                  <% values.forEach(value => { %>
+                    <% var val = parse_variation_value(value); %>
+                    <option value="<%- val.value %>" data-extra="<%- val.extra %>"><%- val.text %></option>
+                  <% });%>
+                </select>
                 <% index++; %>
               <% }; %>
             <% } %>
             <% if (is_custom(product)){ %>
               <% var customFields = get_custom_fields(product); %>
               <% for (obj of customFields) { %>
-                <div class="form-group">
-                  <input type="hidden" name="on<%- index %>" value="<%- obj.name %>">
-                  <label class="label-blueberry" for="customization"><%- obj.name %></label>
-                  <input type="text" name="os<%- index %>" class="form-control" required placeholder="<%- obj.placeholder %>" maxlength="200"/>
-                </div>
+                <input type="hidden" name="on<%- index %>" value="<%- obj.name %>">
+                <label class="label-blueberry" for="customization"><%- obj.name %></label>
+                <input type="text" name="os<%- index %>" class="form-control" required placeholder="<%- obj.placeholder %>" maxlength="200"/>
               <% } %>
             <% } %>
             <input type="hidden" name="encrypted" value="<%- product.paypal_hidden %>">

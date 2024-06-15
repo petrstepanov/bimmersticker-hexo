@@ -31,6 +31,14 @@
   pointer-events: none;
 }
 
+.zero-size-invisible {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  pointer-events: none;
+  overflow: hidden;
+}
+
 .cryptedmail:after {
   content: attr(data-name) "@" attr(data-domain) "." attr(data-com);
 }
