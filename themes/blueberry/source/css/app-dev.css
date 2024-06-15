@@ -11215,17 +11215,11 @@ body {
   box-shadow: none;
 }
 
-.btn-outline-primary.btn-blueberry {
-  background-color: var(--bs-body-bg);
-}
 .btn-outline-primary.btn-blueberry svg {
   fill: #007CC2;
 }
 .btn-outline-primary.btn-blueberry:hover svg {
   fill: white;
-}
-.btn-outline-primary.btn-blueberry:hover {
-  background-color: var(--bs-blue);
 }
 
 :root {

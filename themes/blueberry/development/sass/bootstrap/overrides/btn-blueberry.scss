@@ -36,8 +36,6 @@
 }
 
 .btn-outline-primary.btn-blueberry {
-  background-color: var(--bs-body-bg);
-
   svg {
     fill: $blue;
   }
@@ -46,9 +44,5 @@
     svg {
       fill: white;
     }
-  }
-
-  &:hover {
-    background-color: var(--bs-blue);
   }
 }
