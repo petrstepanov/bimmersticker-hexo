@@ -54,3 +54,9 @@
 .opacity-50 {
   opacity: 0.5;
 }
+
+@media (prefers-color-scheme: dark) {
+  .invert-me {
+    filter: invert(1);
+  }
+}

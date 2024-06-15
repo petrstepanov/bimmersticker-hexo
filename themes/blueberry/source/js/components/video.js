@@ -1,1 +1,0 @@
-var $=require("jquery"),VideoFullWidth=function(){var i,e,r={};function d(){var t=parseInt(r.$video.parent().width());r.$video.attr("width",t),r.$video.attr("height",Math.round(t/i*e))}return{init:function(t){t&&(r.$video=$(t),i=r.$video.attr("width"),e=r.$video.attr("height"),d(),$(window).resize(function(){d()}))}}};module.exports=VideoFullWidth;

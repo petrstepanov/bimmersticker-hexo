@@ -13171,10 +13171,6 @@ svg {
   height: auto;
 }
 
-.nav-link svg {
-  fill: var(--bs-link-color);
-}
-
 .text-transparent {
   color: transparent;
 }
@@ -13231,6 +13227,11 @@ svg {
   opacity: 0.5;
 }
 
+@media (prefers-color-scheme: dark) {
+  .invert-me {
+    filter: invert(1);
+  }
+}
 .loading {
   position: relative;
   overflow: hidden;
