@@ -8,7 +8,7 @@ $ui-element-shadow-red: 0 2px 4px 0 #{rgba($red, 0.2)};
 
 #snipcart {
     // Default text color
-    --color-default: #{$body-color};
+    --color-default: #{var(--bs-body-color)};
 
     // Default background color
     --bgColor-default: white;
@@ -22,16 +22,16 @@ $ui-element-shadow-red: 0 2px 4px 0 #{rgba($red, 0.2)};
     --bgColor-buttonPrimary: #{$primary};
     --bgColor-buttonPrimary-hover: #{$primary-color-hover};
     --borderColor-buttonPrimary: #{$primary};
-    --borderColor-buttonPrimary-hover: #{$primary-color-hover};  
+    --borderColor-buttonPrimary-hover: #{$primary-color-hover};
     --shadow-buttonPrimary-hover: #{$ui-element-shadow};
 
     // Secondary Button
     --color-buttonSecondary: #{$primary};
-    --color-buttonSecondary-hover: #{$primary-color-hover}; 
+    --color-buttonSecondary-hover: #{$primary-color-hover};
     --bgColor-buttonSecondary: #FFFFFF;
-    --bgColor-buttonSecondary-hover: #FFFFFF;    
+    --bgColor-buttonSecondary-hover: #FFFFFF;
     --borderColor-buttonSecondary: #{$primary};
-    --borderColor-buttonSecondary-hover: #{$primary-color-hover}; 
+    --borderColor-buttonSecondary-hover: #{$primary-color-hover};
     --shadow-buttonSecondary-hover: #{$ui-element-shadow};
 
     // Default shadow - for boxes (containers)
@@ -40,21 +40,21 @@ $ui-element-shadow-red: 0 2px 4px 0 #{rgba($red, 0.2)};
     // Inputs
     --bgColor-input: #FFFFFF;
     --borderColor-input: #dceaf9;
-    --borderColor-input-hover: #dceaf9;    
+    --borderColor-input-hover: #dceaf9;
     --borderColor-input-focus: #{$primary};
 
     --shadow-input-focus:  #{$ui-element-shadow};
     --shadow-input-error:  #{$ui-element-shadow-red};
 
     // Icons
-    --color-icon: #{$body-color};
+    --color-icon: #{var(--bs-body-color)};
 
     // Link colors
-    --color-link: #{$link-color};
-    --color-link-hover: #{$link-hover-color};
+    --color-link: #{var(--bs-link-color)};
+    --color-link-hover: #{var(--bs-link-hover-color)};
 
     // Last Payment icon (turned out to be a Snipcart "badge", not icon?) on order complete page was blue
-    --color-badge: #{$body-color};
+    --color-badge: #{var(--bs-body-color)};
 
     // Sliding Cart Modal on the right on the checkout step
     --bgColor-modal: transparent;

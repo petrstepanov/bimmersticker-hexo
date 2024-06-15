@@ -11,7 +11,8 @@
                     images: (product.image_link + "," + product.additional_image_link).split(","),
                     alt: product.description,
                     width: 320,
-                    height: 320
+                    height: 320,
+                    className: 'js--component-color-carousel-select'
               }; %>
               <%- carousel(data); %>
             <% } else { %>
@@ -25,25 +26,23 @@
               <% var variations = get_variations(product); %>
               <% var firstFlag = true; %>
               <% for (const [key, values] of Object.entries(variations)) { %>
-                <div class="form-group">
                   <label class="label-blueberry" for="<%- key %>"><%- capitalize(key) %></label>
-                  <select class="select-blueberry form-control <%- key==='color'?'js--init-select-color':'' %>" id="<%- key %>">
+                  <select class="select-blueberry form-control <%- key==='color'?'component-select-color js--component-select-color':'' %>" id="<%- key %>">
                     <% values.forEach(value => { %>
                       <% var val = parse_variation_value(value); %>
                       <option value="<%- val.value %>" data-extra-text="<%- val.extra_text %>" data-extra="<%- val.extra %>" <%- firstFlag===true?'selected':'' %>><%- val.text %></option>
                       <% firstFlag = false; %>
                     <% });%>
                   </select>
-                </div>
               <% }; %>
             <% } %>
             <% if (is_custom(product)){ %>
               <% var customFields = get_custom_fields(product); %>
               <% for (obj of customFields) { %>
-                <div class="form-group <%- obj['name'].toLowerCase() === 'color'?'js--init-input-color':'' %>">
+                <div class="<%- obj['name'].toLowerCase() === 'color'?'js--init-input-color':'' %>">
                   <label class="label-blueberry" for="<%- obj['name'].toLowerCase() %>"><%- obj['name'] %></label>
                   <% if (obj['name'].toLowerCase() === 'color'){ %>
-                    <input id="<%- obj['name'].toLowerCase() %>" type="color" class="form-control" value="#ff0000" required %> />
+                    <input id="<%- obj['name'].toLowerCase() %>" type="color" class="form-control component-select-color js--component-select-color" value="#ff0000" required %> />
                   <% } else { %>
                     <input id="<%- obj['name'].toLowerCase() %>" type="text"  class="form-control" required placeholder="<%- obj['placeholder'] %>" />
                   <% } %>
@@ -74,10 +73,12 @@
             <% } %>
           </dl>
           <% if (theme.email){ %>
-            <button type="button" class="btn btn-link px-0 text-left" href="#" data-toggle="modal" data-target="#customizeModal">
-              <span class="icon-xs"><%- partial('ionicons/mail.svg') %></span>
-              Contact us for custom colors and sizes
-            </button>
+            <p>
+              <a href="#" data-bs-toggle="modal" data-bs-target="#customizeModal">
+                <span class="icon-xs"><%- partial('ionicons/mail.svg') %></span>
+                Need custom colors or sizes?
+              </a>
+            </p>
           <% } %>
           <% if (theme.googlereview_url){ %>
             <br/>
@@ -89,7 +90,7 @@
         </section>
       </div>
     </div>
-    <img width="960" height="63" class="w-100 h-auto mt-2 d-lg-none" alt="aside section shape" src="<%- partial('data-uri/wave-aside') %>" />
+    <div class="component-wave-sidebar d-lg-none"><%- partial('svg/wave-sidebar.svg') %></div>
     <% // Write schema.org product metedata %>
     <%- partial('schema/products-parser', {products: [product]}) %>
   </div>

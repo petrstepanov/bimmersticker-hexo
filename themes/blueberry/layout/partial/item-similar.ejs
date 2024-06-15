@@ -3,7 +3,7 @@
 <p>Check out other stickers we offer. All stickers are authentically designed, contour cut from premium adhesive vinyls and hand-made.</p>
 
 <% var relatedPosts = get_related_posts({maxCount: 4}); %>
-<div class="row justify-content-center mt-3">
+<div class="row justify-content-center mt-3 component-related-posts">
     <% for (var item of relatedPosts){ %>
         <div class="col-6 col-sm-4 col-md-3 text-center">
             <a href="<%- item.url %>" class="related-post-link">

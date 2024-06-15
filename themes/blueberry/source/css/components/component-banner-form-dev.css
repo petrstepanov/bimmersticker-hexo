@@ -1,0 +1,266 @@
+.component-banner-form {
+  overflow-x: hidden;
+}
+
+.label-custom {
+  cursor: pointer;
+}
+.label-custom .input-image {
+  display: inline-block;
+  overflow: hidden;
+  box-shadow: none;
+  transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  border: 0;
+  border-radius: 50%;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+}
+.label-custom .input-image img {
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+@media (prefers-color-scheme: dark) {
+  .label-custom .invert-in-dark {
+    filter: invert(1);
+  }
+}
+.label-custom .input-radio {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--bs-secondary-bg);
+  border: 1px solid var(--bs-border-color);
+  position: relative;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.label-custom .input-radio:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  margin-left: -6px;
+  transform: scale(0);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: white;
+  border-radius: 50%;
+}
+.label-custom:hover .input-image img {
+  transform: scale(1.05);
+}
+.label-custom input:checked + .input-image {
+  box-shadow: 0 0 0 2px var(--bs-body-bg), 0 0 0 6px #007CC2;
+}
+.label-custom input:checked + .input-image img {
+  transform: scale(1.05);
+}
+.label-custom input:checked + .input-radio {
+  background-color: #007CC2;
+  border-color: #007CC2;
+}
+.label-custom input:checked + .input-radio:after {
+  transform: scale(1);
+}
+.label-custom .color-swatch {
+  width: 64px;
+  height: 64px;
+  background-position: center center;
+  background-size: cover;
+}
+
+.frame {
+  border-radius: 0.75em;
+  border: 2px solid var(--bs-border-color);
+  position: relative;
+  padding-top: 1.85em;
+  padding-bottom: 1em;
+  margin-top: 2em;
+}
+.frame .frame-name-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.85em;
+  text-align: center;
+}
+.frame .frame-name-container .frame-name {
+  background-color: var(--bs-body-bg);
+  padding-left: 1em;
+  padding-right: 1em;
+  color: var(--bs-body-color);
+}
+
+.font-image {
+  max-width: 75%;
+  height: auto;
+}
+
+.car-preview-container {
+  position: relative;
+  animation: bumpme 3s;
+  animation-iteration-count: infinite;
+}
+.car-preview-container .banner-text {
+  position: absolute;
+  left: 30%;
+  right: 30%;
+  top: 22%;
+  height: 10%;
+  -webkit-mask-image: url(/img/banner-previews/your-banner-knight.png);
+          mask-image: url(/img/banner-previews/your-banner-knight.png);
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-position: center center;
+          mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  background-color: #EFEFEF;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transform: perspective(400px) rotateX(30deg);
+  border: 1px solid #6C6C6C;
+}
+@media (min-width: 576px) {
+  .car-preview-container .banner-text {
+    top: 20%;
+  }
+}
+@media (min-width: 992px) {
+  .car-preview-container .banner-text {
+    top: 21%;
+  }
+}
+.car-preview-container .sunstrip {
+  display: none;
+  position: absolute;
+  top: 4.5%;
+  left: 16%;
+  right: 16%;
+  height: 14%;
+  -webkit-mask-image: url(/custom-windshield-banner-sun-strip/index/banner.svg);
+          mask-image: url(/custom-windshield-banner-sun-strip/index/banner.svg);
+  -webkit-mask-position: center top;
+          mask-position: center top;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  background-color: #2D2D2D;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+@media (min-width: 992px) {
+  .car-preview-container .sunstrip {
+    left: 16.8%;
+    right: 16.8%;
+  }
+}
+.car-preview-container .sunstrip-text {
+  display: none;
+  position: absolute;
+  left: 30%;
+  right: 30%;
+  top: 5.4%;
+  height: 8%;
+  -webkit-mask-image: url(/img/banner-previews/your-banner-knight.png);
+          mask-image: url(/img/banner-previews/your-banner-knight.png);
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-position: center center;
+          mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  background-color: #EFEFEF;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transform: perspective(400px) rotateX(30deg);
+}
+.car-preview-container .unicode-on {
+  mask-mode: luminance;
+  -webkit-mask-mode: luminance;
+}
+.car-preview-container .banner-text.unicode-on {
+  top: 18%;
+  height: 20%;
+}
+.car-preview-container .sunstrip-text.unicode-on {
+  top: 3%;
+  height: 15%;
+}
+
+.truck-container {
+  margin-left: -11vw;
+  margin-right: -11vw;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 576px) {
+  .truck-container {
+    margin-left: -3.5rem;
+    margin-right: -3.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .truck-container {
+    margin-left: -4em;
+    margin-right: -4em;
+  }
+}
+@media (min-width: 992px) {
+  .truck-container {
+    margin-left: -3.8rem;
+    margin-right: -3.8rem;
+  }
+}
+@media (min-width: 1200px) {
+  .truck-container {
+    margin-left: -4.2rem;
+    margin-right: -4.2rem;
+  }
+}
+
+.wheels {
+  margin-top: -34vw;
+}
+@media (min-width: 576px) {
+  .wheels {
+    margin-top: -12rem;
+  }
+}
+@media (min-width: 768px) {
+  .wheels {
+    margin-top: -13rem;
+  }
+}
+
+@keyframes bumpme {
+  0% {
+    transform: rotate(0) translateY(0);
+  }
+  1% {
+    transform: rotate(-3deg) translateY(0);
+  }
+  5% {
+    transform: rotate(-3deg) translateY(-0.8rem);
+  }
+  10% {
+    transform: rotate(2deg) translateY(0.4rem);
+  }
+  15% {
+    transform: rotate(-2deg) translateY(-0.2rem);
+  }
+  20% {
+    transform: rotate(1deg) translateY(0.1rem);
+  }
+  25% {
+    transform: rotate(0) translateY(0);
+  }
+}
+/*# sourceMappingURL=component-banner-form.css.map */

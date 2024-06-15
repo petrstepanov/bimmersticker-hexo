@@ -31,12 +31,20 @@
   pointer-events: none;
 }
 
+.zero-size-invisible {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  pointer-events: none;
+  overflow: hidden;
+}
+
 .cryptedmail:after {
-  content: attr(data-name) "@" attr(data-domain) "." attr(data-com); 
+  content: attr(data-name) "@" attr(data-domain) "." attr(data-com);
 }
 
 .cryptedphone:after {
-  content: attr(data-country) " (" attr(data-area) ") " attr(data-local); 
+  content: attr(data-country) " (" attr(data-area) ") " attr(data-local);
 }
 
 .transform-scale-85 {
@@ -45,4 +53,10 @@
 
 .opacity-50 {
   opacity: 0.5;
+}
+
+@media (prefers-color-scheme: dark) {
+  .invert-me {
+    filter: invert(1);
+  }
 }

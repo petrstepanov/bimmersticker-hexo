@@ -1,33 +1,40 @@
-$nb-logo-size: 3rem;
-$nb-logo-size-bigger: 3rem;
-$nb-logo-size-biggest: 3.25rem;
+// Override bs variables
+:root, .navbar {
+  --bs-navbar-padding-x: 0;
+  --bs-navbar-padding-y: 0.825rem;
+  --nb-logo-height: 3rem;
+}
 
-// Google Cumulative Layout Shift CLS
-
-body {
-  padding-top: $nb-logo-size + 2*$navbar-padding-y;
-
-  @include media-breakpoint-up(sm) {
-    padding-top: $nb-logo-size-bigger + 2*$navbar-padding-y;
+@include media-breakpoint-up(md) {
+  :root, .navbar {
+    --bs-navbar-padding-y: 1rem;
+    --nb-logo-height: 3.25rem;
   }
+}
 
-  @include media-breakpoint-up(md) {
-    padding-top: $nb-logo-size-biggest + 2*$nb-padding-md;
-  }
+// Calculate navbar height - via CSS variables
+:root{
+  --nb-height: calc(var(--bs-navbar-padding-y)*2 + var(--nb-logo-height))
+}
 
-  // &.is-post {
-  //   @include media-breakpoint-up(lg) {
-  //     padding-top: 0;
-  //   }
-  // }
+// Override default BS navbar variables
+.navbar {
+  // Outline width
+  --bs-navbar-toggler-focus-width: 0;
 }
 
 
+// Set body padding to the navbar height
+body {
+  padding-top: var(--nb-height);
+}
+
 // Navbar sizes
-
 .navbar-blueberry {
-  @extend .navbar-extend;
+  box-shadow: var(--box-shadow-blueberry);
+  background-color: var(--bs-body-bg);
 
+  // This is because post is defined to have 5vw padding in post.scss
   .is-post & {
     @include media-breakpoint-up(lg) {
       .container {
@@ -38,43 +45,37 @@ body {
     }
   }
 
-  .logo-image,
-  .back-link {
-    height: $nb-logo-size;
-    line-height: $nb-logo-size;
-
-    @include media-breakpoint-up(sm) {
-      height: $nb-logo-size-bigger;
-      line-height: $nb-logo-size-bigger;
-    }
-
-    @include media-breakpoint-up(md) {
-      height: $nb-logo-size-biggest;
-      line-height: $nb-logo-size-biggest;
-    }
+  // Logo height
+  .logo-image {
+    height: var(--nb-logo-height);
+    width: auto;
   }
 
+  // Back link
   .back-link {
-    // font-family: $font-bold;
+    height: var(--nb-logo-height);
+    line-height: var(--nb-logo-height);
     overflow: hidden;
     text-overflow: ellipsis;
+    text-decoration: none;
 
     span {
       font-size: 0.875rem;
-      font-weight: bold; // Native font stack
+      font-weight: bold;
     }
   }
 
+  // TODO: why this?
   .navbar-buy-button {
     display: none;
   }
 
   .navbar-brand {
-    padding: 0;
+    // Override BS paddings
+    padding-top: 0;
+    padding-bottom: 0;
 
     .logo-text {
-      // font-family: $font-bold;
-      // font-style: italic;
       display: none;
     }
 
@@ -84,22 +85,19 @@ body {
     }
   }
 
+  // Style navbar-toggler with hamburger icon
   .navbar-toggler {
     border-width: 0;
     padding-left: 0;
     padding-right: 0;
 
-    [class^="icon-"] {
-      --animate-duration: 350ms;
-    }
-
     svg {
-      fill: $body-color;
-      transition: 250ms fill ease-out;
+      fill: var(--bs-body-color);
+      transition: fill .15s ease-in-out;
     }
 
     &:hover svg {
-      fill: $blue;
+      fill: var(--bs-link-color); // thats BS var
     }
   }
 
@@ -120,7 +118,7 @@ body {
     }
 
     &.nav-separator {
-      border-bottom: 1px solid $gray-200;
+      border-bottom: 1px solid var(--bs-border-color);
       padding-bottom: 0.75rem;
       margin-bottom: 0.75rem;
     }
@@ -139,18 +137,20 @@ body {
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
     padding-left: 2.75rem;
-    color: $body-color;
+    color: var(--bs-body-color);
     text-decoration: underline;
 
+    // By default, svgs in BS .nav-links have no transition. Copied.
     svg {
-      fill: $body-color;
+      transition: fill 0.15s ease-in-out;
+      fill: var(--bs-body-color);
     }
 
     &:hover {
-      color: $link-color;
+      color: var(--bs-link-color);
 
       svg {
-        fill: $link-color;
+        fill: var(--bs-link-color);
       }
     }
 
@@ -158,14 +158,6 @@ body {
       .nav-link {
         padding-right: 0;
       }
-    }
-
-    &:hover {
-      color: $link-color;
-    }
-
-    @include media-breakpoint-up(lg) {
-      padding-left: $nb-logo-size-biggest + 0.7rem;
     }
 
     @include media-breakpoint-up(lg) {
@@ -176,6 +168,7 @@ body {
 
     .icon-for-nav {
       margin-left: -2.1rem;
+      transform: translateY(-1px);
 
       @include media-breakpoint-up(lg) {
         margin-left: 0;
@@ -191,13 +184,27 @@ body {
 
     .nav-link {
       @include media-breakpoint-up(lg) {
-        color: white;
-        // text-decoration: underline;
+        color: var(--bs-body-bg);
       }
     }
   }
 
   &.fixed-top {
     z-index: 9;
+  }
+}
+
+// Appearance of the logo in dark / light mode
+.navbar-blueberry .navbar-brand img:last-child {
+  display: none;
+}
+
+@include color-mode(dark){
+  .navbar-blueberry .navbar-brand img:first-child {
+    display: none;
+  }
+
+  .navbar-blueberry .navbar-brand img:last-child {
+    display: inline-block;
   }
 }

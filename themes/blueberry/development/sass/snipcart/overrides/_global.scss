@@ -176,15 +176,7 @@
             margin: 1rem 0;
         }
 
-        height: $nb-logo-size;
-
-        @include media-breakpoint-up(sm) {
-            height: $nb-logo-size-bigger;
-        }
-
-        @include media-breakpoint-up(md) {
-            height: $nb-logo-size-biggest;
-        }
+        height: var(--nb-logo-size);
     }
 
     .snipcart-cart-header__title {
@@ -200,7 +192,7 @@
 
     // Make "Continue Shopping" blue
     .snipcart-cart-header__close-button * {
-        color: $link-color;
+        color: var(--bs-link-color);
     }
 
     // Right most item in the Snipcart navbar

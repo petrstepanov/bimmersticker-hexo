@@ -1,0 +1,52 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../sass/bootstrap/variables-default";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+.component-select-with-image {
+    // color: var(--bs-body-color);
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    box-shadow: var(--ui-shadow);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    @include border-radius($input-border-radius, 0);
+    overflow: hidden;
+    padding: 0.35rem 0.5rem;
+
+    .select-with-image-item {
+        height: 3rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        border-radius: 0.2rem;
+        overflow: hidden;
+        background-position-x: 0.5rem;
+
+        &.selected {
+            // position: relative;
+            background-color: var(--bs-primary);
+            // &:before {
+            //     content: "";
+            //     position: absolute;
+            //     left: 0;
+            //     top: 0;
+            //     bottom: 0;
+            //     right: 0;
+            //     background-color: lighten($blue, 50%);
+            //     mix-blend-mode: multiply;
+            // }
+        }
+    }
+}
+
+// Invert in dark theme
+
+@include color-mode(dark) {
+    .component-select-with-image .select-with-image-item {
+        filter: invert(1);
+
+        &.selected {
+            filter: none;
+        }
+    }
+}

@@ -1,0 +1,58 @@
+.spacer-footer {
+  padding-bottom: 3em;
+
+  @include media-breakpoint-up(sm) {
+    padding-bottom: 6em;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 7em;
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding-bottom: 9em;
+  }
+}
+
+footer {
+  position: relative;
+  margin-top: -3em;
+
+  @include media-breakpoint-up(sm) {
+    margin-top: -6em;
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin-top: -7em;
+  }
+
+  @include media-breakpoint-up(xl) {
+    margin-top: -9em;
+  }
+
+  .section-blue {
+    background-color: $blue;
+  }
+
+  .logo-circ,
+  .logo-text {
+    height: var(--nb-logo-size);
+  }
+
+  a {
+    // font-family: $font-bold;
+    font-weight: bold; // Native font stack
+
+    color: white;
+    white-space: nowrap;
+
+    svg,
+    svg * {
+      fill: white;
+    }
+  }
+
+  .payment-icon {
+    filter: invert(100%);
+  }
+}

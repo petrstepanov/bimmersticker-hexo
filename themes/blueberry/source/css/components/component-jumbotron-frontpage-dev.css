@@ -1,0 +1,25 @@
+.component-jumbotron-frontpage {
+  background-size: cover;
+  background-image: url(/img/new-background-bmw-windshield-banner-sun-strip.jpg);
+  background-position: center center;
+  background-blend-mode: overlay;
+}
+@media (min-width: 768px) {
+  .component-jumbotron-frontpage {
+    background-position: 137vw center;
+  }
+}
+@media (min-width: 992px) {
+  .component-jumbotron-frontpage {
+    background-position: 122vw center;
+  }
+}
+@media (min-width: 1200px) {
+  .component-jumbotron-frontpage {
+    background-position: 118vw center;
+  }
+}
+.component-jumbotron-frontpage h1 {
+  font-family: var(--font-handwritten);
+}
+/*# sourceMappingURL=component-jumbotron-frontpage.css.map */

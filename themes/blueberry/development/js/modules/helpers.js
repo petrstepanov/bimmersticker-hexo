@@ -52,6 +52,7 @@ function parseFirstLastName(string){
 }
 
 function animateCSS(node, animationName, callback) {
+  node.classList.add('animate__faster');
   var prefix = 'animate__';
   node.classList.add(prefix+'animated', prefix+animationName);
 

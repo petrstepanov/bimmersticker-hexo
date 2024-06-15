@@ -1,11 +1,11 @@
 # Header
-#logo: /img/bimmer-sticker-store-logo-new.svg
 logo: /img/sticker-store-llc-logo.svg
+logo_dark: /img/sticker-store-llc-logo-dark.svg
 
 # Jumbotron
 slogan: Stickers, Decals and Windshield Banners for Your Car
-lead1: We design and manufacture vinyl stickers for cars and trucks. We offer a selection of decals for various car brands including BMW cars.
-lead2: "Contour cut stickers, <a href='/custom-windshield-banner-sun-strip/'>custom windshield banners</a> with your text and colors, <a href='/custom-social-media-stickers/'>social network stickers</a> for your Instagram, YouTube and other profiles."
+lead1: We design and manufacture vinyl stickers for cars, trucks and commercial fleet.
+lead2: "Contour cut stickers, inkjet printed decals, <a href='/custom-windshield-banner-sun-strip/'>windshield banners</a> with custom text and colors, stickers for <a href='/custom-social-media-stickers/'>social media platforms</a> and <a href='/custom-truck-van-decals/'>business decals for trucks and vans</a>."
 
 # Miscellaneous
 favicon: /favicon.ico

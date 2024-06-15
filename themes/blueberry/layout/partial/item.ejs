@@ -1,13 +1,7 @@
 <%- partial('partial/navbar') %>
 
-<main class="orientation-container">
-  <% if(config.cart == "snipcart"){ %>
-    <%- partial('partial/item-sidebar') %>
-  <% } else if (config.cart == "paypal") { %>
-    <%- partial('partial/item-sidebar-paypal') %>
-  <% } else { %>
-    <%- partial('partial/item-sidebar-old') %>
-  <% } %>
+<main class="orientation-container component-post">
+  <%- partial('partial/item-sidebar') %>
   <div id="post-content" class="spacer-footer">
     <div class="container">
       <div class="row">
@@ -21,7 +15,8 @@
                       images: (product.image_link + "," + product.additional_image_link).split(","),
                       alt: product.description,
                       width: 400,
-                      height: 400
+                      height: 400,
+                      className: 'js--component-color-carousel-select'
                 }; %>
                 <%- carousel(data); %>
               <% } else { %>
