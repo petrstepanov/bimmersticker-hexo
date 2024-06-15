@@ -9,6 +9,7 @@ var DOM = {};
 var options = {};
 // var fixed = false;
 // var height = 0;
+var bsCollapse;
 
 function _cacheDom(element) {
   DOM.$navbar = $(element);
@@ -53,14 +54,14 @@ function _bindEvents(element) {
 
 function _collapseNavbar() {
   // BS5 Collapse plugin: https://stackoverflow.com/a/74738412
-  let element = DOM.$navbarCollapse[0]
-  let bsCollapse = bootstrap.Collapse.getInstance(element);
   // if the instance is not yet initialized then create new collapse
-  if (bsCollapse === null) {
-      bsCollapse = new bootstrap.Collapse(element, {
-          toggle: false   // this parameter is important!
-      })
+  if (typeof bsCollapse === "undefined") {
+    let element = DOM.$navbarCollapse[0];
+    bsCollapse = new bootstrap.Collapse(element, {
+          toggle: false
+      });
   }
+
   bsCollapse.hide();
 }
 

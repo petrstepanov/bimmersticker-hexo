@@ -137,7 +137,7 @@
 .content-image + blockquote, p + blockquote {
   margin-top: -3em;
   margin-bottom: 2em;
-  background-color: #6610f2;
+  background-color: var(--bs-secondary-bg);
   padding: 2em 1em 1em 1em;
   border-bottom-left-radius: 0.375rem;
   border-bottom-right-radius: 0.375rem;

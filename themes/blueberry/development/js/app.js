@@ -9,12 +9,12 @@ var helpers = window.helpers = require('./modules/helpers');
 var events = window.events = require('./modules/events');
 var kinetic = window.kinetic = require('jquery.kinetic');
 var getColorFriendlyName = window.getColorFriendlyName = require('named-web-colors');
+var contentBuyButton = require('./modules/content-buy-button');
 
 // Locals for this Browserify entry point
 var autosize = require('autosize');
 var AOS = require('aos');
 var navbarCollapse = require('./modules/navbar-collapse');
-var snipcartForm = require('./modules/snipcart-form');
 var contentBuyButton = require('./modules/content-buy-button');
 var navbarBuyButton = require('./modules/navbar-buy-button');
 var formInsideDialog = require('./modules/form-inside-dialog');
@@ -37,13 +37,16 @@ gcr.init();
 window['gcr'] = gcr;
 
 $(function() {
-  // Interactive Back Button
   InteractiveBackButton.init();
   navbarCollapse.init(document.querySelector('.js--init-navbar-collapse'));
-  contentBuyButton.init(document.querySelector('.js--init-content-buy-button'));
-  navbarBuyButton.init(document.querySelector('.js--init-navbar-buy-button'));
   formInsideDialog.init(document.querySelector('.js--init-form-inside-dialog'));
 
+  // navbarBuyButton inits first - listens to event
+  navbarBuyButton.init(document.querySelector('.js--init-navbar-buy-button'));
+  // contentBuyButton inits second - fires event
+  contentBuyButton.init(document.querySelector('.js--init-content-buy-button'));
+
+  // Its almost on every page so its here
   $('.js--init-ajax-submit').each(function(){
     var formAjaxSubmit = new FormAjaxSubmit();
     formAjaxSubmit.init(this);
@@ -60,8 +63,6 @@ $(function() {
   // Fix checkout button caption
   var checkoutButtonFix = new CheckoutButtonFix();
   checkoutButtonFix.init();
-
-  snipcartForm.init(document.querySelector('.js--init-snipcart-form'));
 
   // Viewport animations
   AOS.init({

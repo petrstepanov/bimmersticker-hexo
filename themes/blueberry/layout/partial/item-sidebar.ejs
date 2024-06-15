@@ -21,7 +21,7 @@
             <% } %>
           </div>
           <h1 class="mb-3 mt-lg-4 font-size-28 line-height-1"><%- post.title %></h1>
-          <form autocomplete="off" class="js--init-snipcart-form" id="cart-form">
+          <form autocomplete="off" class="js--component-snipcart-form" id="cart-form">
             <% if (has_variations(product)){ %>
               <% var variations = get_variations(product); %>
               <% var firstFlag = true; %>
