@@ -11201,7 +11201,7 @@ body {
 .btn-blueberry {
   font-weight: bold;
   border-radius: 5rem;
-  box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
+  box-shadow: var(--ui-shadow);
   text-transform: capitalize;
   border-width: 2px;
 }
@@ -11210,6 +11210,9 @@ body {
 }
 .btn-blueberry:hover svg {
   fill: white;
+}
+.btn-blueberry.btn-link {
+  box-shadow: none;
 }
 
 .btn-outline-primary.btn-blueberry {

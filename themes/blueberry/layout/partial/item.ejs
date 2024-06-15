@@ -1,13 +1,7 @@
 <%- partial('partial/navbar') %>
 
 <main class="orientation-container component-post">
-  <% if(config.cart == "snipcart"){ %>
-    <%- partial('partial/item-sidebar') %>
-  <% } else if (config.cart == "paypal") { %>
-    <%- partial('partial/item-sidebar-paypal') %>
-  <% } else { %>
-    <%- partial('partial/item-sidebar-old') %>
-  <% } %>
+  <%- partial('partial/item-sidebar') %>
   <div id="post-content" class="spacer-footer">
     <div class="container">
       <div class="row">

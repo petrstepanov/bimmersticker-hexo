@@ -8,18 +8,18 @@
 					<h1 class="display-4 font-handwritten text-center mt-5 mb-4">Vinyl Stickers for different BMW Generations</h1>
 					<p class="text-body-secondary text-center">
 						We have deigned dedicated stickers for almost every BMW generation. We offer vinyl decals for a variety of BMW models: from early iconic Sharks such as e12, e28 etc.. to modern BMW G series.
-                    </p>
-                    <p class="text-body-secondary text-center">
-                        Stickers can be placed on the windshield, window or a body or four car. Please heat the sticker with a heat gun in order to remove it from the vehicle body without damadging the paint.
-                    </p>
+					</p>
+					<p class="text-body-secondary text-center">
+						Stickers can be placed on the windshield, window or a body or four car. Please heat the sticker with a heat gun in order to remove it from the vehicle body without damadging the paint.
+					</p>
 				</div>
 			</div>
 
-			<section class="pt-5 pb-4 js--init-posts-filter">
+			<section class="pt-5 pb-4 js--component-posts-filter">
 				<!-- Generations -->
 				<div class="container">
 					<div class="row mb-4">
-						<div class="col-sm-12 js--posts-filter-buttons">
+						<div class="col-sm-12 js--posts-filter-buttons text-center">
 							<button type="button" class="btn btn-blueberry btn-sm btn-primary active strong me-sm-1" data-query="all">All</button>
 							<% var filterQueries = []; %>
 							<% site.categories.findOne({name: 'Series and Generations'}).posts.each(function(post, i){ %>
@@ -36,7 +36,6 @@
 				</div>
 				<%- partial('partial/category-posts-list', {categoryName: 'Series and Generations', sortBy: 'title'}) %>
 			</section>
-
 
 			<div class="row justify-content-center">
 				<div class="col-12 col-md-10 col-lg-8 text-center mt-4">

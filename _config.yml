@@ -139,14 +139,15 @@ responsive_images:
     - pattern: '**/*.+(jpg|jpeg)'
       sizes:
         small:
-          width: 196
-          height: 196
+          width: 256
+          height: 256
+          quality: 50
         medium:
-          width: 512
-          quality: 30
+          width: 640
+          quality: 50
         large:
-          width: 1024
-          quality: 30
+          width: 1280
+          quality: 50
 
 
 # Data file export

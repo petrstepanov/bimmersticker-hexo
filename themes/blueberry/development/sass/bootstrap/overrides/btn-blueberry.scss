@@ -16,7 +16,7 @@
 .btn-blueberry {
   font-weight: bold;
   border-radius: 5rem;
-  box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
+  box-shadow: var(--ui-shadow);
   text-transform: capitalize;
   border-width: 2px;
 
@@ -28,6 +28,10 @@
     svg {
       fill: white;
     }
+  }
+
+  &.btn-link {
+    box-shadow: none;
   }
 }
 

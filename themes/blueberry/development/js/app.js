@@ -15,7 +15,7 @@ var navbarCollapse = require('./modules/navbar-collapse');
 var snipcartForm = require('./modules/snipcart-form');
 var contentBuyButton = require('./modules/content-buy-button');
 var navbarBuyButton = require('./modules/navbar-buy-button');
-var postsFilter = require('./modules/posts-filter');
+// var postsFilter = require('./modules/posts-filter');
 var formInsideDialog = require('./modules/form-inside-dialog');
 // var formValidation = require('./modules/form-validation');
 var FormAjaxSubmit = require('./modules/form-ajax-submit');
@@ -42,7 +42,6 @@ $(function() {
   navbarCollapse.init(document.querySelector('.js--init-navbar-collapse'));
   contentBuyButton.init(document.querySelector('.js--init-content-buy-button'));
   navbarBuyButton.init(document.querySelector('.js--init-navbar-buy-button'));
-  postsFilter.init(document.querySelector('.js--init-posts-filter'));
   formInsideDialog.init(document.querySelector('.js--init-form-inside-dialog'));
 
   $('.js--init-ajax-submit').each(function(){
