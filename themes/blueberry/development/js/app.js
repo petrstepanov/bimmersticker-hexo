@@ -2,24 +2,24 @@
 // However with introduction of component specific css,
 // I moved some of the scripts to globals
 
+// Globals used in the components' inline scripts
 var $ = window.$ = window.jQuery = require('jquery');
 var bootstrap = window.bootstrap = require('bootstrap');
 var helpers = window.helpers = require('./modules/helpers');
 var events = window.events = require('./modules/events');
 var kinetic = window.kinetic = require('jquery.kinetic');
+var getColorFriendlyName = window.getColorFriendlyName = require('named-web-colors');
 
+// Locals for this Browserify entry point
 var autosize = require('autosize');
 var AOS = require('aos');
-
 var navbarCollapse = require('./modules/navbar-collapse');
 var snipcartForm = require('./modules/snipcart-form');
 var contentBuyButton = require('./modules/content-buy-button');
 var navbarBuyButton = require('./modules/navbar-buy-button');
-// var postsFilter = require('./modules/posts-filter');
 var formInsideDialog = require('./modules/form-inside-dialog');
 // var formValidation = require('./modules/form-validation');
 var FormAjaxSubmit = require('./modules/form-ajax-submit');
-var InputColor = require('./modules/input-color');
 var CheckoutButtonFix = require('./modules/checkout-button-fix');
 var InteractiveBackButton = require('./modules/interactive-back-button');
 var autovalid = require('./modules/autovalid');
@@ -62,11 +62,6 @@ $(function() {
   checkoutButtonFix.init();
 
   snipcartForm.init(document.querySelector('.js--init-snipcart-form'));
-
-  $('.js--init-input-color').each(function(){
-    var inputColor = new InputColor();
-    inputColor.init(this);
-  });
 
   // Viewport animations
   AOS.init({

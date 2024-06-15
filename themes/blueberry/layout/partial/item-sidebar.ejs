@@ -39,14 +39,12 @@
             <% if (is_custom(product)){ %>
               <% var customFields = get_custom_fields(product); %>
               <% for (obj of customFields) { %>
-                <div class="<%- obj['name'].toLowerCase() === 'color'?'js--init-input-color':'' %>">
                   <label class="label-blueberry" for="<%- obj['name'].toLowerCase() %>"><%- obj['name'] %></label>
                   <% if (obj['name'].toLowerCase() === 'color'){ %>
-                    <input id="<%- obj['name'].toLowerCase() %>" type="color" class="form-control component-select-color js--component-select-color" value="#ff0000" required %> />
+                    <input id="<%- obj['name'].toLowerCase() %>" type="color" class="form-control component-select-color js--component-input-color" value="#ff0000" required />
                   <% } else { %>
                     <input id="<%- obj['name'].toLowerCase() %>" type="text"  class="form-control" required placeholder="<%- obj['placeholder'] %>" />
                   <% } %>
-                </div>
               <% } %>
             <% } %>
             <div class="mt-3 js--init-content-buy-button">
