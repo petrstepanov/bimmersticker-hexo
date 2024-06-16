@@ -120,15 +120,6 @@
     @extend %snipcart-button;
 }
 
-
-// MODAL DIALOG
-
-.snipcart-modal {
-    // Make modal background indigo
-    // background-color: var(--bs-body-bg);
-}
-
-
 // ICONS
 // Affects navbar icon sizes and +/- up/down icons in the input and dropdown fields
 .snipcart__icon {
@@ -155,8 +146,8 @@
     background-color: var(--bs-body-bg);
 
     svg {
-        stroke-width: 1px;
-        stroke: var(--bs-blue);
+        stroke-width: 2px;
+        stroke: var(--bs-link-color);
     }
 
     @include media-breakpoint-up(md) {
@@ -194,7 +185,11 @@
     // Make "Continue Shopping" blue
     .snipcart-cart-header__close-button {
         color: var(--bs-link-color);
-        font-weight: bold;
+
+        .snipcart__font--std {
+            font-size: $font-size-14;
+            font-weight: bold;
+        }
     }
 
     // Right most item in the Snipcart navbar
@@ -233,11 +228,6 @@
     height: auto;
 }
 
-// Background colors
-.snipcart-cart__content {
-    // background-color: $indigo;
-}
-
 // FORM FIELDS
 .snipcart {
     // Input wrapper with border. Do not remove weird Snipcart input parent container styling.
@@ -248,10 +238,7 @@
 
     // Actual input inside - mixin
     %input-field {
-        // border-width: 1px;
-        // border-style: solid;
         border-radius: 0.5rem;
-        // @include form-control-focus($ignore-warning: true);
         padding: 0.5rem 0.75rem;
         box-shadow: var(--ui-shadow);
     }
@@ -280,6 +267,8 @@
     }
 
     // Styling labels
+    .snipcart-item-quantity__label,
+    .snipcart-form__label.snipcart-custom-field-wrapper__label,
     .snipcart-form__label:not(.snipcart-form__label--checkbox):not(.snipcart-form-radio__label) {
         @extend .my-label;
         margin-top: 0.75rem;
@@ -287,5 +276,33 @@
         text-overflow: ellipsis;
         overflow: hidden;
         display: block;
+    }
+
+    // Product Image
+    .snipcart-item-line__image {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+    }
+
+    @media(min-width:1024px) {
+        .snipcart-item-line__image {
+            width: 100%;
+        }
+    }
+
+    // Product image container
+    .snipcart-item-line__media {
+        width: 10.2rem;
+        margin-right: 2rem;
+        overflow: hidden;
+        border-radius: var(--bs-border-radius);
+        min-width: none;
+    }
+
+    .snipcart-item-line__media--small {
+        width: 3rem;
+        height: auto;
+        margin: 0;
     }
 }

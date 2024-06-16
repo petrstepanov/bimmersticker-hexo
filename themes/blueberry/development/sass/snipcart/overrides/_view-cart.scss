@@ -39,7 +39,7 @@
             .snipcart-item-line__title {
                 @include font-display;
                 line-height: 1.1;
-                margin: 0 1rem;
+                margin: 0 !important;
             }
 
             // Remove weird border on Delere icon (trash bin)
@@ -65,15 +65,6 @@
     height: auto;
     @extend %input-field;
 }
-
-.snipcart .snipcart-item-quantity__label { // ? uff
-    @extend .my-label;
-    margin-top: 1rem;
-}
-
-// .snipcart-form snipcart-payment.snipcart__box {
-//     background-color: var(--bs-bg-color);
-// }
 
 // PROMO CODE BOX
 .snipcart-discount-box {
@@ -149,8 +140,8 @@
     pointer-events: none; // Disable link to Snipcart website
     font-size: $font-size-12;
 
-    a svg.snipcart__icon path {
-        // fill: var(--bs-body-color);
+    a {
+        text-decoration: none;
     }
 }
 
