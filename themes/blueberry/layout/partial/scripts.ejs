@@ -4,18 +4,18 @@
 <!-- Main App JS -->
 <% // For production environment add ?t= timestamp for javascript %>
 <% if (process && process.env && process.env.BUILD_TYPE == 'production'){ %>
-    <script type="module" src="/js/app.js?t=<%- (new Date()).getTime().toString() %>"></script>
-    <script type="module">
+    <script src="/js/app.js?t=<%- (new Date()).getTime().toString() %>"></script>
+    <script>
         //-hexo-will-embed-scripts-here
     </script>
 <% } else { %>
-    <script type="module" src="/js/app-dev.js"></script>
-    <script type="module">
+    <script src="/js/app-dev.js"></script>
+    <script>
         //-hexo-will-embed-dev-scripts-here
     </script>
 <% } %>
 
-<script type="module">
+<script>
     var apiKey = "<%- (process && process.env && process.env.SNIPCART_API_KEY) ? process.env.SNIPCART_API_KEY : 'ZDY1MDg3ODQtM2MxNC00OGEzLWFiMzktNzE1NjY2NjY0OTczNjM3MDkwMTkxMjkwNDc3NjYw' %>";
 
     window.SnipcartSettings = {
