@@ -9,7 +9,6 @@ var helpers = window.helpers = require('./modules/helpers');
 var events = window.events = require('./modules/events');
 var kinetic = window.kinetic = require('jquery.kinetic');
 var getColorFriendlyName = window.getColorFriendlyName = require('named-web-colors');
-var contentBuyButton = require('./modules/content-buy-button');
 
 // Locals for this Browserify entry point
 var autosize = require('autosize');
@@ -23,18 +22,7 @@ var FormAjaxSubmit = require('./modules/form-ajax-submit');
 var CheckoutButtonFix = require('./modules/checkout-button-fix');
 var InteractiveBackButton = require('./modules/interactive-back-button');
 var autovalid = require('./modules/autovalid');
-
-// Google Customer Reviews
-// Export GCR to be accessed by Vue
-// https://www.mattburkedev.com/export-a-global-to-the-window-object-with-browserify/
-// gcr.init();
-var gcr = require('./modules/gcr');
-gcr.init();
-// window.gcr = gcr; // Not works
-
-// This worked with Browserify and sourcemaps in dev mode
-// https://stackoverflow.com/questions/38104715/browserify-global-variable-is-not-found-in-the-browser
-window['gcr'] = gcr;
+var GCR = require('./modules/gcr');
 
 $(function() {
   InteractiveBackButton.init();
@@ -87,4 +75,14 @@ $(function() {
   $(document).on('click', function(){
     events.emit('documentClick');
   });
+
+  // Google Customer Reviews
+  var gcr = new GCR();
+  gcr.init();
+  // Export GCR to be accessed by Vue
+  // https://www.mattburkedev.com/export-a-global-to-the-window-object-with-browserify/
+  // window.gcr = gcr;
+  // This worked with Browserify and sourcemaps in dev mode
+  // https://stackoverflow.com/questions/38104715/browserify-global-variable-is-not-found-in-the-browser
+  window.gcr = gcr;
 });

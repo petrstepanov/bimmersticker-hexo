@@ -1,7 +1,7 @@
-var $ = require('jquery');
-var nunjucks = require('nunjucks');
+// Google Customer Reviews - accessed on success purchase from /themes/blueberry/source/snipcart-templates
+// Make sure
 
-var GCR = function(){
+var gcr = function($, nunjucks){
     var DOM = {};
 
     function renderGoogleCustomerReviews(invoiceNumber, email, country) {
@@ -34,15 +34,23 @@ var GCR = function(){
         $('#gcr-container').html(rendered);
     }
 
-    function init(element) {
+    function _cacheDom(element) {
         DOM.$template = $('#gcr-template');
         DOM.$container = $('#gcr-container');
+    }
+
+    function init() {
+        _cacheDom();
     }
 
     return {
         init: init,
         renderGoogleCustomerReviews: renderGoogleCustomerReviews
-    };
+    }
 };
 
-module.exports = GCR;
+$(function(){
+    var gcr = new gcr(window.$, window.nunjucks);
+    gcr.init();
+    window['gcr'] = gcr;
+});

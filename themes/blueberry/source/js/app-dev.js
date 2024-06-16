@@ -10,7 +10,6 @@ var helpers = window.helpers = require('./modules/helpers');
 var events = window.events = require('./modules/events');
 var kinetic = window.kinetic = require('jquery.kinetic');
 var getColorFriendlyName = window.getColorFriendlyName = require('named-web-colors');
-var contentBuyButton = require('./modules/content-buy-button');
 
 // Locals for this Browserify entry point
 var autosize = require('autosize');
@@ -24,18 +23,7 @@ var FormAjaxSubmit = require('./modules/form-ajax-submit');
 var CheckoutButtonFix = require('./modules/checkout-button-fix');
 var InteractiveBackButton = require('./modules/interactive-back-button');
 var autovalid = require('./modules/autovalid');
-
-// Google Customer Reviews
-// Export GCR to be accessed by Vue
-// https://www.mattburkedev.com/export-a-global-to-the-window-object-with-browserify/
-// gcr.init();
-var gcr = require('./modules/gcr');
-gcr.init();
-// window.gcr = gcr; // Not works
-
-// This worked with Browserify and sourcemaps in dev mode
-// https://stackoverflow.com/questions/38104715/browserify-global-variable-is-not-found-in-the-browser
-window['gcr'] = gcr;
+var GCR = require('./modules/gcr');
 
 $(function() {
   InteractiveBackButton.init();
@@ -88,6 +76,16 @@ $(function() {
   $(document).on('click', function(){
     events.emit('documentClick');
   });
+
+  // Google Customer Reviews
+  var gcr = new GCR();
+  gcr.init();
+  // Export GCR to be accessed by Vue
+  // https://www.mattburkedev.com/export-a-global-to-the-window-object-with-browserify/
+  // window.gcr = gcr;
+  // This worked with Browserify and sourcemaps in dev mode
+  // https://stackoverflow.com/questions/38104715/browserify-global-variable-is-not-found-in-the-browser
+  window.gcr = gcr;
 });
 
 },{"./modules/autovalid":2,"./modules/checkout-button-fix":3,"./modules/content-buy-button":4,"./modules/events":5,"./modules/form-ajax-submit":6,"./modules/form-inside-dialog":7,"./modules/gcr":8,"./modules/helpers":9,"./modules/interactive-back-button":10,"./modules/navbar-buy-button":11,"./modules/navbar-collapse":12,"aos":15,"autosize":16,"bootstrap":17,"jquery":19,"jquery.kinetic":18,"named-web-colors":21}],2:[function(require,module,exports){
@@ -391,49 +389,51 @@ exports.init = init;
 var $ = require('jquery');
 var nunjucks = require('nunjucks');
 
-var DOM = {};
+var GCR = function(){
+    var DOM = {};
 
-function renderGoogleCustomerReviews(invoiceNumber, email, country) {
-    // alert(invoiceNumber + " " + email + " " + country);
+    function renderGoogleCustomerReviews(invoiceNumber, email, country) {
+        // alert(invoiceNumber + " " + email + " " + country);
 
-    // TODO: calculate estimated delivery date here
-    // Not in json{}
-    var deliveryDays = country.localeCompare("US")?21:7;
-    var today = new Date();
-    var deliveryDate = new Date();
-    deliveryDate.setDate(today.getDate() + deliveryDays);
-    var year = 1900+deliveryDate.getYear();
-    var month = deliveryDate.getMonth() + 1;
-    var day = deliveryDate.getDate();
-    var deliveryDateString = "" + year + "-" + month + "-" + day;
-    // Populate success template with JSON
-    var json = {
-        'merchantID': 143612887,
-        'invoiceNumber': invoiceNumber,
-        'email': email,
-        'country': country,
-        'deliveryDate': deliveryDateString
+        // TODO: calculate estimated delivery date here
+        // Not in json{}
+        var deliveryDays = country.localeCompare("US")?21:7;
+        var today = new Date();
+        var deliveryDate = new Date();
+        deliveryDate.setDate(today.getDate() + deliveryDays);
+        var year = 1900+deliveryDate.getYear();
+        var month = deliveryDate.getMonth() + 1;
+        var day = deliveryDate.getDate();
+        var deliveryDateString = "" + year + "-" + month + "-" + day;
+        // Populate success template with JSON
+        var json = {
+            'merchantID': 143612887,
+            'invoiceNumber': invoiceNumber,
+            'email': email,
+            'country': country,
+            'deliveryDate': deliveryDateString
+        };
+        nunjucks.configure({ autoescape: true });
+        var template = DOM.$template.html();
+        var rendered = nunjucks.renderString(template, json);
+
+        // Display GCR
+        $('#gcr-container').empty();
+        $('#gcr-container').html(rendered);
+    }
+
+    function init(element) {
+        DOM.$template = $('#gcr-template');
+        DOM.$container = $('#gcr-container');
+    }
+
+    return {
+        init: init,
+        renderGoogleCustomerReviews: renderGoogleCustomerReviews
     };
-    nunjucks.configure({ autoescape: true });
-    var template = DOM.$template.html();
-    var rendered = nunjucks.renderString(template, json);
+};
 
-    // Display GCR
-    $('#gcr-container').empty();
-    $('#gcr-container').html(rendered);
-}
-
-function _cacheDom(element) {
-    DOM.$template = $('#gcr-template');
-    DOM.$container = $('#gcr-container');
-}
-
-function init() {
-    _cacheDom();
-}
-
-exports.init = init;
-exports.renderGoogleCustomerReviews = renderGoogleCustomerReviews;
+module.exports = GCR;
 },{"jquery":19,"nunjucks":22}],9:[function(require,module,exports){
 // Helper module
 
