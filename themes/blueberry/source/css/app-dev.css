@@ -13328,37 +13328,150 @@ body {
 /*! Snipcart Theming: https://docs.snipcart.com/v3/setup/theming */
 /* Syntax to integrate SASS variables into CSS variables: https://sass-lang.com/documentation/breaking-changes/css-vars */
 #snipcart {
+  /* -----------------
+      Colors
+  ----------------- */
   --color-default: var(--bs-body-color);
-  --bgColor-default: white;
-  --borderColor-default: #e3e6e8;
-  --color-buttonPrimary: #FFFFFF;
-  --color-buttonPrimary-hover: #FFFFFF;
-  --bgColor-buttonPrimary: #007CC2;
-  --bgColor-buttonPrimary-hover: #00649c;
-  --borderColor-buttonPrimary: #007CC2;
-  --borderColor-buttonPrimary-hover: #00649c;
-  --shadow-buttonPrimary-hover: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
-  --color-buttonSecondary: #007CC2;
-  --color-buttonSecondary-hover: #00649c;
-  --bgColor-buttonSecondary: #FFFFFF;
-  --bgColor-buttonSecondary-hover: #FFFFFF;
-  --borderColor-buttonSecondary: #007CC2;
-  --borderColor-buttonSecondary-hover: #00649c;
-  --shadow-buttonSecondary-hover: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
-  --shadow-default: 0 0.25rem 0.25rem 0 rgba(0, 124, 194, 0.1);
-  --bgColor-input: #FFFFFF;
-  --borderColor-input: #dceaf9;
-  --borderColor-input-hover: #dceaf9;
-  --borderColor-input-focus: #007CC2;
-  --shadow-input-focus: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
-  --shadow-input-error: 0 2px 4px 0 rgba(241, 26, 34, 0.2);
-  --color-icon: var(--bs-body-color);
+  --color-alt: var(--bs-secondary-color);
+  --color-icon: var(--bs-primary);
+  --color-success: var(--bs-success);
+  --color-error: var(--bs-danger);
   --color-link: var(--bs-link-color);
   --color-link-hover: var(--bs-link-hover-color);
-  --color-badge: var(--bs-body-color);
-  --bgColor-modal: transparent;
-  --bgColor-modalVeil: rgba(0,0,0,0.4);
-  --bgColor-alt: white;
+  --color-link-active: var(--color-link);
+  --color-link-focus: var(--color-link);
+  --color-input: var(--bs-body-color);
+  --color-input-hover: var(--bs-body-color);
+  --color-input-focus: var(--bs-body-color);
+  --color-input-checked: var(--bs-body-color);
+  --color-input-disabled: var(--bs-secondary-color);
+  --color-input-error: var(--bs-danger);
+  --color-inputLabel: var(--bs-secondary-color);
+  --color-inputLabel-hover: var(--bs-secondary-color);
+  --color-inputLabel-focus: var(--bs-secondary-color);
+  --color-inputIcon: var(--bs-body-color);
+  --color-inputIcon-hover: var(--bs-body-color);
+  --color-inputIcon-focus: var(--bs-body-color);
+  --color-inputIcon-checked: var(--color-default);
+  --color-inputIcon-error: var(--bs-danger);
+  --color-inputPlaceholder: var(--bs-secondary-color);
+  --color-buttonPrimary: var(--bs-white);
+  --color-buttonPrimary-hover: var(--bs-white);
+  --color-buttonPrimary-active: var(--bs-white);
+  --color-buttonPrimary-focus: var(--bs-white);
+  --color-buttonPrimary-disabled: var(--bs-white);
+  --color-buttonPrimary-success: var(--bs-white);
+  --color-buttonPrimary-error: var(--bs-white);
+  --color-buttonSecondary: var(--bs-secondary-color);
+  --color-buttonSecondary-hover: var(--bs-secondary-color);
+  --color-buttonSecondary-active: var(--bs-secondary-color);
+  --color-buttonSecondary-focus: var(--bs-secondary-color);
+  --color-buttonSecondary-disabled: var(--bs-secondary-color);
+  --color-buttonSecondary-success: var(--bs-success);
+  --color-buttonSecondary-error: var(--bs-danger);
+  --color-buttonDanger: var(--bs-danger);
+  --color-buttonDanger-hover: var(--bs-danger);
+  --color-buttonDanger-active: var(--bs-danger);
+  --color-buttonDanger-focus: var(--bs-danger);
+  --color-buttonDanger-disabled: var(--bs-danger);
+  --color-buttonDanger-success: var(--bs-success);
+  --color-buttonDanger-error: var(--bs-danger);
+  --color-badge: var(--bs-blue);
+  --color-badge-active: var(--bs-blue);
+  --color-badge-disabled: var(--bs-secondary-color);
+  /* -----------------
+      Border colors
+  ----------------- */
+  --borderColor-default: var(--bs-border-color);
+  --borderColor-error: hsl(6, 55%, 30%);
+  --borderColor-link: none;
+  --borderColor-link-hover: none;
+  --borderColor-link-active: none;
+  --borderColor-link-focus: none;
+  --borderColor-input: var(--bs-border-color);
+  --borderColor-input-hover: var(--bs-border-color);
+  --borderColor-input-focus: var(--bs-border-color);
+  --borderColor-input-checked: var(--bs-border-color);
+  --borderColor-input-disabled: var(--bs-border-color);
+  --borderColor-input-error: var(--bs--danger);
+  --borderColor-buttonPrimary: transparent;
+  --borderColor-buttonPrimary-hover: transparent;
+  --borderColor-buttonPrimary-focus: transparent;
+  --borderColor-buttonPrimary-disabled: transparent;
+  --borderColor-buttonPrimary-success: transparent;
+  --borderColor-buttonPrimary-error: transparent;
+  --borderColor-buttonSecondary: transparent;
+  --borderColor-buttonSecondary-hover: transparent;
+  --borderColor-buttonSecondary-focus: transparent;
+  --borderColor-buttonSecondary-disabled: transparent;
+  --borderColor-buttonSecondary-success: transparent;
+  --borderColor-buttonSecondary-error: transparent;
+  --borderColor-badge: transparent;
+  --borderColor-badge-active: transparent;
+  --borderColor-badge-disabled: transparent;
+  /* -----------------
+      Background colors
+  ----------------- */
+  --bgColor-default: var(--bs-body-bg);
+  --bgColor-alt: var(--bs-body-bg);
+  --bgColor-success: var(--bs-success-bg-subtle);
+  --bgColor-error: var(--bs-danger-bg-subtle);
+  --bgColor-info: var(--bs-info-bg-subtle);
+  --bgColor-modal: var(--color-indigo);
+  --bgColor-modalVeil: var(--bs-secondary-bg);
+  --bgColor-link: none;
+  --bgColor-link-hover: none;
+  --bgColor-link-active: none;
+  --bgColor-link-focus: none;
+  --bgColor-input: var(--bs-body-bg);
+  --bgColor-input-hover: var(--bs-body-bg);
+  --bgColor-input-focus: var(--bs-body-bg);
+  --bgColor-input-checked: var(--bs-body-bg);
+  --bgColor-input-disabled: var(--bs-tertiary-bg);
+  --bgColor-input-error: var(--bs-body-bg);
+  --bgColor-input-autofill: var(--bs-body-bg);
+  --bgColor-buttonPrimary: var(--bs-blue);
+  --bgColor-buttonPrimary-hover: var(--bs-blue);
+  --bgColor-buttonPrimary-active: var(--bs-blue);
+  --bgColor-buttonPrimary-focus: var(--bs-blue);
+  --bgColor-buttonPrimary-disabled: var(--bs-tertiary-bg);
+  --bgColor-buttonPrimary-success: var(--bs-success);
+  --bgColor-buttonPrimary-error: var(--bs-danger);
+  --bgColor-buttonSecondary: var(--bs-secondary-bg);
+  --bgColor-buttonSecondary-hover: var(--bs-secondary-bg);
+  --bgColor-buttonSecondary-active: var(--bs-secondary-bg);
+  --bgColor-buttonSecondary-focus: var(--bs-secondary-bg);
+  --bgColor-buttonSecondary-disabled: var(--bs-tertiary-bg);
+  --bgColor-buttonSecondary-success: var(--bs-success);
+  --bgColor-buttonSecondary-error: var(--bs-danger);
+  --bgColor-buttonDanger: var(--bs-danger-bg-subtle);
+  --bgColor-buttonDanger-hover: var(--bs-danger-bg-subtle);
+  --bgColor-buttonDanger-active: var(--bs-danger-bg-subtle);
+  --bgColor-buttonDanger-focus: var(--bs-danger-bg-subtle);
+  --bgColor-buttonDanger-disabled: var(--bs-tertiary-bg-subtle);
+  --bgColor-buttonDanger-success: var(--bs-success-bg-subtle);
+  --bgColor-buttonDanger-error: var(--bs-danger-bg-subtle);
+  --bgColor-badge: var(--bs-blue);
+  --bgColor-badge-active: var(--bs-blue);
+  --bgColor-badge-disabled: var(--bs-secondary-bg);
+  /* -----------------
+      Shadows
+  ----------------- */
+  --shadow-default: var(--ui-shadow);
+  --shadow-tooltip: none
+  --shadow-link-focus: var(--ui-shadow);
+  --shadow-input-hover: none;
+  --shadow-input-focus: var(--ui-shadow);
+  --shadow-input-checked: none;
+  --shadow-buttonPrimary-hover: var(--ui-shadow);
+  --shadow-buttonPrimary-active: none;
+  --shadow-buttonPrimary-focus: var(--ui-shadow);
+  --shadow-buttonSecondary-hover: var(--ui-shadow);
+  --shadow-buttonSecondary-active: none;
+  --shadow-buttonSecondary-focus: var(--ui-shadow);
+  --shadow-buttonDanger-hover: var(--ui-shadow);
+  --shadow-buttonDanger-active: none;
+  --shadow-buttonDanger-focus: var(--ui-shadow);
 }
 
 /*
@@ -18405,20 +18518,6 @@ body {
   height: 1.75rem;
 }
 
-/* This only used for Faceebook Chat plugin. Screw it it added a lot of load time and gave hard time to install...
-.snipcart-modal__container {
-    z-index: 2147483650;   // Show over facebook dialog
-    // iPhone scroll - have white top and blue bottom background
-
-    // Contentful issue??
-    // background-image: linear-gradient(white 50%, $indigo 50%);
-    background-color: white;
-}
-*/
-.snipcart-modal {
-  background-color: #E5F3F9;
-}
-
 .snipcart__icon {
   width: 1.35rem;
   height: 1.35rem;
@@ -18433,9 +18532,14 @@ body {
   margin-bottom: 0;
   padding-top: 0;
   padding-bottom: 0;
-  background-color: white;
-  box-shadow: var(--shadow-default);
+  box-shadow: var(--box-shadow-blueberry);
   justify-content: space-between;
+  height: var(--nb-height);
+  background-color: var(--bs-body-bg);
+}
+.snipcart-cart-header svg {
+  stroke-width: 1px;
+  stroke: var(--bs-blue);
 }
 @media (min-width: 768px) {
   .snipcart-cart-header {
@@ -18443,13 +18547,7 @@ body {
   }
 }
 .snipcart-cart-header button {
-  margin: 0.825rem 0;
-  height: var(--nb-logo-size);
-}
-@media (min-width: 768px) {
-  .snipcart-cart-header button {
-    margin: 1rem 0;
-  }
+  height: var(--nb-logo-height);
 }
 .snipcart-cart-header .snipcart-cart-header__title {
   margin-left: -8.5rem;
@@ -18458,8 +18556,13 @@ body {
   display: inline !important;
   height: auto;
 }
-.snipcart-cart-header .snipcart-cart-header__close-button * {
+.snipcart-cart-header .snipcart-cart__featured-payment-methods-container {
+  border-top-color: var(--bs-border-color);
+  border-bottom-color: var(--bs-border-color);
+}
+.snipcart-cart-header .snipcart-cart-header__close-button {
   color: var(--bs-link-color);
+  font-weight: bold;
 }
 .snipcart-cart-header .snipcart-modal__header-summary .snipcart__font--large {
   font-size: 1em;
@@ -18484,10 +18587,6 @@ body {
   height: auto;
 }
 
-.snipcart-cart__content {
-  background-color: #E5F3F9;
-}
-
 .snipcart .snipcart-input {
   height: auto;
   border-radius: 0.4rem;
@@ -18496,7 +18595,7 @@ body {
 .snipcart .snipcart-input__input {
   border-radius: 0.5rem;
   padding: 0.5rem 0.75rem;
-  box-shadow: 0 2px 4px 0 rgba(0, 124, 194, 0.2);
+  box-shadow: var(--ui-shadow);
 }
 .snipcart .snipcart-form__select,
 .snipcart .snipcart-input__input {
@@ -18587,9 +18686,6 @@ body {
   background-color: transparent;
   box-shadow: none;
 }
-.snipcart-discount-box .snipcart-discount-box__form-container button {
-  color: var(--bs-link-color);
-}
 .snipcart-discount-box .snipcart-discount-box__form {
   border: none;
   background-color: transparent;
@@ -18618,7 +18714,7 @@ body {
   margin-bottom: 7rem;
   padding: 0.75rem;
   border-top: 1px solid;
-  border-color: var(--borderColor-default);
+  border-color: var(--bs-border-color);
 }
 @media (min-width: 768px) {
   .snipcart-featured-payment-methods {
@@ -18627,20 +18723,15 @@ body {
 }
 
 .snipcart-featured-payment-methods__title {
-  background-color: #E5F3F9;
   font-weight: normal;
   pointer-events: none;
   font-size: 0.75em;
 }
-.snipcart-featured-payment-methods__title a svg.snipcart__icon path {
-  fill: var(--bs-body-color);
-}
-
 .snipcart-featured-payment-methods--no-background {
   margin-top: 0rem;
 }
 .snipcart-featured-payment-methods--no-background .snipcart-featured-payment-methods__title {
-  background-color: white;
+  background-color: var(--bs-body-bg);
 }
 
 .snipcart-featured-payment-methods__list-item .snipcart__icon {
@@ -18649,7 +18740,7 @@ body {
 }
 
 .snipcart-cart-summary {
-  box-shadow: var(--shadow-default);
+  box-shadow: var(--ui-shadow);
   border-radius: 0.5rem;
   overflow: hidden;
 }
@@ -18692,13 +18783,6 @@ body {
 .snipcart-cart-summary--edit .snipcart-layout__content {
   margin-top: 0;
 }
-.snipcart-cart-summary--edit .snipcart-modal {
-  background-color: white;
-}
-.snipcart-cart-summary--edit .snipcart-cart__secondary-header {
-  background-color: white;
-  border-bottom: 1px solid lightgrey;
-}
 @media (min-width: 1024px) {
   .snipcart-cart-summary--edit .snipcart-cart__secondary-header {
     padding-left: 1.5rem;
@@ -18724,16 +18808,14 @@ body {
 }
 
 .snipcart-form {
-  background-color: transparent;
   box-shadow: none;
 }
 
 .snipcart__box {
-  background-color: #fff;
   border-radius: 0.5rem;
   padding: 1.2rem 1rem;
   margin-bottom: 1rem;
-  box-shadow: var(--shadow-default);
+  box-shadow: var(--ui-shadow);
 }
 @media (min-width: 768px) {
   .snipcart__box {
@@ -18749,17 +18831,15 @@ body {
   align-items: center;
 }
 .snipcart__box .snipcart__box--title .snipcart__box--badge {
-  background: #E5F3F9;
   font-stretch: condensed !important;
   font-weight: 700 !important;
   font-size: 1.3125em;
-  color: var(--bs-body-color);
   margin: 0 0.75rem 0 0;
   border: 0;
+  color: var(--bs-white);
 }
 .snipcart__box .snipcart__box--title .snipcart__box--badge.snipcart__box--badge-highlight {
   background: #007CC2;
-  color: white;
 }
 .snipcart__box .snipcart-typeahead__suggestion span {
   font-weight: 400;
@@ -18820,7 +18900,6 @@ body {
 }
 .snipcart-shipping-rates-list-item.snipcart-shipping-rates-list-item--highlight {
   border: none;
-  background-color: #E5F3F9;
 }
 
 .snipcart__font--bold .snipcart-form-radio + label {
@@ -18856,15 +18935,15 @@ body {
   background-color: #007CC2;
   border-color: #007CC2;
   height: auto;
-  box-shadow: var(--shadow-default);
+  box-shadow: var(--ui-shadow);
   justify-content: center;
   font-size: 1.3125em;
   font-weight: normal;
   color: white;
 }
 .snipcart-payment-methods-list-item__button:hover {
-  background-color: #00649c;
-  border-color: #00649c;
+  background-color: var(--bs-blue);
+  border-color: var(--bs-blue);
 }
 .snipcart-payment-methods-list-item__button .snipcart-payment-methods-list-item__label, .snipcart-payment-methods-list-item__button .new-label {
   font-weight: normal;
@@ -18888,7 +18967,7 @@ body {
 .snipcart-cart-summary-expanded-item__custom-fields {
   font-family: monospace;
   font-size: 0.875em;
-  border-left: 2px solid lightgrey;
+  border-left: 2px solid #d3d3d3;
   margin: 1rem 0.5rem;
   padding: 0 1.25rem;
 }
@@ -18899,6 +18978,10 @@ body {
 
 .snipcart-billing-completed--titled .snipcart-billing-completed__step-title {
   margin-bottom: 0.35rem;
+}
+
+.snipcart-flash-message__content h2, .snipcart-flash-message__content .h2 {
+  margin-top: 0 !important;
 }
 
 .snipcart-shipping-completed--titled .snipcart-shipping-completed__step-title {

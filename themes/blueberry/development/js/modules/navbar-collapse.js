@@ -30,9 +30,9 @@ function _bindEvents(element) {
     _collapseNavbar();
   });
 
-  DOM.$navbar.on('click', function (event) {
-    event.stopPropagation();
-  });
+  // DOM.$navbar.on('click', function (event) {
+  //   event.stopPropagation();
+  // });
 
   // Swap navbar icons hamburger and close
   DOM.$navbarCollapse.on('show.bs.collapse', function () {
@@ -56,10 +56,10 @@ function _collapseNavbar() {
   // BS5 Collapse plugin: https://stackoverflow.com/a/74738412
   // if the instance is not yet initialized then create new collapse
   if (typeof bsCollapse === "undefined") {
-    let element = DOM.$navbarCollapse[0];
-    bsCollapse = new bootstrap.Collapse(element, {
+    let id = "#" + DOM.$navbarCollapse.attr("id");
+    bsCollapse = new bootstrap.Collapse(id, {
           toggle: false
-      });
+    });
   }
 
   bsCollapse.hide();

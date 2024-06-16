@@ -1,63 +1,179 @@
 /*! Snipcart Theming: https://docs.snipcart.com/v3/setup/theming */
 /* Syntax to integrate SASS variables into CSS variables: https://sass-lang.com/documentation/breaking-changes/css-vars */
 
-// Bootstrap darkens color 7.5%
-$primary-color-hover: darken($primary, 7.5%);
-$ui-element-shadow: 0 2px 4px 0 #{rgba($blue, 0.2)};
-$ui-element-shadow-red: 0 2px 4px 0 #{rgba($red, 0.2)};
 
 #snipcart {
-    // Default text color
-    --color-default: #{var(--bs-body-color)};
+   // Template taken from Snipcart website
 
-    // Default background color
-    --bgColor-default: white;
+    /* -----------------
+        Colors
+    ----------------- */
+    --color-default: var(--bs-body-color);
+    --color-alt:     var(--bs-secondary-color);
+    --color-icon:    var(--bs-primary);
+    --color-success: var(--bs-success);
+    --color-error:   var(--bs-danger);
 
-    // Default border color (for separators)
-    --borderColor-default: #e3e6e8;
+    --color-link:        var(--bs-link-color);
+    --color-link-hover:  var(--bs-link-hover-color);
+    --color-link-active: var(--color-link);
+    --color-link-focus:  var(--color-link);
 
-    // Primary Button
-    --color-buttonPrimary: #FFFFFF;
-    --color-buttonPrimary-hover: #FFFFFF;
-    --bgColor-buttonPrimary: #{$primary};
-    --bgColor-buttonPrimary-hover: #{$primary-color-hover};
-    --borderColor-buttonPrimary: #{$primary};
-    --borderColor-buttonPrimary-hover: #{$primary-color-hover};
-    --shadow-buttonPrimary-hover: #{$ui-element-shadow};
+    --color-input:             var(--bs-body-color);
+    --color-input-hover:       var(--bs-body-color);
+    --color-input-focus:       var(--bs-body-color);
+    --color-input-checked:     var(--bs-body-color);
+    --color-input-disabled:    var(--bs-secondary-color);
+    --color-input-error:       var(--bs-danger);
+    --color-inputLabel:        var(--bs-secondary-color);
+    --color-inputLabel-hover:  var(--bs-secondary-color);
+    --color-inputLabel-focus:  var(--bs-secondary-color);
+    --color-inputIcon:         var(--bs-body-color);
+    --color-inputIcon-hover:   var(--bs-body-color);
+    --color-inputIcon-focus:   var(--bs-body-color);
+    --color-inputIcon-checked: var(--color-default);
+    --color-inputIcon-error:   var(--bs-danger);
+    --color-inputPlaceholder:  var(--bs-secondary-color);
 
-    // Secondary Button
-    --color-buttonSecondary: #{$primary};
-    --color-buttonSecondary-hover: #{$primary-color-hover};
-    --bgColor-buttonSecondary: #FFFFFF;
-    --bgColor-buttonSecondary-hover: #FFFFFF;
-    --borderColor-buttonSecondary: #{$primary};
-    --borderColor-buttonSecondary-hover: #{$primary-color-hover};
-    --shadow-buttonSecondary-hover: #{$ui-element-shadow};
+    --color-buttonPrimary:          var(--bs-white);
+    --color-buttonPrimary-hover:    var(--bs-white);
+    --color-buttonPrimary-active:   var(--bs-white);
+    --color-buttonPrimary-focus:    var(--bs-white);
+    --color-buttonPrimary-disabled: var(--bs-white);
+    --color-buttonPrimary-success:  var(--bs-white);
+    --color-buttonPrimary-error:    var(--bs-white);
 
-    // Default shadow - for boxes (containers)
-    --shadow-default: 0 0.25rem 0.25rem 0 #{rgba($blue, 0.1)}; // Same as website header
+    --color-buttonSecondary:          var(--bs-secondary-color);
+    --color-buttonSecondary-hover:    var(--bs-secondary-color);
+    --color-buttonSecondary-active:   var(--bs-secondary-color);
+    --color-buttonSecondary-focus:    var(--bs-secondary-color);
+    --color-buttonSecondary-disabled: var(--bs-secondary-color);
+    --color-buttonSecondary-success:  var(--bs-success);
+    --color-buttonSecondary-error:    var(--bs-danger);
 
-    // Inputs
-    --bgColor-input: #FFFFFF;
-    --borderColor-input: #dceaf9;
-    --borderColor-input-hover: #dceaf9;
-    --borderColor-input-focus: #{$primary};
+    --color-buttonDanger:            var(--bs-danger);
+    --color-buttonDanger-hover:      var(--bs-danger);
+    --color-buttonDanger-active:     var(--bs-danger);
+    --color-buttonDanger-focus:      var(--bs-danger);
+    --color-buttonDanger-disabled:   var(--bs-danger);
+    --color-buttonDanger-success:    var(--bs-success);
+    --color-buttonDanger-error:      var(--bs-danger);
 
-    --shadow-input-focus:  #{$ui-element-shadow};
-    --shadow-input-error:  #{$ui-element-shadow-red};
+    --color-badge: var(--bs-blue);
+    --color-badge-active: var(--bs-blue);
+    --color-badge-disabled: var(--bs-secondary-color);
 
-    // Icons
-    --color-icon: #{var(--bs-body-color)};
+    /* -----------------
+        Border colors
+    ----------------- */
+    --borderColor-default: var(--bs-border-color);
+    --borderColor-error: hsl(6, 55%, 30%);
 
-    // Link colors
-    --color-link: #{var(--bs-link-color)};
-    --color-link-hover: #{var(--bs-link-hover-color)};
+    --borderColor-link:        none;
+    --borderColor-link-hover:  none;
+    --borderColor-link-active: none;
+    --borderColor-link-focus:  none;
 
-    // Last Payment icon (turned out to be a Snipcart "badge", not icon?) on order complete page was blue
-    --color-badge: #{var(--bs-body-color)};
+    --borderColor-input:           var(--bs-border-color);
+    --borderColor-input-hover:     var(--bs-border-color);
+    --borderColor-input-focus:     var(--bs-border-color);
+    --borderColor-input-checked:   var(--bs-border-color);
+    --borderColor-input-disabled:  var(--bs-border-color);
+    --borderColor-input-error:     var(--bs--danger);
 
-    // Sliding Cart Modal on the right on the checkout step
-    --bgColor-modal: transparent;
-    --bgColor-modalVeil: rgba(0,0,0,0.4);
-    --bgColor-alt: white;
+    --borderColor-buttonPrimary: transparent;
+    --borderColor-buttonPrimary-hover: transparent;
+    --borderColor-buttonPrimary-focus: transparent;
+    --borderColor-buttonPrimary-disabled: transparent;
+    --borderColor-buttonPrimary-success: transparent;
+    --borderColor-buttonPrimary-error: transparent;
+
+    --borderColor-buttonSecondary: transparent;
+    --borderColor-buttonSecondary-hover: transparent;
+    --borderColor-buttonSecondary-focus: transparent;
+    --borderColor-buttonSecondary-disabled: transparent;
+    --borderColor-buttonSecondary-success: transparent;
+    --borderColor-buttonSecondary-error: transparent;
+
+    --borderColor-badge: transparent;
+    --borderColor-badge-active: transparent;
+    --borderColor-badge-disabled: transparent;
+
+    /* -----------------
+        Background colors
+    ----------------- */
+    --bgColor-default: var(--bs-body-bg);
+    --bgColor-alt:     var(--bs-body-bg);
+    --bgColor-success: var(--bs-success-bg-subtle);
+    --bgColor-error:   var(--bs-danger-bg-subtle);
+    --bgColor-info:    var(--bs-info-bg-subtle);
+
+    --bgColor-modal:     var(--color-indigo);
+    --bgColor-modalVeil: var(--bs-secondary-bg);
+
+    --bgColor-link:        none;
+    --bgColor-link-hover:  none;
+    --bgColor-link-active: none;
+    --bgColor-link-focus:  none;
+
+    --bgColor-input:          var(--bs-body-bg);
+    --bgColor-input-hover:    var(--bs-body-bg);
+    --bgColor-input-focus:    var(--bs-body-bg);
+    --bgColor-input-checked:  var(--bs-body-bg);
+    --bgColor-input-disabled: var(--bs-tertiary-bg);
+    --bgColor-input-error:    var(--bs-body-bg);
+    --bgColor-input-autofill: var(--bs-body-bg);
+
+    --bgColor-buttonPrimary:          var(--bs-blue);
+    --bgColor-buttonPrimary-hover:    var(--bs-blue);
+    --bgColor-buttonPrimary-active:   var(--bs-blue);
+    --bgColor-buttonPrimary-focus:    var(--bs-blue);
+    --bgColor-buttonPrimary-disabled: var(--bs-tertiary-bg);
+    --bgColor-buttonPrimary-success:  var(--bs-success);
+    --bgColor-buttonPrimary-error:    var(--bs-danger);
+
+    --bgColor-buttonSecondary:          var(--bs-secondary-bg);
+    --bgColor-buttonSecondary-hover:    var(--bs-secondary-bg);
+    --bgColor-buttonSecondary-active:   var(--bs-secondary-bg);
+    --bgColor-buttonSecondary-focus:    var(--bs-secondary-bg);
+    --bgColor-buttonSecondary-disabled: var(--bs-tertiary-bg);
+    --bgColor-buttonSecondary-success:  var(--bs-success);
+    --bgColor-buttonSecondary-error:    var(--bs-danger);
+
+    --bgColor-buttonDanger:             var(--bs-danger-bg-subtle);
+    --bgColor-buttonDanger-hover:       var(--bs-danger-bg-subtle);
+    --bgColor-buttonDanger-active:      var(--bs-danger-bg-subtle);
+    --bgColor-buttonDanger-focus:       var(--bs-danger-bg-subtle);
+    --bgColor-buttonDanger-disabled:    var(--bs-tertiary-bg-subtle);
+    --bgColor-buttonDanger-success:     var(--bs-success-bg-subtle);
+    --bgColor-buttonDanger-error:       var(--bs-danger-bg-subtle);
+
+    --bgColor-badge:           var(--bs-blue);
+    --bgColor-badge-active:    var(--bs-blue);
+    --bgColor-badge-disabled:  var(--bs-secondary-bg);
+
+    /* -----------------
+        Shadows
+    ----------------- */
+
+    --shadow-default: var(--ui-shadow);
+    --shadow-tooltip: none
+
+    --shadow-link-focus: var(--ui-shadow);
+
+    --shadow-input-hover: none;
+    --shadow-input-focus: var(--ui-shadow);
+    --shadow-input-checked: none;
+
+    --shadow-buttonPrimary-hover: var(--ui-shadow);
+    --shadow-buttonPrimary-active: none;
+    --shadow-buttonPrimary-focus: var(--ui-shadow);
+
+    --shadow-buttonSecondary-hover: var(--ui-shadow);
+    --shadow-buttonSecondary-active: none;
+    --shadow-buttonSecondary-focus: var(--ui-shadow);
+
+    --shadow-buttonDanger-hover: var(--ui-shadow);
+    --shadow-buttonDanger-active: none;
+    --shadow-buttonDanger-focus: var(--ui-shadow);
 }

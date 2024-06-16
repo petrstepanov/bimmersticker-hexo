@@ -1,3 +1,12 @@
+:root {
+  --color-indigo: #E5F3F9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-indigo: var(--bs-dark-bg-subtle);
+  }
+}
 .orientation-container {
   display: flex;
   flex-direction: column;
@@ -32,7 +41,7 @@
 }
 
 #post-aside {
-  background-color: var(--bs-dark-bg-subtle);
+  background-color: var(--color-indigo);
 }
 #post-aside .sidebar-featured-container {
   width: calc(100% + 1.5rem);

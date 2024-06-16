@@ -7,7 +7,7 @@
     padding: 1rem;
     margin: 1rem;
     border-radius: 0.5rem;
-
+    // background-color: var(--bs-secondary-bg);
     &:first-child {
         margin-top: 0;
     }
@@ -71,6 +71,10 @@
     margin-top: 1rem;
 }
 
+// .snipcart-form snipcart-payment.snipcart__box {
+//     background-color: var(--bs-bg-color);
+// }
+
 // PROMO CODE BOX
 .snipcart-discount-box {
     background-color: transparent;
@@ -86,7 +90,7 @@
     }
 
     .snipcart-discount-box__form-container button {
-        color: var(--bs-link-color);
+        // color: var(--bs-link-color);
     }
 
     .snipcart-discount-box__form {
@@ -135,18 +139,18 @@
     }
 
     border-top: 1px solid;
-    border-color: var(--borderColor-default);
+    border-color: var(--bs-border-color);
 }
 
 // "Secured by Snipcart" button
 .snipcart-featured-payment-methods__title {
-    background-color: $indigo; // label background fix
+    // background-color: var(--bs-body-bg); // label background fix
     font-weight: normal;
     pointer-events: none; // Disable link to Snipcart website
     font-size: $font-size-12;
 
     a svg.snipcart__icon path {
-        fill: var(--bs-body-color);
+        // fill: var(--bs-body-color);
     }
 }
 
@@ -154,7 +158,7 @@
     margin-top: 0rem;
 
     .snipcart-featured-payment-methods__title {
-        background-color: white;
+        background-color: var(--bs-body-bg);
     }
 }
 
@@ -166,7 +170,7 @@
 
 // Cart summary - confusing step. Remove editing cart summary from cart summary.
 .snipcart-cart-summary {
-    box-shadow: var(--shadow-default);
+    box-shadow: var(--ui-shadow);
     border-radius: 0.5rem;
     overflow: hidden;
 
@@ -217,14 +221,8 @@
         margin-top: 0;
     }
 
-    .snipcart-modal {
-        // Make modal background indigo
-        background-color: white;
-    }
-
     .snipcart-cart__secondary-header {
-        background-color: white;
-        border-bottom: 1px solid lightgrey;
+        // border-bottom: 1px solid var(--bs-border-color);
 
         @media(min-width:1024px) {
             padding-left: 1.5rem;
@@ -256,16 +254,16 @@
 // Styling the Checkout steps 1,2,3
 .snipcart-form {
     // Remove background from form containers
-    background-color: transparent;
+    // background-color: transparent;
     box-shadow: none;
 }
 
 .snipcart__box {
-    background-color: #fff; // Payment box (3) lacking white background
+    // background-color: var(--bs-body-bg); // Payment box (3) lacking white background
     border-radius: 0.5rem;
     padding: 1.2rem 1rem;
     margin-bottom: 1rem;
-    box-shadow: var(--shadow-default);
+    box-shadow: var(--ui-shadow);
 
     @include media-breakpoint-up(md) {
         margin-bottom: 1.5rem;
@@ -283,16 +281,14 @@
         align-items: center;
 
         .snipcart__box--badge {
-            background: $indigo;
             @include font-display;
             font-size: $font-size-21;
-            color: var(--bs-body-color);
             margin: 0 0.75rem 0 0;
             border: 0;
+            color: var(--bs-white);
 
             &.snipcart__box--badge-highlight {
                 background: $blue;
-                color: white;
             }
         }
     }
@@ -300,7 +296,6 @@
     // Address dropdown
     .snipcart-typeahead__suggestion {
         span {
-            // font-family: $font-regular;
             font-weight: 400; // Native font stack
         }
 
@@ -318,16 +313,6 @@
             margin-bottom: 0;
         }
     }
-
-    // Make "I don't see my address" checkbox look like a link
-    // label[for="addressNotFound"] {
-    //     float: right;
-    //     color: var(--bs-link-color);
-
-    //     &::before{
-    //         display: none;
-    //     }
-    // }
 }
 
 .snipcart__box--header {
@@ -391,7 +376,7 @@
 
     &.snipcart-shipping-rates-list-item--highlight {
         border: none;
-        background-color: $indigo;
+        // background-color: var(--bs-body-bg);
     }
 }
 
@@ -430,18 +415,6 @@
     margin-top: 1.5rem
 }
 
-// .snipcart-payment-methods-list-item__button {
-//     // visibility: hidden;
-//     height: auto;
-//     @extend %snipcart-button;
-//     align-items: center;
-//     color: white;
-//     background-color: $blue;
-//     border: 0;
-//     display: block;
-//     font-size: $font-size-21;
-// }
-
 // This is for the test environment, fix iframe height...
 .snipcart-payment-card-form snipcart-payment-card-form--loaded {
     iframe {
@@ -455,15 +428,15 @@
     background-color: $blue;
     border-color: $blue;
     height: auto;
-    box-shadow: var(--shadow-default);
+    box-shadow: var(--ui-shadow);
     justify-content: center;
     font-size: $font-size-21;
     font-weight: normal;
     color: white;
 
     &:hover {
-        background-color: $primary-color-hover;
-        border-color: $primary-color-hover;
+        background-color: var(--bs-blue);
+        border-color: var(--bs-blue);
     }
 
     .snipcart-payment-methods-list-item__label, .new-label {

@@ -2,6 +2,16 @@
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/mixins";
 
+:root {
+  --color-indigo: #E5F3F9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-indigo: var(--bs-dark-bg-subtle);
+  }
+}
+
 .orientation-container {
   display: flex;
   flex-direction: column;
@@ -28,7 +38,7 @@
 }
 
 #post-aside {
-  background-color: var(--bs-dark-bg-subtle);
+  background-color: var(--color-indigo);
 
   .sidebar-featured-container {
     // Calc in SASS https://stackoverflow.com/questions/17982111/sass-variable-in-css-calc-function
