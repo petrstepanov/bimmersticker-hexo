@@ -58,6 +58,9 @@ var ComponentTruckVanForm = function ($, helpers, events) {
 
         const html = "Add Item" + (quantity == 1 ? '' : 's') + ' to Cart • &#36;' + total.toFixed(2);
         DOM.$buttonSubmit.html(html);
+        // Add Snipcart loading spinner
+        var $spinner = $('<span class="ms-2 spinner-border spinner-border-sm" aria-hidden="true" style="width: 1.2rem;height: 1.2rem;"></span>');
+        DOM.$buttonSubmit.append($spinner);
     }
 
     function _loadData() {

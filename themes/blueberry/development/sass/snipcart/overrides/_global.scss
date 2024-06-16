@@ -1,6 +1,37 @@
 // COLORS
 // Starting Snipcart 3.2.X colors are moved to variables, see snipcart-variables.scss
 
+.snipcart-checkout {
+    .spinner-border {
+        // To match with 2rem icon-md size for cart
+        display: none;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 0.25rem;
+    }
+
+    &.store-loading {
+        svg {
+            display: none;
+        }
+
+        .spinner-border {
+            display: inline-block;
+        }
+    }
+}
+
+button[type="submit"] {
+    .spinner-border{
+      display: none;
+    }
+
+    &.store-loading {
+      .spinner-border{
+        display: inline-block;
+      }
+    }
+}
 
 // FONTS
 // Replacing all original Snipcart CSS lines with "font-family" with native font stack

@@ -736,12 +736,10 @@ var $ = require('jquery');
 var SnipcartLoadOnClick = function(){
 
     var DOM = {};
-    // var bsLoadingModal;
     var loadingFlag = false;
 
     function _cacheDom(){
         DOM.$triggerElements = $(".snipcart-checkout, .snipcart-add-item");
-        // DOM.$loadingModal = $('#snipcartLoadModal');
         DOM.$snipcartTemplate = $('#snipcart-template');
     }
 
@@ -750,8 +748,7 @@ var SnipcartLoadOnClick = function(){
             if (!loadingFlag){
                 loadingFlag = true;
                 DOM.$triggerEl = $(this);
-                // bsLoadingModal = new bootstrap.Modal(DOM.$loadingModal[0]);
-                // bsLoadingModal.show();
+                _startSpinner(DOM.$triggerEl);
                 var $parent = DOM.$snipcartTemplate.parent();
                 $parent.append(DOM.$snipcartTemplate.html());
             }
@@ -759,11 +756,26 @@ var SnipcartLoadOnClick = function(){
 
         document.addEventListener('snipcart.ready', function(){
             Snipcart.events.on('snipcart.initialized', function() {
-                // bsLoadingModal.hide();
+                _stopSpinner(DOM.$triggerEl);
                 DOM.$triggerEl.click();
             });
         });
     }
+
+    function _startSpinner($element) {
+        // If cart button
+        $element.addClass("store-loading");
+        // If submit button
+        $(document).find('form button[type=submit]').addClass("store-loading");
+    }
+
+    function _stopSpinner($element) {
+        // If cart button
+        $element.removeClass("store-loading");
+        // If submit button
+        $(document).find('form button[type=submit]').removeClass("store-loading");
+    }
+
 
     function init() {
         _cacheDom();
