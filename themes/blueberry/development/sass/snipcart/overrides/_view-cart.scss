@@ -40,6 +40,7 @@
                 @include font-display;
                 line-height: 1.1;
                 margin: 0 !important;
+                flex-grow: 1;
             }
 
             // Remove weird border on Delere icon (trash bin)

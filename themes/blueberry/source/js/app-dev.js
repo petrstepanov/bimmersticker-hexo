@@ -423,7 +423,7 @@ var GCR = function(){
         $('#gcr-container').html(rendered);
     }
 
-    function init(element) {
+    function init() {
         DOM.$template = $('#gcr-template');
         DOM.$container = $('#gcr-container');
     }

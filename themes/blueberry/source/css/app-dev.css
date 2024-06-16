@@ -18642,12 +18642,14 @@ body {
   margin-right: 2rem;
   overflow: hidden;
   border-radius: var(--bs-border-radius);
-  min-width: none;
+  min-width: auto;
+  flex-shrink: none;
 }
 .snipcart .snipcart-item-line__media--small {
-  width: 3rem;
+  width: 4rem;
   height: auto;
   margin: 0;
+  margin-right: 1rem;
 }
 
 .snipcart-scrollbar {
@@ -18688,6 +18690,7 @@ body {
   font-weight: 700 !important;
   line-height: 1.1;
   margin: 0 !important;
+  flex-grow: 1;
 }
 .snipcart-item-line .snipcart-item-line__container .snipcart-item-line__header .snipcart__button--icon {
   border: 0;

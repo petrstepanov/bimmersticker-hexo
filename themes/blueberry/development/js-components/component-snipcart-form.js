@@ -14,12 +14,11 @@ var SnipcartForm = function($, events){
   }
 
   function _bindEvents(element) {
-    DOM.$inputsAndSelects.on('change input', function () {
-      var i = DOM.$inputsAndSelects.index(this) + 1;
-      var customAttrName = 'item-custom' + i + '-value';
-      // DOM.$button.data(customAttrName, $(this).val());
-      DOM.$snipcartButton.attr('data-' + customAttrName, $(this).val());
-    });
+    // DOM.$inputsAndSelects.on('change input', function () {
+    //   var i = DOM.$inputsAndSelects.index(this) + 1;
+    //   var customAttrName = 'item-custom' + i + '-value';
+    //   DOM.$snipcartButton.attr('data-' + customAttrName, $(this).val());
+    // });
 
     // Update price on button when selecting variations with extra price
     DOM.$selects.on('change', function () {
@@ -41,6 +40,7 @@ var SnipcartForm = function($, events){
     });
 
     // Throw event about selecting specific color in the dropdown
+    // Carousel needs to reflect this.
     DOM.$selectColor.on('change', function () {
       var $options = $(this).find('option');
       var option = $(this).find('option:selected').get(0);
@@ -52,6 +52,14 @@ var SnipcartForm = function($, events){
 
     DOM.$form.on('submit', function (event) {
       event.preventDefault();
+      // Iterate through the fields and set values manually before submit!
+      // It's more bulletproof that do it via .onchange() - bugs with default values.
+      DOM.$inputsAndSelects.each(function () {
+        var i = DOM.$inputsAndSelects.index(this) + 1;
+        var customAttrName = 'item-custom' + i + '-value';
+        DOM.$snipcartButton.attr('data-' + customAttrName, $(this).val());
+      });
+
       DOM.$snipcartButton.click();
     });
   }
