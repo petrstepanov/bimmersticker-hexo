@@ -23,8 +23,12 @@ var CheckoutButtonFix = require('./modules/checkout-button-fix');
 var InteractiveBackButton = require('./modules/interactive-back-button');
 var autovalid = require('./modules/autovalid');
 var GCR = require('./modules/gcr');
+var SnipcartLoadOnClick = require('./modules/snipcart-load-on-click');
 
 $(function() {
+  snipcartLoadOnClick = new SnipcartLoadOnClick();
+  snipcartLoadOnClick.init();
+
   InteractiveBackButton.init();
   formInsideDialog.init(document.querySelector('.js--init-form-inside-dialog'));
   navbarCollapse.init(document.querySelector('.js--init-navbar-collapse'));

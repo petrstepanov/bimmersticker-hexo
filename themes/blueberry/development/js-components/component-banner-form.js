@@ -69,6 +69,9 @@ var ComponentBannerForm = function($, helpers){
             return;
         }
         DOM.$submitButton.text("Add Items to Cart");
+        // Add Snipcart loading spinner
+        var $spinner = $('<span class="ms-2 spinner-border spinner-border-sm" aria-hidden="true" style="width: 1.2rem;height: 1.2rem;"></span>');
+        DOM.$submitButton.append($spinner);
     }
 
     function _loadData(){
