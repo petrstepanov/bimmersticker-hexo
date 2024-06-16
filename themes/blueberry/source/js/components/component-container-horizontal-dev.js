@@ -23,7 +23,7 @@ var DetectTrackpadMouse = function (events) {
   }
 
   function init() {
-      _bindEvents();z
+      _bindEvents();
   }
 
   return {
