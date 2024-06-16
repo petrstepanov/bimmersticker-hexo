@@ -616,9 +616,9 @@ function _cacheDom(element) {
 
 function _bindEvents(element) {
   // Close navbar when clicking outside of tha navbar
-  events.on('documentClick', function (event) {
-      _collapseNavbar();
-  });
+  // events.on('documentClick', function (event) {
+  //     _collapseNavbar();
+  // });
 
   // Collapse navbar after clicking on navbar link
   DOM.$navbar.on('click', '.nav-link', function (event) {

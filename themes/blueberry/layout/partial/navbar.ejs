@@ -56,9 +56,9 @@
             <span class="icon-xs me-2 icon-for-nav"><%- partial('ionicons/car.svg') %></span><span class="d-lg-none d-xl-inline">Custom Windshield </span>Banners
           </a>
         </li>
-        <li class="nav-item nav-separator d-lg-none">
+        <!-- <li class="nav-item nav-separator d-lg-none">
           <a class="nav-link" href="/how-to-apply-windsheild-banner-on-a-car/">How to Apply Windshield Banner?</a>
-        </li>
+        </li>-->
         <li class="nav-item">
           <a class="nav-link" href="/custom-truck-van-decals/">
             <span class="icon-xs me-2 icon-for-nav"><%- partial('svg/icon-mini-van.svg') %></span>Truck & Van <span class="d-lg-none">Business</span> Decals
@@ -71,9 +71,16 @@
         </li>
         <li class="nav-item d-lg-none">
           <a class="nav-link" href="/#contact">
-            Contact us
+            <span class="icon-xs me-2 icon-for-nav"><%- partial('ionicons/mail-unread-outline.svg') %></span>Contact us
           </a>
         </li>
+        <% if (theme.messenger_url){ %>
+          <li class="nav-item nav-separator d-lg-none">
+            <a class="nav-link" href="<%- theme.messenger_url %>" rel="me">
+              <span class="icon-xs me-2 icon-for-nav"><%- partial('svg/icon-messenger.svg') %></span>Text Us on FB Messenger
+            </a>
+          </li>
+        <% } %>
         <% if (theme.googlereview_url){ %>
           <li class="nav-item d-lg-none">
             <a class="nav-link" href="<%- theme.googlereview_url %>">

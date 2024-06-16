@@ -2,16 +2,6 @@
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/mixins";
 
-:root {
-  --color-indigo: #E5F3F9;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-indigo: var(--bs-dark-bg-subtle);
-  }
-}
-
 .orientation-container {
   display: flex;
   flex-direction: column;
