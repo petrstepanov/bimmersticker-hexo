@@ -298,11 +298,11 @@
         overflow: hidden;
         border-radius: var(--bs-border-radius);
         min-width: auto;
-        flex-shrink: none;
+        flex-shrink: 0;
     }
 
     .snipcart-item-line__media--small {
-        width: 4rem;
+        width: 3rem;
         height: auto;
         margin: 0;
         margin-right: 1rem;
