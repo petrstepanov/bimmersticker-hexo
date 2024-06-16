@@ -34,7 +34,13 @@
       </button>
     </div>
     <!-- Cart button -->
-    <%-partial('partial/snipcart-cart-button') %>
+    <button class="btn ms-2 px-0 py-0 snipcart-checkout icon-md d-lg-none" aria-label="View Cart">
+      <%- partial('ionicons/cart.svg') %>
+      <div class="spinner-border spinner-border-sm" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <span class="snipcart-items-count"></span>
+    </button>
     <!-- Collapse navbar -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto">
