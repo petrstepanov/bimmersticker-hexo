@@ -1,6 +1,7 @@
 .component-jumbotron-frontpage {
   background-size: cover;
-  background-image: url(/img/new-background-bmw-windshield-banner-sun-strip.jpg);
+  background-image: -webkit-image-set(url("/img/new-background-bmw-windshield-banner-sun-strip.avif") type("image/avif"), url("/img/new-background-bmw-windshield-banner-sun-strip.jpg") type("image/jpeg"));
+  background-image: image-set(url("/img/new-background-bmw-windshield-banner-sun-strip.avif") type("image/avif"), url("/img/new-background-bmw-windshield-banner-sun-strip.jpg") type("image/jpeg"));
   background-position: center center;
   background-blend-mode: overlay;
 }
