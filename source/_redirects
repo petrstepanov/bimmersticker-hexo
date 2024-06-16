@@ -14,8 +14,5 @@
 # Redirect facebook
 # /fb/*  https://connect.facebook.net/:splat  200!
 
-# Redirect domain aliases to primary domain
-https://test.bimmersticker.store/* https://awesome-golick-927444.netlify.com/:splat 301!
-
 # Optional: Redirect default Netlify subdomain to primary domain
 https://heuristic-babbage-1530f3.netlify.com/* https://bimmersticker.store/:splat 301!
