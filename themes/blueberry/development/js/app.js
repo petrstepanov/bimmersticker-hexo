@@ -26,8 +26,8 @@ var GCR = require('./modules/gcr');
 
 $(function() {
   InteractiveBackButton.init();
-  navbarCollapse.init(document.querySelector('.js--init-navbar-collapse'));
   formInsideDialog.init(document.querySelector('.js--init-form-inside-dialog'));
+  navbarCollapse.init(document.querySelector('.js--init-navbar-collapse'));
 
   // navbarBuyButton inits first - listens to event
   navbarBuyButton.init(document.querySelector('.js--init-navbar-buy-button'));
@@ -71,6 +71,7 @@ $(function() {
   // Manually converted to Browserify syntax
   autovalid.autovalid();
 
+  //
   // Helper event to close other widgets
   $(document).on('click', function(){
     events.emit('documentClick');
@@ -84,5 +85,5 @@ $(function() {
   // window.gcr = gcr;
   // This worked with Browserify and sourcemaps in dev mode
   // https://stackoverflow.com/questions/38104715/browserify-global-variable-is-not-found-in-the-browser
-  window.gcr = gcr;
+  window['gcr'] = gcr;
 });
