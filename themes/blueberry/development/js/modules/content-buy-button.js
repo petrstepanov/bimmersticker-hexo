@@ -12,14 +12,15 @@ function _cacheDom(element) {
 }
 
 function _bindEvents(element) {
-  $(window).scroll(function() {
+  $(window).on("scroll", function() {
     _checkContentButtonViewport();
   });
   _checkContentButtonViewport();
 }
 
 function _checkContentButtonViewport(){
-  events.emit('buyButtonViewport', {contentButtonVisible: helpers.isInViewport(DOM.$el)});
+  const isInViewport = helpers.isInViewport(DOM.$el);
+  events.emit('buyButtonViewport', {contentButtonVisible: isInViewport});
 }
 
 // function _render(options){
@@ -35,3 +36,4 @@ function init(element) {
 }
 
 exports.init = init;
+// exports.checkContentButtonViewport = checkContentButtonViewport;

@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
 
 <head>
   <!-- Consent  - do not need! Screw it. -->
@@ -9,18 +9,38 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-780568854"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'AW-780568854');
   </script>
+  <!-- BEGIN: Dark Mode Switcher -->
+  <script>
+    // Stolen from here
+    // https://stackoverflow.com/a/75065536/885400
+
+    function _updateTheme() {
+      const colorMode = window.matchMedia("(prefers-color-scheme: dark)").matches ?
+        "dark" :
+        "light";
+      document.querySelector("html").setAttribute("data-bs-theme", colorMode);
+    }
+
+    function _bindEvents() {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', _updateTheme)
+    }
+
+    _updateTheme();
+    _bindEvents();
+  </script>
+  <!-- END: Dark Mode Switcher -->
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>
     <%= page.title ? page.title : config.title %>
   </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Favicon begin: https://realfavicongenerator.net/ -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -58,15 +78,22 @@
     <!-- <link rel="preload" href="/fonts/sf-pro-text-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>  -->
     <!-- <link rel="preload" href="/fonts/sf-pro-text-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>  -->
     <link rel="preload" href="/fonts/letristascript-webfont.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/fonts/configcondensed-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- <link rel="preload" href="/fonts/configcondensed-bold-webfont.woff2" as="font" type="font/woff2" crossorigin> -->
 
     <% if(config.cart=="snipcart" ){ %>
       <!-- Serve Snipcart CSS locally! Better PageSpeeds! -->
       <!-- <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.22/default/snipcart.css">  -->
-      <% } %>
-        <% if (process && process.env && process.env.BUILD_TYPE=='production' ){ %>
-          <link rel="stylesheet" href="/css/app.css?t=<%- (new Date()).getTime().toString() %>">
-          <% } else { %>
-            <link rel="stylesheet" href="/css/app-dev.css">
-            <% } %>
+    <% } %>
+    <% if (process && process.env && process.env.BUILD_TYPE=='production' ){ %>
+      <link rel="stylesheet" href="/css/app.css?t=<%- (new Date()).getTime().toString() %>">
+      <style>
+        .hexo-filter-components-css-here{}
+      </style>
+    <% } else { %>
+      <link rel="stylesheet" href="/css/app-dev.css">
+      <style>
+        .hexo-filter-components-css-dev-here{}
+      </style>
+    <% } %>
+    <!-- HEXO will inline components CSS below -->
 </head>

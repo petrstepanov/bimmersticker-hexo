@@ -1,61 +1,40 @@
 @use 'sass:math';
 
+.card {
+  --bs-card-title-spacer-y: 1rem;
+  --box-shadow-card: inset 0 0 0px 1px rgba(0, 0, 0, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  .card{
+    --box-shadow-card: inset 0 0 0px 1px rgba(255, 255, 255, 0.05);
+  }
+}
+
 .card-blueberry {
-  box-shadow: $box-shadow-blueberry;
-  border: 0;
   margin-bottom: 1.75rem;
   overflow: hidden;
+
+  // Override BS border with inset box-shadow
+  border: 0;
+  box-shadow: var(--box-shadow-blueberry), var(--box-shadow-card);
 
   & a.img-wrapper {
     // background-color: white;
 
-    display: flex;
+    display: block;
     // Google Cumulative Layout Shift (CLS)
     // height: 160px;
     overflow: hidden;
 
     img {
       transition: all .3s ease-in-out;
-      // object-fit: cover;
-      // object-position: center center;
-
-      // Google Cumulative Layout Shift (CLS)
-      // height: 160px;
     }
-
-    // &.release-height-md {
-    //   @include media-breakpoint-up(md){
-    //     height: auto;
-
-    //     img {
-    //       @include media-breakpoint-up(md){
-    //         height: auto;
-    //       }
-    //     }
-    //   }
-    // }
-
 
     &:hover {
       img {
         transform: scale(1.05);
       }
-    }
-  }
-
-  .card-body {
-    padding: $card-spacer-x*0.7;
-
-    p {
-      font-size: 0.9rem;
-
-      @include media-breakpoint-up(sm) {
-        font-size: 1rem
-      }
-    }
-
-    @include media-breakpoint-up(sm) {
-      padding: $card-spacer-x;
     }
   }
 
@@ -68,8 +47,8 @@
   $price-tag-radius: 0.2rem;
 
   .card-title-price {
-    background-color: $gray-300;
-    padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+    background-color: var(--bs-secondary-bg);
+    padding: 0.3rem 0.5rem;
 
     @include media-breakpoint-up(sm) {
       padding-right: 1.2rem;
@@ -89,7 +68,7 @@
       margin-top: math.div(-$price-tag-height, 2);
       border-style: solid;
       border-color: transparent;
-      border-left-color: $gray-300;
+      border-left-color: var(--bs-secondary-bg);
       border-width: math.div($price-tag-height, 2) 0 math.div($price-tag-height, 2) $price-tag-width;
     }
 
@@ -97,7 +76,7 @@
       &:after {
         content: "";
         position: absolute;
-        background-color: white;
+        background-color: var(--bs-body-bg);
         top: 50%;
         right: 0.2rem;
         width: 2*$price-tag-radius;
@@ -116,7 +95,13 @@
     sup {
       font-size: 60%;
       margin-left: 0.15rem;
-      border-bottom: 0.15rem solid $body-color;
+      border-bottom: 0.15rem solid var(--bs-body-color);
     }
   }
 }
+
+// @include color-mode(dark){
+//   .card-blueberry {
+//     background-color: $body-bg-darker;
+//   }
+// }

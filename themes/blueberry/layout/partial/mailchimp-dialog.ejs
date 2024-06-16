@@ -3,33 +3,28 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title font-size-28" id="subscribeModalLabel">Subscribe to newsletter</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<!-- Begin Mailchimp Signup Form -->
 			<form class="js--init-ajax-submit" data-data-type="json" data-success-event="formSuccessEvent" data-success-notification="" action="<%- config.mailchimp.url %>" method="<%- config.mailchimp.method %>">
 				<div class="modal-body">
 					<div id="mc_embed_signup">
-						<div class="form-group">
-							<label class="label-blueberry" for="mce-EMAIL">Email address</label>
-							<input type="email" name="<%- config.mailchimp.email_name %>" class="form-control" id="mce-EMAIL" required placeholder="Enter email" />
-							<small class="form-text text-muted">We'll never share your email with anyone else.</small>
-						</div>
-						<div class="form-group">
-							<label class="label-blueberry" for="mce-FNAME">First name</label>
-							<input type="text" name="<%- config.mailchimp.firstname_name %>" class="form-control" id="mce-FNAME" placeholder="Optional" />
-						</div>
-						<div class="form-group">
-							<label class="label-blueberry" for="mce-LNAME">Last name</label>
-							<input type="text" name="<%- config.mailchimp.lastname_name %>" class="form-control" id="mce-LNAME" placeholder="Optional" />
-						</div>
+						<label class="label-blueberry" for="mce-EMAIL">Email address</label>
+						<input type="email" name="<%- config.mailchimp.email_name %>" class="form-control" id="mce-EMAIL" required placeholder="Enter email" />
+						<small class="form-text text-body-secondary">We'll never share your email with anyone else.</small>
+
+						<label class="label-blueberry" for="mce-FNAME">First name</label>
+						<input type="text" name="<%- config.mailchimp.firstname_name %>" class="form-control" id="mce-FNAME" placeholder="Optional" />
+
+						<label class="label-blueberry" for="mce-LNAME">Last name</label>
+						<input type="text" name="<%- config.mailchimp.lastname_name %>" class="form-control" id="mce-LNAME" placeholder="Optional" />
+
 						<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 						<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="<%- config.mailchimp.secret_name %>" tabindex="-1" value=""></div>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-blueberry btn-outline-primary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-blueberry btn-outline-primary" data-bs-dismiss="modal">Close</button>
 					<button type="submit" class="btn btn-blueberry btn-primary">Subscribe now</button>
 				</div>
 			</form>

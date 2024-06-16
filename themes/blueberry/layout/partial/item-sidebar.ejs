@@ -11,7 +11,8 @@
                     images: (product.image_link + "," + product.additional_image_link).split(","),
                     alt: product.description,
                     width: 320,
-                    height: 320
+                    height: 320,
+                    className: 'js--component-color-carousel-select'
               }; %>
               <%- carousel(data); %>
             <% } else { %>
@@ -20,30 +21,30 @@
             <% } %>
           </div>
           <h1 class="mb-3 mt-lg-4 font-size-28 line-height-1"><%- post.title %></h1>
-          <form autocomplete="off" class="js--init-snipcart-form" id="cart-form">
+          <form autocomplete="off" class="js--component-snipcart-form" id="cart-form">
             <% if (has_variations(product)){ %>
               <% var variations = get_variations(product); %>
               <% var firstFlag = true; %>
               <% for (const [key, values] of Object.entries(variations)) { %>
-                <div class="form-group">
                   <label class="label-blueberry" for="<%- key %>"><%- capitalize(key) %></label>
-                  <select class="select-blueberry form-control <%- key==='color'?'js--init-select-color':'' %>" id="<%- key %>">
+                  <select class="select-blueberry form-control <%- key==='color'?'component-select-color js--component-select-color':'' %>" id="<%- key %>">
                     <% values.forEach(value => { %>
                       <% var val = parse_variation_value(value); %>
                       <option value="<%- val.value %>" data-extra-text="<%- val.extra_text %>" data-extra="<%- val.extra %>" <%- firstFlag===true?'selected':'' %>><%- val.text %></option>
                       <% firstFlag = false; %>
                     <% });%>
                   </select>
-                </div>
               <% }; %>
             <% } %>
             <% if (is_custom(product)){ %>
               <% var customFields = get_custom_fields(product); %>
               <% for (obj of customFields) { %>
-                <div class="form-group">
                   <label class="label-blueberry" for="<%- obj['name'].toLowerCase() %>"><%- obj['name'] %></label>
-                  <input id="<%- obj['name'].toLowerCase() %>" class="form-control" required placeholder="<%- obj['placeholder'] %>" />
-                </div>
+                  <% if (obj['name'].toLowerCase() === 'color'){ %>
+                    <input id="<%- obj['name'].toLowerCase() %>" type="color" class="form-control component-select-color js--component-input-color" value="#ff0000" required />
+                  <% } else { %>
+                    <input id="<%- obj['name'].toLowerCase() %>" type="text"  class="form-control" required placeholder="<%- obj['placeholder'] %>" />
+                  <% } %>
               <% } %>
             <% } %>
             <div class="mt-3 js--init-content-buy-button">
@@ -70,10 +71,12 @@
             <% } %>
           </dl>
           <% if (theme.email){ %>
-            <button type="button" class="btn btn-link px-0 text-left" href="#" data-toggle="modal" data-target="#customizeModal">
-              <span class="icon-xs"><%- partial('ionicons/mail.svg') %></span>
-              Contact us for custom colors and sizes
-            </button>
+            <p>
+              <a href="#" data-bs-toggle="modal" data-bs-target="#customizeModal">
+                <span class="icon-xs"><%- partial('ionicons/mail.svg') %></span>
+                Need custom colors or sizes?
+              </a>
+            </p>
           <% } %>
           <% if (theme.googlereview_url){ %>
             <br/>
@@ -85,7 +88,7 @@
         </section>
       </div>
     </div>
-    <img width="960" height="63" class="w-100 h-auto mt-2 d-lg-none" alt="aside section shape" src="<%- partial('data-uri/wave-aside') %>" />
+    <div class="component-wave-sidebar d-lg-none"><%- partial('svg/wave-sidebar.svg') %></div>
     <% // Write schema.org product metedata %>
     <%- partial('schema/products-parser', {products: [product]}) %>
   </div>

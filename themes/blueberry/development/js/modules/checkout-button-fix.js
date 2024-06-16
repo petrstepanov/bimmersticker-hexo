@@ -21,6 +21,9 @@ var CheckoutButtonFix = function(){
             DOM.$buttonPay.find('.snipcart-payment-methods-list-item__label').remove();
             DOM.$buttonPay.prepend(DOM.$newLabel);
         }
+
+        // Tweak: disable Snipcart autocomplete
+        $('.snipcart input[name="address1"]').attr('autocomplete','nope');
     }
 
     function _bindEvents(){

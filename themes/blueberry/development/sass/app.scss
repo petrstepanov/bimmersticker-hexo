@@ -2,70 +2,46 @@
  * Main SCSS file that imports everything
  */
 
-@import "bootstrap/variables-default";
-@import "bootstrap/bootstrap";
+ @import "bootstrap/variables-default";
+ @import "bootstrap/bootstrap";
 
-@import "typography";
+ @import "typography";
 
-@import "extends";
-@import "mixins";
+ @import "extends";
+ @import "mixins";
 
-@import "bootstrap/overrides/navbar-blueberry";
-@import "bootstrap/overrides/jumbotron-blueberry";
-@import "bootstrap/overrides/jumbotron-blueberry-page";
-@import "bootstrap/overrides/card-blueberry";
-@import "bootstrap/overrides/btn-blueberry";
-@import "bootstrap/overrides/forms-blueberry";
-@import "bootstrap/overrides/modals-blueberry";
+ @import "bootstrap/overrides/navbar-blueberry";
+ @import "bootstrap/overrides/card-blueberry";
+ @import "bootstrap/overrides/btn-blueberry";
+ @import "bootstrap/overrides/forms-blueberry";
+ @import "bootstrap/overrides/modals-blueberry";
 
-// @import "./../../node_modules/noty/lib/noty";
-@import "./../../node_modules/animate.css/animate";
+ // @import "./../../node_modules/noty/lib/noty";
+ @import "./../../node_modules/animate.css/animate";
 
-@import "./../../node_modules/toastify-js/src/toastify";
-@import "toastify-overrides";
+ @import "./../../node_modules/toastify-js/src/toastify";
+ @import "toastify-overrides";
 
-@import "layout/frontpage";
-@import "layout/post";
-@import "layout/footer";
-@import "layout/youtube";
+ @import "footer";
 
-@import "banner-form";
+ @import "icons";
+ @import "utilities";
+ @import "loading";
+ @import "scrollspy";
 
-@import "icons";
-@import "utilities";
-@import "loading";
-@import "scrollspy";
+ // Top Menu styling for cart button
+ @import "snipcart/snipcart";
 
-// @import "widgets/navbar-post";
-@import "widgets/container-horizontal";
-@import "widgets/form-email";
-@import "widgets/swatches";
-@import "widgets/jumbotron-truck-van";
-@import "widgets/preview-truck-van";
-@import "widgets/select-reflect";
-@import "widgets/select-color";
-@import "widgets/select-with-image";
-@import "widgets/related-posts";
-// @import "widgets/related-posts";
+ /*! Snipcart variables. Starting Snipcart 3.2.X you can define colors in variables */
+ @import "snipcart/snipcart-variables";
 
-@import "disqus/disqus-overrides";
+ // Host snipcart CSS locally - saves time (https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.css)
+ @import "snipcart/snipcart-local-3.6.1";
 
-// Top Menu styling for cart button
-@import "snipcart/snipcart";
+ /*! PETR STEPANOV: Overrides for Snipcart start here */
+ /*  read more about SASS comments here https://sass-lang.com/documentation/syntax/comments */
+ @import "snipcart/overrides/global";
+ @import "snipcart/overrides/view-cart";
+ @import "snipcart/overrides/view-complete";
 
-/*! Snipcart variables. Starting Snipcart 3.2.X you can define colors in variables */
-@import "snipcart/snipcart-variables";
-
-// Host snipcart CSS locally - saves time (https://cdn.snipcart.com/themes/v3.6.1/default/snipcart.css)
-@import "snipcart/snipcart-local-3.6.1";
-
-/*! PETR STEPANOV: Overrides for Snipcart start here */
-/*  read more about SASS comments here https://sass-lang.com/documentation/syntax/comments */
-@import "snipcart/overrides/global";
-@import "snipcart/overrides/view-cart";
-@import "snipcart/overrides/view-complete";
-
-@import "print";
-
-// TODO: implement dark mode
-// @import "dark";
+ @import "print";

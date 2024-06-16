@@ -5,6 +5,7 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass')(require('sass'));
+// var babel = require('gulp-babel');
 var concat = require('gulp-concat');
 var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
@@ -23,10 +24,20 @@ var paths = {
 		srcWatch: './development/sass/**/*.scss',
 		dest: './source/css'
 	},
+	stylesComponents: {
+		src: ['./development/sass-components/*.scss'],
+		srcWatch: './development/sass-components/**/*.scss',
+		dest: './source/css/components'
+	},
 	scripts: {
 		src: ['./development/js/app.js'],  // Only entry point for browserify
 		srcWatch: './development/js/**/*.js',
 		dest: './source/js'
+	},
+	scriptsComponents: {
+		src: ['./development/js-components/*.js'],  // Only entry point for browserify
+		srcWatch: './development/js-components/**/*.js',
+		dest: './source/js/components'
 	},
 	fonts: {
 		src: [''],
@@ -91,10 +102,31 @@ function stylesDev() {
 			// path.dirname += "/ciao";
 			path.basename += "-dev";
 			//path.extname = ".md";
-		  }))
+		}))
 		.pipe(gulp.dest(paths.styles.dest)); //.on('end', function () { beep(); });
 }
 
+function stylesComponents() {
+	return gulp.src(paths.stylesComponents.src)
+		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+		.pipe(autoprefixer())
+		.pipe(gulp.dest(paths.stylesComponents.dest));
+}
+
+function stylesComponentsDev() {
+	return gulp.src(paths.stylesComponents.src)
+		.pipe(sourcemaps.init())
+		.pipe(sass().on('error', sass.logError))
+		.pipe(autoprefixer())
+		.pipe(sourcemaps.write('.'))
+		.pipe(rename(function (path) {
+			// Updates the object in-place
+			// path.dirname += "/ciao";
+			path.basename += "-dev";
+			//path.extname = ".md";
+		}))
+		.pipe(gulp.dest(paths.stylesComponents.dest)); //.on('end', function () { beep(); });
+}
 
 // Scripts Task
 
@@ -123,11 +155,24 @@ function scriptsDev() {
 	return b.bundle()
 		.pipe(source('app-dev.js'))
 		.pipe(buffer())
-		.pipe(sourcemaps.init({loadMaps: true}))
+		.pipe(sourcemaps.init({ loadMaps: true }))
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest(paths.scripts.dest)); //.on('end', function () { beep(); });
 }
 
+function scriptsComponents() {
+	return gulp.src(paths.scriptsComponents.src, { sourcemaps: false })
+		.pipe(uglify())
+		.pipe(gulp.dest(paths.scriptsComponents.dest));
+}
+
+function scriptsComponentsDev(cb) {
+	return gulp.src(paths.scriptsComponents.src, { sourcemaps: true })
+		.pipe(rename(function (path) {
+			path.basename += "-dev";
+		}))
+		.pipe(gulp.dest(paths.scriptsComponents.dest));
+}
 
 // Beep task (with callback)
 function beepTask(cb) {
@@ -137,15 +182,15 @@ function beepTask(cb) {
 
 // BrowserSync Serve (init) and Reload tasks
 // https://coder-coder.com/quick-guide-to-browsersync-gulp-4/
-function browsersyncServe(){
+function browsersyncServe() {
 	browsersync.init({
 		proxy: "localhost:4000",
 		ui: false,
-		notify:false
+		notify: false
 	});
 }
 
-function browsersyncReload(cb){
+function browsersyncReload(cb) {
 	browsersync.reload();
 	cb();
 }
@@ -157,10 +202,10 @@ function browsersyncReload(cb){
 // function watch(cb) {
 
 
-	// Old code - no browsersync
-	// gulp.watch(paths.scripts.srcWatch, gulp.series(scripts, scriptsDev, beepTask));
-	// gulp.watch(paths.styles.srcWatch, gulp.series(styles, stylesDev, beepTask));
-	// cb();
+// Old code - no browsersync
+// gulp.watch(paths.scripts.srcWatch, gulp.series(scripts, scriptsDev, beepTask));
+// gulp.watch(paths.styles.srcWatch, gulp.series(styles, stylesDev, beepTask));
+// cb();
 // };
 
 
@@ -178,13 +223,15 @@ function browsersyncReload(cb){
 
 // BUILD
 
-const build = gulp.series(clean, copyIonicons, cleanupSVG, styles, stylesDev, scripts, scriptsDev);
+const build = gulp.series(clean, copyIonicons, cleanupSVG, styles, stylesDev, stylesComponents, stylesComponentsDev, scripts, scriptsDev, scriptsComponents, scriptsComponentsDev);
 
 // WATCH
 
-const initWatch = function(cb){
+const initWatch = function (cb) {
 	gulp.watch(paths.scripts.srcWatch, gulp.series(scripts, scriptsDev, beepTask));
-	gulp.watch(paths.styles.srcWatch,  gulp.series(styles, stylesDev, beepTask));
+	gulp.watch(paths.scriptsComponents.srcWatch, gulp.series(scriptsComponents, scriptsComponentsDev, beepTask));
+	gulp.watch(paths.styles.srcWatch, gulp.series(styles, stylesDev, beepTask));
+	gulp.watch(paths.stylesComponents.srcWatch, gulp.series(stylesComponents, stylesComponentsDev, beepTask));
 	gulp.watch(paths.svg.srcWatch, gulp.series(cleanupSVG, beepTask));
 	cb();
 }
@@ -193,11 +240,13 @@ const watch = gulp.series(build, initWatch);
 
 // SYNC
 
-const sync = function(){
+const sync = function () {
 	browsersyncServe();
 	gulp.watch(paths.htmls.srcWatch, gulp.series(beepTask, browsersyncReload));
 	gulp.watch(paths.scripts.srcWatch, gulp.series(beepTask, scripts, scriptsDev, beepTask, browsersyncReload));
+	gulp.watch(paths.scriptsComponents.srcWatch, gulp.series(beepTask, scriptsComponents, scriptsComponentsDev, beepTask, browsersyncReload));
 	gulp.watch(paths.styles.srcWatch, gulp.series(beepTask, styles, stylesDev, beepTask, browsersyncReload));
+	gulp.watch(paths.stylesComponents.srcWatch, gulp.series(beepTask, stylesComponents, stylesComponentsDev, beepTask, browsersyncReload));
 }
 
 exports.default = gulp.series(build, beepTask);

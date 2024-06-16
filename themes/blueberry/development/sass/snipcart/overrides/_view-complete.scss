@@ -7,7 +7,7 @@
 .snipcart-cart-summary-expanded-item__custom-fields {
     font-family: monospace;
     font-size: $font-size-14;
-    border-left: 2px solid lightgrey;
+    border-left: 2px solid #d3d3d3;
     margin: 1rem 0.5rem;
     padding: 0 1.25rem;
 }
@@ -22,6 +22,11 @@
     margin-bottom: 0.35rem;
 }
 
+.snipcart-flash-message__content h2 {
+    margin-top: 0 !important;
+
+}
+
 .snipcart-shipping-completed--titled .snipcart-shipping-completed__step-title {
     margin-bottom: 0.35rem;
 }
@@ -32,7 +37,7 @@
     border-radius: 0.3rem;
 }
 
-// Weird margin on the green success badge: Your order has been placed and is currently processing. You will receive a confirmation shortly. 
+// Weird margin on the green success badge: Your order has been placed and is currently processing. You will receive a confirmation shortly.
 .snipcart-flash-message__action-container {
     margin-top: 0;
 }

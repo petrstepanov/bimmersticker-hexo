@@ -1,17 +1,30 @@
-$input-padding-x: 1.1rem;
+// $input-padding-x: 1.1rem;
+
+:root {
+  --ui-shadow: 0 2px 4px 0 rgba(0,0,0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ui-shadow: 0 2px 4px 0 rgba(0,0,0, 0.3);
+  }
+}
 
 .form-control, .custom-select-blueberry {
-  color: $body-color;
-  box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
-  border: 1px solid #dceaf9;
-  padding-left: $input-padding-x;
-  padding-right: $input-padding-x;
+  // color: var(--bs-body-color);
+  box-shadow: var(--ui-shadow);
+  background-color: var(--bs-body-bg);
+  // border: 1px solid #dceaf9;
+  // padding-left: $input-padding-x;
+  // padding-right: $input-padding-x;
   /* Fixing safari zom-in isssue */
   font-size: 16px !important;
 
-  &::placeholder {
-    color: lighten($body-color, 50%);
-  }
+  // &::placeholder {
+  //   // https://getbootstrap.com/docs/5.3/utilities/colors/#how-it-works
+  //   --bs-text-opacity: 0.5;
+  //   color: rgba(var(--bs-body-color), var(--bs-text-opacity)) !important;
+  // }
 
   // Controlled by npm's autovalid
   // https://codepilotsf.medium.com/html5-form-validation-the-easy-way-8e457049bf04
@@ -22,28 +35,29 @@ $input-padding-x: 1.1rem;
   }
 }
 
-.form-control:disabled, .form-control[readonly] {
-  background-color: lighten($primary, 60%);
-  color: lighten($body-color, 30%);
-}
+// .form-control:disabled, .form-control[readonly] {
+//   background-color: lighten($primary, 60%);
+//   --bs-text-opacity: 0.5;
+//   color: rgba(var(--bs-body-color), var(--bs-text-opacity)) !important;
+// }
 
 
 .label-blueberry {
   @extend .my-label;
+  display: block;
 }
 
-.select-blueberry {
-  appearance: none;
-  background: url(/img/md-arrow-dropdown.svg);
-  background-position: right 1em top 50%;
-  background-repeat: no-repeat;
-  background-color: white;
-  background-size: 1.5em;
-}
+// .select-blueberry {
+  // appearance: none;
+  // background: url(/img/md-arrow-dropdown.svg);
+  // background-position: right 1em top 50%;
+  // background-repeat: no-repeat;
+  // background-color: white;
+  // background-size: 1.5em;
+// }
 
 .input-group-button-text {
-  // transform: scale(1.5) translateY(-7%);
-  transform: scale(1.5);
+  transform: scale(1.5) translateY(-1px);
   display: inline-block;
 }
 

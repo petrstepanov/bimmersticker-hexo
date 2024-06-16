@@ -1,0 +1,28 @@
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+.component-jumbotron-frontpage {
+  background-size: cover;
+  background-image: url(/img/new-background-bmw-windshield-banner-sun-strip.jpg);
+  background-position: center center;
+  background-blend-mode: overlay;
+
+  @include media-breakpoint-up(md) {
+    background-position: 137vw center;
+  }
+
+  @include media-breakpoint-up(lg) {
+    background-position: 122vw center;
+  }
+
+  @include media-breakpoint-up(xl) {
+    background-position: 118vw center;
+  }
+
+  h1 {
+    font-family: var(--font-handwritten);
+    @include media-breakpoint-up(xl) {
+    }
+  }
+}

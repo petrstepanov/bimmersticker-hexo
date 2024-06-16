@@ -104,7 +104,19 @@ hexo.extend.helper.register('my_full_url_for', function(url){
   return hexo.config.url + url_for(url);
 });
 
-//
+// Remove domain name
+hexo.extend.helper.register('to_relative', function(url){
+  newUrl = url.replace(hexo.config.url,"");
+  return newUrl;
+});
+
+// First sentence
+hexo.extend.helper.register('first_sentence', function(text){
+  var index = text.indexOf(".");
+  if (index == -1) return text;
+  return text.substring(0, index);
+});
+
 hexo.extend.helper.register('prefix_filename', function(prefix, url){
   var regex = /(.*)\/(.*)/
   var array = url.match(regex);

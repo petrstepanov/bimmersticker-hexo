@@ -1,71 +1,24 @@
-button:focus {
-  outline: none;
-}
-
-// Bootstrap overrides
-// $btn-active-box-shadow: 0 0 0 $primary-dark;
-// $btn-focus-box-shadow: inset 0 0.2rem 0 $primary-light, 0 0 0 $primary-dark;
-
-.btn-link {
-  // box-shadow: none;
-  transition: color 150ms;
+.link-blueberry, .btn-link {
+  // transition: color .15s;
 
   svg {
-    transition: fill 150ms;
-    fill: $link-color;
-  }
-
-  &:hover {
-    svg {
-      fill: $link-hover-color;
-    }
-  }
-}
-
-a {
-  transition: color 150ms;
-
-  &:hover {
-    text-decoration: none;
-  }
-}
-
-a.link-blueberry svg {
- svg {
-   transition: fill 150ms;
-   fill: $link-color;
+   // transition: fill .15s;
+   fill: var(--bs-link-color);
  }
 
  &:hover {
    svg {
-     fill: $link-hover-color;
+     fill: var(--bs-link-hover-color);
    }
  }
 }
 
-
 .btn-blueberry {
-  // font-family: $font-bold;
-  font-weight: bold; // Native font stack
-  border-radius: 50rem;
-  box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
-
-  // font-size: $font-size-12;
-  // text-transform: uppercase;
-  // letter-spacing: 1px;
-
-  // For icons centering
-  // display: inline-flex;
-  // align-items: center;
-
-  // https://codepen.io/myacode/pen/PoqQQNM
-  // transition: 0.3s ease;
-
-  // box-shadow: 0 0.2rem 0 $primary-dark;
-
-  // &.btn-sm {
-  //   padding: 0.25rem 0.7rem;
-  // }
+  font-weight: bold;
+  border-radius: 5rem;
+  box-shadow: var(--ui-shadow);
+  text-transform: capitalize;
+  border-width: 2px;
 
   svg {
     fill: white;
@@ -77,17 +30,12 @@ a.link-blueberry svg {
     }
   }
 
-  &.btn-primary {
-    //                      background-color, border-color, hover-background,   hover-border,       active-background, active-border
-    @include button-variant($blue,            $blue,        lighten($blue, 7%), lighten($blue, 7%), darken($blue, 7%), darken($blue, 7%));
+  &.btn-link {
+    box-shadow: none;
   }
 }
 
 .btn-outline-primary.btn-blueberry {
-  // border: 0px;
-  background-color: white;
-  // box-shadow: 0 2px 4px 0 rgba(0, 158, 230, 0.2), 0 0 0 1px $blue, inset 0 0 0 1px $blue;
-
   svg {
     fill: $blue;
   }
@@ -96,9 +44,5 @@ a.link-blueberry svg {
     svg {
       fill: white;
     }
-  }
-
-  &:hover {
-    background-color: $blue;
   }
 }

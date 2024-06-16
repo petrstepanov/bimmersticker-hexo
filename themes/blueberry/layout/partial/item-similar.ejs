@@ -1,15 +1,17 @@
-<h2>You might also like</h2>
-
-<p>Check out other stickers we offer. All stickers are authentically designed, contour cut from premium adhesive vinyls and hand-made.</p>
-
 <% var relatedPosts = get_related_posts({maxCount: 4}); %>
-<div class="row justify-content-center mt-3">
-    <% for (var item of relatedPosts){ %>
-        <div class="col-6 col-sm-4 col-md-3 text-center">
-            <a href="<%- item.url %>" class="related-post-link">
-                <img width="150" height="150" src="<%- item.image_src %>" alt="<%- item.title %>" class="w-75 h-auto related-post-image" />
-                <p class="mt-2"><%- item.title %></p>
-            </a>
-        </div>
-    <% } %>
-</div>
+<% if (relatedPosts && relatedPosts.length > 0) { %>
+    <h2>You might also like</h2>
+
+    <p>Check out other stickers we offer. All stickers are authentically designed, contour cut from premium adhesive vinyls and hand-made.</p>
+
+    <div class="row justify-content-center mt-3 component-related-posts">
+        <% for (var item of relatedPosts){ %>
+            <div class="col-6 col-sm-4 col-md-3 text-center">
+                <a href="<%- item.url %>" class="related-post-link">
+                    <img width="150" height="150" src="<%- item.image_src %>" alt="<%- item.title %>" class="w-75 h-auto related-post-image" />
+                    <p class="mt-2"><%- item.title %></p>
+                </a>
+            </div>
+        <% } %>
+    </div>
+<% } %>

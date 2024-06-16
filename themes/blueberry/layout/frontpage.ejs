@@ -3,50 +3,40 @@
   page.photos = [config.url + '/img/sticker-store-llc-bimmer-sticker-store.jpg'];
 %>
 
-<section class="section-intro">
-	<div class="section-intro-mobile-bg">
-		<%- // partial('partial/navbar', {className: 'transparent'}) %>
-		<%- partial('partial/navbar') %>
-		<div class="jumbotron jumbotron-fluid jumbotron-blueberry">
-			<div class="container">
-				<div class="row fix-link-underline">
-					<div class="col-11 col-sm-8 col-md-12 col-lg-5">
-						<h1 class="display-4 mt-lg-3"><%- theme.slogan ? theme.slogan : "" %></h1>
-					</div>
+<section class="mb-3">
+	<%- partial('partial/navbar') %>
+	<div class="component-jumbotron-frontpage bg-dark-subtle">
+		<div class="container">
+			<div class="row">
+				<h1 class="col-11 col-md-12 col-lg-9 col-xl-8 display-4 mt-4 mt-lg-5 mb-5 mb-md-0"><%- theme.slogan ? theme.slogan : "" %></h1>
+			</div>
+			<div class="row">
+				<div class="col-12 col-md-7 col-xl-5 mb-3   mt-5 mt-md-2">
+					<p class="fs-4 my-3"><%- theme.lead1 ? theme.lead1 : "" %></p>
+					<p class="fs-6"><%- theme.lead2 ? theme.lead2 : "" %></p>
 				</div>
-				<div class="row fix-link-underline">
-					<div class="col col-md-8 col-lg-6 col-xl-5 mb-3">
-						<p class="front-paragraph mt-5"><%- theme.lead1 ? theme.lead1 : "" %></p>
-						<p class="front-paragraph"><%- theme.lead2 ? theme.lead2 : "" %></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col mb-4 mb-md-5">
-						<div class="d-flex align-items-center">
-							<!-- <button type="button" class="btn btn-lg btn-primary rounded-pill mr-2" data-toggle="modal" data-target="#subscribeModal">
-								Subscribe to newsletter
-							</button>
-							<span class="d-none d-sm-inline front-paragraph">and get new sticker alerts.</span> -->
-							<a href="mailto:info@stickerstore.llc" class="btn btn-lg btn-primary btn-blueberry mr-2">
-								Send us an Email
-							</a>
-							<span class="d-none d-sm-inline front-paragraph">for custom orders.</span>
-						</div>
+			</div>
+			<div class="row">
+				<div class="col mb-4 mb-lg-5">
+					<div class="d-flex align-items-center">
+						<a href="#" class="btn btn-lg btn-primary btn-blueberry me-2" data-name="info" data-domain="stickerstore" data-com="llc" onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.com; return false;">
+							Send us an Email
+						</a>
+						<span class="d-none d-sm-inline">for custom orders.</span>
 					</div>
 				</div>
 			</div>
-			<!-- <img class="w-100 h-auto d-lg-none" alt="jumbotron section shape" width="960" height="78" src="<%- partial('data-uri/wave-header') %>" /> -->
-			<div class="d-lg-none"><%- partial('images/wave-header.svg') %></div>
 		</div>
+		<div class="component-wave-header"><%- partial('svg/wave-header.svg') %></div>
 	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col-12 col-sm-6 col-xl-5 col-xl-5">
-				<div class="icon-xxl mt-sm-1 mb-2 mb-lg-3"><%- partial('svg/icon-roll.svg') %></div>
+			<div class="col-12 col-sm-6 col-xxl-5 ms-xxl-auto me-xxl-auto">
+				<div class="icon-xxl icon-padded blue mt-sm-1 mb-3 mb-lg-3"><%- partial('svg/icon-roll.svg') %></div>
 				<p class="mb-4">We make stickers from the award-winning ORACAL® 651 and Cricut® adhesive outdoor vinyls. Contour cut vinyl stickers never fade out. <strong>Durability period is more than five years</strong>.</p>
 			</div>
-			<div class="col-12 col-sm-6 col-xl-5 offset-xl-1">
-				<div class="icon-xxl mt-sm-1 mb-2 mb-lg-3"><%- partial('svg/icon-ship.svg') %></div>
+			<div class="col-12 col-sm-6 col-xxl-5 ms-xxl-auto me-xxl-auto">
+				<div class="icon-xxl icon-padded blue mt-sm-1 mb-3 mb-lg-3"><%- partial('svg/icon-ship.svg') %></div>
 				<p class="mb-4">
 					<strong>Affordable shipping options via USPS</strong>. One day handling time. Guaranteed three to five days delivery time for US orders. We ship worldwide and offer flexible international shipping rates.
 				</p>
@@ -62,30 +52,34 @@
 		<div class="row mb-4">
 			<div class="col-12">
 				<figure class="card card-blueberry">
+					<% { %>
 					<% carouselId = "carousel_windshield_banner"; %>
 					<% var href = "/custom-windshield-banner-sun-strip/"; %>
-					<div id="<%- carouselId %>" class="carousel slide" data-ride="carousel">
+					<div id="<%- carouselId %>" class="carousel slide" data-bs-ride="carousel">
 						<div class="carousel-inner">
 							<div class="carousel-item active">
-								<a class="img-wrapper release-height-md" href="<%- href %>">
-									<%- resp100('/custom-windshield-banner-sun-strip/','custom-text-windshield-banners-order-online', 3905, 1274, "Personalized windshield sun strips with custom text") %>
+								<a class="img-wrapper" href="<%- href %>">
+									<img class="d-block w-100 h-auto" src="/custom-windshield-banner-sun-strip/large_custom-text-windshield-banners-order-online.jpg" width="3905" height="1274" alt="Personalized windshield sun strips with custom text"/>
+									<%- // resp100('/custom-windshield-banner-sun-strip/','custom-text-windshield-banners-order-online', 3905, 1274, "Personalized windshield sun strips with custom text") %>
 								</a>
 							</div>
 							<div class="carousel-item">
-								<a class="img-wrapper release-height-md" href="<%- href %>">
-									<%- resp100('/custom-windshield-banner-sun-strip/','any-wording-on-your-car-truck-windshield', 3905, 1274, "Custom windshield banners for your car or truck") %>
+								<a class="img-wrapper" href="<%- href %>">
+									<img class="d-block w-100 h-auto" src="/custom-windshield-banner-sun-strip/large_any-wording-on-your-car-truck-windshield.jpg" width="3905" height="1274" alt="Custom windshield banners for your car or truck"/>
+									<%- // resp100('/custom-windshield-banner-sun-strip/','any-wording-on-your-car-truck-windshield', 3905, 1274, "Custom windshield banners for your car or truck") %>
 								</a>
 							</div>
 						</div>
-						<a class="carousel-control-prev" href="#<%- carouselId %>" role="button" data-slide="prev">
-						  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						  <span class="sr-only">Previous</span>
-						</a>
-						<a class="carousel-control-next" href="#<%- carouselId %>" role="button" data-slide="next">
-						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-						  <span class="sr-only">Next</span>
-						</a>
+						<button class="carousel-control-prev" type="button" data-bs-target="#<%- carouselId %>" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#<%- carouselId %>" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
 					</div>
+					<% } %>
 					<!-- Card body -->
 					<div class="card-body text-center">
 						<div class="row justify-content-md-center">
@@ -110,10 +104,10 @@
 		<div class="row">
 			<div class="col-12">
 				<figure class="card card-blueberry">
-					<div class="row no-gutters align-items-center">
+					<div class="row g-0 align-items-center">
 						<div class="col-md-6">
-							<a class="img-wrapper release-height-md" href="/buy-keyring-keychain-with-your-car-vin-number/">
-								<img width="1680" height="1260" loading="lazy" class="w-100 h-auto" src="/buy-keyring-keychain-with-your-car-vin-number/large_keyring-with-vin-number-for-car-motorcycle-truck.jpg" title="Personalized car key ring (key chain) with vehicle year, make, model and VIN number">
+							<a class="img-wrapper" href="/buy-keyring-keychain-with-your-car-vin-number/">
+								<img width="1680" height="1260" loading="lazy" class="w-100 h-auto" src="/buy-keyring-keychain-with-your-car-vin-number/medium_buy-keychain-keyring-match-vehicle-color-with-vin.jpg" alt="Personalized car key ring (key chain) with vehicle year, make, model and VIN number">
 							</a>
 						</div>
 						<div class="col-md-6">
@@ -141,10 +135,10 @@
 		<div class="row">
 			<div class="col-12">
 				<figure class="card card-blueberry">
-					<div class="row no-gutters align-items-center">
+					<div class="row g-0 align-items-center">
 						<div class="col-md-6">
-							<a class="img-wrapper release-height-md" href="/custom-social-media-stickers/">
-								<img width="1364" height="810" loading="lazy" class="w-100 h-auto" src="/custom-social-media-stickers/custom-social-media-stickers-on-car-window.jpg" title="Personalized social media stickers with your account name" alt="Custom social media stickers with your account name: Instagram, Facebook, Youtube, Snapchat, TikTok, SoundCloud">
+							<a class="img-wrapper" href="/custom-social-media-stickers/">
+								<img width="1364" height="810" loading="lazy" class="w-100 h-auto" src="/custom-social-media-stickers/medium_custom-social-media-stickers-on-car-window.jpg" title="Personalized social media stickers with your account name" alt="Custom social media stickers with your account name: Instagram, Facebook, Youtube, Snapchat, TikTok, SoundCloud">
 							</a>
 						</div>
 						<div class="col-md-6">
@@ -161,7 +155,7 @@
 </section>
 <section class="pb-4">
 	<!-- Bimmers only -->
-	<%- partial('partial/heading', {title: 'For Bimmers Only', subtitle: 'Stickers designed exclusively for BMW cars. Have a cool idea for a custom sticker? <a href="#contact">Contact us</a> and we will get back to you the same day.', name: 'bmw-special'}) %>
+	<%- partial('partial/heading', {title: 'For Bimmers', subtitle: 'Stickers below are designed exclusively for BMW cars. Have a cool idea for a custom sticker? <a href="#contact">Contact us</a> and we will get back to you the same day.', name: 'bmw-special'}) %>
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-12 col-md-8">
@@ -185,7 +179,7 @@
 		<div class="row mb-4">
 			<div class="col-12">
 				<figure class="card card-blueberry">
-					<a class="img-wrapper release-height-md" href="/stickers-for-bmw-generations/">
+					<a class="img-wrapper" href="/stickers-for-bmw-generations/">
 						<img width="1106" height="395" loading="lazy" class="w-100 h-auto" src="/stickers-for-bmw-generations/large_generations-banner.jpg" title="Vinyl stickers for BMW generations" alt="Vinyl stickers for BMW generations">
 					</a>
 
@@ -212,51 +206,26 @@
 </section>
 -->
 
-<section class="pt-4 section-whitesmoke spacer-footer">
+<section class="pt-3 bg-dark-subtle spacer-footer">
 	<%- partial('partial/heading', {title: 'Contact us', subtitle: 'Got sticker ideas or any questions? Use form below to contact us. We will get back to you as soon as possible!', name: 'contact'}) %>
 
-	<div class="container mb-4">
+	<div class="container-md justify-content-center mb-4">
 		<div class="row justify-content-center">
-			<div class="col-12 col-md-8">
-				<!-- FormCarry -->
-				<!-- <form class="widget-contact-form js--init-ajax-submit" action="<%- theme.formcarry_url %>" method="POST" accept-charset="UTF-8" data-success-notification="Thanks for reaching out! We will get back to you soon.">
-					<div class="form-group">
-						<label class="label-blueberry" for="input-email">Your email</label>
-						<input type="email" required name="email" class="form-control" id="input-email">
-						<small class="form-text text-muted">We'll never share your email with anyone else.</small>
-					</div>
-					<div class="form-group">
-						<label class="label-blueberry" for="input-message">Your message</label>
-						<textarea name="message" required class="form-control js--init-autosize" rows="4" id="input-message"></textarea>
-					</div>
-					<div class="text-right">
-						<button type="button" class="btn btn-blueberry btn-outline-primary mt-2" data-toggle="modal" data-target="#contactModal">
-							Contact info
-						</button>
-						<button type="submit" class="btn btn-blueberry btn-primary mt-2 ml-2">Send message</button>
-					</div>
-				</form> -->
-
+			<div class="col-12 col-sm-10 col-md-8">
 				<!-- Netlify Forms -->
-				<form name="contact" data-netlify="true" class="widget-contact-form js--init-ajax-submit" method="POST" data-success-notification="Thanks for reaching out! We received your message and will email you back soon.">
-					<div class="form-group">
+				<form name="contact" data-netlify="true" class="card card-blueberry bg-body js--init-ajax-submit" method="POST" data-success-notification="Thanks for reaching out! We received your message and will email you back soon.">
+					<div class="card-body">
 						<label class="label-blueberry" for="input-email">Your email</label>
-						<input type="email" required name="email" class="form-control" id="input-email">
-						<small class="form-text text-muted">We'll never share your email with anyone else.</small>
-					</div>
-					<div class="form-group">
-						<label class="label-blueberry" for="input-message">Your message</label>
+						<input type="email" required autocomplete="on" name="email" class="form-control" id="input-email">
+						<small class="form-text text-body-secondary">We'll never share your email with anyone else.</small>
+						<label class="label-blueberry mt-3" for="input-message">Your message</label>
 						<textarea name="message" required class="form-control js--init-autosize" rows="4" id="input-message"></textarea>
-					</div>
-					<!-- <div class="form-group">
-						<label class="label-blueberry" for="input-message">Upload image</label>
+						<label class="label-blueberry mt-3" for="input-message">Attach image</label>
 						<input name="attachment" class="form-control-file" type="file" />
-					</div> -->
-					<div class="text-right">
-						<button type="button" class="btn btn-blueberry btn-outline-primary mt-2" data-toggle="modal" data-target="#contactModal">
-							Contact info
-						</button>
-						<button type="submit" class="btn btn-blueberry btn-primary mt-2 ml-2">Send message</button>
+					</div>
+					<div class="card-body text-end pt-0">
+						<button type="button" class="btn btn-blueberry btn-outline-primary" data-bs-toggle="modal" data-bs-target="#contactModal">Contact info</button>
+						<button type="submit" class="btn btn-blueberry btn-primary ms-2">Send message</button>
 					</div>
 				</form>
 			</div>
@@ -276,5 +245,5 @@
 	<% } %>
 </section>
 
-<%- partial('partial/mailchimp-dialog') %>
+<%- // partial('partial/mailchimp-dialog') %>
 <%- partial('partial/contact-dialog') %>

@@ -93,7 +93,7 @@
 }
 
 .snipcart__font--subtitle {
-    font-family: $font-display;
+    @include font-display;
     font-size: $font-size-21;
 }
 
@@ -112,31 +112,13 @@
     .snipcart-base-button__icon .snipcart__icon {
         width: 1.75rem;
         height: 1.75rem;
-    } 
+    }
 }
 
 // Apply mixin
 .snipcart-base-button {
     @extend %snipcart-button;
 }
-
-
-// MODAL DIALOG
-/* This only used for Faceebook Chat plugin. Screw it it added a lot of load time and gave hard time to install...
-.snipcart-modal__container {
-    z-index: 2147483650;   // Show over facebook dialog
-    // iPhone scroll - have white top and blue bottom background
-
-    // Contentful issue??
-    // background-image: linear-gradient(white 50%, $indigo 50%);
-    background-color: white;
-}
-*/
-.snipcart-modal {
-    // Make modal background indigo
-    background-color: $indigo;
-}
-
 
 // ICONS
 // Affects navbar icon sizes and +/- up/down icons in the input and dropdown fields
@@ -158,11 +140,15 @@
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
-    // Make header white color with shadow
-    background-color: white;
-    box-shadow: var(--shadow-default);
-    // Make header items centered and fit horizontally
+    box-shadow: var(--box-shadow-blueberry);
     justify-content: space-between;
+    height: var(--nb-height);
+    background-color: var(--bs-body-bg);
+
+    svg {
+        stroke-width: 2px;
+        stroke: var(--bs-link-color);
+    }
 
     @include media-breakpoint-up(md) {
         width: 100%;
@@ -170,21 +156,13 @@
 
     // Copy styling from .navbar-blueberry to match its height
     button {
-        margin: 0.825rem 0;
+        // margin: 0.825rem 0;
 
-        @include media-breakpoint-up(md) {
-            margin: 1rem 0;
-        }
+        // @include media-breakpoint-up(md) {
+        //     margin: 1rem 0;
+        // }
 
-        height: $nb-logo-size;
-
-        @include media-breakpoint-up(sm) {
-            height: $nb-logo-size-bigger;
-        }
-
-        @include media-breakpoint-up(md) {
-            height: $nb-logo-size-biggest;
-        }
+        height: var(--nb-logo-height);
     }
 
     .snipcart-cart-header__title {
@@ -198,9 +176,20 @@
         height: auto; // why Snipcart defines height for inline element??
     }
 
+    // Shadow for bottom line
+    .snipcart-cart__featured-payment-methods-container {
+        border-top-color: var(--bs-border-color);
+        border-bottom-color: var(--bs-border-color);
+    }
+
     // Make "Continue Shopping" blue
-    .snipcart-cart-header__close-button * {
-        color: $link-color;
+    .snipcart-cart-header__close-button {
+        color: var(--bs-link-color);
+
+        .snipcart__font--std {
+            font-size: $font-size-14;
+            font-weight: bold;
+        }
     }
 
     // Right most item in the Snipcart navbar
@@ -239,12 +228,6 @@
     height: auto;
 }
 
-// Background colors
-.snipcart-cart__content {
-    background-color: $indigo;
-}
-
-
 // FORM FIELDS
 .snipcart {
     // Input wrapper with border. Do not remove weird Snipcart input parent container styling.
@@ -255,13 +238,9 @@
 
     // Actual input inside - mixin
     %input-field {
-        // box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
-        // border-width: 1px;
-        // border-style: solid;
         border-radius: 0.5rem;
-        // @include form-control-focus($ignore-warning: true);
         padding: 0.5rem 0.75rem;
-        box-shadow: 0 2px 4px 0 rgba($blue, 0.2);
+        box-shadow: var(--ui-shadow);
     }
 
     // Apply mixin
@@ -288,12 +267,44 @@
     }
 
     // Styling labels
+    .snipcart-item-quantity__label,
+    .snipcart-form__label.snipcart-custom-field-wrapper__label,
     .snipcart-form__label:not(.snipcart-form__label--checkbox):not(.snipcart-form-radio__label) {
         @extend .my-label;
         margin-top: 0.75rem;
-        
+
         text-overflow: ellipsis;
         overflow: hidden;
         display: block;
+    }
+
+    // Product Image
+    .snipcart-item-line__image {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important;
+    }
+
+    @media(min-width:1024px) {
+        .snipcart-item-line__image {
+            width: 100%;
+        }
+    }
+
+    // Product image container
+    .snipcart-item-line__media {
+        width: 10.2rem;
+        margin-right: 2rem;
+        overflow: hidden;
+        border-radius: var(--bs-border-radius);
+        min-width: auto;
+        flex-shrink: 0;
+    }
+
+    .snipcart-item-line__media--small {
+        width: 3rem;
+        height: auto;
+        margin: 0;
+        margin-right: 1rem;
     }
 }

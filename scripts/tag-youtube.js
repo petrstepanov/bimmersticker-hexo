@@ -4,7 +4,7 @@
 
 const youtubeFn = function(args, content) {
   var url = args[0];
-  content =  '<div class="videoWrapper">';
+  content =  '<div class="component-youtube">';
   content += '<iframe width="320" height="180" src="https://www.youtube.com/embed/' + url + '" frameborder="0" allowfullscreen></iframe>';
   content += '</div>'
   return content;
