@@ -16,10 +16,9 @@ var InputColor = function($, getColorFriendlyName){
     DOM.$pillTextExtra = DOM.$inputColor.find('.select-color-pill-extra');
 
     // Hide original select
-    // $invisible = $("<div>", {"class": "zero-size-invisible"});
-    // $invisible.insertBefore(DOM.$input);
-    // $invisible.append(DOM.$input);
-    DOM.$input.hide();
+    $invisible = $("<div>", {"class": "zero-size-invisible"});
+    $invisible.insertAfter(DOM.$input);
+    $invisible.append(DOM.$input);
   }
 
   function _createColorPillElement(colorValue){
