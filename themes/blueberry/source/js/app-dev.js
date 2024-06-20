@@ -466,8 +466,9 @@ function parseFirstLastName(string){
   return obj;
 }
 
-function animateCSS(node, animationName, callback) {
-  node.classList.add('animate__faster');
+function animateCSS(node, animationName, callback, speed) {
+  var animationSpeed = typeof speed !== 'undefined' ? speed : '500ms';
+  node.style.setProperty('--animate-duration', animationSpeed);
   var prefix = 'animate__';
   node.classList.add(prefix+'animated', prefix+animationName);
 

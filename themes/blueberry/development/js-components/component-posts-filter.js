@@ -27,7 +27,7 @@ var PostsFilter = function ($, helpers) {
     var query = $(this).data().query;
     helpers.animateCSS(DOM.$grid[0], "fadeOut", function(){
       _filterPosts(query);
-    });
+    }, '150ms');
   }
 
   function _filterPosts(query) {
@@ -39,7 +39,7 @@ var PostsFilter = function ($, helpers) {
         $(this).hide();
       }
     });
-    helpers.animateCSS(DOM.$grid[0], "fadeIn");
+    helpers.animateCSS(DOM.$grid[0], "fadeIn", null, '150ms');
   }
 
   function init(element) {
