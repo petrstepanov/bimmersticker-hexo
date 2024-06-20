@@ -5,20 +5,7 @@
       <div class="row">
         <section class="col">
           <div class="sidebar-featured-container">
-            <!-- Featured gallery -->
-            <% if (product.additional_image_link) { %>
-              <% var data = {
-                    images: (product.image_link + "," + product.additional_image_link).split(","),
-                    alt: product.description,
-                    width: 320,
-                    height: 320,
-                    className: 'js--component-color-carousel-select'
-              }; %>
-              <%- carousel(data); %>
-            <% } else { %>
-              <!-- Featured image -->
-              <img width="320" height="320" class="w-100" src="<%- get_pathname(product.image_link) %>" title="<%- product.title %>" alt="<%- product.description %>" />
-            <% } %>
+            <%- partial("partial/item-image", {product: product}); %>
           </div>
           <h1 class="mb-3 mt-lg-4 font-size-28 line-height-1"><%- post.title %></h1>
           <form autocomplete="off" class="js--component-snipcart-form" id="cart-form">

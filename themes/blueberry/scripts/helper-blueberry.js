@@ -71,7 +71,7 @@ hexo.extend.helper.register('get_variations', function(product){
 // Strips https://bimmersticker.store/ from absolute path
 hexo.extend.helper.register('get_pathname', function(url){
   var urlParsed = parsePath(url);
-  // console.log (urlParsed);
+  console.log (urlParsed);
   return urlParsed.pathname;
 });
 
@@ -106,8 +106,8 @@ hexo.extend.helper.register('my_full_url_for', function(url){
 
 // Remove domain name
 hexo.extend.helper.register('to_relative', function(url){
-  newUrl = url.replace(hexo.config.url,"");
-  return newUrl;
+  const get_pathname = hexo.extend.helper.get('get_pathname').bind(this);
+  return get_pathname(url);
 });
 
 // First sentence

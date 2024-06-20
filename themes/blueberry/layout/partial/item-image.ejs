@@ -1,0 +1,20 @@
+<% if (product.additional_image_link) { %>
+    <!-- Featured gallery -->
+    <% var carouselImages = (product.image_link + "," + product.additional_image_link).split(","); %>
+    <% var carouselImagesPrefixed = []; %>
+    <% for (i of carouselImages){ %>
+        <% carouselImagesPrefixed.push(prefix_filename('large_', i)); %>
+    <% } %>
+    <% var data = {
+        images: carouselImagesPrefixed,
+        alt: product.description,
+        width: 400,
+        height: 400,
+        className: 'js--component-color-carousel-select'
+    }; %>
+    <%- carousel(data); %>
+<% } else { %>
+    <!-- Featured image -->
+    <% var src = image_version(to_relative(product.image_link), {prefix: 'large'}); %>
+    <img class="w-100 h-auto" width="400" height="400" src="<%- src %>" title="<%- product.title %>" alt="<%- product.description %>" />
+<% } %>

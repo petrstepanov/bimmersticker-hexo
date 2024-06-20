@@ -81,6 +81,7 @@
   vertical-align: middle;
   margin-top: 0.51rem;
   margin-bottom: 0.51rem;
+  box-shadow: inset 0 0 0 1px rgba(var(--bs-body-color-rgb), 15%);
 }
 .component-select-color .select-color-pill .select-color-pill-color:first-child {
   margin-left: 0.75rem;
@@ -90,7 +91,6 @@
 }
 .component-select-color .select-color-pill .select-color-pill-color.white {
   background-color: whitesmoke;
-  box-shadow: inset 0 0 0 2px lightgray;
 }
 .component-select-color .select-color-pill .select-color-pill-color.matte-black {
   background-color: rgb(34, 34, 34);
