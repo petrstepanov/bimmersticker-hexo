@@ -40,9 +40,9 @@ var ColorCarouselSelect = function($, events, bootstrap){
     };
 }
 
-$(function() {
+$(document).ready(function() {
     $('.js--component-color-carousel-select').each(function(){
-        var colorCarouselSelect = new ColorCarouselSelect(window.$, window.events, window.bootstrap);
+        var colorCarouselSelect = new ColorCarouselSelect($, window.events, window.bootstrap);
         colorCarouselSelect.init(this);
     });
 });

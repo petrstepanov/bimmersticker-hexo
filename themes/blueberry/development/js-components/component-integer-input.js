@@ -43,10 +43,10 @@ var IntegerInput = function($){
     };
 };
 
-$(function() {
+$(document).ready(function() {
     $('.js--component-integer-input').each(function(){
         // 'new' operator creates object from function: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
-        var integerInput = new IntegerInput(window.$);
+        var integerInput = new IntegerInput($);
         integerInput.init(this);
       });
 });

@@ -57,7 +57,7 @@ var PostsFilter = function ($, helpers) {
 }
 
 
-$(function() {
-  var postsFilter = new PostsFilter(window.$, window.helpers);
+$(document).ready(function() {
+  var postsFilter = new PostsFilter($, window.helpers);
   postsFilter.init(document.querySelector('.js--component-posts-filter'));
 });

@@ -1,6 +1,6 @@
 // Show or hide 'Buy' button on navbar product page
 
-var $ = require('jquery/dist/jquery.slim');
+var $ = require('cash-dom');
 var events = require('./events');
 
 var DOM = {};

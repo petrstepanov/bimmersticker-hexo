@@ -1,4 +1,3 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var ComponentTruckVanForm = function ($, helpers, events) {
     var DOM = {};
     // var options = {};
@@ -53,7 +52,8 @@ var ComponentTruckVanForm = function ($, helpers, events) {
     }
 
     function _updateSubmitButtonTextPrice() {
-        const price = parseFloat(DOM.$selectSize.find("option:selected").data("price"));
+        const selectedValue = DOM.$selectSize.val();
+        const price = parseFloat(DOM.$selectSize.find("option[value='" + selectedValue + "']").data("price"));
         const quantity = parseInt(DOM.$inputQuantity.val());
         const total = price * quantity;
 
@@ -141,7 +141,7 @@ var ComponentTruckVanForm = function ($, helpers, events) {
                 _updateHeadingImage();
             }, 1500);
 
-            var valueSelected = $(this).val(); //find("option:selected").val();
+            var valueSelected = $(this).val();
             _updateSnipcartButtonHeadingFont(valueSelected);
             if (event.originalEvent && event.originalEvent.isTrusted) {
                 // Save data only of the event was triggered with human
@@ -159,7 +159,7 @@ var ComponentTruckVanForm = function ($, helpers, events) {
                 _updateHeadingImage();
             }, 1500);
 
-            var valueSelected = $(this).val(); // $(this).find("option:selected").val();
+            var valueSelected = $(this).val();
             _updateSnipcartButtonHeadingColor(valueSelected);
             if (event.originalEvent && event.originalEvent.isTrusted) {
                 // Save data only of the event was triggered with human
@@ -200,7 +200,7 @@ var ComponentTruckVanForm = function ($, helpers, events) {
                 _updateContentImage();
             }, 1500);
 
-            var valueSelected = $(this).val(); //$(this).find("option:selected").val();
+            var valueSelected = $(this).val();
             _updateSnipcartButtonContentFont(valueSelected);
             if (event.originalEvent && event.originalEvent.isTrusted) {
                 // Save data only of the event was triggered with human
@@ -218,7 +218,7 @@ var ComponentTruckVanForm = function ($, helpers, events) {
                 _updateContentImage();
             }, 1500);
 
-            var valueSelected = $(this).val(); // $(this).find("option:selected").val();
+            var valueSelected = $(this).val();
             _updateSnipcartButtonContentColor(valueSelected);
             if (event.originalEvent && event.originalEvent.isTrusted) {
                 // Save data only of the event was triggered with human
@@ -273,7 +273,7 @@ var ComponentTruckVanForm = function ($, helpers, events) {
         });
 
         DOM.$selectSize.change(function (event) {
-            var valueSelected = $(this).val(); // find("option:selected").val();
+            var valueSelected = $(this).val();
             _updateSubmitButtonTextPrice();
             _updateSnipcartButtonSize(valueSelected);
             _saveData();
@@ -333,8 +333,9 @@ var ComponentTruckVanForm = function ($, helpers, events) {
 
         // Update car banner and sun strip images
         var text = _getHeadingText();
-        var fontId = DOM.$selectHeadingFont.find("option:selected").data("fontId");
-        var color = DOM.$selectHeadingColor.find("option:selected").data('hex');
+        // const price = parseFloat(DOM.$selectSize.find("option[value='" + selectedValue + "']").data("price"));
+        var fontId = DOM.$selectHeadingFont.find("option[value='" + DOM.$selectHeadingFont.val() + "']").data("fontId");
+        var color = DOM.$selectHeadingColor.find("option[value='" + DOM.$selectHeadingColor.val() + "']").data('hex');
         url = _buildMyFontUrl(fontId, text, color);
 
         // DOM.$previewContainer.addClass("loading");
@@ -349,20 +350,14 @@ var ComponentTruckVanForm = function ($, helpers, events) {
         }).attr({ src: url });
     }
 
-    // function _updateHeadingColor() {
-    //     var hex = DOM.$selectHeadingColor.find("option:selected").data('hex');
-    //     // https://css-tricks.com/css-attr-function-got-nothin-custom-properties/
-    //     DOM.$previewHeadingContainer.css('--my-color', hex);
-    // }
-
     function _updateContentImage(resolveCallback) {
         // On testing environment do nothing (no font url rewrite implemented)
         // if (location.hostname === "localhost" || location.hostname === "127.0.0.1") return;
 
         // Update car banner and sun strip images
         var text = _getContentText();
-        var fontId = DOM.$selectContentFont.find("option:selected").data("fontId");
-        var color = DOM.$selectContentColor.find("option:selected").data('hex');
+        var fontId = DOM.$selectContentFont.find("option[value='" + DOM.$selectContentFont.val() + "']").data("fontId");
+        var color = DOM.$selectContentColor.find("option[value='" + DOM.$selectContentColor.val() + "']").data('hex');
         url = _buildMyFontUrl(fontId, text, color);
 
         // Parentheses, white space characters, single quotes (') and double quotes ("), must be escaped with a backslash in url()
@@ -380,12 +375,6 @@ var ComponentTruckVanForm = function ($, helpers, events) {
             events.emit('truckVanPreviewContainerSizeChanged');
         }).attr({ src: url });
     }
-
-    // function _updateContentColor() {
-    //     var hex = DOM.$selectContentColor.find("option:selected").data('hex');
-    //     // https://css-tricks.com/css-attr-function-got-nothin-custom-properties/
-    //     DOM.$previewContentContainer.css('--my-color', hex);
-    // }
 
     // Updating Snipcart buttons' attributes
 
@@ -437,8 +426,7 @@ var ComponentTruckVanForm = function ($, helpers, events) {
     };
 };
 
-$(function() {
-    var componentTruckVanForm = new ComponentTruckVanForm(window.$, window.helpers, window.events);
+$(document).ready(function() {
+    var componentTruckVanForm = new ComponentTruckVanForm($, window.helpers, window.events);
     componentTruckVanForm.init(document.querySelector('.js--component-truck-van-form'));
 });
-},{}]},{},[1])

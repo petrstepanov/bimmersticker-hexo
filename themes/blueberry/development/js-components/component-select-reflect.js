@@ -9,10 +9,10 @@ var SelectReflect = function($){
     DOM.$options = DOM.$select.find("option");
 
     // Create new DOM elements
-    DOM.$selectReflect = $("<div>", {"class": "component-select-reflect"});
+    DOM.$selectReflect = $("<div>").addClass("component-select-reflect");
     DOM.$options.each(function(){
       // Iterate all <option /> elements
-      $optionReflect = $("<div>", {"class": "select-reflect-item", "data-value": $(this).attr("value")});
+      $optionReflect = $("<div>").addClass("select-reflect-item").data("value", $(this).attr("value"));
       DOM.$selectReflect.append($optionReflect);
       var html = $(this).html()
       html = html.replace('•','<span class="d-none d-sm-inline">•</span><br class="d-inline d-sm-none" />')
@@ -21,7 +21,7 @@ var SelectReflect = function($){
       $optionReflect.html(html);
 
       // Reflect selected option
-      if ($(this).is(':selected')){
+      if ($(this).attr("value") === DOM.$select.val()){
         $optionReflect.addClass("selected");
       }
     });
@@ -33,7 +33,7 @@ var SelectReflect = function($){
     DOM.$optionsReflect = DOM.$selectReflect.find(".select-reflect-item");
 
     // Hide original select
-    $invisible = $("<div>", {"class": "zero-size-invisible"});
+    $invisible = $("<div>").addClass("zero-size-invisible");
     $invisible.insertBefore(DOM.$select);
     $invisible.append(DOM.$select);
   }
@@ -60,9 +60,9 @@ var SelectReflect = function($){
   };
 };
 
-$(function() {
+$(document).ready(function() {
   $('.js--component-select-reflect').each(function(){
-    var selectReflect = new SelectReflect(window.$);
+    var selectReflect = new SelectReflect($);
     selectReflect.init(this);
   });
 });

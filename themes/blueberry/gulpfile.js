@@ -1,22 +1,16 @@
 var browserify = require('browserify');
-var gb = require('gulp-browserify');
+//  var gb = require('gulp-browserify');
 var gulp = require('gulp');
 var rename = require('gulp-rename');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass')(require('sass'));
-// var babel = require('gulp-babel');
-var concat = require('gulp-concat');
-var plumber = require('gulp-plumber');
-var sourcemaps = require('gulp-sourcemaps');
+// var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var del = require('del');
-// var glob = require('glob');
 var log = require('gulplog');
 var replace = require('gulp-replace');
-// var each = require('gulp-each');
-const through = require('through2')
 
 const browsersync = require('browser-sync').create();
 
@@ -98,10 +92,10 @@ function styles() {
 
 function stylesDev() {
 	return gulp.src(paths.styles.src)
-		.pipe(sourcemaps.init())
+// 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer())
-		.pipe(sourcemaps.write('.'))
+	//	.pipe(sourcemaps.write('.'))
 		.pipe(rename(function (path) {
 			// Updates the object in-place
 			// path.dirname += "/ciao";
@@ -120,10 +114,10 @@ function stylesComponents() {
 
 function stylesComponentsDev() {
 	return gulp.src(paths.stylesComponents.src)
-		.pipe(sourcemaps.init())
+// 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer())
-		.pipe(sourcemaps.write('.'))
+// 		.pipe(sourcemaps.write('.'))
 		.pipe(rename(function (path) {
 			// Updates the object in-place
 			// path.dirname += "/ciao";
@@ -160,43 +154,43 @@ function scriptsDev() {
 	return b.bundle()
 		.pipe(source('app-dev.js'))
 		.pipe(buffer())
-		.pipe(sourcemaps.init({ loadMaps: true }))
-		.pipe(sourcemaps.write('./'))
+		// .pipe(sourcemaps.init({ loadMaps: true }))
+		// .pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest(paths.scripts.dest)); //.on('end', function () { beep(); });
 }
 
-// function scriptsComponents() {
-// 	return gulp.src(paths.scriptsComponents.src, { sourcemaps: false })
-// 		.pipe(uglify())
-// 		.pipe(gulp.dest(paths.scriptsComponents.dest));
-// }
-
-// function scriptsComponentsDev(cb) {
-// 	return gulp.src(paths.scriptsComponents.src, { sourcemaps: true })
-// 		.pipe(rename(function (path) {
-// 			path.basename += "-dev";
-// 		}))
-// 		.pipe(gulp.dest(paths.scriptsComponents.dest));
-// }
-
 function scriptsComponents() {
-	return gulp.src(paths.scriptsComponents.src)
-		.pipe(gb({
-			// insertGlobals : true
-		}))
+	return gulp.src(paths.scriptsComponents.src, { sourcemaps: false })
+		.pipe(uglify())
 		.pipe(gulp.dest(paths.scriptsComponents.dest));
 }
 
-function scriptsComponentsDev() {
-	return gulp.src(paths.scriptsComponents.src)
-		.pipe(gb({
-			// insertGlobals : true
-		}))
+function scriptsComponentsDev(cb) {
+	return gulp.src(paths.scriptsComponents.src, { sourcemaps: true })
 		.pipe(rename(function (path) {
 			path.basename += "-dev";
 		}))
 		.pipe(gulp.dest(paths.scriptsComponents.dest));
 }
+
+// function scriptsComponents() {
+// 	return gulp.src(paths.scriptsComponents.src)
+// 		.pipe(gb({
+// 			// insertGlobals : true
+// 		}))
+// 		.pipe(gulp.dest(paths.scriptsComponents.dest));
+// }
+
+// function scriptsComponentsDev() {
+// 	return gulp.src(paths.scriptsComponents.src)
+// 		.pipe(gb({
+// 			// insertGlobals : true
+// 		}))
+// 		.pipe(rename(function (path) {
+// 			path.basename += "-dev";
+// 		}))
+// 		.pipe(gulp.dest(paths.scriptsComponents.dest));
+// }
 
 // Beep task (with callback)
 function beepTask(cb) {

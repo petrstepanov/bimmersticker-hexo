@@ -9,16 +9,16 @@ var SelectWithImage = function($){
     DOM.$options = DOM.$select.find("option");
 
     // Create new DOM elements
-    DOM.$selectWithImage = $("<div>", {"class": "component-select-with-image"});
+    DOM.$selectWithImage = $("<div>").addClass("component-select-with-image");
     DOM.$options.each(function(){
       // Iterate all <option /> elements
-      $optionWithImage = $("<div>", {"class": "select-with-image-item", "data-value": $(this).attr("value")});
+      $optionWithImage = $("<div>").addClass("select-with-image-item").data("value", $(this).attr("value"));
       DOM.$selectWithImage.append($optionWithImage);
       var bgImage = $(this).data("bg-image");
       $optionWithImage.css('background-image', 'url("' + bgImage + '")');
 
       // Reflect selected option
-      if ($(this).is(':selected')){
+      if ($(this).attr("value") === DOM.$select.val()){
         $optionWithImage.addClass("selected");
       }
     });
@@ -30,7 +30,7 @@ var SelectWithImage = function($){
     DOM.$optionsWithImage = DOM.$selectWithImage.find(".select-with-image-item");
 
     // Hide original select
-    $invisible = $("<div>", {"class": "zero-size-invisible"});
+    $invisible = $("<div>").addClass("zero-size-invisible");
     $invisible.insertBefore(DOM.$select);
     $invisible.append(DOM.$select);
   }
@@ -66,9 +66,9 @@ var SelectWithImage = function($){
   };
 };
 
-$(function() {
+$(document).ready(function() {
   $('.js--component-select-with-image').each(function(){
-    var selectWithImage = new SelectWithImage(window.$);
+    var selectWithImage = new SelectWithImage($);
     selectWithImage.init(this);
   });
 });

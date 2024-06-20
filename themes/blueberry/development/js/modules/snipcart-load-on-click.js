@@ -1,6 +1,6 @@
 // Petr Steanov: CORS issues - disabled.
 
-var $ = require('jquery/dist/jquery.slim');
+var $ = require('cash-dom');
 
 var SnipcartLoadOnClick = function(){
 

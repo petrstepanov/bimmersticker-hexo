@@ -543,7 +543,7 @@ var ComponentBannerForm = function($, helpers){
     };
 };
 
-$(function() {
-    var componentBannerForm = new ComponentBannerForm(window.$, window.helpers);
+$(document).ready(function() {
+    var componentBannerForm = new ComponentBannerForm($, window.helpers);
     componentBannerForm.init(document.querySelector('.js--component-banner-form'));
 });

@@ -1,6 +1,6 @@
 // Emit event when 'Buy' button on the post's page goes out of viewport
 
-var $ = require('jquery/dist/jquery.slim');
+var $ = require('cash-dom');
 var events = require('./events');
 var helpers = require('./helpers');
 

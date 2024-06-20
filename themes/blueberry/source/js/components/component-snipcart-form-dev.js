@@ -1,4 +1,3 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 // Interactions between product form and Snipcart Buy button:
 // changing variation options, updating price
 
@@ -26,7 +25,7 @@ var SnipcartForm = function($, events){
       // Calculate total extra price
       var extraTotal = 0;
       DOM.$selects.each(function () {
-        var $option = $(this).find('option:selected');
+        var $option = $(this).find('[value="' + $(this).val() + '"]');
         if (typeof $option.data().extra !== 'undefined') {
           extraTotal += parseFloat($option.data().extra);
         }
@@ -43,9 +42,7 @@ var SnipcartForm = function($, events){
     // Throw event about selecting specific color in the dropdown
     // Carousel needs to reflect this.
     DOM.$selectColor.on('change', function () {
-      var $options = $(this).find('option');
-      var option = $(this).find('option:selected').get(0);
-      var selectedIndex = $options.index(option);
+      var selectedIndex = DOM.$selectColor.get(0).selectedIndex;
       if (selectedIndex >= 0){
         events.emit('colorIndexSelectedEvent', {index: selectedIndex});
       }
@@ -79,8 +76,6 @@ var SnipcartForm = function($, events){
 
 $(function(){
   var form = document.querySelector('.js--component-snipcart-form');
-  snipcartForm = new SnipcartForm(window.$, window.events);
+  snipcartForm = new SnipcartForm($, window.events);
   snipcartForm.init(form);
 });
-
-},{}]},{},[1])

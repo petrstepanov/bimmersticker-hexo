@@ -79,7 +79,7 @@ var ComponentWidgetArea = function ($, events) {
     };
 }
 
-$(function() {
-    var componentWidgetArea = new ComponentWidgetArea(window.$, window.events);
+$(document).ready(function() {
+    var componentWidgetArea = new ComponentWidgetArea($, window.events);
     componentWidgetArea.init();
 });

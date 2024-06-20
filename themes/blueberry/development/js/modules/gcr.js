@@ -1,4 +1,4 @@
-var $ = require('jquery/dist/jquery.slim');
+var $ = require('cash-dom');
 var nunjucks = require('nunjucks');
 
 var GCR = function(){

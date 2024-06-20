@@ -15,7 +15,7 @@ var SelectColor = function($, events){
     DOM.$options = DOM.$select.find("option");
 
     // Create new DOM elements
-    DOM.$selectColor = $("<div>", {"class": "component-select-color is-Closed"});
+    DOM.$selectColor = $("<div>").addClass("component-select-color is-Closed");
 
     // Iterate all <option /> elements
     DOM.$options.each(function(){
@@ -24,7 +24,7 @@ var SelectColor = function($, events){
       $pill = _createColorPillElement(colorValue);
 
       // Reflect selected option
-      if ($(this).is(':selected')){
+      if ($(this).attr("value") === DOM.$select.val()){
         $pill.addClass("selected");
       }
       else {
@@ -33,11 +33,11 @@ var SelectColor = function($, events){
 
       // Add extra text
       if ($(this).data("extraText")){
-        $('<span class="select-color-pill-extra">' + $(this).data("extraText") + ' </span>').appendTo($pill);
+        $('<span>').addClass("select-color-pill-extra").html($(this).data("extraText")).appendTo($pill);
       }
 
       // Add icon
-      $('<span class="checkbox">✓</span>').appendTo($pill);
+      $('<span>').addClass("checkbox").html('✓').appendTo($pill);
 
       DOM.$selectColor.append($pill);
     });
@@ -50,7 +50,7 @@ var SelectColor = function($, events){
     DOM.$pills = DOM.$selectColor.find(".select-color-pill");
 
     // Hide original select
-    $invisible = $("<div>", {"class": "zero-size-invisible"});
+    $invisible = $("<div>").addClass("zero-size-invisible");
     $invisible.insertBefore(DOM.$select);
     $invisible.append(DOM.$select);
   }
@@ -72,12 +72,12 @@ var SelectColor = function($, events){
   function _createColorPillElement(colorValue){
     // Value can be "Black & red" - show 2 circles in the pill!
     var colorsArray = colorValue.split('&');
-    var $pill = $("<div>", {"class": "select-color-pill", "data-value": colorValue});
+    var $pill = $("<div>").addClass("select-color-pill").attr("data-value", colorValue);
     for (color of colorsArray){
       color = color.trim().toLowerCase().replace(' ','-');
-      $("<div>", {"class": "select-color-pill-color " + color}).appendTo($pill);
+      $("<div>").addClass("select-color-pill-color " + color).appendTo($pill);
     }
-    $("<span class='select-color-pill-text'>" + colorValue + "</span>").appendTo($pill);
+    $("<span>").addClass('select-color-pill-text').html(colorValue).appendTo($pill);
     return $pill;
   }
 
@@ -184,9 +184,9 @@ var SelectColor = function($, events){
   };
 };
 
-$(function() {
+$(document).ready(function() {
   $('.js--component-select-color').each(function(){
-    var selectColor = new SelectColor(window.$, window.events);
+    var selectColor = new SelectColor($, window.events);
     selectColor.init(this);
   });
 });

@@ -3,7 +3,7 @@
 // I moved some of the scripts to globals
 
 // Globals used in the components' inline scripts
-var $ = window.$ = window.jQuery = require('jquery/dist/jquery.slim');
+var $ = window.$ = require('cash-dom');
 var bootstrap = window.bootstrap = require('bootstrap');
 var helpers = window.helpers = require('./modules/helpers');
 var events = window.events = require('./modules/events');
@@ -21,7 +21,8 @@ var autovalid = require('./modules/autovalid');
 var GCR = require('./modules/gcr');
 var SnipcartLoadOnClick = require('./modules/snipcart-load-on-click');
 
-$(function() {
+$(document).ready(function() {
+  // document.addEventListener("DOMContentLoaded", function() {
   snipcartLoadOnClick = new SnipcartLoadOnClick();
   snipcartLoadOnClick.init();
 

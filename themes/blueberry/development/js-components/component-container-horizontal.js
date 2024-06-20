@@ -1,7 +1,5 @@
 // Ajax form submission logic
 
-var kinetic = require('jquery.kinetic');
-
 var DetectTrackpadMouse = function (events) {
 
   function _wheelListener(event){
@@ -30,7 +28,7 @@ var DetectTrackpadMouse = function (events) {
   };
 };
 
-var ContainerHorizontal = function($, events, kinetic){
+var ContainerHorizontal = function($, events){
   var DOM = {};
 
   function _cacheDom(element) {
@@ -53,39 +51,17 @@ var ContainerHorizontal = function($, events, kinetic){
         DOM.$iconMouse.show();
 
         DOM.$el.css('overflow-x', 'hidden');
-        DOM.$el.kinetic();
+        // TODO: initialize custom kinetic plugin
       }
     });
   }
 
   function _render(){
-    // $.fn.randomize = function(selector){
-    //   (selector ? this.find(selector) : this).parent().each(function(){
-    //       $(this).children(selector).sort(function(){
-    //           return Math.random() - 0.5;
-    //       }).detach().appendTo(this);
-    //   });
-    //   return this;
-    // };
-    // DOM.$cards.randomize();
-
-    $.fn.shuffle = function() {
-      var allElems = this.get(),
-          getRandom = function(max) {
-              return Math.floor(Math.random() * max);
-          },
-          shuffled = $.map(allElems, function(){
-              var random = getRandom(allElems.length),
-                  randEl = $(allElems[random]).clone(true)[0];
-              allElems.splice(random, 1);
-              return randEl;
-         });
-      this.each(function(i){
-          $(this).replaceWith($(shuffled[i]));
-      });
-      return $(shuffled);
-    };
-    DOM.$cards.shuffle();
+    // https://stackoverflow.com/questions/7070054/javascript-shuffle-html-list-element-order
+    var parentEl = DOM.$inner[0];
+    for (var i = parentEl.children.length; i >= 0; i--) {
+      parentEl.appendChild(parentEl.children[Math.random() * i | 0]);
+    }
   }
 
   function init(element, state){
@@ -102,10 +78,10 @@ var ContainerHorizontal = function($, events, kinetic){
   };
 };
 
-$(function() {
+$(document).ready(function() {
   // Instantiate horizontal container plugin
   $('.js--component-container-horizontal').each(function(){
-    var cH = new ContainerHorizontal(window.$, window.events, kinetic);
+    var cH = new ContainerHorizontal($, window.events);
     cH.init(this);
   });
 

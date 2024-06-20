@@ -1,5 +1,6 @@
 
 // Popup notifications based on noty.js
+// TODO: move to bootstrap toasts
 var Toastify = require('toastify-js')
 
 // function makeHtml(type, text) {

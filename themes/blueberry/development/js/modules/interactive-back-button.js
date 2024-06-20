@@ -1,5 +1,5 @@
-var $ = require('jquery/dist/jquery.slim');
-var Cookies = require('js-cookie');
+var $ = require('cash-dom');
+var cookies = require('js-cookie');
 
 var DOM = {};
 
@@ -21,7 +21,7 @@ function init() {
   _cacheDom();
 
   // If page was loaded before then back button acts like back button
-  if (!Cookies.get('wasOnSite')){
+  if (!cookies.get('wasOnSite')){
     // If previous url saved in cookies is different from current - navigate there
     _renderBackLink();
   }
@@ -30,7 +30,7 @@ function init() {
   // date.setTime(date.getTime() + (5 * 60 * 1000)); // 5 minute expiration
   // Expires: takes number of days; 5 minutes is 5/24*60 ~ 0.003 of a day
   // Cookies.set('pageLoaded', window.location.href, { expires: 0.003, sameSite: 'strict' });
-  Cookies.set('wasOnSite', 'true', { expires: 0.003, sameSite: 'strict' });
+  cookies.set('wasOnSite', 'true', { expires: 0.003, sameSite: 'strict' });
 }
 
 exports.init = init;

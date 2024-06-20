@@ -1,11 +1,11 @@
 // Helper module
 
-var $ = require('jquery/dist/jquery.slim');
+var $ = require('cash-dom');
 
 function isInViewport($el) {
   var elementTop = $el.offset().top;
   var elementBottom = elementTop + $el.outerHeight();
-  var viewportTop = $(window).scrollTop();
+  var viewportTop = window.scrollY; //$(window).scrollTop();
   // If fixed navbar
   if ($('.js--navbar-blueberry.fixed-top').length) {
     viewportTop += $('.js--navbar-blueberry.fixed-top').outerHeight();
@@ -24,8 +24,8 @@ function getViewportSize() {
 
 function offset(el) {
   var rect = el.getBoundingClientRect(),
-    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    scrollLeft = window.scrollY || document.documentElement.scrollLeft,
+    scrollTop = window.scrollY || document.documentElement.scrollTop;
   return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
 }
 

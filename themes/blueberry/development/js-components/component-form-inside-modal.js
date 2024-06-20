@@ -25,9 +25,9 @@ var FormInsideModal = function($, events){
   }
 }
 
-$(function() {
+$(document).ready(function() {
   $('.js--init-form-inside-modal').each(function(){
-    var formInsideModal = new FormInsideModal(window.$, window.events);
+    var formInsideModal = new FormInsideModal($, window.events);
     formInsideModal.init(this);
   });
 });

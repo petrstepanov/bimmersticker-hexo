@@ -1,6 +1,6 @@
 // Fixes Navbar for vieport width less than a set threshold
 
-var $ = require('jquery/dist/jquery.slim');
+var $ = require('cash-dom');
 var helpers = require('./helpers');
 // var events = require('./events');
 // var bsCollapse = require('bootstrap/js/dist/collapse');

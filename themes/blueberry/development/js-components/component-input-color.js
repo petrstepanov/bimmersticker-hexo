@@ -9,7 +9,7 @@ var InputColor = function($, getColorFriendlyName){
     DOM.$label = $(element).parent().find('label[for='+ $(element).attr("id") +']');
 
     // Create new DOM elements
-    DOM.$inputColor = $("<div>", {"class": "component-select-color is-Closed for-picker"});
+    DOM.$inputColor = $("<div>").addClass("component-select-color is-Closed for-picker");
     DOM.$inputColor.append(_createColorPillElement(DOM.$input.val()));
     DOM.$inputColor.insertAfter(DOM.$input);
 
@@ -18,17 +18,17 @@ var InputColor = function($, getColorFriendlyName){
     DOM.$pillTextExtra = DOM.$inputColor.find('.select-color-pill-extra');
 
     // Hide original select
-    $invisible = $("<div>", {"class": "zero-size-invisible"});
+    $invisible = $("<div>").addClass("zero-size-invisible");
     $invisible.insertAfter(DOM.$input);
     $invisible.append(DOM.$input);
   }
 
   function _createColorPillElement(colorValue){
     // Value can be "Black & red" - show 2 circles in the pill!
-    var $pill = $("<div>", {"class": "select-color-pill"});
-    $("<div>", {"class": "select-color-pill-color"}).css('background-color', colorValue).appendTo($pill);
-    $("<span class='select-color-pill-text'>" + getColorFriendlyName(colorValue).name + "</span>").appendTo($pill);
-    $('<span class="select-color-pill-extra">' + colorValue + '</span>').appendTo($pill);
+    var $pill = $("<div>").addClass("select-color-pill");
+    $("<div>").addClass("select-color-pill-color").css('background-color', colorValue).appendTo($pill);
+    $("<span>").addClass('select-color-pill-text').text(getColorFriendlyName(colorValue).name).appendTo($pill);
+    $("<span").addClass("select-color-pill-extra").html(colorValue).appendTo($pill);
     return $pill;
   }
 
@@ -62,9 +62,9 @@ var InputColor = function($, getColorFriendlyName){
   };
 };
 
-$(function() {
+$(document).ready(function() {
   $('.js--component-input-color').each(function(){
-    var inputColor = new InputColor(window.$, getColorFriendlyName);
+    var inputColor = new InputColor($, getColorFriendlyName);
     inputColor.init(this);
   });
 });
