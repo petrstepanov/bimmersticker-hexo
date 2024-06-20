@@ -1,1 +1,87 @@
-var ComponentWidgetArea=function(e,t){var a={};function n(){var e=a.$lengthInput.val(),t=e/(a.$previewContainer.width()/a.$previewContainer.height()),n=t%1,i=Math.floor(t)+" ",n=(i+=n<.375?"¼":n<.625?"½":"¾",a.$lengthRuler.html(e),a.$heightRuler.html(i),a.$heightInput.val(i),e*t/12/12.22),i=Math.round(10*n)/10;a.$areaInput.val(i),n<2?a.$sizeSelect.val("S"):n<4?a.$sizeSelect.val("M"):n<8?a.$sizeSelect.val("L"):a.$sizeSelect.val("XL"),a.$sizeSelect.change()}return{init:function(){0<e(".js--widget-area-length").length&&(a.$lengthInput=e(".js--widget-area-length"),a.$heightInput=e(".js--widget-area-height"),a.$areaInput=e(".js--widget-area-area"),a.$lengthRuler=e(".js--length-ruler"),a.$heightRuler=e(".js--height-ruler"),a.$sizeSelect=e(".js--widget-area-select"),a.$previewContainer=e(".js--widget-area-preview"),a.$lengthInput.on("change",function(){n()}),t.on("truckVanPreviewContainerSizeChanged",function(e){n()}))}}};$(function(){new ComponentWidgetArea(window.$,window.events).init()});
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+
+var ComponentWidgetArea = function ($, events) {
+    var DOM = {};
+
+    function _roundOne(number) {
+        return Math.round(number * 10) / 10
+    }
+
+    function _cacheDom(element) {
+        DOM.$lengthInput = $('.js--widget-area-length');
+        DOM.$heightInput = $('.js--widget-area-height');
+        DOM.$areaInput = $('.js--widget-area-area');
+        DOM.$lengthRuler = $('.js--length-ruler');
+        DOM.$heightRuler = $('.js--height-ruler');
+        DOM.$sizeSelect = $('.js--widget-area-select');
+        DOM.$previewContainer = $('.js--widget-area-preview');
+    }
+
+    function _bindEvents() {
+        DOM.$lengthInput.on("change", function () {
+            _updateWidthHeightArea();
+        });
+        events.on('truckVanPreviewContainerSizeChanged', function (data) {
+            _updateWidthHeightArea();
+        });
+    }
+
+    function _updateWidthHeightArea() {
+        var width = DOM.$lengthInput.val();
+        // Get aspect ratio
+        var ratio = DOM.$previewContainer.width() / DOM.$previewContainer.height();
+        var height = width / ratio;
+        var heightInteger = Math.floor(height);
+        var heightDecimal = height % 1;
+
+        var heightString = heightInteger + ' ';
+        if (heightDecimal < 0.375) {
+            heightString += "¼";
+        }
+        else if (heightDecimal < 0.625) {
+            heightString += "½";
+        }
+        else {
+            heightString += "¾";
+        }
+        // Set width and height to elements
+        DOM.$lengthRuler.html(width);
+        DOM.$heightRuler.html(heightString);
+        DOM.$heightInput.val(heightString);
+
+        var area = width * height / 12. / 12.22
+        var areaRound = _roundOne(area);
+        DOM.$areaInput.val(areaRound);
+
+        if (area < 2) {
+            DOM.$sizeSelect.val("S");
+        }
+        else if (area < 4) {
+            DOM.$sizeSelect.val("M");
+        }
+        else if (area < 8) {
+            DOM.$sizeSelect.val("L");
+        }
+        else {
+            DOM.$sizeSelect.val("XL");
+        }
+        DOM.$sizeSelect.change();
+    }
+
+    function init() {
+        if ($('.js--widget-area-length').length > 0) {
+            _cacheDom();
+            _bindEvents();
+        }
+    }
+
+    return {
+        init: init
+    };
+}
+
+$(function() {
+    var componentWidgetArea = new ComponentWidgetArea(window.$, window.events);
+    componentWidgetArea.init();
+});
+},{}]},{},[1])

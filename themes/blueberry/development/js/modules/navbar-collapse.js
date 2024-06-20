@@ -1,9 +1,9 @@
 // Fixes Navbar for vieport width less than a set threshold
 
-var $ = require('jquery');
+var $ = require('jquery/dist/jquery.slim');
 var helpers = require('./helpers');
-var events = require('./events');
-var bootstrap = require('bootstrap');
+// var events = require('./events');
+// var bsCollapse = require('bootstrap/js/dist/collapse');
 
 var DOM = {};
 var options = {};
@@ -57,7 +57,7 @@ function _collapseNavbar() {
   // if the instance is not yet initialized then create new collapse
   if (typeof bsCollapse === "undefined") {
     let id = "#" + DOM.$navbarCollapse.attr("id");
-    bsCollapse = new bootstrap.Collapse(id, {
+    bsCollapse = new bsCollapse(id, {
           toggle: false
     });
   }

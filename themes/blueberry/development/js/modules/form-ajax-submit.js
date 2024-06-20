@@ -1,6 +1,6 @@
 // Ajax form submission logic
 
-var $ = require('jquery');
+var $ = require('jquery/dist/jquery.slim');
 var events = require('./events');
 var notificationCenter = require('./notification-center');
 

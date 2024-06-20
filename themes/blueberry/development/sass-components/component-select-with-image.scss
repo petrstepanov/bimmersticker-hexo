@@ -23,18 +23,7 @@
         background-position-x: 0.5rem;
 
         &.selected {
-            // position: relative;
             background-color: var(--bs-primary);
-            // &:before {
-            //     content: "";
-            //     position: absolute;
-            //     left: 0;
-            //     top: 0;
-            //     bottom: 0;
-            //     right: 0;
-            //     background-color: lighten($blue, 50%);
-            //     mix-blend-mode: multiply;
-            // }
         }
     }
 }

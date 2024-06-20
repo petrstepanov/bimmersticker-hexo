@@ -1,5 +1,5 @@
 // Filtering cards on the main page
-var PostsFilter = function ($) {
+var PostsFilter = function ($, helpers) {
 
   var DOM = {};
   var options = {
@@ -25,9 +25,8 @@ var PostsFilter = function ($) {
     DOM.$buttons.filter('.active').removeClass('btn-primary').addClass('btn-link').removeClass('active');
     $(this).removeClass('btn-link').addClass('btn-primary').addClass('active');
     var query = $(this).data().query;
-    DOM.$grid.fadeOut(200, function () {
+    helpers.animateCSS(DOM.$grid[0], "fadeOut", function(){
       _filterPosts(query);
-      DOM.$grid.fadeIn(200);
     });
   }
 
@@ -40,11 +39,8 @@ var PostsFilter = function ($) {
         $(this).hide();
       }
     });
+    helpers.animateCSS(DOM.$grid[0], "fadeIn");
   }
-
-  // function _render(){
-  //
-  // }
 
   function init(element) {
     if (element) {
@@ -62,6 +58,6 @@ var PostsFilter = function ($) {
 
 
 $(function() {
-  var postsFilter = new PostsFilter(window.$);
+  var postsFilter = new PostsFilter(window.$, window.helpers);
   postsFilter.init(document.querySelector('.js--component-posts-filter'));
 });

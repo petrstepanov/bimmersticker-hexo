@@ -1,6 +1,6 @@
 // Emit event when 'Buy' button on the post's page goes out of viewport
 
-var $ = require('jquery');
+var $ = require('jquery/dist/jquery.slim');
 var events = require('./events');
 var helpers = require('./helpers');
 

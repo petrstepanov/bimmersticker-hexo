@@ -10411,7 +10411,11 @@ body {
   font-weight: bold;
 }
 .navbar-blueberry .navbar-buy-button {
-  display: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.navbar-blueberry .navbar-buy-button.visible {
+  opacity: 1;
 }
 .navbar-blueberry .navbar-brand {
   padding-top: 0;

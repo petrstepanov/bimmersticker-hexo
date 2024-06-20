@@ -1,4 +1,4 @@
-var $ = require('jquery');
+var $ = require('jquery/dist/jquery.slim');
 var nunjucks = require('nunjucks');
 
 var GCR = function(){

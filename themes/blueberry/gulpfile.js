@@ -1,4 +1,5 @@
 var browserify = require('browserify');
+var gb = require('gulp-browserify');
 var gulp = require('gulp');
 var rename = require('gulp-rename');
 var source = require('vinyl-source-stream');
@@ -11,8 +12,12 @@ var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var del = require('del');
+// var glob = require('glob');
 var log = require('gulplog');
 var replace = require('gulp-replace');
+// var each = require('gulp-each');
+const through = require('through2')
+
 const browsersync = require('browser-sync').create();
 
 var paths = {
@@ -160,14 +165,33 @@ function scriptsDev() {
 		.pipe(gulp.dest(paths.scripts.dest)); //.on('end', function () { beep(); });
 }
 
+// function scriptsComponents() {
+// 	return gulp.src(paths.scriptsComponents.src, { sourcemaps: false })
+// 		.pipe(uglify())
+// 		.pipe(gulp.dest(paths.scriptsComponents.dest));
+// }
+
+// function scriptsComponentsDev(cb) {
+// 	return gulp.src(paths.scriptsComponents.src, { sourcemaps: true })
+// 		.pipe(rename(function (path) {
+// 			path.basename += "-dev";
+// 		}))
+// 		.pipe(gulp.dest(paths.scriptsComponents.dest));
+// }
+
 function scriptsComponents() {
-	return gulp.src(paths.scriptsComponents.src, { sourcemaps: false })
-		.pipe(uglify())
+	return gulp.src(paths.scriptsComponents.src)
+		.pipe(gb({
+			// insertGlobals : true
+		}))
 		.pipe(gulp.dest(paths.scriptsComponents.dest));
 }
 
-function scriptsComponentsDev(cb) {
-	return gulp.src(paths.scriptsComponents.src, { sourcemaps: true })
+function scriptsComponentsDev() {
+	return gulp.src(paths.scriptsComponents.src)
+		.pipe(gb({
+			// insertGlobals : true
+		}))
 		.pipe(rename(function (path) {
 			path.basename += "-dev";
 		}))
@@ -254,5 +278,6 @@ exports.build = gulp.series(build, beepTask);
 exports.sync = sync;
 exports.watch = gulp.series(watch, beepTask);
 exports.clean = clean;
-
+exports.scriptsComponentsDev = scriptsComponentsDev;
+exports.scripts = scripts;
 // exports.default = process.env.BUILD_TYPE=='production' ? production : development;

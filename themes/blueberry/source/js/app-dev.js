@@ -4,12 +4,10 @@
 // I moved some of the scripts to globals
 
 // Globals used in the components' inline scripts
-var $ = window.$ = window.jQuery = require('jquery');
+var $ = window.$ = window.jQuery = require('jquery/dist/jquery.slim');
 var bootstrap = window.bootstrap = require('bootstrap');
 var helpers = window.helpers = require('./modules/helpers');
 var events = window.events = require('./modules/events');
-var kinetic = window.kinetic = require('jquery.kinetic');
-var getColorFriendlyName = window.getColorFriendlyName = require('named-web-colors');
 
 // Locals for this Browserify entry point
 var autosize = require('autosize');
@@ -17,8 +15,6 @@ var AOS = require('aos');
 var navbarCollapse = require('./modules/navbar-collapse');
 var contentBuyButton = require('./modules/content-buy-button');
 var navbarBuyButton = require('./modules/navbar-buy-button');
-var formInsideDialog = require('./modules/form-inside-dialog');
-// var formValidation = require('./modules/form-validation');
 var FormAjaxSubmit = require('./modules/form-ajax-submit');
 var CheckoutButtonFix = require('./modules/checkout-button-fix');
 var InteractiveBackButton = require('./modules/interactive-back-button');
@@ -31,7 +27,6 @@ $(function() {
   snipcartLoadOnClick.init();
 
   InteractiveBackButton.init();
-  formInsideDialog.init(document.querySelector('.js--init-form-inside-dialog'));
   navbarCollapse.init(document.querySelector('.js--init-navbar-collapse'));
 
   // navbarBuyButton inits first - listens to event
@@ -40,18 +35,13 @@ $(function() {
   contentBuyButton.init(document.querySelector('.js--init-content-buy-button'));
 
   // Its almost on every page so its here
-  $('.js--init-ajax-submit').each(function(){
+  document.querySelectorAll('.js--init-ajax-submit').forEach(function(element, index) {
     var formAjaxSubmit = new FormAjaxSubmit();
-    formAjaxSubmit.init(this);
+    formAjaxSubmit.init(element);
   });
 
   // Autosize textareas
   autosize(document.querySelectorAll('.js--init-autosize'));
-
-  // Bootstrap's popovers
-  $('[data-toggle="popover"]').each(function (){
-    const popover = new bootstrap.Popover($(this)[0]);
-  });
 
   // Fix checkout button caption
   var checkoutButtonFix = new CheckoutButtonFix();
@@ -64,10 +54,12 @@ $(function() {
   });
 
   // Automatic pills selection
-  if ($('.nav-pills').length > 0) {
-    var hashtag = window.location.hash;
-    if (hashtag!='') {
-        $(hashtag).tab('show');
+  var hashtag = window.location.hash;
+  if (hashtag!='') {
+    var pill = document.querySelectorAll('.nav-pills ' + hashtag);
+    if (pill.length > 0){
+      const bsTab = new bootstrap.Tab(hashtag);
+      bsTab.show();
     }
   }
 
@@ -78,9 +70,9 @@ $(function() {
 
   //
   // Helper event to close other widgets
-  $(document).on('click', function(){
+  document.onclick = function(){
     events.emit('documentClick');
-  });
+  }
 
   // Google Customer Reviews
   var gcr = new GCR();
@@ -93,7 +85,7 @@ $(function() {
   window['gcr'] = gcr;
 });
 
-},{"./modules/autovalid":2,"./modules/checkout-button-fix":3,"./modules/content-buy-button":4,"./modules/events":5,"./modules/form-ajax-submit":6,"./modules/form-inside-dialog":7,"./modules/gcr":8,"./modules/helpers":9,"./modules/interactive-back-button":10,"./modules/navbar-buy-button":11,"./modules/navbar-collapse":12,"./modules/snipcart-load-on-click":14,"aos":16,"autosize":17,"bootstrap":18,"jquery":20,"jquery.kinetic":19,"named-web-colors":22}],2:[function(require,module,exports){
+},{"./modules/autovalid":2,"./modules/checkout-button-fix":3,"./modules/content-buy-button":4,"./modules/events":5,"./modules/form-ajax-submit":6,"./modules/gcr":7,"./modules/helpers":8,"./modules/interactive-back-button":9,"./modules/navbar-buy-button":10,"./modules/navbar-collapse":11,"./modules/snipcart-load-on-click":13,"aos":15,"autosize":16,"bootstrap":17,"jquery/dist/jquery.slim":18}],2:[function(require,module,exports){
 function autovalid(options = {}) {
     const scope = options.scope || document;
     // const fields = scope.querySelectorAll("input, select, textarea");
@@ -138,7 +130,7 @@ function autovalid(options = {}) {
 exports.autovalid = autovalid;
 
 },{}],3:[function(require,module,exports){
-var $ = require('jquery');
+var $ = require('jquery/dist/jquery.slim');
 
 var CheckoutButtonFix = function(){
     var DOM = {};
@@ -182,10 +174,10 @@ var CheckoutButtonFix = function(){
 };
 
 module.exports = CheckoutButtonFix;
-},{"jquery":20}],4:[function(require,module,exports){
+},{"jquery/dist/jquery.slim":18}],4:[function(require,module,exports){
 // Emit event when 'Buy' button on the post's page goes out of viewport
 
-var $ = require('jquery');
+var $ = require('jquery/dist/jquery.slim');
 var events = require('./events');
 var helpers = require('./helpers');
 
@@ -222,7 +214,7 @@ function init(element) {
 
 exports.init = init;
 // exports.checkContentButtonViewport = checkContentButtonViewport;
-},{"./events":5,"./helpers":9,"jquery":20}],5:[function(require,module,exports){
+},{"./events":5,"./helpers":8,"jquery/dist/jquery.slim":18}],5:[function(require,module,exports){
 // Simple event bus
 // https://gist.github.com/learncodeacademy/777349747d8382bfb722
 
@@ -258,7 +250,7 @@ exports.emit = emit;
 },{}],6:[function(require,module,exports){
 // Ajax form submission logic
 
-var $ = require('jquery');
+var $ = require('jquery/dist/jquery.slim');
 var events = require('./events');
 var notificationCenter = require('./notification-center');
 
@@ -364,34 +356,8 @@ var FormAjaxSubmit = function(){
 };
 
 module.exports = FormAjaxSubmit;
-},{"./events":5,"./notification-center":13,"jquery":20}],7:[function(require,module,exports){
-// Hide Bootstrap dialog that contains mailchimp form
-
-var $ = require('jquery');
-var events = require('./events');
-
-var DOM = {};
-
-function _cacheDom(element) {
-  DOM.$dialog = $(element);
-}
-
-function _bindEvents() {
-  events.on('formSuccessEvent', function (data) {
-    DOM.$dialog.modal('hide');
-  });
-}
-
-function init(element) {
-  if (element) {
-    _cacheDom(element);
-    _bindEvents();
-  }
-}
-
-exports.init = init;
-},{"./events":5,"jquery":20}],8:[function(require,module,exports){
-var $ = require('jquery');
+},{"./events":5,"./notification-center":12,"jquery/dist/jquery.slim":18}],7:[function(require,module,exports){
+var $ = require('jquery/dist/jquery.slim');
 var nunjucks = require('nunjucks');
 
 var GCR = function(){
@@ -446,10 +412,10 @@ var GCR = function(){
 };
 
 module.exports = GCR;
-},{"jquery":20,"nunjucks":23}],9:[function(require,module,exports){
+},{"jquery/dist/jquery.slim":18,"nunjucks":20}],8:[function(require,module,exports){
 // Helper module
 
-var $ = require('jquery');
+var $ = require('jquery/dist/jquery.slim');
 
 function isInViewport($el) {
   var elementTop = $el.offset().top;
@@ -532,8 +498,8 @@ exports.objectifyForm = objectifyForm;
 exports.parseFirstLastName = parseFirstLastName;
 exports.animateCSS = animateCSS;
 exports.getFormData = getFormData;
-},{"jquery":20}],10:[function(require,module,exports){
-var $ = require('jquery');
+},{"jquery/dist/jquery.slim":18}],9:[function(require,module,exports){
+var $ = require('jquery/dist/jquery.slim');
 var Cookies = require('js-cookie');
 
 var DOM = {};
@@ -569,26 +535,24 @@ function init() {
 }
 
 exports.init = init;
-},{"jquery":20,"js-cookie":21}],11:[function(require,module,exports){
+},{"jquery/dist/jquery.slim":18,"js-cookie":19}],10:[function(require,module,exports){
 // Show or hide 'Buy' button on navbar product page
 
-var $ = require('jquery');
+var $ = require('jquery/dist/jquery.slim');
 var events = require('./events');
 
 var DOM = {};
-// var options = {};
 
 function _cacheDom(element) {
   DOM.$el = $(element);
-  // DOM.$button = $(element).find('.js--buy-button');
 }
 
 function _bindEvents(element) {
   events.on('buyButtonViewport', function (data) {
     if (data.contentButtonVisible) {
-      DOM.$el.fadeOut();
+      DOM.$el.removeClass('visible')
     } else {
-      DOM.$el.fadeIn();
+      DOM.$el.addClass('visible')
     }
   });
 }
@@ -604,13 +568,13 @@ function init(element) {
 
 exports.init = init;
 
-},{"./events":5,"jquery":20}],12:[function(require,module,exports){
+},{"./events":5,"jquery/dist/jquery.slim":18}],11:[function(require,module,exports){
 // Fixes Navbar for vieport width less than a set threshold
 
-var $ = require('jquery');
+var $ = require('jquery/dist/jquery.slim');
 var helpers = require('./helpers');
-var events = require('./events');
-var bootstrap = require('bootstrap');
+// var events = require('./events');
+// var bsCollapse = require('bootstrap/js/dist/collapse');
 
 var DOM = {};
 var options = {};
@@ -664,7 +628,7 @@ function _collapseNavbar() {
   // if the instance is not yet initialized then create new collapse
   if (typeof bsCollapse === "undefined") {
     let id = "#" + DOM.$navbarCollapse.attr("id");
-    bsCollapse = new bootstrap.Collapse(id, {
+    bsCollapse = new bsCollapse(id, {
           toggle: false
     });
   }
@@ -693,7 +657,7 @@ function init(element) {
 exports.init = init;
 // exports.isFixed = isFixed;
 // exports.getNavbarHeight = getNavbarHeight;
-},{"./events":5,"./helpers":9,"bootstrap":18,"jquery":20}],13:[function(require,module,exports){
+},{"./helpers":8,"jquery/dist/jquery.slim":18}],12:[function(require,module,exports){
 
 // Popup notifications based on noty.js
 var Toastify = require('toastify-js')
@@ -728,10 +692,10 @@ function notify(type, message, timeout) {
 }
 
 exports.notify = notify;
-},{"toastify-js":26}],14:[function(require,module,exports){
+},{"toastify-js":23}],13:[function(require,module,exports){
 // Petr Steanov: CORS issues - disabled.
 
-var $ = require('jquery');
+var $ = require('jquery/dist/jquery.slim');
 
 var SnipcartLoadOnClick = function(){
 
@@ -788,7 +752,7 @@ var SnipcartLoadOnClick = function(){
 };
 
 module.exports = SnipcartLoadOnClick;
-},{"jquery":20}],15:[function(require,module,exports){
+},{"jquery/dist/jquery.slim":18}],14:[function(require,module,exports){
 /**
  * @popperjs/core v2.11.8 - MIT License
  */
@@ -2609,13 +2573,13 @@ exports.popperOffsets = popperOffsets$1;
 exports.preventOverflow = preventOverflow$1;
 
 
-},{}],16:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 (function (global){(function (){
 !function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):e.AOS=t()}(this,function(){"use strict";var e="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:{},t="Expected a function",n=NaN,o="[object Symbol]",i=/^\s+|\s+$/g,a=/^[-+]0x[0-9a-f]+$/i,r=/^0b[01]+$/i,c=/^0o[0-7]+$/i,s=parseInt,u="object"==typeof e&&e&&e.Object===Object&&e,d="object"==typeof self&&self&&self.Object===Object&&self,l=u||d||Function("return this")(),f=Object.prototype.toString,m=Math.max,p=Math.min,b=function(){return l.Date.now()};function v(e,n,o){var i,a,r,c,s,u,d=0,l=!1,f=!1,v=!0;if("function"!=typeof e)throw new TypeError(t);function y(t){var n=i,o=a;return i=a=void 0,d=t,c=e.apply(o,n)}function h(e){var t=e-u;return void 0===u||t>=n||t<0||f&&e-d>=r}function k(){var e=b();if(h(e))return x(e);s=setTimeout(k,function(e){var t=n-(e-u);return f?p(t,r-(e-d)):t}(e))}function x(e){return s=void 0,v&&i?y(e):(i=a=void 0,c)}function O(){var e=b(),t=h(e);if(i=arguments,a=this,u=e,t){if(void 0===s)return function(e){return d=e,s=setTimeout(k,n),l?y(e):c}(u);if(f)return s=setTimeout(k,n),y(u)}return void 0===s&&(s=setTimeout(k,n)),c}return n=w(n)||0,g(o)&&(l=!!o.leading,r=(f="maxWait"in o)?m(w(o.maxWait)||0,n):r,v="trailing"in o?!!o.trailing:v),O.cancel=function(){void 0!==s&&clearTimeout(s),d=0,i=u=a=s=void 0},O.flush=function(){return void 0===s?c:x(b())},O}function g(e){var t=typeof e;return!!e&&("object"==t||"function"==t)}function w(e){if("number"==typeof e)return e;if(function(e){return"symbol"==typeof e||function(e){return!!e&&"object"==typeof e}(e)&&f.call(e)==o}(e))return n;if(g(e)){var t="function"==typeof e.valueOf?e.valueOf():e;e=g(t)?t+"":t}if("string"!=typeof e)return 0===e?e:+e;e=e.replace(i,"");var u=r.test(e);return u||c.test(e)?s(e.slice(2),u?2:8):a.test(e)?n:+e}var y=function(e,n,o){var i=!0,a=!0;if("function"!=typeof e)throw new TypeError(t);return g(o)&&(i="leading"in o?!!o.leading:i,a="trailing"in o?!!o.trailing:a),v(e,n,{leading:i,maxWait:n,trailing:a})},h="Expected a function",k=NaN,x="[object Symbol]",O=/^\s+|\s+$/g,j=/^[-+]0x[0-9a-f]+$/i,E=/^0b[01]+$/i,N=/^0o[0-7]+$/i,z=parseInt,C="object"==typeof e&&e&&e.Object===Object&&e,A="object"==typeof self&&self&&self.Object===Object&&self,q=C||A||Function("return this")(),L=Object.prototype.toString,T=Math.max,M=Math.min,S=function(){return q.Date.now()};function D(e){var t=typeof e;return!!e&&("object"==t||"function"==t)}function H(e){if("number"==typeof e)return e;if(function(e){return"symbol"==typeof e||function(e){return!!e&&"object"==typeof e}(e)&&L.call(e)==x}(e))return k;if(D(e)){var t="function"==typeof e.valueOf?e.valueOf():e;e=D(t)?t+"":t}if("string"!=typeof e)return 0===e?e:+e;e=e.replace(O,"");var n=E.test(e);return n||N.test(e)?z(e.slice(2),n?2:8):j.test(e)?k:+e}var $=function(e,t,n){var o,i,a,r,c,s,u=0,d=!1,l=!1,f=!0;if("function"!=typeof e)throw new TypeError(h);function m(t){var n=o,a=i;return o=i=void 0,u=t,r=e.apply(a,n)}function p(e){var n=e-s;return void 0===s||n>=t||n<0||l&&e-u>=a}function b(){var e=S();if(p(e))return v(e);c=setTimeout(b,function(e){var n=t-(e-s);return l?M(n,a-(e-u)):n}(e))}function v(e){return c=void 0,f&&o?m(e):(o=i=void 0,r)}function g(){var e=S(),n=p(e);if(o=arguments,i=this,s=e,n){if(void 0===c)return function(e){return u=e,c=setTimeout(b,t),d?m(e):r}(s);if(l)return c=setTimeout(b,t),m(s)}return void 0===c&&(c=setTimeout(b,t)),r}return t=H(t)||0,D(n)&&(d=!!n.leading,a=(l="maxWait"in n)?T(H(n.maxWait)||0,t):a,f="trailing"in n?!!n.trailing:f),g.cancel=function(){void 0!==c&&clearTimeout(c),u=0,o=s=i=c=void 0},g.flush=function(){return void 0===c?r:v(S())},g},W=function(){};function P(e){e&&e.forEach(function(e){var t=Array.prototype.slice.call(e.addedNodes),n=Array.prototype.slice.call(e.removedNodes);if(function e(t){var n=void 0,o=void 0;for(n=0;n<t.length;n+=1){if((o=t[n]).dataset&&o.dataset.aos)return!0;if(o.children&&e(o.children))return!0}return!1}(t.concat(n)))return W()})}function Y(){return window.MutationObserver||window.WebKitMutationObserver||window.MozMutationObserver}var _={isSupported:function(){return!!Y()},ready:function(e,t){var n=window.document,o=new(Y())(P);W=t,o.observe(n.documentElement,{childList:!0,subtree:!0,removedNodes:!0})}},B=function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")},F=function(){function e(e,t){for(var n=0;n<t.length;n++){var o=t[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,o.key,o)}}return function(t,n,o){return n&&e(t.prototype,n),o&&e(t,o),t}}(),I=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var o in n)Object.prototype.hasOwnProperty.call(n,o)&&(e[o]=n[o])}return e},K=/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i,G=/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i,J=/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i,Q=/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i;function R(){return navigator.userAgent||navigator.vendor||window.opera||""}var U=new(function(){function e(){B(this,e)}return F(e,[{key:"phone",value:function(){var e=R();return!(!K.test(e)&&!G.test(e.substr(0,4)))}},{key:"mobile",value:function(){var e=R();return!(!J.test(e)&&!Q.test(e.substr(0,4)))}},{key:"tablet",value:function(){return this.mobile()&&!this.phone()}},{key:"ie11",value:function(){return"-ms-scroll-limit"in document.documentElement.style&&"-ms-ime-align"in document.documentElement.style}}]),e}()),V=function(e,t){var n=void 0;return U.ie11()?(n=document.createEvent("CustomEvent")).initCustomEvent(e,!0,!0,{detail:t}):n=new CustomEvent(e,{detail:t}),document.dispatchEvent(n)},X=function(e){return e.forEach(function(e,t){return function(e,t){var n=e.options,o=e.position,i=e.node,a=(e.data,function(){e.animated&&(function(e,t){t&&t.forEach(function(t){return e.classList.remove(t)})}(i,n.animatedClassNames),V("aos:out",i),e.options.id&&V("aos:in:"+e.options.id,i),e.animated=!1)});n.mirror&&t>=o.out&&!n.once?a():t>=o.in?e.animated||(function(e,t){t&&t.forEach(function(t){return e.classList.add(t)})}(i,n.animatedClassNames),V("aos:in",i),e.options.id&&V("aos:in:"+e.options.id,i),e.animated=!0):e.animated&&!n.once&&a()}(e,window.pageYOffset)})},Z=function(e){for(var t=0,n=0;e&&!isNaN(e.offsetLeft)&&!isNaN(e.offsetTop);)t+=e.offsetLeft-("BODY"!=e.tagName?e.scrollLeft:0),n+=e.offsetTop-("BODY"!=e.tagName?e.scrollTop:0),e=e.offsetParent;return{top:n,left:t}},ee=function(e,t,n){var o=e.getAttribute("data-aos-"+t);if(void 0!==o){if("true"===o)return!0;if("false"===o)return!1}return o||n},te=function(e,t){return e.forEach(function(e,n){var o=ee(e.node,"mirror",t.mirror),i=ee(e.node,"once",t.once),a=ee(e.node,"id"),r=t.useClassNames&&e.node.getAttribute("data-aos"),c=[t.animatedClassName].concat(r?r.split(" "):[]).filter(function(e){return"string"==typeof e});t.initClassName&&e.node.classList.add(t.initClassName),e.position={in:function(e,t,n){var o=window.innerHeight,i=ee(e,"anchor"),a=ee(e,"anchor-placement"),r=Number(ee(e,"offset",a?0:t)),c=a||n,s=e;i&&document.querySelectorAll(i)&&(s=document.querySelectorAll(i)[0]);var u=Z(s).top-o;switch(c){case"top-bottom":break;case"center-bottom":u+=s.offsetHeight/2;break;case"bottom-bottom":u+=s.offsetHeight;break;case"top-center":u+=o/2;break;case"center-center":u+=o/2+s.offsetHeight/2;break;case"bottom-center":u+=o/2+s.offsetHeight;break;case"top-top":u+=o;break;case"bottom-top":u+=o+s.offsetHeight;break;case"center-top":u+=o+s.offsetHeight/2}return u+r}(e.node,t.offset,t.anchorPlacement),out:o&&function(e,t){window.innerHeight;var n=ee(e,"anchor"),o=ee(e,"offset",t),i=e;return n&&document.querySelectorAll(n)&&(i=document.querySelectorAll(n)[0]),Z(i).top+i.offsetHeight-o}(e.node,t.offset)},e.options={once:i,mirror:o,animatedClassNames:c,id:a}}),e},ne=function(){var e=document.querySelectorAll("[data-aos]");return Array.prototype.map.call(e,function(e){return{node:e}})},oe=[],ie=!1,ae={offset:120,delay:0,easing:"ease",duration:400,disable:!1,once:!1,mirror:!1,anchorPlacement:"top-bottom",startEvent:"DOMContentLoaded",animatedClassName:"aos-animate",initClassName:"aos-init",useClassNames:!1,disableMutationObserver:!1,throttleDelay:99,debounceDelay:50},re=function(){return document.all&&!window.atob},ce=function(){arguments.length>0&&void 0!==arguments[0]&&arguments[0]&&(ie=!0),ie&&(oe=te(oe,ae),X(oe),window.addEventListener("scroll",y(function(){X(oe,ae.once)},ae.throttleDelay)))},se=function(){if(oe=ne(),de(ae.disable)||re())return ue();ce()},ue=function(){oe.forEach(function(e,t){e.node.removeAttribute("data-aos"),e.node.removeAttribute("data-aos-easing"),e.node.removeAttribute("data-aos-duration"),e.node.removeAttribute("data-aos-delay"),ae.initClassName&&e.node.classList.remove(ae.initClassName),ae.animatedClassName&&e.node.classList.remove(ae.animatedClassName)})},de=function(e){return!0===e||"mobile"===e&&U.mobile()||"phone"===e&&U.phone()||"tablet"===e&&U.tablet()||"function"==typeof e&&!0===e()};return{init:function(e){return ae=I(ae,e),oe=ne(),ae.disableMutationObserver||_.isSupported()||(console.info('\n      aos: MutationObserver is not supported on this browser,\n      code mutations observing has been disabled.\n      You may have to call "refreshHard()" by yourself.\n    '),ae.disableMutationObserver=!0),ae.disableMutationObserver||_.ready("[data-aos]",se),de(ae.disable)||re()?ue():(document.querySelector("body").setAttribute("data-aos-easing",ae.easing),document.querySelector("body").setAttribute("data-aos-duration",ae.duration),document.querySelector("body").setAttribute("data-aos-delay",ae.delay),-1===["DOMContentLoaded","load"].indexOf(ae.startEvent)?document.addEventListener(ae.startEvent,function(){ce(!0)}):window.addEventListener("load",function(){ce(!0)}),"DOMContentLoaded"===ae.startEvent&&["complete","interactive"].indexOf(document.readyState)>-1&&ce(!0),window.addEventListener("resize",$(ce,ae.debounceDelay,!0)),window.addEventListener("orientationchange",$(ce,ae.debounceDelay,!0)),oe)},refresh:ce,refreshHard:se}});
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{}],17:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
 	typeof define === 'function' && define.amd ? define(factory) :
@@ -2888,7 +2852,7 @@ exports.preventOverflow = preventOverflow$1;
 
 })));
 
-},{}],18:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 /*!
   * Bootstrap v5.3.3 (https://getbootstrap.com/)
   * Copyright 2011-2024 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
@@ -7384,559 +7348,9 @@ exports.preventOverflow = preventOverflow$1;
 }));
 
 
-},{"@popperjs/core":15}],19:[function(require,module,exports){
-/**
- jQuery.kinetic v2.2.4
- Dave Taylor http://davetayls.me
-
- @license The MIT License (MIT)
- @preserve Copyright (c) 2012 Dave Taylor http://davetayls.me
- */
-(function ($){
-  'use strict';
-
-  var ACTIVE_CLASS = 'kinetic-active';
-
-  /**
-   * Provides requestAnimationFrame in a cross browser way.
-   * http://paulirish.com/2011/requestanimationframe-for-smart-animating/
-   */
-  if (!window.requestAnimationFrame){
-
-    window.requestAnimationFrame = ( function (){
-
-      return window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.oRequestAnimationFrame ||
-        window.msRequestAnimationFrame ||
-        function (/* function FrameRequestCallback */ callback, /* DOMElement Element */ element){
-          window.setTimeout(callback, 1000 / 60);
-        };
-
-    }());
-
-  }
-
-  // add touch checker to jQuery.support
-  $.support = $.support || {};
-  $.extend($.support, {
-    touch: 'ontouchend' in document
-  });
-
-
-  // KINETIC CLASS DEFINITION
-  // ======================
-
-  var Kinetic = function (element, settings) {
-    this.settings = settings;
-    this.el       = element;
-    this.$el      = $(element);
-
-    this._initElements();
-
-    return this;
-  };
-
-  Kinetic.DATA_KEY = 'kinetic';
-  Kinetic.DEFAULTS = {
-    cursor: 'move',
-    decelerate: true,
-    triggerHardware: false,
-    threshold: 0,
-    y: true,
-    x: true,
-    slowdown: 0.9,
-    maxvelocity: 40,
-    throttleFPS: 60,
-    invert: false,
-    movingClass: {
-      up: 'kinetic-moving-up',
-      down: 'kinetic-moving-down',
-      left: 'kinetic-moving-left',
-      right: 'kinetic-moving-right'
-    },
-    deceleratingClass: {
-      up: 'kinetic-decelerating-up',
-      down: 'kinetic-decelerating-down',
-      left: 'kinetic-decelerating-left',
-      right: 'kinetic-decelerating-right'
-    }
-  };
-
-
-  // Public functions
-
-  Kinetic.prototype.start = function (options){
-    this.settings = $.extend(this.settings, options);
-    this.velocity = options.velocity || this.velocity;
-    this.velocityY = options.velocityY || this.velocityY;
-    this.settings.decelerate = false;
-    this._move();
-  };
-
-  Kinetic.prototype.end = function (){
-    this.settings.decelerate = true;
-  };
-
-  Kinetic.prototype.stop = function (){
-    this.velocity = 0;
-    this.velocityY = 0;
-    this.settings.decelerate = true;
-    if ($.isFunction(this.settings.stopped)){
-      this.settings.stopped.call(this);
-    }
-  };
-
-  Kinetic.prototype.detach = function (){
-    this._detachListeners();
-    this.$el
-      .removeClass(ACTIVE_CLASS)
-      .css('cursor', '');
-  };
-
-
-  Kinetic.prototype.attach = function (){
-    if (this.$el.hasClass(ACTIVE_CLASS)) {
-      return;
-    }
-    this._attachListeners(this.$el);
-    this.$el
-      .addClass(ACTIVE_CLASS)
-      .css('cursor', this.settings.cursor);
-  };
-
-
-  Kinetic.prototype.destroy = function (){
-    this.detach();
-    this.$el=null;
-    this.el=null;
-    this.settings=null;
-  };
-
-
-  // Internal functions
-
-  Kinetic.prototype._initElements = function (){
-    this.$el.addClass(ACTIVE_CLASS);
-
-    $.extend(this, {
-      xpos: null,
-      prevXPos: false,
-      ypos: null,
-      prevYPos: false,
-      mouseDown: false,
-      throttleTimeout: 1000 / this.settings.throttleFPS,
-      lastMove: null,
-      elementFocused: null
-    });
-
-    this.velocity = 0;
-    this.velocityY = 0;
-
-    // make sure we reset everything when mouse up
-    $(document)
-      .mouseup($.proxy(this._resetMouse, this))
-      .click($.proxy(this._resetMouse, this));
-
-    this._initEvents();
-
-    this.$el.css('cursor', this.settings.cursor);
-
-    if (this.settings.triggerHardware){
-      this.$el.css({
-        '-webkit-transform': 'translate3d(0,0,0)',
-        '-webkit-perspective': '1000',
-        '-webkit-backface-visibility': 'hidden'
-      });
-    }
-  };
-
-  Kinetic.prototype._initEvents = function(){
-    var self = this;
-    this.settings.events = {
-      touchStart: function (e){
-        var touch;
-        if (self._useTarget(e.target, e)){
-          touch = e.originalEvent.touches[0];
-          self.threshold = self._threshold(e.target, e);
-          self._start(touch.clientX, touch.clientY);
-          e.stopPropagation();
-        }
-      },
-      touchMove: function (e){
-        var touch;
-        if (self.mouseDown){
-          touch = e.originalEvent.touches[0];
-          self._inputmove(touch.clientX, touch.clientY);
-          if (e.preventDefault){
-            e.preventDefault();
-          }
-        }
-      },
-      inputDown: function (e){
-        if (self._useTarget(e.target, e)){
-          self.threshold = self._threshold(e.target, e);
-          self._start(e.clientX, e.clientY);
-          self.elementFocused = e.target;
-          if (e.target.nodeName === 'IMG'){
-            e.preventDefault();
-          }
-          e.stopPropagation();
-        }
-      },
-      inputEnd: function (e){
-        if (self._useTarget(e.target, e)){
-          self._end();
-          self.elementFocused = null;
-          if (e.preventDefault){
-            e.preventDefault();
-          }
-        }
-      },
-      inputMove: function (e){
-        if (self.mouseDown){
-          self._inputmove(e.clientX, e.clientY);
-          if (e.preventDefault){
-            e.preventDefault();
-          }
-        }
-      },
-      scroll: function (e){
-        if ($.isFunction(self.settings.moved)){
-          self.settings.moved.call(self, self.settings);
-        }
-        if (e.preventDefault){
-          e.preventDefault();
-        }
-      },
-      inputClick: function (e){
-        if (Math.abs(self.velocity) > 0){
-          e.preventDefault();
-          return false;
-        }
-      },
-      // prevent drag and drop images in ie
-      dragStart: function (e){
-        if (self._useTarget(e.target, e) && self.elementFocused){
-          return false;
-        }
-      },
-      // prevent selection when dragging
-      selectStart: function (e){
-        if ($.isFunction(self.settings.selectStart)){
-          return self.settings.selectStart.apply(self, arguments);
-        } else if (self._useTarget(e.target, e)) {
-          return false;
-        }
-      }
-    };
-
-    this._attachListeners(this.$el, this.settings);
-
-  };
-
-  Kinetic.prototype._inputmove = function (clientX, clientY){
-    var $this = this.$el;
-    var el = this.el;
-
-    if (!this.lastMove || new Date() > new Date(this.lastMove.getTime() + this.throttleTimeout)){
-      this.lastMove = new Date();
-
-      if (this.mouseDown && (this.xpos || this.ypos)){
-        var movedX = (clientX - this.xpos);
-        var movedY = (clientY - this.ypos);
-        if (this.settings.invert) {
-          movedX *= -1;
-          movedY *= -1;
-        }
-        if(this.threshold > 0){
-          var moved = Math.sqrt(movedX * movedX + movedY * movedY);
-          if(this.threshold > moved){
-            return;
-          } else {
-            this.threshold = 0;
-          }
-        }
-        if (this.elementFocused){
-          $(this.elementFocused).blur();
-          this.elementFocused = null;
-          $this.focus();
-        }
-
-        this.settings.decelerate = false;
-        this.velocity = this.velocityY = 0;
-
-        var scrollLeft = this.scrollLeft();
-        var scrollTop = this.scrollTop();
-
-        this.scrollLeft(this.settings.x ? scrollLeft - movedX : scrollLeft);
-        this.scrollTop(this.settings.y ? scrollTop - movedY : scrollTop);
-
-        this.prevXPos = this.xpos;
-        this.prevYPos = this.ypos;
-        this.xpos = clientX;
-        this.ypos = clientY;
-
-        this._calculateVelocities();
-        this._setMoveClasses(this.settings.movingClass);
-
-        if ($.isFunction(this.settings.moved)){
-          this.settings.moved.call(this, this.settings);
-        }
-      }
-    }
-  };
-
-  Kinetic.prototype._calculateVelocities = function (){
-    this.velocity = this._capVelocity(this.prevXPos - this.xpos, this.settings.maxvelocity);
-    this.velocityY = this._capVelocity(this.prevYPos - this.ypos, this.settings.maxvelocity);
-    if (this.settings.invert) {
-      this.velocity *= -1;
-      this.velocityY *= -1;
-    }
-  };
-
-  Kinetic.prototype._end = function (){
-    if (this.xpos && this.prevXPos && this.settings.decelerate === false){
-      this.settings.decelerate = true;
-      this._calculateVelocities();
-      this.xpos = this.prevXPos = this.mouseDown = false;
-      this._move();
-    }
-  };
-
-  Kinetic.prototype._useTarget = function (target, event){
-    if ($.isFunction(this.settings.filterTarget)){
-      return this.settings.filterTarget.call(this, target, event) !== false;
-    }
-    return true;
-  };
-
-  Kinetic.prototype._threshold = function (target, event){
-    if ($.isFunction(this.settings.threshold)){
-      return this.settings.threshold.call(this, target, event);
-    }
-    return this.settings.threshold;
-  };
-
-  Kinetic.prototype._start = function (clientX, clientY){
-    this.mouseDown = true;
-    this.velocity = this.prevXPos = 0;
-    this.velocityY = this.prevYPos = 0;
-    this.xpos = clientX;
-    this.ypos = clientY;
-  };
-
-  Kinetic.prototype._resetMouse = function (){
-    this.xpos = false;
-    this.ypos = false;
-    this.mouseDown = false;
-  };
-
-  Kinetic.prototype._decelerateVelocity = function (velocity, slowdown){
-    return Math.floor(Math.abs(velocity)) === 0 ? 0 // is velocity less than 1?
-      : velocity * slowdown; // reduce slowdown
-  };
-
-  Kinetic.prototype._capVelocity = function (velocity, max){
-    var newVelocity = velocity;
-    if (velocity > 0){
-      if (velocity > max){
-        newVelocity = max;
-      }
-    } else {
-      if (velocity < (0 - max)){
-        newVelocity = (0 - max);
-      }
-    }
-    return newVelocity;
-  };
-
-  Kinetic.prototype._setMoveClasses = function (classes){
-    // FIXME: consider if we want to apply PL #44, this should not remove
-    // classes we have not defined on the element!
-    var settings = this.settings;
-    var $this = this.$el;
-
-    $this.removeClass(settings.movingClass.up)
-      .removeClass(settings.movingClass.down)
-      .removeClass(settings.movingClass.left)
-      .removeClass(settings.movingClass.right)
-      .removeClass(settings.deceleratingClass.up)
-      .removeClass(settings.deceleratingClass.down)
-      .removeClass(settings.deceleratingClass.left)
-      .removeClass(settings.deceleratingClass.right);
-
-    if (this.velocity > 0){
-      $this.addClass(classes.right);
-    }
-    if (this.velocity < 0){
-      $this.addClass(classes.left);
-    }
-    if (this.velocityY > 0){
-      $this.addClass(classes.down);
-    }
-    if (this.velocityY < 0){
-      $this.addClass(classes.up);
-    }
-
-  };
-
-
-  // do the actual kinetic movement
-  Kinetic.prototype._move = function (){
-    var $scroller = this._getScroller();
-    var scroller = $scroller[0];
-    var self = this;
-    var settings = self.settings;
-
-    // set scrollLeft
-    if (settings.x && scroller.scrollWidth > 0){
-      this.scrollLeft(this.scrollLeft() + this.velocity);
-      if (Math.abs(this.velocity) > 0){
-        this.velocity = settings.decelerate ?
-          self._decelerateVelocity(this.velocity, settings.slowdown) : this.velocity;
-      }
-    } else {
-      this.velocity = 0;
-    }
-
-    // set scrollTop
-    if (settings.y && scroller.scrollHeight > 0){
-      this.scrollTop(this.scrollTop() + this.velocityY);
-      if (Math.abs(this.velocityY) > 0){
-        this.velocityY = settings.decelerate ?
-          self._decelerateVelocity(this.velocityY, settings.slowdown) : this.velocityY;
-      }
-    } else {
-      this.velocityY = 0;
-    }
-
-    self._setMoveClasses(settings.deceleratingClass);
-
-    if ($.isFunction(settings.moved)){
-      settings.moved.call(this, settings);
-    }
-
-    if (Math.abs(this.velocity) > 0 || Math.abs(this.velocityY) > 0){
-      if (!this.moving) {
-        this.moving = true;
-        // tick for next movement
-        window.requestAnimationFrame(function (){
-          self.moving = false;
-          self._move();
-        });
-      }
-    } else {
-      self.stop();
-    }
-  };
-
-  // get current scroller to apply positioning to
-  Kinetic.prototype._getScroller = function(){
-    var $scroller = this.$el;
-    if (this.$el.is('body') || this.$el.is('html')){
-      $scroller = $(window);
-    }
-    return $scroller;
-  };
-
-  // set the scroll position
-  Kinetic.prototype.scrollLeft = function(left){
-    var $scroller = this._getScroller();
-    if (typeof left === 'number'){
-      $scroller.scrollLeft(left);
-      this.settings.scrollLeft = left;
-    } else {
-      return $scroller.scrollLeft();
-    }
-  };
-  Kinetic.prototype.scrollTop = function(top){
-    var $scroller = this._getScroller();
-    if (typeof top === 'number'){
-      $scroller.scrollTop(top);
-      this.settings.scrollTop = top;
-    } else {
-      return $scroller.scrollTop();
-    }
-  };
-
-  Kinetic.prototype._attachListeners = function (){
-    var $this = this.$el;
-    var settings = this.settings;
-
-    if ($.support.touch){
-      $this
-        .bind('touchstart', settings.events.touchStart)
-        .bind('touchend', settings.events.inputEnd)
-        .bind('touchmove', settings.events.touchMove);
-    }
-    
-    $this
-      .mousedown(settings.events.inputDown)
-      .mouseup(settings.events.inputEnd)
-      .mousemove(settings.events.inputMove);
-
-    $this
-      .click(settings.events.inputClick)
-      .scroll(settings.events.scroll)
-      .bind('selectstart', settings.events.selectStart)
-      .bind('dragstart', settings.events.dragStart);
-  };
-
-  Kinetic.prototype._detachListeners = function (){
-    var $this = this.$el;
-    var settings = this.settings;
-    if ($.support.touch){
-      $this
-        .unbind('touchstart', settings.events.touchStart)
-        .unbind('touchend', settings.events.inputEnd)
-        .unbind('touchmove', settings.events.touchMove);
-    }
-
-    $this
-      .unbind('mousedown', settings.events.inputDown)
-      .unbind('mouseup', settings.events.inputEnd)
-      .unbind('mousemove', settings.events.inputMove);
-
-    $this
-      .unbind('click', settings.events.inputClick)
-      .unbind('scroll', settings.events.scroll)
-      .unbind('selectstart', settings.events.selectStart)
-      .unbind('dragstart', settings.events.dragStart);
-  };
-
-
-  // EXPOSE KINETIC CONSTRUCTOR
-  // ==========================
-  $.Kinetic = Kinetic;
-
-  // KINETIC PLUGIN DEFINITION
-  // =======================
-
-  $.fn.kinetic = function (option, callOptions) {
-    return this.each(function () {
-      var $this    = $(this);
-      var instance = $this.data(Kinetic.DATA_KEY);
-      var options  = $.extend({}, Kinetic.DEFAULTS, $this.data(), typeof option === 'object' && option);
-
-      if (!instance) {
-        $this.data(Kinetic.DATA_KEY, (instance = new Kinetic(this, options)));
-      }
-
-      if (typeof option === 'string') {
-        instance[option](callOptions);
-      }
-
-    });
-  };
-
-}(window.jQuery || window.Zepto));
-
-
-},{}],20:[function(require,module,exports){
+},{"@popperjs/core":14}],18:[function(require,module,exports){
 /*!
- * jQuery JavaScript Library v3.7.1
+ * jQuery JavaScript Library v3.7.1 -ajax,-ajax/jsonp,-ajax/load,-ajax/script,-ajax/var/location,-ajax/var/nonce,-ajax/var/rquery,-ajax/xhr,-manipulation/_evalUrl,-deprecated/ajax-event-alias,-effects,-effects/animatedSelector,-effects/Tween
  * https://jquery.com/
  *
  * Copyright OpenJS Foundation and other contributors
@@ -8084,7 +7498,7 @@ function toType( obj ) {
 
 
 
-var version = "3.7.1",
+var version = "3.7.1 -ajax,-ajax/jsonp,-ajax/load,-ajax/script,-ajax/var/location,-ajax/var/nonce,-ajax/var/rquery,-ajax/xhr,-manipulation/_evalUrl,-deprecated/ajax-event-alias,-effects,-effects/animatedSelector,-effects/Tween",
 
 	rhtmlSuffix = /HTML$/i,
 
@@ -14969,800 +14383,6 @@ jQuery.fn.extend( {
 } );
 
 
-function Tween( elem, options, prop, end, easing ) {
-	return new Tween.prototype.init( elem, options, prop, end, easing );
-}
-jQuery.Tween = Tween;
-
-Tween.prototype = {
-	constructor: Tween,
-	init: function( elem, options, prop, end, easing, unit ) {
-		this.elem = elem;
-		this.prop = prop;
-		this.easing = easing || jQuery.easing._default;
-		this.options = options;
-		this.start = this.now = this.cur();
-		this.end = end;
-		this.unit = unit || ( jQuery.cssNumber[ prop ] ? "" : "px" );
-	},
-	cur: function() {
-		var hooks = Tween.propHooks[ this.prop ];
-
-		return hooks && hooks.get ?
-			hooks.get( this ) :
-			Tween.propHooks._default.get( this );
-	},
-	run: function( percent ) {
-		var eased,
-			hooks = Tween.propHooks[ this.prop ];
-
-		if ( this.options.duration ) {
-			this.pos = eased = jQuery.easing[ this.easing ](
-				percent, this.options.duration * percent, 0, 1, this.options.duration
-			);
-		} else {
-			this.pos = eased = percent;
-		}
-		this.now = ( this.end - this.start ) * eased + this.start;
-
-		if ( this.options.step ) {
-			this.options.step.call( this.elem, this.now, this );
-		}
-
-		if ( hooks && hooks.set ) {
-			hooks.set( this );
-		} else {
-			Tween.propHooks._default.set( this );
-		}
-		return this;
-	}
-};
-
-Tween.prototype.init.prototype = Tween.prototype;
-
-Tween.propHooks = {
-	_default: {
-		get: function( tween ) {
-			var result;
-
-			// Use a property on the element directly when it is not a DOM element,
-			// or when there is no matching style property that exists.
-			if ( tween.elem.nodeType !== 1 ||
-				tween.elem[ tween.prop ] != null && tween.elem.style[ tween.prop ] == null ) {
-				return tween.elem[ tween.prop ];
-			}
-
-			// Passing an empty string as a 3rd parameter to .css will automatically
-			// attempt a parseFloat and fallback to a string if the parse fails.
-			// Simple values such as "10px" are parsed to Float;
-			// complex values such as "rotate(1rad)" are returned as-is.
-			result = jQuery.css( tween.elem, tween.prop, "" );
-
-			// Empty strings, null, undefined and "auto" are converted to 0.
-			return !result || result === "auto" ? 0 : result;
-		},
-		set: function( tween ) {
-
-			// Use step hook for back compat.
-			// Use cssHook if its there.
-			// Use .style if available and use plain properties where available.
-			if ( jQuery.fx.step[ tween.prop ] ) {
-				jQuery.fx.step[ tween.prop ]( tween );
-			} else if ( tween.elem.nodeType === 1 && (
-				jQuery.cssHooks[ tween.prop ] ||
-					tween.elem.style[ finalPropName( tween.prop ) ] != null ) ) {
-				jQuery.style( tween.elem, tween.prop, tween.now + tween.unit );
-			} else {
-				tween.elem[ tween.prop ] = tween.now;
-			}
-		}
-	}
-};
-
-// Support: IE <=9 only
-// Panic based approach to setting things on disconnected nodes
-Tween.propHooks.scrollTop = Tween.propHooks.scrollLeft = {
-	set: function( tween ) {
-		if ( tween.elem.nodeType && tween.elem.parentNode ) {
-			tween.elem[ tween.prop ] = tween.now;
-		}
-	}
-};
-
-jQuery.easing = {
-	linear: function( p ) {
-		return p;
-	},
-	swing: function( p ) {
-		return 0.5 - Math.cos( p * Math.PI ) / 2;
-	},
-	_default: "swing"
-};
-
-jQuery.fx = Tween.prototype.init;
-
-// Back compat <1.8 extension point
-jQuery.fx.step = {};
-
-
-
-
-var
-	fxNow, inProgress,
-	rfxtypes = /^(?:toggle|show|hide)$/,
-	rrun = /queueHooks$/;
-
-function schedule() {
-	if ( inProgress ) {
-		if ( document.hidden === false && window.requestAnimationFrame ) {
-			window.requestAnimationFrame( schedule );
-		} else {
-			window.setTimeout( schedule, jQuery.fx.interval );
-		}
-
-		jQuery.fx.tick();
-	}
-}
-
-// Animations created synchronously will run synchronously
-function createFxNow() {
-	window.setTimeout( function() {
-		fxNow = undefined;
-	} );
-	return ( fxNow = Date.now() );
-}
-
-// Generate parameters to create a standard animation
-function genFx( type, includeWidth ) {
-	var which,
-		i = 0,
-		attrs = { height: type };
-
-	// If we include width, step value is 1 to do all cssExpand values,
-	// otherwise step value is 2 to skip over Left and Right
-	includeWidth = includeWidth ? 1 : 0;
-	for ( ; i < 4; i += 2 - includeWidth ) {
-		which = cssExpand[ i ];
-		attrs[ "margin" + which ] = attrs[ "padding" + which ] = type;
-	}
-
-	if ( includeWidth ) {
-		attrs.opacity = attrs.width = type;
-	}
-
-	return attrs;
-}
-
-function createTween( value, prop, animation ) {
-	var tween,
-		collection = ( Animation.tweeners[ prop ] || [] ).concat( Animation.tweeners[ "*" ] ),
-		index = 0,
-		length = collection.length;
-	for ( ; index < length; index++ ) {
-		if ( ( tween = collection[ index ].call( animation, prop, value ) ) ) {
-
-			// We're done with this property
-			return tween;
-		}
-	}
-}
-
-function defaultPrefilter( elem, props, opts ) {
-	var prop, value, toggle, hooks, oldfire, propTween, restoreDisplay, display,
-		isBox = "width" in props || "height" in props,
-		anim = this,
-		orig = {},
-		style = elem.style,
-		hidden = elem.nodeType && isHiddenWithinTree( elem ),
-		dataShow = dataPriv.get( elem, "fxshow" );
-
-	// Queue-skipping animations hijack the fx hooks
-	if ( !opts.queue ) {
-		hooks = jQuery._queueHooks( elem, "fx" );
-		if ( hooks.unqueued == null ) {
-			hooks.unqueued = 0;
-			oldfire = hooks.empty.fire;
-			hooks.empty.fire = function() {
-				if ( !hooks.unqueued ) {
-					oldfire();
-				}
-			};
-		}
-		hooks.unqueued++;
-
-		anim.always( function() {
-
-			// Ensure the complete handler is called before this completes
-			anim.always( function() {
-				hooks.unqueued--;
-				if ( !jQuery.queue( elem, "fx" ).length ) {
-					hooks.empty.fire();
-				}
-			} );
-		} );
-	}
-
-	// Detect show/hide animations
-	for ( prop in props ) {
-		value = props[ prop ];
-		if ( rfxtypes.test( value ) ) {
-			delete props[ prop ];
-			toggle = toggle || value === "toggle";
-			if ( value === ( hidden ? "hide" : "show" ) ) {
-
-				// Pretend to be hidden if this is a "show" and
-				// there is still data from a stopped show/hide
-				if ( value === "show" && dataShow && dataShow[ prop ] !== undefined ) {
-					hidden = true;
-
-				// Ignore all other no-op show/hide data
-				} else {
-					continue;
-				}
-			}
-			orig[ prop ] = dataShow && dataShow[ prop ] || jQuery.style( elem, prop );
-		}
-	}
-
-	// Bail out if this is a no-op like .hide().hide()
-	propTween = !jQuery.isEmptyObject( props );
-	if ( !propTween && jQuery.isEmptyObject( orig ) ) {
-		return;
-	}
-
-	// Restrict "overflow" and "display" styles during box animations
-	if ( isBox && elem.nodeType === 1 ) {
-
-		// Support: IE <=9 - 11, Edge 12 - 15
-		// Record all 3 overflow attributes because IE does not infer the shorthand
-		// from identically-valued overflowX and overflowY and Edge just mirrors
-		// the overflowX value there.
-		opts.overflow = [ style.overflow, style.overflowX, style.overflowY ];
-
-		// Identify a display type, preferring old show/hide data over the CSS cascade
-		restoreDisplay = dataShow && dataShow.display;
-		if ( restoreDisplay == null ) {
-			restoreDisplay = dataPriv.get( elem, "display" );
-		}
-		display = jQuery.css( elem, "display" );
-		if ( display === "none" ) {
-			if ( restoreDisplay ) {
-				display = restoreDisplay;
-			} else {
-
-				// Get nonempty value(s) by temporarily forcing visibility
-				showHide( [ elem ], true );
-				restoreDisplay = elem.style.display || restoreDisplay;
-				display = jQuery.css( elem, "display" );
-				showHide( [ elem ] );
-			}
-		}
-
-		// Animate inline elements as inline-block
-		if ( display === "inline" || display === "inline-block" && restoreDisplay != null ) {
-			if ( jQuery.css( elem, "float" ) === "none" ) {
-
-				// Restore the original display value at the end of pure show/hide animations
-				if ( !propTween ) {
-					anim.done( function() {
-						style.display = restoreDisplay;
-					} );
-					if ( restoreDisplay == null ) {
-						display = style.display;
-						restoreDisplay = display === "none" ? "" : display;
-					}
-				}
-				style.display = "inline-block";
-			}
-		}
-	}
-
-	if ( opts.overflow ) {
-		style.overflow = "hidden";
-		anim.always( function() {
-			style.overflow = opts.overflow[ 0 ];
-			style.overflowX = opts.overflow[ 1 ];
-			style.overflowY = opts.overflow[ 2 ];
-		} );
-	}
-
-	// Implement show/hide animations
-	propTween = false;
-	for ( prop in orig ) {
-
-		// General show/hide setup for this element animation
-		if ( !propTween ) {
-			if ( dataShow ) {
-				if ( "hidden" in dataShow ) {
-					hidden = dataShow.hidden;
-				}
-			} else {
-				dataShow = dataPriv.access( elem, "fxshow", { display: restoreDisplay } );
-			}
-
-			// Store hidden/visible for toggle so `.stop().toggle()` "reverses"
-			if ( toggle ) {
-				dataShow.hidden = !hidden;
-			}
-
-			// Show elements before animating them
-			if ( hidden ) {
-				showHide( [ elem ], true );
-			}
-
-			/* eslint-disable no-loop-func */
-
-			anim.done( function() {
-
-				/* eslint-enable no-loop-func */
-
-				// The final step of a "hide" animation is actually hiding the element
-				if ( !hidden ) {
-					showHide( [ elem ] );
-				}
-				dataPriv.remove( elem, "fxshow" );
-				for ( prop in orig ) {
-					jQuery.style( elem, prop, orig[ prop ] );
-				}
-			} );
-		}
-
-		// Per-property setup
-		propTween = createTween( hidden ? dataShow[ prop ] : 0, prop, anim );
-		if ( !( prop in dataShow ) ) {
-			dataShow[ prop ] = propTween.start;
-			if ( hidden ) {
-				propTween.end = propTween.start;
-				propTween.start = 0;
-			}
-		}
-	}
-}
-
-function propFilter( props, specialEasing ) {
-	var index, name, easing, value, hooks;
-
-	// camelCase, specialEasing and expand cssHook pass
-	for ( index in props ) {
-		name = camelCase( index );
-		easing = specialEasing[ name ];
-		value = props[ index ];
-		if ( Array.isArray( value ) ) {
-			easing = value[ 1 ];
-			value = props[ index ] = value[ 0 ];
-		}
-
-		if ( index !== name ) {
-			props[ name ] = value;
-			delete props[ index ];
-		}
-
-		hooks = jQuery.cssHooks[ name ];
-		if ( hooks && "expand" in hooks ) {
-			value = hooks.expand( value );
-			delete props[ name ];
-
-			// Not quite $.extend, this won't overwrite existing keys.
-			// Reusing 'index' because we have the correct "name"
-			for ( index in value ) {
-				if ( !( index in props ) ) {
-					props[ index ] = value[ index ];
-					specialEasing[ index ] = easing;
-				}
-			}
-		} else {
-			specialEasing[ name ] = easing;
-		}
-	}
-}
-
-function Animation( elem, properties, options ) {
-	var result,
-		stopped,
-		index = 0,
-		length = Animation.prefilters.length,
-		deferred = jQuery.Deferred().always( function() {
-
-			// Don't match elem in the :animated selector
-			delete tick.elem;
-		} ),
-		tick = function() {
-			if ( stopped ) {
-				return false;
-			}
-			var currentTime = fxNow || createFxNow(),
-				remaining = Math.max( 0, animation.startTime + animation.duration - currentTime ),
-
-				// Support: Android 2.3 only
-				// Archaic crash bug won't allow us to use `1 - ( 0.5 || 0 )` (trac-12497)
-				temp = remaining / animation.duration || 0,
-				percent = 1 - temp,
-				index = 0,
-				length = animation.tweens.length;
-
-			for ( ; index < length; index++ ) {
-				animation.tweens[ index ].run( percent );
-			}
-
-			deferred.notifyWith( elem, [ animation, percent, remaining ] );
-
-			// If there's more to do, yield
-			if ( percent < 1 && length ) {
-				return remaining;
-			}
-
-			// If this was an empty animation, synthesize a final progress notification
-			if ( !length ) {
-				deferred.notifyWith( elem, [ animation, 1, 0 ] );
-			}
-
-			// Resolve the animation and report its conclusion
-			deferred.resolveWith( elem, [ animation ] );
-			return false;
-		},
-		animation = deferred.promise( {
-			elem: elem,
-			props: jQuery.extend( {}, properties ),
-			opts: jQuery.extend( true, {
-				specialEasing: {},
-				easing: jQuery.easing._default
-			}, options ),
-			originalProperties: properties,
-			originalOptions: options,
-			startTime: fxNow || createFxNow(),
-			duration: options.duration,
-			tweens: [],
-			createTween: function( prop, end ) {
-				var tween = jQuery.Tween( elem, animation.opts, prop, end,
-					animation.opts.specialEasing[ prop ] || animation.opts.easing );
-				animation.tweens.push( tween );
-				return tween;
-			},
-			stop: function( gotoEnd ) {
-				var index = 0,
-
-					// If we are going to the end, we want to run all the tweens
-					// otherwise we skip this part
-					length = gotoEnd ? animation.tweens.length : 0;
-				if ( stopped ) {
-					return this;
-				}
-				stopped = true;
-				for ( ; index < length; index++ ) {
-					animation.tweens[ index ].run( 1 );
-				}
-
-				// Resolve when we played the last frame; otherwise, reject
-				if ( gotoEnd ) {
-					deferred.notifyWith( elem, [ animation, 1, 0 ] );
-					deferred.resolveWith( elem, [ animation, gotoEnd ] );
-				} else {
-					deferred.rejectWith( elem, [ animation, gotoEnd ] );
-				}
-				return this;
-			}
-		} ),
-		props = animation.props;
-
-	propFilter( props, animation.opts.specialEasing );
-
-	for ( ; index < length; index++ ) {
-		result = Animation.prefilters[ index ].call( animation, elem, props, animation.opts );
-		if ( result ) {
-			if ( isFunction( result.stop ) ) {
-				jQuery._queueHooks( animation.elem, animation.opts.queue ).stop =
-					result.stop.bind( result );
-			}
-			return result;
-		}
-	}
-
-	jQuery.map( props, createTween, animation );
-
-	if ( isFunction( animation.opts.start ) ) {
-		animation.opts.start.call( elem, animation );
-	}
-
-	// Attach callbacks from options
-	animation
-		.progress( animation.opts.progress )
-		.done( animation.opts.done, animation.opts.complete )
-		.fail( animation.opts.fail )
-		.always( animation.opts.always );
-
-	jQuery.fx.timer(
-		jQuery.extend( tick, {
-			elem: elem,
-			anim: animation,
-			queue: animation.opts.queue
-		} )
-	);
-
-	return animation;
-}
-
-jQuery.Animation = jQuery.extend( Animation, {
-
-	tweeners: {
-		"*": [ function( prop, value ) {
-			var tween = this.createTween( prop, value );
-			adjustCSS( tween.elem, prop, rcssNum.exec( value ), tween );
-			return tween;
-		} ]
-	},
-
-	tweener: function( props, callback ) {
-		if ( isFunction( props ) ) {
-			callback = props;
-			props = [ "*" ];
-		} else {
-			props = props.match( rnothtmlwhite );
-		}
-
-		var prop,
-			index = 0,
-			length = props.length;
-
-		for ( ; index < length; index++ ) {
-			prop = props[ index ];
-			Animation.tweeners[ prop ] = Animation.tweeners[ prop ] || [];
-			Animation.tweeners[ prop ].unshift( callback );
-		}
-	},
-
-	prefilters: [ defaultPrefilter ],
-
-	prefilter: function( callback, prepend ) {
-		if ( prepend ) {
-			Animation.prefilters.unshift( callback );
-		} else {
-			Animation.prefilters.push( callback );
-		}
-	}
-} );
-
-jQuery.speed = function( speed, easing, fn ) {
-	var opt = speed && typeof speed === "object" ? jQuery.extend( {}, speed ) : {
-		complete: fn || !fn && easing ||
-			isFunction( speed ) && speed,
-		duration: speed,
-		easing: fn && easing || easing && !isFunction( easing ) && easing
-	};
-
-	// Go to the end state if fx are off
-	if ( jQuery.fx.off ) {
-		opt.duration = 0;
-
-	} else {
-		if ( typeof opt.duration !== "number" ) {
-			if ( opt.duration in jQuery.fx.speeds ) {
-				opt.duration = jQuery.fx.speeds[ opt.duration ];
-
-			} else {
-				opt.duration = jQuery.fx.speeds._default;
-			}
-		}
-	}
-
-	// Normalize opt.queue - true/undefined/null -> "fx"
-	if ( opt.queue == null || opt.queue === true ) {
-		opt.queue = "fx";
-	}
-
-	// Queueing
-	opt.old = opt.complete;
-
-	opt.complete = function() {
-		if ( isFunction( opt.old ) ) {
-			opt.old.call( this );
-		}
-
-		if ( opt.queue ) {
-			jQuery.dequeue( this, opt.queue );
-		}
-	};
-
-	return opt;
-};
-
-jQuery.fn.extend( {
-	fadeTo: function( speed, to, easing, callback ) {
-
-		// Show any hidden elements after setting opacity to 0
-		return this.filter( isHiddenWithinTree ).css( "opacity", 0 ).show()
-
-			// Animate to the value specified
-			.end().animate( { opacity: to }, speed, easing, callback );
-	},
-	animate: function( prop, speed, easing, callback ) {
-		var empty = jQuery.isEmptyObject( prop ),
-			optall = jQuery.speed( speed, easing, callback ),
-			doAnimation = function() {
-
-				// Operate on a copy of prop so per-property easing won't be lost
-				var anim = Animation( this, jQuery.extend( {}, prop ), optall );
-
-				// Empty animations, or finishing resolves immediately
-				if ( empty || dataPriv.get( this, "finish" ) ) {
-					anim.stop( true );
-				}
-			};
-
-		doAnimation.finish = doAnimation;
-
-		return empty || optall.queue === false ?
-			this.each( doAnimation ) :
-			this.queue( optall.queue, doAnimation );
-	},
-	stop: function( type, clearQueue, gotoEnd ) {
-		var stopQueue = function( hooks ) {
-			var stop = hooks.stop;
-			delete hooks.stop;
-			stop( gotoEnd );
-		};
-
-		if ( typeof type !== "string" ) {
-			gotoEnd = clearQueue;
-			clearQueue = type;
-			type = undefined;
-		}
-		if ( clearQueue ) {
-			this.queue( type || "fx", [] );
-		}
-
-		return this.each( function() {
-			var dequeue = true,
-				index = type != null && type + "queueHooks",
-				timers = jQuery.timers,
-				data = dataPriv.get( this );
-
-			if ( index ) {
-				if ( data[ index ] && data[ index ].stop ) {
-					stopQueue( data[ index ] );
-				}
-			} else {
-				for ( index in data ) {
-					if ( data[ index ] && data[ index ].stop && rrun.test( index ) ) {
-						stopQueue( data[ index ] );
-					}
-				}
-			}
-
-			for ( index = timers.length; index--; ) {
-				if ( timers[ index ].elem === this &&
-					( type == null || timers[ index ].queue === type ) ) {
-
-					timers[ index ].anim.stop( gotoEnd );
-					dequeue = false;
-					timers.splice( index, 1 );
-				}
-			}
-
-			// Start the next in the queue if the last step wasn't forced.
-			// Timers currently will call their complete callbacks, which
-			// will dequeue but only if they were gotoEnd.
-			if ( dequeue || !gotoEnd ) {
-				jQuery.dequeue( this, type );
-			}
-		} );
-	},
-	finish: function( type ) {
-		if ( type !== false ) {
-			type = type || "fx";
-		}
-		return this.each( function() {
-			var index,
-				data = dataPriv.get( this ),
-				queue = data[ type + "queue" ],
-				hooks = data[ type + "queueHooks" ],
-				timers = jQuery.timers,
-				length = queue ? queue.length : 0;
-
-			// Enable finishing flag on private data
-			data.finish = true;
-
-			// Empty the queue first
-			jQuery.queue( this, type, [] );
-
-			if ( hooks && hooks.stop ) {
-				hooks.stop.call( this, true );
-			}
-
-			// Look for any active animations, and finish them
-			for ( index = timers.length; index--; ) {
-				if ( timers[ index ].elem === this && timers[ index ].queue === type ) {
-					timers[ index ].anim.stop( true );
-					timers.splice( index, 1 );
-				}
-			}
-
-			// Look for any animations in the old queue and finish them
-			for ( index = 0; index < length; index++ ) {
-				if ( queue[ index ] && queue[ index ].finish ) {
-					queue[ index ].finish.call( this );
-				}
-			}
-
-			// Turn off finishing flag
-			delete data.finish;
-		} );
-	}
-} );
-
-jQuery.each( [ "toggle", "show", "hide" ], function( _i, name ) {
-	var cssFn = jQuery.fn[ name ];
-	jQuery.fn[ name ] = function( speed, easing, callback ) {
-		return speed == null || typeof speed === "boolean" ?
-			cssFn.apply( this, arguments ) :
-			this.animate( genFx( name, true ), speed, easing, callback );
-	};
-} );
-
-// Generate shortcuts for custom animations
-jQuery.each( {
-	slideDown: genFx( "show" ),
-	slideUp: genFx( "hide" ),
-	slideToggle: genFx( "toggle" ),
-	fadeIn: { opacity: "show" },
-	fadeOut: { opacity: "hide" },
-	fadeToggle: { opacity: "toggle" }
-}, function( name, props ) {
-	jQuery.fn[ name ] = function( speed, easing, callback ) {
-		return this.animate( props, speed, easing, callback );
-	};
-} );
-
-jQuery.timers = [];
-jQuery.fx.tick = function() {
-	var timer,
-		i = 0,
-		timers = jQuery.timers;
-
-	fxNow = Date.now();
-
-	for ( ; i < timers.length; i++ ) {
-		timer = timers[ i ];
-
-		// Run the timer and safely remove it when done (allowing for external removal)
-		if ( !timer() && timers[ i ] === timer ) {
-			timers.splice( i--, 1 );
-		}
-	}
-
-	if ( !timers.length ) {
-		jQuery.fx.stop();
-	}
-	fxNow = undefined;
-};
-
-jQuery.fx.timer = function( timer ) {
-	jQuery.timers.push( timer );
-	jQuery.fx.start();
-};
-
-jQuery.fx.interval = 13;
-jQuery.fx.start = function() {
-	if ( inProgress ) {
-		return;
-	}
-
-	inProgress = true;
-	schedule();
-};
-
-jQuery.fx.stop = function() {
-	inProgress = null;
-};
-
-jQuery.fx.speeds = {
-	slow: 600,
-	fast: 200,
-
-	// Default speed
-	_default: 400
-};
-
-
 // Based off of the plugin by Clint Helfers, with permission.
 jQuery.fn.delay = function( time, type ) {
 	time = jQuery.fx ? jQuery.fx.speeds[ time ] || time : time;
@@ -16433,12 +15053,6 @@ jQuery.each( [ "radio", "checkbox" ], function() {
 
 
 // Return jQuery for attributes-only inclusion
-var location = window.location;
-
-var nonce = { guid: Date.now() };
-
-var rquery = ( /\?/ );
-
 
 
 // Cross-browser xml parsing
@@ -16774,887 +15388,6 @@ jQuery.fn.extend( {
 } );
 
 
-var
-	r20 = /%20/g,
-	rhash = /#.*$/,
-	rantiCache = /([?&])_=[^&]*/,
-	rheaders = /^(.*?):[ \t]*([^\r\n]*)$/mg,
-
-	// trac-7653, trac-8125, trac-8152: local protocol detection
-	rlocalProtocol = /^(?:about|app|app-storage|.+-extension|file|res|widget):$/,
-	rnoContent = /^(?:GET|HEAD)$/,
-	rprotocol = /^\/\//,
-
-	/* Prefilters
-	 * 1) They are useful to introduce custom dataTypes (see ajax/jsonp.js for an example)
-	 * 2) These are called:
-	 *    - BEFORE asking for a transport
-	 *    - AFTER param serialization (s.data is a string if s.processData is true)
-	 * 3) key is the dataType
-	 * 4) the catchall symbol "*" can be used
-	 * 5) execution will start with transport dataType and THEN continue down to "*" if needed
-	 */
-	prefilters = {},
-
-	/* Transports bindings
-	 * 1) key is the dataType
-	 * 2) the catchall symbol "*" can be used
-	 * 3) selection will start with transport dataType and THEN go to "*" if needed
-	 */
-	transports = {},
-
-	// Avoid comment-prolog char sequence (trac-10098); must appease lint and evade compression
-	allTypes = "*/".concat( "*" ),
-
-	// Anchor tag for parsing the document origin
-	originAnchor = document.createElement( "a" );
-
-originAnchor.href = location.href;
-
-// Base "constructor" for jQuery.ajaxPrefilter and jQuery.ajaxTransport
-function addToPrefiltersOrTransports( structure ) {
-
-	// dataTypeExpression is optional and defaults to "*"
-	return function( dataTypeExpression, func ) {
-
-		if ( typeof dataTypeExpression !== "string" ) {
-			func = dataTypeExpression;
-			dataTypeExpression = "*";
-		}
-
-		var dataType,
-			i = 0,
-			dataTypes = dataTypeExpression.toLowerCase().match( rnothtmlwhite ) || [];
-
-		if ( isFunction( func ) ) {
-
-			// For each dataType in the dataTypeExpression
-			while ( ( dataType = dataTypes[ i++ ] ) ) {
-
-				// Prepend if requested
-				if ( dataType[ 0 ] === "+" ) {
-					dataType = dataType.slice( 1 ) || "*";
-					( structure[ dataType ] = structure[ dataType ] || [] ).unshift( func );
-
-				// Otherwise append
-				} else {
-					( structure[ dataType ] = structure[ dataType ] || [] ).push( func );
-				}
-			}
-		}
-	};
-}
-
-// Base inspection function for prefilters and transports
-function inspectPrefiltersOrTransports( structure, options, originalOptions, jqXHR ) {
-
-	var inspected = {},
-		seekingTransport = ( structure === transports );
-
-	function inspect( dataType ) {
-		var selected;
-		inspected[ dataType ] = true;
-		jQuery.each( structure[ dataType ] || [], function( _, prefilterOrFactory ) {
-			var dataTypeOrTransport = prefilterOrFactory( options, originalOptions, jqXHR );
-			if ( typeof dataTypeOrTransport === "string" &&
-				!seekingTransport && !inspected[ dataTypeOrTransport ] ) {
-
-				options.dataTypes.unshift( dataTypeOrTransport );
-				inspect( dataTypeOrTransport );
-				return false;
-			} else if ( seekingTransport ) {
-				return !( selected = dataTypeOrTransport );
-			}
-		} );
-		return selected;
-	}
-
-	return inspect( options.dataTypes[ 0 ] ) || !inspected[ "*" ] && inspect( "*" );
-}
-
-// A special extend for ajax options
-// that takes "flat" options (not to be deep extended)
-// Fixes trac-9887
-function ajaxExtend( target, src ) {
-	var key, deep,
-		flatOptions = jQuery.ajaxSettings.flatOptions || {};
-
-	for ( key in src ) {
-		if ( src[ key ] !== undefined ) {
-			( flatOptions[ key ] ? target : ( deep || ( deep = {} ) ) )[ key ] = src[ key ];
-		}
-	}
-	if ( deep ) {
-		jQuery.extend( true, target, deep );
-	}
-
-	return target;
-}
-
-/* Handles responses to an ajax request:
- * - finds the right dataType (mediates between content-type and expected dataType)
- * - returns the corresponding response
- */
-function ajaxHandleResponses( s, jqXHR, responses ) {
-
-	var ct, type, finalDataType, firstDataType,
-		contents = s.contents,
-		dataTypes = s.dataTypes;
-
-	// Remove auto dataType and get content-type in the process
-	while ( dataTypes[ 0 ] === "*" ) {
-		dataTypes.shift();
-		if ( ct === undefined ) {
-			ct = s.mimeType || jqXHR.getResponseHeader( "Content-Type" );
-		}
-	}
-
-	// Check if we're dealing with a known content-type
-	if ( ct ) {
-		for ( type in contents ) {
-			if ( contents[ type ] && contents[ type ].test( ct ) ) {
-				dataTypes.unshift( type );
-				break;
-			}
-		}
-	}
-
-	// Check to see if we have a response for the expected dataType
-	if ( dataTypes[ 0 ] in responses ) {
-		finalDataType = dataTypes[ 0 ];
-	} else {
-
-		// Try convertible dataTypes
-		for ( type in responses ) {
-			if ( !dataTypes[ 0 ] || s.converters[ type + " " + dataTypes[ 0 ] ] ) {
-				finalDataType = type;
-				break;
-			}
-			if ( !firstDataType ) {
-				firstDataType = type;
-			}
-		}
-
-		// Or just use first one
-		finalDataType = finalDataType || firstDataType;
-	}
-
-	// If we found a dataType
-	// We add the dataType to the list if needed
-	// and return the corresponding response
-	if ( finalDataType ) {
-		if ( finalDataType !== dataTypes[ 0 ] ) {
-			dataTypes.unshift( finalDataType );
-		}
-		return responses[ finalDataType ];
-	}
-}
-
-/* Chain conversions given the request and the original response
- * Also sets the responseXXX fields on the jqXHR instance
- */
-function ajaxConvert( s, response, jqXHR, isSuccess ) {
-	var conv2, current, conv, tmp, prev,
-		converters = {},
-
-		// Work with a copy of dataTypes in case we need to modify it for conversion
-		dataTypes = s.dataTypes.slice();
-
-	// Create converters map with lowercased keys
-	if ( dataTypes[ 1 ] ) {
-		for ( conv in s.converters ) {
-			converters[ conv.toLowerCase() ] = s.converters[ conv ];
-		}
-	}
-
-	current = dataTypes.shift();
-
-	// Convert to each sequential dataType
-	while ( current ) {
-
-		if ( s.responseFields[ current ] ) {
-			jqXHR[ s.responseFields[ current ] ] = response;
-		}
-
-		// Apply the dataFilter if provided
-		if ( !prev && isSuccess && s.dataFilter ) {
-			response = s.dataFilter( response, s.dataType );
-		}
-
-		prev = current;
-		current = dataTypes.shift();
-
-		if ( current ) {
-
-			// There's only work to do if current dataType is non-auto
-			if ( current === "*" ) {
-
-				current = prev;
-
-			// Convert response if prev dataType is non-auto and differs from current
-			} else if ( prev !== "*" && prev !== current ) {
-
-				// Seek a direct converter
-				conv = converters[ prev + " " + current ] || converters[ "* " + current ];
-
-				// If none found, seek a pair
-				if ( !conv ) {
-					for ( conv2 in converters ) {
-
-						// If conv2 outputs current
-						tmp = conv2.split( " " );
-						if ( tmp[ 1 ] === current ) {
-
-							// If prev can be converted to accepted input
-							conv = converters[ prev + " " + tmp[ 0 ] ] ||
-								converters[ "* " + tmp[ 0 ] ];
-							if ( conv ) {
-
-								// Condense equivalence converters
-								if ( conv === true ) {
-									conv = converters[ conv2 ];
-
-								// Otherwise, insert the intermediate dataType
-								} else if ( converters[ conv2 ] !== true ) {
-									current = tmp[ 0 ];
-									dataTypes.unshift( tmp[ 1 ] );
-								}
-								break;
-							}
-						}
-					}
-				}
-
-				// Apply converter (if not an equivalence)
-				if ( conv !== true ) {
-
-					// Unless errors are allowed to bubble, catch and return them
-					if ( conv && s.throws ) {
-						response = conv( response );
-					} else {
-						try {
-							response = conv( response );
-						} catch ( e ) {
-							return {
-								state: "parsererror",
-								error: conv ? e : "No conversion from " + prev + " to " + current
-							};
-						}
-					}
-				}
-			}
-		}
-	}
-
-	return { state: "success", data: response };
-}
-
-jQuery.extend( {
-
-	// Counter for holding the number of active queries
-	active: 0,
-
-	// Last-Modified header cache for next request
-	lastModified: {},
-	etag: {},
-
-	ajaxSettings: {
-		url: location.href,
-		type: "GET",
-		isLocal: rlocalProtocol.test( location.protocol ),
-		global: true,
-		processData: true,
-		async: true,
-		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-
-		/*
-		timeout: 0,
-		data: null,
-		dataType: null,
-		username: null,
-		password: null,
-		cache: null,
-		throws: false,
-		traditional: false,
-		headers: {},
-		*/
-
-		accepts: {
-			"*": allTypes,
-			text: "text/plain",
-			html: "text/html",
-			xml: "application/xml, text/xml",
-			json: "application/json, text/javascript"
-		},
-
-		contents: {
-			xml: /\bxml\b/,
-			html: /\bhtml/,
-			json: /\bjson\b/
-		},
-
-		responseFields: {
-			xml: "responseXML",
-			text: "responseText",
-			json: "responseJSON"
-		},
-
-		// Data converters
-		// Keys separate source (or catchall "*") and destination types with a single space
-		converters: {
-
-			// Convert anything to text
-			"* text": String,
-
-			// Text to html (true = no transformation)
-			"text html": true,
-
-			// Evaluate text as a json expression
-			"text json": JSON.parse,
-
-			// Parse text as xml
-			"text xml": jQuery.parseXML
-		},
-
-		// For options that shouldn't be deep extended:
-		// you can add your own custom options here if
-		// and when you create one that shouldn't be
-		// deep extended (see ajaxExtend)
-		flatOptions: {
-			url: true,
-			context: true
-		}
-	},
-
-	// Creates a full fledged settings object into target
-	// with both ajaxSettings and settings fields.
-	// If target is omitted, writes into ajaxSettings.
-	ajaxSetup: function( target, settings ) {
-		return settings ?
-
-			// Building a settings object
-			ajaxExtend( ajaxExtend( target, jQuery.ajaxSettings ), settings ) :
-
-			// Extending ajaxSettings
-			ajaxExtend( jQuery.ajaxSettings, target );
-	},
-
-	ajaxPrefilter: addToPrefiltersOrTransports( prefilters ),
-	ajaxTransport: addToPrefiltersOrTransports( transports ),
-
-	// Main method
-	ajax: function( url, options ) {
-
-		// If url is an object, simulate pre-1.5 signature
-		if ( typeof url === "object" ) {
-			options = url;
-			url = undefined;
-		}
-
-		// Force options to be an object
-		options = options || {};
-
-		var transport,
-
-			// URL without anti-cache param
-			cacheURL,
-
-			// Response headers
-			responseHeadersString,
-			responseHeaders,
-
-			// timeout handle
-			timeoutTimer,
-
-			// Url cleanup var
-			urlAnchor,
-
-			// Request state (becomes false upon send and true upon completion)
-			completed,
-
-			// To know if global events are to be dispatched
-			fireGlobals,
-
-			// Loop variable
-			i,
-
-			// uncached part of the url
-			uncached,
-
-			// Create the final options object
-			s = jQuery.ajaxSetup( {}, options ),
-
-			// Callbacks context
-			callbackContext = s.context || s,
-
-			// Context for global events is callbackContext if it is a DOM node or jQuery collection
-			globalEventContext = s.context &&
-				( callbackContext.nodeType || callbackContext.jquery ) ?
-				jQuery( callbackContext ) :
-				jQuery.event,
-
-			// Deferreds
-			deferred = jQuery.Deferred(),
-			completeDeferred = jQuery.Callbacks( "once memory" ),
-
-			// Status-dependent callbacks
-			statusCode = s.statusCode || {},
-
-			// Headers (they are sent all at once)
-			requestHeaders = {},
-			requestHeadersNames = {},
-
-			// Default abort message
-			strAbort = "canceled",
-
-			// Fake xhr
-			jqXHR = {
-				readyState: 0,
-
-				// Builds headers hashtable if needed
-				getResponseHeader: function( key ) {
-					var match;
-					if ( completed ) {
-						if ( !responseHeaders ) {
-							responseHeaders = {};
-							while ( ( match = rheaders.exec( responseHeadersString ) ) ) {
-								responseHeaders[ match[ 1 ].toLowerCase() + " " ] =
-									( responseHeaders[ match[ 1 ].toLowerCase() + " " ] || [] )
-										.concat( match[ 2 ] );
-							}
-						}
-						match = responseHeaders[ key.toLowerCase() + " " ];
-					}
-					return match == null ? null : match.join( ", " );
-				},
-
-				// Raw string
-				getAllResponseHeaders: function() {
-					return completed ? responseHeadersString : null;
-				},
-
-				// Caches the header
-				setRequestHeader: function( name, value ) {
-					if ( completed == null ) {
-						name = requestHeadersNames[ name.toLowerCase() ] =
-							requestHeadersNames[ name.toLowerCase() ] || name;
-						requestHeaders[ name ] = value;
-					}
-					return this;
-				},
-
-				// Overrides response content-type header
-				overrideMimeType: function( type ) {
-					if ( completed == null ) {
-						s.mimeType = type;
-					}
-					return this;
-				},
-
-				// Status-dependent callbacks
-				statusCode: function( map ) {
-					var code;
-					if ( map ) {
-						if ( completed ) {
-
-							// Execute the appropriate callbacks
-							jqXHR.always( map[ jqXHR.status ] );
-						} else {
-
-							// Lazy-add the new callbacks in a way that preserves old ones
-							for ( code in map ) {
-								statusCode[ code ] = [ statusCode[ code ], map[ code ] ];
-							}
-						}
-					}
-					return this;
-				},
-
-				// Cancel the request
-				abort: function( statusText ) {
-					var finalText = statusText || strAbort;
-					if ( transport ) {
-						transport.abort( finalText );
-					}
-					done( 0, finalText );
-					return this;
-				}
-			};
-
-		// Attach deferreds
-		deferred.promise( jqXHR );
-
-		// Add protocol if not provided (prefilters might expect it)
-		// Handle falsy url in the settings object (trac-10093: consistency with old signature)
-		// We also use the url parameter if available
-		s.url = ( ( url || s.url || location.href ) + "" )
-			.replace( rprotocol, location.protocol + "//" );
-
-		// Alias method option to type as per ticket trac-12004
-		s.type = options.method || options.type || s.method || s.type;
-
-		// Extract dataTypes list
-		s.dataTypes = ( s.dataType || "*" ).toLowerCase().match( rnothtmlwhite ) || [ "" ];
-
-		// A cross-domain request is in order when the origin doesn't match the current origin.
-		if ( s.crossDomain == null ) {
-			urlAnchor = document.createElement( "a" );
-
-			// Support: IE <=8 - 11, Edge 12 - 15
-			// IE throws exception on accessing the href property if url is malformed,
-			// e.g. http://example.com:80x/
-			try {
-				urlAnchor.href = s.url;
-
-				// Support: IE <=8 - 11 only
-				// Anchor's host property isn't correctly set when s.url is relative
-				urlAnchor.href = urlAnchor.href;
-				s.crossDomain = originAnchor.protocol + "//" + originAnchor.host !==
-					urlAnchor.protocol + "//" + urlAnchor.host;
-			} catch ( e ) {
-
-				// If there is an error parsing the URL, assume it is crossDomain,
-				// it can be rejected by the transport if it is invalid
-				s.crossDomain = true;
-			}
-		}
-
-		// Convert data if not already a string
-		if ( s.data && s.processData && typeof s.data !== "string" ) {
-			s.data = jQuery.param( s.data, s.traditional );
-		}
-
-		// Apply prefilters
-		inspectPrefiltersOrTransports( prefilters, s, options, jqXHR );
-
-		// If request was aborted inside a prefilter, stop there
-		if ( completed ) {
-			return jqXHR;
-		}
-
-		// We can fire global events as of now if asked to
-		// Don't fire events if jQuery.event is undefined in an AMD-usage scenario (trac-15118)
-		fireGlobals = jQuery.event && s.global;
-
-		// Watch for a new set of requests
-		if ( fireGlobals && jQuery.active++ === 0 ) {
-			jQuery.event.trigger( "ajaxStart" );
-		}
-
-		// Uppercase the type
-		s.type = s.type.toUpperCase();
-
-		// Determine if request has content
-		s.hasContent = !rnoContent.test( s.type );
-
-		// Save the URL in case we're toying with the If-Modified-Since
-		// and/or If-None-Match header later on
-		// Remove hash to simplify url manipulation
-		cacheURL = s.url.replace( rhash, "" );
-
-		// More options handling for requests with no content
-		if ( !s.hasContent ) {
-
-			// Remember the hash so we can put it back
-			uncached = s.url.slice( cacheURL.length );
-
-			// If data is available and should be processed, append data to url
-			if ( s.data && ( s.processData || typeof s.data === "string" ) ) {
-				cacheURL += ( rquery.test( cacheURL ) ? "&" : "?" ) + s.data;
-
-				// trac-9682: remove data so that it's not used in an eventual retry
-				delete s.data;
-			}
-
-			// Add or update anti-cache param if needed
-			if ( s.cache === false ) {
-				cacheURL = cacheURL.replace( rantiCache, "$1" );
-				uncached = ( rquery.test( cacheURL ) ? "&" : "?" ) + "_=" + ( nonce.guid++ ) +
-					uncached;
-			}
-
-			// Put hash and anti-cache on the URL that will be requested (gh-1732)
-			s.url = cacheURL + uncached;
-
-		// Change '%20' to '+' if this is encoded form body content (gh-2658)
-		} else if ( s.data && s.processData &&
-			( s.contentType || "" ).indexOf( "application/x-www-form-urlencoded" ) === 0 ) {
-			s.data = s.data.replace( r20, "+" );
-		}
-
-		// Set the If-Modified-Since and/or If-None-Match header, if in ifModified mode.
-		if ( s.ifModified ) {
-			if ( jQuery.lastModified[ cacheURL ] ) {
-				jqXHR.setRequestHeader( "If-Modified-Since", jQuery.lastModified[ cacheURL ] );
-			}
-			if ( jQuery.etag[ cacheURL ] ) {
-				jqXHR.setRequestHeader( "If-None-Match", jQuery.etag[ cacheURL ] );
-			}
-		}
-
-		// Set the correct header, if data is being sent
-		if ( s.data && s.hasContent && s.contentType !== false || options.contentType ) {
-			jqXHR.setRequestHeader( "Content-Type", s.contentType );
-		}
-
-		// Set the Accepts header for the server, depending on the dataType
-		jqXHR.setRequestHeader(
-			"Accept",
-			s.dataTypes[ 0 ] && s.accepts[ s.dataTypes[ 0 ] ] ?
-				s.accepts[ s.dataTypes[ 0 ] ] +
-					( s.dataTypes[ 0 ] !== "*" ? ", " + allTypes + "; q=0.01" : "" ) :
-				s.accepts[ "*" ]
-		);
-
-		// Check for headers option
-		for ( i in s.headers ) {
-			jqXHR.setRequestHeader( i, s.headers[ i ] );
-		}
-
-		// Allow custom headers/mimetypes and early abort
-		if ( s.beforeSend &&
-			( s.beforeSend.call( callbackContext, jqXHR, s ) === false || completed ) ) {
-
-			// Abort if not done already and return
-			return jqXHR.abort();
-		}
-
-		// Aborting is no longer a cancellation
-		strAbort = "abort";
-
-		// Install callbacks on deferreds
-		completeDeferred.add( s.complete );
-		jqXHR.done( s.success );
-		jqXHR.fail( s.error );
-
-		// Get transport
-		transport = inspectPrefiltersOrTransports( transports, s, options, jqXHR );
-
-		// If no transport, we auto-abort
-		if ( !transport ) {
-			done( -1, "No Transport" );
-		} else {
-			jqXHR.readyState = 1;
-
-			// Send global event
-			if ( fireGlobals ) {
-				globalEventContext.trigger( "ajaxSend", [ jqXHR, s ] );
-			}
-
-			// If request was aborted inside ajaxSend, stop there
-			if ( completed ) {
-				return jqXHR;
-			}
-
-			// Timeout
-			if ( s.async && s.timeout > 0 ) {
-				timeoutTimer = window.setTimeout( function() {
-					jqXHR.abort( "timeout" );
-				}, s.timeout );
-			}
-
-			try {
-				completed = false;
-				transport.send( requestHeaders, done );
-			} catch ( e ) {
-
-				// Rethrow post-completion exceptions
-				if ( completed ) {
-					throw e;
-				}
-
-				// Propagate others as results
-				done( -1, e );
-			}
-		}
-
-		// Callback for when everything is done
-		function done( status, nativeStatusText, responses, headers ) {
-			var isSuccess, success, error, response, modified,
-				statusText = nativeStatusText;
-
-			// Ignore repeat invocations
-			if ( completed ) {
-				return;
-			}
-
-			completed = true;
-
-			// Clear timeout if it exists
-			if ( timeoutTimer ) {
-				window.clearTimeout( timeoutTimer );
-			}
-
-			// Dereference transport for early garbage collection
-			// (no matter how long the jqXHR object will be used)
-			transport = undefined;
-
-			// Cache response headers
-			responseHeadersString = headers || "";
-
-			// Set readyState
-			jqXHR.readyState = status > 0 ? 4 : 0;
-
-			// Determine if successful
-			isSuccess = status >= 200 && status < 300 || status === 304;
-
-			// Get response data
-			if ( responses ) {
-				response = ajaxHandleResponses( s, jqXHR, responses );
-			}
-
-			// Use a noop converter for missing script but not if jsonp
-			if ( !isSuccess &&
-				jQuery.inArray( "script", s.dataTypes ) > -1 &&
-				jQuery.inArray( "json", s.dataTypes ) < 0 ) {
-				s.converters[ "text script" ] = function() {};
-			}
-
-			// Convert no matter what (that way responseXXX fields are always set)
-			response = ajaxConvert( s, response, jqXHR, isSuccess );
-
-			// If successful, handle type chaining
-			if ( isSuccess ) {
-
-				// Set the If-Modified-Since and/or If-None-Match header, if in ifModified mode.
-				if ( s.ifModified ) {
-					modified = jqXHR.getResponseHeader( "Last-Modified" );
-					if ( modified ) {
-						jQuery.lastModified[ cacheURL ] = modified;
-					}
-					modified = jqXHR.getResponseHeader( "etag" );
-					if ( modified ) {
-						jQuery.etag[ cacheURL ] = modified;
-					}
-				}
-
-				// if no content
-				if ( status === 204 || s.type === "HEAD" ) {
-					statusText = "nocontent";
-
-				// if not modified
-				} else if ( status === 304 ) {
-					statusText = "notmodified";
-
-				// If we have data, let's convert it
-				} else {
-					statusText = response.state;
-					success = response.data;
-					error = response.error;
-					isSuccess = !error;
-				}
-			} else {
-
-				// Extract error from statusText and normalize for non-aborts
-				error = statusText;
-				if ( status || !statusText ) {
-					statusText = "error";
-					if ( status < 0 ) {
-						status = 0;
-					}
-				}
-			}
-
-			// Set data for the fake xhr object
-			jqXHR.status = status;
-			jqXHR.statusText = ( nativeStatusText || statusText ) + "";
-
-			// Success/Error
-			if ( isSuccess ) {
-				deferred.resolveWith( callbackContext, [ success, statusText, jqXHR ] );
-			} else {
-				deferred.rejectWith( callbackContext, [ jqXHR, statusText, error ] );
-			}
-
-			// Status-dependent callbacks
-			jqXHR.statusCode( statusCode );
-			statusCode = undefined;
-
-			if ( fireGlobals ) {
-				globalEventContext.trigger( isSuccess ? "ajaxSuccess" : "ajaxError",
-					[ jqXHR, s, isSuccess ? success : error ] );
-			}
-
-			// Complete
-			completeDeferred.fireWith( callbackContext, [ jqXHR, statusText ] );
-
-			if ( fireGlobals ) {
-				globalEventContext.trigger( "ajaxComplete", [ jqXHR, s ] );
-
-				// Handle the global AJAX counter
-				if ( !( --jQuery.active ) ) {
-					jQuery.event.trigger( "ajaxStop" );
-				}
-			}
-		}
-
-		return jqXHR;
-	},
-
-	getJSON: function( url, data, callback ) {
-		return jQuery.get( url, data, callback, "json" );
-	},
-
-	getScript: function( url, callback ) {
-		return jQuery.get( url, undefined, callback, "script" );
-	}
-} );
-
-jQuery.each( [ "get", "post" ], function( _i, method ) {
-	jQuery[ method ] = function( url, data, callback, type ) {
-
-		// Shift arguments if data argument was omitted
-		if ( isFunction( data ) ) {
-			type = type || callback;
-			callback = data;
-			data = undefined;
-		}
-
-		// The url can be an options object (which then must have .url)
-		return jQuery.ajax( jQuery.extend( {
-			url: url,
-			type: method,
-			dataType: type,
-			data: data,
-			success: callback
-		}, jQuery.isPlainObject( url ) && url ) );
-	};
-} );
-
-jQuery.ajaxPrefilter( function( s ) {
-	var i;
-	for ( i in s.headers ) {
-		if ( i.toLowerCase() === "content-type" ) {
-			s.contentType = s.headers[ i ] || "";
-		}
-	}
-} );
-
-
-jQuery._evalUrl = function( url, options, doc ) {
-	return jQuery.ajax( {
-		url: url,
-
-		// Make this explicit, since user can override this through ajaxSetup (trac-11264)
-		type: "GET",
-		dataType: "script",
-		cache: true,
-		async: false,
-		global: false,
-
-		// Only evaluate the response if it is successful (gh-4126)
-		// dataFilter is not invoked for failure responses, so using it instead
-		// of the default converter is kludgy but it works.
-		converters: {
-			"text script": function() {}
-		},
-		dataFilter: function( response ) {
-			jQuery.globalEval( response, options, doc );
-		}
-	} );
-};
-
-
 jQuery.fn.extend( {
 	wrapAll: function( html ) {
 		var wrap;
@@ -17732,333 +15465,6 @@ jQuery.expr.pseudos.visible = function( elem ) {
 
 
 
-jQuery.ajaxSettings.xhr = function() {
-	try {
-		return new window.XMLHttpRequest();
-	} catch ( e ) {}
-};
-
-var xhrSuccessStatus = {
-
-		// File protocol always yields status code 0, assume 200
-		0: 200,
-
-		// Support: IE <=9 only
-		// trac-1450: sometimes IE returns 1223 when it should be 204
-		1223: 204
-	},
-	xhrSupported = jQuery.ajaxSettings.xhr();
-
-support.cors = !!xhrSupported && ( "withCredentials" in xhrSupported );
-support.ajax = xhrSupported = !!xhrSupported;
-
-jQuery.ajaxTransport( function( options ) {
-	var callback, errorCallback;
-
-	// Cross domain only allowed if supported through XMLHttpRequest
-	if ( support.cors || xhrSupported && !options.crossDomain ) {
-		return {
-			send: function( headers, complete ) {
-				var i,
-					xhr = options.xhr();
-
-				xhr.open(
-					options.type,
-					options.url,
-					options.async,
-					options.username,
-					options.password
-				);
-
-				// Apply custom fields if provided
-				if ( options.xhrFields ) {
-					for ( i in options.xhrFields ) {
-						xhr[ i ] = options.xhrFields[ i ];
-					}
-				}
-
-				// Override mime type if needed
-				if ( options.mimeType && xhr.overrideMimeType ) {
-					xhr.overrideMimeType( options.mimeType );
-				}
-
-				// X-Requested-With header
-				// For cross-domain requests, seeing as conditions for a preflight are
-				// akin to a jigsaw puzzle, we simply never set it to be sure.
-				// (it can always be set on a per-request basis or even using ajaxSetup)
-				// For same-domain requests, won't change header if already provided.
-				if ( !options.crossDomain && !headers[ "X-Requested-With" ] ) {
-					headers[ "X-Requested-With" ] = "XMLHttpRequest";
-				}
-
-				// Set headers
-				for ( i in headers ) {
-					xhr.setRequestHeader( i, headers[ i ] );
-				}
-
-				// Callback
-				callback = function( type ) {
-					return function() {
-						if ( callback ) {
-							callback = errorCallback = xhr.onload =
-								xhr.onerror = xhr.onabort = xhr.ontimeout =
-									xhr.onreadystatechange = null;
-
-							if ( type === "abort" ) {
-								xhr.abort();
-							} else if ( type === "error" ) {
-
-								// Support: IE <=9 only
-								// On a manual native abort, IE9 throws
-								// errors on any property access that is not readyState
-								if ( typeof xhr.status !== "number" ) {
-									complete( 0, "error" );
-								} else {
-									complete(
-
-										// File: protocol always yields status 0; see trac-8605, trac-14207
-										xhr.status,
-										xhr.statusText
-									);
-								}
-							} else {
-								complete(
-									xhrSuccessStatus[ xhr.status ] || xhr.status,
-									xhr.statusText,
-
-									// Support: IE <=9 only
-									// IE9 has no XHR2 but throws on binary (trac-11426)
-									// For XHR2 non-text, let the caller handle it (gh-2498)
-									( xhr.responseType || "text" ) !== "text"  ||
-									typeof xhr.responseText !== "string" ?
-										{ binary: xhr.response } :
-										{ text: xhr.responseText },
-									xhr.getAllResponseHeaders()
-								);
-							}
-						}
-					};
-				};
-
-				// Listen to events
-				xhr.onload = callback();
-				errorCallback = xhr.onerror = xhr.ontimeout = callback( "error" );
-
-				// Support: IE 9 only
-				// Use onreadystatechange to replace onabort
-				// to handle uncaught aborts
-				if ( xhr.onabort !== undefined ) {
-					xhr.onabort = errorCallback;
-				} else {
-					xhr.onreadystatechange = function() {
-
-						// Check readyState before timeout as it changes
-						if ( xhr.readyState === 4 ) {
-
-							// Allow onerror to be called first,
-							// but that will not handle a native abort
-							// Also, save errorCallback to a variable
-							// as xhr.onerror cannot be accessed
-							window.setTimeout( function() {
-								if ( callback ) {
-									errorCallback();
-								}
-							} );
-						}
-					};
-				}
-
-				// Create the abort callback
-				callback = callback( "abort" );
-
-				try {
-
-					// Do send the request (this may raise an exception)
-					xhr.send( options.hasContent && options.data || null );
-				} catch ( e ) {
-
-					// trac-14683: Only rethrow if this hasn't been notified as an error yet
-					if ( callback ) {
-						throw e;
-					}
-				}
-			},
-
-			abort: function() {
-				if ( callback ) {
-					callback();
-				}
-			}
-		};
-	}
-} );
-
-
-
-
-// Prevent auto-execution of scripts when no explicit dataType was provided (See gh-2432)
-jQuery.ajaxPrefilter( function( s ) {
-	if ( s.crossDomain ) {
-		s.contents.script = false;
-	}
-} );
-
-// Install script dataType
-jQuery.ajaxSetup( {
-	accepts: {
-		script: "text/javascript, application/javascript, " +
-			"application/ecmascript, application/x-ecmascript"
-	},
-	contents: {
-		script: /\b(?:java|ecma)script\b/
-	},
-	converters: {
-		"text script": function( text ) {
-			jQuery.globalEval( text );
-			return text;
-		}
-	}
-} );
-
-// Handle cache's special case and crossDomain
-jQuery.ajaxPrefilter( "script", function( s ) {
-	if ( s.cache === undefined ) {
-		s.cache = false;
-	}
-	if ( s.crossDomain ) {
-		s.type = "GET";
-	}
-} );
-
-// Bind script tag hack transport
-jQuery.ajaxTransport( "script", function( s ) {
-
-	// This transport only deals with cross domain or forced-by-attrs requests
-	if ( s.crossDomain || s.scriptAttrs ) {
-		var script, callback;
-		return {
-			send: function( _, complete ) {
-				script = jQuery( "<script>" )
-					.attr( s.scriptAttrs || {} )
-					.prop( { charset: s.scriptCharset, src: s.url } )
-					.on( "load error", callback = function( evt ) {
-						script.remove();
-						callback = null;
-						if ( evt ) {
-							complete( evt.type === "error" ? 404 : 200, evt.type );
-						}
-					} );
-
-				// Use native DOM manipulation to avoid our domManip AJAX trickery
-				document.head.appendChild( script[ 0 ] );
-			},
-			abort: function() {
-				if ( callback ) {
-					callback();
-				}
-			}
-		};
-	}
-} );
-
-
-
-
-var oldCallbacks = [],
-	rjsonp = /(=)\?(?=&|$)|\?\?/;
-
-// Default jsonp settings
-jQuery.ajaxSetup( {
-	jsonp: "callback",
-	jsonpCallback: function() {
-		var callback = oldCallbacks.pop() || ( jQuery.expando + "_" + ( nonce.guid++ ) );
-		this[ callback ] = true;
-		return callback;
-	}
-} );
-
-// Detect, normalize options and install callbacks for jsonp requests
-jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
-
-	var callbackName, overwritten, responseContainer,
-		jsonProp = s.jsonp !== false && ( rjsonp.test( s.url ) ?
-			"url" :
-			typeof s.data === "string" &&
-				( s.contentType || "" )
-					.indexOf( "application/x-www-form-urlencoded" ) === 0 &&
-				rjsonp.test( s.data ) && "data"
-		);
-
-	// Handle iff the expected data type is "jsonp" or we have a parameter to set
-	if ( jsonProp || s.dataTypes[ 0 ] === "jsonp" ) {
-
-		// Get callback name, remembering preexisting value associated with it
-		callbackName = s.jsonpCallback = isFunction( s.jsonpCallback ) ?
-			s.jsonpCallback() :
-			s.jsonpCallback;
-
-		// Insert callback into url or form data
-		if ( jsonProp ) {
-			s[ jsonProp ] = s[ jsonProp ].replace( rjsonp, "$1" + callbackName );
-		} else if ( s.jsonp !== false ) {
-			s.url += ( rquery.test( s.url ) ? "&" : "?" ) + s.jsonp + "=" + callbackName;
-		}
-
-		// Use data converter to retrieve json after script execution
-		s.converters[ "script json" ] = function() {
-			if ( !responseContainer ) {
-				jQuery.error( callbackName + " was not called" );
-			}
-			return responseContainer[ 0 ];
-		};
-
-		// Force json dataType
-		s.dataTypes[ 0 ] = "json";
-
-		// Install callback
-		overwritten = window[ callbackName ];
-		window[ callbackName ] = function() {
-			responseContainer = arguments;
-		};
-
-		// Clean-up function (fires after converters)
-		jqXHR.always( function() {
-
-			// If previous value didn't exist - remove it
-			if ( overwritten === undefined ) {
-				jQuery( window ).removeProp( callbackName );
-
-			// Otherwise restore preexisting value
-			} else {
-				window[ callbackName ] = overwritten;
-			}
-
-			// Save back as free
-			if ( s[ callbackName ] ) {
-
-				// Make sure that re-using the options doesn't screw things around
-				s.jsonpCallback = originalSettings.jsonpCallback;
-
-				// Save the callback name for future use
-				oldCallbacks.push( callbackName );
-			}
-
-			// Call if it was a function and we have a response
-			if ( responseContainer && isFunction( overwritten ) ) {
-				overwritten( responseContainer[ 0 ] );
-			}
-
-			responseContainer = overwritten = undefined;
-		} );
-
-		// Delegate to script
-		return "script";
-	}
-} );
-
-
-
-
 // Support: Safari 8 only
 // In Safari 8 documents created via document.implementation.createHTMLDocument
 // collapse sibling forms: the second one becomes a child of the first one.
@@ -18120,81 +15526,6 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
 
 	return jQuery.merge( [], parsed.childNodes );
 };
-
-
-/**
- * Load a url into a page
- */
-jQuery.fn.load = function( url, params, callback ) {
-	var selector, type, response,
-		self = this,
-		off = url.indexOf( " " );
-
-	if ( off > -1 ) {
-		selector = stripAndCollapse( url.slice( off ) );
-		url = url.slice( 0, off );
-	}
-
-	// If it's a function
-	if ( isFunction( params ) ) {
-
-		// We assume that it's the callback
-		callback = params;
-		params = undefined;
-
-	// Otherwise, build a param string
-	} else if ( params && typeof params === "object" ) {
-		type = "POST";
-	}
-
-	// If we have elements to modify, make the request
-	if ( self.length > 0 ) {
-		jQuery.ajax( {
-			url: url,
-
-			// If "type" variable is undefined, then "GET" method will be used.
-			// Make value of this field explicit since
-			// user can override it through ajaxSetup method
-			type: type || "GET",
-			dataType: "html",
-			data: params
-		} ).done( function( responseText ) {
-
-			// Save response for use in complete callback
-			response = arguments;
-
-			self.html( selector ?
-
-				// If a selector was specified, locate the right elements in a dummy div
-				// Exclude scripts to avoid IE 'Permission Denied' errors
-				jQuery( "<div>" ).append( jQuery.parseHTML( responseText ) ).find( selector ) :
-
-				// Otherwise use the full result
-				responseText );
-
-		// If the request succeeds, this function gets "data", "status", "jqXHR"
-		// but they are ignored because response was set above.
-		// If it fails, this function gets "jqXHR", "status", "error"
-		} ).always( callback && function( jqXHR, status ) {
-			self.each( function() {
-				callback.apply( this, response || [ jqXHR.responseText, status, jqXHR ] );
-			} );
-		} );
-	}
-
-	return this;
-};
-
-
-
-
-jQuery.expr.pseudos.animated = function( elem ) {
-	return jQuery.grep( jQuery.timers, function( fn ) {
-		return elem === fn.elem;
-	} ).length;
-};
-
-
 
 
 jQuery.offset = {
@@ -18460,22 +15791,6 @@ jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
 } );
 
 
-jQuery.each( [
-	"ajaxStart",
-	"ajaxStop",
-	"ajaxComplete",
-	"ajaxError",
-	"ajaxSuccess",
-	"ajaxSend"
-], function( _i, type ) {
-	jQuery.fn[ type ] = function( fn ) {
-		return this.on( type, fn );
-	};
-} );
-
-
-
-
 jQuery.fn.extend( {
 
 	bind: function( types, data, fn ) {
@@ -18652,7 +15967,7 @@ if ( typeof noGlobal === "undefined" ) {
 return jQuery;
 } );
 
-},{}],21:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 /*! js-cookie v3.0.5 | MIT */
 ;
 (function (global, factory) {
@@ -18801,198 +16116,7 @@ return jQuery;
 
 }));
 
-},{}],22:[function(require,module,exports){
-/*!
- * named-web-colors v1.4.2
- * https://github.com/davidfq/named-web-colors
- */
-/*
- * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
-	else if(typeof define === 'function' && define.amd)
-		define("getColorName", [], factory);
-	else if(typeof exports === 'object')
-		exports["getColorName"] = factory();
-	else
-		root["getColorName"] = factory();
-})(typeof self !== 'undefined' ? self : this, () => {
-return /******/ (() => { // webpackBootstrap
-/******/ 	var __webpack_modules__ = ({
-
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ getColorName)\n/* harmony export */ });\n/* harmony import */ var color_string__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! color-string */ \"./node_modules/color-string/index.js\");\n/* harmony import */ var color_string__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(color_string__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _data_curated_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../data/curated.json */ \"./data/curated.json\");\n/* harmony import */ var _data_web_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../data/web.json */ \"./data/web.json\");\n/* harmony import */ var _data_werner_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../data/werner.json */ \"./data/werner.json\");\n\n\n\n\nvar WHITE = color_string__WEBPACK_IMPORTED_MODULE_0___default().get('#fff');\nvar BLACK = color_string__WEBPACK_IMPORTED_MODULE_0___default().get('#000');\n/**\n * Describes a matched color.\n *\n * @typedef {Object} ColorOutput\n * @property {string} name - The name of the matched color, e.g., 'red'\n * @property {string} hex - Hex color code e.g., '#FF0'\n * @property {string} rgb - RGB definition (or RGBA for colors with alpha channel).\n * @property {string} css - CSS custom property alike definition, e.g.\n *  `--color-prussian-blue: #004162`\n * @property {number} distance - Calculated distance between input and matched color.\n */\n\n/**\n * Square root of sum of the squares of the differences in values\n * [red, green, blue, opacity]\n *\n * @param {Array} color1\n * @param {Array} color2\n * @return {Number}\n */\n\nvar euclideanDistance = function euclideanDistance(color1, color2) {\n  return Math.sqrt(Math.pow(color1[0] - color2[0], 2) + Math.pow(color1[1] - color2[1], 2) + Math.pow(color1[2] - color2[2], 2));\n};\n\nvar MAX_DISTANCE = euclideanDistance(WHITE.value, BLACK.value);\n/**\n * Combines foreground and background colors.\n * ref: https://en.wikipedia.org/wiki/Transparency_%28graphic%29\n *\n * @param {Array} foreground - [red, green, blue, alpha]\n * @param {Array} background - [red, green, blue, alpha]\n * @return {Array} - [red, green, blue, alpha=1]\n */\n\nvar blend = function blend(foreground, background) {\n  var opacity = foreground[3];\n  return [(1 - opacity) * background[0] + opacity * foreground[0], (1 - opacity) * background[1] + opacity * foreground[1], (1 - opacity) * background[2] + opacity * foreground[2], 1];\n};\n/**\n * Calculates color distance based on whether first param color input has\n * alpha channel or not.\n *\n * @param {Array} color1\n * @param {Array} color2\n * @return {number}\n */\n\n\nvar comparativeDistance = function comparativeDistance(color1, color2) {\n  if (color1[3] === 1 && color2[3] === 1) {\n    // solid colors: use basic Euclidean distance algorithm\n    return euclideanDistance(color1, color2);\n  } else {\n    // alpha channel: combine input color with white and black backgrounds\n    // and comparte distances\n    var withWhite = euclideanDistance(blend(color1, WHITE.value), color2);\n    var withBlack = euclideanDistance(blend(color1, BLACK.value), color2);\n    return withWhite <= withBlack ? withWhite : withBlack;\n  }\n};\n/**\n * Transform color name to web-safe slug.\n *\n * @param {string} string\n * @return {string}\n */\n\n\nvar slugify = function slugify() {\n  var string = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';\n  var separator = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '-';\n  return string.trim().split('').reduce(function (memo, char) {\n    return memo + char.replace(/'/, '').replace(/\\s/, separator);\n  }, '').toLocaleLowerCase();\n};\n/**\n * Simple RGB comparation method.\n *\n * @param {Array} color1\n * @param {Array} color2\n * @param {boolean} ignoreAlphaChannel\n */\n\n\nvar compareRGB = function compareRGB(color1, color2) {\n  var ignoreAlphaChannel = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;\n  var result = false;\n\n  if (color1.length === 4 && color2.length === 4) {\n    result = color1[0] === color2[0] && color1[1] === color2[1] && color1[2] === color2[2];\n    result = ignoreAlphaChannel ? result : color1[3] === color2[3];\n  }\n\n  return result;\n};\n/**\n * Build output color object spec.\n *\n * @param {string} name - resolved color name\n * @param {string} hex - Hex color code\n * @param {Object} colorInput\n * @param {number} distance\n * @param {boolean} ignoreAlphaChannel\n * @return {ColorOutput}\n */\n\n\nvar buildColorOutput = function buildColorOutput(name, hex, colorInput, distance, ignoreAlphaChannel) {\n  var alpha = Number(colorInput.value[3]).toFixed(2);\n  var slug = slugify(name);\n  var result = {\n    name: name,\n    distance: distance\n  };\n\n  if (ignoreAlphaChannel) {\n    result.hex = \"#\".concat(hex);\n    result.css = \"--color-\".concat(slug, \": \").concat(result.hex);\n  } else {\n    // use HEX code from input directly as none of the curated colors have\n    // alpha channel defined; test\n    result.hex = color_string__WEBPACK_IMPORTED_MODULE_0___default().to.hex(colorInput.value); // normalize alpha suffix\n\n    var alphaSuffix = '';\n\n    if (alpha > 0 && alpha < 1) {\n      alphaSuffix = \"-\".concat(Math.round(alpha * 100));\n    }\n\n    result.css = \"--color-\".concat(slug).concat(alphaSuffix, \": \").concat(result.hex);\n  } // double check final result; `color-string` don't support HSL input\n  // transforms to HEX (when input contains decimals, @see tests),\n  // so `result.hex` may not be valid at this point\n\n\n  if (color_string__WEBPACK_IMPORTED_MODULE_0___default().get(result.hex) !== null) {\n    var rgb = color_string__WEBPACK_IMPORTED_MODULE_0___default().get(result.hex).value; // round alpha value\n\n    var rgbAlpha = Number.parseFloat(Number(rgb[3]).toFixed(2));\n    result.rgb = color_string__WEBPACK_IMPORTED_MODULE_0___default().to.rgb([rgb[0], rgb[1], rgb[2], rgbAlpha]);\n  } else {\n    result = undefined;\n  }\n\n  return result;\n};\n/**\n * Main function to find the closest color among \"colors\" list.\n *\n * @param {string} code - color code: Hex, RGB or HSL\n * @param {Object} colors - color list: keys are Hex codes and values are color names\n * @param {boolean} ignoreAlphaChannel - whether to ignore alpha channel on input\n */\n\n\nvar getColor = function getColor(code, colors) {\n  var ignoreAlphaChannel = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;\n  var colorInput = color_string__WEBPACK_IMPORTED_MODULE_0___default().get(code);\n  var colorKeys = Object.keys(colors);\n  var colorKeyMatch;\n  var distance = MAX_DISTANCE;\n  var result;\n\n  if (colorInput !== null) {\n    // check if there's an exact match (it only happens with solid colors)\n    if (!ignoreAlphaChannel) {\n      colorKeyMatch = colorKeys.find(function (key) {\n        var color = color_string__WEBPACK_IMPORTED_MODULE_0___default().get(\"#\".concat(key));\n        return compareRGB(color.value, colorInput.value, true);\n      });\n    }\n\n    if (colorKeyMatch !== undefined) {\n      distance = 0;\n    }\n\n    if (distance > 0) {\n      // let's find the closest one\n      var calculateDistance = ignoreAlphaChannel ? comparativeDistance : euclideanDistance;\n      colorKeys.forEach(function (key) {\n        var colorCandidate = color_string__WEBPACK_IMPORTED_MODULE_0___default().get(\"#\".concat(key));\n        var tmpDistance = calculateDistance(colorInput.value, colorCandidate.value);\n\n        if (tmpDistance < distance) {\n          colorKeyMatch = key;\n          distance = tmpDistance;\n        }\n      });\n    }\n  }\n\n  if (colorKeyMatch !== undefined) {\n    result = buildColorOutput(colors[colorKeyMatch], colorKeyMatch, colorInput, distance, ignoreAlphaChannel);\n  }\n\n  return result;\n};\n\nfunction getColorName(code) {\n  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};\n  var colors = Object.assign({}, _data_web_json__WEBPACK_IMPORTED_MODULE_2__, _data_curated_json__WEBPACK_IMPORTED_MODULE_1__);\n\n  if (options.list && options.list === 'web') {\n    colors = _data_web_json__WEBPACK_IMPORTED_MODULE_2__;\n  } else if (options.list && options.list === 'werner') {\n    colors = _data_werner_json__WEBPACK_IMPORTED_MODULE_3__;\n  }\n\n  return getColor(code, colors, options.ignoreAlphaChannel);\n}\n\n//# sourceURL=webpack://getColorName/./src/index.js?");
-
-/***/ }),
-
-/***/ "./node_modules/color-name/index.js":
-/*!******************************************!*\
-  !*** ./node_modules/color-name/index.js ***!
-  \******************************************/
-/***/ ((module) => {
-
-"use strict";
-eval("\r\n\r\nmodule.exports = {\r\n\t\"aliceblue\": [240, 248, 255],\r\n\t\"antiquewhite\": [250, 235, 215],\r\n\t\"aqua\": [0, 255, 255],\r\n\t\"aquamarine\": [127, 255, 212],\r\n\t\"azure\": [240, 255, 255],\r\n\t\"beige\": [245, 245, 220],\r\n\t\"bisque\": [255, 228, 196],\r\n\t\"black\": [0, 0, 0],\r\n\t\"blanchedalmond\": [255, 235, 205],\r\n\t\"blue\": [0, 0, 255],\r\n\t\"blueviolet\": [138, 43, 226],\r\n\t\"brown\": [165, 42, 42],\r\n\t\"burlywood\": [222, 184, 135],\r\n\t\"cadetblue\": [95, 158, 160],\r\n\t\"chartreuse\": [127, 255, 0],\r\n\t\"chocolate\": [210, 105, 30],\r\n\t\"coral\": [255, 127, 80],\r\n\t\"cornflowerblue\": [100, 149, 237],\r\n\t\"cornsilk\": [255, 248, 220],\r\n\t\"crimson\": [220, 20, 60],\r\n\t\"cyan\": [0, 255, 255],\r\n\t\"darkblue\": [0, 0, 139],\r\n\t\"darkcyan\": [0, 139, 139],\r\n\t\"darkgoldenrod\": [184, 134, 11],\r\n\t\"darkgray\": [169, 169, 169],\r\n\t\"darkgreen\": [0, 100, 0],\r\n\t\"darkgrey\": [169, 169, 169],\r\n\t\"darkkhaki\": [189, 183, 107],\r\n\t\"darkmagenta\": [139, 0, 139],\r\n\t\"darkolivegreen\": [85, 107, 47],\r\n\t\"darkorange\": [255, 140, 0],\r\n\t\"darkorchid\": [153, 50, 204],\r\n\t\"darkred\": [139, 0, 0],\r\n\t\"darksalmon\": [233, 150, 122],\r\n\t\"darkseagreen\": [143, 188, 143],\r\n\t\"darkslateblue\": [72, 61, 139],\r\n\t\"darkslategray\": [47, 79, 79],\r\n\t\"darkslategrey\": [47, 79, 79],\r\n\t\"darkturquoise\": [0, 206, 209],\r\n\t\"darkviolet\": [148, 0, 211],\r\n\t\"deeppink\": [255, 20, 147],\r\n\t\"deepskyblue\": [0, 191, 255],\r\n\t\"dimgray\": [105, 105, 105],\r\n\t\"dimgrey\": [105, 105, 105],\r\n\t\"dodgerblue\": [30, 144, 255],\r\n\t\"firebrick\": [178, 34, 34],\r\n\t\"floralwhite\": [255, 250, 240],\r\n\t\"forestgreen\": [34, 139, 34],\r\n\t\"fuchsia\": [255, 0, 255],\r\n\t\"gainsboro\": [220, 220, 220],\r\n\t\"ghostwhite\": [248, 248, 255],\r\n\t\"gold\": [255, 215, 0],\r\n\t\"goldenrod\": [218, 165, 32],\r\n\t\"gray\": [128, 128, 128],\r\n\t\"green\": [0, 128, 0],\r\n\t\"greenyellow\": [173, 255, 47],\r\n\t\"grey\": [128, 128, 128],\r\n\t\"honeydew\": [240, 255, 240],\r\n\t\"hotpink\": [255, 105, 180],\r\n\t\"indianred\": [205, 92, 92],\r\n\t\"indigo\": [75, 0, 130],\r\n\t\"ivory\": [255, 255, 240],\r\n\t\"khaki\": [240, 230, 140],\r\n\t\"lavender\": [230, 230, 250],\r\n\t\"lavenderblush\": [255, 240, 245],\r\n\t\"lawngreen\": [124, 252, 0],\r\n\t\"lemonchiffon\": [255, 250, 205],\r\n\t\"lightblue\": [173, 216, 230],\r\n\t\"lightcoral\": [240, 128, 128],\r\n\t\"lightcyan\": [224, 255, 255],\r\n\t\"lightgoldenrodyellow\": [250, 250, 210],\r\n\t\"lightgray\": [211, 211, 211],\r\n\t\"lightgreen\": [144, 238, 144],\r\n\t\"lightgrey\": [211, 211, 211],\r\n\t\"lightpink\": [255, 182, 193],\r\n\t\"lightsalmon\": [255, 160, 122],\r\n\t\"lightseagreen\": [32, 178, 170],\r\n\t\"lightskyblue\": [135, 206, 250],\r\n\t\"lightslategray\": [119, 136, 153],\r\n\t\"lightslategrey\": [119, 136, 153],\r\n\t\"lightsteelblue\": [176, 196, 222],\r\n\t\"lightyellow\": [255, 255, 224],\r\n\t\"lime\": [0, 255, 0],\r\n\t\"limegreen\": [50, 205, 50],\r\n\t\"linen\": [250, 240, 230],\r\n\t\"magenta\": [255, 0, 255],\r\n\t\"maroon\": [128, 0, 0],\r\n\t\"mediumaquamarine\": [102, 205, 170],\r\n\t\"mediumblue\": [0, 0, 205],\r\n\t\"mediumorchid\": [186, 85, 211],\r\n\t\"mediumpurple\": [147, 112, 219],\r\n\t\"mediumseagreen\": [60, 179, 113],\r\n\t\"mediumslateblue\": [123, 104, 238],\r\n\t\"mediumspringgreen\": [0, 250, 154],\r\n\t\"mediumturquoise\": [72, 209, 204],\r\n\t\"mediumvioletred\": [199, 21, 133],\r\n\t\"midnightblue\": [25, 25, 112],\r\n\t\"mintcream\": [245, 255, 250],\r\n\t\"mistyrose\": [255, 228, 225],\r\n\t\"moccasin\": [255, 228, 181],\r\n\t\"navajowhite\": [255, 222, 173],\r\n\t\"navy\": [0, 0, 128],\r\n\t\"oldlace\": [253, 245, 230],\r\n\t\"olive\": [128, 128, 0],\r\n\t\"olivedrab\": [107, 142, 35],\r\n\t\"orange\": [255, 165, 0],\r\n\t\"orangered\": [255, 69, 0],\r\n\t\"orchid\": [218, 112, 214],\r\n\t\"palegoldenrod\": [238, 232, 170],\r\n\t\"palegreen\": [152, 251, 152],\r\n\t\"paleturquoise\": [175, 238, 238],\r\n\t\"palevioletred\": [219, 112, 147],\r\n\t\"papayawhip\": [255, 239, 213],\r\n\t\"peachpuff\": [255, 218, 185],\r\n\t\"peru\": [205, 133, 63],\r\n\t\"pink\": [255, 192, 203],\r\n\t\"plum\": [221, 160, 221],\r\n\t\"powderblue\": [176, 224, 230],\r\n\t\"purple\": [128, 0, 128],\r\n\t\"rebeccapurple\": [102, 51, 153],\r\n\t\"red\": [255, 0, 0],\r\n\t\"rosybrown\": [188, 143, 143],\r\n\t\"royalblue\": [65, 105, 225],\r\n\t\"saddlebrown\": [139, 69, 19],\r\n\t\"salmon\": [250, 128, 114],\r\n\t\"sandybrown\": [244, 164, 96],\r\n\t\"seagreen\": [46, 139, 87],\r\n\t\"seashell\": [255, 245, 238],\r\n\t\"sienna\": [160, 82, 45],\r\n\t\"silver\": [192, 192, 192],\r\n\t\"skyblue\": [135, 206, 235],\r\n\t\"slateblue\": [106, 90, 205],\r\n\t\"slategray\": [112, 128, 144],\r\n\t\"slategrey\": [112, 128, 144],\r\n\t\"snow\": [255, 250, 250],\r\n\t\"springgreen\": [0, 255, 127],\r\n\t\"steelblue\": [70, 130, 180],\r\n\t\"tan\": [210, 180, 140],\r\n\t\"teal\": [0, 128, 128],\r\n\t\"thistle\": [216, 191, 216],\r\n\t\"tomato\": [255, 99, 71],\r\n\t\"turquoise\": [64, 224, 208],\r\n\t\"violet\": [238, 130, 238],\r\n\t\"wheat\": [245, 222, 179],\r\n\t\"white\": [255, 255, 255],\r\n\t\"whitesmoke\": [245, 245, 245],\r\n\t\"yellow\": [255, 255, 0],\r\n\t\"yellowgreen\": [154, 205, 50]\r\n};\r\n\n\n//# sourceURL=webpack://getColorName/./node_modules/color-name/index.js?");
-
-/***/ }),
-
-/***/ "./node_modules/color-string/index.js":
-/*!********************************************!*\
-  !*** ./node_modules/color-string/index.js ***!
-  \********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-eval("/* MIT license */\nvar colorNames = __webpack_require__(/*! color-name */ \"./node_modules/color-name/index.js\");\nvar swizzle = __webpack_require__(/*! simple-swizzle */ \"./node_modules/simple-swizzle/index.js\");\nvar hasOwnProperty = Object.hasOwnProperty;\n\nvar reverseNames = {};\n\n// create a list of reverse color names\nfor (var name in colorNames) {\n\tif (hasOwnProperty.call(colorNames, name)) {\n\t\treverseNames[colorNames[name]] = name;\n\t}\n}\n\nvar cs = module.exports = {\n\tto: {},\n\tget: {}\n};\n\ncs.get = function (string) {\n\tvar prefix = string.substring(0, 3).toLowerCase();\n\tvar val;\n\tvar model;\n\tswitch (prefix) {\n\t\tcase 'hsl':\n\t\t\tval = cs.get.hsl(string);\n\t\t\tmodel = 'hsl';\n\t\t\tbreak;\n\t\tcase 'hwb':\n\t\t\tval = cs.get.hwb(string);\n\t\t\tmodel = 'hwb';\n\t\t\tbreak;\n\t\tdefault:\n\t\t\tval = cs.get.rgb(string);\n\t\t\tmodel = 'rgb';\n\t\t\tbreak;\n\t}\n\n\tif (!val) {\n\t\treturn null;\n\t}\n\n\treturn {model: model, value: val};\n};\n\ncs.get.rgb = function (string) {\n\tif (!string) {\n\t\treturn null;\n\t}\n\n\tvar abbr = /^#([a-f0-9]{3,4})$/i;\n\tvar hex = /^#([a-f0-9]{6})([a-f0-9]{2})?$/i;\n\tvar rgba = /^rgba?\\(\\s*([+-]?\\d+)(?=[\\s,])\\s*(?:,\\s*)?([+-]?\\d+)(?=[\\s,])\\s*(?:,\\s*)?([+-]?\\d+)\\s*(?:[,|\\/]\\s*([+-]?[\\d\\.]+)(%?)\\s*)?\\)$/;\n\tvar per = /^rgba?\\(\\s*([+-]?[\\d\\.]+)\\%\\s*,?\\s*([+-]?[\\d\\.]+)\\%\\s*,?\\s*([+-]?[\\d\\.]+)\\%\\s*(?:[,|\\/]\\s*([+-]?[\\d\\.]+)(%?)\\s*)?\\)$/;\n\tvar keyword = /^(\\w+)$/;\n\n\tvar rgb = [0, 0, 0, 1];\n\tvar match;\n\tvar i;\n\tvar hexAlpha;\n\n\tif (match = string.match(hex)) {\n\t\thexAlpha = match[2];\n\t\tmatch = match[1];\n\n\t\tfor (i = 0; i < 3; i++) {\n\t\t\t// https://jsperf.com/slice-vs-substr-vs-substring-methods-long-string/19\n\t\t\tvar i2 = i * 2;\n\t\t\trgb[i] = parseInt(match.slice(i2, i2 + 2), 16);\n\t\t}\n\n\t\tif (hexAlpha) {\n\t\t\trgb[3] = parseInt(hexAlpha, 16) / 255;\n\t\t}\n\t} else if (match = string.match(abbr)) {\n\t\tmatch = match[1];\n\t\thexAlpha = match[3];\n\n\t\tfor (i = 0; i < 3; i++) {\n\t\t\trgb[i] = parseInt(match[i] + match[i], 16);\n\t\t}\n\n\t\tif (hexAlpha) {\n\t\t\trgb[3] = parseInt(hexAlpha + hexAlpha, 16) / 255;\n\t\t}\n\t} else if (match = string.match(rgba)) {\n\t\tfor (i = 0; i < 3; i++) {\n\t\t\trgb[i] = parseInt(match[i + 1], 0);\n\t\t}\n\n\t\tif (match[4]) {\n\t\t\tif (match[5]) {\n\t\t\t\trgb[3] = parseFloat(match[4]) * 0.01;\n\t\t\t} else {\n\t\t\t\trgb[3] = parseFloat(match[4]);\n\t\t\t}\n\t\t}\n\t} else if (match = string.match(per)) {\n\t\tfor (i = 0; i < 3; i++) {\n\t\t\trgb[i] = Math.round(parseFloat(match[i + 1]) * 2.55);\n\t\t}\n\n\t\tif (match[4]) {\n\t\t\tif (match[5]) {\n\t\t\t\trgb[3] = parseFloat(match[4]) * 0.01;\n\t\t\t} else {\n\t\t\t\trgb[3] = parseFloat(match[4]);\n\t\t\t}\n\t\t}\n\t} else if (match = string.match(keyword)) {\n\t\tif (match[1] === 'transparent') {\n\t\t\treturn [0, 0, 0, 0];\n\t\t}\n\n\t\tif (!hasOwnProperty.call(colorNames, match[1])) {\n\t\t\treturn null;\n\t\t}\n\n\t\trgb = colorNames[match[1]];\n\t\trgb[3] = 1;\n\n\t\treturn rgb;\n\t} else {\n\t\treturn null;\n\t}\n\n\tfor (i = 0; i < 3; i++) {\n\t\trgb[i] = clamp(rgb[i], 0, 255);\n\t}\n\trgb[3] = clamp(rgb[3], 0, 1);\n\n\treturn rgb;\n};\n\ncs.get.hsl = function (string) {\n\tif (!string) {\n\t\treturn null;\n\t}\n\n\tvar hsl = /^hsla?\\(\\s*([+-]?(?:\\d{0,3}\\.)?\\d+)(?:deg)?\\s*,?\\s*([+-]?[\\d\\.]+)%\\s*,?\\s*([+-]?[\\d\\.]+)%\\s*(?:[,|\\/]\\s*([+-]?(?=\\.\\d|\\d)(?:0|[1-9]\\d*)?(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)\\s*)?\\)$/;\n\tvar match = string.match(hsl);\n\n\tif (match) {\n\t\tvar alpha = parseFloat(match[4]);\n\t\tvar h = ((parseFloat(match[1]) % 360) + 360) % 360;\n\t\tvar s = clamp(parseFloat(match[2]), 0, 100);\n\t\tvar l = clamp(parseFloat(match[3]), 0, 100);\n\t\tvar a = clamp(isNaN(alpha) ? 1 : alpha, 0, 1);\n\n\t\treturn [h, s, l, a];\n\t}\n\n\treturn null;\n};\n\ncs.get.hwb = function (string) {\n\tif (!string) {\n\t\treturn null;\n\t}\n\n\tvar hwb = /^hwb\\(\\s*([+-]?\\d{0,3}(?:\\.\\d+)?)(?:deg)?\\s*,\\s*([+-]?[\\d\\.]+)%\\s*,\\s*([+-]?[\\d\\.]+)%\\s*(?:,\\s*([+-]?(?=\\.\\d|\\d)(?:0|[1-9]\\d*)?(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)\\s*)?\\)$/;\n\tvar match = string.match(hwb);\n\n\tif (match) {\n\t\tvar alpha = parseFloat(match[4]);\n\t\tvar h = ((parseFloat(match[1]) % 360) + 360) % 360;\n\t\tvar w = clamp(parseFloat(match[2]), 0, 100);\n\t\tvar b = clamp(parseFloat(match[3]), 0, 100);\n\t\tvar a = clamp(isNaN(alpha) ? 1 : alpha, 0, 1);\n\t\treturn [h, w, b, a];\n\t}\n\n\treturn null;\n};\n\ncs.to.hex = function () {\n\tvar rgba = swizzle(arguments);\n\n\treturn (\n\t\t'#' +\n\t\thexDouble(rgba[0]) +\n\t\thexDouble(rgba[1]) +\n\t\thexDouble(rgba[2]) +\n\t\t(rgba[3] < 1\n\t\t\t? (hexDouble(Math.round(rgba[3] * 255)))\n\t\t\t: '')\n\t);\n};\n\ncs.to.rgb = function () {\n\tvar rgba = swizzle(arguments);\n\n\treturn rgba.length < 4 || rgba[3] === 1\n\t\t? 'rgb(' + Math.round(rgba[0]) + ', ' + Math.round(rgba[1]) + ', ' + Math.round(rgba[2]) + ')'\n\t\t: 'rgba(' + Math.round(rgba[0]) + ', ' + Math.round(rgba[1]) + ', ' + Math.round(rgba[2]) + ', ' + rgba[3] + ')';\n};\n\ncs.to.rgb.percent = function () {\n\tvar rgba = swizzle(arguments);\n\n\tvar r = Math.round(rgba[0] / 255 * 100);\n\tvar g = Math.round(rgba[1] / 255 * 100);\n\tvar b = Math.round(rgba[2] / 255 * 100);\n\n\treturn rgba.length < 4 || rgba[3] === 1\n\t\t? 'rgb(' + r + '%, ' + g + '%, ' + b + '%)'\n\t\t: 'rgba(' + r + '%, ' + g + '%, ' + b + '%, ' + rgba[3] + ')';\n};\n\ncs.to.hsl = function () {\n\tvar hsla = swizzle(arguments);\n\treturn hsla.length < 4 || hsla[3] === 1\n\t\t? 'hsl(' + hsla[0] + ', ' + hsla[1] + '%, ' + hsla[2] + '%)'\n\t\t: 'hsla(' + hsla[0] + ', ' + hsla[1] + '%, ' + hsla[2] + '%, ' + hsla[3] + ')';\n};\n\n// hwb is a bit different than rgb(a) & hsl(a) since there is no alpha specific syntax\n// (hwb have alpha optional & 1 is default value)\ncs.to.hwb = function () {\n\tvar hwba = swizzle(arguments);\n\n\tvar a = '';\n\tif (hwba.length >= 4 && hwba[3] !== 1) {\n\t\ta = ', ' + hwba[3];\n\t}\n\n\treturn 'hwb(' + hwba[0] + ', ' + hwba[1] + '%, ' + hwba[2] + '%' + a + ')';\n};\n\ncs.to.keyword = function (rgb) {\n\treturn reverseNames[rgb.slice(0, 3)];\n};\n\n// helpers\nfunction clamp(num, min, max) {\n\treturn Math.min(Math.max(min, num), max);\n}\n\nfunction hexDouble(num) {\n\tvar str = Math.round(num).toString(16).toUpperCase();\n\treturn (str.length < 2) ? '0' + str : str;\n}\n\n\n//# sourceURL=webpack://getColorName/./node_modules/color-string/index.js?");
-
-/***/ }),
-
-/***/ "./node_modules/is-arrayish/index.js":
-/*!*******************************************!*\
-  !*** ./node_modules/is-arrayish/index.js ***!
-  \*******************************************/
-/***/ ((module) => {
-
-eval("module.exports = function isArrayish(obj) {\n\tif (!obj || typeof obj === 'string') {\n\t\treturn false;\n\t}\n\n\treturn obj instanceof Array || Array.isArray(obj) ||\n\t\t(obj.length >= 0 && (obj.splice instanceof Function ||\n\t\t\t(Object.getOwnPropertyDescriptor(obj, (obj.length - 1)) && obj.constructor.name !== 'String')));\n};\n\n\n//# sourceURL=webpack://getColorName/./node_modules/is-arrayish/index.js?");
-
-/***/ }),
-
-/***/ "./node_modules/simple-swizzle/index.js":
-/*!**********************************************!*\
-  !*** ./node_modules/simple-swizzle/index.js ***!
-  \**********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-eval("\n\nvar isArrayish = __webpack_require__(/*! is-arrayish */ \"./node_modules/is-arrayish/index.js\");\n\nvar concat = Array.prototype.concat;\nvar slice = Array.prototype.slice;\n\nvar swizzle = module.exports = function swizzle(args) {\n\tvar results = [];\n\n\tfor (var i = 0, len = args.length; i < len; i++) {\n\t\tvar arg = args[i];\n\n\t\tif (isArrayish(arg)) {\n\t\t\t// http://jsperf.com/javascript-array-concat-vs-push/98\n\t\t\tresults = concat.call(results, slice.call(arg));\n\t\t} else {\n\t\t\tresults.push(arg);\n\t\t}\n\t}\n\n\treturn results;\n};\n\nswizzle.wrap = function (fn) {\n\treturn function () {\n\t\treturn fn(swizzle(arguments));\n\t};\n};\n\n\n//# sourceURL=webpack://getColorName/./node_modules/simple-swizzle/index.js?");
-
-/***/ }),
-
-/***/ "./data/curated.json":
-/*!***************************!*\
-  !*** ./data/curated.json ***!
-  \***************************/
-/***/ ((module) => {
-
-"use strict";
-eval("module.exports = JSON.parse('{\"101405\":\"Green Waterloo\",\"105852\":\"Eden\",\"123447\":\"Elephant\",\"130000\":\"Diesel\",\"140600\":\"Nero\",\"161928\":\"Mirage\",\"163222\":\"Celtic\",\"163531\":\"Gable Green\",\"175579\":\"Chathams Blue\",\"193751\":\"Nile Blue\",\"204852\":\"Blue Dianne\",\"220878\":\"Deep Blue\",\"233418\":\"Mallard\",\"251607\":\"Graphite\",\"251706\":\"Cannon Black\",\"260368\":\"Paua\",\"261105\":\"Wood Bark\",\"261414\":\"Gondola\",\"262335\":\"Steel Gray\",\"292130\":\"Bastille\",\"292319\":\"Zeus\",\"292937\":\"Charade\",\"300529\":\"Melanzane\",\"314459\":\"Pickled Bluewood\",\"323232\":\"Mine Shaft\",\"341515\":\"Tamarind\",\"350036\":\"Mardi Gras\",\"353542\":\"Tuna\",\"363050\":\"Martinique\",\"363534\":\"Tuatara\",\"368716\":\"La Palma\",\"373021\":\"Birch\",\"377475\":\"Oracle\",\"380474\":\"Blue Diamond\",\"383533\":\"Dune\",\"384555\":\"Oxford Blue\",\"384910\":\"Clover\",\"394851\":\"Limed Spruce\",\"396413\":\"Dell\",\"401801\":\"Brown Pod\",\"405169\":\"Fiord\",\"410056\":\"Ripe Plum\",\"412010\":\"Deep Oak\",\"414257\":\"Gun Powder\",\"420303\":\"Burnt Maroon\",\"423921\":\"Lisbon Brown\",\"427977\":\"Faded Jade\",\"431560\":\"Scarlet Gum\",\"433120\":\"Iroko\",\"444954\":\"Mako\",\"454936\":\"Kelp\",\"462425\":\"Crater Brown\",\"465945\":\"Gray Asparagus\",\"480404\":\"Rustic Red\",\"480607\":\"Bulgarian Rose\",\"480656\":\"Clairvoyant\",\"483131\":\"Woody Brown\",\"492615\":\"Brown Derby\",\"495400\":\"Verdun Green\",\"496679\":\"Blue Bayoux\",\"497183\":\"Bismark\",\"504351\":\"Mortar\",\"507096\":\"Kashmir Blue\",\"507672\":\"Cutty Sark\",\"514649\":\"Emperor\",\"533455\":\"Voodoo\",\"534491\":\"Victoria\",\"541012\":\"Heath\",\"544333\":\"Judge Gray\",\"549019\":\"Vida Loca\",\"578363\":\"Spring Leaves\",\"585562\":\"Scarpa Flow\",\"587156\":\"Cactus\",\"592804\":\"Brown Bramble\",\"593737\":\"Congo Brown\",\"594433\":\"Millbrook\",\"604913\":\"Horses Neck\",\"612718\":\"Espresso\",\"614051\":\"Eggplant\",\"625119\":\"West Coast\",\"626649\":\"Finch\",\"646077\":\"Dolphin\",\"646463\":\"Storm Dust\",\"657220\":\"Fern Frond\",\"660045\":\"Pompadour\",\"661010\":\"Dark Tan\",\"676662\":\"Ironside Gray\",\"678975\":\"Viridian Green\",\"683600\":\"Nutmeg Wood Finish\",\"685558\":\"Zambezi\",\"692545\":\"Tawny Port\",\"704214\":\"Sepia\",\"706555\":\"Coffee\",\"714693\":\"Affair\",\"716338\":\"Yellow Metal\",\"717486\":\"Storm Gray\",\"718080\":\"Sirocco\",\"737829\":\"Crete\",\"738678\":\"Xanadu\",\"748881\":\"Blue Smoke\",\"749378\":\"Laurel\",\"778120\":\"Pacifika\",\"780109\":\"Japanese Maple\",\"796878\":\"Old Lavender\",\"796989\":\"Rum\",\"801818\":\"Falu Red\",\"803790\":\"Vivid Violet\",\"817377\":\"Empress\",\"819885\":\"Spanish Green\",\"828685\":\"Gunsmoke\",\"831923\":\"Merlot\",\"837050\":\"Shadow\",\"858470\":\"Bandicoot\",\"860111\":\"Red Devil\",\"868974\":\"Bitter\",\"871550\":\"Disco\",\"885342\":\"Spicy Mix\",\"886221\":\"Kumera\",\"888387\":\"Suva Gray\",\"893456\":\"Camelot\",\"893843\":\"Solid Pink\",\"894367\":\"Cannon Pink\",\"900020\":\"Burgundy\",\"907874\":\"Hemp\",\"924321\":\"Cumin\",\"928573\":\"Stonewall\",\"928590\":\"Venus\",\"944747\":\"Copper Rust\",\"948771\":\"Arrowtown\",\"950015\":\"Scarlett\",\"956387\":\"Strikemaster\",\"959396\":\"Mountain Mist\",\"960018\":\"Carmine\",\"967059\":\"Leather\",\"990066\":\"Fresh Eggplant\",\"991199\":\"Violet Eggplant\",\"991613\":\"Tamarillo\",\"996666\":\"Copper Rose\",\"FFFFB4\":\"Portafino\",\"FFFF99\":\"Pale Canary\",\"FFFF66\":\"Laser Lemon\",\"FFFEFD\":\"Romance\",\"FFFEF6\":\"Black White\",\"FFFEF0\":\"Rice Cake\",\"FFFEEC\":\"Apricot White\",\"FFFEE1\":\"Half and Half\",\"FFFDF4\":\"Quarter Pearl Lusta\",\"FFFDF3\":\"Orchid White\",\"FFFDE8\":\"Travertine\",\"FFFDE6\":\"Chilean Heath\",\"FFFDD0\":\"Cream\",\"FFFCEE\":\"Island Spice\",\"FFFCEA\":\"Buttery White\",\"FFFC99\":\"Witch Haze\",\"FFFBF9\":\"Soapstone\",\"FFFBDC\":\"Scotch Mist\",\"FFFAF4\":\"Bridal Heath\",\"FFF9E6\":\"Early Dawn\",\"FFF9E2\":\"Gin Fizz\",\"FFF8D1\":\"Baja White\",\"FFF6F5\":\"Rose White\",\"FFF6DF\":\"Varden\",\"FFF6D4\":\"Milk Punch\",\"FFF5F3\":\"Sauvignon\",\"FFF4F3\":\"Chablis\",\"FFF4E8\":\"Serenade\",\"FFF4E0\":\"Sazerac\",\"FFF4DD\":\"Egg Sour\",\"FFF4CE\":\"Barley White\",\"FFF46E\":\"Paris Daisy\",\"FFF3F1\":\"Chardon\",\"FFF39D\":\"Picasso\",\"FFF1F9\":\"Tutu\",\"FFF1EE\":\"Forget Me Not\",\"FFF1D8\":\"Pink Lady\",\"FFF1B5\":\"Buttermilk\",\"FFF14F\":\"Gorse\",\"FFF0DB\":\"Peach Cream\",\"FFEFEC\":\"Fair Pink\",\"FFEFC1\":\"Egg White\",\"FFEFA1\":\"Vis Vis\",\"FFEED8\":\"Derby\",\"FFEDBC\":\"Colonial White\",\"FFEC13\":\"Broom\",\"FFEAD4\":\"Karry\",\"FFEAC8\":\"Sandy Beach\",\"FFE772\":\"Kournikova\",\"FFE6C7\":\"Tequila\",\"FFE5B4\":\"Peach\",\"FFE5A0\":\"Cream Brulee\",\"FFE2C5\":\"Negroni\",\"FFE1F2\":\"Pale Rose\",\"FFE1DF\":\"Pippin\",\"FFDEB3\":\"Frangipani\",\"FFDDF4\":\"Pink Lace\",\"FFDDCF\":\"Watusi\",\"FFDDCD\":\"Tuft Bush\",\"FFDDAF\":\"Caramel\",\"FFDCD6\":\"Peach Schnapps\",\"FFDB58\":\"Mustard\",\"FFD8D9\":\"Cosmos\",\"FFD800\":\"School bus Yellow\",\"FFD38C\":\"Grandis\",\"FFD2B7\":\"Romantic\",\"FFD1DC\":\"Pastel Pink\",\"FFCD8C\":\"Chardonnay\",\"FFCC99\":\"Peach Orange\",\"FFCC5C\":\"Golden Tainoi\",\"FFCC33\":\"Sunglow\",\"FFCBA4\":\"Flesh\",\"FFC901\":\"Supernova\",\"FFC3C0\":\"Your Pink\",\"FFC0A8\":\"Wax Flower\",\"FFBF00\":\"Amber\",\"FFBD5F\":\"Koromiko\",\"FFBA00\":\"Selective Yellow\",\"FFB97B\":\"Macaroni and Cheese\",\"FFB7D5\":\"Cotton Candy\",\"FFB555\":\"Texas Rose\",\"FFB31F\":\"My Sin\",\"FFB1B3\":\"Sundown\",\"FFB0AC\":\"Cornflower Lilac\",\"FFAE42\":\"Yellow Orange\",\"FFAB81\":\"Hit Pink\",\"FFA6C9\":\"Carnation Pink\",\"FFA194\":\"Mona Lisa\",\"FFA000\":\"Orange Peel\",\"FF9E2C\":\"Sunshade\",\"FF9980\":\"Vivid Tangerine\",\"FF9966\":\"Atomic Tangerine\",\"FF9933\":\"Neon Carrot\",\"FF91A4\":\"Pink Salmon\",\"FF910F\":\"West Side\",\"FF9000\":\"Pizazz\",\"FF7F00\":\"Flush Orange\",\"FF7D07\":\"Flamenco\",\"FF7518\":\"Pumpkin\",\"FF7034\":\"Burning Orange\",\"FF6FFF\":\"Blush Pink\",\"FF6B53\":\"Persimmon\",\"FF681F\":\"Orange\",\"FF66FF\":\"Pink Flamingo\",\"FF6600\":\"Blaze Orange\",\"FF6037\":\"Outrageous Orange\",\"FF4F00\":\"International Orange\",\"FF4D00\":\"Vermilion\",\"FF4040\":\"Coral Red\",\"FF3F34\":\"Red Orange\",\"FF355E\":\"Radical Red\",\"FF33CC\":\"Razzle Dazzle Rose\",\"FF3399\":\"Wild Strawberry\",\"FF2400\":\"Scarlet\",\"FF00CC\":\"Purple Pizzazz\",\"FF007F\":\"Rose\",\"FEFCED\":\"Orange White\",\"FEF9E3\":\"Off Yellow\",\"FEF8FF\":\"White Pointer\",\"FEF8E2\":\"Solitaire\",\"FEF7DE\":\"Half Dutch White\",\"FEF5F1\":\"Provincial Pink\",\"FEF4F8\":\"Wisp Pink\",\"FEF4DB\":\"Half Spanish White\",\"FEF4CC\":\"Pipi\",\"FEF3D8\":\"Bleach White\",\"FEF2C7\":\"Beeswax\",\"FEF0EC\":\"Bridesmaid\",\"FEEFCE\":\"Oasis\",\"FEEBF3\":\"Remy\",\"FEE5AC\":\"Cape Honey\",\"FEDB8D\":\"Salomie\",\"FED85D\":\"Dandelion\",\"FED33C\":\"Bright Sun\",\"FEBAAD\":\"Melon\",\"FEA904\":\"Yellow Sea\",\"FE9D04\":\"California\",\"FE6F5E\":\"Bittersweet\",\"FE4C40\":\"Sunset Orange\",\"FE28A2\":\"Persian Rose\",\"FDFFD5\":\"Cumulus\",\"FDFEB8\":\"Pale Prim\",\"FDF7AD\":\"Drover\",\"FDF6D3\":\"Half Colonial White\",\"FDE910\":\"Lemon\",\"FDE295\":\"Golden Glow\",\"FDE1DC\":\"Cinderella\",\"FDD7E4\":\"Pig Pink\",\"FDD5B1\":\"Light Apricot\",\"FD9FA2\":\"Sweet Pink\",\"FD7C07\":\"Sorbus\",\"FD7B33\":\"Crusta\",\"FD5B78\":\"Wild Watermelon\",\"FD0E35\":\"Torch Red\",\"FCFFF9\":\"Ceramic\",\"FCFFE7\":\"China Ivory\",\"FCFEDA\":\"Moon Glow\",\"FCFBF3\":\"Bianca\",\"FCF8F7\":\"Vista White\",\"FCF4DC\":\"Pearl Lusta\",\"FCF4D0\":\"Double Pearl Lusta\",\"FCDA98\":\"Cherokee\",\"FCD917\":\"Candlelight\",\"FCC01E\":\"Lightning Yellow\",\"FC9C1D\":\"Tree Poppy\",\"FC80A5\":\"Tickle Me Pink\",\"FC0FC0\":\"Shocking Pink\",\"FBFFBA\":\"Shalimar\",\"FBF9F9\":\"Hint of Red\",\"FBEC5D\":\"Candy Corn\",\"FBEA8C\":\"Sweet Corn\",\"FBE96C\":\"Festival\",\"FBE870\":\"Marigold Yellow\",\"FBE7B2\":\"Banana Mania\",\"FBCEB1\":\"Apricot Peach\",\"FBCCE7\":\"Classic Rose\",\"FBBEDA\":\"Cupid\",\"FBB2A3\":\"Rose Bud\",\"FBAED2\":\"Lavender Pink\",\"FBAC13\":\"Sun\",\"FBA129\":\"Sea Buckthorn\",\"FBA0E3\":\"Lavender Rose\",\"FB8989\":\"Geraldine\",\"FB607F\":\"Brink Pink\",\"FAFFA4\":\"Milan\",\"FAFDE4\":\"Hint of Yellow\",\"FAFAFA\":\"Alabaster\",\"FAF7D6\":\"Citrine White\",\"FAF3F0\":\"Fantasy\",\"FAECCC\":\"Champagne\",\"FAEAB9\":\"Astra\",\"FAE600\":\"Turbo\",\"FADFAD\":\"Peach Yellow\",\"FAD3A2\":\"Corvette\",\"FA9D5A\":\"Tan Hide\",\"FA7814\":\"Ecstasy\",\"F9FFF6\":\"Sugar Cane\",\"F9FF8B\":\"Dolly\",\"F9F8E4\":\"Rum Swizzle\",\"F9EAF3\":\"Amour\",\"F9E663\":\"Portica\",\"F9E4BC\":\"Dairy Cream\",\"F9E0ED\":\"Carousel Pink\",\"F9BF58\":\"Saffron Mango\",\"F95A61\":\"Carnation\",\"F8FDD3\":\"Mimosa\",\"F8FACD\":\"Corn Field\",\"F8F99C\":\"Texas\",\"F8F8F7\":\"Desert Storm\",\"F8F7FC\":\"White Lilac\",\"F8F7DC\":\"Coconut Cream\",\"F8F6F1\":\"Spring Wood\",\"F8F4FF\":\"Magnolia\",\"F8F0E8\":\"White Linen\",\"F8E4BF\":\"Givry\",\"F8DD5C\":\"Energy Yellow\",\"F8DB9D\":\"Marzipan\",\"F8D9E9\":\"Cherub\",\"F8C3DF\":\"Chantilly\",\"F8B853\":\"Casablanca\",\"F7FAF7\":\"Snow Drift\",\"F7F5FA\":\"Whisper\",\"F7F2E1\":\"Quarter Spanish White\",\"F7DBE6\":\"We Peep\",\"F7C8DA\":\"Azalea\",\"F7B668\":\"Rajah\",\"F77FBE\":\"Persian Pink\",\"F77703\":\"Chilean Fire\",\"F7468A\":\"Violet Red\",\"F6FFDC\":\"Spring Sun\",\"F6F7F7\":\"Black Haze\",\"F6F0E6\":\"Merino\",\"F6A4C9\":\"Illusion\",\"F653A6\":\"Brilliant Rose\",\"F64A8A\":\"French Rose\",\"F5FFBE\":\"Australian Mint\",\"F5FB3D\":\"Golden Fizz\",\"F5F3E5\":\"Ecru White\",\"F5EDEF\":\"Soft Peach\",\"F5E9D3\":\"Albescent White\",\"F5E7E2\":\"Pot Pourri\",\"F5E7A2\":\"Sandwisp\",\"F5D5A0\":\"Maize\",\"F5C999\":\"Manhattan\",\"F5C85C\":\"Cream Can\",\"F57584\":\"Froly\",\"F4F8FF\":\"Zircon\",\"F4F4F4\":\"Wild Sand\",\"F4F2EE\":\"Pampas\",\"F4EBD3\":\"Janna\",\"F4D81C\":\"Ripe Lemon\",\"F4C430\":\"Saffron\",\"F400A1\":\"Hollywood Cerise\",\"F3FFD8\":\"Carla\",\"F3FBD4\":\"Orinoco\",\"F3FB62\":\"Canary\",\"F3EDCF\":\"Wheatfield\",\"F3E9E5\":\"Dawn Pink\",\"F3E7BB\":\"Sidecar\",\"F3D9DF\":\"Vanilla Ice\",\"F3D69D\":\"New Orleans\",\"F3AD16\":\"Buttercup\",\"F34723\":\"Pomegranate\",\"F2FAFA\":\"Black Squeeze\",\"F2F2F2\":\"Concrete\",\"F2C3B2\":\"Mandys Pink\",\"F28500\":\"Tangerine\",\"F2552A\":\"Flamingo\",\"F1FFC8\":\"Chiffon\",\"F1FFAD\":\"Tidal\",\"F1F7F2\":\"Saltpan\",\"F1F1F1\":\"Seashell\",\"F1EEC1\":\"Mint Julep\",\"F1E9FF\":\"Blue Chalk\",\"F1E9D2\":\"Parchment\",\"F1E788\":\"Sahara Sand\",\"F19BAB\":\"Wewak\",\"F18200\":\"Gold Drop\",\"F0FCEA\":\"Feta\",\"F0EEFF\":\"Titan White\",\"F0EEFD\":\"Selago\",\"F0E2EC\":\"Prim\",\"F0DC82\":\"Buff\",\"F0DB7D\":\"Golden Sand\",\"F0D52D\":\"Golden Dream\",\"F091A9\":\"Mauvelous\",\"EFF2F3\":\"Porcelain\",\"EFEFEF\":\"Gallery\",\"EF863F\":\"Jaffa\",\"EEFFE2\":\"Rice Flower\",\"EEFF9A\":\"Jonquil\",\"EEFDFF\":\"Twilight Blue\",\"EEF6F7\":\"Catskill White\",\"EEF4DE\":\"Loafer\",\"EEF3C3\":\"Tusk\",\"EEF0F3\":\"Athens Gray\",\"EEF0C8\":\"Tahuna Sands\",\"EEEF78\":\"Manz\",\"EEEEE8\":\"Cararra\",\"EEE3AD\":\"Double Colonial White\",\"EEDEDA\":\"Bizarre\",\"EEDC82\":\"Flax\",\"EED9C4\":\"Almond\",\"EED794\":\"Chalky\",\"EEC1BE\":\"Beauty Bush\",\"EDFC84\":\"Honeysuckle\",\"EDF9F1\":\"Narvik\",\"EDF6FF\":\"Zumthor\",\"EDF5F5\":\"Aqua Haze\",\"EDF5DD\":\"Frost\",\"EDEA99\":\"Primrose\",\"EDDCB1\":\"Chamois\",\"EDCDAB\":\"Pancho\",\"EDC9AF\":\"Desert Sand\",\"EDB381\":\"Tacao\",\"ED989E\":\"Sea Pink\",\"ED9121\":\"Carrot Orange\",\"ED7A1C\":\"Tango\",\"ED0A3F\":\"Red Ribbon\",\"ECF245\":\"Starship\",\"ECEBCE\":\"Aths Special\",\"ECEBBD\":\"Fall Green\",\"ECE090\":\"Wild Rice\",\"ECCDB9\":\"Just Right\",\"ECC7EE\":\"French Lilac\",\"ECC54E\":\"Ronchi\",\"ECA927\":\"Fuel Yellow\",\"EBC2AF\":\"Zinnwaldite\",\"EB9373\":\"Apricot\",\"EAFFFE\":\"Dew\",\"EAF9F5\":\"Aqua Spring\",\"EAF6FF\":\"Solitude\",\"EAF6EE\":\"Panache\",\"EAE8D4\":\"White Rock\",\"EADAB8\":\"Raffia\",\"EAC674\":\"Rob Roy\",\"EAB33B\":\"Tulip Tree\",\"EAAE69\":\"Porsche\",\"EA88A8\":\"Carissma\",\"E9FFFD\":\"Clear Day\",\"E9F8ED\":\"Ottoman\",\"E9E3E3\":\"Ebb\",\"E9D75A\":\"Confetti\",\"E9CECD\":\"Oyster Pink\",\"E97C07\":\"Tahiti Gold\",\"E97451\":\"Burnt Sienna\",\"E96E00\":\"Clementine\",\"E8F5F2\":\"Aqua Squeeze\",\"E8F2EB\":\"Gin\",\"E8F1D4\":\"Chrome White\",\"E8EBE0\":\"Green White\",\"E8E0D5\":\"Pearl Bush\",\"E8B9B3\":\"Shilo\",\"E89928\":\"Fire Bush\",\"E7FEFF\":\"Bubbles\",\"E7F8FF\":\"Lily White\",\"E7ECE6\":\"Gray Nurse\",\"E7CD8C\":\"Putty\",\"E7BF05\":\"Corn\",\"E7BCB4\":\"Rose Fog\",\"E79FC4\":\"Kobi\",\"E79F8C\":\"Tonys Pink\",\"E7730A\":\"Christine\",\"E77200\":\"Mango Tango\",\"E6FFFF\":\"Tranquil\",\"E6FFE9\":\"Hint of Green\",\"E6F8F3\":\"Off Green\",\"E6F2EA\":\"Harp\",\"E6E4D4\":\"Satin Linen\",\"E6D7B9\":\"Double Spanish White\",\"E6BEA5\":\"Cashmere\",\"E6BE8A\":\"Gold Sand\",\"E64E03\":\"Trinidad\",\"E5F9F6\":\"Polar\",\"E5E5E5\":\"Mercury\",\"E5E0E1\":\"Bon Jour\",\"E5D8AF\":\"Hampton\",\"E5D7BD\":\"Stark White\",\"E5CCC9\":\"Dust Storm\",\"E5841B\":\"Zest\",\"E52B50\":\"Amaranth\",\"E4FFD1\":\"Snow Flurry\",\"E4F6E7\":\"Frostee\",\"E4D69B\":\"Zombie\",\"E4D5B7\":\"Grain Brown\",\"E4D422\":\"Sunflower\",\"E4D1C0\":\"Bone\",\"E4CFDE\":\"Twilight\",\"E4C2D5\":\"Melanie\",\"E49B0F\":\"Gamboge\",\"E47698\":\"Deep Blush\",\"E3F988\":\"Mindaro\",\"E3F5E1\":\"Peppermint\",\"E3BEBE\":\"Cavern Pink\",\"E34234\":\"Cinnabar\",\"E32636\":\"Alizarin Crimson\",\"E30B5C\":\"Razzmatazz\",\"E2F3EC\":\"Apple Green\",\"E2EBED\":\"Mystic\",\"E2D8ED\":\"Snuff\",\"E29CD2\":\"Light Orchid\",\"E29418\":\"Dixie\",\"E292C0\":\"Shocking\",\"E28913\":\"Golden Bell\",\"E2725B\":\"Terracotta\",\"E25465\":\"Mandy\",\"E1F6E8\":\"Tara\",\"E1EAD4\":\"Kidnapper\",\"E1E6D6\":\"Periglacial Blue\",\"E1C0C8\":\"Pink Flare\",\"E1BC64\":\"Equator\",\"E16865\":\"Sunglo\",\"E0C095\":\"Calico\",\"E0B974\":\"Harvest Gold\",\"E0B646\":\"Anzac\",\"E0B0FF\":\"Mauve\",\"DFFF00\":\"Chartreuse Yellow\",\"DFECDA\":\"Willow Brook\",\"DFCFDB\":\"Lola\",\"DFCD6F\":\"Chenin\",\"DFBE6F\":\"Apache\",\"DF73FF\":\"Heliotrope\",\"DEF5FF\":\"Pattens Blue\",\"DEE5C0\":\"Beryl Green\",\"DED717\":\"Barberry\",\"DED4A4\":\"Sapling\",\"DECBC6\":\"Wafer\",\"DEC196\":\"Brandy\",\"DEBA13\":\"Gold Tips\",\"DEA681\":\"Tumbleweed\",\"DE6360\":\"Roman\",\"DE3163\":\"Cerise Red\",\"DDF9F1\":\"White Ice\",\"DDD6D5\":\"Swiss Coffee\",\"DCF0EA\":\"Swans Down\",\"DCEDB4\":\"Caper\",\"DCDDCC\":\"Moon Mist\",\"DCD9D2\":\"Westar\",\"DCD747\":\"Wattle\",\"DCB4BC\":\"Blossom\",\"DCB20C\":\"Galliano\",\"DC4333\":\"Punch\",\"DBFFF8\":\"Frosted Mint\",\"DBDBDB\":\"Alto\",\"DB995E\":\"Di Serria\",\"DB9690\":\"Petite Orchid\",\"DB5079\":\"Cranberry\",\"DAFAFF\":\"Oyster Bay\",\"DAF4F0\":\"Iceberg\",\"DAECD6\":\"Zanah\",\"DA8A67\":\"Copperfield\",\"DA6A41\":\"Red Damask\",\"DA6304\":\"Bamboo\",\"DA5B38\":\"Flame Pea\",\"DA3287\":\"Cerise\",\"D9F7FF\":\"Mabel\",\"D9E4F5\":\"Link Water\",\"D9DCC1\":\"Tana\",\"D9D6CF\":\"Timberwolf\",\"D9B99B\":\"Cameo\",\"D99376\":\"Burning Sand\",\"D94972\":\"Cabaret\",\"D8FCFA\":\"Foam\",\"D8C2D5\":\"Maverick\",\"D87C63\":\"Japonica\",\"D84437\":\"Valencia\",\"D7D0FF\":\"Fog\",\"D7C498\":\"Pavlova\",\"D7837F\":\"New York Pink\",\"D6FFDB\":\"Snowy Mint\",\"D6D6D1\":\"Quill Gray\",\"D6CEF6\":\"Moon Raker\",\"D6C562\":\"Tacha\",\"D69188\":\"My Pink\",\"D5F6E3\":\"Granny Apple\",\"D5D195\":\"Winter Hazel\",\"D59A6F\":\"Whiskey\",\"D591A4\":\"Can Can\",\"D54600\":\"Grenadier\",\"D4E2FC\":\"Hawkes Blue\",\"D4DFE2\":\"Geyser\",\"D4D7D9\":\"Iron\",\"D4CD16\":\"Bird Flower\",\"D4C4A8\":\"Akaroa\",\"D4BF8D\":\"Straw\",\"D4B6AF\":\"Clam Shell\",\"D47494\":\"Charm\",\"D3CDC5\":\"Swirl\",\"D3CBBA\":\"Sisal\",\"D2F8B0\":\"Gossip\",\"D2F6DE\":\"Blue Romance\",\"D2DA97\":\"Deco\",\"D29EAA\":\"Careys Pink\",\"D27D46\":\"Raw Sienna\",\"D1E231\":\"Pear\",\"D1D2DD\":\"Mischka\",\"D1D2CA\":\"Celeste\",\"D1C6B4\":\"Soft Amber\",\"D1BEA8\":\"Vanilla\",\"D18F1B\":\"Geebung\",\"D0F0C0\":\"Tea Green\",\"D0C0E5\":\"Prelude\",\"D0BEF8\":\"Perfume\",\"D07D12\":\"Meteor\",\"D06DA1\":\"Hopbush\",\"D05F04\":\"Red Stage\",\"CFFAF4\":\"Scandal\",\"CFF9F3\":\"Humming Bird\",\"CFE5D2\":\"Surf Crest\",\"CFDCCF\":\"Tasman\",\"CFB53B\":\"Old Gold\",\"CFA39D\":\"Eunry\",\"CEC7A7\":\"Chino\",\"CEC291\":\"Yuma\",\"CEBABA\":\"Cold Turkey\",\"CEB98F\":\"Sorrell Brown\",\"CDF4FF\":\"Onahau\",\"CD8429\":\"Brandy Punch\",\"CD5700\":\"Tenn\",\"CCFF00\":\"Electric Lime\",\"CCCCFF\":\"Periwinkle\",\"CCCAA8\":\"Thistle Green\",\"CC8899\":\"Puce\",\"CC7722\":\"Ochre\",\"CC5500\":\"Burnt Orange\",\"CC3333\":\"Persian Red\",\"CBDBD6\":\"Nebula\",\"CBD3B0\":\"Green Mist\",\"CBCAB6\":\"Foggy Gray\",\"CB8FA9\":\"Viola\",\"CAE6DA\":\"Skeptic\",\"CAE00D\":\"Bitter Lemon\",\"CADCD4\":\"Paris White\",\"CABB48\":\"Turmeric\",\"CA3435\":\"Flush Mahogany\",\"C9FFE5\":\"Aero Blue\",\"C9FFA2\":\"Reef\",\"C9D9D2\":\"Conch\",\"C9C0BB\":\"Silver Rust\",\"C9B93B\":\"Earls Green\",\"C9B35B\":\"Sundance\",\"C9B29B\":\"Rodeo Dust\",\"C9A0DC\":\"Light Wisteria\",\"C99415\":\"Pizza\",\"C96323\":\"Piper\",\"C8E3D7\":\"Edgewater\",\"C8B568\":\"Laser\",\"C8AABF\":\"Lily\",\"C8A528\":\"Hokey Pokey\",\"C8A2C8\":\"Lilac\",\"C88A65\":\"Antique Brass\",\"C7DDE5\":\"Botticelli\",\"C7CD90\":\"Pine Glade\",\"C7C9D5\":\"Ghost\",\"C7C4BF\":\"Cloud\",\"C7C1FF\":\"Melrose\",\"C7BCA2\":\"Coral Reef\",\"C7031E\":\"Monza\",\"C6E610\":\"Las Palmas\",\"C6C8BD\":\"Kangaroo\",\"C6C3B5\":\"Ash\",\"C6A84B\":\"Roti\",\"C69191\":\"Oriental Pink\",\"C6726B\":\"Contessa\",\"C62D42\":\"Brick Red\",\"C5E17A\":\"Yellow Green\",\"C5DBCA\":\"Sea Mist\",\"C5994B\":\"Tussock\",\"C59922\":\"Nugget\",\"C54B8C\":\"Mulberry\",\"C4F4EB\":\"Mint Tulip\",\"C4D0B0\":\"Coriander\",\"C4C4BC\":\"Mist Gray\",\"C45719\":\"Orange Roughy\",\"C45655\":\"Fuzzy Wuzzy Brown\",\"C41E3A\":\"Cardinal\",\"C3DDF9\":\"Tropical Blue\",\"C3D1D1\":\"Tiara\",\"C3CDE6\":\"Periwinkle Gray\",\"C3C3BD\":\"Gray Nickel\",\"C3BFC1\":\"Pale Slate\",\"C3B091\":\"Indian Khaki\",\"C32148\":\"Maroon Flush\",\"C2E8E5\":\"Jagged Ice\",\"C2CAC4\":\"Pumice\",\"C2BDB6\":\"Cotton Seed\",\"C2955D\":\"Twine\",\"C26B03\":\"Indochine\",\"C1F07C\":\"Sulu\",\"C1D7B0\":\"Sprout\",\"C1BECD\":\"Gray Suit\",\"C1BAB0\":\"Tea\",\"C1B7A4\":\"Bison Hide\",\"C1A004\":\"Buddha Gold\",\"C154C1\":\"Fuchsia Pink\",\"C1440E\":\"Tia Maria\",\"C0D8B6\":\"Pixie Green\",\"C0D3B9\":\"Pale Leaf\",\"C08081\":\"Old Rose\",\"C04737\":\"Mojo\",\"C02B18\":\"Thunderbird\",\"BFDBE2\":\"Ziggurat\",\"BFC921\":\"Key Lime Pie\",\"BFC1C2\":\"Silver Sand\",\"BFBED8\":\"Blue Haze\",\"BFB8B0\":\"Tide\",\"BF5500\":\"Rose of Sharon\",\"BEDE0D\":\"Fuego\",\"BEB5B7\":\"Pink Swan\",\"BEA6C3\":\"London Hue\",\"BDEDFD\":\"French Pass\",\"BDC9CE\":\"Loblolly\",\"BDC8B3\":\"Clay Ash\",\"BDBDC6\":\"French Gray\",\"BDBBD7\":\"Lavender Gray\",\"BDB3C7\":\"Chatelle\",\"BDB2A1\":\"Malta\",\"BDB1A8\":\"Silk\",\"BD978E\":\"Quicksand\",\"BD5E2E\":\"Tuscany\",\"BCC9C2\":\"Powder Ash\",\"BBD7C1\":\"Surf\",\"BBD009\":\"Rio Grande\",\"BB8983\":\"Brandy Rose\",\"BB3385\":\"Medium Red Violet\",\"BAEEF9\":\"Charlotte\",\"BAC7C9\":\"Submarine\",\"BAB1A2\":\"Nomad\",\"BA7F03\":\"Pirate Gold\",\"BA6F1E\":\"Bourbon\",\"BA450C\":\"Rock Spray\",\"BA0101\":\"Guardsman Red\",\"B9C8AC\":\"Rainee\",\"B9C46A\":\"Wild Willow\",\"B98D28\":\"Marigold\",\"B95140\":\"Crail\",\"B94E48\":\"Chestnut\",\"B8E0F9\":\"Sail\",\"B8C25D\":\"Celery\",\"B8C1B1\":\"Green Spring\",\"B8B56A\":\"Gimblet\",\"B87333\":\"Copper\",\"B81104\":\"Milano Red\",\"B7F0BE\":\"Madang\",\"B7C3D0\":\"Heather\",\"B7B1B1\":\"Nobel\",\"B7A458\":\"Husk\",\"B7A214\":\"Sahara\",\"B78E5C\":\"Muddy Waters\",\"B7410E\":\"Rust\",\"B6D3BF\":\"Gum Leaf\",\"B6D1EA\":\"Spindle\",\"B6BAA4\":\"Eagle\",\"B6B095\":\"Heathered Gray\",\"B69D98\":\"Thatch\",\"B6316C\":\"Hibiscus\",\"B5ECDF\":\"Cruise\",\"B5D2CE\":\"Jet Stream\",\"B5B35C\":\"Olive Green\",\"B5A27F\":\"Mongoose\",\"B57281\":\"Turkish Rose\",\"B4CFD3\":\"Jungle Mist\",\"B44668\":\"Blush\",\"B43332\":\"Well Read\",\"B3C110\":\"La Rioja\",\"B3AF95\":\"Taupe Gray\",\"B38007\":\"Hot Toddy\",\"B35213\":\"Fiery Orange\",\"B32D29\":\"Tall Poppy\",\"B2A1EA\":\"Biloba Flower\",\"B20931\":\"Shiraz\",\"B1F4E7\":\"Ice Cold\",\"B1E2C1\":\"Fringy Flower\",\"B19461\":\"Teak\",\"B16D52\":\"Santa Fe\",\"B1610B\":\"Pumpkin Skin\",\"B14A0B\":\"Vesuvius\",\"B10000\":\"Bright Red\",\"B0E313\":\"Inch Worm\",\"B09A95\":\"Del Rio\",\"B06608\":\"Mai Tai\",\"B05E81\":\"Tapestry\",\"B05D54\":\"Matrix\",\"B04C6A\":\"Cadillac\",\"AFBDD9\":\"Pigeon Post\",\"AFB1B8\":\"Bombay\",\"AFA09E\":\"Martini\",\"AF9F1C\":\"Lucky\",\"AF8F2C\":\"Alpine\",\"AF8751\":\"Driftwood\",\"AF593E\":\"Brown Rust\",\"AF4D43\":\"Apple Blossom\",\"AF4035\":\"Medium Carmine\",\"AE809E\":\"Bouquet\",\"AE6020\":\"Desert\",\"AE4560\":\"Hippie Pink\",\"ADE6C4\":\"Padua\",\"ADDFAD\":\"Moss Green\",\"ADBED1\":\"Casper\",\"AD781B\":\"Mandalay\",\"ACE1AF\":\"Celadon\",\"ACDD4D\":\"Conifer\",\"ACCBB1\":\"Spring Rain\",\"ACB78E\":\"Swamp Green\",\"ACACAC\":\"Silver Chalice\",\"ACA59F\":\"Cloudy\",\"ACA586\":\"Hillary\",\"ACA494\":\"Napa\",\"AC9E22\":\"Lemon Ginger\",\"AC91CE\":\"East Side\",\"AC8A56\":\"Limed Oak\",\"ABA196\":\"Bronco\",\"ABA0D9\":\"Cold Purple\",\"AB917A\":\"Sandrift\",\"AB3472\":\"Royal Heath\",\"AB0563\":\"Lipstick\",\"AAF0D1\":\"Magic Mint\",\"AAD6E6\":\"Regent St Blue\",\"AAABB7\":\"Spun Pearl\",\"AAA9CD\":\"Logan\",\"AAA5A9\":\"Shady Lady\",\"AA8D6F\":\"Sandal\",\"AA8B5B\":\"Muesli\",\"AA4203\":\"Fire\",\"AA375A\":\"Night Shadz\",\"A9C6C2\":\"Opal\",\"A9BEF2\":\"Perano\",\"A9BDBF\":\"Tower Gray\",\"A9B497\":\"Schist\",\"A9ACB6\":\"Aluminium\",\"A9A491\":\"Gray Olive\",\"A8E3BD\":\"Chinook\",\"A8BD9F\":\"Norway\",\"A8AF8E\":\"Locust\",\"A8AE9C\":\"Bud\",\"A8A589\":\"Tallow\",\"A899E6\":\"Dull Lavender\",\"A8989B\":\"Dusty Gray\",\"A86B6B\":\"Coral Tree\",\"A86515\":\"Reno Sand\",\"A85307\":\"Rich Gold\",\"A7882C\":\"Luxor Gold\",\"A72525\":\"Mexican Red\",\"A6A29A\":\"Dawn\",\"A69279\":\"Donkey Brown\",\"A68B5B\":\"Barley Corn\",\"A65529\":\"Paarl\",\"A62F20\":\"Roof Terracotta\",\"A5CB0C\":\"Bahia\",\"A59B91\":\"Zorba\",\"A50B5E\":\"Jazzberry Jam\",\"A4AF6E\":\"Green Smoke\",\"A4A6D3\":\"Wistful\",\"A4A49D\":\"Delta\",\"A3E3ED\":\"Blizzard Blue\",\"A397B4\":\"Amethyst Smoke\",\"A3807B\":\"Pharlap\",\"A2AEAB\":\"Edward\",\"A2AAB3\":\"Gray Chateau\",\"A26645\":\"Cape Palliser\",\"A23B6C\":\"Rouge\",\"A2006D\":\"Flirt\",\"A1E9DE\":\"Water Leaf\",\"A1DAD7\":\"Aqua Island\",\"A1C50A\":\"Citrus\",\"A1ADB5\":\"Hit Gray\",\"A1750D\":\"Buttered Rum\",\"A02712\":\"Tabasco\",\"9FDD8C\":\"Feijoa\",\"9FD7D3\":\"Sinbad\",\"9FA0B1\":\"Santas Gray\",\"9F9F9C\":\"Star Dust\",\"9F821C\":\"Reef Gold\",\"9F381D\":\"Cognac\",\"9EDEE0\":\"Morning Glory\",\"9EB1CD\":\"Rock Blue\",\"9EA91F\":\"Citron\",\"9EA587\":\"Sage\",\"9E5B40\":\"Sepia Skin\",\"9E5302\":\"Chelsea Gem\",\"9DE5FF\":\"Anakiwa\",\"9DE093\":\"Granny Smith Apple\",\"9DC209\":\"Pistachio\",\"9DACB7\":\"Gull Gray\",\"9D5616\":\"Hawaiian Tan\",\"9C3336\":\"Stiletto\",\"9B9E8F\":\"Lemon Grass\",\"9B4703\":\"Oregon\",\"9AC2B8\":\"Shadow Green\",\"9AB973\":\"Olivine\",\"9A9577\":\"Gurkha\",\"9A6E61\":\"Toast\",\"9A3820\":\"Prairie Sand\",\"9999CC\":\"Blue Bell\",\"997A8D\":\"Mountbatten Pink\",\"9966CC\":\"Amethyst\",\"991B07\":\"Totem Pole\",\"98FF98\":\"Mint Green\",\"988D77\":\"Pale Oyster\",\"98811B\":\"Hacienda\",\"98777B\":\"Bazaar\",\"9874D3\":\"Lilac Bush\",\"983D61\":\"Vin Rouge\",\"97CD2D\":\"Atlantis\",\"9771B5\":\"Wisteria\",\"97605D\":\"Au Chico\",\"96BBAB\":\"Summer Green\",\"96A8A1\":\"Pewter\",\"967BB6\":\"Lavender Purple\",\"9678B6\":\"Purple Mountain\\'s Majesty \",\"93DFB8\":\"Algae Green\",\"93CCEA\":\"Cornflower\",\"926F5B\":\"Beaver\",\"92000A\":\"Sangria\",\"908D39\":\"Sycamore\",\"907B71\":\"Almond Frost\",\"901E1E\":\"Old Brick\",\"8FD6B4\":\"Vista Blue\",\"8F8176\":\"Squirrel\",\"8F4B0E\":\"Korma\",\"8F3E33\":\"El Salva\",\"8F021C\":\"Pohutukawa\",\"8EABC1\":\"Nepal\",\"8E8190\":\"Mamba\",\"8E775E\":\"Domino\",\"8E6F70\":\"Opium\",\"8E4D1E\":\"Rope\",\"8E0000\":\"Red Berry\",\"8DA8CC\":\"Polo Blue\",\"8D90A1\":\"Manatee\",\"8D8974\":\"Granite Green\",\"8D7662\":\"Cement\",\"8D3F3F\":\"Tosca\",\"8D3D38\":\"Sanguine Brown\",\"8D0226\":\"Paprika\",\"8C6495\":\"Trendy Pink\",\"8C5738\":\"Potters Clay\",\"8C472F\":\"Mule Fawn\",\"8C055E\":\"Cardinal Pink\",\"8BE6D8\":\"Riptide\",\"8BA9A5\":\"Cascade\",\"8BA690\":\"Envy\",\"8B9FEE\":\"Portage\",\"8B9C90\":\"Mantle\",\"8B8680\":\"Natural Gray\",\"8B847E\":\"Schooner\",\"8B8470\":\"Olive Haze\",\"8B6B0B\":\"Corn Harvest\",\"8B0723\":\"Monarch\",\"8B00FF\":\"Electric Violet\",\"8AB9F1\":\"Jordy Blue\",\"8A8F8A\":\"Stack\",\"8A8389\":\"Monsoon\",\"8A8360\":\"Clay Creek\",\"8A73D6\":\"True V\",\"8A3324\":\"Burnt Umber\",\"897D6D\":\"Makara\",\"888D65\":\"Avocado\",\"87AB39\":\"Sushi\",\"878D91\":\"Oslo Gray\",\"877C7B\":\"Hurricane\",\"87756E\":\"Americano\",\"86949F\":\"Regent Gray\",\"86560A\":\"Rusty Nail\",\"864D1E\":\"Bull Shot\",\"86483C\":\"Ironstone\",\"863C3C\":\"Lotus\",\"85C4CC\":\"Half Baked\",\"859FAF\":\"Bali Hai\",\"8581D9\":\"Chetwode Blue\",\"84A0A0\":\"Granny Smith\",\"83D0C6\":\"Monte Carlo\",\"83AA5D\":\"Chelsea Cucumber\",\"828F72\":\"Battleship Gray\",\"826F65\":\"Sand Dune\",\"816E71\":\"Spicy Pink\",\"81422C\":\"Nutmeg\",\"80CCEA\":\"Seagull\",\"80B3C4\":\"Glacier\",\"80B3AE\":\"Gulf Stream\",\"807E79\":\"Friar Gray\",\"80461B\":\"Russet\",\"80341F\":\"Red Robin\",\"800B47\":\"Rose Bud Cherry\",\"7F76D3\":\"Moody Blue\",\"7F7589\":\"Mobster\",\"7F626D\":\"Falcon\",\"7F3A02\":\"Peru Tan\",\"7F1734\":\"Claret\",\"7E3A15\":\"Copper Canyon\",\"7DD8C6\":\"Bermuda\",\"7DC8F7\":\"Malibu\",\"7DA98D\":\"Bay Leaf\",\"7D2C14\":\"Pueblo\",\"7CB7BB\":\"Neptune\",\"7CB0A1\":\"Acapulco\",\"7CA1A6\":\"Gumbo\",\"7C881A\":\"Trendy Green\",\"7C7B82\":\"Jumbo\",\"7C7B7A\":\"Concord\",\"7C778A\":\"Topaz\",\"7C7631\":\"Pesto\",\"7C1C05\":\"Kenyan Copper\",\"7BA05B\":\"Asparagus\",\"7B9F80\":\"Amulet\",\"7B8265\":\"Flax Smoke\",\"7B7C94\":\"Waterloo \",\"7B7874\":\"Tapa\",\"7B6608\":\"Yukon Gold\",\"7B3F00\":\"Cinnamon\",\"7B3801\":\"Red Beech\",\"7AC488\":\"De York\",\"7A89B8\":\"Wild Blue Yonder\",\"7A7A7A\":\"Boulder\",\"7A58C1\":\"Fuchsia Blue\",\"7A013A\":\"Siren\",\"79DEEC\":\"Spray\",\"796D62\":\"Sandstone\",\"796A78\":\"Fedora\",\"795D4C\":\"Roman Coffee\",\"78A39C\":\"Sea Nymph\",\"788BBA\":\"Ship Cove\",\"788A25\":\"Wasabi\",\"78866B\":\"Camouflage Green\",\"782F16\":\"Peanut\",\"782D19\":\"Mocha\",\"77DD77\":\"Pastel Green\",\"779E86\":\"Oxley\",\"776F61\":\"Pablo\",\"773F1A\":\"Walnut\",\"771F1F\":\"Crown of Thorns\",\"770F05\":\"Dark Burgundy\",\"76BD17\":\"Lima\",\"7666C6\":\"Blue Marguerite\",\"76395D\":\"Cosmic\",\"7563A8\":\"Deluge\",\"755A57\":\"Russett\",\"74C365\":\"Mantis\",\"747D83\":\"Rolling Stone\",\"747D63\":\"Limed Ash\",\"74640D\":\"Spicy Mustard\",\"736D58\":\"Crocodile\",\"736C9F\":\"Kimberly\",\"734A12\":\"Raw Umber\",\"731E8F\":\"Seance\",\"727B89\":\"Raven\",\"726D4E\":\"Go Ben\",\"724A2F\":\"Old Copper\",\"72010F\":\"Venetian Red\",\"71D9E2\":\"Aquamarine Blue\",\"716E10\":\"Olivetone\",\"716B56\":\"Peat\",\"715D47\":\"Tobacco Brown\",\"714AB2\":\"Studio\",\"71291D\":\"Metallic Copper\",\"711A00\":\"Cedar Wood Finish\",\"704F50\":\"Ferra\",\"704A07\":\"Antique Bronze\",\"701C1C\":\"Persian Plum\",\"6FD0C5\":\"Downy\",\"6F9D02\":\"Limeade\",\"6F8E63\":\"Highland\",\"6F6A61\":\"Flint\",\"6F440C\":\"Cafe Royale\",\"6E7783\":\"Pale Sky\",\"6E6D57\":\"Kokoda\",\"6E4B26\":\"Dallas\",\"6E4826\":\"Pickled Bean\",\"6E1D14\":\"Moccaccino\",\"6E0902\":\"Red Oxide\",\"6D92A1\":\"Gothic\",\"6D9292\":\"Juniper\",\"6D6C6C\":\"Dove Gray\",\"6D5E54\":\"Pine Cone\",\"6D0101\":\"Lonestar\",\"6CDAE7\":\"Turquoise Blue\",\"6C3082\":\"Eminence\",\"6B8BA2\":\"Bermuda Gray\",\"6B5755\":\"Dorado\",\"6B4E31\":\"Shingle Fawn\",\"6B3FA0\":\"Royal Purple\",\"6B2A14\":\"Hairy Heath\",\"6A6051\":\"Soya Bean\",\"6A5D1B\":\"Himalaya\",\"6A442E\":\"Spice\",\"697E9A\":\"Lynch\",\"695F62\":\"Scorpion\",\"692D54\":\"Finn\",\"685E6E\":\"Salt Box\",\"67A712\":\"Christi\",\"675FA6\":\"Scampi\",\"67032D\":\"Black Rose\",\"66FF66\":\"Screamin\\' Green\",\"66FF00\":\"Bright Green\",\"66B58F\":\"Silver Tree\",\"66023C\":\"Tyrian Purple\",\"65869F\":\"Hoki\",\"65745D\":\"Willow Grove\",\"652DC1\":\"Purple Heart\",\"651A14\":\"Cherrywood\",\"65000B\":\"Rosewood\",\"64CCDB\":\"Viking\",\"646E75\":\"Nevada\",\"646A54\":\"Siam\",\"63B76C\":\"Fern\",\"639A8F\":\"Patina\",\"624E9A\":\"Butterfly Bush\",\"623F2D\":\"Quincy\",\"622F30\":\"Buccaneer\",\"61845F\":\"Glade Green\",\"615D30\":\"Costa del Sol\",\"6093D1\":\"Danube\",\"606E68\":\"Corduroy\",\"605B73\":\"Smoky\",\"5FB3AC\":\"Tradewind\",\"5FA777\":\"Aqua Forest\",\"5F6672\":\"Shuttle Gray\",\"5F5F6E\":\"Mid Gray\",\"5F3D26\":\"Irish Coffee\",\"5E5D3B\":\"Hemlock\",\"5E483E\":\"Kabul\",\"5DA19F\":\"Breaker Bay\",\"5D7747\":\"Dingley\",\"5D5E37\":\"Verdigris\",\"5D5C58\":\"Chicago\",\"5D4C51\":\"Don Juan\",\"5D1E0F\":\"Redwood\",\"5C5D75\":\"Comet\",\"5C2E01\":\"Carnaby Tan\",\"5C0536\":\"Mulberry Wood\",\"5C0120\":\"Bordeaux\",\"5B3013\":\"Jambalaya\",\"5A87A0\":\"Horizon\",\"5A6E9C\":\"Waikawa Gray\",\"591D35\":\"Wine Berry\",\"589AAF\":\"Hippie Blue\",\"56B4BE\":\"Fountain Blue\",\"5590D9\":\"Havelock Blue\",\"556D56\":\"Finlandia\",\"555B10\":\"Saratoga\",\"55280C\":\"Cioccolato\",\"54534D\":\"Fuscous Gray\",\"53824B\":\"Hippie Green\",\"523C94\":\"Gigas\",\"520C17\":\"Maroon Oak\",\"52001F\":\"Castro\",\"51808F\":\"Smalt Blue\",\"517C66\":\"Como\",\"516E3D\":\"Chalet Green\",\"50C878\":\"Emerald\",\"4FA83D\":\"Apple\",\"4F9D5D\":\"Fruit Salad\",\"4F7942\":\"Fern Green\",\"4F69C6\":\"Indigo\",\"4F2398\":\"Daisy Bush\",\"4F1C70\":\"Honey Flower\",\"4EABD1\":\"Shakespeare\",\"4E7F9E\":\"Wedgewood\",\"4E6649\":\"Axolotl\",\"4E4562\":\"Mulled Wine\",\"4E420C\":\"Bronze Olive\",\"4E3B41\":\"Matterhorn\",\"4E2A5A\":\"Bossanova\",\"4E0606\":\"Mahogany\",\"4D5328\":\"Woodland\",\"4D400F\":\"Bronzetone\",\"4D3D14\":\"Punga\",\"4D3833\":\"Rock\",\"4D282E\":\"Livid Brown\",\"4D282D\":\"Cowboy\",\"4D1E01\":\"Indian Tan\",\"4D0A18\":\"Cab Sav\",\"4D0135\":\"Blackberry\",\"4C4F56\":\"Abbey\",\"4C3024\":\"Saddle\",\"4B5D52\":\"Nandor\",\"4A4E5A\":\"Trout\",\"4A444B\":\"Gravel\",\"4A4244\":\"Tundora\",\"4A3C30\":\"Mondo\",\"4A3004\":\"Deep Bronze\",\"4A2A04\":\"Bracken\",\"49371B\":\"Metallic Bronze\",\"49170C\":\"Van Cleef\",\"483C32\":\"Taupe\",\"481C1C\":\"Cocoa Bean\",\"460B41\":\"Loulou\",\"45B1E8\":\"Picton Blue\",\"456CAC\":\"San Marino\",\"441D00\":\"Morocco Brown\",\"44012D\":\"Barossa\",\"436A0D\":\"Green Leaf\",\"434C59\":\"River Bed\",\"433E37\":\"Armadillo\",\"41AA78\":\"Ocean Green\",\"414C7D\":\"East Bay\",\"413C37\":\"Merlin\",\"411F10\":\"Paco\",\"40A860\":\"Chateau Green\",\"40826D\":\"Viridian\",\"403D19\":\"Thatch Green\",\"403B38\":\"Masala\",\"40291D\":\"Cork\",\"3FFF00\":\"Harlequin\",\"3FC1AA\":\"Puerto Rico\",\"3F5D53\":\"Mineral Green\",\"3F583B\":\"Tom Thumb\",\"3F4C3A\":\"Cabbage Pont\",\"3F307F\":\"Minsk\",\"3F3002\":\"Madras\",\"3F2500\":\"Cola\",\"3F2109\":\"Bronze\",\"3EABBF\":\"Pelorous\",\"3E3A44\":\"Ship Gray\",\"3E2C1C\":\"Black Marlin\",\"3E2B23\":\"English Walnut\",\"3E1C14\":\"Cedar\",\"3E0480\":\"Kingfisher Daisy\",\"3D7D52\":\"Goblin\",\"3D2B1F\":\"Bistre\",\"3D0C02\":\"Bean  \",\"3C493A\":\"Lunar Green\",\"3C4443\":\"Cape Cod\",\"3C4151\":\"Bright Gray\",\"3C3910\":\"Camouflage\",\"3C2005\":\"Dark Ebony\",\"3C1F76\":\"Meteorite\",\"3C1206\":\"Rebel\",\"3C0878\":\"Windsor\",\"3B91B4\":\"Boston Blue\",\"3B7A57\":\"Amazon\",\"3B2820\":\"Treehouse\",\"3B1F1F\":\"Jon\",\"3B0910\":\"Aubergine\",\"3B000B\":\"Temptress\",\"3AB09E\":\"Keppel\",\"3A6A47\":\"Killarney\",\"3A686C\":\"William\",\"3A2A6A\":\"Jacarta\",\"3A2010\":\"Sambuca\",\"3A0020\":\"Toledo\",\"381A51\":\"Grape\",\"37290E\":\"Brown Tumbleweed\",\"371D09\":\"Clinker\",\"36747D\":\"Ming\",\"363C0D\":\"Waiouru\",\"354E8C\":\"Chambray\",\"350E57\":\"Jagger\",\"350E42\":\"Valentino\",\"33CC99\":\"Shamrock\",\"33292F\":\"Thunder\",\"33036B\":\"Christalle\",\"327DA0\":\"Astral\",\"327C14\":\"Bilbao\",\"325D52\":\"Stromboli\",\"32293A\":\"Blackcurrant\",\"32127A\":\"Persian Indigo\",\"317D82\":\"Paradiso\",\"31728D\":\"Calypso\",\"315BA1\":\"Azure\",\"311C17\":\"Eclipse\",\"30D5C8\":\"Turquoise\",\"304B6A\":\"San Juan\",\"302A0F\":\"Woodrush\",\"301F1E\":\"Cocoa Brown\",\"2F6168\":\"Casal\",\"2F5A57\":\"Spectra\",\"2F519E\":\"Sapphire\",\"2F3CB3\":\"Governor Bay\",\"2F270E\":\"Onion\",\"2EBFD4\":\"Scooter\",\"2E3F62\":\"Rhino\",\"2E3222\":\"Rangitoto\",\"2E1905\":\"Jacko Bean\",\"2E0329\":\"Jacaranda\",\"2D569B\":\"St Tropaz\",\"2D383A\":\"Outer Space\",\"2D2510\":\"Mikado\",\"2C8C84\":\"Lochinvar\",\"2C2133\":\"Bleached Cedar\",\"2C1632\":\"Revolver\",\"2C0E8C\":\"Blue Gem\",\"2B3228\":\"Heavy Metal\",\"2B194F\":\"Valhalla\",\"2B0202\":\"Sepia Black\",\"2A52BE\":\"Cerulean Blue\",\"2A380B\":\"Turtle Green\",\"2A2630\":\"Baltic Sea\",\"2A140E\":\"Coffee Bean\",\"2A0359\":\"Cherry Pie\",\"29AB87\":\"Jungle Green\",\"297B9A\":\"Jelly Bean\",\"290C5E\":\"Violent Violet\",\"286ACD\":\"Mariner\",\"283A77\":\"Astronaut\",\"281E15\":\"Oil\",\"278A5B\":\"Eucalyptus\",\"27504B\":\"Plantation\",\"273A81\":\"Bay of Many\",\"26283B\":\"Ebony Clay\",\"26056A\":\"Paris M\",\"2596D1\":\"Curious Blue\",\"25311C\":\"Green Kelp\",\"25272C\":\"Shark\",\"251F4F\":\"Port Gore\",\"24500F\":\"Green House\",\"242E16\":\"Black Olive\",\"242A1D\":\"Log Cabin\",\"240C02\":\"Kilamanjaro\",\"240A40\":\"Violet\",\"211A0E\":\"Eternity\",\"202E54\":\"Cloud Burst\",\"20208D\":\"Jacksons Purple\",\"1FC2C2\":\"Java\",\"1F120F\":\"Night Rider\",\"1E9AB0\":\"Eastern Blue\",\"1E433C\":\"Te Papa Green\",\"1E385B\":\"Cello\",\"1E1708\":\"El Paso\",\"1E1609\":\"Karaka\",\"1E0F04\":\"Creole\",\"1D6142\":\"Green Pea\",\"1C7C7D\":\"Elm\",\"1C402E\":\"Everglade\",\"1C39BB\":\"Persian Blue\",\"1C1E13\":\"Rangoon Green\",\"1C1208\":\"Crowshead\",\"1B659D\":\"Matisse\",\"1B3162\":\"Biscay\",\"1B2F11\":\"Seaweed\",\"1B1404\":\"Acadia\",\"1B127B\":\"Deep Koamaru\",\"1B1035\":\"Haiti\",\"1B0245\":\"Tolopea\",\"1AB385\":\"Mountain Meadow\",\"1A1A68\":\"Lucky Point\",\"1959A8\":\"Fun Blue\",\"19330E\":\"Palm Leaf\",\"18587A\":\"Blumine\",\"182D09\":\"Deep Forest Green\",\"171F04\":\"Pine Tree\",\"16322C\":\"Timber Green\",\"162A40\":\"Big Stone\",\"161D10\":\"Hunter Green\",\"15736B\":\"Genoa\",\"1560BD\":\"Denim\",\"151F4C\":\"Bunting\",\"1450AA\":\"Tory Blue\",\"134F19\":\"Parsley\",\"13264D\":\"Blue Zodiac\",\"130A06\":\"Asphalt\",\"126B40\":\"Jewel\",\"120A8F\":\"Ultramarine\",\"110C6C\":\"Arapawa\",\"10121D\":\"Vulcan\",\"0F2D9E\":\"Torea Bay\",\"0E2A30\":\"Firefly\",\"0E0E18\":\"Cinder\",\"0D2E1C\":\"Bush\",\"0D1C19\":\"Aztec\",\"0D1117\":\"Bunker\",\"0D0332\":\"Black Rock\",\"0C8990\":\"Blue Chill\",\"0C7A79\":\"Surfie Green\",\"0C1911\":\"Racing Green\",\"0C0D0F\":\"Woodsmoke\",\"0C0B1D\":\"Ebony\",\"0BDA51\":\"Malachite\",\"0B6207\":\"San Felix\",\"0B1304\":\"Black Forest\",\"0B1107\":\"Gordons Green\",\"0B0F08\":\"Marshland\",\"0B0B0B\":\"Cod Gray\",\"0A6F75\":\"Atoll\",\"0A6906\":\"Japanese Laurel\",\"0A480D\":\"Dark Fern\",\"0A001C\":\"Black Russian\",\"097F4B\":\"Salem\",\"095859\":\"Deep Sea Green\",\"093624\":\"Bottle Green\",\"09255D\":\"Madison\",\"09230F\":\"Palm Green\",\"092256\":\"Downriver\",\"08E8DE\":\"Bright Turquoise\",\"088370\":\"Elf Green\",\"082567\":\"Deep Sapphire\",\"081910\":\"Black Bean\",\"080110\":\"Jaguar\",\"073A50\":\"Tarawera\",\"06A189\":\"Niagara\",\"069B81\":\"Gossamer\",\"063537\":\"Tiber\",\"062A78\":\"Catalina Blue\",\"056F57\":\"Watercourse\",\"055989\":\"Venice Blue\",\"051657\":\"Gulf Blue\",\"051040\":\"Deep Cove\",\"044259\":\"Teal Blue\",\"044022\":\"Zuccini\",\"042E4C\":\"Blue Whale\",\"041322\":\"Black Pearl\",\"041004\":\"Midnight Moss\",\"036A6E\":\"Mosque\",\"032B52\":\"Green Vogue\",\"03163C\":\"Tangaroa\",\"02A4D3\":\"Cerulean\",\"02866F\":\"Observatory\",\"026395\":\"Bahama Blue\",\"024E46\":\"Evening Sea\",\"02478E\":\"Congress Blue\",\"02402C\":\"Sherwood Green\",\"022D15\":\"English Holly\",\"01A368\":\"Green Haze\",\"01826B\":\"Deep Sea\",\"017987\":\"Blue Lagoon\",\"01796F\":\"Pine Green\",\"016D39\":\"Fun Green\",\"016162\":\"Blue Stone\",\"015E85\":\"Orient\",\"014B43\":\"Aqua Deep\",\"013F6A\":\"Regal Blue\",\"013E62\":\"Astronaut Blue\",\"01371A\":\"County Green\",\"01361C\":\"Cardin Green\",\"012731\":\"Daintree\",\"011D13\":\"Holly\",\"011635\":\"Midnight\",\"010D1A\":\"Blue Charcoal\",\"00CCCC\":\"Robin\\'s Egg Blue \",\"00CC99\":\"Caribbean Green\",\"00A86B\":\"Jade\",\"00A693\":\"Persian Green\",\"009DC4\":\"Pacific Blue\",\"0095B6\":\"Bondi Blue\",\"007FFF\":\"Azure Radiance\",\"007EC7\":\"Lochmara\",\"007BA7\":\"Deep Cerulean\",\"0076A3\":\"Allports\",\"00755E\":\"Tropical Rain Forest\",\"0066FF\":\"Blue Ribbon\",\"0066CC\":\"Science Blue\",\"00581A\":\"Camarone\",\"0056A7\":\"Endeavour\",\"004950\":\"Sherpa Blue\",\"004816\":\"Crusoe\",\"0047AB\":\"Cobalt\",\"004620\":\"Kaitoke Green\",\"003E40\":\"Cyprus\",\"003532\":\"Deep Teal\",\"003399\":\"Smalt\",\"003153\":\"Prussian Blue\",\"002FA7\":\"International Klein Blue\",\"002E20\":\"Burnham\",\"002900\":\"Deep Fir\",\"002387\":\"Resolution Blue\",\"001B1C\":\"Swamp\",\"000741\":\"Stratos\"}');\n\n//# sourceURL=webpack://getColorName/./data/curated.json?");
-
-/***/ }),
-
-/***/ "./data/web.json":
-/*!***********************!*\
-  !*** ./data/web.json ***!
-  \***********************/
-/***/ ((module) => {
-
-"use strict";
-eval("module.exports = JSON.parse('{\"191970\":\"Midnight Blue\",\"663399\":\"Rebecca Purple\",\"696969\":\"Dim Gray\",\"708090\":\"Slate Gray\",\"778899\":\"Light Slate Gray\",\"800000\":\"Maroon\",\"800080\":\"Purple\",\"808000\":\"Olive\",\"808080\":\"Gray\",\"FFFFFF\":\"White\",\"FFFFF0\":\"Ivory\",\"FFFFE0\":\"Light Yellow\",\"FFFF00\":\"Yellow\",\"FFFAFA\":\"Snow\",\"FFFAF0\":\"Floral White\",\"FFFACD\":\"Lemon Chiffon\",\"FFF8DC\":\"Corn Silk\",\"FFF5EE\":\"Seashell\",\"FFF0F5\":\"Lavender blush\",\"FFEFD5\":\"Papaya Whip\",\"FFEBCD\":\"Blanched Almond\",\"FFE4E1\":\"Misty Rose\",\"FFE4C4\":\"Bisque\",\"FFE4B5\":\"Moccasin\",\"FFDEAD\":\"Navajo White\",\"FFDAB9\":\"Peach Puff\",\"FFD700\":\"Gold\",\"FFC0CB\":\"Pink\",\"FFB6C1\":\"Light Pink\",\"FFA500\":\"Orange\",\"FFA07A\":\"Light Salmon\",\"FF8C00\":\"Dark Orange\",\"FF7F50\":\"Coral\",\"FF69B4\":\"Hot Pink\",\"FF6347\":\"Tomato\",\"FF4500\":\"Orange Red\",\"FF1493\":\"Deep Pink\",\"FF00FF\":\"Fuchsia / Magenta\",\"FF0000\":\"Red\",\"FDF5E6\":\"Old Lace\",\"FAFAD2\":\"Light Goldenrod Yellow\",\"FAF0E6\":\"Linen\",\"FAEBD7\":\"Antique White\",\"FA8072\":\"Salmon\",\"F8F8FF\":\"Ghost White\",\"F5FFFA\":\"Mint Cream\",\"F5F5F5\":\"White Smoke\",\"F5F5DC\":\"Beige\",\"F5DEB3\":\"Wheat\",\"F4A460\":\"Sandy brown\",\"F0FFFF\":\"Azure\",\"F0FFF0\":\"Honeydew\",\"F0F8FF\":\"Alice Blue\",\"F0E68C\":\"Khaki\",\"F08080\":\"Light Coral\",\"EEE8AA\":\"Pale Goldenrod\",\"EE82EE\":\"Violet\",\"E9967A\":\"Dark Salmon\",\"E6E6FA\":\"Lavender\",\"E0FFFF\":\"Light Cyan\",\"DEB887\":\"Burly Wood\",\"DDA0DD\":\"Plum\",\"DCDCDC\":\"Gainsboro\",\"DC143C\":\"Crimson\",\"DB7093\":\"Pale Violet Red\",\"DAA520\":\"Goldenrod\",\"DA70D6\":\"Orchid\",\"D8BFD8\":\"Thistle\",\"D3D3D3\":\"Light Gray\",\"D2B48C\":\"Tan\",\"D2691E\":\"Chocolate\",\"CD853F\":\"Peru\",\"CD5C5C\":\"Indian Red\",\"C71585\":\"Medium Violet Red\",\"C0C0C0\":\"Silver\",\"BDB76B\":\"Dark Khaki\",\"BC8F8F\":\"Rosy Brown\",\"BA55D3\":\"Medium Orchid\",\"B8860B\":\"Dark Goldenrod\",\"B22222\":\"Fire Brick\",\"B0E0E6\":\"Powder Blue\",\"B0C4DE\":\"Light Steel Blue\",\"AFEEEE\":\"Pale Turquoise\",\"ADFF2F\":\"Green Yellow\",\"ADD8E6\":\"Light Blue\",\"A9A9A9\":\"Dark Gray\",\"A0522D\":\"Sienna\",\"9ACD32\":\"Yellow Green\",\"9932CC\":\"Dark Orchid\",\"98FB98\":\"Pale Green\",\"9400D3\":\"Dark Violet\",\"9370DB\":\"Medium Purple\",\"90EE90\":\"Light Green\",\"8FBC8F\":\"Dark Sea Green\",\"8B4513\":\"Saddle Brown\",\"8B008B\":\"Dark Magenta\",\"8B0000\":\"Dark Red\",\"8A2BE2\":\"Blue Violet\",\"87CEFA\":\"Light Sky Blue\",\"87CEEB\":\"Sky Blue\",\"7FFFD4\":\"Aquamarine\",\"7FFF00\":\"Chartreuse\",\"7CFC00\":\"Lawn Green\",\"7B68EE\":\"Medium Slate Blue\",\"6B8E23\":\"Olive Drab\",\"6A5ACD\":\"Slate Blue\",\"66CDAA\":\"Medium Aquamarine\",\"6495ED\":\"Cornflower Blue\",\"5F9EA0\":\"Cadet Blue\",\"556B2F\":\"Dark Olive Green\",\"4B0082\":\"Indigo\",\"48D1CC\":\"Medium Turquoise\",\"483D8B\":\"Dark Slate Blue\",\"4682B4\":\"Steel Blue\",\"4169E1\":\"Royal Blue\",\"40E0D0\":\"Turquoise\",\"3CB371\":\"Medium Sea Green\",\"32CD32\":\"Lime Green\",\"2F4F4F\":\"Dark Slate Gray\",\"2E8B57\":\"Sea Green\",\"228B22\":\"Forest Green\",\"20B2AA\":\"Light Sea Green\",\"1E90FF\":\"Dodger Blue\",\"00FFFF\":\"Aqua / Cyan\",\"00FF7F\":\"Spring Green\",\"00FF00\":\"Lime\",\"00FA9A\":\"Medium Spring Green\",\"00CED1\":\"Dark Turquoise\",\"00BFFF\":\"Deep Sky Blue\",\"008B8B\":\"Dark Cyan\",\"008080\":\"Teal\",\"008000\":\"Green\",\"006400\":\"Dark Green\",\"0000FF\":\"Blue\",\"0000CD\":\"Medium Blue\",\"00008B\":\"Dark Blue\",\"000080\":\"Navy\",\"000000\":\"Black\"}');\n\n//# sourceURL=webpack://getColorName/./data/web.json?");
-
-/***/ }),
-
-/***/ "./data/werner.json":
-/*!**************************!*\
-  !*** ./data/werner.json ***!
-  \**************************/
-/***/ ((module) => {
-
-"use strict";
-eval("module.exports = JSON.parse('{\"252024\":\"Ink Black\",\"383867\":\"China Blue\",\"423937\":\"Pitch or Brownish Black\",\"433635\":\"Reddish Black\",\"454445\":\"Greenish Black\",\"463759\":\"Plum Purple\",\"533552\":\"Auricula Purple\",\"555152\":\"Greyish Black\",\"612741\":\"Purplish Red\",\"613936\":\"Umber Brown\",\"711518\":\"Arterial Blood Red\",\"766051\":\"Clove Brown\",\"864735\":\"Deep Orange-coloured Brown\",\"946943\":\"Yellowish Brown\",\"F1E9CD\":\"Snow White\",\"F2E7CF\":\"Reddish White\",\"ECE6D0\":\"Purplish White\",\"F2EACC\":\"Yellowish White\",\"F3E9CA\":\"Orange coloured White\",\"F2EBCD\":\"Greenish White\",\"E6E1C9\":\"Skimmed milk White\",\"E2DDC6\":\"Greyish White\",\"CBC8B7\":\"Ash Grey\",\"BFBBB0\":\"Smoke Grey\",\"BEBEB3\":\"French Grey\",\"B7B5AC\":\"Pearl Grey\",\"BAB191\":\"Yellowish Grey\",\"9C9D9A\":\"Bluish Grey\",\"8A8D84\":\"Greenish Grey\",\"5B5C61\":\"Blackish Grey\",\"413F44\":\"Bluish Black\",\"241F20\":\"Velvet Black\",\"281F3F\":\"Scotch Blue\",\"1C1949\":\"Prussian Blue\",\"4F638D\":\"Indigo Blue\",\"5C6B8F\":\"Azure Blue\",\"657ABB\":\"Ultramarine Blue\",\"6F88AF\":\"Flax-Flower Blue\",\"7994B5\":\"Berlin Blue\",\"6FB5A8\":\"Verditter Blue\",\"719BA2\":\"Greenish Blue\",\"8AA1A6\":\"Greyish Blue\",\"D0D5D3\":\"Bluish Lilac Purple\",\"8590AE\":\"Bluish Purple\",\"3A2F52\":\"Violet Purple\",\"39334A\":\"Pansy Purple\",\"6C6D94\":\"Campanula Purple\",\"584C77\":\"Imperial Purple\",\"BFBAC0\":\"Red Lilac Purple\",\"77747F\":\"Lavender Purple\",\"4A475C\":\"Pale Blackish Purple\",\"B8BFAF\":\"Celadine Green\",\"B2B599\":\"Mountain Green\",\"979C84\":\"Leek Green\",\"5D6161\":\"Blackish Green\",\"61AC86\":\"Verdigris Green\",\"A4B6A7\":\"Bluish Green\",\"ADBA98\":\"Apple Green\",\"93B778\":\"Emerald Green\",\"7D8C55\":\"Grass Green\",\"33431E\":\"Duck Green\",\"7C8635\":\"Sap Green\",\"8E9849\":\"Pistachio Green\",\"C2C190\":\"Asparagus Green\",\"67765B\":\"Olive Green\",\"AB924B\":\"Oil Green\",\"C8C76F\":\"Siskin Green\",\"CCC050\":\"Sulphur Yellow\",\"EBDD99\":\"Primrose Yellow\",\"AB9649\":\"Wax Yellow\",\"DBC364\":\"Lemon Yellow\",\"E6D058\":\"Gamboge Yellow\",\"EAD665\":\"Kings Yellow\",\"D09B2C\":\"Saffron Yellow\",\"A36629\":\"Gallstone Yellow\",\"A77D35\":\"Honey Yellow\",\"F0D696\":\"Straw Yellow\",\"D7C485\":\"Wine Yellow\",\"F1D28C\":\"Sienna Yellow\",\"EFCC83\":\"Ochre Yellow\",\"F3DAA7\":\"Cream Yellow\",\"DFA837\":\"Dutch Orange\",\"EBBC71\":\"Buff Orange\",\"D17C3F\":\"Orpiment Orange\",\"92462F\":\"Brownish Orange\",\"BE7249\":\"Reddish Orange\",\"BB603C\":\"Deep Reddish Orange\",\"C76B4A\":\"Tile Red\",\"A75536\":\"Hyacinth Red\",\"B63E36\":\"Scarlet Red\",\"B5493A\":\"Vermilion Red\",\"CD6D57\":\"Aurora Red\",\"E9C49D\":\"Flesh Red\",\"EEDAC3\":\"Rose Red\",\"EECFBF\":\"Peach Blossom Red\",\"CE536B\":\"Carmine Red\",\"B74A70\":\"Lake Red\",\"B7757C\":\"Crimson Red\",\"7A4848\":\"Cochineal Red\",\"3F3033\":\"Veinous Blood Red\",\"8D746F\":\"Brownish Purple Red\",\"4D3635\":\"Chocolate Red\",\"6E3B31\":\"Brownish Red\",\"553D3A\":\"Deep Reddish Brown\",\"7A4B3A\":\"Chestnut Brown\",\"C39E6D\":\"Wood Brown\",\"513E32\":\"Liver Brown\",\"8B7859\":\"Hair Brown\",\"9B856B\":\"Broccoli Brown\",\"453B32\":\"Blackish Brown\"}');\n\n//# sourceURL=webpack://getColorName/./data/werner.json?");
-
-/***/ })
-
-/******/ 	});
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
-/******/ 	__webpack_exports__ = __webpack_exports__["default"];
-/******/ 	
-/******/ 	return __webpack_exports__;
-/******/ })()
-;
-});
-},{}],23:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 (function (process,setImmediate){(function (){
 /*! Browser bundle of nunjucks 3.2.4  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -26017,7 +23141,7 @@ module.exports = installCompat;
 
 }).call(this)}).call(this,require('_process'),require("timers").setImmediate)
 
-},{"_process":24,"timers":25}],24:[function(require,module,exports){
+},{"_process":21,"timers":22}],21:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -26203,7 +23327,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],25:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 (function (setImmediate,clearImmediate){(function (){
 var nextTick = require('process/browser.js').nextTick;
 var apply = Function.prototype.apply;
@@ -26283,7 +23407,7 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
 };
 }).call(this)}).call(this,require("timers").setImmediate,require("timers").clearImmediate)
 
-},{"process/browser.js":24,"timers":25}],26:[function(require,module,exports){
+},{"process/browser.js":21,"timers":22}],23:[function(require,module,exports){
 /*!
  * Toastify js 1.12.0
  * https://github.com/apvarun/toastify-js

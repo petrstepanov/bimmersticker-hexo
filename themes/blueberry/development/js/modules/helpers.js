@@ -1,6 +1,6 @@
 // Helper module
 
-var $ = require('jquery');
+var $ = require('jquery/dist/jquery.slim');
 
 function isInViewport($el) {
   var elementTop = $el.offset().top;

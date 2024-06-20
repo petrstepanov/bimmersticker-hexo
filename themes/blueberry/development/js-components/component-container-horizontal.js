@@ -1,7 +1,6 @@
 // Ajax form submission logic
-// var $ = require('jquery');
-// var events = require('../js/modules/events');
-// var kinetic = window.kinetic = require('jquery.kinetic');
+
+var kinetic = require('jquery.kinetic');
 
 var DetectTrackpadMouse = function (events) {
 
@@ -106,7 +105,7 @@ var ContainerHorizontal = function($, events, kinetic){
 $(function() {
   // Instantiate horizontal container plugin
   $('.js--component-container-horizontal').each(function(){
-    var cH = new ContainerHorizontal(window.$, window.events, window.kinetic);
+    var cH = new ContainerHorizontal(window.$, window.events, kinetic);
     cH.init(this);
   });
 

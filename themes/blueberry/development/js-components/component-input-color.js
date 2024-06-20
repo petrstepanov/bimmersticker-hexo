@@ -1,3 +1,5 @@
+var getColorFriendlyName = require('named-web-colors');
+
 var InputColor = function($, getColorFriendlyName){
   var DOM = {};
   // var options = {};
@@ -62,7 +64,7 @@ var InputColor = function($, getColorFriendlyName){
 
 $(function() {
   $('.js--component-input-color').each(function(){
-    var inputColor = new InputColor(window.$, window.getColorFriendlyName);
+    var inputColor = new InputColor(window.$, getColorFriendlyName);
     inputColor.init(this);
   });
 });

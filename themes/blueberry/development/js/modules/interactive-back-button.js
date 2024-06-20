@@ -1,4 +1,4 @@
-var $ = require('jquery');
+var $ = require('jquery/dist/jquery.slim');
 var Cookies = require('js-cookie');
 
 var DOM = {};

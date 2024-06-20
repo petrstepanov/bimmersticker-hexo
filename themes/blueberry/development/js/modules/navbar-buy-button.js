@@ -1,22 +1,20 @@
 // Show or hide 'Buy' button on navbar product page
 
-var $ = require('jquery');
+var $ = require('jquery/dist/jquery.slim');
 var events = require('./events');
 
 var DOM = {};
-// var options = {};
 
 function _cacheDom(element) {
   DOM.$el = $(element);
-  // DOM.$button = $(element).find('.js--buy-button');
 }
 
 function _bindEvents(element) {
   events.on('buyButtonViewport', function (data) {
     if (data.contentButtonVisible) {
-      DOM.$el.fadeOut();
+      DOM.$el.removeClass('visible')
     } else {
-      DOM.$el.fadeIn();
+      DOM.$el.addClass('visible')
     }
   });
 }
