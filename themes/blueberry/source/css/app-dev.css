@@ -12465,42 +12465,11 @@ body {
 }
 
 .spacer-footer {
-  padding-bottom: 3em;
-}
-@media (min-width: 576px) {
-  .spacer-footer {
-    padding-bottom: 6em;
-  }
-}
-@media (min-width: 992px) {
-  .spacer-footer {
-    padding-bottom: 7em;
-  }
-}
-@media (min-width: 1200px) {
-  .spacer-footer {
-    padding-bottom: 9em;
-  }
+  padding-bottom: 9.609375vw;
 }
 
 footer {
-  position: relative;
-  margin-top: -3em;
-}
-@media (min-width: 576px) {
-  footer {
-    margin-top: -6em;
-  }
-}
-@media (min-width: 992px) {
-  footer {
-    margin-top: -7em;
-  }
-}
-@media (min-width: 1200px) {
-  footer {
-    margin-top: -9em;
-  }
+  margin-top: -9.2vw;
 }
 footer .section-blue {
   background-color: #007CC2;

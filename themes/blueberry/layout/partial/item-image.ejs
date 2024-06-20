@@ -16,5 +16,5 @@
 <% } else { %>
     <!-- Featured image -->
     <% var src = image_version(to_relative(product.image_link), {prefix: 'large'}); %>
-    <img class="w-100 h-auto" width="400" height="400" src="<%- src %>" title="<%- product.title %>" alt="<%- product.description %>" />
+    <img class="w-100" width="400" height="400" src="<%- src %>" title="<%- product.title %>" alt="<%- product.description %>" />
 <% } %>

@@ -39,7 +39,6 @@
   margin-left: -0.75rem;
   margin-right: -0.75rem;
   margin-bottom: 1.75em;
-  height: 320px;
 }
 @media (min-width: 576px) {
   #post-aside .sidebar-featured-container {
@@ -48,7 +47,6 @@
     margin-right: 0;
     width: 100%;
     border-radius: 0.375rem;
-    overflow: hidden;
   }
 }
 @media (min-width: 992px) {
@@ -78,8 +76,6 @@
     width: 40%;
     padding-left: 4vw;
     padding-right: 4vw;
-    position: relative;
-    top: -1px;
   }
 }
 @media (min-width: 1200px) {

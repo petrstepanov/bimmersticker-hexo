@@ -71,7 +71,6 @@ hexo.extend.helper.register('get_variations', function(product){
 // Strips https://bimmersticker.store/ from absolute path
 hexo.extend.helper.register('get_pathname', function(url){
   var urlParsed = parsePath(url);
-  console.log (urlParsed);
   return urlParsed.pathname;
 });
 

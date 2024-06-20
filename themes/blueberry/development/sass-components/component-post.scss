@@ -36,7 +36,6 @@
     margin-left: calc($grid-gutter-width / -2);
     margin-right: calc($grid-gutter-width / -2);
     margin-bottom: 1.75em;
-    height: 320px;
 
     @include media-breakpoint-up(sm){
       margin-top: 1.75rem;
@@ -44,7 +43,6 @@
       margin-right: 0;
       width: 100%;
       border-radius: $border-radius;
-      overflow: hidden;
     }
 
     @include media-breakpoint-up(lg){
@@ -86,9 +84,9 @@
     width: 40%;
     padding-left: 4vw;
     padding-right: 4vw;
-    position: relative;
+    // position: relative;
     // padding-top: 1px;
-    top: -1px;
+    // top: -1px;
   }
 
   @include media-breakpoint-up(xl){
