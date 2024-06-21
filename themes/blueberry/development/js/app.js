@@ -9,7 +9,10 @@ var events = window.events = require('./modules/events');
 
 var helpers = window.helpers = require('./modules/helpers');
 var notificationCenter = window.notificationCenter = require('./modules/notification-center');
+
 var getColorFriendlyName = window.getColorFriendlyName = require('named-web-colors');
+var kinetica = window.kinetica = require('kinetica');
+var vectory = window.vectory = require('vectory');
 
 // Locals for this Browserify entry point
 var autosize = require('autosize');  // 363 lines

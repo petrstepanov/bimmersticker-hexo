@@ -28,7 +28,80 @@ var DetectTrackpadMouse = function (events) {
   };
 };
 
-var ContainerHorizontal = function($, events){
+var KineticScroll = function($){
+  var DOM = {};
+  var elScrollXBefore = 0;
+  var eventXBefore = 0;
+
+  var timeBefore = 0;
+
+  const States = {
+    Idle: 0,
+    Moving: 1,
+    Kinetic: 2
+  }
+
+  var kineticInterval;
+
+  var state = States.Idle;
+
+  function _cacheDom(element){
+    DOM.$el = $(element);
+  }
+
+  function _bindEvents(){
+    DOM.$el.on('mousedown', function(event){
+      elScrollXBefore = DOM.$el.get(0).scrollLeft;
+      eventXBefore = event.clientX;
+      timeBefore = (new Date()).getTime();
+      // if (state === States.Kinetic){
+      //   // TODO: stop kinetic timeout
+      //   clearInterval(kineticInterval);
+      // }
+      state = States.Moving;
+    });
+
+    DOM.$el.on('mousemove', function(event){
+      if (state === States.Moving){
+        var deltaX = eventXBefore - event.clientX;
+        DOM.$el.get(0).scroll(elScrollXBefore + deltaX, 0);
+      }
+    });
+
+    var doKinetic = function(event){
+      if (state === States.Moving){
+        state = States.Kinetic;
+        var kineticDistance = eventXBefore - event.clientX;
+        var kineticTime = (new Date()).getTime() - timeBefore;
+        console.log("Distance " + kineticDistance);
+        console.log("Time " + kineticTime);
+      }
+    };
+
+    DOM.$el.on('mouseup', function(event){
+      doKinetic(event);
+    });
+
+    DOM.$el.on('mouseout', function(event){
+      doKinetic(event);
+    });
+
+    // DOM.$el.on("scroll", function(event){
+    //   console.log(this.scrollLeft);
+    // });
+  }
+
+  function init(element){
+    _cacheDom(element);
+    _bindEvents();
+  }
+
+  return {
+    init: init
+  }
+}
+
+var ContainerHorizontal = function($, events, Kinetic, Vector){
   var DOM = {};
 
   function _cacheDom(element) {
@@ -48,10 +121,52 @@ var ContainerHorizontal = function($, events){
       }
       else if (device === 'mouse'){
         DOM.$icons.hide();
-        DOM.$iconMouse.show();
+        DOM.$iconMouse.show(); //asd
 
         DOM.$el.css('overflow-x', 'hidden');
-        // TODO: initialize custom kinetic plugin
+        // Initialize custom kinetic plugin
+        // ks = new KineticScroll($);
+        // ks.init(DOM.$el.get(0));
+
+        // Copied from https://www.npmjs.com/package/kinetica
+        // Found plugin on npm "kinetic scroll"
+        var $target = DOM.$inner.get(0);
+
+        requestAnimationFrame(function loop (t) {
+          Kinetic.notify(t)
+          requestAnimationFrame(loop)
+        })
+
+        var kinetic = new Kinetic({
+          el: DOM.$el.get(0),
+          Vector: Vector
+        })
+
+        Kinetic.spawn(kinetic)
+
+        var position = new Vector(0, 0)
+
+        function scrollTo (position) {
+          $target.style.transform = `translateX(${position.x}px)`
+        }
+
+        function isValidScroll (position) {
+          // return position.x <= 0 && position.x > -5000 + window.innerWidth
+          return position.x <= 0 && position.x > -(DOM.$inner.width()) + window.innerWidth
+        }
+
+        function scrollX (pointers) {
+          if (pointers.length === 1) {
+            var pointer = pointers[0]
+            var next = position.add(pointer.delta)
+            if (isValidScroll(next)) {
+              scrollTo(next)
+              position = next
+            }
+          }
+        }
+
+        kinetic.subscribe(scrollX)
       }
     });
   }
@@ -81,7 +196,7 @@ var ContainerHorizontal = function($, events){
 $(document).ready(function() {
   // Instantiate horizontal container plugin
   $('.js--component-container-horizontal').each(function(){
-    var cH = new ContainerHorizontal($, window.events);
+    var cH = new ContainerHorizontal($, window.events, window.kinetica, window.vectory);
     cH.init(this);
   });
 

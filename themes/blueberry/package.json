@@ -33,8 +33,10 @@
     "gulplog": "^1.0.0",
     "ionicons": "^7.4.0",
     "js-cookie": "^3.0.5",
+    "kinetica": "^0.2.0",
     "named-web-colors": "^1.4.3",
     "sass": "1.62.1",
+    "vectory": "^1.2.3",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   }
