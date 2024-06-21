@@ -13,7 +13,7 @@ var SelectWithImage = function($){
     DOM.$options.each(function(){
       // Iterate all <option /> elements
       $optionWithImage = $("<div>").addClass("select-with-image-item").data("value", $(this).attr("value"));
-      DOM.$selectWithImage.append($optionWithImage);
+      DOM.$selectWithImage.append($optionWithImage.get(0));
       var bgImage = $(this).data("bg-image");
       $optionWithImage.css('background-image', 'url("' + bgImage + '")');
 
@@ -39,7 +39,10 @@ var SelectWithImage = function($){
     // Forward events - may not need?
     DOM.$select.on('change', function() {
       DOM.$optionsWithImage.removeClass("selected");
-      DOM.$selectWithImage.find("[data-value='" + this.value + "']").addClass("selected");
+      var val = $(this).val();
+      DOM.$optionsWithImage.each(function(){
+        if ($(this).data('value') === val) $(this).addClass("selected");
+      });
     });
 
     // Backward select event
@@ -48,7 +51,7 @@ var SelectWithImage = function($){
         // Set original select value
         // https://stackoverflow.com/questions/13343566/set-select-option-selected-by-value
         var v = $(this).data("value");
-        DOM.$select.val(v).change();
+        DOM.$select.val(v).trigger('change');
       });
     });
   }

@@ -64,7 +64,7 @@ var ComponentWidgetArea = function ($, events) {
         else {
             DOM.$sizeSelect.val("XL");
         }
-        DOM.$sizeSelect.change();
+        DOM.$sizeSelect.trigger('change');
     }
 
     function init() {

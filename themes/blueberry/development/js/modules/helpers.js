@@ -1,5 +1,6 @@
 // Helper module
 
+var formSerialize = require('form-serialize');
 var $ = require('cash-dom');
 
 function isInViewport($el) {
@@ -13,6 +14,11 @@ function isInViewport($el) {
   var viewportBottom = viewportTop + $(window).height();
   return elementBottom > viewportTop && elementTop < viewportBottom;
   // return elementBottom > viewportTop;
+}
+
+function renderTemplate(template, data) {
+  const pattern = /{{\s*(\w+?)\s*}}/g; // {{property}}
+  return template.replace(pattern, (_, token) => data[token] || '');
 }
 
 function getViewportSize() {
@@ -67,13 +73,7 @@ function animateCSS(node, animationName, callback, speed) {
 }
 
 function getFormData($form){
-  var unindexed_array = $form.serializeArray();
-  var indexed_array = {};
-
-  $.map(unindexed_array, function(n, i){
-      indexed_array[n['name']] = n['value'];
-  });
-
+  var indexed_array = formSerialize($form.get(0), { hash: true });
   return indexed_array;
 }
 
@@ -84,3 +84,4 @@ exports.objectifyForm = objectifyForm;
 exports.parseFirstLastName = parseFirstLastName;
 exports.animateCSS = animateCSS;
 exports.getFormData = getFormData;
+exports.renderTemplate = renderTemplate;

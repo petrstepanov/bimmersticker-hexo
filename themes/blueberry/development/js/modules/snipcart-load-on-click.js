@@ -26,7 +26,7 @@ var SnipcartLoadOnClick = function(){
         document.addEventListener('snipcart.ready', function(){
             Snipcart.events.on('snipcart.initialized', function() {
                 _stopSpinner(DOM.$triggerEl);
-                DOM.$triggerEl.click();
+                DOM.$triggerEl.get(0).click();
             });
         });
     }

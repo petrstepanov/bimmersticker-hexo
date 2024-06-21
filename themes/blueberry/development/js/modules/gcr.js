@@ -1,5 +1,8 @@
 var $ = require('cash-dom');
-var nunjucks = require('nunjucks');
+// Moved from Nunjucks (7000 lines) to simple function:
+// https://stackoverflow.com/a/50545691/
+// var nunjucks = require('nunjucks'); // 7291 Lines
+var helpers = require('./helpers');
 
 var GCR = function(){
     var DOM = {};
@@ -32,9 +35,10 @@ var GCR = function(){
             'country': country,
             'deliveryDate': deliveryDateString
         };
-        nunjucks.configure({ autoescape: true });
+        // nunjucks.configure({ autoescape: true });
         var template = DOM.$template.html();
-        var rendered = nunjucks.renderString(template, json);
+        // Screw nunjucks - 7000 lines!
+        var rendered = helpers.renderTemplate(template, json);
 
         // Display GCR
         $('#gcr-container').empty();

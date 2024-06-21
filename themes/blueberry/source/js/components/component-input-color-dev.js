@@ -1,5 +1,3 @@
-var getColorFriendlyName = require('named-web-colors');
-
 var InputColor = function($, getColorFriendlyName){
   var DOM = {};
   // var options = {};
@@ -26,9 +24,9 @@ var InputColor = function($, getColorFriendlyName){
   function _createColorPillElement(colorValue){
     // Value can be "Black & red" - show 2 circles in the pill!
     var $pill = $("<div>").addClass("select-color-pill");
-    $("<div>").addClass("select-color-pill-color").css('background-color', colorValue).appendTo($pill);
-    $("<span>").addClass('select-color-pill-text').text(getColorFriendlyName(colorValue).name).appendTo($pill);
-    $("<span").addClass("select-color-pill-extra").html(colorValue).appendTo($pill);
+    $("<div>").addClass("select-color-pill-color").css('background-color', colorValue).appendTo($pill.get(0));
+    $("<span>").addClass('select-color-pill-text').text(getColorFriendlyName(colorValue).name).appendTo($pill.get(0));
+    $("<span>").addClass("select-color-pill-extra").html(colorValue).appendTo($pill.get(0));
     return $pill;
   }
 
@@ -45,7 +43,7 @@ var InputColor = function($, getColorFriendlyName){
     // Activate color picker
     DOM.$inputColor.on('click', function(event) {
       event.stopPropagation();
-      DOM.$label.click();
+      DOM.$label.get(0).click();
     });
   }
 
@@ -64,7 +62,7 @@ var InputColor = function($, getColorFriendlyName){
 
 $(document).ready(function() {
   $('.js--component-input-color').each(function(){
-    var inputColor = new InputColor($, getColorFriendlyName);
+    var inputColor = new InputColor($, window.getColorFriendlyName);
     inputColor.init(this);
   });
 });

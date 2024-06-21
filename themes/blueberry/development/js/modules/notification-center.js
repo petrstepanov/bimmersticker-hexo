@@ -1,35 +1,44 @@
+var $ = require('cash-dom');
+var bootstrap = require('bootstrap');
+var helpers = require('./helpers');
 
-// Popup notifications based on noty.js
-// TODO: move to bootstrap toasts
-var Toastify = require('toastify-js')
+var id = 0;
 
-// function makeHtml(type, text) {
-//   return '<p class="type">' + type.toUpperCase() + '</p><p>' + text + '</p>';
-// }
+// Type is bootstrap background color class:
+// https://getbootstrap.com/docs/5.3/components/toasts/#color-schemes
+
+// primary secondary success danger warning info light dark
 
 function notify(type, message, timeout) {
   var milliseconds = typeof timeout !== 'undefined' ? timeout : 5000;
-  // new Noty({
-  //   type: type,
-  //   text: makeHtml(type, text),
-  //   layout: 'responsive',
-  //   theme: 'custom',
-  //   timeout: milliseconds,
-  //   animation: {
-  //     open: 'animate__animated animate__fadeInUp', // Animate.css class names
-  //     close: 'animate__animated animate__fadeOutUp' // Animate.css class names
-  //   }
-  // }).show();
 
-  Toastify({
-    text: message,
-    duration: milliseconds,
-    close: true,
-    gravity: "top",
-    position: "right",
-    stopOnFocus: true,
-    className: type
-  }).showToast();
+  // Create toast element (cash collection)
+  var template = $('#toast-template').html();
+  var data = {
+    type:    type,
+    message: message,
+    id:      "toast-" + id
+  };
+  var toastHTML = helpers.renderTemplate(template, data);
+
+  // Append toast HTML to container
+  var $toastContainer = $('#toast-container');
+  $(toastHTML).appendTo($toastContainer.get(0));
+
+  // Obtain toast element
+  $toast = $('#toast-'+id);
+
+  // Hook up BS javascript and show
+  const toastBootstrap = bootstrap.Toast.getOrCreateInstance($toast.get(0));
+  toastBootstrap.show({delay: milliseconds});
+
+  // Delete toast element after hiding
+  $toast.get(0).addEventListener('hidden.bs.toast', function(){
+    $(this).remove();
+  });
+
+  // Increment id
+  id++;
 }
 
 exports.notify = notify;

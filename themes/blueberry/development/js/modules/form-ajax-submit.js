@@ -62,7 +62,7 @@ var FormAjaxSubmit = function(){
 
         if (error){
           if (data.msg){
-            notificationCenter.notify('error', message);
+            notificationCenter.notify('danger', message);
             return;
           }
         }
@@ -82,7 +82,7 @@ var FormAjaxSubmit = function(){
         }
       })
       .fail(function(data) {
-        notificationCenter.notify('error', 'Unknown error occured!');
+        notificationCenter.notify('danger', 'Unknown error occured!');
       })
       .always(function() {
         // Enable submit button

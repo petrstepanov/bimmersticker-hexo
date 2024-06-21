@@ -80,25 +80,25 @@ var ComponentBannerForm = function($, helpers){
             // console.log(data);
             // Update view
             if (data.product){
-                DOM.$radioProduct.filter('[value="' + data.product + '"]').attr('checked', true).change();
+                DOM.$radioProduct.filter('[value="' + data.product + '"]').attr('checked', true).trigger('change');
             }
             if (data.text){
                 DOM.$input.val(data.text).trigger("input");
             }
             if (data.font){
-                DOM.$radioFont.filter('[value="' + data.font + '"]').attr('checked', true).change();
+                DOM.$radioFont.filter('[value="' + data.font + '"]').attr('checked', true).trigger('change');
             }
             if (data.color_text){
-                DOM.$radioTextColor.filter('[value="' + data.color_text + '"]').attr('checked', true).change();
+                DOM.$radioTextColor.filter('[value="' + data.color_text + '"]').attr('checked', true).trigger('change');
             }
             if (data.color_base){
-                DOM.$radioBaseColor.filter('[value="' + data.color_base + '"]').attr('checked', true).change();
+                DOM.$radioBaseColor.filter('[value="' + data.color_base + '"]').attr('checked', true).trigger('change');
             }
             if (data.pattern){
-                DOM.$radioVehicleType.filter('[value="' + data.pattern + '"]').attr('checked', true).change();
+                DOM.$radioVehicleType.filter('[value="' + data.pattern + '"]').attr('checked', true).trigger('change');
             }
             if (data.quantity){
-                DOM.$inputQuantity.val(data.quantity).change();
+                DOM.$inputQuantity.val(data.quantity).trigger('change');
             }
         }
     }
@@ -125,12 +125,12 @@ var ComponentBannerForm = function($, helpers){
     }
 
     function _bindEvents(element) {
-        DOM.$radioProduct.change(function (event) {
+        DOM.$radioProduct.on('change', function (event) {
             _showHideFormContainers(this.value);
             _showHidePreviewElements(this.value);
             _enableDisableFormInputs(this.value);
             _reflectExtraTruckPrice(this.value);
-            if (event.originalEvent && event.originalEvent.isTrusted){
+            if (event.isTrusted){
                 // Save data only of the event was triggered with human
                 _saveData();
             }
@@ -145,10 +145,10 @@ var ComponentBannerForm = function($, helpers){
             // https://stackoverflow.com/questions/147824/how-to-find-whether-a-particular-string-has-unicode-characters-esp-double-byte
             var containsNonLatinCharacters = /[^\u0000-\u00ff]/.test(text);
             if (containsNonLatinCharacters){
-                DOM.$fontContainerList.slideUp();
+                DOM.$fontContainerList.hide();
             }
             else {
-                DOM.$fontContainerList.slideDown();
+                DOM.$fontContainerList.show();
             }
 
             // Hack - ensure avifs are removed - they cover up actual images
@@ -174,7 +174,7 @@ var ComponentBannerForm = function($, helpers){
             }, 1500);
 
             _updateSnipcartButtonsText(this.value);
-            if (event.originalEvent && event.originalEvent.isTrusted){
+            if (event.isTrusted){
                 // Save data only of the event was triggered with human
                 _saveData();
             }
@@ -204,7 +204,7 @@ var ComponentBannerForm = function($, helpers){
                         "West Coastin'", 'Wake Up To Reality', 'Wasted Wages', 'Welcome to Hell', 'Wicked Tunung', 'Why So Serious?',
                         'Young Dumb & Broke', 'Young Money'];
 
-        DOM.$generate.click(function (event){
+        DOM.$generate.on('click', function (event){
             event.preventDefault();
             const randomText = dummyTexts[Math.floor(Math.random() * dummyTexts.length)];
             DOM.$input.val(randomText);
@@ -213,45 +213,45 @@ var ComponentBannerForm = function($, helpers){
             _saveData();
         });
 
-        DOM.$radioFont.change(function (event) {
+        DOM.$radioFont.on('change', function (event) {
             var text = _getBannerText();
             var containsNonLatinCharacters = /[^\u0000-\u00ff]/.test(text);
             _updateBannerImage(containsNonLatinCharacters);
             _updateSnipcartButtonsFont(this.value);
-            if (event.originalEvent && event.originalEvent.isTrusted){
+            if (event.isTrusted){
                 // Save data only of the event was triggered with human
                 _saveData();
             }
         });
 
-        DOM.$radioTextColor.change(function (event) {
+        DOM.$radioTextColor.on('change', function (event) {
             _updateBannerSunstripTextColors();
             _updateSnipcartButtonsTextColor(this.value);
-            if (event.originalEvent && event.originalEvent.isTrusted){
+            if (event.isTrusted){
                 // Save data only of the event was triggered with human
                 _saveData();
             }
         });
 
-        DOM.$radioBaseColor.change(function (event) {
+        DOM.$radioBaseColor.on('change', function (event) {
             _updateSunstripBaseColor();
             _updateSnipcartButtonsBaseColor(this.value);
-            if (event.originalEvent && event.originalEvent.isTrusted){
+            if (event.isTrusted){
                 // Save data only of the event was triggered with human
                 _saveData();
             }
         });
 
-        DOM.$radioVehicleType.change(function (event) {
+        DOM.$radioVehicleType.on('change', function (event) {
             _updateVehicleType(this.value);
             _updateSnipcartButtonsVehicleType(this.value);
-            if (event.originalEvent && event.originalEvent.isTrusted){
+            if (event.isTrusted){
                 // Save data only of the event was triggered with human
                 _saveData();
             }
         });
 
-        DOM.$inputQuantity.change(function (event) {
+        DOM.$inputQuantity.on('change', function (event) {
             DOM.$btnBuyBanner.attr('data-item-quantity', this.value);
             DOM.$btnBuySunStrip.attr('data-item-quantity', this.value);
             DOM.$btnBuyCutSunStrip.attr('data-item-quantity', this.value);
@@ -260,7 +260,7 @@ var ComponentBannerForm = function($, helpers){
             _saveData();
         });
 
-        DOM.$form.submit(function(event) {
+        DOM.$form.on('submit', function(event) {
             event.preventDefault();
 
             // Hack - prevent submission if "Add to cart" is not in viewport.
@@ -272,18 +272,18 @@ var ComponentBannerForm = function($, helpers){
                 return false;
             }
 
-            switch (DOM.$radioProduct.filter(":checked").val()) {
+            switch (DOM.$radioProduct.val()) {
                 case 'ST_CAR_W_BANNER':
-                    DOM.$btnBuyBanner.click();
+                    DOM.$btnBuyBanner.get(0).click();
                     break;
                 case 'ST_CAR_W_SS':
-                    DOM.$btnBuySunStrip.click();
+                    DOM.$btnBuySunStrip.get(0).click();
                     break;
                 case 'ST_CAR_W_SS_CUT':
-                    DOM.$btnBuyCutSunStrip.click();
+                    DOM.$btnBuyCutSunStrip.get(0).click();
                     break;
                 case 'ST_CAR_W_SS_TEXT':
-                    DOM.$btnBuyTextSunStrip.click();
+                    DOM.$btnBuyTextSunStrip.get(0).click();
                     break;
             }
         });
@@ -296,24 +296,24 @@ var ComponentBannerForm = function($, helpers){
     function _showHideFormContainers(product) {
         switch (product) {
             case 'ST_CAR_W_BANNER':
-                DOM.$fontContainer.slideDown();
-                DOM.$textColorContainer.slideDown();
-                DOM.$baseColorContainer.slideUp();
+                DOM.$fontContainer.show();
+                DOM.$textColorContainer.show();
+                DOM.$baseColorContainer.hide();
                 break;
             case 'ST_CAR_W_SS':
-                DOM.$fontContainer.slideUp();
-                DOM.$textColorContainer.slideUp();
-                DOM.$baseColorContainer.slideDown();
+                DOM.$fontContainer.hide();
+                DOM.$textColorContainer.hide();
+                DOM.$baseColorContainer.show();
                 break;
             case 'ST_CAR_W_SS_CUT':
-                DOM.$fontContainer.slideDown();
-                DOM.$textColorContainer.slideUp();
-                DOM.$baseColorContainer.slideDown();
+                DOM.$fontContainer.show();
+                DOM.$textColorContainer.hide();
+                DOM.$baseColorContainer.show();
                 break;
             case 'ST_CAR_W_SS_TEXT':
-                DOM.$fontContainer.slideDown();
-                DOM.$textColorContainer.slideDown();
-                DOM.$baseColorContainer.slideDown();
+                DOM.$fontContainer.show();
+                DOM.$textColorContainer.show();
+                DOM.$baseColorContainer.show();
                 break;
         }
     }

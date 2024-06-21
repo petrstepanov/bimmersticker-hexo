@@ -33,7 +33,7 @@ var SelectColor = function($, events){
 
       // Add extra text
       if ($(this).data("extraText")){
-        $('<span>').addClass("select-color-pill-extra").html($(this).data("extraText")).appendTo($pill);
+        $('<span>').addClass("select-color-pill-extra").html($(this).data("extraText")).appendTo($pill.get(0));
       }
 
       // Add icon
@@ -75,9 +75,9 @@ var SelectColor = function($, events){
     var $pill = $("<div>").addClass("select-color-pill").attr("data-value", colorValue);
     for (color of colorsArray){
       color = color.trim().toLowerCase().replace(' ','-');
-      $("<div>").addClass("select-color-pill-color " + color).appendTo($pill);
+      $("<div>").addClass("select-color-pill-color " + color).appendTo($pill.get(0));
     }
-    $("<span>").addClass('select-color-pill-text').html(colorValue).appendTo($pill);
+    $("<span>").addClass('select-color-pill-text').html(colorValue).appendTo($pill.get(0));
     return $pill;
   }
 

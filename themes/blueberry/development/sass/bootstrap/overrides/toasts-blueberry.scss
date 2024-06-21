@@ -1,0 +1,10 @@
+.toast {
+  --bs-toast-spacing: 1rem;
+}
+
+.toasts-blueberry {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: var(--nb-height);
+}

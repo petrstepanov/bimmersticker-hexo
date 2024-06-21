@@ -10,11 +10,11 @@ var IntegerInput = function($){
 
     function _bindEvents(){
         // Add a css class on submit when the input is invalid.
-        DOM.$decreaseButton.click(function(){
+        DOM.$decreaseButton.on('click', function(){
             DOM.$input.val(parseInt(DOM.$input.val()||0)-1);
             _checkLimits();
         });
-        DOM.$increaseButton.click(function(){
+        DOM.$increaseButton.on('click', function(){
             DOM.$input.val(parseInt(DOM.$input.val()||0)+1);
             _checkLimits();
         });

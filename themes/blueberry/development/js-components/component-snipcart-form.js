@@ -58,7 +58,7 @@ var SnipcartForm = function($, events){
         DOM.$snipcartButton.attr('data-' + customAttrName, $(this).val());
       });
 
-      DOM.$snipcartButton.click();
+      DOM.$snipcartButton.get(0).click();
     });
   }
 

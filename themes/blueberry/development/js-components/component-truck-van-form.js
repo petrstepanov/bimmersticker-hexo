@@ -70,33 +70,33 @@ var ComponentTruckVanForm = function ($, helpers, events) {
 
             // Update view
             if (data.length) {
-                DOM.$inputLength.val(data.length); //.change();
+                DOM.$inputLength.val(data.length); //.trigger('change');
             }
 
             if (data.heading) {
                 DOM.$inputHeading.val(data.heading).trigger("input");
             }
             if (data.heading_font) {
-                DOM.$selectHeadingFont.val(data.heading_font).change();
+                DOM.$selectHeadingFont.val(data.heading_font).trigger('change');
             }
             if (data.heading_color) {
-                DOM.$selectHeadingColor.val(data.heading_color).change();
+                DOM.$selectHeadingColor.val(data.heading_color).trigger('change');
             }
             if (data.content) {
-                DOM.$textareaContent.val(data.content).trigger("input");
+                DOM.$textareaContent.val(data.content).trigger('input');
             }
             if (data.content_font) {
-                DOM.$selectContentFont.val(data.content_font).change();
+                DOM.$selectContentFont.val(data.content_font).trigger('change');
             }
             if (data.content_color) {
-                DOM.$selectContentColor.val(data.content_color).change();
+                DOM.$selectContentColor.val(data.content_color).trigger('change');
             }
             if (data.bg_color) {
-                DOM.$inputBgColor.val(data.bg_color).change();
+                DOM.$inputBgColor.val(data.bg_color).trigger('change');
             }
             // ruler values, height and area are updated via "widget-area.js" module. Ensure it loads before this module.
             if (data.length) {
-                DOM.$inputLength.val(data.length).change();
+                DOM.$inputLength.val(data.length).trigger('change');
             }
             if (data.quantity) {
                 DOM.$inputQuantity.val(data.quantity)
@@ -125,13 +125,13 @@ var ComponentTruckVanForm = function ($, helpers, events) {
             }, 1500);
 
             _updateSnipcartButtonHeadingText(this.value);
-            if (event.originalEvent && event.originalEvent.isTrusted) {
+            if (event.isTrusted) {
                 // Save data only of the event was triggered with human
                 _saveData();
             }
         });
 
-        DOM.$selectHeadingFont.change(function (event) {
+        DOM.$selectHeadingFont.on('change', function (event) {
             // Set loading animation
             DOM.$previewContainer.addClass("loading");
 
@@ -143,13 +143,13 @@ var ComponentTruckVanForm = function ($, helpers, events) {
 
             var valueSelected = $(this).val();
             _updateSnipcartButtonHeadingFont(valueSelected);
-            if (event.originalEvent && event.originalEvent.isTrusted) {
+            if (event.isTrusted) {
                 // Save data only of the event was triggered with human
                 _saveData();
             }
         });
 
-        DOM.$selectHeadingColor.change(function (event) {
+        DOM.$selectHeadingColor.on('change', function (event) {
             // Set loading animation
             DOM.$previewContainer.addClass("loading");
 
@@ -161,7 +161,7 @@ var ComponentTruckVanForm = function ($, helpers, events) {
 
             var valueSelected = $(this).val();
             _updateSnipcartButtonHeadingColor(valueSelected);
-            if (event.originalEvent && event.originalEvent.isTrusted) {
+            if (event.isTrusted) {
                 // Save data only of the event was triggered with human
                 _saveData();
             }
@@ -171,7 +171,7 @@ var ComponentTruckVanForm = function ($, helpers, events) {
             var text = _getContentText();
 
             _updateSnipcartButtonContentText(this.value);
-            if (event.originalEvent && event.originalEvent.isTrusted) {
+            if (event.isTrusted) {
                 // Save data only of the event was triggered with human
                 _saveData();
             }
@@ -190,7 +190,7 @@ var ComponentTruckVanForm = function ($, helpers, events) {
             }, 1500);
         });
 
-        DOM.$selectContentFont.change(function (event) {
+        DOM.$selectContentFont.on('change', function (event) {
             // Set loading animation
             DOM.$previewContainer.addClass("loading");
 
@@ -202,13 +202,13 @@ var ComponentTruckVanForm = function ($, helpers, events) {
 
             var valueSelected = $(this).val();
             _updateSnipcartButtonContentFont(valueSelected);
-            if (event.originalEvent && event.originalEvent.isTrusted) {
+            if (event.isTrusted) {
                 // Save data only of the event was triggered with human
                 _saveData();
             }
         });
 
-        DOM.$selectContentColor.change(function (event) {
+        DOM.$selectContentColor.on('change', function (event) {
             // Set loading animation
             DOM.$previewContainer.addClass("loading");
 
@@ -220,20 +220,20 @@ var ComponentTruckVanForm = function ($, helpers, events) {
 
             var valueSelected = $(this).val();
             _updateSnipcartButtonContentColor(valueSelected);
-            if (event.originalEvent && event.originalEvent.isTrusted) {
+            if (event.isTrusted) {
                 // Save data only of the event was triggered with human
                 _saveData();
             }
         });
 
-        DOM.$anchorInputBgColor.click(function (event) {
+        DOM.$anchorInputBgColor.on('click', function (event) {
             event.preventDefault();
             // Trigger click on HTML 5 color picker with jQuery
             // https://stackoverflow.com/questions/74511391/open-input-color-programatically-in-ios
             DOM.$labelInputBgColor.click();
         });
 
-        DOM.$inputBgColor.change(function (event) {
+        DOM.$inputBgColor.on('change', function (event) {
             // Reflect container background
             var valueSelected = $(this).val();
 
@@ -267,25 +267,25 @@ var ComponentTruckVanForm = function ($, helpers, events) {
             });
 
             // Save data only of the event was triggered with human
-            if (event.originalEvent && event.originalEvent.isTrusted) {
+            if (event.isTrusted) {
                 _saveData();
             }
         });
 
-        DOM.$selectSize.change(function (event) {
+        DOM.$selectSize.on('change', function (event) {
             var valueSelected = $(this).val();
             _updateSubmitButtonTextPrice();
             _updateSnipcartButtonSize(valueSelected);
             _saveData();
         });
 
-        DOM.$inputQuantity.change(function (event) {
+        DOM.$inputQuantity.on('change', function (event) {
             DOM.$buttonBuy.attr('data-item-quantity', this.value);
             _updateSubmitButtonTextPrice();
             _saveData();
         });
 
-        DOM.$form.submit(function (event) {
+        DOM.$form.on('submit', function (event) {
             event.preventDefault();
 
             // Hack - prevent submission if "Add to cart" is not in viewport.
@@ -297,7 +297,7 @@ var ComponentTruckVanForm = function ($, helpers, events) {
                 return false;
             }
 
-            DOM.$buttonBuy.click();
+            DOM.$buttonBuy.get(0).click();
         });
     }
 
@@ -339,9 +339,9 @@ var ComponentTruckVanForm = function ($, helpers, events) {
         url = _buildMyFontUrl(fontId, text, color);
 
         // DOM.$previewContainer.addClass("loading");
-        $('<img>', { "class": "w-100 h-auto" }).on('load', function () {
+        $('<img>').addClass("w-100 h-auto").on('load', function () {
             DOM.$previewHeadingContainer.empty();
-            $(this).appendTo(DOM.$previewHeadingContainer);
+            $(this).appendTo(DOM.$previewHeadingContainer.get(0));
             if (resolveCallback && typeof resolveCallback === "function") {
                 resolveCallback();
             }
@@ -365,9 +365,9 @@ var ComponentTruckVanForm = function ($, helpers, events) {
         // url = url.replace(/[() '"]/g, '\\$&');
 
         // DOM.$previewContainer.addClass("loading");
-        $('<img>', { "class": "w-100 h-auto" }).on('load', function () {
+        $('<img>').addClass("w-100 h-auto").on('load', function () {
             DOM.$previewContentContainer.empty();
-            $(this).appendTo(DOM.$previewContentContainer);
+            $(this).appendTo(DOM.$previewContentContainer.get(0));
             if (resolveCallback && typeof resolveCallback === "function") {
                 resolveCallback();
             }

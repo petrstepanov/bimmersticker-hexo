@@ -3,14 +3,17 @@
 // I moved some of the scripts to globals
 
 // Globals used in the components' inline scripts
-var $ = window.$ = require('cash-dom');
-var bootstrap = window.bootstrap = require('bootstrap');
-var helpers = window.helpers = require('./modules/helpers');
+var $ = window.$ = require('cash-dom');  // 1237 lines;
+var bootstrap = window.bootstrap = require('bootstrap'); //  6317 lines
 var events = window.events = require('./modules/events');
 
+var helpers = window.helpers = require('./modules/helpers');
+var notificationCenter = window.notificationCenter = require('./modules/notification-center');
+var getColorFriendlyName = window.getColorFriendlyName = require('named-web-colors');
+
 // Locals for this Browserify entry point
-var autosize = require('autosize');
-var AOS = require('aos');
+var autosize = require('autosize');  // 363 lines
+var AOS = require('aos'); //  // 6 lines?
 var navbarCollapse = require('./modules/navbar-collapse');
 var contentBuyButton = require('./modules/content-buy-button');
 var navbarBuyButton = require('./modules/navbar-buy-button');

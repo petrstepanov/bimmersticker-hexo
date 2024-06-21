@@ -19,7 +19,7 @@ var CheckoutButtonFix = function(){
     function _fixCaption(){
         if (_needFix()){
             DOM.$buttonPay.find('.snipcart-payment-methods-list-item__label').remove();
-            DOM.$buttonPay.prepend(DOM.$newLabel);
+            DOM.$buttonPay.prepend(DOM.$newLabel.get(0));
         }
 
         // Tweak: disable Snipcart autocomplete

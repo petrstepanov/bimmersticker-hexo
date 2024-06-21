@@ -11,23 +11,19 @@
  @import "mixins";
 
  @import "bootstrap/overrides/navbar-blueberry";
+ @import "bootstrap/overrides/toasts-blueberry";
  @import "bootstrap/overrides/card-blueberry";
  @import "bootstrap/overrides/btn-blueberry";
  @import "bootstrap/overrides/forms-blueberry";
  @import "bootstrap/overrides/modals-blueberry";
 
- // @import "./../../node_modules/noty/lib/noty";
  @import "./../../node_modules/animate.css/animate";
-
- @import "./../../node_modules/toastify-js/src/toastify";
- @import "toastify-overrides";
 
  @import "footer";
 
  @import "icons";
  @import "utilities";
  @import "loading";
- @import "scrollspy";
 
  // Top Menu styling for cart button
  @import "snipcart/snipcart";

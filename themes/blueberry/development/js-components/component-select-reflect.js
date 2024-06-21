@@ -13,7 +13,7 @@ var SelectReflect = function($){
     DOM.$options.each(function(){
       // Iterate all <option /> elements
       $optionReflect = $("<div>").addClass("select-reflect-item").data("value", $(this).attr("value"));
-      DOM.$selectReflect.append($optionReflect);
+      DOM.$selectReflect.append($optionReflect.get(0));
       var html = $(this).html()
       html = html.replace('•','<span class="d-none d-sm-inline">•</span><br class="d-inline d-sm-none" />')
       html += "<span>&dollar;" + $(this).data('price') + "</span>";
@@ -43,7 +43,10 @@ var SelectReflect = function($){
     DOM.$select.on('change', function() {
       DOM.$optionsReflect.removeClass("selected");
       // TODO: test if this works!!!
-      DOM.$optionsReflect.filter("[data-value='" + this.value + "']").addClass("selected");
+      var val = $(this).val();
+      DOM.$optionsReflect.each(function(){
+        if ($(this).data('value') === val) $(this).addClass("selected");
+      });
     });
   }
 
