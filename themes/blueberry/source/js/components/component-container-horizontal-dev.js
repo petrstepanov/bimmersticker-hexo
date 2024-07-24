@@ -110,7 +110,7 @@ var ContainerHorizontal = function($, events, Kinetic, Vector){
     DOM.$cards = DOM.$inner.find('.container-horizontal-card');
     DOM.$iconTrackpad = DOM.$el.find('.js--trackpad');
     DOM.$iconMouse = DOM.$el.find('.js--mouse');
-    DOM.$icons = DOM.$el.find('span');
+    DOM.$icons = DOM.$el.find('.swipe-hint span');
   }
 
   function _bindEvents(state) {
@@ -167,6 +167,11 @@ var ContainerHorizontal = function($, events, Kinetic, Vector){
         }
 
         kinetic.subscribe(scrollX)
+
+        // Tweak picture link clicks. Interferes with Kinetic.
+        DOM.$cards.find('.img-wrapper img').each(function ( index, element ){
+          $(element).parent().parent().prepend(element);
+        });
       }
     });
   }
