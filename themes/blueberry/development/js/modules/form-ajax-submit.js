@@ -28,7 +28,9 @@ var FormAjaxSubmit = function(){
       // https://docs.netlify.com/forms/setup/#submit-javascript-rendered-forms-with-ajax
 
       // Copmpose fetch request
-      var fetchOptions = {};
+      var fetchOptions = {
+        method: "POST"
+      };
 
       if (DOM.$form.find('[type="file"]').length == 0){
         // No file field

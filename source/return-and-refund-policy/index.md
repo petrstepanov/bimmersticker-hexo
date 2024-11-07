@@ -40,7 +40,7 @@ In order to exercise Your right of cancellation, You must inform Us of your deci
 * By email: <a href="mailto:&#105;&#110;&#102;&#111;&#064;&#098;&#105;&#109;&#109;&#101;&#114;&#115;&#116;&#105;&#099;&#107;&#101;&#114;&#046;&#115;&#116;&#111;&#114;&#101;">&#105;&#110;&#102;&#111;&#064;&#098;&#105;&#109;&#109;&#101;&#114;&#115;&#116;&#105;&#099;&#107;&#101;&#114;&#046;&#115;&#116;&#111;&#114;&#101;</a>
 * By visiting this page on our website: https://bimmersticker.store/#contact
 * By phone number: <a href="tel:+&#049;&#054;&#052;&#054;&#051;&#048;&#049;&#050;&#055;&#050;&#050;">+&#049;&#032;(&#054;&#052;&#054;)&#032;&#051;&#048;&#049;&#045;&#050;&#055;&#050;&#050;</a>
-* By mail: 1722 NW Raleigh St Unit 221, Mailbox 420, Portland, OR 97209-1753, United States
+* By mail: 21390 SW McInnis Rd, Beaverton, OR 97078, United States
 
 
 We will reimburse You no later than 30 days from the day on which We receive the returned Goods. We will use the same means of payment as You used for the Order, and You will not incur any fees for such reimbursement.
@@ -49,7 +49,7 @@ We will reimburse You no later than 30 days from the day on which We receive the
 In order for the Goods to be eligible for a return, please make sure that:
 * The Goods were purchased in the last 30 days.
 * The Goods are in the original packaging.
-* The Goods are not damadged and were not attempted to be used.
+* The Goods are not damaged and were not attempted to be used.
 
 The following Goods cannot be returned:
 * The supply of Goods made to Your specifications or clearly personalized.
@@ -64,9 +64,8 @@ We reserve the right to refuse returns of any merchandise that does not meet the
 You are responsible for the cost and risk of returning the Goods to Us. You should send the Goods at the following address:
 
 <pre>Sticker Store LLC
-1722 NW Raleigh St Unit 221
-Mailbox 420
-Portland, OR 97209-1753, United States
+21390 SW McInnis Rd
+Beaverton, OR 97078, United States
 </pre>
 
 We cannot be held responsible for Goods damaged or lost in return shipment. Therefore, We recommend an insured and trackable mail service. We are unable to issue a refund without actual receipt of the Goods or proof of received return delivery.
@@ -83,5 +82,5 @@ If you have any questions about our Returns and Refunds Policy, please contact u
 
 * By email: <a href="mailto:&#105;&#110;&#102;&#111;&#064;&#098;&#105;&#109;&#109;&#101;&#114;&#115;&#116;&#105;&#099;&#107;&#101;&#114;&#046;&#115;&#116;&#111;&#114;&#101;">&#105;&#110;&#102;&#111;&#064;&#098;&#105;&#109;&#109;&#101;&#114;&#115;&#116;&#105;&#099;&#107;&#101;&#114;&#046;&#115;&#116;&#111;&#114;&#101;</a>
 * By visiting this page on our website: https://bimmersticker.store/#contact
-* By phone number: <a href="tel:+&#049;&#054;&#052;&#054;&#051;&#048;&#049;&#050;&#055;&#050;&#050;">+&#049;&#032;(&#054;&#052;&#054;)&#032;&#051;&#048;&#049;&#045;&#050;&#055;&#050;&#050;</a>   
-* By mail: 1722 NW Raleigh St Unit 221, Mailbox 420, Portland, OR 97209-1753, United States
+* By phone number: <a href="tel:+&#049;&#054;&#052;&#054;&#051;&#048;&#049;&#050;&#055;&#050;&#050;">+&#049;&#032;(&#054;&#052;&#054;)&#032;&#051;&#048;&#049;&#045;&#050;&#055;&#050;&#050;</a>
+* By mail: 21390 SW McInnis Rd, Beaverton, OR 97078, United States
