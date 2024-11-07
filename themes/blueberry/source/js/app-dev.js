@@ -295,7 +295,7 @@ var FormAjaxSubmit = function(){
       options.data = DOM.$form.serialize();
 
       // However, if form contains file field, it must be
-      if (DOM.$form.find('file').length){
+      if (DOM.$form.find('[type="file"]').length){
         // See: https://docs.netlify.com/forms/setup/#file-uploads
         // This was not tested yet. Because Netlify has 10 MB monthly upload limit!
         options.contentType = 'multipart/form-data';
