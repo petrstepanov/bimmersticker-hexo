@@ -295,7 +295,7 @@ var FormAjaxSubmit = function(){
         fetchOptions.headers = { "Content-Type": "application/x-www-form-urlencoded" };
         const myForm = DOM.$form[0];
         const formData = new FormData(myForm);
-        fetchOptions.body = new URLSearchParams(formData).toString()
+        fetchOptions.body = new URLSearchParams(formData).toString();
       }
       else {
         // Form contains file field
@@ -307,9 +307,9 @@ var FormAjaxSubmit = function(){
           // Show success notification
           notificationCenter.notify('success', options.successNotification);
 
-          // Throw event
+          // Throw event - not sure if still needed
           if (options.successEvent){
-            events.emit(options.successEvent, data);
+            events.emit(options.successEvent);
           }
 
           // Reset form fields
