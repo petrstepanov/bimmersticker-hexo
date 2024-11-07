@@ -289,10 +289,10 @@ var FormAjaxSubmit = function(){
       // However, for forms with files we need to change it to "multipart/form-data"
 
       // Default contentType in jQuery's ajax() is 'application/x-www-form-urlencoded; charset=UTF-8'
-      // (see ajax() manual). Terefore we dont have to specify it.
+      // (see ajax() manual). Terefore, we dont have to specify it.
 
       // By default we use jQuery's serialize() to create URL-encoded form string
-      var data = DOM.$form.serialize();
+      options.data = DOM.$form.serialize();
 
       // However, if form contains file field, it must be
       if (DOM.$form.find('file').length){
@@ -300,7 +300,7 @@ var FormAjaxSubmit = function(){
         // This was not tested yet. Because Netlify has 10 MB monthly upload limit!
         options.contentType = 'multipart/form-data';
         var formData = new FormData(DOM.$form[0]);
-        data = new URLSearchParams(formData).toString();
+        options.data = new URLSearchParams(formData).toString();
       }
 
       // For Mailchimp we need jsonp, therefore Mailchimp form has data-data-type="json"
@@ -308,7 +308,7 @@ var FormAjaxSubmit = function(){
       $.ajax({
         type:        DOM.$form.attr('method'),
         url:         DOM.$form.attr('action'),
-        data:        DOM.$form.serialize(),
+        data:        options.data,
         dataType:    options.dataType,
         contentType: options.contentType
       }).done(function(data){
