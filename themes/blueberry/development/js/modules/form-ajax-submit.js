@@ -7,6 +7,10 @@ var notificationCenter = require('./notification-center');
 var FormAjaxSubmit = function(){
   var DOM = {};
 
+  var options = {
+    successNotification: "Form submitted successfully!"
+  };
+
   function _cacheDom(element) {
     DOM.$form = $(element);
     DOM.$submitButton = DOM.$form.find('[type=submit]');
