@@ -91,6 +91,10 @@ $(function() {
   // This worked with Browserify and sourcemaps in dev mode
   // https://stackoverflow.com/questions/38104715/browserify-global-variable-is-not-found-in-the-browser
   window['gcr'] = gcr;
+
+  // See you soon - Modal dialog
+  const seeYouSoonModal = new bootstrap.Modal(document.getElementById('seeYouSoonModal'));
+  seeYouSoonModal.show();
 });
 
 },{"./modules/autovalid":2,"./modules/checkout-button-fix":3,"./modules/content-buy-button":4,"./modules/events":5,"./modules/form-ajax-submit":6,"./modules/form-inside-dialog":7,"./modules/gcr":8,"./modules/helpers":9,"./modules/interactive-back-button":10,"./modules/navbar-buy-button":11,"./modules/navbar-collapse":12,"./modules/snipcart-load-on-click":14,"aos":16,"autosize":17,"bootstrap":18,"jquery":20,"jquery.kinetic":19,"named-web-colors":22}],2:[function(require,module,exports){

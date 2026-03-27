@@ -90,4 +90,8 @@ $(function() {
   // This worked with Browserify and sourcemaps in dev mode
   // https://stackoverflow.com/questions/38104715/browserify-global-variable-is-not-found-in-the-browser
   window['gcr'] = gcr;
+
+  // See you soon - Modal dialog
+  const seeYouSoonModal = new bootstrap.Modal(document.getElementById('seeYouSoonModal'));
+  seeYouSoonModal.show();
 });
